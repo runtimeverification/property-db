@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that the requested operation is not supported.<p>
  *
  * This class is a member of the
@@ -36,13 +36,13 @@ package java.lang;
  * @since   1.2
  */
 public class UnsupportedOperationException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an UnsupportedOperationException with no detail message.
      */
     public UnsupportedOperationException() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an UnsupportedOperationException with the specified
      * detail message.
      *
@@ -52,7 +52,7 @@ public class UnsupportedOperationException extends RuntimeException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified detail message and
      * cause.
      *
@@ -72,7 +72,7 @@ public class UnsupportedOperationException extends RuntimeException {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).

@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This class represents a Reference whose contents is a name, called the link name,
   * that is bound to an atomic name in a context.
   *<p>
@@ -77,7 +77,7 @@ public class LinkRef extends Reference {
     static final String linkClassName = LinkRef.class.getName();
     static final String linkAddrType = "LinkAddress";
 
-    /**
+    /** {@collect.stats}
       * Constructs a LinkRef for a name.
       * @param linkName The non-null name for which to create this link.
       */
@@ -85,7 +85,7 @@ public class LinkRef extends Reference {
         super(linkClassName, new StringRefAddr(linkAddrType, linkName.toString()));
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a LinkRef for a string name.
       * @param linkName The non-null name for which to create this link.
       */
@@ -93,7 +93,7 @@ public class LinkRef extends Reference {
         super(linkClassName, new StringRefAddr(linkAddrType, linkName));
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the name of this link.
       *
       * @return The non-null name of this link.
@@ -109,7 +109,7 @@ public class LinkRef extends Reference {
         }
         throw new MalformedLinkException();
     }
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -5386290613498931298L;

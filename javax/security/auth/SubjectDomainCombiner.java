@@ -42,7 +42,7 @@ import java.util.Iterator;
 import java.util.WeakHashMap;
 import java.lang.ref.WeakReference;
 
-/**
+/** {@collect.stats}
  * A <code>SubjectDomainCombiner</code> updates ProtectionDomains
  * with Principals from the <code>Subject</code> associated with this
  * <code>SubjectDomainCombiner</code>.
@@ -67,7 +67,7 @@ public class SubjectDomainCombiner implements java.security.DomainCombiner {
     private static final boolean allowCaching =
                                         (useJavaxPolicy && cachePolicy());
 
-    /**
+    /** {@collect.stats}
      * Associate the provided <code>Subject</code> with this
      * <code>SubjectDomainCombiner</code>.
      *
@@ -86,7 +86,7 @@ public class SubjectDomainCombiner implements java.security.DomainCombiner {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>Subject</code> associated with this
      * <code>SubjectDomainCombiner</code>.
      *
@@ -110,7 +110,7 @@ public class SubjectDomainCombiner implements java.security.DomainCombiner {
         return subject;
     }
 
-    /**
+    /** {@collect.stats}
      * Update the relevant ProtectionDomains with the Principals
      * from the <code>Subject</code> associated with this
      * <code>SubjectDomainCombiner</code>.
@@ -293,7 +293,7 @@ public class SubjectDomainCombiner implements java.security.DomainCombiner {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Use the javax.security.auth.Policy implementation
      */
     private ProtectionDomain[] combineJavaxPolicy(
@@ -554,7 +554,7 @@ public class SubjectDomainCombiner implements java.security.DomainCombiner {
         });
     }
 
-    /**
+    /** {@collect.stats}
      * A HashMap that has weak keys and values.
      *
      * Key objects in this map are the "current" ProtectionDomain instances

@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.awt.Color;
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * A class which implements a raised or lowered bevel with
  * softened corners.
  * <p>
@@ -49,7 +49,7 @@ import java.awt.Component;
 public class SoftBevelBorder extends BevelBorder
 {
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type and whose
      * colors will be derived from the background color of the
      * component passed into the paintBorder method.
@@ -59,7 +59,7 @@ public class SoftBevelBorder extends BevelBorder
         super(bevelType);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type, highlight and
      * shadow colors.
      * @param bevelType the type of bevel for the border
@@ -70,7 +70,7 @@ public class SoftBevelBorder extends BevelBorder
         super(bevelType, highlight, shadow);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type, highlight
      * shadow colors.
      * @param bevelType the type of bevel for the border
@@ -86,7 +86,7 @@ public class SoftBevelBorder extends BevelBorder
               shadowOuterColor, shadowInnerColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the specified
      * position and size.
      * @param c the component for which this border is being painted
@@ -145,7 +145,7 @@ public class SoftBevelBorder extends BevelBorder
         g.setColor(oldColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
@@ -153,7 +153,7 @@ public class SoftBevelBorder extends BevelBorder
         return getBorderInsets(c, new Insets(0,0,0,0));
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -163,7 +163,7 @@ public class SoftBevelBorder extends BevelBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() { return false; }

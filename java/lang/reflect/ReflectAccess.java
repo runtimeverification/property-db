@@ -28,7 +28,7 @@ package java.lang.reflect;
 import sun.reflect.MethodAccessor;
 import sun.reflect.ConstructorAccessor;
 
-/** Package-private class implementing the
+/** {@collect.stats} Package-private class implementing the
     sun.reflect.LangReflectAccess interface, allowing the java.lang
     package to instantiate objects in this package. */
 

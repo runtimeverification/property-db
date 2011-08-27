@@ -30,7 +30,7 @@ import java.rmi.RemoteException;
 import java.rmi.activation.UnknownGroupException;
 import java.rmi.activation.UnknownObjectException;
 
-/**
+/** {@collect.stats}
  * The <code>ActivationSystem</code> provides a means for registering
  * groups and "activatable" objects to be activated within those groups.
  * The <code>ActivationSystem</code> works closely with the
@@ -46,10 +46,10 @@ import java.rmi.activation.UnknownObjectException;
  */
 public interface ActivationSystem extends Remote {
 
-    /** The port to lookup the activation system. */
+    /** {@collect.stats} The port to lookup the activation system. */
     public static final int SYSTEM_PORT = 1098;
 
-    /**
+    /** {@collect.stats}
      * The <code>registerObject</code> method is used to register an
      * activation descriptor, <code>desc</code>, and obtain an
      * activation identifier for a activatable remote object. The
@@ -75,7 +75,7 @@ public interface ActivationSystem extends Remote {
     public ActivationID registerObject(ActivationDesc desc)
         throws ActivationException, UnknownGroupException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Remove the activation id and associated descriptor previously
      * registered with the <code>ActivationSystem</code>; the object
      * can no longer be activated via the object's activation id.
@@ -90,7 +90,7 @@ public interface ActivationSystem extends Remote {
     public void unregisterObject(ActivationID id)
         throws ActivationException, UnknownObjectException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Register the activation group. An activation group must be
      * registered with the <code>ActivationSystem</code> before objects
      * can be registered within that group.
@@ -104,7 +104,7 @@ public interface ActivationSystem extends Remote {
     public ActivationGroupID registerGroup(ActivationGroupDesc desc)
         throws ActivationException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Callback to inform activation system that group is now
      * active. This call is made internally by the
      * <code>ActivationGroup.createGroup</code> method to inform
@@ -128,7 +128,7 @@ public interface ActivationSystem extends Remote {
                                          long incarnation)
         throws UnknownGroupException, ActivationException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Remove the activation group. An activation group makes this call back
      * to inform the activator that the group should be removed (destroyed).
      * If this call completes successfully, objects can no longer be
@@ -145,7 +145,7 @@ public interface ActivationSystem extends Remote {
     public void unregisterGroup(ActivationGroupID id)
         throws ActivationException, UnknownGroupException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Shutdown the activation system. Destroys all groups spawned by
      * the activation daemon and exits the activation daemon.
      * @exception RemoteException if failed to contact/shutdown the activation
@@ -154,7 +154,7 @@ public interface ActivationSystem extends Remote {
      */
     public void shutdown() throws RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Set the activation descriptor, <code>desc</code> for the object with
      * the activation identifier, <code>id</code>. The change will take
      * effect upon subsequent activation of the object.
@@ -177,7 +177,7 @@ public interface ActivationSystem extends Remote {
         throws ActivationException, UnknownObjectException,
             UnknownGroupException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Set the activation group descriptor, <code>desc</code> for the object
      * with the activation group identifier, <code>id</code>. The change will
      * take effect upon subsequent activation of the group.
@@ -197,7 +197,7 @@ public interface ActivationSystem extends Remote {
                                                       ActivationGroupDesc desc)
        throws ActivationException, UnknownGroupException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Returns the activation descriptor, for the object with the activation
      * identifier, <code>id</code>.
      *
@@ -212,7 +212,7 @@ public interface ActivationSystem extends Remote {
     public ActivationDesc getActivationDesc(ActivationID id)
        throws ActivationException, UnknownObjectException, RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Returns the activation group descriptor, for the group
      * with the activation group identifier, <code>id</code>.
      *

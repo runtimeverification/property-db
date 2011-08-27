@@ -32,7 +32,7 @@ import java.util.Map;
 import sun.security.x509.X500Name;
 import sun.security.util.*;
 
-/**
+/** {@collect.stats}
  * <p> This class represents an X.500 <code>Principal</code>.
  * <code>X500Principal</code>s are represented by distinguished names such as
  * "CN=Duke, OU=JavaSoft, O=Sun Microsystems, C=US".
@@ -65,27 +65,27 @@ public final class X500Principal implements Principal, java.io.Serializable {
 
     private static final long serialVersionUID = -500463348111345721L;
 
-    /**
+    /** {@collect.stats}
      * RFC 1779 String format of Distinguished Names.
      */
     public static final String RFC1779 = "RFC1779";
-    /**
+    /** {@collect.stats}
      * RFC 2253 String format of Distinguished Names.
      */
     public static final String RFC2253 = "RFC2253";
-    /**
+    /** {@collect.stats}
      * Canonical String format of Distinguished Names.
      */
     public static final String CANONICAL = "CANONICAL";
 
-    /**
+    /** {@collect.stats}
      * The X500Name representing this principal.
      *
      * NOTE: this field is reflectively accessed from within X500Name.
      */
     private transient X500Name thisX500Name;
 
-    /**
+    /** {@collect.stats}
      * Creates an X500Principal by wrapping an X500Name.
      *
      * NOTE: The constructor is package private. It is intended to be accessed
@@ -96,7 +96,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         thisX500Name = x500Name;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X500Principal</code> from a string representation of
      * an X.500 distinguished name (ex:
      * "CN=Duke, OU=JavaSoft, O=Sun Microsystems, C=US").
@@ -121,7 +121,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         this(name, (Map<String, String>) Collections.EMPTY_MAP);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X500Principal</code> from a string representation of
      * an X.500 distinguished name (ex:
      * "CN=Duke, OU=JavaSoft, O=Sun Microsystems, C=US").
@@ -173,7 +173,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X500Principal</code> from a distinguished name in
      * ASN.1 DER encoded form. The ASN.1 notation for this structure is as
      * follows.
@@ -218,7 +218,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X500Principal</code> from an <code>InputStream</code>
      * containing the distinguished name in ASN.1 DER encoded form.
      * The ASN.1 notation for this structure is supplied in the
@@ -265,7 +265,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the X.500 distinguished name using
      * the format defined in RFC 2253.
      *
@@ -278,7 +278,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         return getName(X500Principal.RFC2253);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the X.500 distinguished name
      * using the specified format. Valid values for the format are
      * "RFC1779", "RFC2253", and "CANONICAL" (case insensitive).
@@ -353,7 +353,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         throw new IllegalArgumentException("invalid format specified");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the X.500 distinguished name
      * using the specified format. Valid values for the format are
      * "RFC1779" and "RFC2253" (case insensitive). "CANONICAL" is not
@@ -403,7 +403,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         throw new IllegalArgumentException("invalid format specified");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the distinguished name in ASN.1 DER encoded form. The ASN.1
      * notation for this structure is supplied in the documentation for
      * {@link #X500Principal(byte[] name) X500Principal(byte[] name)}.
@@ -422,7 +422,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return a user-friendly string representation of this
      * <code>X500Principal</code>.
      *
@@ -432,7 +432,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         return thisX500Name.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>Object</code> with this
      * <code>X500Principal</code> for equality.
      *
@@ -461,7 +461,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         return this.thisX500Name.equals(other.thisX500Name);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a hash code for this <code>X500Principal</code>.
      *
      * <p> The hash code is calculated via:
@@ -473,7 +473,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         return thisX500Name.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Save the X500Principal object to a stream.
      *
      * @serialData this <code>X500Principal</code> is serialized
@@ -485,7 +485,7 @@ public final class X500Principal implements Principal, java.io.Serializable {
         s.writeObject(thisX500Name.getEncodedInternal());
     }
 
-    /**
+    /** {@collect.stats}
      * Reads this object from a stream (i.e., deserializes it).
      */
     private void readObject(java.io.ObjectInputStream s)

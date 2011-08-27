@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterMessageFromOperator is a printing attribute class, a text
  * attribute, that provides a message from an operator, system administrator,
  * or "intelligent" process to indicate to the end user information about or
@@ -60,7 +60,7 @@ public final class PrinterMessageFromOperator   extends TextSyntax
 
     static final long serialVersionUID = -4486871203218629318L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer message from operator attribute with the
      * given message and locale.
      *
@@ -76,7 +76,7 @@ public final class PrinterMessageFromOperator   extends TextSyntax
         super (message, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer message from operator attribute is
      * equivalent to the passed in object. To be equivalent, all of the
      * following conditions must be true:
@@ -104,7 +104,7 @@ public final class PrinterMessageFromOperator   extends TextSyntax
                 object instanceof PrinterMessageFromOperator);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -118,7 +118,7 @@ public final class PrinterMessageFromOperator   extends TextSyntax
         return PrinterMessageFromOperator.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

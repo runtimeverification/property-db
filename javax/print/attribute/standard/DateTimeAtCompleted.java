@@ -29,7 +29,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.DateTimeSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class DateTimeAtCompleted is a printing attribute class, a date-time
  * attribute, that indicates the date and time at which the Print Job completed
  * (or was canceled or aborted).
@@ -56,7 +56,7 @@ public final class DateTimeAtCompleted extends DateTimeSyntax
 
     private static final long serialVersionUID = 6497399708058490000L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new date-time at completed attribute with the given {@link
      * java.util.Date Date} value.
      *
@@ -69,7 +69,7 @@ public final class DateTimeAtCompleted extends DateTimeSyntax
         super (dateTime);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this date-time at completed attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -95,7 +95,7 @@ public final class DateTimeAtCompleted extends DateTimeSyntax
 
 // Exported operations inherited and implemented from interface Attribute.
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
          * <P>
@@ -109,7 +109,7 @@ public final class DateTimeAtCompleted extends DateTimeSyntax
         return DateTimeAtCompleted.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

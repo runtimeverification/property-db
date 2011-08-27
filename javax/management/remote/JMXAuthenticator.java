@@ -28,7 +28,7 @@ package javax.management.remote;
 import java.security.Principal;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>Interface to define how remote credentials are converted into a
  * JAAS Subject.  This interface is used by the RMI Connector Server,
  * and can be used by other connector servers.</p>
@@ -51,7 +51,7 @@ import javax.security.auth.Subject;
  */
 public interface JMXAuthenticator {
 
-    /**
+    /** {@collect.stats}
      * <p>Authenticates the <code>MBeanServerConnection</code> client
      * with the given client credentials.</p>
      *

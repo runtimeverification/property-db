@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A utility class to iterate over the path segments of a cubic curve
  * segment through the PathIterator interface.
  *
@@ -43,7 +43,7 @@ class CubicIterator implements PathIterator {
         this.affine = at;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the winding rule for determining the insideness of the
      * path.
      * @see #WIND_EVEN_ODD
@@ -53,7 +53,7 @@ class CubicIterator implements PathIterator {
         return WIND_NON_ZERO;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if there are more points to read.
      * @return true if there are more points to read
      */
@@ -61,7 +61,7 @@ class CubicIterator implements PathIterator {
         return (index > 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -70,7 +70,7 @@ class CubicIterator implements PathIterator {
         index++;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -112,7 +112,7 @@ class CubicIterator implements PathIterator {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

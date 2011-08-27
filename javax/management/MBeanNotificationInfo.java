@@ -27,7 +27,7 @@ package javax.management;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * <p>The <CODE>MBeanNotificationInfo</CODE> class is used to describe the
  * characteristics of the different notification instances
  * emitted by an MBean, for a given Java class of notification.
@@ -64,15 +64,15 @@ public class MBeanNotificationInfo extends MBeanFeatureInfo implements Cloneable
     static final MBeanNotificationInfo[] NO_NOTIFICATIONS =
         new MBeanNotificationInfo[0];
 
-    /**
+    /** {@collect.stats}
      * @serial The different types of the notification.
      */
     private final String[] types;
 
-    /** @see MBeanInfo#arrayGettersSafe */
+    /** {@collect.stats} @see MBeanInfo#arrayGettersSafe */
     private final transient boolean arrayGettersSafe;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanNotificationInfo</CODE> object.
      *
      * @param notifTypes The array of strings (in dot notation)
@@ -88,7 +88,7 @@ public class MBeanNotificationInfo extends MBeanFeatureInfo implements Cloneable
         this(notifTypes, name, description, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanNotificationInfo</CODE> object.
      *
      * @param notifTypes The array of strings (in dot notation)
@@ -123,7 +123,7 @@ public class MBeanNotificationInfo extends MBeanFeatureInfo implements Cloneable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow clone of this instance.
      * The clone is obtained by simply calling <tt>super.clone()</tt>,
      * thus calling the default native shallow cloning mechanism
@@ -140,7 +140,7 @@ public class MBeanNotificationInfo extends MBeanFeatureInfo implements Cloneable
      }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the array of strings (in dot notation) containing the
      * notification types that the MBean may emit.
      *
@@ -171,7 +171,7 @@ public class MBeanNotificationInfo extends MBeanFeatureInfo implements Cloneable
             "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this MBeanNotificationInfo to another.
      *
      * @param o the object to compare to.

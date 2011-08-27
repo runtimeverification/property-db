@@ -26,7 +26,7 @@
 package javax.sound.sampled;
 
 
-/**
+/** {@collect.stats}
  * Ports are simple lines for input or output of audio to or from audio devices.
  * Common examples of ports that act as source lines (mixer inputs) include the microphone,
  * line input, and CD-ROM drive.  Ports that act as target lines (mixer outputs) include the
@@ -42,7 +42,7 @@ public interface Port extends Line {
     // INNER CLASSES
 
 
-    /**
+    /** {@collect.stats}
      * The <code>Port.Info</code> class extends <code>{@link Line.Info}</code>
      * with additional information specific to ports, including the port's name
      * and whether it is a source or a target for its mixer.
@@ -67,17 +67,17 @@ public interface Port extends Line {
 
         // SOURCE PORTS
 
-        /**
+        /** {@collect.stats}
          * A type of port that gets audio from a built-in microphone or a microphone jack.
          */
         public static final Info MICROPHONE = new Info(Port.class,"MICROPHONE", true);
 
-        /**
+        /** {@collect.stats}
          * A type of port that gets audio from a line-level audio input jack.
          */
         public static final Info LINE_IN = new Info(Port.class,"LINE_IN", true);
 
-        /**
+        /** {@collect.stats}
          * A type of port that gets audio from a CD-ROM drive.
          */
         public static final Info COMPACT_DISC = new Info(Port.class,"COMPACT_DISC", true);
@@ -85,17 +85,17 @@ public interface Port extends Line {
 
         // TARGET PORTS
 
-        /**
+        /** {@collect.stats}
          * A type of port that sends audio to a built-in speaker or a speaker jack.
          */
         public static final Info SPEAKER = new Info(Port.class,"SPEAKER", false);
 
-        /**
+        /** {@collect.stats}
          * A type of port that sends audio to a headphone jack.
          */
         public static final Info HEADPHONE = new Info(Port.class,"HEADPHONE", false);
 
-        /**
+        /** {@collect.stats}
          * A type of port that sends audio to a line-level audio output jack.
          */
         public static final Info LINE_OUT = new Info(Port.class,"LINE_OUT", false);
@@ -116,7 +116,7 @@ public interface Port extends Line {
 
         // CONSTRUCTOR
 
-        /**
+        /** {@collect.stats}
          * Constructs a port's info object from the information given.
          * This constructor is typically used by an implementation
          * of Java Sound to describe a supported line.
@@ -137,7 +137,7 @@ public interface Port extends Line {
 
         // METHODS
 
-        /**
+        /** {@collect.stats}
          * Obtains the name of the port.
          * @return the string that names the port
          */
@@ -145,7 +145,7 @@ public interface Port extends Line {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates whether the port is a source or a target for its mixer.
          * @return <code>true</code> if the port is a source port (such
          * as a microphone), <code>false</code> if the port is a target port
@@ -155,7 +155,7 @@ public interface Port extends Line {
             return isSource;
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates whether this info object specified matches this one.
          * To match, the match requirements of the superclass must be
          * met and the types must be equal.
@@ -179,14 +179,14 @@ public interface Port extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Finalizes the equals method
          */
         public final boolean equals(Object obj) {
             return super.equals(obj);
         }
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashCode method
          */
         public final int hashCode() {
@@ -195,7 +195,7 @@ public interface Port extends Line {
 
 
 
-        /**
+        /** {@collect.stats}
          * Provides a <code>String</code> representation
          * of the port.
          * @return  a string that describes the port

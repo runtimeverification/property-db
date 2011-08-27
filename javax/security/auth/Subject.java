@@ -42,7 +42,7 @@ import java.security.ProtectionDomain;
 import sun.security.util.ResourcesMgr;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * <p> A <code>Subject</code> represents a grouping of related information
  * for a single entity, such as a person.
  * Such information includes the Subject's identities as well as
@@ -102,7 +102,7 @@ public final class Subject implements java.io.Serializable {
 
     private static final long serialVersionUID = -8308522755600156056L;
 
-    /**
+    /** {@collect.stats}
      * A <code>Set</code> that provides a view of all of this
      * Subject's Principals
      *
@@ -114,14 +114,14 @@ public final class Subject implements java.io.Serializable {
      */
     Set<Principal> principals;
 
-    /**
+    /** {@collect.stats}
      * Sets that provide a view of all of this
      * Subject's Credentials
      */
     transient Set<Object> pubCredentials;
     transient Set<Object> privCredentials;
 
-    /**
+    /** {@collect.stats}
      * Whether this Subject is read-only
      *
      * @serial
@@ -135,7 +135,7 @@ public final class Subject implements java.io.Serializable {
     private static final ProtectionDomain[] NULL_PD_ARRAY
         = new ProtectionDomain[0];
 
-    /**
+    /** {@collect.stats}
      * Create an instance of a <code>Subject</code>
      * with an empty <code>Set</code> of Principals and empty
      * Sets of public and private credentials.
@@ -162,7 +162,7 @@ public final class Subject implements java.io.Serializable {
                         (new SecureSet<Object>(this, PRIV_CREDENTIAL_SET));
     }
 
-    /**
+    /** {@collect.stats}
      * Create an instance of a <code>Subject</code> with
      * Principals and credentials.
      *
@@ -216,7 +216,7 @@ public final class Subject implements java.io.Serializable {
         this.readOnly = readOnly;
     }
 
-    /**
+    /** {@collect.stats}
      * Set this <code>Subject</code> to be read-only.
      *
      * <p> Modifications (additions and removals) to this Subject's
@@ -245,7 +245,7 @@ public final class Subject implements java.io.Serializable {
         this.readOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Query whether this <code>Subject</code> is read-only.
      *
      * <p>
@@ -256,7 +256,7 @@ public final class Subject implements java.io.Serializable {
         return this.readOnly;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>Subject</code> associated with the provided
      * <code>AccessControlContext</code>.
      *
@@ -306,7 +306,7 @@ public final class Subject implements java.io.Serializable {
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Perform work as a particular <code>Subject</code>.
      *
      * <p> This method first retrieves the current Thread's
@@ -359,7 +359,7 @@ public final class Subject implements java.io.Serializable {
                                         createContext(subject, currentAcc));
     }
 
-    /**
+    /** {@collect.stats}
      * Perform work as a particular <code>Subject</code>.
      *
      * <p> This method first retrieves the current Thread's
@@ -418,7 +418,7 @@ public final class Subject implements java.io.Serializable {
                                         createContext(subject, currentAcc));
     }
 
-    /**
+    /** {@collect.stats}
      * Perform privileged work as a particular <code>Subject</code>.
      *
      * <p> This method behaves exactly as <code>Subject.doAs</code>,
@@ -476,7 +476,7 @@ public final class Subject implements java.io.Serializable {
                                         createContext(subject, callerAcc));
     }
 
-    /**
+    /** {@collect.stats}
      * Perform privileged work as a particular <code>Subject</code>.
      *
      * <p> This method behaves exactly as <code>Subject.doAs</code>,
@@ -556,7 +556,7 @@ public final class Subject implements java.io.Serializable {
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Return the <code>Set</code> of Principals associated with this
      * <code>Subject</code>.  Each <code>Principal</code> represents
      * an identity for this <code>Subject</code>.
@@ -578,7 +578,7 @@ public final class Subject implements java.io.Serializable {
         return principals;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a <code>Set</code> of Principals associated with this
      * <code>Subject</code> that are instances or subclasses of the specified
      * <code>Class</code>.
@@ -611,7 +611,7 @@ public final class Subject implements java.io.Serializable {
         return new ClassSet<T>(PRINCIPAL_SET, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the <code>Set</code> of public credentials held by this
      * <code>Subject</code>.
      *
@@ -632,7 +632,7 @@ public final class Subject implements java.io.Serializable {
         return pubCredentials;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the <code>Set</code> of private credentials held by this
      * <code>Subject</code>.
      *
@@ -672,7 +672,7 @@ public final class Subject implements java.io.Serializable {
         return privCredentials;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a <code>Set</code> of public credentials associated with this
      * <code>Subject</code> that are instances or subclasses of the specified
      * <code>Class</code>.
@@ -705,7 +705,7 @@ public final class Subject implements java.io.Serializable {
         return new ClassSet<T>(PUB_CREDENTIAL_SET, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a <code>Set</code> of private credentials associated with this
      * <code>Subject</code> that are instances or subclasses of the specified
      * <code>Class</code>.
@@ -750,7 +750,7 @@ public final class Subject implements java.io.Serializable {
         return new ClassSet<T>(PRIV_CREDENTIAL_SET, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Object with this <code>Subject</code>
      * for equality.  Returns true if the given object is also a Subject
      * and the two <code>Subject</code> instances are equivalent.
@@ -815,7 +815,7 @@ public final class Subject implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the String representation of this <code>Subject</code>.
      *
      * <p>
@@ -826,7 +826,7 @@ public final class Subject implements java.io.Serializable {
         return toString(true);
     }
 
-    /**
+    /** {@collect.stats}
      * package private convenience method to print out the Subject
      * without firing off a security check when trying to access
      * the Private Credentials
@@ -876,7 +876,7 @@ public final class Subject implements java.io.Serializable {
         return s + suffix;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this <code>Subject</code>.
      *
      * <p>
@@ -888,7 +888,7 @@ public final class Subject implements java.io.Serializable {
      */
     public int hashCode() {
 
-        /**
+        /** {@collect.stats}
          * The hashcode is derived exclusive or-ing the
          * hashcodes of this Subject's Principals and credentials.
          *
@@ -918,7 +918,7 @@ public final class Subject implements java.io.Serializable {
         return hashCode;
     }
 
-    /**
+    /** {@collect.stats}
      * get a credential's hashcode
      */
     private int getCredHashCode(Object o) {
@@ -929,7 +929,7 @@ public final class Subject implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes this object out to a stream (i.e., serializes it).
      */
     private void writeObject(java.io.ObjectOutputStream oos)
@@ -939,7 +939,7 @@ public final class Subject implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads this object from a stream (i.e., deserializes it)
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -955,7 +955,7 @@ public final class Subject implements java.io.Serializable {
                         (new SecureSet<Object>(this, PRIV_CREDENTIAL_SET));
     }
 
-    /**
+    /** {@collect.stats}
      * Prevent modifications unless caller has permission.
      *
      * @serial include
@@ -966,7 +966,7 @@ public final class Subject implements java.io.Serializable {
 
         private static final long serialVersionUID = 7911754171111800359L;
 
-        /**
+        /** {@collect.stats}
          * @serialField this$0 Subject The outer Subject instance.
          * @serialField elements LinkedList The elements in this set.
          */
@@ -979,7 +979,7 @@ public final class Subject implements java.io.Serializable {
         Subject subject;
         LinkedList<E> elements;
 
-        /**
+        /** {@collect.stats}
          * @serial An integer identifying the type of objects contained
          *      in this set.  If <code>which == 1</code>,
          *      this is a Principal set and all the elements are
@@ -1272,7 +1272,7 @@ public final class Subject implements java.io.Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Writes this object out to a stream (i.e., serializes it).
          *
          * <p>
@@ -1310,7 +1310,7 @@ public final class Subject implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements a <code>Set</code> which returns only
      * members that are an instance of a specified Class.
      */

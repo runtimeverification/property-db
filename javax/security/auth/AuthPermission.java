@@ -25,7 +25,7 @@
 
 package javax.security.auth;
 
-/**
+/** {@collect.stats}
  * This class is for authentication permissions.
  * An AuthPermission contains a name
  * (also referred to as a "target name")
@@ -131,7 +131,7 @@ java.security.BasicPermission {
 
     private static final long serialVersionUID = 5806031445061587174L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new AuthPermission with the specified name.
      * The name is the symbolic name of the AuthPermission.
      *
@@ -149,7 +149,7 @@ java.security.BasicPermission {
                 "createLoginContext.*" : name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AuthPermission object with the specified name.
      * The name is the symbolic name of the AuthPermission, and the
      * actions String is currently unused and should be null.

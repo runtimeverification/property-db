@@ -30,7 +30,7 @@ import javax.swing.text.*;
 import java.util.Enumeration;
 import java.lang.Integer;
 
-/**
+/** {@collect.stats}
  * A view implementation to display an html horizontal
  * rule.
  *
@@ -39,7 +39,7 @@ import java.lang.Integer;
  */
 class HRuleView extends View  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents an &lt;hr&gt; element.
      *
      * @param elem the element to create a view for
@@ -49,7 +49,7 @@ class HRuleView extends View  {
         setPropertiesFromAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Update any cached values that come from attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -99,7 +99,7 @@ class HRuleView extends View  {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Paints the view.
      *
      * @param g the graphics context
@@ -161,7 +161,7 @@ class HRuleView extends View  {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calculates the desired shape of the rule... this is
      * basically the preferred size of the border.
      *
@@ -190,7 +190,7 @@ class HRuleView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the resize weight for the axis.
      * The rule is: rigid vertically and flexible horizontally.
      *
@@ -207,7 +207,7 @@ class HRuleView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines how attractive a break opportunity in
      * this view is.  This is implemented to request a forced break.
      *
@@ -233,7 +233,7 @@ class HRuleView extends View  {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -258,7 +258,7 @@ class HRuleView extends View  {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -279,7 +279,7 @@ class HRuleView extends View  {
         return getEndOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -311,6 +311,6 @@ class HRuleView extends View  {
     private static final int SPACE_ABOVE = 3;
     private static final int SPACE_BELOW = 3;
 
-    /** View Attributes. */
+    /** {@collect.stats} View Attributes. */
     private AttributeSet attr;
 }

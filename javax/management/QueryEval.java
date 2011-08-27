@@ -33,7 +33,7 @@ import java.io.Serializable;
 import javax.management.MBeanServer;
 
 
-/**
+/** {@collect.stats}
  * Allows a query to be performed in the context of a specific MBean server.
  *
  * @since 1.5
@@ -46,7 +46,7 @@ public abstract class QueryEval implements Serializable   {
     private static ThreadLocal<MBeanServer> server =
         new InheritableThreadLocal<MBeanServer>();
 
-    /**
+    /** {@collect.stats}
      * <p>Sets the MBean server on which the query is to be performed.
      * The setting is valid for the thread performing the set.
      * It is copied to any threads created by that thread at the moment
@@ -64,7 +64,7 @@ public abstract class QueryEval implements Serializable   {
         server.set(s);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return the MBean server that was most recently given to the
      * {@link #setMBeanServer setMBeanServer} method by this thread.
      * If this thread never called that method, the result is the

@@ -26,7 +26,7 @@ package javax.swing.event;
 
 import java.util.EventObject;
 
-/**
+/** {@collect.stats}
  * PopupMenuEvent only contains the source of the event which is the JPoupMenu
  * sending the event
  * <p>
@@ -42,7 +42,7 @@ import java.util.EventObject;
  * @author Arnaud Weber
  */
 public class PopupMenuEvent extends EventObject {
-    /**
+    /** {@collect.stats}
      * Constructs a PopupMenuEvent object.
      *
      * @param source  the Object that originated the event

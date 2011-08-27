@@ -35,7 +35,7 @@ import java.text.*;
 import java.util.Locale;
 import sun.misc.LRUCache;
 
-/**
+/** {@collect.stats}
  * A simple text scanner which can parse primitive types and strings using
  * regular expressions.
  *
@@ -428,7 +428,7 @@ public final class Scanner implements Iterator<String> {
 
     // Fields and methods to support scanning primitive types
 
-    /**
+    /** {@collect.stats}
      * Locale dependent values used to scan numbers
      */
     private String groupSeparator = "\\,";
@@ -440,7 +440,7 @@ public final class Scanner implements Iterator<String> {
     private String positiveSuffix = "";
     private String negativeSuffix = "";
 
-    /**
+    /** {@collect.stats}
      * Fields and an accessor method to match booleans
      */
     private static volatile Pattern boolPattern;
@@ -453,7 +453,7 @@ public final class Scanner implements Iterator<String> {
         return bp;
     }
 
-    /**
+    /** {@collect.stats}
      * Fields and methods to match bytes, shorts, ints, and longs
      */
     private Pattern integerPattern;
@@ -486,7 +486,7 @@ public final class Scanner implements Iterator<String> {
         return integerPattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Fields and an accessor method to match line separators
      */
     private static volatile Pattern separatorPattern;
@@ -509,7 +509,7 @@ public final class Scanner implements Iterator<String> {
         return lp;
     }
 
-    /**
+    /** {@collect.stats}
      * Fields and methods to match floats and doubles
      */
     private Pattern floatPattern;
@@ -561,7 +561,7 @@ public final class Scanner implements Iterator<String> {
 
     // Constructors
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Scanner</code> that returns values scanned
      * from the specified source delimited by the specified pattern.
      *
@@ -584,7 +584,7 @@ public final class Scanner implements Iterator<String> {
         useLocale(Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified source.
      *
@@ -595,7 +595,7 @@ public final class Scanner implements Iterator<String> {
         this(source, WHITESPACE_PATTERN);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified input stream. Bytes from the stream are converted
      * into characters using the underlying platform's
@@ -607,7 +607,7 @@ public final class Scanner implements Iterator<String> {
         this(new InputStreamReader(source), WHITESPACE_PATTERN);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified input stream. Bytes from the stream are converted
      * into characters using the specified charset.
@@ -638,7 +638,7 @@ public final class Scanner implements Iterator<String> {
         return isr;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified file. Bytes from the file are converted into
      * characters using the underlying platform's
@@ -653,7 +653,7 @@ public final class Scanner implements Iterator<String> {
         this((ReadableByteChannel)(new FileInputStream(source).getChannel()));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified file. Bytes from the file are converted into
      * characters using the specified charset.
@@ -672,7 +672,7 @@ public final class Scanner implements Iterator<String> {
              charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified string.
      *
@@ -682,7 +682,7 @@ public final class Scanner implements Iterator<String> {
         this(new StringReader(source), WHITESPACE_PATTERN);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified channel. Bytes from the source are converted into
      * characters using the underlying platform's
@@ -703,7 +703,7 @@ public final class Scanner implements Iterator<String> {
                            java.nio.charset.Charset.defaultCharset().name());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>Scanner</code> that produces values scanned
      * from the specified channel. Bytes from the source are converted into
      * characters using the specified charset.
@@ -1065,7 +1065,7 @@ public final class Scanner implements Iterator<String> {
 
     // Public methods
 
-    /**
+    /** {@collect.stats}
      * Closes this scanner.
      *
      * <p> If this scanner has not yet been closed then if its underlying
@@ -1093,7 +1093,7 @@ public final class Scanner implements Iterator<String> {
         closed = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>IOException</code> last thrown by this
      * <code>Scanner</code>'s underlying <code>Readable</code>. This method
      * returns <code>null</code> if no such exception exists.
@@ -1104,7 +1104,7 @@ public final class Scanner implements Iterator<String> {
         return lastException;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Pattern</code> this <code>Scanner</code> is currently
      * using to match delimiters.
      *
@@ -1114,7 +1114,7 @@ public final class Scanner implements Iterator<String> {
         return delimPattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this scanner's delimiting pattern to the specified pattern.
      *
      * @param pattern A delimiting pattern
@@ -1125,7 +1125,7 @@ public final class Scanner implements Iterator<String> {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this scanner's delimiting pattern to a pattern constructed from
      * the specified <code>String</code>.
      *
@@ -1144,7 +1144,7 @@ public final class Scanner implements Iterator<String> {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this scanner's locale.
      *
      * <p>A scanner's locale affects many elements of its default
@@ -1157,7 +1157,7 @@ public final class Scanner implements Iterator<String> {
         return this.locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this scanner's locale to the specified locale.
      *
      * <p>A scanner's locale affects many elements of its default
@@ -1209,7 +1209,7 @@ public final class Scanner implements Iterator<String> {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this scanner's default radix.
      *
      * <p>A scanner's radix affects elements of its default
@@ -1222,7 +1222,7 @@ public final class Scanner implements Iterator<String> {
         return this.defaultRadix;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this scanner's default radix to the specified radix.
      *
      * <p>A scanner's radix affects elements of its default
@@ -1262,7 +1262,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the match result of the last scanning operation performed
      * by this scanner. This method throws <code>IllegalStateException</code>
      * if no match has been performed, or if the last match was
@@ -1287,7 +1287,7 @@ public final class Scanner implements Iterator<String> {
         return matcher.toMatchResult();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the string representation of this <code>Scanner</code>. The
      * string representation of a <code>Scanner</code> contains information
      * that may be useful for debugging. The exact format is unspecified.
@@ -1314,7 +1314,7 @@ public final class Scanner implements Iterator<String> {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this scanner has another token in its input.
      * This method may block while waiting for input to scan.
      * The scanner does not advance past any input.
@@ -1335,7 +1335,7 @@ public final class Scanner implements Iterator<String> {
         return revertState(result);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds and returns the next complete token from this scanner.
      * A complete token is preceded and followed by input that matches
      * the delimiter pattern. This method may block while waiting for input
@@ -1365,7 +1365,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The remove operation is not supported by this implementation of
      * <code>Iterator</code>.
      *
@@ -1376,7 +1376,7 @@ public final class Scanner implements Iterator<String> {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token matches the pattern constructed from the
      * specified string. The scanner does not advance past any input.
      *
@@ -1393,7 +1393,7 @@ public final class Scanner implements Iterator<String> {
         return hasNext(patternCache.forName(pattern));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next token if it matches the pattern constructed from the
      * specified string.  If the match is successful, the scanner advances
      * past the input that matched the pattern.
@@ -1411,7 +1411,7 @@ public final class Scanner implements Iterator<String> {
         return next(patternCache.forName(pattern));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next complete token matches the specified pattern.
      * A complete token is prefixed and postfixed by input that matches
      * the delimiter pattern. This method may block while waiting for input.
@@ -1442,7 +1442,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next token if it matches the specified pattern. This
      * method may block while waiting for input to scan, even if a previous
      * invocation of {@link #hasNext(Pattern)} returned <code>true</code>.
@@ -1479,7 +1479,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if there is another line in the input of this scanner.
      * This method may block while waiting for input. The scanner does not
      * advance past any input.
@@ -1507,7 +1507,7 @@ public final class Scanner implements Iterator<String> {
         return (result != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Advances this scanner past the current line and returns the input
      * that was skipped.
      *
@@ -1543,7 +1543,7 @@ public final class Scanner implements Iterator<String> {
 
     // Public methods that ignore delimiters
 
-    /**
+    /** {@collect.stats}
      * Attempts to find the next occurrence of a pattern constructed from the
      * specified string, ignoring delimiters.
      *
@@ -1559,7 +1559,7 @@ public final class Scanner implements Iterator<String> {
         return findInLine(patternCache.forName(pattern));
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to find the next occurrence of the specified pattern ignoring
      * delimiters. If the pattern is found before the next line separator, the
      * scanner advances past the input that matched and returns the string that
@@ -1609,7 +1609,7 @@ public final class Scanner implements Iterator<String> {
         return findWithinHorizon(pattern, horizonForLine);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to find the next occurrence of a pattern constructed from the
      * specified string, ignoring delimiters.
      *
@@ -1627,7 +1627,7 @@ public final class Scanner implements Iterator<String> {
         return findWithinHorizon(patternCache.forName(pattern), horizon);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to find the next occurrence of the specified pattern.
      *
      * <p>This method searches through the input up to the specified
@@ -1680,7 +1680,7 @@ public final class Scanner implements Iterator<String> {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Skips input that matches the specified pattern, ignoring delimiters.
      * This method will skip input if an anchored match of the specified
      * pattern succeeds.
@@ -1724,7 +1724,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Skips input that matches a pattern constructed from the specified
      * string.
      *
@@ -1742,7 +1742,7 @@ public final class Scanner implements Iterator<String> {
 
     // Convenience methods for scanning primitives
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a boolean value using a case insensitive pattern
      * created from the string "true|false".  The scanner does not
@@ -1756,7 +1756,7 @@ public final class Scanner implements Iterator<String> {
         return hasNext(boolPattern());
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input into a boolean value and returns
      * that value. This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid boolean value.
@@ -1773,7 +1773,7 @@ public final class Scanner implements Iterator<String> {
         return Boolean.parseBoolean(next(boolPattern()));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a byte value in the default radix using the
      * {@link #nextByte} method. The scanner does not advance past any input.
@@ -1786,7 +1786,7 @@ public final class Scanner implements Iterator<String> {
         return hasNextByte(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a byte value in the specified radix using the
      * {@link #nextByte} method. The scanner does not advance past any input.
@@ -1812,7 +1812,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>byte</tt>.
      *
      * <p> An invocation of this method of the form
@@ -1831,7 +1831,7 @@ public final class Scanner implements Iterator<String> {
          return nextByte(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>byte</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid byte value as
@@ -1879,7 +1879,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a short value in the default radix using the
      * {@link #nextShort} method. The scanner does not advance past any input.
@@ -1892,7 +1892,7 @@ public final class Scanner implements Iterator<String> {
         return hasNextShort(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a short value in the specified radix using the
      * {@link #nextShort} method. The scanner does not advance past any input.
@@ -1918,7 +1918,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>short</tt>.
      *
      * <p> An invocation of this method of the form
@@ -1937,7 +1937,7 @@ public final class Scanner implements Iterator<String> {
         return nextShort(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>short</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid short value as
@@ -1985,7 +1985,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as an int value in the default radix using the
      * {@link #nextInt} method. The scanner does not advance past any input.
@@ -1998,7 +1998,7 @@ public final class Scanner implements Iterator<String> {
         return hasNextInt(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as an int value in the specified radix using the
      * {@link #nextInt} method. The scanner does not advance past any input.
@@ -2024,7 +2024,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * The integer token must be stripped of prefixes, group separators,
      * and suffixes, non ascii digits must be converted into ascii digits
      * before parse will accept it.
@@ -2048,7 +2048,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as an <tt>int</tt>.
      *
      * <p> An invocation of this method of the form
@@ -2067,7 +2067,7 @@ public final class Scanner implements Iterator<String> {
         return nextInt(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as an <tt>int</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid int value as
@@ -2115,7 +2115,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a long value in the default radix using the
      * {@link #nextLong} method. The scanner does not advance past any input.
@@ -2128,7 +2128,7 @@ public final class Scanner implements Iterator<String> {
         return hasNextLong(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a long value in the specified radix using the
      * {@link #nextLong} method. The scanner does not advance past any input.
@@ -2154,7 +2154,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>long</tt>.
      *
      * <p> An invocation of this method of the form
@@ -2173,7 +2173,7 @@ public final class Scanner implements Iterator<String> {
         return nextLong(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>long</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid long value as
@@ -2220,7 +2220,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The float token must be stripped of prefixes, group separators,
      * and suffixes, non ascii digits must be converted into ascii digits
      * before parseFloat will accept it.
@@ -2273,7 +2273,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a float value using the {@link #nextFloat}
      * method. The scanner does not advance past any input.
@@ -2296,7 +2296,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>float</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid float value as
@@ -2340,7 +2340,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a double value using the {@link #nextDouble}
      * method. The scanner does not advance past any input.
@@ -2363,7 +2363,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a <tt>double</tt>.
      * This method will throw <code>InputMismatchException</code>
      * if the next token cannot be translated into a valid double value.
@@ -2410,7 +2410,7 @@ public final class Scanner implements Iterator<String> {
 
     // Convenience methods for scanning multi precision numbers
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a <code>BigInteger</code> in the default radix using the
      * {@link #nextBigInteger} method. The scanner does not advance past any
@@ -2424,7 +2424,7 @@ public final class Scanner implements Iterator<String> {
         return hasNextBigInteger(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a <code>BigInteger</code> in the specified radix using
      * the {@link #nextBigInteger} method. The scanner does not advance past
@@ -2451,7 +2451,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a {@link java.math.BigInteger
      * BigInteger}.
      *
@@ -2471,7 +2471,7 @@ public final class Scanner implements Iterator<String> {
         return nextBigInteger(defaultRadix);
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a {@link java.math.BigInteger
      * BigInteger}.
      *
@@ -2514,7 +2514,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the next token in this scanner's input can be
      * interpreted as a <code>BigDecimal</code> using the
      * {@link #nextBigDecimal} method. The scanner does not advance past any
@@ -2538,7 +2538,7 @@ public final class Scanner implements Iterator<String> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans the next token of the input as a {@link java.math.BigDecimal
      * BigDecimal}.
      *
@@ -2577,7 +2577,7 @@ public final class Scanner implements Iterator<String> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets this scanner.
      *
      * <p> Resetting a scanner discards all of its explicit state

@@ -29,7 +29,7 @@ package javax.swing.plaf.basic;
 import java.awt.*;
 import java.io.*;
 
-/**
+/** {@collect.stats}
   * Center-positioning layout manager.
   * @author Tom Santos
   * @author Steve Wilson

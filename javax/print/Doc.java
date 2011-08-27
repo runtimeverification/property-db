@@ -34,7 +34,7 @@ import javax.print.attribute.AttributeSet;
 import javax.print.attribute.DocAttributeSet;
 
 
-/**
+/** {@collect.stats}
  * Interface Doc specifies the interface for an object that supplies one piece
  * of print data for a Print Job. "Doc" is a short, easy-to-pronounce term
  * that means "a piece of print data." The client passes to the Print Job an
@@ -111,7 +111,7 @@ import javax.print.attribute.DocAttributeSet;
  */
 public interface Doc {
 
-    /**
+    /** {@collect.stats}
      * Determines the doc flavor in which this doc object will supply its
      * piece of print data.
      *
@@ -119,7 +119,7 @@ public interface Doc {
      */
     public DocFlavor getDocFlavor();
 
-    /**
+    /** {@collect.stats}
      * Obtains the print data representation object that contains this doc
      * object's piece of print data in the format corresponding to the
      * supported doc flavor.
@@ -138,7 +138,7 @@ public interface Doc {
      */
     public Object getPrintData() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of printing attributes for this doc object. If the
      * returned attribute set includes an instance of a particular attribute
      * <I>X,</I> the printer must use that attribute value for this doc,
@@ -156,7 +156,7 @@ public interface Doc {
      */
     public DocAttributeSet getAttributes();
 
-    /**
+    /** {@collect.stats}
      * Obtains a reader for extracting character print data from this doc.
      * The Doc implementation is required to support this method if the
      * DocFlavor has one of the following print data representation classes,
@@ -181,7 +181,7 @@ public interface Doc {
      */
     public Reader getReaderForText() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains an input stream for extracting byte print data from this
      * doc.  The Doc implementation is required to support this method if
      * the DocFlavor has one of the following print data representation

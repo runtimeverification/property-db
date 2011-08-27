@@ -29,7 +29,7 @@ import java.nio.channels.FileChannel;
 import sun.nio.ch.FileChannelImpl;
 
 
-/**
+/** {@collect.stats}
  * A file output stream is an output stream for writing data to a
  * <code>File</code> or to a <code>FileDescriptor</code>. Whether or not
  * a file is available or may be created depends upon the underlying
@@ -51,7 +51,7 @@ import sun.nio.ch.FileChannelImpl;
 public
 class FileOutputStream extends OutputStream
 {
-    /**
+    /** {@collect.stats}
      * The system dependent file descriptor. The value is
      * 1 more than actual file descriptor. This means that
      * the default value 0 indicates that the file is not open.
@@ -74,7 +74,7 @@ class FileOutputStream extends OutputStream
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an output file stream to write to the file with the
      * specified name. A new <code>FileDescriptor</code> object is
      * created to represent this file connection.
@@ -99,7 +99,7 @@ class FileOutputStream extends OutputStream
         this(name != null ? new File(name) : null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an output file stream to write to the file with the specified
      * <code>name</code>.  If the second argument is <code>true</code>, then
      * bytes will be written to the end of the file rather than the beginning.
@@ -131,7 +131,7 @@ class FileOutputStream extends OutputStream
         this(name != null ? new File(name) : null, append);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a file output stream to write to the file represented by
      * the specified <code>File</code> object. A new
      * <code>FileDescriptor</code> object is created to represent this
@@ -160,7 +160,7 @@ class FileOutputStream extends OutputStream
         this(file, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a file output stream to write to the file represented by
      * the specified <code>File</code> object. If the second argument is
      * <code>true</code>, then bytes will be written to the end of the file
@@ -210,7 +210,7 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an output file stream to write to the specified file
      * descriptor, which represents an existing connection to an actual
      * file in the file system.
@@ -243,19 +243,19 @@ class FileOutputStream extends OutputStream
         fd.incrementAndGetUseCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Opens a file, with the specified name, for writing.
      * @param name name of file to be opened
      */
     private native void open(String name) throws FileNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Opens a file, with the specified name, for appending.
      * @param name name of file to be opened
      */
     private native void openAppend(String name) throws FileNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Writes the specified byte to this file output stream. Implements
      * the <code>write</code> method of <code>OutputStream</code>.
      *
@@ -264,7 +264,7 @@ class FileOutputStream extends OutputStream
      */
     public native void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sub array as a sequence of bytes.
      * @param b the data to be written
      * @param off the start offset in the data
@@ -273,7 +273,7 @@ class FileOutputStream extends OutputStream
      */
     private native void writeBytes(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this file output stream.
      *
@@ -284,7 +284,7 @@ class FileOutputStream extends OutputStream
         writeBytes(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this file output stream.
      *
@@ -297,7 +297,7 @@ class FileOutputStream extends OutputStream
         writeBytes(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this file output stream and releases any system resources
      * associated with this stream. This file output stream may no longer
      * be used for writing bytes.
@@ -342,7 +342,7 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the file descriptor associated with this stream.
      *
      * @return  the <code>FileDescriptor</code> object that represents
@@ -357,7 +357,7 @@ class FileOutputStream extends OutputStream
         throw new IOException();
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file output stream. </p>
      *
@@ -390,7 +390,7 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Cleans up the connection to the file, and ensures that the
      * <code>close</code> method of this file output stream is
      * called when there are no more references to this stream.

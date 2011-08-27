@@ -30,7 +30,7 @@ import java.io.InterruptedIOException;
 import java.util.Enumeration;
 import sun.net.ResourceManager;
 
-/**
+/** {@collect.stats}
  * Abstract datagram and multicast socket implementation base class.
  * Note: This is not a public class, so that applets cannot call
  * into the implementation directly and hence cannot bypass the
@@ -54,7 +54,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
     private boolean loopbackMode = true;
     private int ttl = -1;
 
-    /**
+    /** {@collect.stats}
      * Load net library into runtime.
      */
     static {
@@ -62,7 +62,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
                   new sun.security.action.LoadLibraryAction("net"));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a datagram socket
      */
     protected synchronized void create() throws SocketException {
@@ -77,7 +77,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Binds a datagram socket to a local port.
      */
     protected synchronized void bind(int lport, InetAddress laddr)
@@ -88,14 +88,14 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
     protected abstract void bind0(int lport, InetAddress laddr)
         throws SocketException;
 
-    /**
+    /** {@collect.stats}
      * Sends a datagram packet. The packet contains the data and the
      * destination address to send the packet to.
      * @param packet to be sent.
      */
     protected abstract void send(DatagramPacket p) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Connects a datagram socket to a remote destination. This associates the remote
      * address with the local socket so that datagrams may only be sent to this destination
      * and received from this destination.
@@ -109,7 +109,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
         connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Disconnects a previously connected socket. Does nothing if the socket was
      * not connected already.
      */
@@ -120,13 +120,13 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
         connectedPort = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Peek at the packet to see who it is from.
      * @param return the address which the packet came from.
      */
     protected abstract int peek(InetAddress i) throws IOException;
     protected abstract int peekData(DatagramPacket p) throws IOException;
-    /**
+    /** {@collect.stats}
      * Receive the datagram packet.
      * @param Packet Received.
      */
@@ -138,29 +138,29 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
     protected abstract void receive0(DatagramPacket p)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Set the TTL (time-to-live) option.
      * @param TTL to be set.
      */
     protected abstract void setTimeToLive(int ttl) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Get the TTL (time-to-live) option.
      */
     protected abstract int getTimeToLive() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Set the TTL (time-to-live) option.
      * @param TTL to be set.
      */
     protected abstract void setTTL(byte ttl) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Get the TTL (time-to-live) option.
      */
     protected abstract byte getTTL() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Join the multicast group.
      * @param multicast address to join.
      */
@@ -168,14 +168,14 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
         join(inetaddr, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Leave the multicast group.
      * @param multicast address to leave.
      */
     protected void leave(InetAddress inetaddr) throws IOException {
         leave(inetaddr, null);
     }
-    /**
+    /** {@collect.stats}
      * Join the multicast group.
      * @param multicast address to join.
      * @param netIf specifies the local interface to receive multicast
@@ -195,7 +195,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
     protected abstract void join(InetAddress inetaddr, NetworkInterface netIf)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Leave the multicast group.
      * @param multicast address to leave.
      * @param netIf specified the local interface to leave the group at
@@ -213,7 +213,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
     protected abstract void leave(InetAddress inetaddr, NetworkInterface netIf)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Close the socket.
      */
     protected void close() {
@@ -232,7 +232,7 @@ abstract class AbstractPlainDatagramSocketImpl extends DatagramSocketImpl
         close();
     }
 
-    /**
+    /** {@collect.stats}
      * set a value - since we only support (setting) binary options
      * here, o must be a Boolean
      */

@@ -30,7 +30,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 
-/**
+/** {@collect.stats}
  * The {@code JList} pluggable look and feel delegate.
  *
  * @author Hans Muller
@@ -38,7 +38,7 @@ import java.awt.Rectangle;
 
 public abstract class ListUI extends ComponentUI
 {
-    /**
+    /** {@collect.stats}
      * Returns the cell index in the specified {@code JList} closest to the
      * given location in the list's coordinate system. To determine if the
      * cell actually contains the specified location, compare the point against
@@ -53,7 +53,7 @@ public abstract class ListUI extends ComponentUI
     public abstract int locationToIndex(JList list, Point location);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the origin in the given {@code JList}, of the specified item,
      * in the list's coordinate system.
      * Returns {@code null} if the index isn't valid.
@@ -65,7 +65,7 @@ public abstract class ListUI extends ComponentUI
     public abstract Point indexToLocation(JList list, int index);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding rectangle, in the given list's coordinate system,
      * for the range of cells specified by the two indices.
      * The indices can be supplied in any order.

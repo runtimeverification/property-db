@@ -41,7 +41,7 @@ import java.io.Serializable;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * Provides the basic look and feel for a JColorChooser.
  * <p>
  * @author Tom Santos
@@ -50,7 +50,7 @@ import sun.swing.UIAction;
 
 public class BasicColorChooserUI extends ColorChooserUI
 {
-    /**
+    /** {@collect.stats}
      * JColorChooser this BasicColorChooserUI is installed on.
      *
      * @since 1.5
@@ -320,7 +320,7 @@ public class BasicColorChooserUI extends ColorChooserUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.

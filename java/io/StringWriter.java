@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * A character stream that collects its output in a string buffer, which can
  * then be used to construct a string.
  * <p>
@@ -42,7 +42,7 @@ public class StringWriter extends Writer {
 
     private StringBuffer buf;
 
-    /**
+    /** {@collect.stats}
      * Create a new string writer using the default initial string-buffer
      * size.
      */
@@ -51,7 +51,7 @@ public class StringWriter extends Writer {
         lock = buf;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new string writer using the specified initial string-buffer
      * size.
      *
@@ -70,14 +70,14 @@ public class StringWriter extends Writer {
         lock = buf;
     }
 
-    /**
+    /** {@collect.stats}
      * Write a single character.
      */
     public void write(int c) {
         buf.append((char) c);
     }
 
-    /**
+    /** {@collect.stats}
      * Write a portion of an array of characters.
      *
      * @param  cbuf  Array of characters
@@ -94,14 +94,14 @@ public class StringWriter extends Writer {
         buf.append(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Write a string.
      */
     public void write(String str) {
         buf.append(str);
     }
 
-    /**
+    /** {@collect.stats}
      * Write a portion of a string.
      *
      * @param  str  String to be written
@@ -112,7 +112,7 @@ public class StringWriter extends Writer {
         buf.append(str.substring(off, off + len));
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq)</tt>
@@ -144,7 +144,7 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a subsequence of the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq, start,
@@ -182,7 +182,7 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(c)</tt>
@@ -203,14 +203,14 @@ public class StringWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the buffer's current value as a string.
      */
     public String toString() {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the string buffer itself.
      *
      * @return StringBuffer holding the current buffer value.
@@ -219,13 +219,13 @@ public class StringWriter extends Writer {
         return buf;
     }
 
-    /**
+    /** {@collect.stats}
      * Flush the stream.
      */
     public void flush() {
     }
 
-    /**
+    /** {@collect.stats}
      * Closing a <tt>StringWriter</tt> has no effect. The methods in this
      * class can be called after the stream has been closed without generating
      * an <tt>IOException</tt>.

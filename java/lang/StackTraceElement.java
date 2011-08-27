@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * An element in a stack trace, as returned by {@link
  * Throwable#getStackTrace()}.  Each element represents a single stack frame.
  * All stack frames except for the one at the top of the stack represent
@@ -44,7 +44,7 @@ public final class StackTraceElement implements java.io.Serializable {
     private String fileName;
     private int    lineNumber;
 
-    /**
+    /** {@collect.stats}
      * Creates a stack trace element representing the specified execution
      * point.
      *
@@ -77,7 +77,7 @@ public final class StackTraceElement implements java.io.Serializable {
         this.lineNumber     = lineNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the source file containing the execution point
      * represented by this stack trace element.  Generally, this corresponds
      * to the <tt>SourceFile</tt> attribute of the relevant <tt>class</tt>
@@ -93,7 +93,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return fileName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the line number of the source line containing the execution
      * point represented by this stack trace element.  Generally, this is
      * derived from the <tt>LineNumberTable</tt> attribute of the relevant
@@ -108,7 +108,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return lineNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified name of the class containing the
      * execution point represented by this stack trace element.
      *
@@ -119,7 +119,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return declaringClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the method containing the execution point
      * represented by this stack trace element.  If the execution point is
      * contained in an instance or class initializer, this method will return
@@ -134,7 +134,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return methodName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the method containing the execution point
      * represented by this stack trace element is a native method.
      *
@@ -145,7 +145,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return lineNumber == -2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this stack trace element.  The
      * format of this string depends on the implementation, but the following
      * examples may be regarded as typical:
@@ -179,7 +179,7 @@ public final class StackTraceElement implements java.io.Serializable {
               (fileName != null ?  "("+fileName+")" : "(Unknown Source)")));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified object is another
      * <tt>StackTraceElement</tt> instance representing the same execution
      * point as this instance.  Two stack trace elements <tt>a</tt> and
@@ -216,7 +216,7 @@ public final class StackTraceElement implements java.io.Serializable {
         return a==b || (a != null && a.equals(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this stack trace element.
      */
     public int hashCode() {

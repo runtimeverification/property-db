@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 
 
-/**
+/** {@collect.stats}
  * Contains methods for registering/deregistering listeners to be notified of
  * events fired when objects named in a context changes.
  *<p>
@@ -134,7 +134,7 @@ import javax.naming.NamingException;
  */
 
 public interface EventContext extends Context {
-    /**
+    /** {@collect.stats}
      * Constant for expressing interest in events concerning the object named
      * by the target.
      *<p>
@@ -142,7 +142,7 @@ public interface EventContext extends Context {
      */
     public final static int OBJECT_SCOPE = 0;
 
-    /**
+    /** {@collect.stats}
      * Constant for expressing interest in events concerning objects
      * in the context named by the target,
      * excluding the context named by the target.
@@ -151,7 +151,7 @@ public interface EventContext extends Context {
      */
     public final static int ONELEVEL_SCOPE = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant for expressing interest in events concerning objects
      * in the subtree of the object named by the target, including the object
      * named by the target.
@@ -161,7 +161,7 @@ public interface EventContext extends Context {
     public final static int SUBTREE_SCOPE = 2;
 
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired
      * when the object(s) identified by a target and scope changes.
      *
@@ -200,7 +200,7 @@ public interface EventContext extends Context {
     void addNamingListener(Name target, int scope, NamingListener l)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired
      * when the object named by the string target name and scope changes.
      *
@@ -218,7 +218,7 @@ public interface EventContext extends Context {
     void addNamingListener(String target, int scope, NamingListener l)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from receiving naming events fired
      * by this <tt>EventContext</tt>.
      * The listener may have registered more than once with this
@@ -237,7 +237,7 @@ public interface EventContext extends Context {
      */
     void removeNamingListener(NamingListener l) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Determines whether a listener can register interest in a target
      * that does not exist.
      *

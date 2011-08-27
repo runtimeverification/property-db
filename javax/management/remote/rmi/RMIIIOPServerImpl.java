@@ -36,7 +36,7 @@ import java.util.Collections;
 import javax.rmi.PortableRemoteObject;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>An {@link RMIServerImpl} that is exported through IIOP and that
  * creates client connections as RMI objects exported through IIOP.
  * User code does not usually reference this class directly.</p>
@@ -46,7 +46,7 @@ import javax.security.auth.Subject;
  * @since 1.5
  */
 public class RMIIIOPServerImpl extends RMIServerImpl {
-    /**
+    /** {@collect.stats}
      * <p>Creates a new {@link RMIServerImpl}.</p>
      *
      * @param env the environment containing attributes for the new
@@ -72,7 +72,7 @@ public class RMIIIOPServerImpl extends RMIServerImpl {
         return "iiop";
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an IIOP stub.</p>
      * The stub might not yet be connected to the ORB. The stub will
      * be serializable only if it is connected to the ORB.
@@ -92,7 +92,7 @@ public class RMIIIOPServerImpl extends RMIServerImpl {
         return stub;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new client connection as an RMI object exported
      * through IIOP.
      *
@@ -125,7 +125,7 @@ public class RMIIIOPServerImpl extends RMIServerImpl {
         PortableRemoteObject.unexportObject(client);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by {@link #close()} to close the connector server by
      * unexporting this object.  After returning from this method, the
      * connector server must not accept any new connections.</p>

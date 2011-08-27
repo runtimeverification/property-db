@@ -36,7 +36,7 @@ import javax.management.MBeanConstructorInfo;
 import javax.management.MBeanParameterInfo;
 
 
-/**
+/** {@collect.stats}
  * Describes a constructor of an Open MBean.
  *
  *
@@ -55,7 +55,7 @@ public class OpenMBeanConstructorInfoSupport
     private transient Integer myHashCode = null;
     private transient String  myToString = null;
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanConstructorInfoSupport}
      * instance, which describes the constructor of a class of open
      * MBeans with the specified {@code name}, {@code description} and
@@ -84,7 +84,7 @@ public class OpenMBeanConstructorInfoSupport
         this(name, description, signature, (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanConstructorInfoSupport}
      * instance, which describes the constructor of a class of open
      * MBeans with the specified {@code name}, {@code description},
@@ -150,7 +150,7 @@ public class OpenMBeanConstructorInfoSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * <p>Compares the specified {@code obj} parameter with this
      * {@code OpenMBeanConstructorInfoSupport} instance for
      * equality.</p>
@@ -212,7 +212,7 @@ public class OpenMBeanConstructorInfoSupport
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this {@code
      * OpenMBeanConstructorInfoSupport} instance.</p>
      *
@@ -260,7 +260,7 @@ public class OpenMBeanConstructorInfoSupport
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of this {@code
      * OpenMBeanConstructorInfoSupport} instance.</p>
      *

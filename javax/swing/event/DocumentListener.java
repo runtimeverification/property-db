@@ -26,7 +26,7 @@ package javax.swing.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * Interface for an observer to register to receive notifications
  * of changes to a text document.
  * <p>
@@ -52,7 +52,7 @@ import java.util.EventListener;
  */
 public interface DocumentListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Gives notification that there was an insert into the document.  The
      * range given by the DocumentEvent bounds the freshly inserted region.
      *
@@ -60,7 +60,7 @@ public interface DocumentListener extends EventListener {
      */
     public void insertUpdate(DocumentEvent e);
 
-    /**
+    /** {@collect.stats}
      * Gives notification that a portion of the document has been
      * removed.  The range is given in terms of what the view last
      * saw (that is, before updating sticky positions).
@@ -69,7 +69,7 @@ public interface DocumentListener extends EventListener {
      */
     public void removeUpdate(DocumentEvent e);
 
-    /**
+    /** {@collect.stats}
      * Gives notification that an attribute or set of attributes changed.
      *
      * @param e the document event

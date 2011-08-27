@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when the client is
   * unable to communicate with the directory or naming service.
   * The inability to communicate with the service might be a result
@@ -41,7 +41,7 @@ package javax.naming;
   * @since 1.3
   */
 public class CommunicationException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of CommunicationException using the
      * arguments supplied.
      *
@@ -52,14 +52,14 @@ public class CommunicationException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of CommunicationException.
       */
     public CommunicationException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 3618507780299986611L;

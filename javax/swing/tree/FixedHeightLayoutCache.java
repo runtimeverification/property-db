@@ -33,7 +33,7 @@ import java.util.Hashtable;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
-/**
+/** {@collect.stats}
  * NOTE: This will become more open in a future release.
  * <p>
  * <strong>Warning:</strong>
@@ -49,24 +49,24 @@ import java.util.Stack;
  */
 
 public class FixedHeightLayoutCache extends AbstractLayoutCache {
-    /** Root node. */
+    /** {@collect.stats} Root node. */
     private FHTreeStateNode    root;
 
-    /** Number of rows currently visible. */
+    /** {@collect.stats} Number of rows currently visible. */
     private int                rowCount;
 
-    /**
+    /** {@collect.stats}
      * Used in getting sizes for nodes to avoid creating a new Rectangle
      * every time a size is needed.
      */
     private Rectangle          boundsBuffer;
 
-    /**
+    /** {@collect.stats}
      * Maps from TreePath to a FHTreeStateNode.
      */
     private Hashtable          treePathMapping;
 
-    /**
+    /** {@collect.stats}
      * Used for getting path/row information.
      */
     private SearchInfo         info;
@@ -83,7 +83,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         setRowHeight(1);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the TreeModel that will provide the data.
      *
      * @param newModel the TreeModel that is to provide the data
@@ -93,7 +93,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         rebuild(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the root node from
      * the TreeModel is visible.
      *
@@ -117,7 +117,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the height of each cell. If rowHeight is less than or equal to
      * 0 this will throw an IllegalArgumentException.
      *
@@ -132,14 +132,14 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of visible rows.
      */
     public int getRowCount() {
         return rowCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Does nothing, FixedHeightLayoutCache doesn't cache width, and that
      * is all that could change.
      */
@@ -147,7 +147,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Informs the TreeState that it needs to recalculate all the sizes
      * it is referencing.
      */
@@ -157,7 +157,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         visibleNodesChanged();
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the value identified by row is currently expanded.
       */
     public boolean isExpanded(TreePath path) {
@@ -169,7 +169,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle giving the bounds needed to draw path.
      *
      * @param path     a TreePath specifying a node
@@ -200,7 +200,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the path for passed in row.  If row is not visible
       * null is returned.
       */
@@ -213,7 +213,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the row that the last item identified in path is visible
       * at.  Will return -1 if any of the elements in path are not
       * currently visible.
@@ -238,7 +238,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the path to the node that is closest to x,y.  If
       * there is nothing currently visible this will return null, otherwise
       * it'll always return a valid path.  If you need to test if the
@@ -254,7 +254,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return getPathForRow(row);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of visible children for row.
      */
     public int getVisibleChildCount(TreePath path) {
@@ -265,7 +265,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return node.getTotalChildCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an Enumerator that increments over the visible paths
      * starting at the passed in location. The ordering of the enumeration
      * is based on how the paths are displayed.
@@ -290,7 +290,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the path <code>path</code> expanded state to
      * <code>isExpanded</code>.
      */
@@ -316,7 +316,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the path is expanded, and visible.
      */
     public boolean getExpandedState(TreePath path) {
@@ -330,7 +330,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     // TreeModelListener methods
     //
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after a node (or a set of siblings) has changed in some
      * way. The node(s) have not changed locations in the tree or
      * altered their children arrays, but other attributes have
@@ -379,7 +379,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been inserted into the tree.</p>
      *
      * <p>e.path() returns the parent of the new nodes
@@ -415,7 +415,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been removed from the tree.  Note that
      * if a subtree is removed from the tree, this method may only be
      * invoked once for the root of the removed subtree, not once for
@@ -464,7 +464,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after the tree has drastically changed structure from a
      * given node down.  If the path returned by e.getPath() is of length
      * one and the first element does not identify the current root node
@@ -523,7 +523,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     private void visibleNodesChanged() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds for the given node. If <code>childIndex</code>
      * is -1, the bounds of <code>parent</code> are returned, otherwise
      * the bounds of the node at <code>childIndex</code> are returned.
@@ -565,7 +565,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return placeIn;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the large row count of the AbstractTreeUI the receiver was
      * created with.
      */
@@ -573,21 +573,21 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         rowCount += changeAmount;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a mapping for node.
      */
     private void addMapping(FHTreeStateNode node) {
         treePathMapping.put(node.getTreePath(), node);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for a previously added node.
      */
     private void removeMapping(FHTreeStateNode node) {
         treePathMapping.remove(node.getTreePath());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the node previously added for <code>path</code>. This may
      * return null, if you to create a node use getNodeForPath.
      */
@@ -595,7 +595,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return (FHTreeStateNode)treePathMapping.get(path);
     }
 
-    /**
+    /** {@collect.stats}
      * Sent to completely rebuild the visible tree. All nodes are collapsed.
      */
     private void rebuild(boolean clearSelection) {
@@ -626,7 +626,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         this.visibleNodesChanged();
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the index of the row containing location.  If there
       * are no rows, -1 is returned.  If location is beyond the last
       * row index, the last row index is returned.
@@ -638,7 +638,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                                     location / getRowHeight()));
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that all the path components in path are expanded, accept
      * for the last component which will only be expanded if expandLast
      * is true.
@@ -667,14 +667,14 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an instance of FHTreeStateNode.
      */
     private FHTreeStateNode createNodeForValue(Object value,int childIndex) {
         return new FHTreeStateNode(value, childIndex, -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Messages getTreeNodeForPage(path, onlyIfVisible, shouldCreate,
      * path.length) as long as path is non-null and the length is > 0.
      * Otherwise returns null.
@@ -734,7 +734,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * FHTreeStateNode is used to track what has been expanded.
      * FHTreeStateNode differs from VariableHeightTreeState.TreeStateNode
      * in that it is highly model intensive. That is almost all queries to a
@@ -742,20 +742,20 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
      * obviously does not support variable sized row heights.
      */
     private class FHTreeStateNode extends DefaultMutableTreeNode {
-        /** Is this node expanded? */
+        /** {@collect.stats} Is this node expanded? */
         protected boolean         isExpanded;
 
-        /** Index of this node from the model. */
+        /** {@collect.stats} Index of this node from the model. */
         protected int             childIndex;
 
-        /** Child count of the receiver. */
+        /** {@collect.stats} Child count of the receiver. */
         protected int             childCount;
 
-        /** Row of the receiver. This is only valid if the row is expanded.
+        /** {@collect.stats} Row of the receiver. This is only valid if the row is expanded.
          */
         protected int             row;
 
-        /** Path of this node. */
+        /** {@collect.stats} Path of this node. */
         protected TreePath        path;
 
 
@@ -769,7 +769,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         // Overriden DefaultMutableTreeNode methods
         //
 
-        /**
+        /** {@collect.stats}
          * Messaged when this node is added somewhere, resets the path
          * and adds a mapping from path to this node.
          */
@@ -782,7 +782,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged when this node is removed from its parent, this messages
          * <code>removedFromMapping</code> to remove all the children.
          */
@@ -793,7 +793,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             super.remove(childIndex);
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged to set the user object. This resets the path.
          */
         public void setUserObject(Object o) {
@@ -811,21 +811,21 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
         //
         //
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the receiver in the model.
          */
         public int getChildIndex() {
             return childIndex;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>TreePath</code> of the receiver.
          */
         public TreePath getTreePath() {
             return path;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the child for the passed in model index, this will
          * return <code>null</code> if the child for <code>index</code>
          * has not yet been created (expanded).
@@ -838,7 +838,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node is visible. This is determined by
          * asking all the parents if they are expanded.
          */
@@ -850,14 +850,14 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return (parent.isExpanded() && parent.isVisible());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row of the receiver.
          */
         public int getRow() {
             return row;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row of the child with a model index of
          * <code>index</code>.
          */
@@ -883,7 +883,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                              (childCount - index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of children in the receiver by descending all
          * expanded nodes and messaging them with getTotalChildCount.
          */
@@ -916,14 +916,14 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node is expanded.
          */
         public boolean isExpanded() {
             return isExpanded;
         }
 
-        /**
+        /** {@collect.stats}
          * The highest visible nodes have a depth of 0.
          */
         public int getVisibleLevel() {
@@ -934,7 +934,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Recreates the receivers path, and all its childrens paths.
          */
         protected void resetChildrenPaths(TreePath parentPath) {
@@ -949,7 +949,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                                resetChildrenPaths(path);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the receiver, and all its children, from the mapping
          * table.
          */
@@ -961,7 +961,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new node to represent <code>userObject</code>.
          * This does NOT check to ensure there isn't already a child node
          * to manage <code>userObject</code>.
@@ -997,7 +997,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return child;
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the receiver, and all its children rows by
          * <code>amount</code>.
          */
@@ -1010,7 +1010,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts this node, its child, and its parent starting at
          * an index of <code>index</code> index is the index of the child
          * to start adjusting from, which is not necessarily the model
@@ -1032,7 +1032,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged when the node has expanded. This updates all of
          * the receivers children rows, as well as the total row count.
          */
@@ -1047,7 +1047,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             adjustRowCountBy(childRowCount);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the receivers row to <code>nextRow</code> and recursively
          * updates all the children of the receivers rows. The index the
          * next row is to be placed as is returned.
@@ -1077,7 +1077,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return lastRow + childCount - lastModelIndex;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the receivers childrens rows. Starting with the child
          * at <code>childIndex</code> (and <code>modelIndex</code>) to
          * <code>newRow</code>. This uses <code>setRowAndChildren</code>
@@ -1118,7 +1118,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Makes the receiver visible, but invoking
          * <code>expandParentAndReceiver</code> on the superclass.
          */
@@ -1129,7 +1129,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                 parent.expandParentAndReceiver();
         }
 
-        /**
+        /** {@collect.stats}
          * Invokes <code>expandParentAndReceiver</code> on the parent,
          * and expands the receiver.
          */
@@ -1141,7 +1141,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             expand();
         }
 
-        /**
+        /** {@collect.stats}
          * Expands the receiver.
          */
         protected void expand() {
@@ -1162,7 +1162,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Collapses the receiver. If <code>adjustRows</code> is true,
          * the rows of nodes after the receiver are adjusted.
          */
@@ -1185,7 +1185,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver is a leaf.
          */
         public boolean isLeaf() {
@@ -1195,7 +1195,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                    true;
         }
 
-        /**
+        /** {@collect.stats}
          * Adds newChild to this nodes children at the appropriate location.
          * The location is determined from the childIndex of newChild.
          */
@@ -1216,7 +1216,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                 add(newChild);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the child at <code>modelIndex</code>.
          * <code>isChildVisible</code> should be true if the receiver
          * is visible and expanded.
@@ -1269,7 +1269,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the child indexs of the receivers children by
          * <code>amount</code>, starting at <code>index</code>.
          */
@@ -1280,7 +1280,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged when a child has been inserted at index. For all the
          * children that have a childIndex >= index their index is incremented
          * by one.
@@ -1314,7 +1314,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             childCount++;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if there is a row for <code>row</code>.
          * <code>nextRow</code> gives the bounds of the receiver.
          * Information about the found row is returned in <code>info</code>.
@@ -1394,7 +1394,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Asks all the children of the receiver for their totalChildCount
          * and returns this value (plus stopIndex).
          */
@@ -1418,7 +1418,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return retCount;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of children that are expanded to
          * <code>stopIndex</code>. This does not include the number
          * of children that the child at <code>stopIndex</code> might
@@ -1440,7 +1440,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return retCount;
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged when this node either expands or collapses.
          */
         protected void didAdjustTree() {
@@ -1449,7 +1449,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     } // FixedHeightLayoutCache.FHTreeStateNode
 
 
-    /**
+    /** {@collect.stats}
      * Used as a placeholder when getting the path in FHTreeStateNodes.
      */
     private class SearchInfo {
@@ -1470,7 +1470,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     } // FixedHeightLayoutCache.SearchInfo
 
 
-    /**
+    /** {@collect.stats}
      * An enumerator to iterate through visible nodes.
      */
     // This is very similiar to
@@ -1478,12 +1478,12 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
     private class VisibleFHTreeStateNodeEnumeration
         implements Enumeration<TreePath>
     {
-        /** Parent thats children are being enumerated. */
+        /** {@collect.stats} Parent thats children are being enumerated. */
         protected FHTreeStateNode     parent;
-        /** Index of next child. An index of -1 signifies parent should be
+        /** {@collect.stats} Index of next child. An index of -1 signifies parent should be
          * visibled next. */
         protected int                 nextIndex;
-        /** Number of children in parent. */
+        /** {@collect.stats} Number of children in parent. */
         protected int                 childCount;
 
         protected VisibleFHTreeStateNodeEnumeration(FHTreeStateNode node) {
@@ -1498,14 +1498,14 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
                                                       getUserObject());
         }
 
-        /**
+        /** {@collect.stats}
          * @return true if more visible nodes.
          */
         public boolean hasMoreElements() {
             return (parent != null);
         }
 
-        /**
+        /** {@collect.stats}
          * @return next visible TreePath.
          */
         public TreePath nextElement() {
@@ -1530,7 +1530,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return retObject;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the next object by invoking <code>updateNextIndex</code>
          * and if not succesful <code>findNextValidParent</code>.
          */
@@ -1540,7 +1540,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Finds the next valid parent, this should be called when nextIndex
          * is beyond the number of children of the current parent.
          */
@@ -1568,7 +1568,7 @@ public class FixedHeightLayoutCache extends AbstractLayoutCache {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Updates <code>nextIndex</code> returning false if it is beyond
          * the number of children of parent.
          */

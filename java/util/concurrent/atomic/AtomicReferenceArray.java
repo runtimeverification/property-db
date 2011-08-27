@@ -37,7 +37,7 @@ package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * An array of object references in which elements may be updated
  * atomically.  See the {@link java.util.concurrent.atomic} package
  * specification for description of the properties of atomic
@@ -60,7 +60,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         return base + (long) i * scale;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AtomicReferenceArray of given length.
      * @param length the length of the array
      */
@@ -71,7 +71,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
             unsafe.putObjectVolatile(array, rawIndex(0), null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AtomicReferenceArray with the same length as, and
      * all elements copied from, the given array.
      *
@@ -93,7 +93,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the array.
      *
      * @return the length of the array
@@ -102,7 +102,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         return array.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current value at position {@code i}.
      *
      * @param i the index
@@ -112,7 +112,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         return (E) unsafe.getObjectVolatile(array, rawIndex(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the element at position {@code i} to the given value.
      *
      * @param i the index
@@ -122,7 +122,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         unsafe.putObjectVolatile(array, rawIndex(i), newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Eventually sets the element at position {@code i} to the given value.
      *
      * @param i the index
@@ -134,7 +134,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the element at position {@code i} to the given
      * value and returns the old value.
      *
@@ -150,7 +150,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the element at position {@code i} to the given
      * updated value if the current value {@code ==} the expected value.
      * @param i the index
@@ -164,7 +164,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
                                          expect, update);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the element at position {@code i} to the given
      * updated value if the current value {@code ==} the expected value.
      *
@@ -181,7 +181,7 @@ public class AtomicReferenceArray<E> implements java.io.Serializable {
         return compareAndSet(i, expect, update);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String representation of the current values of array.
      * @return the String representation of the current values of array.
      */

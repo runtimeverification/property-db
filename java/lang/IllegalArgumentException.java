@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that a method has been passed an illegal or
  * inappropriate argument.
  *
@@ -35,7 +35,7 @@ package java.lang;
  */
 public
 class IllegalArgumentException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalArgumentException</code> with no
      * detail message.
      */
@@ -43,7 +43,7 @@ class IllegalArgumentException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalArgumentException</code> with the
      * specified detail message.
      *
@@ -53,7 +53,7 @@ class IllegalArgumentException extends RuntimeException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified detail message and
      * cause.
      *
@@ -73,7 +73,7 @@ class IllegalArgumentException extends RuntimeException {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).

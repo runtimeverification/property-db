@@ -27,7 +27,7 @@ package javax.management;
 
 import com.sun.jmx.mbeanserver.JmxMBeanServer;
 
-/**
+/** {@collect.stats}
  * <p>This class represents a builder that creates a default
  * {@link javax.management.MBeanServer} implementation.
  * The JMX {@link javax.management.MBeanServerFactory} allows
@@ -40,13 +40,13 @@ import com.sun.jmx.mbeanserver.JmxMBeanServer;
  * @since 1.5
  */
 public class MBeanServerBuilder {
-    /**
+    /** {@collect.stats}
      * Public default constructor.
      **/
     public MBeanServerBuilder() {
     }
 
-    /**
+    /** {@collect.stats}
      * This method creates a new MBeanServerDelegate for a new MBeanServer.
      * When creating a new MBeanServer the
      * {@link javax.management.MBeanServerFactory} first calls this method
@@ -66,7 +66,7 @@ public class MBeanServerBuilder {
         return JmxMBeanServer.newMBeanServerDelegate();
     }
 
-    /**
+    /** {@collect.stats}
      * This method creates a new MBeanServer implementation object.
      * When creating a new MBeanServer the
      * {@link javax.management.MBeanServerFactory} first calls

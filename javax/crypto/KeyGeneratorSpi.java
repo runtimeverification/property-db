@@ -28,7 +28,7 @@ package javax.crypto;
 import java.security.*;
 import java.security.spec.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>KeyGenerator</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -43,14 +43,14 @@ import java.security.spec.*;
 
 public abstract class KeyGeneratorSpi {
 
-    /**
+    /** {@collect.stats}
      * Initializes the key generator.
      *
      * @param random the source of randomness for this generator
      */
     protected abstract void engineInit(SecureRandom random);
 
-    /**
+    /** {@collect.stats}
      * Initializes the key generator with the specified parameter
      * set and a user-provided source of randomness.
      *
@@ -64,7 +64,7 @@ public abstract class KeyGeneratorSpi {
                                        SecureRandom random)
         throws InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator for a certain keysize, using the given
      * source of randomness.
      *
@@ -77,7 +77,7 @@ public abstract class KeyGeneratorSpi {
      */
     protected abstract void engineInit(int keysize, SecureRandom random);
 
-    /**
+    /** {@collect.stats}
      * Generates a secret key.
      *
      * @return the new key

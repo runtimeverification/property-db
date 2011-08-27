@@ -27,14 +27,14 @@ package javax.swing;
 
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * Defines the requirements for an object responsible for
  * "rendering" (displaying) a value.
  *
  * @author Arnaud Weber
  */
 public interface Renderer {
-    /**
+    /** {@collect.stats}
      * Specifies the value to display and whether or not the
      * value should be portrayed as "currently selected".
      *
@@ -42,7 +42,7 @@ public interface Renderer {
      * @param isSelected  a boolean
      */
     void setValue(Object aValue,boolean isSelected);
-    /**
+    /** {@collect.stats}
      * Returns the component used to render the value.
      *
      * @return the Component responsible for displaying the value

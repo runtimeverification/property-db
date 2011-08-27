@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class OrientationRequested is a printing attribute class, an enumeration,
  * that indicates the desired orientation for printed print-stream pages; it
  * does not describe the orientation of the client-supplied print-stream
@@ -67,13 +67,13 @@ public final class OrientationRequested extends EnumSyntax
 
     private static final long serialVersionUID = -4447437289862822276L;
 
-    /**
+    /** {@collect.stats}
      * The content will be imaged across the short edge of the medium.
      */
     public static final OrientationRequested
         PORTRAIT = new OrientationRequested(3);
 
-    /**
+    /** {@collect.stats}
      * The content will be imaged across the long edge of the medium.
      * Landscape is defined to be a rotation of the print-stream page to be
      * imaged by +90 degrees with respect to the medium
@@ -85,7 +85,7 @@ public final class OrientationRequested extends EnumSyntax
     public static final OrientationRequested
         LANDSCAPE = new OrientationRequested(4);
 
-    /**
+    /** {@collect.stats}
      * The content will be imaged across the long edge of the medium, but in
      * the opposite manner from landscape. Reverse-landscape is defined to be
      * a rotation of the print-stream page to be imaged by -90 degrees with
@@ -97,7 +97,7 @@ public final class OrientationRequested extends EnumSyntax
     public static final OrientationRequested
         REVERSE_LANDSCAPE = new OrientationRequested(5);
 
-    /**
+    /** {@collect.stats}
      * The content will be imaged across the short edge of the medium, but in
      * the opposite manner from portrait. Reverse-portrait is defined to be a
      * rotation of the print-stream page to be imaged by 180 degrees with
@@ -113,7 +113,7 @@ public final class OrientationRequested extends EnumSyntax
     public static final OrientationRequested
         REVERSE_PORTRAIT = new OrientationRequested(6);
 
-    /**
+    /** {@collect.stats}
      * Construct a new orientation requested enumeration value with the given
      * integer value.
      *
@@ -137,28 +137,28 @@ public final class OrientationRequested extends EnumSyntax
         REVERSE_PORTRAIT
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class OrientationRequested.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class OrientationRequested.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lowest integer value used by class OrientationRequested.
      */
     protected int getOffset() {
         return 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -172,7 +172,7 @@ public final class OrientationRequested extends EnumSyntax
         return OrientationRequested.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

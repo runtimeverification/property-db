@@ -51,7 +51,7 @@ import sun.swing.plaf.synth.SynthUI;
 import sun.swing.SwingUtilities2;
 
 
-/**
+/** {@collect.stats}
  * Synth's SliderUI.
  *
  * @author Joshua Outwater
@@ -62,7 +62,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
     protected Rectangle valueRect = new Rectangle();
     protected boolean paintValue;
 
-    /**
+    /** {@collect.stats}
      * When a JSlider is used as a renderer in a JTable, its layout is not
      * being recomputed even though the size is changing. Even though there
      * is a ComponentListener installed, it is not being notified. As such,
@@ -85,7 +85,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
     private SynthStyle sliderTrackStyle;
     private SynthStyle sliderThumbStyle;
 
-    /** Used to determine the color to paint the thumb. */
+    /** {@collect.stats} Used to determine the color to paint the thumb. */
     private transient boolean thumbActive; //happens on rollover, and when pressed
     private transient boolean thumbPressed; //happens when mouse was depressed while over thumb
 
@@ -477,7 +477,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
         lastSize = slider.getSize();
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the pad for the label at the specified index.
      *
      * @param index index of the label to calculate pad for.
@@ -607,7 +607,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
         return yPosition;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a value give a y position.  If yPos is past the track at the
      * top or the bottom it will set the value to the min or max of the
      * slider, depending if the slider is inverted or not.
@@ -637,7 +637,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a value give an x position.  If xPos is past the track at the
      * left or the right it will set the value to the min or max of the
      * slider, depending if the slider is inverted or not.
@@ -839,7 +839,7 @@ class SynthSliderUI extends BasicSliderUI implements PropertyChangeListener,
     //////////////////////////////////////////////////
     /// Track Listener Class
     //////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Track mouse movements.
      */
     protected class SynthTrackListener extends TrackListener {

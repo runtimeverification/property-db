@@ -29,7 +29,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.DateTimeSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class DateTimeAtProcessing is a printing attribute class, a date-time
  * attribute, that indicates the date and time at which the Print Job first
  * began processing.
@@ -56,7 +56,7 @@ public final class DateTimeAtProcessing extends DateTimeSyntax
 
     private static final long serialVersionUID = -3710068197278263244L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new date-time at processing attribute with the given {@link
      * java.util.Date Date} value.
      *
@@ -69,7 +69,7 @@ public final class DateTimeAtProcessing extends DateTimeSyntax
         super (dateTime);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this date-time at processing attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -94,7 +94,7 @@ public final class DateTimeAtProcessing extends DateTimeSyntax
                object instanceof DateTimeAtProcessing);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -108,7 +108,7 @@ public final class DateTimeAtProcessing extends DateTimeSyntax
         return DateTimeAtProcessing.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

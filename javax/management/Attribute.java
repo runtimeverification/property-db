@@ -30,7 +30,7 @@ package javax.management;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Represents an MBean attribute by associating its name with its value.
  * The MBean server and other objects use this class to get and set attributes values.
  *
@@ -41,18 +41,18 @@ public class Attribute implements Serializable   {
     /* Serial version */
     private static final long serialVersionUID = 2484220110589082382L;
 
-    /**
+    /** {@collect.stats}
      * @serial Attribute name.
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * @serial Attribute value
      */
     private Object value= null;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an Attribute object which associates the given attribute name with the given value.
      *
      * @param name A String containing the name of the attribute to be created. Cannot be null.
@@ -70,7 +70,7 @@ public class Attribute implements Serializable   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a String containing the  name of the attribute.
      *
      * @return the name of the attribute.
@@ -79,7 +79,7 @@ public class Attribute implements Serializable   {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an Object that is the value of this attribute.
      *
      * @return the value of the attribute.
@@ -88,7 +88,7 @@ public class Attribute implements Serializable   {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the current Attribute Object with another Attribute Object.
      *
      * @param object  The Attribute that the current Attribute is to be compared with.
@@ -115,7 +115,7 @@ public class Attribute implements Serializable   {
                 (value.equals(val.getValue())));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this attribute.
      *
      * @return a hash code value for this attribute.
@@ -124,7 +124,7 @@ public class Attribute implements Serializable   {
         return name.hashCode() ^ (value == null ? 0 : value.hashCode());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String object representing this Attribute's value. The format of this
      * string is not specified, but users can expect that two Attributes return the
      * same string if and only if they are equal.

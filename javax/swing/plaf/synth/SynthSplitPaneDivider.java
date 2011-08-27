@@ -31,7 +31,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.*;
 import sun.swing.DefaultLookup;
 
-/**
+/** {@collect.stats}
  * Synth's SplitPaneDivider.
  *
  * @author Scott Violet
@@ -108,7 +108,7 @@ class SynthSplitPaneDivider extends BasicSplitPaneDivider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates and return an instance of JButton that can be used to
      * collapse the left component in the split pane.
      */
@@ -131,7 +131,7 @@ class SynthSplitPaneDivider extends BasicSplitPaneDivider {
               "SplitPaneDivider.oneTouchButtonSize", ONE_TOUCH_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and return an instance of JButton that can be used to
      * collapse the right component in the split pane.
      */

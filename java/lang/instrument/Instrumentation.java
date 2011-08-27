@@ -33,7 +33,7 @@ import  java.util.jar.JarFile;
  * Copyright 2003 Wily Technology, Inc.
  */
 
-/**
+/** {@collect.stats}
  * This class provides services needed to instrument Java
  * programming language code.
  * Instrumentation is the addition of byte-codes to methods for the
@@ -67,7 +67,7 @@ import  java.util.jar.JarFile;
  * @since   1.5
  */
 public interface Instrumentation {
-    /**
+    /** {@collect.stats}
      * Registers the supplied transformer. All future class definitions
      * will be seen by the transformer, except definitions of classes upon which any
      * registered transformer is dependent.
@@ -97,7 +97,7 @@ public interface Instrumentation {
     void
     addTransformer(ClassFileTransformer transformer, boolean canRetransform);
 
-    /**
+    /** {@collect.stats}
      * Registers the supplied transformer.
      * <P>
      * Same as <code>addTransformer(transformer, false)</code>.
@@ -109,7 +109,7 @@ public interface Instrumentation {
     void
     addTransformer(ClassFileTransformer transformer);
 
-    /**
+    /** {@collect.stats}
      * Unregisters the supplied transformer. Future class definitions will
      * not be shown to the transformer. Removes the most-recently-added matching
      * instance of the transformer. Due to the multi-threaded nature of
@@ -125,7 +125,7 @@ public interface Instrumentation {
     boolean
     removeTransformer(ClassFileTransformer transformer);
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the current JVM configuration supports retransformation
      * of classes.
      * The ability to retransform an already loaded class is an optional capability
@@ -145,7 +145,7 @@ public interface Instrumentation {
     boolean
     isRetransformClassesSupported();
 
-    /**
+    /** {@collect.stats}
      * Retransform the supplied set of classes.
      *
      * <P>
@@ -257,7 +257,7 @@ public interface Instrumentation {
     void
     retransformClasses(Class<?>... classes) throws UnmodifiableClassException;
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the current JVM configuration supports redefinition
      * of classes.
      * The ability to redefine an already loaded class is an optional capability
@@ -276,7 +276,7 @@ public interface Instrumentation {
     boolean
     isRedefineClassesSupported();
 
-    /**
+    /** {@collect.stats}
      * Redefine the supplied set of classes using the supplied class files.
      *
      * <P>
@@ -346,7 +346,7 @@ public interface Instrumentation {
         throws  ClassNotFoundException, UnmodifiableClassException;
 
 
-    /**
+    /** {@collect.stats}
      * Determines whether a class is modifiable by
      * {@linkplain #retransformClasses retransformation}
      * or {@linkplain #redefineClasses redefinition}.
@@ -374,7 +374,7 @@ public interface Instrumentation {
     boolean
     isModifiableClass(Class<?> theClass);
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all classes currently loaded by the JVM.
      *
      * @return an array containing all the classes loaded by the JVM, zero-length if there are none
@@ -382,7 +382,7 @@ public interface Instrumentation {
     Class[]
     getAllLoadedClasses();
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all classes for which <code>loader</code> is an initiating loader.
      * If the supplied loader is <code>null</code>, classes initiated by the bootstrap class
      * loader are returned.
@@ -394,7 +394,7 @@ public interface Instrumentation {
     Class[]
     getInitiatedClasses(ClassLoader loader);
 
-    /**
+    /** {@collect.stats}
      * Returns an implementation-specific approximation of the amount of storage consumed by
      * the specified object. The result may include some or all of the object's overhead,
      * and thus is useful for comparison within an implementation but not between implementations.
@@ -409,7 +409,7 @@ public interface Instrumentation {
     getObjectSize(Object objectToSize);
 
 
-    /**
+    /** {@collect.stats}
      * Specifies a JAR file with instrumentation classes to be defined by the
      * bootstrap class loader.
      *
@@ -459,7 +459,7 @@ public interface Instrumentation {
     void
     appendToBootstrapClassLoaderSearch(JarFile jarfile);
 
-    /**
+    /** {@collect.stats}
      * Specifies a JAR file with instrumentation classes to be defined by the
      * system class loader.
      *
@@ -518,7 +518,7 @@ public interface Instrumentation {
     void
     appendToSystemClassLoaderSearch(JarFile jarfile);
 
-    /**
+    /** {@collect.stats}
      * Returns whether the current JVM configuration supports
      * {@linkplain #setNativeMethodPrefix(ClassFileTransformer,String)
      * setting a native method prefix}.
@@ -539,7 +539,7 @@ public interface Instrumentation {
     boolean
     isNativeMethodPrefixSupported();
 
-    /**
+    /** {@collect.stats}
      * This method modifies the failure handling of
      * native method resolution by allowing retry
      * with a prefix applied to the name.

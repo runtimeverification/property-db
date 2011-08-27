@@ -28,7 +28,7 @@ package java.awt.image;
 import java.awt.color.ColorSpace;
 import java.awt.color.ICC_ColorSpace;
 
-/**
+/** {@collect.stats}
  * A <CODE>ColorModel</CODE> class that works with pixel values that
  * represent color and alpha information as separate samples and that
  * store each sample in a separate data element.  This class can be
@@ -176,7 +176,7 @@ import java.awt.color.ICC_ColorSpace;
  */
 public class ComponentColorModel extends ColorModel {
 
-    /**
+    /** {@collect.stats}
      * <code>signed</code>  is <code>true</code> for <code>short</code>,
      * <code>float</code>, and <code>double</code> transfer types; it
      * is <code>false</code> for <code>byte</code>, <code>ushort</code>,
@@ -201,7 +201,7 @@ public class ComponentColorModel extends ColorModel {
     private float[] compOffset;
     private float[] compScale;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <CODE>ComponentColorModel</CODE> from the specified
      * parameters. Color components will be in the specified
      * <CODE>ColorSpace</CODE>.  The supported transfer types are
@@ -299,7 +299,7 @@ public class ComponentColorModel extends ColorModel {
         setupLUTs();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <CODE>ComponentColorModel</CODE> from the specified
      * parameters. Color components will be in the specified
      * <CODE>ColorSpace</CODE>.  The supported transfer types are
@@ -648,7 +648,7 @@ public class ComponentColorModel extends ColorModel {
         return (int) (rgb[idx] * 255.0f + 0.5f);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -670,7 +670,7 @@ public class ComponentColorModel extends ColorModel {
         return getRGBComponent(pixel, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -692,7 +692,7 @@ public class ComponentColorModel extends ColorModel {
         return getRGBComponent(pixel, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The pixel value is specified as an int.
@@ -714,7 +714,7 @@ public class ComponentColorModel extends ColorModel {
         return getRGBComponent(pixel, 2);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.   The pixel value is specified as an int.
      *
@@ -743,7 +743,7 @@ public class ComponentColorModel extends ColorModel {
         return (int) ((((float) pixel) / ((1<<nBits[0])-1)) * 255.0f + 0.5f);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color/alpha components of the pixel in the default
      * RGB color model format.  A color conversion is done if necessary.
      * The returned value will be in a non pre-multiplied format. If
@@ -910,7 +910,7 @@ public class ComponentColorModel extends ColorModel {
         return (int) (rgb[idx] * 255.0f + 0.5f);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  A color conversion
      * is done if necessary.  The <CODE>pixel</CODE> value is specified by an array
@@ -945,7 +945,7 @@ public class ComponentColorModel extends ColorModel {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <CODE>ColorSpace</CODE>, sRGB.
      * A color conversion is done if necessary.  The <CODE>pixel</CODE> value
@@ -980,7 +980,7 @@ public class ComponentColorModel extends ColorModel {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB <CODE>ColorSpace</CODE>, sRGB.
      * A color conversion is done if necessary.  The <CODE>pixel</CODE> value is
@@ -1014,7 +1014,7 @@ public class ComponentColorModel extends ColorModel {
         return getRGBComponent(inData, 2);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alpha component for the specified pixel, scaled from
      * 0 to 255.  The pixel value is specified by an array of data
      * elements of type <CODE>transferType</CODE> passed in as an
@@ -1090,7 +1090,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color/alpha components for the specified pixel in the
      * default RGB color model format.  A color conversion is done if
      * necessary.  The pixel value is specified by an
@@ -1148,7 +1148,7 @@ public class ComponentColorModel extends ColorModel {
             | (((int) (rgb[2] * 255.0f + 0.5f)) << 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a data element array representation of a pixel in this
      * <CODE>ColorModel</CODE>, given an integer pixel representation
      * in the default RGB color model.
@@ -1654,7 +1654,7 @@ public class ComponentColorModel extends ColorModel {
                  "implemented for transferType " + transferType);
     }
 
-   /** Returns an array of unnormalized color/alpha components given a pixel
+   /** {@collect.stats} Returns an array of unnormalized color/alpha components given a pixel
      * in this <CODE>ColorModel</CODE>.
      * An IllegalArgumentException is thrown if the component value for this
      * <CODE>ColorModel</CODE> is not conveniently representable in the
@@ -1699,7 +1699,7 @@ public class ComponentColorModel extends ColorModel {
         return components;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of unnormalized color/alpha components given a pixel
      * in this <CODE>ColorModel</CODE>.  The pixel value is specified by an
      * array of data elements of type <CODE>transferType</CODE> passed in as
@@ -1773,7 +1773,7 @@ public class ComponentColorModel extends ColorModel {
         return components;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all of the color/alpha components in unnormalized
      * form, given a normalized component array.  Unnormalized components
      * are unsigned integral values between 0 and 2<sup>n</sup> - 1, where
@@ -1828,7 +1828,7 @@ public class ComponentColorModel extends ColorModel {
                                                components, offset);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all of the color/alpha components in normalized
      * form, given an unnormalized component array.  Unnormalized components
      * are unsigned integral values between 0 and 2<sup>n</sup> - 1, where
@@ -1877,7 +1877,7 @@ public class ComponentColorModel extends ColorModel {
                                              normComponents, normOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a pixel value represented as an int in this <CODE>ColorModel</CODE>,
      * given an array of unnormalized color/alpha components.
      *
@@ -1908,7 +1908,7 @@ public class ComponentColorModel extends ColorModel {
                                            " elements in the pixel array.");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a data element array representation of a pixel in this
      * <CODE>ColorModel</CODE>, given an array of unnormalized color/alpha
      * components. This array can then be passed to the <CODE>setDataElements</CODE>
@@ -2014,7 +2014,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a pixel value represented as an <code>int</code> in this
      * <code>ColorModel</code>, given an array of normalized color/alpha
      * components.  This method will throw an
@@ -2074,7 +2074,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code>, given an array of normalized color/alpha
      * components.  This array can then be passed to the
@@ -2296,7 +2296,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all of the color/alpha components in normalized
      * form, given a pixel in this <code>ColorModel</code>.  The pixel
      * value is specified by an array of data elements of type transferType
@@ -2424,7 +2424,7 @@ public class ComponentColorModel extends ColorModel {
         return normComponents;
     }
 
-    /**
+    /** {@collect.stats}
      * Forces the raster data to match the state specified in the
      * <CODE>isAlphaPremultiplied</CODE> variable, assuming the data
      * is currently correctly described by this <CODE>ColorModel</CODE>.
@@ -2773,7 +2773,7 @@ public class ComponentColorModel extends ColorModel {
 
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if <CODE>raster</CODE> is compatible with this
       * <CODE>ColorModel</CODE>; false if it is not.
       *
@@ -2802,7 +2802,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>WritableRaster</CODE> with the specified width and height,
      * that  has a data layout (<CODE>SampleModel</CODE>) compatible with
      * this <CODE>ColorModel</CODE>.
@@ -2835,7 +2835,7 @@ public class ComponentColorModel extends ColorModel {
         return raster;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>SampleModel</CODE> with the specified width and height,
      * that  has a data layout compatible with this <CODE>ColorModel</CODE>.
      *
@@ -2867,7 +2867,7 @@ public class ComponentColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether or not the specified <CODE>SampleModel</CODE>
      * is compatible with this <CODE>ColorModel</CODE>.
      *
@@ -2896,7 +2896,7 @@ public class ComponentColorModel extends ColorModel {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <CODE>Raster</CODE> representing the alpha channel of an image,
      * extracted from the input <CODE>Raster</CODE>.
      * This method assumes that <CODE>Raster</CODE> objects associated with
@@ -2926,7 +2926,7 @@ public class ComponentColorModel extends ColorModel {
                                           band);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this color model with another for equality.
      *
      * @param obj The object to compare with this color model.

@@ -25,7 +25,7 @@
 package javax.swing;
 
 
-/**
+/** {@collect.stats}
  * A collection of constants generally used for positioning and orienting
  * components on the screen.
  *
@@ -34,7 +34,7 @@ package javax.swing;
  */
 public interface SwingConstants {
 
-        /**
+        /** {@collect.stats}
          * The central position in an area. Used for
          * both compass-direction constants (NORTH, etc.)
          * and box-orientation constants (TOP, etc.).
@@ -44,19 +44,19 @@ public interface SwingConstants {
         //
         // Box-orientation constant used to specify locations in a box.
         //
-        /**
+        /** {@collect.stats}
          * Box-orientation constant used to specify the top of a box.
          */
         public static final int TOP     = 1;
-        /**
+        /** {@collect.stats}
          * Box-orientation constant used to specify the left side of a box.
          */
         public static final int LEFT    = 2;
-        /**
+        /** {@collect.stats}
          * Box-orientation constant used to specify the bottom of a box.
          */
         public static final int BOTTOM  = 3;
-        /**
+        /** {@collect.stats}
          * Box-orientation constant used to specify the right side of a box.
          */
         public static final int RIGHT   = 4;
@@ -64,35 +64,35 @@ public interface SwingConstants {
         //
         // Compass-direction constants used to specify a position.
         //
-        /**
+        /** {@collect.stats}
          * Compass-direction North (up).
          */
         public static final int NORTH      = 1;
-        /**
+        /** {@collect.stats}
          * Compass-direction north-east (upper right).
          */
         public static final int NORTH_EAST = 2;
-        /**
+        /** {@collect.stats}
          * Compass-direction east (right).
          */
         public static final int EAST       = 3;
-        /**
+        /** {@collect.stats}
          * Compass-direction south-east (lower right).
          */
         public static final int SOUTH_EAST = 4;
-        /**
+        /** {@collect.stats}
          * Compass-direction south (down).
          */
         public static final int SOUTH      = 5;
-        /**
+        /** {@collect.stats}
          * Compass-direction south-west (lower left).
          */
         public static final int SOUTH_WEST = 6;
-        /**
+        /** {@collect.stats}
          * Compass-direction west (left).
          */
         public static final int WEST       = 7;
-        /**
+        /** {@collect.stats}
          * Compass-direction north west (upper left).
          */
         public static final int NORTH_WEST = 8;
@@ -102,9 +102,9 @@ public interface SwingConstants {
         // vertical orientation. For example, they are
         // used by scrollbars and sliders.
         //
-        /** Horizontal orientation. Used for scrollbars and sliders. */
+        /** {@collect.stats} Horizontal orientation. Used for scrollbars and sliders. */
         public static final int HORIZONTAL = 0;
-        /** Vertical orientation. Used for scrollbars and sliders. */
+        /** {@collect.stats} Vertical orientation. Used for scrollbars and sliders. */
         public static final int VERTICAL   = 1;
 
         //
@@ -112,24 +112,24 @@ public interface SwingConstants {
         // left-to-right oriented and some are right-to-left oriented.
         // This orientation is currently used by buttons and labels.
         //
-        /**
+        /** {@collect.stats}
          * Identifies the leading edge of text for use with left-to-right
          * and right-to-left languages. Used by buttons and labels.
          */
         public static final int LEADING  = 10;
-        /**
+        /** {@collect.stats}
          * Identifies the trailing edge of text for use with left-to-right
          * and right-to-left languages. Used by buttons and labels.
          */
         public static final int TRAILING = 11;
-        /**
+        /** {@collect.stats}
          * Identifies the next direction in a sequence.
          *
          * @since 1.4
          */
         public static final int NEXT = 12;
 
-        /**
+        /** {@collect.stats}
          * Identifies the previous direction in a sequence.
          *
          * @since 1.4

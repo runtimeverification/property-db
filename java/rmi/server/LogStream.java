@@ -27,7 +27,7 @@ package java.rmi.server;
 import java.io.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * <code>LogStream</code> provides a mechanism for logging errors that are
  * of possible interest to those monitoring a system.
  *
@@ -38,27 +38,27 @@ import java.util.*;
 @Deprecated
 public class LogStream extends PrintStream {
 
-    /** table mapping known log names to log stream objects */
+    /** {@collect.stats} table mapping known log names to log stream objects */
     private static Hashtable    known = new Hashtable(5);
-    /** default output stream for new logs */
+    /** {@collect.stats} default output stream for new logs */
     private static PrintStream  defaultStream = System.err;
 
-    /** log name for this log */
+    /** {@collect.stats} log name for this log */
     private String name;
 
-    /** stream where output of this log is sent to */
+    /** {@collect.stats} stream where output of this log is sent to */
     private OutputStream logOut;
 
-    /** string writer for writing message prefixes to log stream */
+    /** {@collect.stats} string writer for writing message prefixes to log stream */
     private OutputStreamWriter logWriter;
 
-    /** string buffer used for constructing log message prefixes */
+    /** {@collect.stats} string buffer used for constructing log message prefixes */
     private StringBuffer buffer = new StringBuffer();
 
-    /** stream used for buffering lines */
+    /** {@collect.stats} stream used for buffering lines */
     private ByteArrayOutputStream bufOut;
 
-    /**
+    /** {@collect.stats}
      * Create a new LogStream object.  Since this only constructor is
      * private, users must have a LogStream created through the "log"
      * method.
@@ -77,7 +77,7 @@ public class LogStream extends PrintStream {
         setOutputStream(out);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the LogStream identified by the given name.  If
      * a log corresponding to "name" does not exist, a log using
      * the default stream is created.
@@ -99,7 +99,7 @@ public class LogStream extends PrintStream {
         return stream;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the current default stream for new logs.
      * @return default log stream
      * @see #setDefaultStream
@@ -111,7 +111,7 @@ public class LogStream extends PrintStream {
         return defaultStream;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the default stream for new logs.
      * @param newDefault new default log stream
      * @see #getDefaultStream
@@ -123,7 +123,7 @@ public class LogStream extends PrintStream {
         defaultStream = newDefault;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the current stream to which output from this log is sent.
      * @return output stream for this log
      * @see #setOutputStream
@@ -136,7 +136,7 @@ public class LogStream extends PrintStream {
         return logOut;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the stream to which output from this log is sent.
      * @param out new output stream for this log
      * @see #getOutputStream
@@ -152,7 +152,7 @@ public class LogStream extends PrintStream {
         logWriter = new OutputStreamWriter(logOut);
     }
 
-    /**
+    /** {@collect.stats}
      * Write a byte of data to the stream.  If it is not a newline, then
      * the byte is appended to the internal buffer.  If it is a newline,
      * then the currently buffered line is sent to the log's output
@@ -199,7 +199,7 @@ public class LogStream extends PrintStream {
             super.write(b);
     }
 
-    /**
+    /** {@collect.stats}
      * Write a subarray of bytes.  Pass each through write byte method.
      * @since JDK1.1
      * @deprecated no replacement
@@ -213,7 +213,7 @@ public class LogStream extends PrintStream {
             write(b[off + i]);
     }
 
-    /**
+    /** {@collect.stats}
      * Return log name as string representation.
      * @return log name
      * @since JDK1.1
@@ -225,14 +225,14 @@ public class LogStream extends PrintStream {
         return name;
     }
 
-    /** log level constant (no logging). */
+    /** {@collect.stats} log level constant (no logging). */
     public static final int SILENT  = 0;
-    /** log level constant (brief logging). */
+    /** {@collect.stats} log level constant (brief logging). */
     public static final int BRIEF   = 10;
-    /** log level constant (verbose logging). */
+    /** {@collect.stats} log level constant (verbose logging). */
     public static final int VERBOSE = 20;
 
-    /**
+    /** {@collect.stats}
      * Convert a string name of a logging level to its internal
      * integer representation.
      * @param s name of logging level (e.g., 'SILENT', 'BRIEF', 'VERBOSE')

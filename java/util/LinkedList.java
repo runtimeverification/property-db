@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Linked list implementation of the <tt>List</tt> interface.  Implements all
  * optional list operations, and permits all elements (including
  * <tt>null</tt>).  In addition to implementing the <tt>List</tt> interface,
@@ -95,14 +95,14 @@ public class LinkedList<E>
     private transient Entry<E> header = new Entry<E>(null, null, null);
     private transient int size = 0;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty list.
      */
     public LinkedList() {
         header.next = header.previous = header;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a list containing the elements of the specified
      * collection, in the order they are returned by the collection's
      * iterator.
@@ -115,7 +115,7 @@ public class LinkedList<E>
         addAll(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first element in this list.
      *
      * @return the first element in this list
@@ -128,7 +128,7 @@ public class LinkedList<E>
         return header.next.element;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last element in this list.
      *
      * @return the last element in this list
@@ -141,7 +141,7 @@ public class LinkedList<E>
         return header.previous.element;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns the first element from this list.
      *
      * @return the first element from this list
@@ -151,7 +151,7 @@ public class LinkedList<E>
         return remove(header.next);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns the last element from this list.
      *
      * @return the last element from this list
@@ -161,7 +161,7 @@ public class LinkedList<E>
         return remove(header.previous);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the beginning of this list.
      *
      * @param e the element to add
@@ -170,7 +170,7 @@ public class LinkedList<E>
         addBefore(e, header.next);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified element to the end of this list.
      *
      * <p>This method is equivalent to {@link #add}.
@@ -181,7 +181,7 @@ public class LinkedList<E>
         addBefore(e, header);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this list contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
@@ -194,7 +194,7 @@ public class LinkedList<E>
         return indexOf(o) != -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this list.
      *
      * @return the number of elements in this list
@@ -203,7 +203,7 @@ public class LinkedList<E>
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified element to the end of this list.
      *
      * <p>This method is equivalent to {@link #addLast}.
@@ -216,7 +216,7 @@ public class LinkedList<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element from this list,
      * if it is present.  If this list does not contain the element, it is
      * unchanged.  More formally, removes the element with the lowest index
@@ -248,7 +248,7 @@ public class LinkedList<E>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the specified
      * collection's iterator.  The behavior of this operation is undefined if
@@ -264,7 +264,7 @@ public class LinkedList<E>
         return addAll(size, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts all of the elements in the specified collection into this
      * list, starting at the specified position.  Shifts the element
      * currently at that position (if any) and any subsequent elements to
@@ -302,7 +302,7 @@ public class LinkedList<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this list.
      */
     public void clear() {
@@ -321,7 +321,7 @@ public class LinkedList<E>
 
     // Positional Access Operations
 
-    /**
+    /** {@collect.stats}
      * Returns the element at the specified position in this list.
      *
      * @param index index of the element to return
@@ -332,7 +332,7 @@ public class LinkedList<E>
         return entry(index).element;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the element at the specified position in this list with the
      * specified element.
      *
@@ -348,7 +348,7 @@ public class LinkedList<E>
         return oldVal;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the specified position in this list.
      * Shifts the element currently at that position (if any) and any
      * subsequent elements to the right (adds one to their indices).
@@ -361,7 +361,7 @@ public class LinkedList<E>
         addBefore(element, (index==size ? header : entry(index)));
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the element at the specified position in this list.  Shifts any
      * subsequent elements to the left (subtracts one from their indices).
      * Returns the element that was removed from the list.
@@ -374,7 +374,7 @@ public class LinkedList<E>
         return remove(entry(index));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the indexed entry.
      */
     private Entry<E> entry(int index) {
@@ -395,7 +395,7 @@ public class LinkedList<E>
 
     // Search Operations
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the lowest index <tt>i</tt> such that
@@ -424,7 +424,7 @@ public class LinkedList<E>
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
      * More formally, returns the highest index <tt>i</tt> such that
@@ -455,7 +455,7 @@ public class LinkedList<E>
 
     // Queue operations.
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head (first element) of this list.
      * @return the head of this list, or <tt>null</tt> if this list is empty
      * @since 1.5
@@ -466,7 +466,7 @@ public class LinkedList<E>
         return getFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head (first element) of this list.
      * @return the head of this list
      * @throws NoSuchElementException if this list is empty
@@ -476,7 +476,7 @@ public class LinkedList<E>
         return getFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head (first element) of this list
      * @return the head of this list, or <tt>null</tt> if this list is empty
      * @since 1.5
@@ -487,7 +487,7 @@ public class LinkedList<E>
         return removeFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head (first element) of this list.
      *
      * @return the head of this list
@@ -498,7 +498,7 @@ public class LinkedList<E>
         return removeFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified element as the tail (last element) of this list.
      *
      * @param e the element to add
@@ -510,7 +510,7 @@ public class LinkedList<E>
     }
 
     // Deque operations
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this list.
      *
      * @param e the element to insert
@@ -522,7 +522,7 @@ public class LinkedList<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this list.
      *
      * @param e the element to insert
@@ -534,7 +534,7 @@ public class LinkedList<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the first element of this list,
      * or returns <tt>null</tt> if this list is empty.
      *
@@ -548,7 +548,7 @@ public class LinkedList<E>
         return getFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the last element of this list,
      * or returns <tt>null</tt> if this list is empty.
      *
@@ -562,7 +562,7 @@ public class LinkedList<E>
         return getLast();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the first element of this list,
      * or returns <tt>null</tt> if this list is empty.
      *
@@ -576,7 +576,7 @@ public class LinkedList<E>
         return removeFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the last element of this list,
      * or returns <tt>null</tt> if this list is empty.
      *
@@ -590,7 +590,7 @@ public class LinkedList<E>
         return removeLast();
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes an element onto the stack represented by this list.  In other
      * words, inserts the element at the front of this list.
      *
@@ -603,7 +603,7 @@ public class LinkedList<E>
         addFirst(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Pops an element from the stack represented by this list.  In other
      * words, removes and returns the first element of this list.
      *
@@ -618,7 +618,7 @@ public class LinkedList<E>
         return removeFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element in this
      * list (when traversing the list from head to tail).  If the list
      * does not contain the element, it is unchanged.
@@ -631,7 +631,7 @@ public class LinkedList<E>
         return remove(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the last occurrence of the specified element in this
      * list (when traversing the list from head to tail).  If the list
      * does not contain the element, it is unchanged.
@@ -659,7 +659,7 @@ public class LinkedList<E>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list-iterator of the elements in this list (in proper
      * sequence), starting at the specified position in the list.
      * Obeys the general contract of <tt>List.listIterator(int)</tt>.<p>
@@ -814,14 +814,14 @@ public class LinkedList<E>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public Iterator<E> descendingIterator() {
         return new DescendingIterator();
     }
 
-    /** Adapter to provide descending iterators via ListItr.previous */
+    /** {@collect.stats} Adapter to provide descending iterators via ListItr.previous */
     private class DescendingIterator implements Iterator {
         final ListItr itr = new ListItr(size());
         public boolean hasNext() {
@@ -835,7 +835,7 @@ public class LinkedList<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>LinkedList</tt>. (The elements
      * themselves are not cloned.)
      *
@@ -862,7 +862,7 @@ public class LinkedList<E>
         return clone;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this list
      * in proper sequence (from first to last element).
      *
@@ -884,7 +884,7 @@ public class LinkedList<E>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
      * the returned array is that of the specified array.  If the list fits
@@ -939,7 +939,7 @@ public class LinkedList<E>
 
     private static final long serialVersionUID = 876323262645176354L;
 
-    /**
+    /** {@collect.stats}
      * Save the state of this <tt>LinkedList</tt> instance to a stream (that
      * is, serialize it).
      *
@@ -960,7 +960,7 @@ public class LinkedList<E>
             s.writeObject(e.element);
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute this <tt>LinkedList</tt> instance from a stream (that is
      * deserialize it).
      */

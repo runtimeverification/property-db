@@ -28,7 +28,7 @@ import java.awt.Container;
 import javax.swing.plaf.ComponentUI;
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * <code>LayoutStyle</code> provides information about how to position
  * components.  This class is primarily useful for visual tools and
  * layout managers.  Most developers will not need to use this class.
@@ -40,7 +40,7 @@ import sun.awt.AppContext;
  * @since 1.6
  */
 public abstract class LayoutStyle {
-    /**
+    /** {@collect.stats}
      * Sets the shared instance of <code>LayoutStyle</code>.  Specifying
      * <code>null</code> results in using the <code>LayoutStyle</code> from
      * the current <code>LookAndFeel</code>.
@@ -59,7 +59,7 @@ public abstract class LayoutStyle {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shared instance of <code>LayoutStyle</code>.  If an instance
      * has not been specified in <code>setInstance</code>, this will return
      * the <code>LayoutStyle</code> from the current <code>LookAndFeel</code>.
@@ -80,7 +80,7 @@ public abstract class LayoutStyle {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>ComponentPlacement</code> is an enumeration of the
      * possible ways two components can be placed relative to each
      * other.  <code>ComponentPlacement</code> is used by the
@@ -92,7 +92,7 @@ public abstract class LayoutStyle {
      * @since 1.6
      */
     public enum ComponentPlacement {
-        /**
+        /** {@collect.stats}
          * Enumeration value indicating the two components are
          * visually related and will be placed in the same parent.
          * For example, a <code>JLabel</code> providing a label for a
@@ -102,7 +102,7 @@ public abstract class LayoutStyle {
          */
         RELATED,
 
-        /**
+        /** {@collect.stats}
          * Enumeration value indicating the two components are
          * visually unrelated and will be placed in the same parent.
          * For example, groupings of components are usually visually
@@ -110,7 +110,7 @@ public abstract class LayoutStyle {
          */
         UNRELATED,
 
-        /**
+        /** {@collect.stats}
          * Enumeration value indicating the distance to indent a component
          * is being requested.  For example, often times the children of
          * a label will be horizontally indented from the label.  To determine
@@ -124,7 +124,7 @@ public abstract class LayoutStyle {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>LayoutStyle</code>.  You generally don't
      * create a <code>LayoutStyle</code>.  Instead use the method
      * <code>getInstance</code> to obtain the current
@@ -133,7 +133,7 @@ public abstract class LayoutStyle {
     public LayoutStyle() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space to use between two components.
      * The return value indicates the distance to place
      * <code>component2</code> relative to <code>component1</code>.
@@ -191,7 +191,7 @@ public abstract class LayoutStyle {
                                         ComponentPlacement type, int position,
                                         Container parent);
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space to place between the component and specified
      * edge of its parent.
      *

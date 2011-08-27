@@ -29,7 +29,7 @@ import java.awt.Transparency;
 import java.awt.color.ColorSpace;
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * The <code>IndexColorModel</code> class is a <code>ColorModel</code>
  * class that works with pixel values consisting of a
  * single sample that is an index into a fixed colormap in the default
@@ -139,7 +139,7 @@ public class IndexColorModel extends ColorModel {
         ColorModel.loadLibraries();
         initIDs();
     }
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from the specified
      * arrays of red, green, and blue components.  Pixels described
      * by this color model all have alpha components of 255
@@ -176,7 +176,7 @@ public class IndexColorModel extends ColorModel {
         calculatePixelMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from the given arrays
      * of red, green, and blue components.  Pixels described by this color
      * model all have alpha components of 255 unnormalized
@@ -217,7 +217,7 @@ public class IndexColorModel extends ColorModel {
         calculatePixelMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from the given
      * arrays of red, green, blue and alpha components.  All of the
      * arrays specifying the components must have at least the specified
@@ -255,7 +255,7 @@ public class IndexColorModel extends ColorModel {
         calculatePixelMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from a single
      * array of interleaved red, green, blue and optional alpha
      * components.  The array must have enough values in it to
@@ -290,7 +290,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from a single array of
      * interleaved red, green, blue and optional alpha components.  The
      * specified transparent index represents a pixel that is made
@@ -369,7 +369,7 @@ public class IndexColorModel extends ColorModel {
         calculatePixelMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from an array of
      * ints where each int is comprised of red, green, blue, and
      * optional alpha components in the default RGB color model format.
@@ -430,7 +430,7 @@ public class IndexColorModel extends ColorModel {
         calculatePixelMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexColorModel</code> from an
      * <code>int</code> array where each <code>int</code> is
      * comprised of red, green, blue, and alpha
@@ -595,7 +595,7 @@ public class IndexColorModel extends ColorModel {
         return new BigInteger(1, valid);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the transparency.  Returns either OPAQUE, BITMASK,
      * or TRANSLUCENT
      * @return the transparency of this <code>IndexColorModel</code>
@@ -607,7 +607,7 @@ public class IndexColorModel extends ColorModel {
         return transparency;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the number of bits for each color/alpha component.
      * The array contains the color components in the order red, green,
      * blue, followed by the alpha component, if present.
@@ -628,7 +628,7 @@ public class IndexColorModel extends ColorModel {
         return nBits;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the color/alpha component arrays in this
      * <code>IndexColorModel</code>.
      * @return the size of the color and alpha component arrays.
@@ -637,7 +637,7 @@ public class IndexColorModel extends ColorModel {
         return map_size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of a transparent pixel in this
      * <code>IndexColorModel</code> or -1 if there is no pixel
      * with an alpha value of 0.  If a transparent pixel was
@@ -653,7 +653,7 @@ public class IndexColorModel extends ColorModel {
         return transparent_index;
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the array of red color components into the specified array.
      * Only the initial entries of the array as specified by
      * {@link #getMapSize() getMapSize} are written.
@@ -666,7 +666,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the array of green color components into the specified array.
      * Only the initial entries of the array as specified by
      * <code>getMapSize</code> are written.
@@ -679,7 +679,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the array of blue color components into the specified array.
      * Only the initial entries of the array as specified by
      * <code>getMapSize</code> are written.
@@ -692,7 +692,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the array of alpha transparency components into the
      * specified array.  Only the initial entries of the array as specified
      * by <code>getMapSize</code> are written.
@@ -705,7 +705,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts data for each index from the color and alpha component
      * arrays to an int in the default RGB ColorModel format and copies
      * the resulting 32-bit ARGB values into the specified array.  Only
@@ -746,7 +746,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called from the constructors to set the pixel_mask
      * value, which is based on the value of pixel_bits.  The pixel_mask
      * value is used to mask off the pixel parameters for methods such
@@ -764,7 +764,7 @@ public class IndexColorModel extends ColorModel {
         pixel_mask = (1 << maskbits) - 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the red color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  The pixel value
      * is specified as an int.
@@ -779,7 +779,7 @@ public class IndexColorModel extends ColorModel {
         return (rgb[pixel & pixel_mask] >> 16) & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the green color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  The pixel value
      * is specified as an int.
@@ -794,7 +794,7 @@ public class IndexColorModel extends ColorModel {
         return (rgb[pixel & pixel_mask] >> 8) & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the blue color component for the specified pixel, scaled
      * from 0 to 255 in the default RGB ColorSpace, sRGB.  The pixel value
      * is specified as an int.
@@ -809,7 +809,7 @@ public class IndexColorModel extends ColorModel {
         return rgb[pixel & pixel_mask] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alpha component for the specified pixel, scaled
      * from 0 to 255.  The pixel value is specified as an int.
      * Only the lower <em>n</em> bits of the pixel value, as specified in the
@@ -822,7 +822,7 @@ public class IndexColorModel extends ColorModel {
         return (rgb[pixel & pixel_mask] >> 24) & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color/alpha components of the pixel in the default
      * RGB color model format.  The pixel value is specified as an int.
      * Only the lower <em>n</em> bits of the pixel value, as specified in the
@@ -840,7 +840,7 @@ public class IndexColorModel extends ColorModel {
     private static final int CACHESIZE = 40;
     private int lookupcache[] = new int[CACHESIZE];
 
-    /**
+    /** {@collect.stats}
      * Returns a data element array representation of a pixel in this
      * ColorModel, given an integer pixel representation in the
      * default RGB color model.  This array can then be passed to the
@@ -1064,7 +1064,7 @@ public class IndexColorModel extends ColorModel {
         return pixel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of unnormalized color/alpha components for a
      * specified pixel in this <code>ColorModel</code>.  The pixel value
      * is specified as an int.  If the <code>components</code> array is <code>null</code>,
@@ -1105,7 +1105,7 @@ public class IndexColorModel extends ColorModel {
         return components;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of unnormalized color/alpha components for
      * a specified pixel in this <code>ColorModel</code>.  The pixel
      * value is specified by an array of data elements of type
@@ -1177,7 +1177,7 @@ public class IndexColorModel extends ColorModel {
         return getComponents(intpixel, components, offset);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a pixel value represented as an int in this
      * <code>ColorModel</code> given an array of unnormalized
      * color/alpha components.  An
@@ -1232,7 +1232,7 @@ public class IndexColorModel extends ColorModel {
         return pixel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a data element array representation of a pixel in this
      * <code>ColorModel</code> given an array of unnormalized color/alpha
      * components.  This array can then be passed to the
@@ -1286,7 +1286,7 @@ public class IndexColorModel extends ColorModel {
         return getDataElements(rgb, pixel);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>WritableRaster</code> with the specified width
      * and height that has a data layout (<code>SampleModel</code>)
      * compatible with this <code>ColorModel</code>.  This method
@@ -1329,7 +1329,7 @@ public class IndexColorModel extends ColorModel {
         return raster;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns <code>true</code> if <code>raster</code> is compatible
       * with this <code>ColorModel</code> or <code>false</code> if it
       * is not compatible with this <code>ColorModel</code>.
@@ -1345,7 +1345,7 @@ public class IndexColorModel extends ColorModel {
                 (raster.getNumBands() == 1) && ((1 << size) >= map_size));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SampleModel</code> with the specified
      * width and height that has a data layout compatible with
      * this <code>ColorModel</code>.
@@ -1370,7 +1370,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified <code>SampleModel</code> is compatible
      * with this <code>ColorModel</code>.  If <code>sm</code> is
      * <code>null</code>, this method returns <code>false</code>.
@@ -1400,7 +1400,7 @@ public class IndexColorModel extends ColorModel {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>BufferedImage</code> of TYPE_INT_ARGB or
      * TYPE_INT_RGB that has a <code>Raster</code> with pixel data
      * computed by expanding the indices in the source <code>Raster</code>
@@ -1466,7 +1466,7 @@ public class IndexColorModel extends ColorModel {
         return new BufferedImage(cm, discreteRaster, false, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the pixel is valid.
      * @param pixel the specified pixel value
      * @return <code>true</code> if <code>pixel</code>
@@ -1478,7 +1478,7 @@ public class IndexColorModel extends ColorModel {
                 (validBits == null || validBits.testBit(pixel)));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not all of the pixels are valid.
      * @return <code>true</code> if all pixels are valid;
      * <code>false</code> otherwise.
@@ -1488,7 +1488,7 @@ public class IndexColorModel extends ColorModel {
         return (validBits == null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>BigInteger</code> that indicates the valid/invalid
      * pixels in the colormap.  A bit is valid if the
      * <code>BigInteger</code> value at that index is set, and is invalid
@@ -1507,7 +1507,7 @@ public class IndexColorModel extends ColorModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Disposes of system resources associated with this
      * <code>ColorModel</code> once this <code>ColorModel</code> is no
      * longer referenced.
@@ -1515,7 +1515,7 @@ public class IndexColorModel extends ColorModel {
     public void finalize() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>String</code> representation of the contents of
      * this <code>ColorModel</code>object.
      * @return a <code>String</code> representing the contents of this

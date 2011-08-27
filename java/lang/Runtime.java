@@ -28,7 +28,7 @@ package java.lang;
 import java.io.*;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * Every Java application has a single instance of class
  * <code>Runtime</code> that allows the application to interface with
  * the environment in which the application is running. The current
@@ -44,7 +44,7 @@ import java.util.StringTokenizer;
 public class Runtime {
     private static Runtime currentRuntime = new Runtime();
 
-    /**
+    /** {@collect.stats}
      * Returns the runtime object associated with the current Java application.
      * Most of the methods of class <code>Runtime</code> are instance
      * methods and must be invoked with respect to the current runtime object.
@@ -56,10 +56,10 @@ public class Runtime {
         return currentRuntime;
     }
 
-    /** Don't let anyone else instantiate this class */
+    /** {@collect.stats} Don't let anyone else instantiate this class */
     private Runtime() {}
 
-    /**
+    /** {@collect.stats}
      * Terminates the currently running Java virtual machine by initiating its
      * shutdown sequence.  This method never returns normally.  The argument
      * serves as a status code; by convention, a nonzero status code indicates
@@ -107,7 +107,7 @@ public class Runtime {
         Shutdown.exit(status);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers a new virtual-machine shutdown hook.
      *
      * <p> The Java virtual machine <i>shuts down</i> in response to two kinds
@@ -209,7 +209,7 @@ public class Runtime {
         ApplicationShutdownHooks.add(hook);
     }
 
-    /**
+    /** {@collect.stats}
      * De-registers a previously-registered virtual-machine shutdown hook. <p>
      *
      * @param hook the hook to remove
@@ -237,7 +237,7 @@ public class Runtime {
         return ApplicationShutdownHooks.remove(hook);
     }
 
-    /**
+    /** {@collect.stats}
      * Forcibly terminates the currently running Java virtual machine.  This
      * method never returns normally.
      *
@@ -273,7 +273,7 @@ public class Runtime {
         Shutdown.halt(status);
     }
 
-    /**
+    /** {@collect.stats}
      * Enable or disable finalization on exit; doing so specifies that the
      * finalizers of all objects that have finalizers that have not yet been
      * automatically invoked are to be run before the Java runtime exits.
@@ -312,7 +312,7 @@ public class Runtime {
         Shutdown.setRunFinalizersOnExit(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the specified string command in a separate process.
      *
      * <p>This is a convenience method.  An invocation of the form
@@ -345,7 +345,7 @@ public class Runtime {
         return exec(command, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the specified string command in a separate process with the
      * specified environment.
      *
@@ -386,7 +386,7 @@ public class Runtime {
         return exec(command, envp, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the specified string command in a separate process with the
      * specified environment and working directory.
      *
@@ -448,7 +448,7 @@ public class Runtime {
         return exec(cmdarray, envp, dir);
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the specified command and arguments in a separate process.
      *
      * <p>This is a convenience method.  An invocation of the form
@@ -483,7 +483,7 @@ public class Runtime {
         return exec(cmdarray, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the specified command and arguments in a separate process
      * with the specified environment.
      *
@@ -527,7 +527,7 @@ public class Runtime {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Executes the specified command and arguments in a separate process with
      * the specified environment and working directory.
      *
@@ -613,7 +613,7 @@ public class Runtime {
             .start();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of processors available to the Java virtual machine.
      *
      * <p> This value may change during a particular invocation of the virtual
@@ -627,7 +627,7 @@ public class Runtime {
      */
     public native int availableProcessors();
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of free memory in the Java Virtual Machine.
      * Calling the
      * <code>gc</code> method may result in increasing the value returned
@@ -638,7 +638,7 @@ public class Runtime {
      */
     public native long freeMemory();
 
-    /**
+    /** {@collect.stats}
      * Returns the total amount of memory in the Java virtual machine.
      * The value returned by this method may vary over time, depending on
      * the host environment.
@@ -651,7 +651,7 @@ public class Runtime {
      */
     public native long totalMemory();
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum amount of memory that the Java virtual machine will
      * attempt to use.  If there is no inherent limit then the value {@link
      * java.lang.Long#MAX_VALUE} will be returned. </p>
@@ -662,7 +662,7 @@ public class Runtime {
      */
     public native long maxMemory();
 
-    /**
+    /** {@collect.stats}
      * Runs the garbage collector.
      * Calling this method suggests that the Java virtual machine expend
      * effort toward recycling unused objects in order to make the memory
@@ -683,7 +683,7 @@ public class Runtime {
     /* Wormhole for calling java.lang.ref.Finalizer.runFinalization */
     private static native void runFinalization0();
 
-    /**
+    /** {@collect.stats}
      * Runs the finalization methods of any objects pending finalization.
      * Calling this method suggests that the Java virtual machine expend
      * effort toward running the <code>finalize</code> methods of objects
@@ -705,7 +705,7 @@ public class Runtime {
         runFinalization0();
     }
 
-    /**
+    /** {@collect.stats}
      * Enables/Disables tracing of instructions.
      * If the <code>boolean</code> argument is <code>true</code>, this
      * method suggests that the Java virtual machine emit debugging
@@ -725,7 +725,7 @@ public class Runtime {
      */
     public native void traceInstructions(boolean on);
 
-    /**
+    /** {@collect.stats}
      * Enables/Disables tracing of method calls.
      * If the <code>boolean</code> argument is <code>true</code>, this
      * method suggests that the Java virtual machine emit debugging
@@ -743,7 +743,7 @@ public class Runtime {
      */
     public native void traceMethodCalls(boolean on);
 
-    /**
+    /** {@collect.stats}
      * Loads the specified filename as a dynamic library. The filename
      * argument must be a complete path name,
      * (for example
@@ -787,7 +787,7 @@ public class Runtime {
         ClassLoader.loadLibrary(fromClass, filename, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the dynamic library with the specified library name.
      * A file containing native code is loaded from the local file system
      * from a place where library files are conventionally obtained. The
@@ -840,7 +840,7 @@ public class Runtime {
         ClassLoader.loadLibrary(fromClass, libname, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a localized version of an input stream. This method takes
      * an <code>InputStream</code> and returns an <code>InputStream</code>
      * equivalent to the argument in all respects except that it is
@@ -866,7 +866,7 @@ public class Runtime {
         return in;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a localized version of an output stream. This method
      * takes an <code>OutputStream</code> and returns an
      * <code>OutputStream</code> equivalent to the argument in all respects

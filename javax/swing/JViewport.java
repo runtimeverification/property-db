@@ -40,7 +40,7 @@ import javax.accessibility.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * The "viewport" or "porthole" through which you see the underlying
  * information. When you scroll, what moves is the viewport. It is like
  * peering through a camera's viewfinder. Moving the viewfinder upwards
@@ -103,29 +103,29 @@ import java.io.Serializable;
  */
 public class JViewport extends JComponent implements Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "ViewportUI";
 
-    /** Property used to indicate window blitting should not be done.
+    /** {@collect.stats} Property used to indicate window blitting should not be done.
      */
     static final Object EnableWindowBlit = "EnableWindowBlit";
 
-    /**
+    /** {@collect.stats}
      * True when the viewport dimensions have been determined.
      * The default is false.
      */
     protected boolean isViewSizeSet = false;
 
-    /**
+    /** {@collect.stats}
      * The last <code>viewPosition</code> that we've painted, so we know how
      * much of the backing store image is valid.
      */
     protected Point lastPaintPosition = null;
 
-    /**
+    /** {@collect.stats}
      * True when this viewport is maintaining an offscreen image of its
      * contents, so that some scrolling can take place using fast "bit-blit"
      * operations instead of by accessing the view object to construct the
@@ -137,10 +137,10 @@ public class JViewport extends JComponent implements Accessible
     @Deprecated
     protected boolean backingStore = false;
 
-    /** The view image used for a backing store. */
+    /** {@collect.stats} The view image used for a backing store. */
     transient protected Image backingStoreImage = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>scrollUnderway</code> flag is used for components like
      * <code>JList</code>.  When the downarrow key is pressed on a
      * <code>JList</code> and the selected
@@ -170,7 +170,7 @@ public class JViewport extends JComponent implements Accessible
      */
     private transient ChangeEvent changeEvent = null;
 
-    /**
+    /** {@collect.stats}
       * Use <code>graphics.copyArea</code> to implement scrolling.
       * This is the fastest for most applications.
       *
@@ -179,7 +179,7 @@ public class JViewport extends JComponent implements Accessible
       */
     public static final int BLIT_SCROLL_MODE = 1;
 
-    /**
+    /** {@collect.stats}
       * Draws viewport contents into an offscreen image.
       * This was previously the default mode for <code>JTable</code>.
       * This mode may offer advantages over "blit mode"
@@ -190,7 +190,7 @@ public class JViewport extends JComponent implements Accessible
       */
     public static final int BACKINGSTORE_SCROLL_MODE = 2;
 
-    /**
+    /** {@collect.stats}
       * This mode uses the very simple method of redrawing the entire
       * contents of the scrollpane each time it is scrolled.
       * This was the default behavior in Swing 1.0 and Swing 1.1.
@@ -202,7 +202,7 @@ public class JViewport extends JComponent implements Accessible
       */
     public static final int SIMPLE_SCROLL_MODE = 0;
 
-    /**
+    /** {@collect.stats}
       * @see #setScrollMode
       * @since 1.3
       */
@@ -233,13 +233,13 @@ public class JViewport extends JComponent implements Accessible
     // better performance.
 
 
-    /**
+    /** {@collect.stats}
      * This is set to true in <code>setViewPosition</code>
      * if doing a window blit and the viewport is obscured.
      */
     private transient boolean repaintAll;
 
-    /**
+    /** {@collect.stats}
      * This is set to true in paint, if <code>repaintAll</code>
      * is true and the clip rectangle does not match the bounds.
      * If true, and scrolling happens the
@@ -248,23 +248,23 @@ public class JViewport extends JComponent implements Accessible
      */
     private transient boolean waitingForRepaint;
 
-    /**
+    /** {@collect.stats}
      * Instead of directly invoking repaint, a <code>Timer</code>
      * is started and when it fires, repaint is invoked.
      */
     private transient Timer repaintTimer;
 
-    /**
+    /** {@collect.stats}
      * Set to true in paintView when paint is invoked.
      */
     private transient boolean inBlitPaint;
 
-    /**
+    /** {@collect.stats}
      * Whether or not a valid view has been installed.
      */
     private boolean hasHadValidView;
 
-    /** Creates a <code>JViewport</code>. */
+    /** {@collect.stats} Creates a <code>JViewport</code>. */
     public JViewport() {
         super();
         setLayout(createLayoutManager());
@@ -275,7 +275,7 @@ public class JViewport extends JComponent implements Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return a <code>ViewportUI</code> object
@@ -286,7 +286,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the <code>ViewportUI</code> L&F object
@@ -303,7 +303,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -313,7 +313,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the L&F class
      * that renders this component.
      *
@@ -327,7 +327,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>JViewport</code>'s one lightweight child,
      * which can be <code>null</code>.
      * (Since there is only one child which occupies the entire viewport,
@@ -344,7 +344,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>Viewport</code>s one lightweight child.
      *
      * @see #setView
@@ -355,7 +355,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Scrolls the view so that <code>Rectangle</code>
      * within the view becomes visible.
      * <p>
@@ -457,7 +457,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Ascends the <code>Viewport</code>'s parents stopping when
      * a component is found that returns
      * <code>true</code> to <code>isValidateRoot</code>.
@@ -576,7 +576,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * The viewport "scrolls" its child (called the "view") by the
      * normal parent/child clipping (typically the view is moved in
      * the opposite direction of the scroll).  A non-<code>null</code> border,
@@ -598,7 +598,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the insets (border) dimensions as (0,0,0,0), since borders
      * are not supported on a <code>JViewport</code>.
      *
@@ -609,7 +609,7 @@ public class JViewport extends JComponent implements Accessible
         return new Insets(0, 0, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Insets</code> object containing this
      * <code>JViewport</code>s inset values.  The passed-in
      * <code>Insets</code> object will be reinitialized, and
@@ -657,7 +657,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>JViewport</code> overrides the default implementation of
      * this method (in <code>JComponent</code>) to return false.
      * This ensures
@@ -672,7 +672,7 @@ public class JViewport extends JComponent implements Accessible
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if scroll mode is a BACKINGSTORE_SCROLL_MODE to cause
      * painting to originate from <code>JViewport</code>, or one of its
      * ancestors. Otherwise returns false.
@@ -688,7 +688,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Only used by the paint method below.
      */
     private Point getViewLocation() {
@@ -701,7 +701,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Depending on whether the <code>backingStore</code> is enabled,
      * either paint the image through the backing store or paint
      * just the recently exposed part, using the backing store
@@ -852,7 +852,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the bounds of this viewport.  If the viewport's width
      * or height has changed, fire a <code>StateChanged</code> event.
      *
@@ -875,7 +875,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
       * Used to control the method of scrolling the viewport contents.
       * You may want to change this mode to get maximum performance for your
       * use case.
@@ -909,7 +909,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the current scrolling mode.
       *
       * @return the <code>scrollMode</code> property
@@ -920,7 +920,7 @@ public class JViewport extends JComponent implements Accessible
         return scrollMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this viewport is maintaining
      * an offscreen image of its contents.
      *
@@ -936,7 +936,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * If true if this viewport will maintain an offscreen
      * image of its contents.  The image is used to reduce the cost
      * of small one dimensional changes to the <code>viewPosition</code>.
@@ -964,7 +964,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JViewport</code>'s one child or <code>null</code>.
      *
      * @return the viewports child, or <code>null</code> if none exists
@@ -975,7 +975,7 @@ public class JViewport extends JComponent implements Accessible
         return (getComponentCount() > 0) ? getComponent(0) : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>JViewport</code>'s one lightweight child
      * (<code>view</code>), which can be <code>null</code>.
      *
@@ -1015,7 +1015,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the view's size hasn't been explicitly set, return the
      * preferred size, otherwise return the view's current size.
      * If there is no view, return 0,0.
@@ -1037,7 +1037,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  A state changed event will be fired.
      *
      * @param newSize a <code>Dimension</code> object specifying the new
@@ -1059,7 +1059,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the view coordinates that appear in the upper left
      * hand corner of the viewport, or 0,0 if there's no view.
      *
@@ -1079,7 +1079,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the view coordinates that appear in the upper left
      * hand corner of the viewport, does nothing if there's no view.
      *
@@ -1159,7 +1159,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle whose origin is <code>getViewPosition</code>
      * and size is <code>getExtentSize</code>.
      * This is the visible part of the view, in view coordinates.
@@ -1172,7 +1172,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Computes the parameters for a blit where the backing store image
      * currently contains <code>oldLoc</code> in the upper left hand corner
      * and we're scrolling to <code>newLoc</code>.
@@ -1252,7 +1252,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the visible part of the view in view coordinates.
      *
      * @return a <code>Dimension</code> object giving the size of the view
@@ -1262,7 +1262,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Converts a size in pixel coordinates to view coordinates.
      * Subclasses of viewport that support "logical coordinates"
      * will override this method.
@@ -1274,7 +1274,7 @@ public class JViewport extends JComponent implements Accessible
         return new Dimension(size);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a point in pixel coordinates to view coordinates.
      * Subclasses of viewport that support "logical coordinates"
      * will override this method.
@@ -1287,7 +1287,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the visible part of the view using view coordinates.
      *
      * @param newExtent  a <code>Dimension</code> object specifying
@@ -1301,7 +1301,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A listener for the view.
      * <p>
      * <strong>Warning:</strong>
@@ -1321,7 +1321,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a listener for the view.
      * @return a <code>ViewListener</code>
      */
@@ -1330,7 +1330,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Subclassers can override this to install a different
      * layout manager (or <code>null</code>) in the constructor.  Returns
      * the <code>LayoutManager</code> to install on the <code>JViewport</code>.
@@ -1342,7 +1342,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to the list that is
      * notified each time the view's
      * size, position, or the viewport's extent size has changed.
@@ -1357,7 +1357,7 @@ public class JViewport extends JComponent implements Accessible
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the list that's notified each
      * time the views size, position, or the viewports extent size
      * has changed.
@@ -1369,7 +1369,7 @@ public class JViewport extends JComponent implements Accessible
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this JViewport with addChangeListener().
      *
@@ -1382,7 +1382,7 @@ public class JViewport extends JComponent implements Accessible
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all <code>ChangeListeners</code> when the views
      * size, position, or the viewports extent size has changed.
      *
@@ -1403,7 +1403,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Always repaint in the parents coordinate system to make sure
      * only one paint is performed by the <code>RepaintManager</code>.
      *
@@ -1423,7 +1423,7 @@ public class JViewport extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JViewport</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -1451,7 +1451,7 @@ public class JViewport extends JComponent implements Accessible
     // Following is used when doBlit is true.
     //
 
-    /**
+    /** {@collect.stats}
      * Notifies listeners of a property change. This is subclassed to update
      * the <code>windowBlit</code> property.
      * (The <code>putClientProperty</code> property is final).
@@ -1472,7 +1472,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the component needs to be completely repainted after
      * a blit and a paint is received.
      */
@@ -1517,7 +1517,7 @@ public class JViewport extends JComponent implements Accessible
         return timer;
     }
 
-    /**
+    /** {@collect.stats}
      * If the repaint manager has a dirty region for the view, the view is
      * asked to paint.
      *
@@ -1542,7 +1542,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Used when blitting.
      *
      * @param g  the <code>Graphics</code> context within which to paint
@@ -1630,7 +1630,7 @@ public class JViewport extends JComponent implements Accessible
         g.translate(-x, -y);
     }
 
-    /**
+    /** {@collect.stats}
      * Called to paint the view, usually when <code>blitPaint</code>
      * can not blit.
      *
@@ -1663,7 +1663,7 @@ public class JViewport extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the viewport is not obscured by one of its ancestors,
      * or its ancestors children and if the viewport is showing. Blitting
      * when the view isn't showing will work,
@@ -1745,7 +1745,7 @@ public class JViewport extends JComponent implements Accessible
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JViewport.
      * For viewports, the AccessibleContext takes the form of an
      * AccessibleJViewport.
@@ -1761,7 +1761,7 @@ public class JViewport extends JComponent implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JViewport</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to viewport user-interface elements.
@@ -1776,7 +1776,7 @@ public class JViewport extends JComponent implements Accessible
      * Please see {@link java.beans.XMLEncoder}.
      */
     protected class AccessibleJViewport extends AccessibleJComponent {
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of

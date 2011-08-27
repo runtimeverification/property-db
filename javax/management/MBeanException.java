@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Represents "user defined" exceptions thrown by MBean methods
  * in the agent. It "wraps" the actual "user defined" exception thrown.
  * This exception will be built by the MBeanServer when a call to an
@@ -40,13 +40,13 @@ public class MBeanException extends JMException   {
     /* Serial version */
     private static final long serialVersionUID = 4066342430588744142L;
 
-    /**
+    /** {@collect.stats}
      * @serial Encapsulated {@link Exception}
      */
     private java.lang.Exception exception ;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <CODE>MBeanException</CODE> that wraps the actual <CODE>java.lang.Exception</CODE>.
      *
      * @param e the wrapped exception.
@@ -56,7 +56,7 @@ public class MBeanException extends JMException   {
         exception = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <CODE>MBeanException</CODE> that wraps the actual <CODE>java.lang.Exception</CODE> with
      * a detail message.
      *
@@ -69,7 +69,7 @@ public class MBeanException extends JMException   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the actual {@link Exception} thrown.
      *
      * @return the wrapped exception.
@@ -78,7 +78,7 @@ public class MBeanException extends JMException   {
         return exception;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the actual {@link Exception} thrown.
      *
      * @return the wrapped exception.

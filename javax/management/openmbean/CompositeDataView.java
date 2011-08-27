@@ -25,7 +25,7 @@
 
 package javax.management.openmbean;
 
-/**
+/** {@collect.stats}
  * <p>A Java class can implement this interface to indicate how it is
  * to be converted into a {@code CompositeData} by the MXBean framework.</p>
  *
@@ -107,7 +107,7 @@ package javax.management.openmbean;
  * @since 1.6
  */
 public interface CompositeDataView {
-    /**
+    /** {@collect.stats}
      * <p>Return a {@code CompositeData} corresponding to the values in
      * this object.  The returned value should usually be an instance of
      * {@link CompositeDataSupport}, or a class that serializes as a

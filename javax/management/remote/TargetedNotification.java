@@ -29,7 +29,7 @@ package javax.management.remote;
 import java.io.Serializable;
 import javax.management.Notification;
 
-/**
+/** {@collect.stats}
  * <p>A (Notification, Listener ID) pair.</p>
  * <p>This class is used to associate an emitted notification
  *    with the listener ID to which it is targeted.</p>
@@ -41,7 +41,7 @@ public class TargetedNotification implements Serializable {
     private static final long serialVersionUID = 7676132089779300926L;
 
 // If we replace Integer with int...
-//     /**
+//     /** {@collect.stats}
 //      * <p>Constructs a <code>TargetedNotification</code> object.  The
 //      * object contains a pair (Notification, Listener ID).
 //      * The Listener ID identifies the client listener to which that
@@ -58,7 +58,7 @@ public class TargetedNotification implements Serializable {
 //      this.id = listenerID;
 //     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>TargetedNotification</code> object.  The
      * object contains a pair (Notification, Listener ID).
      * The Listener ID identifies the client listener to which that
@@ -83,7 +83,7 @@ public class TargetedNotification implements Serializable {
         this.id = listenerID;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The emitted notification.</p>
      *
      * @return The notification.
@@ -92,7 +92,7 @@ public class TargetedNotification implements Serializable {
         return notif;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The ID of the listener to which the notification is
      *    targeted.</p>
      *
@@ -102,7 +102,7 @@ public class TargetedNotification implements Serializable {
         return id;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a textual representation of this Targeted Notification.
      *
      * @return a String representation of this Targeted Notification.
@@ -111,12 +111,12 @@ public class TargetedNotification implements Serializable {
         return "{" + notif + ", " + id + "}";
     }
 
-    /**
+    /** {@collect.stats}
      * @serial A notification to transmit to the other side.
      * @see #getNotification()
      **/
     private final Notification notif;
-    /**
+    /** {@collect.stats}
      * @serial The ID of the listener to which the notification is
      *         targeted.
      * @see #getListenerID()

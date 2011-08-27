@@ -34,7 +34,7 @@ import javax.swing.plaf.basic.*;
 import sun.swing.DefaultLookup;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's OptionPaneUI.
  *
  * @author James Gosling
@@ -45,7 +45,7 @@ class SynthOptionPaneUI extends BasicOptionPaneUI implements
                                 PropertyChangeListener, SynthUI {
     private SynthStyle style;
 
-    /**
+    /** {@collect.stats}
       * Creates a new BasicOptionPaneUI instance.
       */
     public static ComponentUI createUI(JComponent x) {
@@ -161,7 +161,7 @@ class SynthOptionPaneUI extends BasicOptionPaneUI implements
                                         "OptionPane.sameSizeButtons", true);
     }
 
-    /**
+    /** {@collect.stats}
      * Messaged from installComponents to create a Container containing the
      * body of the message. The icon is the created by calling
      * <code>addIcon</code>.

@@ -37,7 +37,7 @@ import java.beans.PropertyChangeEvent;
 
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Basis of a look and feel for a JTextField in the Synth
  * look and feel.
  * <p>
@@ -58,7 +58,7 @@ class SynthTextFieldUI
 {
     private SynthStyle style;
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JTextField.
      *
      * @param c the text field
@@ -177,7 +177,7 @@ class SynthTextFieldUI
         context.dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the interface.  This is routed to the
      * paintSafely method under the guarantee that
      * the model won't change from the view of this thread
@@ -203,7 +203,7 @@ class SynthTextFieldUI
         // Overriden to do nothing, all our painting is done from update/paint.
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the

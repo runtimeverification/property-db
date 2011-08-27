@@ -40,7 +40,7 @@
 
 package java.text;
 
-/**
+/** {@collect.stats}
  * <code>StringCharacterIterator</code> implements the
  * <code>CharacterIterator</code> protocol for a <code>String</code>.
  * The <code>StringCharacterIterator</code> class iterates over the
@@ -57,7 +57,7 @@ public final class StringCharacterIterator implements CharacterIterator
     // invariant: begin <= pos <= end
     private int pos;
 
-    /**
+    /** {@collect.stats}
      * Constructs an iterator with an initial index of 0.
      */
     public StringCharacterIterator(String text)
@@ -65,7 +65,7 @@ public final class StringCharacterIterator implements CharacterIterator
         this(text, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an iterator with the specified initial index.
      *
      * @param  text   The String to be iterated over
@@ -76,7 +76,7 @@ public final class StringCharacterIterator implements CharacterIterator
     this(text, 0, text.length(), pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an iterator over the given range of the given string, with the
      * index set at the specified position.
      *
@@ -101,7 +101,7 @@ public final class StringCharacterIterator implements CharacterIterator
         this.pos = pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Reset this iterator to point to a new string.  This package-visible
      * method is used by other java.text classes that want to avoid allocating
      * new StringCharacterIterator objects every time their setText method
@@ -119,7 +119,7 @@ public final class StringCharacterIterator implements CharacterIterator
         this.pos = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.first() for String.
      * @see CharacterIterator#first
      */
@@ -129,7 +129,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.last() for String.
      * @see CharacterIterator#last
      */
@@ -143,7 +143,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return current();
      }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.setIndex() for String.
      * @see CharacterIterator#setIndex
      */
@@ -155,7 +155,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.current() for String.
      * @see CharacterIterator#current
      */
@@ -169,7 +169,7 @@ public final class StringCharacterIterator implements CharacterIterator
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.next() for String.
      * @see CharacterIterator#next
      */
@@ -185,7 +185,7 @@ public final class StringCharacterIterator implements CharacterIterator
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.previous() for String.
      * @see CharacterIterator#previous
      */
@@ -200,7 +200,7 @@ public final class StringCharacterIterator implements CharacterIterator
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.getBeginIndex() for String.
      * @see CharacterIterator#getBeginIndex
      */
@@ -209,7 +209,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return begin;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.getEndIndex() for String.
      * @see CharacterIterator#getEndIndex
      */
@@ -218,7 +218,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return end;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements CharacterIterator.getIndex() for String.
      * @see CharacterIterator#getIndex
      */
@@ -227,7 +227,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the equality of two StringCharacterIterator objects.
      * @param obj the StringCharacterIterator object to be compared with.
      * @return true if the given obj is the same as this
@@ -251,7 +251,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Computes a hashcode for this iterator.
      * @return A hash code
      */
@@ -260,7 +260,7 @@ public final class StringCharacterIterator implements CharacterIterator
         return text.hashCode() ^ pos ^ begin ^ end;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of this iterator.
      * @return A copy of this
      */

@@ -34,7 +34,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class is used to restrict the usage of the Kerberos
  * delegation model, ie: forwardable and proxiable tickets.
  * <p>
@@ -70,7 +70,7 @@ public final class DelegationPermission extends BasicPermission
 
     private transient String subordinate, service;
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>DelegationPermission</code>
      * with the specified subordinate and target principals.
      *
@@ -86,7 +86,7 @@ public final class DelegationPermission extends BasicPermission
         init(principals);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>DelegationPermission</code>
      * with the specified subordinate and target principals.
      * <p>
@@ -104,7 +104,7 @@ public final class DelegationPermission extends BasicPermission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initialize the DelegationPermission object.
      */
     private void init(String target) {
@@ -130,7 +130,7 @@ public final class DelegationPermission extends BasicPermission
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if this Kerberos delegation permission object "implies" the
      * specified permission.
      * <P>
@@ -153,7 +153,7 @@ public final class DelegationPermission extends BasicPermission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Checks two DelegationPermission objects for equality.
      * <P>
      * @param obj the object to test for equality with this object.
@@ -173,7 +173,7 @@ public final class DelegationPermission extends BasicPermission
         return implies(that);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -184,7 +184,7 @@ public final class DelegationPermission extends BasicPermission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a PermissionCollection object for storing
      * DelegationPermission objects.
      * <br>
@@ -201,7 +201,7 @@ public final class DelegationPermission extends BasicPermission
         return new KrbDelegationPermissionCollection();
     }
 
-    /**
+    /** {@collect.stats}
      * WriteObject is called to save the state of the DelegationPermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
@@ -212,7 +212,7 @@ public final class DelegationPermission extends BasicPermission
         s.defaultWriteObject();
     }
 
-    /**
+    /** {@collect.stats}
      * readObject is called to restore the state of the
      * DelegationPermission from a stream.
      */
@@ -274,7 +274,7 @@ final class KrbDelegationPermissionCollection extends PermissionCollection
     }
 
 
-    /**
+    /** {@collect.stats}
      * Check and see if this collection of permissions implies the permissions
      * expressed in "permission".
      *
@@ -298,7 +298,7 @@ final class KrbDelegationPermissionCollection extends PermissionCollection
 
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the DelegationPermissions. The key for
      * the hash is the name.
      *
@@ -323,7 +323,7 @@ final class KrbDelegationPermissionCollection extends PermissionCollection
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the DelegationPermission objects
      * in the container.
      *
@@ -342,7 +342,7 @@ final class KrbDelegationPermissionCollection extends PermissionCollection
     // Need to maintain serialization interoperability with earlier releases,
     // which had the serializable field:
     //    private Vector permissions;
-    /**
+    /** {@collect.stats}
      * @serialField permissions java.util.Vector
      *     A list of DelegationPermission objects.
      */
@@ -350,7 +350,7 @@ final class KrbDelegationPermissionCollection extends PermissionCollection
         new ObjectStreamField("permissions", Vector.class),
     };
 
-    /**
+    /** {@collect.stats}
      * @serialData "permissions" field (a Vector containing the DelegationPermissions).
      */
     /*

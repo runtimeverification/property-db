@@ -23,7 +23,7 @@
  * questions.
  */
 
-/**********************************************************************
+/** {@collect.stats}********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -46,7 +46,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.Point2D;
 import java.awt.RenderingHints;
 
-/**
+/** {@collect.stats}
  * This class performs a pixel-by-pixel color conversion of the data in
  * the source image.  The resulting color values are scaled to the precision
  * of the destination image.  Color conversion can be specified
@@ -84,7 +84,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ColorConvertOp which will convert
      * from a source color space to a destination color space.
      * The RenderingHints argument may be null.
@@ -101,7 +101,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         this.hints  = hints;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ColorConvertOp from a ColorSpace object.
      * The RenderingHints argument may be null.  This
      * Op can be used only with BufferedImages, and is primarily useful
@@ -135,7 +135,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ColorConvertOp from two ColorSpace objects.
      * The RenderingHints argument may be null.
      * This Op is primarily useful for calling the filter method on
@@ -176,7 +176,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
     }
 
 
-     /**
+     /** {@collect.stats}
      * Constructs a new ColorConvertOp from an array of ICC_Profiles.
      * The RenderingHints argument may be null.
      * The sequence of profiles may include profiles that represent color
@@ -217,7 +217,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the array of ICC_Profiles used to construct this ColorConvertOp.
      * Returns null if the ColorConvertOp was not constructed from such an
      * array.
@@ -237,7 +237,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * ColorConverts the source BufferedImage.
      * If the destination image is null,
      * a BufferedImage will be created with an appropriate ColorModel.
@@ -447,7 +447,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         thisDestProfile = destProfile;
     }
 
-    /**
+    /** {@collect.stats}
      * ColorConverts the image data in the source Raster.
      * If the destination Raster is null, a new Raster will be created.
      * The number of bands in the source and destination Rasters must
@@ -575,7 +575,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         return dest;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the destination, given this source.
      * Note that this will be the same as the the bounding box of the
      * source.
@@ -587,7 +587,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         return getBounds2D(src.getRaster());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the destination, given this source.
      * Note that this will be the same as the the bounding box of the
      * source.
@@ -602,7 +602,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         return src.getBounds();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination image with the correct size and number of
      * bands, given this source.
      * @param src       Source image for the filter operation.
@@ -666,7 +666,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination Raster with the correct size and number of
      * bands, given this source.
      * @param src the specified <code>Raster</code>
@@ -705,7 +705,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
         return dest;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the destination point given a
      * point in the source.  If <code>dstPt</code> is non-null,
      * it will be used to hold the return value.  Note that
@@ -726,7 +726,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the RenderingIntent from the specified ICC Profile.
      */
     private int getRenderingIntent (ICC_Profile profile) {
@@ -738,7 +738,7 @@ public class ColorConvertOp implements BufferedImageOp, RasterOp {
                  (header[index+3] & 0xff));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints used by this op.
      * @return the <code>RenderingHints</code> object of this
      *         <code>ColorConvertOp</code>

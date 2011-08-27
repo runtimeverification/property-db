@@ -27,7 +27,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Interface Attribute is the base interface implemented by any and every
  * printing attribute class to indicate that the class represents a
  * printing attribute. All printing attributes are serializable.
@@ -38,7 +38,7 @@ import java.io.Serializable;
  */
 public interface Attribute extends Serializable {
 
-  /**
+  /** {@collect.stats}
    * Get the printing attribute class which is to be used as the "category"
    * for this printing attribute value when it is added to an attribute set.
    *
@@ -47,7 +47,7 @@ public interface Attribute extends Serializable {
    */
   public Class<? extends Attribute> getCategory();
 
-  /**
+  /** {@collect.stats}
    * Get the name of the category of which this attribute value is an
    * instance.
    * <P>

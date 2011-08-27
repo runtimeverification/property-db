@@ -25,7 +25,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * This class is the base interface for providing
  * algorithm-specific information to a KeyManagerFactory or
  * TrustManagerFactory.

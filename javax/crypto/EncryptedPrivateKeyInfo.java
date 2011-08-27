@@ -33,7 +33,7 @@ import sun.security.util.DerValue;
 import sun.security.util.DerInputStream;
 import sun.security.util.DerOutputStream;
 
-/**
+/** {@collect.stats}
  * This class implements the <code>EncryptedPrivateKeyInfo</code> type
  * as defined in PKCS #8.
  * <p>Its ASN.1 definition is as follows:
@@ -66,7 +66,7 @@ public class EncryptedPrivateKeyInfo {
     // the ASN.1 encoded contents of this class
     private byte[] encoded = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs (i.e., parses) an <code>EncryptedPrivateKeyInfo</code> from
      * its ASN.1 encoding.
      * @param encoded the ASN.1 encoding of this object. The contents of
@@ -103,7 +103,7 @@ public class EncryptedPrivateKeyInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>EncryptedPrivateKeyInfo</code> from the
      * encryption algorithm name and the encrypted data.
      *
@@ -150,7 +150,7 @@ public class EncryptedPrivateKeyInfo {
         this.encoded = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>EncryptedPrivateKeyInfo</code> from the
      * encryption algorithm parameters and the encrypted data.
      *
@@ -192,7 +192,7 @@ public class EncryptedPrivateKeyInfo {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the encryption algorithm.
      * <p>Note: Standard name is returned instead of the specified one
      * in the constructor when such mapping is available.
@@ -208,7 +208,7 @@ public class EncryptedPrivateKeyInfo {
         return this.algid.getName();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm parameters used by the encryption algorithm.
      * @return the algorithm parameters.
      */
@@ -216,7 +216,7 @@ public class EncryptedPrivateKeyInfo {
         return this.algid.getParameters();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the encrypted data.
      * @return the encrypted data. Returns a new array
      * each time this method is called.
@@ -225,7 +225,7 @@ public class EncryptedPrivateKeyInfo {
         return (byte[])this.encryptedData.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Extract the enclosed PKCS8EncodedKeySpec object from the
      * encrypted data and return it.
      * <br>Note: In order to successfully retrieve the enclosed
@@ -303,7 +303,7 @@ public class EncryptedPrivateKeyInfo {
         return new PKCS8EncodedKeySpec(encoded);
     }
 
-    /**
+    /** {@collect.stats}
      * Extract the enclosed PKCS8EncodedKeySpec object from the
      * encrypted data and return it.
      * @param decryptKey key used for decrypting the encrypted data.
@@ -326,7 +326,7 @@ public class EncryptedPrivateKeyInfo {
         return getKeySpecImpl(decryptKey, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Extract the enclosed PKCS8EncodedKeySpec object from the
      * encrypted data and return it.
      * @param decryptKey key used for decrypting the encrypted data.
@@ -362,7 +362,7 @@ public class EncryptedPrivateKeyInfo {
         return getKeySpecImpl(decryptKey, provider);
     }
 
-    /**
+    /** {@collect.stats}
      * Extract the enclosed PKCS8EncodedKeySpec object from the
      * encrypted data and return it.
      * @param decryptKey key used for decrypting the encrypted data.
@@ -391,7 +391,7 @@ public class EncryptedPrivateKeyInfo {
         return getKeySpecImpl(decryptKey, provider);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ASN.1 encoding of this object.
      * @return the ASN.1 encoding. Returns a new array
      * each time this method is called.

@@ -31,7 +31,7 @@ import java.awt.Rectangle;
 import java.lang.Character.Subset;
 
 
-/**
+/** {@collect.stats}
  * Defines the interface for an input method that supports complex text input.
  * Input methods traditionally support text input for languages that have
  * more characters than can be represented on a standard-size keyboard,
@@ -50,7 +50,7 @@ import java.lang.Character.Subset;
 
 public interface InputMethod {
 
-    /**
+    /** {@collect.stats}
      * Sets the input method context, which is used to dispatch input method
      * events to the client component and to request information from
      * the client component.
@@ -63,7 +63,7 @@ public interface InputMethod {
      */
     public void setInputMethodContext(InputMethodContext context);
 
-    /**
+    /** {@collect.stats}
      * Attempts to set the input locale. If the input method supports the
      * desired locale, it changes its behavior to support input for the locale
      * and returns true.
@@ -84,7 +84,7 @@ public interface InputMethod {
      */
     public boolean setLocale(Locale locale);
 
-    /**
+    /** {@collect.stats}
      * Returns the current input locale. Might return null in exceptional cases.
      * <p>
      * This method is called
@@ -98,7 +98,7 @@ public interface InputMethod {
      */
     public Locale getLocale();
 
-    /**
+    /** {@collect.stats}
      * Sets the subsets of the Unicode character set that this input method
      * is allowed to input. Null may be passed in to indicate that all
      * characters are allowed.
@@ -115,7 +115,7 @@ public interface InputMethod {
      */
     public void setCharacterSubsets(Subset[] subsets);
 
-    /**
+    /** {@collect.stats}
      * Enables or disables this input method for composition,
      * depending on the value of the parameter <code>enable</code>.
      * <p>
@@ -152,7 +152,7 @@ public interface InputMethod {
      */
     public void setCompositionEnabled(boolean enable);
 
-    /**
+    /** {@collect.stats}
      * Determines whether this input method is enabled.
      * An input method that is enabled for composition interprets incoming
      * events for both composition and control purposes, while a
@@ -174,7 +174,7 @@ public interface InputMethod {
      */
     public boolean isCompositionEnabled();
 
-    /**
+    /** {@collect.stats}
      * Starts the reconversion operation. The input method obtains the
      * text to be reconverted from the current client component using the
      * {@link java.awt.im.InputMethodRequests#getSelectedText InputMethodRequests.getSelectedText}
@@ -194,7 +194,7 @@ public interface InputMethod {
      */
     public void reconvert();
 
-    /**
+    /** {@collect.stats}
      * Dispatches the event to the input method. If input method support is
      * enabled for the focussed component, incoming events of certain types
      * are dispatched to the current input method for this component before
@@ -215,7 +215,7 @@ public interface InputMethod {
      */
     public void dispatchEvent(AWTEvent event);
 
-    /**
+    /** {@collect.stats}
      * Notifies this input method of changes in the client window
      * location or state. This method is called while this input
      * method is the current input method of its input context and
@@ -252,7 +252,7 @@ public interface InputMethod {
      */
     public void notifyClientWindowChange(Rectangle bounds);
 
-    /**
+    /** {@collect.stats}
      * Activates the input method for immediate input processing.
      * <p>
      * If an input method provides its own windows, it should make sure
@@ -271,7 +271,7 @@ public interface InputMethod {
      */
     public void activate();
 
-    /**
+    /** {@collect.stats}
      * Deactivates the input method.
      * The isTemporary argument has the same meaning as in
      * {@link java.awt.event.FocusEvent#isTemporary FocusEvent.isTemporary}.
@@ -302,7 +302,7 @@ public interface InputMethod {
      */
     public void deactivate(boolean isTemporary);
 
-    /**
+    /** {@collect.stats}
      * Closes or hides all windows opened by this input method instance or
      * its class.
      * <p>
@@ -316,7 +316,7 @@ public interface InputMethod {
      */
     public void hideWindows();
 
-    /**
+    /** {@collect.stats}
      * Notifies the input method that a client component has been
      * removed from its containment hierarchy, or that input method
      * support has been disabled for the component.
@@ -327,7 +327,7 @@ public interface InputMethod {
      */
     public void removeNotify();
 
-    /**
+    /** {@collect.stats}
      * Ends any input composition that may currently be going on in this
      * context. Depending on the platform and possibly user preferences,
      * this may commit or delete uncommitted text. Any changes to the text
@@ -351,7 +351,7 @@ public interface InputMethod {
      */
     public void endComposition();
 
-    /**
+    /** {@collect.stats}
      * Releases the resources used by this input method.
      * In particular, the input method should dispose windows and close files that are no
      * longer needed.
@@ -363,7 +363,7 @@ public interface InputMethod {
      */
     public void dispose();
 
-    /**
+    /** {@collect.stats}
      * Returns a control object from this input method, or null. A
      * control object provides methods that control the behavior of the
      * input method or obtain information from the input method. The type

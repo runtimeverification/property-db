@@ -33,7 +33,7 @@ import javax.swing.Action;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-/**
+/** {@collect.stats}
  * An Action implementation useful for key bindings that are
  * shared across a number of different text components.  Because
  * the action is shared, it must have a way of getting it's
@@ -60,7 +60,7 @@ import javax.swing.KeyStroke;
  */
 public abstract class TextAction extends AbstractAction {
 
-    /**
+    /** {@collect.stats}
      * Creates a new JTextAction object.
      *
      * @param name the name of the action
@@ -69,7 +69,7 @@ public abstract class TextAction extends AbstractAction {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the component to use for the action.
      * This if fetched from the source of the ActionEvent
      * if it's not null and can be narrowed.  Otherwise,
@@ -88,7 +88,7 @@ public abstract class TextAction extends AbstractAction {
         return getFocusedComponent();
     }
 
-    /**
+    /** {@collect.stats}
      * Takes one list of
      * commands and augments it with another list
      * of commands.  The second list takes precedence
@@ -122,7 +122,7 @@ public abstract class TextAction extends AbstractAction {
         return actions;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the text component that currently has focus.
      * This allows actions to be shared across text components
      * which is useful for key-bindings where a large set of

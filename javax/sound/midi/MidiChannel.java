@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>MidiChannel</code> object represents a single MIDI channel.
  * Generally, each <code>MidiChannel</code> method processes a like-named MIDI
  * "channel voice" or "channel mode" message as defined by the MIDI specification. However,
@@ -66,7 +66,7 @@ package javax.sound.midi;
 
 public interface MidiChannel {
 
-    /**
+    /** {@collect.stats}
      * Starts the specified note sounding.  The key-down velocity
      * usually controls the note's volume and/or brightness.
      * If <code>velocity</code> is zero, this method instead acts like
@@ -79,7 +79,7 @@ public interface MidiChannel {
      */
     public void noteOn(int noteNumber, int velocity);
 
-    /**
+    /** {@collect.stats}
      * Turns the specified note off.  The key-up velocity, if not ignored, can
      * be used to affect how quickly the note decays.
      * In any case, the note might not die away instantaneously; its decay
@@ -100,7 +100,7 @@ public interface MidiChannel {
      */
     public void noteOff(int noteNumber, int velocity);
 
-    /**
+    /** {@collect.stats}
      * Turns the specified note off.
      *
      * @param noteNumber the MIDI note number, from 0 to 127 (60 = Middle C)
@@ -109,7 +109,7 @@ public interface MidiChannel {
      */
     public void noteOff(int noteNumber);
 
-    /**
+    /** {@collect.stats}
      * Reacts to a change in the specified note's key pressure.
      * Polyphonic key pressure
      * allows a keyboard player to press multiple keys simultaneously, each
@@ -130,7 +130,7 @@ public interface MidiChannel {
      */
     public void setPolyPressure(int noteNumber, int pressure);
 
-    /**
+    /** {@collect.stats}
      * Obtains the pressure with which the specified key is being depressed.
      *
      * @param noteNumber the MIDI note number, from 0 to 127 (60 = Middle C)
@@ -146,7 +146,7 @@ public interface MidiChannel {
      */
     public int getPolyPressure(int noteNumber);
 
-    /**
+    /** {@collect.stats}
      * Reacts to a change in the keyboard pressure.  Channel
      * pressure indicates how hard the keyboard player is depressing
      * the entire keyboard.  This can be the maximum or
@@ -168,7 +168,7 @@ public interface MidiChannel {
      */
     public void setChannelPressure(int pressure);
 
-    /**
+    /** {@collect.stats}
      * Obtains the channel's keyboard pressure.
      * If the device does not support setting channel pressure,
      * this method always returns 0. Calling
@@ -181,7 +181,7 @@ public interface MidiChannel {
      */
     public int getChannelPressure();
 
-    /**
+    /** {@collect.stats}
      * Reacts to a change in the specified controller's value.  A controller
      * is some control other than a keyboard key, such as a
      * switch, slider, pedal, wheel, or breath-pressure sensor.
@@ -230,7 +230,7 @@ public interface MidiChannel {
      */
     public void controlChange(int controller, int value);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current value of the specified controller.  The return
      * value is represented with 7 bits. For 14-bit controllers, the MSB and
      * LSB controller value needs to be obtained separately. For example,
@@ -253,7 +253,7 @@ public interface MidiChannel {
      */
     public int getController(int controller);
 
-    /**
+    /** {@collect.stats}
      * Changes a program (patch).  This selects a specific
      * instrument from the currently selected bank of instruments.
      * <p>
@@ -278,7 +278,7 @@ public interface MidiChannel {
      */
     public void programChange(int program);
 
-    /**
+    /** {@collect.stats}
      * Changes the program using bank and program (patch) numbers.
      *
      * It is possible that the underlying synthesizer
@@ -301,7 +301,7 @@ public interface MidiChannel {
      */
     public void programChange(int bank, int program);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current program number for this channel.
      * @return the program number of the currently selected patch
      * @see Patch#getProgram
@@ -310,7 +310,7 @@ public interface MidiChannel {
      */
     public int getProgram();
 
-    /**
+    /** {@collect.stats}
      * Changes the pitch offset for all notes on this channel.
      * This affects all currently sounding notes as well as subsequent ones.
      * (For pitch bend to cease, the value needs to be reset to the
@@ -336,7 +336,7 @@ public interface MidiChannel {
      */
     public void setPitchBend(int bend);
 
-    /**
+    /** {@collect.stats}
      * Obtains the upward or downward pitch offset for this channel.
      * If the device does not support setting pitch bend,
      * this method always returns 8192. Calling
@@ -348,14 +348,14 @@ public interface MidiChannel {
      */
     public int getPitchBend();
 
-    /**
+    /** {@collect.stats}
      * Resets all the implemented controllers to their default values.
      *
      * @see #controlChange(int, int)
      */
     public void resetAllControllers();
 
-    /**
+    /** {@collect.stats}
      * Turns off all notes that are currently sounding on this channel.
      * The notes might not die away instantaneously; their decay
      * rate is determined by the internals of the <code>Instrument</code>.
@@ -369,7 +369,7 @@ public interface MidiChannel {
      */
     public void allNotesOff();
 
-    /**
+    /** {@collect.stats}
      * Immediately turns off all sounding notes on this channel, ignoring the
      * state of the Hold Pedal and the internal decay rate of the current
      * <code>Instrument</code>.
@@ -378,7 +378,7 @@ public interface MidiChannel {
      */
     public void allSoundOff();
 
-    /**
+    /** {@collect.stats}
      * Turns local control on or off.  The default is for local control
      * to be on.  The "on" setting means that if a device is capable
      * of both synthesizing sound and transmitting MIDI messages,
@@ -401,7 +401,7 @@ public interface MidiChannel {
      */
     public boolean localControl(boolean on);
 
-    /**
+    /** {@collect.stats}
      * Turns mono mode on or off.  In mono mode, the channel synthesizes
      * only one note at a time.  In poly mode (identical to mono mode off),
      * the channel can synthesize multiple notes simultaneously.
@@ -426,7 +426,7 @@ public interface MidiChannel {
      */
     public void setMono(boolean on);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current mono/poly mode.
      * Synthesizers that do not allow changing mono/poly mode
      * will always return the same value, regardless
@@ -438,7 +438,7 @@ public interface MidiChannel {
      */
     public boolean getMono();
 
-    /**
+    /** {@collect.stats}
      * Turns omni mode on or off.  In omni mode, the channel responds
      * to messages sent on all channels.  When omni is off, the channel
      * responds only to messages sent on its channel number.
@@ -457,7 +457,7 @@ public interface MidiChannel {
      */
     public void setOmni(boolean on);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current omni mode.
      * Synthesizers that do not allow changing the omni mode
      * will always return the same value, regardless
@@ -469,7 +469,7 @@ public interface MidiChannel {
      */
     public boolean getOmni();
 
-    /**
+    /** {@collect.stats}
      * Sets the mute state for this channel. A value of
      * <code>true</code> means the channel is to be muted, <code>false</code>
      * means the channel can sound (if other channels are not soloed).
@@ -491,7 +491,7 @@ public interface MidiChannel {
      */
     public void setMute(boolean mute);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current mute state for this channel.
      * If the underlying synthesizer does not support
      * muting this channel, this method always returns
@@ -504,7 +504,7 @@ public interface MidiChannel {
      */
     public boolean getMute();
 
-    /**
+    /** {@collect.stats}
      * Sets the solo state for this channel.
      * If <code>solo</code> is <code>true</code> only this channel
      * and other soloed channels will sound. If <code>solo</code>
@@ -522,7 +522,7 @@ public interface MidiChannel {
      */
     public void setSolo(boolean soloState);
 
-    /**
+    /** {@collect.stats}
      * Obtains the current solo state for this channel.
      * If the underlying synthesizer does not support
      * solo on this channel, this method always returns

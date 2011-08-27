@@ -38,7 +38,7 @@ import sun.security.util.DerValue;
 import sun.security.util.ObjectIdentifier;
 import sun.security.x509.*;
 
-/**
+/** {@collect.stats}
  * A <code>CertSelector</code> that selects <code>X509Certificates</code> that
  * match all specified criteria. This class is particularly useful when
  * selecting certificates from a <code>CertStore</code> to build a
@@ -148,7 +148,7 @@ public class X509CertSelector implements CertSelector {
     static final int NAME_IP = 7;
     static final int NAME_OID = 8;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X509CertSelector</code>. Initially, no criteria are set
      * so any <code>X509Certificate</code> will match.
      */
@@ -156,7 +156,7 @@ public class X509CertSelector implements CertSelector {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the certificateEquals criterion. The specified
      * <code>X509Certificate</code> must be equal to the
      * <code>X509Certificate</code> passed to the <code>match</code> method.
@@ -175,7 +175,7 @@ public class X509CertSelector implements CertSelector {
         x509Cert = cert;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the serialNumber criterion. The specified serial number
      * must match the certificate serial number in the
      * <code>X509Certificate</code>. If <code>null</code>, any certificate
@@ -189,7 +189,7 @@ public class X509CertSelector implements CertSelector {
         serialNumber = serial;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the issuer criterion. The specified distinguished name
      * must match the issuer distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, any issuer
@@ -203,7 +203,7 @@ public class X509CertSelector implements CertSelector {
         this.issuer = issuer;
     }
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, use {@linkplain #setIssuer(X500Principal)}
      * or {@linkplain #setIssuer(byte[])} instead. This method should not be
      * relied on as it can fail to match some certificates because of a loss of
@@ -231,7 +231,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the issuer criterion. The specified distinguished name
      * must match the issuer distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code> is specified,
@@ -281,7 +281,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subject criterion. The specified distinguished name
      * must match the subject distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, any subject
@@ -295,7 +295,7 @@ public class X509CertSelector implements CertSelector {
         this.subject = subject;
     }
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, use {@linkplain #setSubject(X500Principal)}
      * or {@linkplain #setSubject(byte[])} instead. This method should not be
      * relied on as it can fail to match some certificates because of a loss of
@@ -322,7 +322,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subject criterion. The specified distinguished name
      * must match the subject distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, any subject
@@ -345,7 +345,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subjectKeyIdentifier criterion. The
      * <code>X509Certificate</code> must contain a SubjectKeyIdentifier
      * extension for which the contents of the extension
@@ -385,7 +385,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the authorityKeyIdentifier criterion. The
      * <code>X509Certificate</code> must contain an
      * AuthorityKeyIdentifier extension for which the contents of the
@@ -446,7 +446,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the certificateValid criterion. The specified date must fall
      * within the certificate validity period for the
      * <code>X509Certificate</code>. If <code>null</code>, no certificateValid
@@ -466,7 +466,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the privateKeyValid criterion. The specified date must fall
      * within the private key validity period for the
      * <code>X509Certificate</code>. If <code>null</code>, no privateKeyValid
@@ -487,7 +487,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subjectPublicKeyAlgID criterion. The
      * <code>X509Certificate</code> must contain a subject public key
      * with the specified algorithm. If <code>null</code>, no
@@ -510,7 +510,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subjectPublicKey criterion. The
      * <code>X509Certificate</code> must contain the specified subject public
      * key. If <code>null</code>, no subjectPublicKey check will be done.
@@ -528,7 +528,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subjectPublicKey criterion. The <code>X509Certificate</code>
      * must contain the specified subject public key. If <code>null</code>,
      * no subjectPublicKey check will be done.
@@ -571,7 +571,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the keyUsage criterion. The <code>X509Certificate</code>
      * must allow the specified keyUsage values. If <code>null</code>, no
      * keyUsage check will be done. Note that an <code>X509Certificate</code>
@@ -594,7 +594,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the extendedKeyUsage criterion. The <code>X509Certificate</code>
      * must allow the specified key purposes in its extended key usage
      * extension. If <code>keyPurposeSet</code> is empty or <code>null</code>,
@@ -627,7 +627,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enables/disables matching all of the subjectAlternativeNames
      * specified in the {@link #setSubjectAlternativeNames
      * setSubjectAlternativeNames} or {@link #addSubjectAlternativeName
@@ -647,7 +647,7 @@ public class X509CertSelector implements CertSelector {
         this.matchAllSubjectAltNames = matchAllNames;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subjectAlternativeNames criterion. The
      * <code>X509Certificate</code> must contain all or at least one of the
      * specified subjectAlternativeNames, depending on the value of
@@ -712,7 +712,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a name to the subjectAlternativeNames criterion. The
      * <code>X509Certificate</code> must contain all or at least one
      * of the specified subjectAlternativeNames, depending on the value of
@@ -755,7 +755,7 @@ public class X509CertSelector implements CertSelector {
         addSubjectAlternativeNameInternal(type, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a name to the subjectAlternativeNames criterion. The
      * <code>X509Certificate</code> must contain all or at least one
      * of the specified subjectAlternativeNames, depending on the value of
@@ -800,7 +800,7 @@ public class X509CertSelector implements CertSelector {
         addSubjectAlternativeNameInternal(type, name.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * A private method that adds a name (String or byte array) to the
      * subjectAlternativeNames criterion. The <code>X509Certificate</code>
      * must contain the specified subjectAlternativeName.
@@ -827,7 +827,7 @@ public class X509CertSelector implements CertSelector {
         subjectAlternativeGeneralNames.add(tempName);
     }
 
-    /**
+    /** {@collect.stats}
      * Parse an argument of the form passed to setSubjectAlternativeNames,
      * returning a <code>Collection</code> of
      * <code>GeneralNameInterface</code>s.
@@ -862,7 +862,7 @@ public class X509CertSelector implements CertSelector {
         return genNames;
     }
 
-    /**
+    /** {@collect.stats}
      * Compare for equality two objects of the form passed to
      * setSubjectAlternativeNames (or X509CRLSelector.setIssuerNames).
      * Throw an <code>IllegalArgumentException</code> or a
@@ -879,7 +879,7 @@ public class X509CertSelector implements CertSelector {
         return object1.equals(object2);
     }
 
-    /**
+    /** {@collect.stats}
      * Make a <code>GeneralNameInterface</code> out of a name type (0-8) and an
      * Object that may be a byte array holding the ASN.1 DER encoded
      * name or a String form of the name.  Except for X.509
@@ -988,7 +988,7 @@ public class X509CertSelector implements CertSelector {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the name constraints criterion. The <code>X509Certificate</code>
      * must have subject and subject alternative names that
      * meet the specified name constraints.
@@ -1046,7 +1046,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the basic constraints constraint. If the value is greater than or
      * equal to zero, <code>X509Certificates</code> must include a
      * basicConstraints extension with
@@ -1069,7 +1069,7 @@ public class X509CertSelector implements CertSelector {
         basicConstraints = minMaxPathLen;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the policy constraint. The <code>X509Certificate</code> must
      * include at least one of the specified policies in its certificate
      * policies extension. If <code>certPolicySet</code> is empty, then the
@@ -1114,7 +1114,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the pathToNames criterion. The <code>X509Certificate</code> must
      * not include name constraints that would prohibit building a
      * path to the specified names.
@@ -1185,7 +1185,7 @@ public class X509CertSelector implements CertSelector {
         pathToGeneralNames = names;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a name to the pathToNames criterion. The <code>X509Certificate</code>
      * must not include name constraints that would prohibit building a
      * path to the specified name.
@@ -1222,7 +1222,7 @@ public class X509CertSelector implements CertSelector {
         addPathToNameInternal(type, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a name to the pathToNames criterion. The <code>X509Certificate</code>
      * must not include name constraints that would prohibit building a
      * path to the specified name.
@@ -1252,7 +1252,7 @@ public class X509CertSelector implements CertSelector {
         addPathToNameInternal(type, name.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * A private method that adds a name (String or byte array) to the
      * pathToNames criterion. The <code>X509Certificate</code> must contain
      * the specified pathToName.
@@ -1277,7 +1277,7 @@ public class X509CertSelector implements CertSelector {
         pathToGeneralNames.add(tempName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the certificateEquals criterion. The specified
      * <code>X509Certificate</code> must be equal to the
      * <code>X509Certificate</code> passed to the <code>match</code> method.
@@ -1290,7 +1290,7 @@ public class X509CertSelector implements CertSelector {
         return x509Cert;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the serialNumber criterion. The specified serial number
      * must match the certificate serial number in the
      * <code>X509Certificate</code>. If <code>null</code>, any certificate
@@ -1304,7 +1304,7 @@ public class X509CertSelector implements CertSelector {
         return serialNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the issuer criterion as an <code>X500Principal</code>. This
      * distinguished name must match the issuer distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, the issuer criterion
@@ -1318,7 +1318,7 @@ public class X509CertSelector implements CertSelector {
         return issuer;
     }
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, use {@linkplain #getIssuer()} or
      * {@linkplain #getIssuerAsBytes()} instead. This method should not be
      * relied on as it can fail to match some certificates because of a loss of
@@ -1340,7 +1340,7 @@ public class X509CertSelector implements CertSelector {
         return (issuer == null ? null : issuer.getName());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the issuer criterion as a byte array. This distinguished name
      * must match the issuer distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, the issuer criterion
@@ -1363,7 +1363,7 @@ public class X509CertSelector implements CertSelector {
         return (issuer == null ? null: issuer.getEncoded());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the subject criterion as an <code>X500Principal</code>. This
      * distinguished name must match the subject distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, the subject criterion
@@ -1377,7 +1377,7 @@ public class X509CertSelector implements CertSelector {
         return subject;
     }
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, use {@linkplain #getSubject()} or
      * {@linkplain #getSubjectAsBytes()} instead. This method should not be
      * relied on as it can fail to match some certificates because of a loss of
@@ -1399,7 +1399,7 @@ public class X509CertSelector implements CertSelector {
         return (subject == null ? null : subject.getName());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the subject criterion as a byte array. This distinguished name
      * must match the subject distinguished name in the
      * <code>X509Certificate</code>. If <code>null</code>, the subject criterion
@@ -1422,7 +1422,7 @@ public class X509CertSelector implements CertSelector {
         return (subject == null ? null : subject.getEncoded());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the subjectKeyIdentifier criterion. The
      * <code>X509Certificate</code> must contain a SubjectKeyIdentifier
      * extension with the specified value. If <code>null</code>, no
@@ -1441,7 +1441,7 @@ public class X509CertSelector implements CertSelector {
         return (byte[])subjectKeyID.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the authorityKeyIdentifier criterion. The
      * <code>X509Certificate</code> must contain a AuthorityKeyIdentifier
      * extension with the specified value. If <code>null</code>, no
@@ -1460,7 +1460,7 @@ public class X509CertSelector implements CertSelector {
         return (byte[])authorityKeyID.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the certificateValid criterion. The specified date must fall
      * within the certificate validity period for the
      * <code>X509Certificate</code>. If <code>null</code>, no certificateValid
@@ -1479,7 +1479,7 @@ public class X509CertSelector implements CertSelector {
         return (Date)certificateValid.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the privateKeyValid criterion. The specified date must fall
      * within the private key validity period for the
      * <code>X509Certificate</code>. If <code>null</code>, no privateKeyValid
@@ -1498,7 +1498,7 @@ public class X509CertSelector implements CertSelector {
         return (Date)privateKeyValid.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the subjectPublicKeyAlgID criterion. The
      * <code>X509Certificate</code> must contain a subject public key
      * with the specified algorithm. If <code>null</code>, no
@@ -1516,7 +1516,7 @@ public class X509CertSelector implements CertSelector {
         return subjectPublicKeyAlgID.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the subjectPublicKey criterion. The
      * <code>X509Certificate</code> must contain the specified subject
      * public key. If <code>null</code>, no subjectPublicKey check will be done.
@@ -1528,7 +1528,7 @@ public class X509CertSelector implements CertSelector {
         return subjectPublicKey;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the keyUsage criterion. The <code>X509Certificate</code>
      * must allow the specified keyUsage values. If null, no keyUsage
      * check will be done.
@@ -1549,7 +1549,7 @@ public class X509CertSelector implements CertSelector {
         return (boolean[])keyUsage.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the extendedKeyUsage criterion. The <code>X509Certificate</code>
      * must allow the specified key purposes in its extended key usage
      * extension. If the <code>keyPurposeSet</code> returned is empty or
@@ -1565,7 +1565,7 @@ public class X509CertSelector implements CertSelector {
         return keyPurposeSet;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates if the <code>X509Certificate</code> must contain all
      * or at least one of the subjectAlternativeNames
      * specified in the {@link #setSubjectAlternativeNames
@@ -1585,7 +1585,7 @@ public class X509CertSelector implements CertSelector {
         return matchAllSubjectAltNames;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the subjectAlternativeNames criterion.
      * The <code>X509Certificate</code> must contain all or at least one
      * of the specified subjectAlternativeNames, depending on the value
@@ -1625,7 +1625,7 @@ public class X509CertSelector implements CertSelector {
         return cloneNames(subjectAlternativeNames);
     }
 
-    /**
+    /** {@collect.stats}
      * Clone an object of the form passed to
      * setSubjectAlternativeNames and setPathToNames.
      * Throw a <code>RuntimeException</code> if the argument is malformed.
@@ -1654,7 +1654,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Clone and check an argument of the form passed to
      * setSubjectAlternativeNames and setPathToNames.
      * Throw an <code>IOException</code> if the argument is malformed.
@@ -1712,7 +1712,7 @@ public class X509CertSelector implements CertSelector {
         return namesCopy;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name constraints criterion. The <code>X509Certificate</code>
      * must have subject and subject alternative names that
      * meet the specified name constraints.
@@ -1740,7 +1740,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the basic constraints constraint. If the value is greater than
      * or equal to zero, the <code>X509Certificates</code> must include a
      * basicConstraints extension with a pathLen of at least this value.
@@ -1754,7 +1754,7 @@ public class X509CertSelector implements CertSelector {
         return basicConstraints;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the policy criterion. The <code>X509Certificate</code> must
      * include at least one of the specified policies in its certificate policies
      * extension. If the <code>Set</code> returned is empty, then the
@@ -1770,7 +1770,7 @@ public class X509CertSelector implements CertSelector {
         return policySet;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the pathToNames criterion. The
      * <code>X509Certificate</code> must not include name constraints that would
      * prohibit building a path to the specified names. If the value
@@ -1808,7 +1808,7 @@ public class X509CertSelector implements CertSelector {
         return cloneNames(pathToNames);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a printable representation of the <code>CertSelector</code>.
      *
      * @return a <code>String</code> describing the contents of the
@@ -1889,7 +1889,7 @@ public class X509CertSelector implements CertSelector {
 
     // Copied from sun.security.x509.KeyUsageExtension
     // (without calling the superclass)
-    /**
+    /** {@collect.stats}
      * Returns a printable representation of the KeyUsage.
      */
     private static String keyUsageToString(boolean[] k) {
@@ -1929,7 +1929,7 @@ public class X509CertSelector implements CertSelector {
         return (s);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an Extension object given any X509Certificate and extension oid.
      * Throw an <code>IOException</code> if the extension byte value is
      * malformed.
@@ -1993,7 +1993,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Decides whether a <code>Certificate</code> should be selected.
      *
      * @param cert the <code>Certificate</code> to be checked
@@ -2606,7 +2606,7 @@ public class X509CertSelector implements CertSelector {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of this object.
      *
      * @return the copy

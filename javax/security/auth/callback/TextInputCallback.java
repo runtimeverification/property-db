@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>TextInputCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to retrieve generic text
@@ -37,23 +37,23 @@ public class TextInputCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = -8064222478852811804L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String prompt;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String defaultText;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String inputText;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>TextInputCallback</code> with a prompt.
      *
      * <p>
@@ -69,7 +69,7 @@ public class TextInputCallback implements Callback, java.io.Serializable {
         this.prompt = prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>TextInputCallback</code> with a prompt
      * and default input value.
      *
@@ -94,7 +94,7 @@ public class TextInputCallback implements Callback, java.io.Serializable {
         this.defaultText = defaultText;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the prompt.
      *
      * <p>
@@ -105,7 +105,7 @@ public class TextInputCallback implements Callback, java.io.Serializable {
         return prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the default text.
      *
      * <p>
@@ -117,7 +117,7 @@ public class TextInputCallback implements Callback, java.io.Serializable {
         return defaultText;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the retrieved text.
      *
      * <p>
@@ -130,7 +130,7 @@ public class TextInputCallback implements Callback, java.io.Serializable {
         this.inputText = text;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the retrieved text.
      *
      * <p>

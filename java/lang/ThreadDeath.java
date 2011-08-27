@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * An instance of {@code ThreadDeath} is thrown in the victim thread
  * when the (deprecated) {@link Thread#stop()} method is invoked.
  *

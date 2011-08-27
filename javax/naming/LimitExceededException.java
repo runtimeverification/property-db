@@ -28,7 +28,7 @@ package javax.naming;
 
 import javax.naming.Name;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a method
   * terminates abnormally due to a user or system specified limit.
   * This is different from a InsufficientResourceException in that
@@ -49,7 +49,7 @@ import javax.naming.Name;
   */
 
 public class LimitExceededException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of LimitExceededException with
       * all name resolution fields and explanation initialized to null.
      */
@@ -57,7 +57,7 @@ public class LimitExceededException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of LimitExceededException using an
      * explanation. All other fields default to null.
      * @param explanation Possibly null detail about this exception.
@@ -67,7 +67,7 @@ public class LimitExceededException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -776898738660207856L;

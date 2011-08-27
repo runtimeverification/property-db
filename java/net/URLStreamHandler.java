@@ -33,7 +33,7 @@ import java.util.Hashtable;
 import sun.net.util.IPAddressUtil;
 import sun.net.www.ParseUtil;
 
-/**
+/** {@collect.stats}
  * The abstract class <code>URLStreamHandler</code> is the common
  * superclass for all stream protocol handlers. A stream protocol
  * handler knows how to make a connection for a particular protocol
@@ -51,7 +51,7 @@ import sun.net.www.ParseUtil;
  * @since   JDK1.0
  */
 public abstract class URLStreamHandler {
-    /**
+    /** {@collect.stats}
      * Opens a connection to the object referenced by the
      * <code>URL</code> argument.
      * This method should be overridden by a subclass.
@@ -71,7 +71,7 @@ public abstract class URLStreamHandler {
      */
     abstract protected URLConnection openConnection(URL u) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Same as openConnection(URL), except that the connection will be
      * made through the specified proxy; Protocol handlers that do not
      * support proxying will ignore the proxy parameter and make a
@@ -97,7 +97,7 @@ public abstract class URLStreamHandler {
         throw new UnsupportedOperationException("Method not implemented.");
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string representation of a <code>URL</code> into a
      * <code>URL</code> object.
      * <p>
@@ -305,7 +305,7 @@ public abstract class URLStreamHandler {
         setURL(u, protocol, host, port, authority, userInfo, path, query, ref);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default port for a URL parsed by this handler. This method
      * is meant to be overidden by handlers with default port numbers.
      * @return the default port for a <code>URL</code> parsed by this handler.
@@ -315,7 +315,7 @@ public abstract class URLStreamHandler {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides the default equals calculation. May be overidden by handlers
      * for other protocols that have different requirements for equals().
      * This method requires that none of its arguments is null. This is
@@ -334,7 +334,7 @@ public abstract class URLStreamHandler {
                sameFile(u1, u2);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides the default hash calculation. May be overidden by handlers for
      * other protocols that have different requirements for hashCode
      * calculation.
@@ -379,7 +379,7 @@ public abstract class URLStreamHandler {
         return h;
     }
 
-    /**
+    /** {@collect.stats}
      * Compare two urls to see whether they refer to the same file,
      * i.e., having the same protocol, host, port, and path.
      * This method requires that none of its arguments is null. This is
@@ -416,7 +416,7 @@ public abstract class URLStreamHandler {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the IP address of our host. An empty host field or a DNS failure
      * will result in a null return.
      *
@@ -444,7 +444,7 @@ public abstract class URLStreamHandler {
         return u.hostAddress;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the host components of two URLs.
      * @param u1 the URL of the first host to compare
      * @param u2 the URL of the second host to compare
@@ -465,7 +465,7 @@ public abstract class URLStreamHandler {
             return u1.getHost() == null && u2.getHost() == null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a <code>URL</code> of a specific protocol to a
      * <code>String</code>.
      *
@@ -508,7 +508,7 @@ public abstract class URLStreamHandler {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the fields of the <code>URL</code> argument to the indicated values.
      * Only classes derived from URLStreamHandler are supposed to be able
      * to call the set method on a URL.
@@ -538,7 +538,7 @@ public abstract class URLStreamHandler {
         u.set(u.getProtocol(), host, port, authority, userInfo, path, query, ref);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the fields of the <code>URL</code> argument to the indicated values.
      * Only classes derived from URLStreamHandler are supposed to be able
      * to call the set method on a URL.

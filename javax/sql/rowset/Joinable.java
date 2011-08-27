@@ -27,7 +27,7 @@ package javax.sql.rowset;
 
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * <h3>1.0 Background</h3>
  * The <code>Joinable</code> interface provides the methods for getting and
  * setting a match column, which is the basis for forming the SQL <code>JOIN</code>
@@ -132,7 +132,7 @@ import java.sql.SQLException;
  */
 public interface Joinable {
 
-    /**
+    /** {@collect.stats}
      * Sets the designated column as the match column for this <code>RowSet</code>
      * object. A <code>JoinRowSet</code> object can now add this <code>RowSet</code>
      * object based on the match column.
@@ -153,7 +153,7 @@ public interface Joinable {
      */
     public void setMatchColumn(int columnIdx) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated columns as the match column for this <code>RowSet</code>
      * object. A <code>JoinRowSet</code> object can now add this <code>RowSet</code>
      * object based on the match column.
@@ -166,7 +166,7 @@ public interface Joinable {
      */
     public void setMatchColumn(int[] columnIdxes) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated column as the match column for this <code>RowSet</code>
      * object. A <code>JoinRowSet</code> object can now add this <code>RowSet</code>
      * object based on the match column.
@@ -187,7 +187,7 @@ public interface Joinable {
      */
     public void setMatchColumn(String columnName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated columns as the match column for this <code>RowSet</code>
      * object. A <code>JoinRowSet</code> object can now add this <code>RowSet</code>
      * object based on the match column.
@@ -201,7 +201,7 @@ public interface Joinable {
      */
     public void setMatchColumn(String[] columnNames) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the indexes of the match columns that were set for this
      * <code>RowSet</code> object with the method
      * <code>setMatchColumn(int[] columnIdxes)</code>.
@@ -214,7 +214,7 @@ public interface Joinable {
      */
     public int[] getMatchColumnIndexes() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the names of the match columns that were set for this
      * <code>RowSet</code> object with the method
      * <code>setMatchColumn(String [] columnNames)</code>.
@@ -228,7 +228,7 @@ public interface Joinable {
      */
     public String[] getMatchColumnNames() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Unsets the designated column as the match column for this <code>RowSet</code>
      * object.
      * <P>
@@ -246,7 +246,7 @@ public interface Joinable {
      */
     public void unsetMatchColumn(int columnIdx) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Unsets the designated columns as the match column for this <code>RowSet</code>
      * object.
      *
@@ -259,7 +259,7 @@ public interface Joinable {
      */
     public void unsetMatchColumn(int[] columnIdxes) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Unsets the designated column as the match column for this <code>RowSet</code>
      * object.
      * <P>
@@ -277,7 +277,7 @@ public interface Joinable {
      */
     public void unsetMatchColumn(String columnName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Unsets the designated columns as the match columns for this <code>RowSet</code>
      * object.
      *

@@ -29,7 +29,7 @@ import java.awt.Point;
 import javax.swing.Action;
 import javax.swing.event.ChangeListener;
 
-/**
+/** {@collect.stats}
  * A place within a document view that represents where
  * things can be inserted into the document model.  A caret
  * has a position in the document referred to as a dot.
@@ -51,7 +51,7 @@ import javax.swing.event.ChangeListener;
  */
 public interface Caret {
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being installed into the
      * interface of a JTextComponent.  This can be used
      * to gain access to the model that is being navigated
@@ -61,7 +61,7 @@ public interface Caret {
      */
     public void install(JTextComponent c);
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being removed from the
      * interface of a JTextComponent.  This is used to
      * unregister any listeners that were attached.
@@ -70,14 +70,14 @@ public interface Caret {
      */
     public void deinstall(JTextComponent c);
 
-    /**
+    /** {@collect.stats}
      * Renders the caret. This method is called by UI classes.
      *
      * @param g the graphics context
      */
     public void paint(Graphics g);
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to track whenever the caret position
      * has been changed.
      *
@@ -85,21 +85,21 @@ public interface Caret {
      */
     public void addChangeListener(ChangeListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener that was tracking caret position changes.
      *
      * @param l the change listener
      */
     public void removeChangeListener(ChangeListener l);
 
-    /**
+    /** {@collect.stats}
      * Determines if the caret is currently visible.
      *
      * @return true if the caret is visible else false
      */
     public boolean isVisible();
 
-    /**
+    /** {@collect.stats}
      * Sets the visibility of the caret.
      *
      * @param v  true if the caret should be shown,
@@ -107,14 +107,14 @@ public interface Caret {
      */
     public void setVisible(boolean v);
 
-    /**
+    /** {@collect.stats}
      * Determines if the selection is currently visible.
      *
      * @return true if the caret is visible else false
      */
     public boolean isSelectionVisible();
 
-    /**
+    /** {@collect.stats}
      * Sets the visibility of the selection
      *
      * @param v  true if the caret should be shown,
@@ -122,7 +122,7 @@ public interface Caret {
      */
     public void setSelectionVisible(boolean v);
 
-    /**
+    /** {@collect.stats}
      * Set the current caret visual location.  This can be used when
      * moving between lines that have uneven end positions (such as
      * when caret up or down actions occur).  If text flows
@@ -136,7 +136,7 @@ public interface Caret {
      */
     public void setMagicCaretPosition(Point p);
 
-    /**
+    /** {@collect.stats}
      * Gets the current caret visual location.
      *
      * @return the visual position.
@@ -144,7 +144,7 @@ public interface Caret {
      */
     public Point getMagicCaretPosition();
 
-    /**
+    /** {@collect.stats}
      * Sets the blink rate of the caret.  This determines if
      * and how fast the caret blinks, commonly used as one
      * way to attract attention to the caret.
@@ -154,7 +154,7 @@ public interface Caret {
      */
     public void setBlinkRate(int rate);
 
-    /**
+    /** {@collect.stats}
      * Gets the blink rate of the caret.  This determines if
      * and how fast the caret blinks, commonly used as one
      * way to attract attention to the caret.
@@ -164,14 +164,14 @@ public interface Caret {
      */
     public int getBlinkRate();
 
-    /**
+    /** {@collect.stats}
      * Fetches the current position of the caret.
      *
      * @return the position >= 0
      */
     public int getDot();
 
-    /**
+    /** {@collect.stats}
      * Fetches the current position of the mark.  If there
      * is a selection, the mark will not be the same as
      * the dot.
@@ -180,7 +180,7 @@ public interface Caret {
      */
     public int getMark();
 
-    /**
+    /** {@collect.stats}
      * Sets the caret position to some position.  This
      * causes the mark to become the same as the dot,
      * effectively setting the selection range to zero.
@@ -192,7 +192,7 @@ public interface Caret {
      */
     public void setDot(int dot);
 
-    /**
+    /** {@collect.stats}
      * Moves the caret position (dot) to some other position,
      * leaving behind the mark.  This is useful for
      * making selections.

@@ -28,7 +28,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * A composite Border class used to compose two Border objects
  * into a single border by nesting an inside Border object within
  * the insets of an outside Border object.
@@ -57,7 +57,7 @@ public class CompoundBorder extends AbstractBorder {
     protected Border outsideBorder;
     protected Border insideBorder;
 
-    /**
+    /** {@collect.stats}
      * Creates a compound border with null outside and inside borders.
      */
     public CompoundBorder() {
@@ -65,7 +65,7 @@ public class CompoundBorder extends AbstractBorder {
         this.insideBorder = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a compound border with the specified outside and
      * inside borders.  Either border may be null.
      * @param outsideBorder the outside border
@@ -76,7 +76,7 @@ public class CompoundBorder extends AbstractBorder {
         this.insideBorder = insideBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not this compound border is opaque.
      * Returns true if both the inside and outside borders are
      * non-null and opaque; returns false otherwise.
@@ -86,7 +86,7 @@ public class CompoundBorder extends AbstractBorder {
                (insideBorder == null || insideBorder.isBorderOpaque());
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the compound border by painting the outside border
      * with the specified position and size and then painting the
      * inside border at the specified position and size offset by
@@ -121,7 +121,7 @@ public class CompoundBorder extends AbstractBorder {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -147,7 +147,7 @@ public class CompoundBorder extends AbstractBorder {
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the composite border by adding
      * the insets of the outside border to the insets of the
      * inside border.
@@ -157,14 +157,14 @@ public class CompoundBorder extends AbstractBorder {
         return getBorderInsets(c, new Insets(0,0,0,0));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the outside border object.
      */
     public Border getOutsideBorder() {
         return outsideBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inside border object.
      */
     public Border getInsideBorder() {

@@ -36,7 +36,7 @@ import sun.awt.AppContext;
 
 
 
-/**
+/** {@collect.stats}
  * Internal class to manage all Timers using one thread.
  * TimerQueue manages a queue of Timers. The Timers are chained
  * together in a linked list sorted by the order in which they will expire.
@@ -57,10 +57,10 @@ class TimerQueue implements Runnable
      */
     private static final Object classLock = new Object();
 
-    /** Base of nanosecond timings, to avoid wrapping */
+    /** {@collect.stats} Base of nanosecond timings, to avoid wrapping */
     private static final long NANO_ORIGIN = System.nanoTime();
 
-    /**
+    /** {@collect.stats}
      * Constructor for TimerQueue.
      */
     public TimerQueue() {
@@ -219,7 +219,7 @@ class TimerQueue implements Runnable
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns nanosecond time offset by origin
      */
     private final static long now() {
@@ -230,17 +230,17 @@ class TimerQueue implements Runnable
         // most of it copied from
         // java.util.concurrent.ScheduledThreadPoolExecutor
 
-        /**
+        /** {@collect.stats}
          * Sequence number to break scheduling ties, and in turn to
          * guarantee FIFO order among tied entries.
          */
         private static final AtomicLong sequencer = new AtomicLong(0);
 
-        /** Sequence number to break ties FIFO */
+        /** {@collect.stats} Sequence number to break ties FIFO */
         private final long sequenceNumber;
 
 
-        /** The time the task is enabled to execute in nanoTime units */
+        /** {@collect.stats} The time the task is enabled to execute in nanoTime units */
         private volatile long time;
 
         private final Timer timer;

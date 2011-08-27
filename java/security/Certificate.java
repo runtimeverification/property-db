@@ -28,7 +28,7 @@ package java.security;
 import java.io.*;
 import java.util.Date;
 
-/**
+/** {@collect.stats}
  * <p>This is an interface of abstract methods for managing a
  * variety of identity certificates.
  * An identity certificate is a guarantee by a principal that
@@ -65,7 +65,7 @@ import java.util.Date;
 @Deprecated
 public interface Certificate {
 
-    /**
+    /** {@collect.stats}
      * Returns the guarantor of the certificate, that is, the principal
      * guaranteeing that the public key associated with this certificate
      * is that of the principal associated with this certificate. For X.509
@@ -77,7 +77,7 @@ public interface Certificate {
      */
     public abstract Principal getGuarantor();
 
-    /**
+    /** {@collect.stats}
      * Returns the principal of the principal-key pair being guaranteed by
      * the guarantor.
      *
@@ -85,7 +85,7 @@ public interface Certificate {
      */
     public abstract Principal getPrincipal();
 
-    /**
+    /** {@collect.stats}
      * Returns the key of the principal-key pair being guaranteed by
      * the guarantor.
      *
@@ -94,7 +94,7 @@ public interface Certificate {
      */
     public abstract PublicKey getPublicKey();
 
-    /**
+    /** {@collect.stats}
      * Encodes the certificate to an output stream in a format that can
      * be decoded by the <code>decode</code> method.
      *
@@ -113,7 +113,7 @@ public interface Certificate {
     public abstract void encode(OutputStream stream)
         throws KeyException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Decodes a certificate from an input stream. The format should be
      * that returned by <code>getFormat</code> and produced by
      * <code>encode</code>.
@@ -134,7 +134,7 @@ public interface Certificate {
         throws KeyException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the coding format. This is used as a hint to find
      * an appropriate parser. It could be "X.509", "PGP", etc. This is
      * the format produced and understood by the <code>encode</code>
@@ -144,7 +144,7 @@ public interface Certificate {
      */
     public abstract String getFormat();
 
-    /**
+    /** {@collect.stats}
      * Returns a string that represents the contents of the certificate.
      *
      * @param detailed whether or not to give detailed information

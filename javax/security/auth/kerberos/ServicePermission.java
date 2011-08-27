@@ -33,7 +33,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class is used to protect Kerberos services and the
  * credentials necessary to access those services. There is a one to
  * one mapping of a service principal and the credentials necessary
@@ -102,22 +102,22 @@ public final class ServicePermission extends Permission
 
     private static final long serialVersionUID = -1227585031618624935L;
 
-    /**
+    /** {@collect.stats}
      * Initiate a security context to the specified service
      */
     private final static int INITIATE   = 0x1;
 
-    /**
+    /** {@collect.stats}
      * Accept a security context
      */
     private final static int ACCEPT     = 0x2;
 
-    /**
+    /** {@collect.stats}
      * All actions
      */
     private final static int ALL        = INITIATE|ACCEPT;
 
-    /**
+    /** {@collect.stats}
      * No actions.
      */
     private final static int NONE    = 0x0;
@@ -125,7 +125,7 @@ public final class ServicePermission extends Permission
     // the actions mask
     private transient int mask;
 
-    /**
+    /** {@collect.stats}
      * the actions string.
      *
      * @serial
@@ -134,7 +134,7 @@ public final class ServicePermission extends Permission
     private String actions; // Left null as long as possible, then
                             // created and re-used in the getAction function.
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>ServicePermission</code>
      * with the specified <code>servicePrincipal</code>
      * and <code>action</code>.
@@ -150,7 +150,7 @@ public final class ServicePermission extends Permission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initialize the ServicePermission object.
      */
     private void init(String servicePrincipal, int mask) {
@@ -165,7 +165,7 @@ public final class ServicePermission extends Permission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Checks if this Kerberos service permission object "implies" the
      * specified permission.
      * <P>
@@ -191,7 +191,7 @@ public final class ServicePermission extends Permission
                 this.getName().equals(p.getName()));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two ServicePermission objects for equality.
      * <P>
      * @param obj the object to test for equality with this object.
@@ -214,7 +214,7 @@ public final class ServicePermission extends Permission
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -225,7 +225,7 @@ public final class ServicePermission extends Permission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the "canonical string representation" of the actions in the
      * specified mask.
      * Always returns present actions in the following order:
@@ -254,7 +254,7 @@ public final class ServicePermission extends Permission
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical string representation of the actions.
      * Always returns present actions in the following order:
      * initiate, accept.
@@ -268,7 +268,7 @@ public final class ServicePermission extends Permission
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a PermissionCollection object for storing
      * ServicePermission objects.
      * <br>
@@ -285,7 +285,7 @@ public final class ServicePermission extends Permission
         return new KrbServicePermissionCollection();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the current action mask.
      *
      * @return the actions mask.
@@ -295,7 +295,7 @@ public final class ServicePermission extends Permission
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert an action string to an integer actions mask.
      *
      * @param action the action string
@@ -388,7 +388,7 @@ public final class ServicePermission extends Permission
     }
 
 
-    /**
+    /** {@collect.stats}
      * WriteObject is called to save the state of the ServicePermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
@@ -403,7 +403,7 @@ public final class ServicePermission extends Permission
         s.defaultWriteObject();
     }
 
-    /**
+    /** {@collect.stats}
      * readObject is called to restore the state of the
      * ServicePermission from a stream.
      */
@@ -464,7 +464,7 @@ final class KrbServicePermissionCollection extends PermissionCollection
         perms = new ArrayList<Permission>();
     }
 
-    /**
+    /** {@collect.stats}
      * Check and see if this collection of permissions implies the permissions
      * expressed in "permission".
      *
@@ -505,7 +505,7 @@ final class KrbServicePermissionCollection extends PermissionCollection
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the ServicePermissions. The key for
      * the hash is the name.
      *
@@ -530,7 +530,7 @@ final class KrbServicePermissionCollection extends PermissionCollection
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the ServicePermission objects
      * in the container.
      *
@@ -550,7 +550,7 @@ final class KrbServicePermissionCollection extends PermissionCollection
     // which had the serializable field:
     // private Vector permissions;
 
-    /**
+    /** {@collect.stats}
      * @serialField permissions java.util.Vector
      *     A list of ServicePermission objects.
      */
@@ -558,7 +558,7 @@ final class KrbServicePermissionCollection extends PermissionCollection
         new ObjectStreamField("permissions", Vector.class),
     };
 
-    /**
+    /** {@collect.stats}
      * @serialData "permissions" field (a Vector containing the ServicePermissions).
      */
     /*

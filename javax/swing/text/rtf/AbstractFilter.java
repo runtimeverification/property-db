@@ -27,7 +27,7 @@ package javax.swing.text.rtf;
 import java.io.*;
 import java.lang.*;
 
-/**
+/** {@collect.stats}
  * A generic superclass for streams which read and parse text
  * consisting of runs of characters interspersed with occasional
  * ``specials'' (formatting characters).
@@ -48,17 +48,17 @@ import java.lang.*;
  */
 abstract class AbstractFilter extends OutputStream
 {
-    /** A table mapping bytes to characters */
+    /** {@collect.stats} A table mapping bytes to characters */
     protected char translationTable[];
-    /** A table indicating which byte values should be interpreted as
+    /** {@collect.stats} A table indicating which byte values should be interpreted as
      *  characters and which should be treated as formatting codes */
     protected boolean specialsTable[];
 
-    /** A translation table which does ISO Latin-1 (trivial) */
+    /** {@collect.stats} A translation table which does ISO Latin-1 (trivial) */
     static final char latin1TranslationTable[];
-    /** A specials table which indicates that no characters are special */
+    /** {@collect.stats} A specials table which indicates that no characters are special */
     static final boolean noSpecialsTable[];
-    /** A specials table which indicates that all characters are special */
+    /** {@collect.stats} A specials table which indicates that all characters are special */
     static final boolean allSpecialsTable[];
 
     static {
@@ -77,7 +77,7 @@ abstract class AbstractFilter extends OutputStream
         latin1TranslationTable[i] = (char)i;
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method that reads text from a FileInputStream
      * and writes it to the receiver.
      * The format in which the file
@@ -131,7 +131,7 @@ abstract class AbstractFilter extends OutputStream
         specialsTable = noSpecialsTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements the abstract method of OutputStream, of which this class
      * is a subclass.
      */
@@ -149,7 +149,7 @@ abstract class AbstractFilter extends OutputStream
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Implements the buffer-at-a-time write method for greater
      * efficiency.
      *
@@ -191,7 +191,7 @@ abstract class AbstractFilter extends OutputStream
         write(accumulator.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * Hopefully, all subclasses will override this method to accept strings
      * of text, but if they don't, AbstractFilter's implementation
      * will spoon-feed them via <code>write(char)</code>.
@@ -210,7 +210,7 @@ abstract class AbstractFilter extends OutputStream
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses must provide an implementation of this method which
      * accepts a single (non-special) character.
      *
@@ -218,7 +218,7 @@ abstract class AbstractFilter extends OutputStream
      */
     protected abstract void write(char ch) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Subclasses must provide an implementation of this method which
      * accepts a single special byte. No translation is performed
      * on specials.

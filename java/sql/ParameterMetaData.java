@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * An object that can be used to get information about the types
  * and properties for each parameter marker in a
  * <code>PreparedStatement</code> object. For some queries and driver
@@ -42,7 +42,7 @@ package java.sql;
 
 public interface ParameterMetaData extends Wrapper {
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of parameters in the <code>PreparedStatement</code>
      * object for which this <code>ParameterMetaData</code> object contains
      * information.
@@ -53,7 +53,7 @@ public interface ParameterMetaData extends Wrapper {
      */
     int getParameterCount() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether null values are allowed in the designated parameter.
      *
      * @param param the first parameter is 1, the second is 2, ...
@@ -66,25 +66,25 @@ public interface ParameterMetaData extends Wrapper {
      */
     int isNullable(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that a
      * parameter will not allow <code>NULL</code> values.
      */
     int parameterNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that a
      * parameter will allow <code>NULL</code> values.
      */
     int parameterNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that the
      * nullability of a parameter is unknown.
      */
     int parameterNullableUnknown = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether values for the designated parameter can be signed numbers.
      *
      * @param param the first parameter is 1, the second is 2, ...
@@ -94,7 +94,7 @@ public interface ParameterMetaData extends Wrapper {
      */
     boolean isSigned(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the designated parameter's specified column size.
      *
      * <P>The returned value represents the maximum column size for the given parameter.
@@ -111,7 +111,7 @@ public interface ParameterMetaData extends Wrapper {
      */
     int getPrecision(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the designated parameter's number of digits to right of the decimal point.
      * 0 is returned for data types where the scale is not applicable.
      *
@@ -122,7 +122,7 @@ public interface ParameterMetaData extends Wrapper {
      */
     int getScale(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the designated parameter's SQL type.
      *
      * @param param the first parameter is 1, the second is 2, ...
@@ -133,7 +133,7 @@ public interface ParameterMetaData extends Wrapper {
      */
     int getParameterType(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the designated parameter's database-specific type name.
      *
      * @param param the first parameter is 1, the second is 2, ...
@@ -145,7 +145,7 @@ public interface ParameterMetaData extends Wrapper {
     String getParameterTypeName(int param) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the fully-qualified name of the Java class whose instances
      * should be passed to the method <code>PreparedStatement.setObject</code>.
      *
@@ -160,27 +160,27 @@ public interface ParameterMetaData extends Wrapper {
      */
     String getParameterClassName(int param) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that the mode of the parameter is unknown.
      */
     int parameterModeUnknown = 0;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that the parameter's mode is IN.
      */
     int parameterModeIn = 1;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that the parameter's mode is INOUT.
      */
     int parameterModeInOut = 2;
 
-    /**
+    /** {@collect.stats}
      * The constant indicating that the parameter's mode is  OUT.
      */
     int parameterModeOut = 4;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the designated parameter's mode.
      *
      * @param param the first parameter is 1, the second is 2, ...

@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class AttributeSetUtilities provides static methods for manipulating
  * AttributeSets.
  * <ul>
@@ -72,7 +72,7 @@ public final class AttributeSetUtilities {
     private AttributeSetUtilities() {
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class UnmodifiableAttributeSet
@@ -141,7 +141,7 @@ public final class AttributeSetUtilities {
 
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class UnmodifiableDocAttributeSet
@@ -154,7 +154,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class UnmodifiablePrintRequestAttributeSet
@@ -168,7 +168,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class UnmodifiablePrintJobAttributeSet
@@ -182,7 +182,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class UnmodifiablePrintServiceAttributeSet
@@ -196,7 +196,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unmodifiable view of the given attribute set.
      *
      * @param  attributeSet  Underlying attribute set.
@@ -214,7 +214,7 @@ public final class AttributeSetUtilities {
         return new UnmodifiableAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unmodifiable view of the given doc attribute set.
      *
      * @param  attributeSet  Underlying doc attribute set.
@@ -232,7 +232,7 @@ public final class AttributeSetUtilities {
         return new UnmodifiableDocAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unmodifiable view of the given print request attribute set.
      *
      * @param  attributeSet  Underlying print request attribute set.
@@ -250,7 +250,7 @@ public final class AttributeSetUtilities {
         return new UnmodifiablePrintRequestAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unmodifiable view of the given print job attribute set.
      *
      * @param  attributeSet  Underlying print job attribute set.
@@ -268,7 +268,7 @@ public final class AttributeSetUtilities {
         return new UnmodifiablePrintJobAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unmodifiable view of the given print service attribute set.
      *
      * @param  attributeSet  Underlying print service attribute set.
@@ -286,7 +286,7 @@ public final class AttributeSetUtilities {
         return new UnmodifiablePrintServiceAttributeSet (attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class SynchronizedAttributeSet
@@ -351,7 +351,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class SynchronizedDocAttributeSet
@@ -363,7 +363,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class SynchronizedPrintRequestAttributeSet
@@ -376,7 +376,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class SynchronizedPrintJobAttributeSet
@@ -389,7 +389,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * @serial include
       */
     private static class SynchronizedPrintServiceAttributeSet
@@ -401,7 +401,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a synchronized view of the given attribute set.
      *
      * @param  attributeSet  Underlying attribute set.
@@ -419,7 +419,7 @@ public final class AttributeSetUtilities {
         return new SynchronizedAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a synchronized view of the given doc attribute set.
      *
      * @param  attributeSet  Underlying doc attribute set.
@@ -437,7 +437,7 @@ public final class AttributeSetUtilities {
         return new SynchronizedDocAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a synchronized view of the given print request attribute set.
      *
      * @param  attributeSet  Underlying print request attribute set.
@@ -455,7 +455,7 @@ public final class AttributeSetUtilities {
         return new SynchronizedPrintRequestAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a synchronized view of the given print job attribute set.
      *
      * @param  attributeSet  Underlying print job attribute set.
@@ -473,7 +473,7 @@ public final class AttributeSetUtilities {
         return new SynchronizedPrintJobAttributeSet(attributeSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a synchronized view of the given print service attribute set.
      *
      * @param  attributeSet  Underlying print service attribute set.
@@ -489,7 +489,7 @@ public final class AttributeSetUtilities {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Verify that the given object is a {@link java.lang.Class Class} that
      * implements the given interface, which is assumed to be interface {@link
      * Attribute Attribute} or a subinterface thereof.
@@ -521,7 +521,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Verify that the given object is an instance of the given interface, which
      * is assumed to be interface {@link Attribute Attribute} or a subinterface
      * thereof.
@@ -553,7 +553,7 @@ public final class AttributeSetUtilities {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Verify that the given attribute category object is equal to the
      * category of the given attribute value object. If so, this method
      * returns doing nothing. If not, this method throws an exception.

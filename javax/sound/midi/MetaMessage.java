@@ -30,7 +30,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * A <code>MetaMessage</code> is a <code>{@link MidiMessage}</code> that is not meaningful to synthesizers, but
  * that can be stored in a MIDI file and interpreted by a sequencer program.
  * (See the discussion in the <code>MidiMessage</code>
@@ -63,7 +63,7 @@ public class MetaMessage extends MidiMessage {
 
     // Status byte defines
 
-    /**
+    /** {@collect.stats}
      * Status byte for <code>MetaMessage</code> (0xFF, or 255), which is used
      * in MIDI files.  It has the same value as SYSTEM_RESET, which
      * is used in the real-time "MIDI wire" protocol.
@@ -81,7 +81,7 @@ public class MetaMessage extends MidiMessage {
 
     // Instance variables
 
-    /**
+    /** {@collect.stats}
      * The length of the actual message in the data array.
      * This is used to determine how many bytes of the data array
      * is the message, and how many are the status byte, the
@@ -91,7 +91,7 @@ public class MetaMessage extends MidiMessage {
     private int dataLength = 0;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>MetaMessage</code>. The contents of
      * the message are not set here; use
      * {@link #setMessage(int, byte[], int) setMessage}
@@ -103,7 +103,7 @@ public class MetaMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>MetaMessage</code>.
      * @param data an array of bytes containing the complete message.
      * The message data may be changed using the <code>setMessage</code>
@@ -123,7 +123,7 @@ public class MetaMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the message parameters for a <code>MetaMessage</code>.
      * Since only one status byte value, <code>0xFF</code>, is allowed for meta-messages,
      * it does not need to be specified here.  Calls to <code>{@link MidiMessage#getStatus getStatus}</code> return
@@ -162,7 +162,7 @@ public class MetaMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the type of the <code>MetaMessage</code>.
      * @return an integer representing the <code>MetaMessage</code> type
      */
@@ -175,7 +175,7 @@ public class MetaMessage extends MidiMessage {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a copy of the data for the meta message.  The returned
      * array of bytes does not include the status byte or the message
      * length data.  The length of the data for the meta message is
@@ -192,7 +192,7 @@ public class MetaMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object of the same class and with the same contents
      * as this object.
      * @return a clone of this instance

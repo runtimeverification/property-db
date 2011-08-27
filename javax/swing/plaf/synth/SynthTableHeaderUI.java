@@ -37,7 +37,7 @@ import sun.swing.DefaultLookup;
 import sun.swing.plaf.synth.*;
 import sun.swing.table.*;
 
-/**
+/** {@collect.stats}
  * SynthTableHeaderUI implementation
  *
  * @author Alan Chung

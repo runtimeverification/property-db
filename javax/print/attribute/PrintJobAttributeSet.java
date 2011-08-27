@@ -26,7 +26,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Interface PrintJobAttributeSet specifies the interface for a set of print
  * job attributes, i.e. printing attributes that implement interface {@link
  * PrintJobAttribute PrintJobAttribute}. In the Print Service API, a
@@ -45,7 +45,7 @@ package javax.print.attribute;
  */
 public interface PrintJobAttributeSet extends AttributeSet {
 
-    /**
+    /** {@collect.stats}
      * Adds the specified attribute value to this attribute set if it is not
      * already present, first removing any existing value in the same
      * attribute category as the specified attribute value (optional
@@ -69,7 +69,7 @@ public interface PrintJobAttributeSet extends AttributeSet {
      */
     public boolean add(Attribute attribute);
 
-    /**
+    /** {@collect.stats}
      * Adds all of the elements in the specified set to this attribute.
      * The outcome is  the same as if the
      * {@link #add(Attribute) <CODE>add(Attribute)</CODE>}

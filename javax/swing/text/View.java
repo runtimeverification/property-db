@@ -28,7 +28,7 @@ import java.awt.*;
 import javax.swing.SwingConstants;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * <p>
  * A very important part of the text package is the <code>View</code> class.
  * As the name suggests it represents a view of the text model,
@@ -191,7 +191,7 @@ A view has the following responsibilities:
  */
 public abstract class View implements SwingConstants {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>View</code> object.
      *
      * @param elem the <code>Element</code> to represent
@@ -200,7 +200,7 @@ public abstract class View implements SwingConstants {
         this.elem = elem;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parent of the view.
      *
      * @return the parent, or <code>null</code> if none exists
@@ -209,7 +209,7 @@ public abstract class View implements SwingConstants {
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns a boolean that indicates whether
      *  the view is visible or not.  By default
      *  all views are visible.
@@ -221,7 +221,7 @@ public abstract class View implements SwingConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -235,7 +235,7 @@ public abstract class View implements SwingConstants {
      */
     public abstract float getPreferredSpan(int axis);
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.
      *
@@ -253,7 +253,7 @@ public abstract class View implements SwingConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.
      *
@@ -271,7 +271,7 @@ public abstract class View implements SwingConstants {
         return Integer.MAX_VALUE;
     }
 
-    /**
+    /** {@collect.stats}
      * Child views can call this on the parent to indicate that
      * the preference has changed and should be reconsidered
      * for layout.  By default this just propagates upward to
@@ -290,7 +290,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  The desired alignment is returned.  This should be
      * a value >= 0.0 and <= 1.0, where 0 indicates alignment at
@@ -306,7 +306,7 @@ public abstract class View implements SwingConstants {
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.  The view may need to do layout and create child
      * views to enable itself to render into the given allocation.
@@ -316,7 +316,7 @@ public abstract class View implements SwingConstants {
      */
     public abstract void paint(Graphics g, Shape allocation);
 
-    /**
+    /** {@collect.stats}
      * Establishes the parent view for this view.  This is
      * guaranteed to be called before any other methods if the
      * parent view is functioning properly.  This is also
@@ -346,7 +346,7 @@ public abstract class View implements SwingConstants {
         this.parent = parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of views in this view.  Since
      * the default is to not be a composite view this
      * returns 0.
@@ -358,7 +358,7 @@ public abstract class View implements SwingConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <i>n</i>th child view.  Since there are no
      * children by default, this returns <code>null</code>.
      *
@@ -370,7 +370,7 @@ public abstract class View implements SwingConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes all of the children.  This is a convenience
      * call to <code>replace</code>.
      *
@@ -380,7 +380,7 @@ public abstract class View implements SwingConstants {
         replace(0, getViewCount(), null);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes one of the children at the given position.
      * This is a convenience call to <code>replace</code>.
      * @since 1.3
@@ -389,7 +389,7 @@ public abstract class View implements SwingConstants {
         replace(i, 1, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a single child view.  This is a convenience
      * call to <code>replace</code>.
      *
@@ -404,7 +404,7 @@ public abstract class View implements SwingConstants {
         replace(offs, 0, one);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a single child view.  This is a convenience
      * call to <code>replace</code>.
      *
@@ -418,7 +418,7 @@ public abstract class View implements SwingConstants {
         replace(getViewCount(), 0, one);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces child views.  If there are no views to remove
      * this acts as an insert.  If there are no views to
      * add this acts as a remove.  Views being removed will
@@ -439,7 +439,7 @@ public abstract class View implements SwingConstants {
     public void replace(int offset, int length, View[] views) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child view index representing the given position in
      * the model.  By default a view has no children so this is implemented
      * to return -1 to indicate there is no valid child index for any
@@ -454,7 +454,7 @@ public abstract class View implements SwingConstants {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the allocation for the given child view.
      * This enables finding out where various views
      * are located, without assuming how the views store
@@ -470,7 +470,7 @@ public abstract class View implements SwingConstants {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location at which one might place a caret.
      * Some views may not be visible,
@@ -557,7 +557,7 @@ public abstract class View implements SwingConstants {
         return pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping, for a given character,
      * from the document model coordinate space
      * to the view coordinate space.
@@ -582,7 +582,7 @@ public abstract class View implements SwingConstants {
      */
     public abstract Shape modelToView(int pos, Shape a, Position.Bias b) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping, for a given region,
      * from the document model coordinate space
      * to the view coordinate space. The specified region is
@@ -645,7 +645,7 @@ public abstract class View implements SwingConstants {
         return r0;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.  The <code>biasReturn</code>
      * argument will be filled in to indicate that the point given is
@@ -663,7 +663,7 @@ public abstract class View implements SwingConstants {
      */
     public abstract int viewToModel(float x, float y, Shape a, Position.Bias[] biasReturn);
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into
      * the document in a location that this view is responsible for.
      * To reduce the burden to subclasses, this functionality is
@@ -704,7 +704,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      * To reduce the burden to subclasses, this functionality is
@@ -745,7 +745,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      * To reduce the burden to subclasses, this functionality is
@@ -786,7 +786,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the model associated with the view.
      *
      * @return the view model, <code>null</code> if none
@@ -796,7 +796,7 @@ public abstract class View implements SwingConstants {
         return elem.getDocument();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the portion of the model for which this view is
      * responsible.
      *
@@ -807,7 +807,7 @@ public abstract class View implements SwingConstants {
         return elem.getStartOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the portion of the model for which this view is
      * responsible.
      *
@@ -818,7 +818,7 @@ public abstract class View implements SwingConstants {
         return elem.getEndOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the structural portion of the subject that this
      * view is mapped to.  The view may not be responsible for the
      * entire portion of the element.
@@ -830,7 +830,7 @@ public abstract class View implements SwingConstants {
         return elem;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a <code>Graphics</code> for rendering.
      * This can be used to determine
      * font characteristics, and will be different for a print view
@@ -845,7 +845,7 @@ public abstract class View implements SwingConstants {
         return c.getGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  By default
      * this simply returns the attributes of the associated element.
      * This method should be used rather than using the element
@@ -862,7 +862,7 @@ public abstract class View implements SwingConstants {
         return elem.getAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Tries to break this view on the given axis.  This is
      * called by views that try to do formatting of their
      * children.  For example, a view of a paragraph will
@@ -898,7 +898,7 @@ public abstract class View implements SwingConstants {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view that represents a portion of the element.
      * This is potentially useful during formatting operations
      * for taking measurements of fragments of the view.  If
@@ -919,7 +919,7 @@ public abstract class View implements SwingConstants {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines how attractive a break opportunity in
      * this view is.  This can be used for determining which
      * view is the most attractive to call <code>breakView</code>
@@ -965,7 +965,7 @@ public abstract class View implements SwingConstants {
         return BadBreakWeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the resizability of the view along the
      * given axis.  A value of 0 or less is not resizable.
      *
@@ -977,7 +977,7 @@ public abstract class View implements SwingConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view along the given axis, if it
      * has any layout duties.
@@ -988,7 +988,7 @@ public abstract class View implements SwingConstants {
     public void setSize(float width, float height) {
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the container hosting the view.  This is useful for
      * things like scheduling a repaint, finding out the host
      * components font, etc.  The default implementation
@@ -1001,7 +1001,7 @@ public abstract class View implements SwingConstants {
         return (v != null) ? v.getContainer() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the <code>ViewFactory</code> implementation that is feeding
      * the view hierarchy.  Normally the views are given this
      * as an argument to updates from the model when they
@@ -1015,7 +1015,7 @@ public abstract class View implements SwingConstants {
         return (v != null) ? v.getViewFactory() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tooltip text at the specified location. The default
      * implementation returns the value from the child View identified by
      * the passed in location.
@@ -1036,7 +1036,7 @@ public abstract class View implements SwingConstants {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child view index representing the given position in
      * the view. This iterates over all the children returning the
      * first with a bounds that contains <code>x</code>, <code>y</code>.
@@ -1064,7 +1064,7 @@ public abstract class View implements SwingConstants {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the child views in response to receiving notification
      * that the model changed, and there is change record for the
      * element this view is responsible for.  This is implemented
@@ -1113,7 +1113,7 @@ public abstract class View implements SwingConstants {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the given <code>DocumentEvent</code> to the child views
      * that need to be notified of the change to the model.
      * If there were changes to the element this view is
@@ -1181,7 +1181,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the <code>DocumentEvent</code> to the give child view.  This
      * simply messages the view with a call to <code>insertUpdate</code>,
      * <code>removeUpdate</code>, or <code>changedUpdate</code> depending
@@ -1208,7 +1208,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the layout in response to receiving notification of
      * change from the model.  This is implemented to call
      * <code>preferenceChanged</code> to reschedule a new layout
@@ -1235,7 +1235,7 @@ public abstract class View implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The weight to indicate a view is a bad break
      * opportunity for the purpose of formatting.  This
      * value indicates that no attempt should be made to
@@ -1249,7 +1249,7 @@ public abstract class View implements SwingConstants {
      */
     public static final int BadBreakWeight = 0;
 
-    /**
+    /** {@collect.stats}
      * The weight to indicate a view supports breaking,
      * but better opportunities probably exist.
      *
@@ -1260,7 +1260,7 @@ public abstract class View implements SwingConstants {
      */
     public static final int GoodBreakWeight = 1000;
 
-    /**
+    /** {@collect.stats}
      * The weight to indicate a view supports breaking,
      * and this represents a very attractive place to
      * break.
@@ -1272,7 +1272,7 @@ public abstract class View implements SwingConstants {
      */
     public static final int ExcellentBreakWeight = 2000;
 
-    /**
+    /** {@collect.stats}
      * The weight to indicate a view supports breaking,
      * and must be broken to be represented properly
      * when placed in a view that formats its children
@@ -1285,17 +1285,17 @@ public abstract class View implements SwingConstants {
      */
     public static final int ForcedBreakWeight = 3000;
 
-    /**
+    /** {@collect.stats}
      * Axis for format/break operations.
      */
     public static final int X_AXIS = HORIZONTAL;
 
-    /**
+    /** {@collect.stats}
      * Axis for format/break operations.
      */
     public static final int Y_AXIS = VERTICAL;
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it. This is
      * implemented to default the bias to <code>Position.Bias.Forward</code>
@@ -1315,7 +1315,7 @@ public abstract class View implements SwingConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *

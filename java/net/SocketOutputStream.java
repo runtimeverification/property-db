@@ -30,7 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
-/**
+/** {@collect.stats}
  * This stream extends FileOutputStream to implement a
  * SocketOutputStream. Note that this class should <b>NOT</b> be
  * public.
@@ -48,7 +48,7 @@ class SocketOutputStream extends FileOutputStream
     private byte temp[] = new byte[1];
     private Socket socket = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new SocketOutputStream. Can only be called
      * by a Socket. This method needs to hang on to the owner Socket so
      * that the fd will not be closed.
@@ -60,7 +60,7 @@ class SocketOutputStream extends FileOutputStream
         socket = impl.getSocket();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file output stream. </p>
      *
@@ -76,7 +76,7 @@ class SocketOutputStream extends FileOutputStream
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes to the socket.
      * @param fd the FileDescriptor
      * @param b the data to be written
@@ -87,7 +87,7 @@ class SocketOutputStream extends FileOutputStream
     private native void socketWrite0(FileDescriptor fd, byte[] b, int off,
                                      int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes to the socket with appropriate locking of the
      * FileDescriptor.
      * @param b the data to be written
@@ -122,7 +122,7 @@ class SocketOutputStream extends FileOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a byte to the socket.
      * @param b the data to be written
      * @exception IOException If an I/O error has occurred.
@@ -132,7 +132,7 @@ class SocketOutputStream extends FileOutputStream
         socketWrite(temp, 0, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the contents of the buffer <i>b</i> to the socket.
      * @param b the data to be written
      * @exception SocketException If an I/O error has occurred.
@@ -141,7 +141,7 @@ class SocketOutputStream extends FileOutputStream
         socketWrite(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <i>length</i> bytes from buffer <i>b</i> starting at
      * offset <i>len</i>.
      * @param b the data to be written
@@ -153,7 +153,7 @@ class SocketOutputStream extends FileOutputStream
         socketWrite(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the stream.
      */
     private boolean closing = false;
@@ -170,12 +170,12 @@ class SocketOutputStream extends FileOutputStream
         closing = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides finalize, the fd is closed by the Socket.
      */
     protected void finalize() {}
 
-    /**
+    /** {@collect.stats}
      * Perform class load-time initializations.
      */
     private native static void init();

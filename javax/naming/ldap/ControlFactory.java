@@ -34,7 +34,7 @@ import com.sun.naming.internal.FactoryEnumeration;
 import com.sun.naming.internal.ResourceManager;
 
 
-/**
+/** {@collect.stats}
   * This abstract class represents a factory for creating LDAPv3 controls.
   * LDAPv3 controls are defined in
   * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
@@ -57,7 +57,7 @@ public abstract class ControlFactory {
     protected ControlFactory() {
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a control using this control factory.
       *<p>
       * The factory is used by the service provider to return controls
@@ -94,7 +94,7 @@ public abstract class ControlFactory {
       */
     public abstract Control getControlInstance(Control ctl) throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Creates a control using known control factories.
       * <p>
       * The following rule is used to create the control:

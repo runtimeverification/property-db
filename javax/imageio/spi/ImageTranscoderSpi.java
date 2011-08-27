@@ -27,7 +27,7 @@ package javax.imageio.spi;
 
 import javax.imageio.ImageTranscoder;
 
-/**
+/** {@collect.stats}
  * The service provider interface (SPI) for <code>ImageTranscoder</code>s.
  * For more information on service provider classes, see the class comment
  * for the <code>IIORegistry</code> class.
@@ -38,7 +38,7 @@ import javax.imageio.ImageTranscoder;
  */
 public abstract class ImageTranscoderSpi extends IIOServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>ImageTranscoderSpi</code>.  It is up
      * to the subclass to initialize instance variables and/or
      * override method implementations in order to provide working
@@ -47,7 +47,7 @@ public abstract class ImageTranscoderSpi extends IIOServiceProvider {
     protected ImageTranscoderSpi() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageTranscoderSpi</code> with a given set
      * of values.
      *
@@ -59,7 +59,7 @@ public abstract class ImageTranscoderSpi extends IIOServiceProvider {
         super(vendorName, version);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified class name of an
      * <code>ImageReaderSpi</code> class that generates
      * <code>IIOMetadata</code> objects that may be used as input to
@@ -72,7 +72,7 @@ public abstract class ImageTranscoderSpi extends IIOServiceProvider {
      */
     public abstract String getReaderServiceProviderName();
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified class name of an
      * <code>ImageWriterSpi</code> class that generates
      * <code>IIOMetadata</code> objects that may be used as input to
@@ -85,7 +85,7 @@ public abstract class ImageTranscoderSpi extends IIOServiceProvider {
      */
     public abstract String getWriterServiceProviderName();
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageTranscoder</code>
      * implementation associated with this service provider.
      *

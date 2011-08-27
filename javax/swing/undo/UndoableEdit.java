@@ -27,7 +27,7 @@ package javax.swing.undo;
 
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * An <code>UndoableEdit</code> represents an edit.  The edit may
  * be undone, or if already undone the edit may be redone.
  * <p>
@@ -66,35 +66,35 @@ import javax.swing.event.*;
  * @author Ray Ryan
  */
 public interface UndoableEdit {
-    /**
+    /** {@collect.stats}
      * Undo the edit.
      *
      * @throws CannotUndoException if this edit can not be undone
      */
     public void undo() throws CannotUndoException;
 
-    /**
+    /** {@collect.stats}
      * Returns true if this edit may be undone.
      *
      * @return true if this edit may be undone
      */
     public boolean canUndo();
 
-    /**
+    /** {@collect.stats}
      * Re-applies the edit.
      *
      * @throws CannotRedoException if this edit can not be redone
      */
     public void redo() throws CannotRedoException;
 
-    /**
+    /** {@collect.stats}
      * Returns true if this edit may be redone.
      *
      * @return true if this edit may be redone
      */
     public boolean canRedo();
 
-    /**
+    /** {@collect.stats}
      * Informs the edit that it should no longer be used. Once an
      * <code>UndoableEdit</code> has been marked as dead it can no longer
      * be undone or redone.
@@ -111,7 +111,7 @@ public interface UndoableEdit {
      */
     public void die();
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>UndoableEdit</code> to this <code>UndoableEdit</code>.
      * This method can be used to coalesce smaller edits into a larger
      * compound edit.  For example, text editors typically allow
@@ -141,7 +141,7 @@ public interface UndoableEdit {
      */
     public boolean addEdit(UndoableEdit anEdit);
 
-    /**
+    /** {@collect.stats}
      * Returns true if this <code>UndoableEdit</code> should replace
      * <code>anEdit</code>. This method is used by <code>CompoundEdit</code>
      * and the <code>UndoManager</code>; it is called if
@@ -163,7 +163,7 @@ public interface UndoableEdit {
      */
     public boolean replaceEdit(UndoableEdit anEdit);
 
-    /**
+    /** {@collect.stats}
      * Returns true if this edit is considered significant.  A significant
      * edit is typically an edit that should be presented to the user, perhaps
      * on a menu item or tooltip.  The <code>UndoManager</code> will undo,
@@ -173,7 +173,7 @@ public interface UndoableEdit {
      */
     public boolean isSignificant();
 
-    /**
+    /** {@collect.stats}
      * Returns a localized, human-readable description of this edit, suitable
      * for use in a change log, for example.
      *
@@ -181,7 +181,7 @@ public interface UndoableEdit {
      */
     public String getPresentationName();
 
-    /**
+    /** {@collect.stats}
      * Returns a localized, human-readable description of the undoable form of
      * this edit, suitable for use as an Undo menu item, for example.
      * This is typically derived from <code>getPresentationName</code>.
@@ -190,7 +190,7 @@ public interface UndoableEdit {
      */
     public String getUndoPresentationName();
 
-    /**
+    /** {@collect.stats}
      * Returns a localized, human-readable description of the redoable form of
      * this edit, suitable for use as a Redo menu item, for example. This is
      * typically derived from <code>getPresentationName</code>.

@@ -28,7 +28,7 @@ package java.security.acl;
 import java.util.Enumeration;
 import java.security.Principal;
 
-/**
+/** {@collect.stats}
  * This interface is used to represent a group of principals. (A principal
  * represents an entity such as an individual user or a company). <p>
  *
@@ -42,7 +42,7 @@ import java.security.Principal;
  */
 public interface Group extends Principal {
 
-    /**
+    /** {@collect.stats}
      * Adds the specified member to the group.
      *
      * @param user the principal to add to this group.
@@ -52,7 +52,7 @@ public interface Group extends Principal {
      */
     public boolean addMember(Principal user);
 
-    /**
+    /** {@collect.stats}
      * Removes the specified member from the group.
      *
      * @param user the principal to remove from this group.
@@ -62,7 +62,7 @@ public interface Group extends Principal {
      */
     public boolean removeMember(Principal user);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the passed principal is a member of the group.
      * This method does a recursive search, so if a principal belongs to a
      * group which is a member of this group, true is returned.
@@ -75,7 +75,7 @@ public interface Group extends Principal {
     public boolean isMember(Principal member);
 
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the members in the group.
      * The returned objects can be instances of either Principal
      * or Group (which is a subclass of Principal).

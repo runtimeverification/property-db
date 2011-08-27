@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Wraps exceptions thrown by the preRegister(), preDeregister() methods
  * of the <CODE>MBeanRegistration</CODE> interface.
  *
@@ -37,7 +37,7 @@ public class MBeanRegistrationException extends MBeanException   {
     /* Serial version */
     private static final long serialVersionUID = 4482382455277067805L;
 
-    /**
+    /** {@collect.stats}
      * Creates an <CODE>MBeanRegistrationException</CODE> that wraps
      * the actual <CODE>java.lang.Exception</CODE>.
      *
@@ -47,7 +47,7 @@ public class MBeanRegistrationException extends MBeanException   {
         super(e) ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <CODE>MBeanRegistrationException</CODE> that wraps
      * the actual <CODE>java.lang.Exception</CODE> with a detailed
      * message.

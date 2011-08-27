@@ -32,7 +32,7 @@ import java.io.*;
 import java.math.*;
 import org.xml.sax.*;
 
-/**
+/** {@collect.stats}
  * The standard interface that all implementations of a <code>WebRowSet</code>
  * must implement.
  * <P>
@@ -406,7 +406,7 @@ import org.xml.sax.*;
 
 public interface WebRowSet extends CachedRowSet {
 
-   /**
+   /** {@collect.stats}
     * Reads a <code>WebRowSet</code> object in its XML format from the given
     * <code>Reader</code> object.
     *
@@ -417,7 +417,7 @@ public interface WebRowSet extends CachedRowSet {
     */
     public void readXml(java.io.Reader reader) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads a stream based XML input to populate this <code>WebRowSet</code>
      * object.
      *
@@ -428,7 +428,7 @@ public interface WebRowSet extends CachedRowSet {
      */
     public void readXml(java.io.InputStream iStream) throws SQLException, IOException;
 
-   /**
+   /** {@collect.stats}
     * Populates this <code>WebRowSet</code> object with
     * the contents of the given <code>ResultSet</code> object and writes its
     * data, properties, and metadata
@@ -446,7 +446,7 @@ public interface WebRowSet extends CachedRowSet {
     */
     public void writeXml(ResultSet rs, java.io.Writer writer) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Populates this <code>WebRowSet</code> object with
     * the contents of the given <code>ResultSet</code> object and writes its
     * data, properties, and metadata
@@ -464,7 +464,7 @@ public interface WebRowSet extends CachedRowSet {
     */
     public void writeXml(ResultSet rs, java.io.OutputStream oStream) throws SQLException, IOException;
 
-   /**
+   /** {@collect.stats}
     * Writes the data, properties, and metadata for this <code>WebRowSet</code> object
     * to the given <code>Writer</code> object in XML format.
     *
@@ -474,7 +474,7 @@ public interface WebRowSet extends CachedRowSet {
     */
     public void writeXml(java.io.Writer writer) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Writes the data, properties, and metadata for this <code>WebRowSet</code> object
      * to the given <code>OutputStream</code> object in XML format.
      *
@@ -484,14 +484,14 @@ public interface WebRowSet extends CachedRowSet {
      */
     public void writeXml(java.io.OutputStream oStream) throws SQLException, IOException;
 
-    /**
+    /** {@collect.stats}
      * The public identifier for the XML Schema definition that defines the XML
      * tags and their valid values for a <code>WebRowSet</code> implementation.
      */
     public static String PUBLIC_XML_SCHEMA =
         "--//Sun Microsystems, Inc.//XSD Schema//EN";
 
-    /**
+    /** {@collect.stats}
      * The URL for the XML Schema definition file that defines the XML tags and
      * their valid values for a <code>WebRowSet</code> implementation.
      */

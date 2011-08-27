@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A <code>FloatControl</code> object provides control over a range of
  * floating-point values.  Float controls are often
  * represented in graphical user interfaces by continuously
@@ -59,45 +59,45 @@ public abstract class FloatControl extends Control {
 
     // FINAL VARIABLES
 
-    /**
+    /** {@collect.stats}
      * The minimum supported value.
      */
     private float minimum;
 
-    /**
+    /** {@collect.stats}
      * The maximum supported value.
      */
     private float maximum;
 
-    /**
+    /** {@collect.stats}
      * The control's precision.
      */
     private float precision;
 
-    /**
+    /** {@collect.stats}
      * The smallest time increment in which a value change
      * can be effected during a value shift, in microseconds.
      */
     private int updatePeriod;
 
 
-    /**
+    /** {@collect.stats}
      * A label for the units in which the control values are expressed,
      * such as "dB" for decibels.
      */
     private final String units;
 
-    /**
+    /** {@collect.stats}
      * A label for the minimum value, such as "Left."
      */
     private final String minLabel;
 
-    /**
+    /** {@collect.stats}
      * A label for the maximum value, such as "Right."
      */
     private final String maxLabel;
 
-    /**
+    /** {@collect.stats}
      * A label for the mid-point value, such as "Center."
      */
     private final String midLabel;
@@ -105,7 +105,7 @@ public abstract class FloatControl extends Control {
 
     // STATE VARIABLES
 
-    /**
+    /** {@collect.stats}
      * The current value.
      */
     private float value;
@@ -115,7 +115,7 @@ public abstract class FloatControl extends Control {
     // CONSTRUCTORS
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new float control object with the given parameters
      *
      * @param type the kind of control represented by this float control object
@@ -152,7 +152,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new float control object with the given parameters.
      * The labels for the minimum, maximum, and mid-point values are set
      * to zero-length strings.
@@ -178,7 +178,7 @@ public abstract class FloatControl extends Control {
     // METHODS
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current value for the control.  The default implementation
      * simply sets the value as indicated.  If the value indicated is greater
      * than the maximum value, or smaller than the minimum value, an
@@ -203,7 +203,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains this control's current value.
      * @return the current value
      */
@@ -212,7 +212,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the maximum value permitted.
      * @return the maximum allowable value
      */
@@ -221,7 +221,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the minimum value permitted.
      * @return the minimum allowable value
      */
@@ -230,7 +230,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the label for the units in which the control's values are expressed,
      * such as "dB" or "frames per second."
      * @return the units label, or a zero-length string if no label
@@ -240,7 +240,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the label for the minimum value, such as "Left" or "Off."
      * @return the minimum value label, or a zero-length string if no label      * has been set
      */
@@ -249,7 +249,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the label for the mid-point value, such as "Center" or "Default."
      * @return the mid-point value label, or a zero-length string if no label    * has been set
      */
@@ -258,7 +258,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the label for the maximum value, such as "Right" or "Full."
      * @return the maximum value label, or a zero-length string if no label      * has been set
      */
@@ -267,7 +267,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the resolution or granularity of the control, in the units
      * that the control measures.
      * The precision is the size of the increment between discrete valid values
@@ -279,7 +279,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the smallest time interval, in microseconds, over which the control's value can
      * change during a shift.  The update period is the inverse of the frequency with which
      * the control updates its value during a shift.  If the implementation does not support value shifting over
@@ -294,7 +294,7 @@ public abstract class FloatControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the control value from the initial value to the final
      * value linearly over the specified time period, specified in microseconds.
      * This method returns without blocking; it does not wait for the shift
@@ -316,7 +316,7 @@ public abstract class FloatControl extends Control {
     // ABSTRACT METHOD IMPLEMENTATIONS: CONTROL
 
 
-    /**
+    /** {@collect.stats}
      * Provides a string representation of the control
      * @return a string description
      */
@@ -329,7 +329,7 @@ public abstract class FloatControl extends Control {
     // INNER CLASSES
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>FloatControl.Type</code> inner class identifies one kind of
      * float control.  Static instances are provided for the
      * common types.
@@ -345,7 +345,7 @@ public abstract class FloatControl extends Control {
 
         // GAIN TYPES
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the overall gain on a line.
          * <p>
          * Gain is a quantity in decibels (dB) that is added to the intrinsic
@@ -383,7 +383,7 @@ public abstract class FloatControl extends Control {
          */
         public static final Type MASTER_GAIN            = new Type("Master Gain");
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the auxiliary send gain on a line.
          *
          * @see #MASTER_GAIN
@@ -391,7 +391,7 @@ public abstract class FloatControl extends Control {
          */
         public static final Type AUX_SEND                       = new Type("AUX Send");
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the auxiliary return gain on a line.
          *
          * @see #MASTER_GAIN
@@ -399,7 +399,7 @@ public abstract class FloatControl extends Control {
          */
         public static final Type AUX_RETURN                     = new Type("AUX Return");
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the pre-reverb gain on a line.
          * This control may be used to affect how much
          * of a line's signal is directed to a mixer's internal reverberation unit.
@@ -410,7 +410,7 @@ public abstract class FloatControl extends Control {
          */
         public static final Type REVERB_SEND            = new Type("Reverb Send");
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the post-reverb gain on a line.
          * This control may be used to control the relative amplitude
          * of the signal returned from an internal reverberation unit.
@@ -423,7 +423,7 @@ public abstract class FloatControl extends Control {
 
         // VOLUME
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the volume on a line.
          */
         /*
@@ -434,7 +434,7 @@ public abstract class FloatControl extends Control {
 
         // PAN
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the relative pan (left-right positioning)
          * of the signal.  The signal may be mono; the pan setting affects how
          * it is distributed by the mixer in a stereo mix.  The valid range of values is -1.0
@@ -448,7 +448,7 @@ public abstract class FloatControl extends Control {
 
         // BALANCE
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the relative balance of a stereo signal
          * between two stereo speakers.  The valid range of values is -1.0 (left channel only) to 1.0 (right channel
          * only).  The default is 0.0 (centered).
@@ -460,7 +460,7 @@ public abstract class FloatControl extends Control {
 
         // SAMPLE RATE
 
-        /**
+        /** {@collect.stats}
          * Represents a control that changes the sample rate of audio playback.  The net effect
          * of changing the sample rate depends on the relationship between
          * the media's natural rate and the rate that is set via this control.
@@ -481,7 +481,7 @@ public abstract class FloatControl extends Control {
 
         // CONSTRUCTOR
 
-        /**
+        /** {@collect.stats}
          * Constructs a new float control type.
          * @param name  the name of the new float control type
          */

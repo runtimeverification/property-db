@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown if an application attempts to access or modify a field, or
  * to call a method that it does not have access to.
  * <p>
@@ -37,14 +37,14 @@ package java.lang;
  * @since   JDK1.0
  */
 public class IllegalAccessError extends IncompatibleClassChangeError {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalAccessError</code> with no detail message.
      */
     public IllegalAccessError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalAccessError</code> with the specified
      * detail message.
      *

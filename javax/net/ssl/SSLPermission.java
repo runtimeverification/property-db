@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
 import java.security.Permissions;
 import java.lang.SecurityManager;
 
-/**
+/** {@collect.stats}
  * This class is for various network permissions.
  * An SSLPermission contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -107,7 +107,7 @@ public final class SSLPermission extends BasicPermission {
 
     private static final long serialVersionUID = -3456898025505876775L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new SSLPermission with the specified name.
      * The name is the symbolic name of the SSLPermission, such as
      * "setDefaultAuthenticator", etc. An asterisk
@@ -125,7 +125,7 @@ public final class SSLPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new SSLPermission object with the specified name.
      * The name is the symbolic name of the SSLPermission, and the
      * actions String is currently unused and should be null.

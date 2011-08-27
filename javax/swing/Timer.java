@@ -43,7 +43,7 @@ import javax.swing.event.EventListenerList;
 
 
 
-/**
+/** {@collect.stats}
  * Fires one or more {@code ActionEvent}s at specified
  * intervals. An example use is an animation object that uses a
  * <code>Timer</code> as the trigger for drawing its frames.
@@ -184,7 +184,7 @@ public class Timer implements Serializable
      private transient volatile AccessControlContext acc =
             AccessController.getContext();
 
-    /**
+    /** {@collect.stats}
       * Returns the acc this timer was constructed with.
       */
      final AccessControlContext getAccessControlContext() {
@@ -203,7 +203,7 @@ public class Timer implements Serializable
 
     private volatile String actionCommand;
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code Timer} and initializes both the initial delay and
      * between-event delay to {@code delay} milliseconds. If {@code delay}
      * is less than or equal to zero, the timer fires as soon as it
@@ -229,7 +229,7 @@ public class Timer implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * DoPostEvent is a runnable class that fires actionEvents to
      * the listeners on the EventDispatchThread, via invokeLater.
      * @see Timer#post
@@ -255,7 +255,7 @@ public class Timer implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an action listener to the <code>Timer</code>.
      *
      * @param listener the listener to add
@@ -267,7 +267,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified action listener from the <code>Timer</code>.
      *
      * @param listener the listener to remove
@@ -277,7 +277,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the action listeners registered
      * on this timer.
      *
@@ -295,7 +295,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.
      *
@@ -315,7 +315,7 @@ public class Timer implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this <code>Timer</code>.
@@ -356,7 +356,7 @@ public class Timer implements Serializable
         return listenerList.getListeners(listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the timer queue.
      */
     private TimerQueue timerQueue() {
@@ -364,7 +364,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Enables or disables the timer log. When enabled, a message
      * is posted to <code>System.out</code> whenever the timer goes off.
      *
@@ -376,7 +376,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if logging is enabled.
      *
      * @return <code>true</code> if logging is enabled; otherwise, false
@@ -387,7 +387,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Timer</code>'s between-event delay, the number of milliseconds
      * between successive action events. This does not affect the initial delay
      * property, which can be set by the {@code setInitialDelay} method.
@@ -405,7 +405,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the delay, in milliseconds,
      * between firings of action events.
      *
@@ -417,7 +417,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Timer</code>'s initial delay, the time
      * in milliseconds to wait after the timer is started
      * before firing the first event. Upon construction, this
@@ -439,7 +439,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Timer</code>'s initial delay.
      *
      * @see #setInitialDelay
@@ -450,7 +450,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * If <code>flag</code> is <code>false</code>,
      * instructs the <code>Timer</code> to send only one
      * action event to its listeners.
@@ -463,7 +463,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> (the default)
      * if the <code>Timer</code> will send
      * an action event
@@ -476,7 +476,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets whether the <code>Timer</code> coalesces multiple pending
      * <code>ActionEvent</code> firings.
      * A busy application may not be able
@@ -504,7 +504,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>Timer</code> coalesces
      * multiple pending action events.
      *
@@ -515,7 +515,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the string that will be delivered as the action command
      * in <code>ActionEvent</code>s fired by this timer.
      * <code>null</code> is an acceptable value.
@@ -528,7 +528,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the string that will be delivered as the action command
      * in <code>ActionEvent</code>s fired by this timer. May be
      * <code>null</code>, which is also the default.
@@ -541,7 +541,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Starts the <code>Timer</code>,
      * causing it to start sending action events
      * to its listeners.
@@ -553,7 +553,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>Timer</code> is running.
      *
      * @see #start
@@ -563,7 +563,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Stops the <code>Timer</code>,
      * causing it to stop sending action events
      * to its listeners.
@@ -581,7 +581,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Restarts the <code>Timer</code>,
      * canceling any pending firings and causing
      * it to fire with its initial delay.
@@ -597,7 +597,7 @@ public class Timer implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the internal state to indicate this Timer shouldn't notify
      * any of its listeners. This does not stop a repeatable Timer from
      * firing again, use <code>stop</code> for that.

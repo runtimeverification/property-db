@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.security.SecureRandom;
 
-/**
+/** {@collect.stats}
  * A <code>UID</code> represents an identifier that is unique over time
  * with respect to the host it is generated on, or one of 2<sup>16</sup>
  * "well-known" identifiers.
@@ -77,31 +77,31 @@ public final class UID implements Serializable {
     private static long lastTime = System.currentTimeMillis();
     private static short lastCount = Short.MIN_VALUE;
 
-    /** indicate compatibility with JDK 1.1.x version of class */
+    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 1086053664494604050L;
 
-    /**
+    /** {@collect.stats}
      * number that uniquely identifies the VM that this <code>UID</code>
      * was generated in with respect to its host and at the given time
      * @serial
      */
     private final int unique;
 
-    /**
+    /** {@collect.stats}
      * a time (as returned by {@link System#currentTimeMillis()}) at which
      * the VM that this <code>UID</code> was generated in was alive
      * @serial
      */
     private final long time;
 
-    /**
+    /** {@collect.stats}
      * 16-bit number to distinguish <code>UID</code> instances created
      * in the same VM with the same time value
      * @serial
      */
     private final short count;
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>UID</code> that is unique over time with
      * respect to the host that it was generated on.
      */
@@ -140,7 +140,7 @@ public final class UID implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a "well-known" <code>UID</code>.
      *
      * There are 2<sup>16</sup> possible such well-known ids.
@@ -157,7 +157,7 @@ public final class UID implements Serializable {
         count = num;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>UID</code> given data read from a stream.
      */
     private UID(int unique, long time, short count) {
@@ -166,7 +166,7 @@ public final class UID implements Serializable {
         this.count = count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>UID</code>.
      *
      * @return  the hash code value for this <code>UID</code>
@@ -175,7 +175,7 @@ public final class UID implements Serializable {
         return (int) time + (int) count;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this <code>UID</code> for
      * equality.
      *
@@ -200,7 +200,7 @@ public final class UID implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>UID</code>.
      *
      * @return  a string representation of this <code>UID</code>
@@ -211,7 +211,7 @@ public final class UID implements Serializable {
             Integer.toString(count,16);
     }
 
-    /**
+    /** {@collect.stats}
      * Marshals a binary representation of this <code>UID</code> to
      * a <code>DataOutput</code> instance.
      *
@@ -235,7 +235,7 @@ public final class UID implements Serializable {
         out.writeShort(count);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs and returns a new <code>UID</code> instance by
      * unmarshalling a binary representation from an
      * <code>DataInput</code> instance.

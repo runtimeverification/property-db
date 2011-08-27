@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that an attempt has been made to store the
  * wrong type of object into an array of objects. For example, the
  * following code generates an <code>ArrayStoreException</code>:
@@ -39,14 +39,14 @@ package java.lang;
  */
 public
 class ArrayStoreException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ArrayStoreException</code> with no detail message.
      */
     public ArrayStoreException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ArrayStoreException</code> with the specified
      * detail message.
      *

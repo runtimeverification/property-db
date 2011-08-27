@@ -27,7 +27,7 @@ package javax.crypto;
 
 import java.security.GeneralSecurityException;
 
-/**
+/** {@collect.stats}
  * This is the generic ExemptionMechanism exception.
  *
  * @since 1.4
@@ -37,7 +37,7 @@ public class ExemptionMechanismException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 1572699429277957109L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ExemptionMechanismException with no detailed message.
      * (A detailed message is a String that describes this particular
      * exception.)
@@ -46,7 +46,7 @@ public class ExemptionMechanismException extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ExemptionMechanismException with the specified
      * detailed message. (A detailed message is a String that describes
      * this particular exception.)

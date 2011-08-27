@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class SheetCollate is a printing attribute class, an enumeration, that
  * specifies whether or not the media sheets of each copy of each printed
  * document in a job are to be in sequence, when multiple copies of the document
@@ -160,19 +160,19 @@ public final class SheetCollate extends EnumSyntax
 
     private static final long serialVersionUID = 7080587914259873003L;
 
-    /**
+    /** {@collect.stats}
      * Sheets within a document appear in uncollated order when multiple
      * copies are printed.
      */
     public static final SheetCollate UNCOLLATED = new SheetCollate(0);
 
-    /**
+    /** {@collect.stats}
      * Sheets within a document appear in collated order when multiple copies
      * are printed.
      */
     public static final SheetCollate COLLATED = new SheetCollate(1);
 
-    /**
+    /** {@collect.stats}
      * Construct a new sheet collate enumeration value with the given integer
      * value.
      *
@@ -192,21 +192,21 @@ public final class SheetCollate extends EnumSyntax
         COLLATED
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class SheetCollate.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class SheetCollate.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -219,7 +219,7 @@ public final class SheetCollate extends EnumSyntax
         return SheetCollate.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

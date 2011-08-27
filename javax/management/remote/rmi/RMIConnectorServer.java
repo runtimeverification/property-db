@@ -55,7 +55,7 @@ import javax.management.remote.MBeanServerForwarder;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
  * <p>A JMX API connector server that creates RMI-based connections
  * from remote clients.  Usually, such connector servers are made
  * using {@link javax.management.remote.JMXConnectorServerFactory
@@ -66,7 +66,7 @@ import javax.naming.NamingException;
  * @since 1.5
  */
 public class RMIConnectorServer extends JMXConnectorServer {
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies whether the {@link
      * RMIServer} stub that represents an RMI connector server should
      * override an existing stub at the same address.  The value
@@ -77,7 +77,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
     public static final String JNDI_REBIND_ATTRIBUTE =
         "jmx.remote.jndi.rebind";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the {@link
      * RMIClientSocketFactory} for the RMI objects created in
      * conjunction with this connector. The value associated with this
@@ -88,7 +88,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
     public static final String RMI_CLIENT_SOCKET_FACTORY_ATTRIBUTE =
         "jmx.remote.rmi.client.socket.factory";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the {@link
      * RMIServerSocketFactory} for the RMI objects created in
      * conjunction with this connector. The value associated with this
@@ -99,7 +99,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
     public static final String RMI_SERVER_SOCKET_FACTORY_ATTRIBUTE =
         "jmx.remote.rmi.server.socket.factory";
 
-    /**
+    /** {@collect.stats}
      * <p>Makes an <code>RMIConnectorServer</code>.
      * This is equivalent to calling {@link #RMIConnectorServer(
      * JMXServiceURL,Map,RMIServerImpl,MBeanServer)
@@ -128,7 +128,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         this(url, environment, (MBeanServer) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Makes an <code>RMIConnectorServer</code> for the given MBean
      * server.
      * This is equivalent to calling {@link #RMIConnectorServer(
@@ -163,7 +163,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         this(url, environment, (RMIServerImpl) null, mbeanServer);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Makes an <code>RMIConnectorServer</code> for the given MBean
      * server.</p>
      *
@@ -232,7 +232,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         this.rmiServerImpl = rmiServerImpl;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a client stub for this connector server.  A client
      * stub is a serializable object whose {@link
      * JMXConnector#connect(Map) connect} method can be used to make
@@ -278,7 +278,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         return new RMIConnector(stub, usemap);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Activates the connector server, that is starts listening for
      * client connections.  Calling this method when the connector
      * server is already active has no effect.  Calling this method
@@ -469,7 +469,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Deactivates the connector server, that is, stops listening for
      * client connections.  Calling this method will also close all
      * client connections that were made by this server.  After this
@@ -616,7 +616,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         super.connectionFailed(connectionId, message, userData);
     }
 
-    /**
+    /** {@collect.stats}
      * Bind a stub to a registry.
      * @param jndiUrl URL of the stub in the registry, extracted
      *        from the <code>JMXServiceURL</code>.
@@ -640,7 +640,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         ctx.close();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new RMIServerImpl.
      **/
     RMIServerImpl newServer() throws IOException {
@@ -656,7 +656,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
             return newJRMPServer(attributes, port);
     }
 
-    /**
+    /** {@collect.stats}
      * Encode a stub into the JMXServiceURL.
      * @param rmiServer The stub object to encode in the URL
      * @param attributes A Map containing environment parameters,
@@ -702,7 +702,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the IOR of the given rmiServer.
      **/
     static String encodeStub(RMIServer rmiServer, Map env) throws IOException {
@@ -733,7 +733,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Object that we will bind to the registry.
      * This object is a stub connected to our RMIServerImpl.
      **/
@@ -796,7 +796,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * This array is a lookup table that translates 6-bit positive integer
      * index values into their "Base64 Alphabet" equivalents as specified
      * in Table 1 of RFC 2045.
@@ -809,7 +809,7 @@ public class RMIConnectorServer extends JMXConnectorServer {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'
     };
 
-    /**
+    /** {@collect.stats}
      * Construct a new IOException with a nested exception.
      * The nested exception is set only if JDK >= 1.4
      */

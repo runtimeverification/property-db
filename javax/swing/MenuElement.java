@@ -27,7 +27,7 @@ package javax.swing;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
+/** {@collect.stats}
  * Any component that can be placed into a menu should implement this interface.
  * This interface is used by <code>MenuSelectionManager</code>
  * to handle selection and navigation in menu hierarchies.
@@ -37,7 +37,7 @@ import java.awt.event.*;
 
 public interface MenuElement {
 
-    /**
+    /** {@collect.stats}
      * Processes a mouse event. <code>event</code> is a <code>MouseEvent</code>
      * with source being the receiving element's component.
      * <code>path</code> is the path of the receiving element in the menu
@@ -53,26 +53,26 @@ public interface MenuElement {
     public void processMouseEvent(MouseEvent event,MenuElement path[],MenuSelectionManager manager);
 
 
-    /**
+    /** {@collect.stats}
      *  Process a key event.
      */
     public void processKeyEvent(KeyEvent event,MenuElement path[],MenuSelectionManager manager);
 
-    /**
+    /** {@collect.stats}
      * Call by the <code>MenuSelectionManager</code> when the
      * <code>MenuElement</code> is added or remove from
      * the menu selection.
      */
     public void menuSelectionChanged(boolean isIncluded);
 
-    /**
+    /** {@collect.stats}
      * This method should return an array containing the sub-elements for the receiving menu element
      *
      * @return an array of MenuElements
      */
     public MenuElement[] getSubElements();
 
-    /**
+    /** {@collect.stats}
      * This method should return the java.awt.Component used to paint the receiving element.
      * The returned component will be used to convert events and detect if an event is inside
      * a MenuElement's component.

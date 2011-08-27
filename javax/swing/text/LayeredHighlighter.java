@@ -27,14 +27,14 @@ package javax.swing.text;
 import java.awt.Graphics;
 import java.awt.Shape;
 
-/**
+/** {@collect.stats}
  *
  * @author  Scott Violet
  * @author  Timothy Prinzing
  * @see     Highlighter
  */
 public abstract class LayeredHighlighter implements Highlighter {
-    /**
+    /** {@collect.stats}
      * When leaf Views (such as LabelView) are rendering they should
      * call into this method. If a highlight is in the given region it will
      * be drawn immediately.
@@ -52,7 +52,7 @@ public abstract class LayeredHighlighter implements Highlighter {
                                                 View view);
 
 
-    /**
+    /** {@collect.stats}
      * Layered highlight renderer.
      */
     static public abstract class LayerPainter implements Highlighter.HighlightPainter {

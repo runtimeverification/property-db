@@ -25,7 +25,7 @@
 
 package javax.swing.text.html.parser;
 
-/**
+/** {@collect.stats}
  * A content model state. This is basically a list of pointers to
  * the BNF expression representing the model (the ContentModel).
  * Each element in a DTD has a content model which describes the
@@ -47,14 +47,14 @@ class ContentModelState {
     long value;
     ContentModelState next;
 
-    /**
+    /** {@collect.stats}
      * Create a content model state for a content model.
      */
     public ContentModelState(ContentModel model) {
         this(model, null, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a content model state for a content model given the
      * remaining state that needs to be reduce.
      */
@@ -62,7 +62,7 @@ class ContentModelState {
         this(content, next, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a content model state for a content model given the
      * remaining state that needs to be reduce.
      */
@@ -72,7 +72,7 @@ class ContentModelState {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the content model that is relevant to the current state.
      */
     public ContentModel getModel() {
@@ -87,7 +87,7 @@ class ContentModelState {
         return m;
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the state can be terminated. That is there are no more
      * tokens required in the input stream.
      * @return true if the model can terminate without further input
@@ -139,7 +139,7 @@ class ContentModelState {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the state can be terminated. That is there are no more
      * tokens required in the input stream.
      * @return the only possible element that can occur next
@@ -166,7 +166,7 @@ class ContentModelState {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Advance this state to a new state. An exception is thrown if the
      * token is illegal at this point in the content model.
      * @return next state after reducing a token

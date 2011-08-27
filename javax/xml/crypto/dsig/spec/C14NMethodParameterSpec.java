@@ -29,7 +29,7 @@ package javax.xml.crypto.dsig.spec;
 
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 
-/**
+/** {@collect.stats}
  * A specification of algorithm parameters for a {@link CanonicalizationMethod}
  * Algorithm. The purpose of this interface is to group (and provide type
  * safety for) all canonicalization (C14N) parameter specifications. All

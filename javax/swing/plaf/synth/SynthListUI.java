@@ -44,7 +44,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's ListUI.
  *
  * @author Scott Violet

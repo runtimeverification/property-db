@@ -30,7 +30,7 @@ import java.awt.*;
 import java.io.Serializable;
 import java.io.PrintStream;
 
-/**
+/** {@collect.stats}
  * A layout manager that allows multiple components to be laid out either
  * vertically or horizontally. The components will not wrap so, for
  * example, a vertical arrangement of components will stay vertically
@@ -136,31 +136,31 @@ import java.io.PrintStream;
  */
 public class BoxLayout implements LayoutManager2, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Specifies that components should be laid out left to right.
      */
     public static final int X_AXIS = 0;
 
-    /**
+    /** {@collect.stats}
      * Specifies that components should be laid out top to bottom.
      */
     public static final int Y_AXIS = 1;
 
-    /**
+    /** {@collect.stats}
      * Specifies that components should be laid out in the direction of
      * a line of text as determined by the target container's
      * <code>ComponentOrientation</code> property.
      */
     public static final int LINE_AXIS = 2;
 
-    /**
+    /** {@collect.stats}
      * Specifies that components should be laid out in the direction that
      * lines flow across a page as determined by the target container's
      * <code>ComponentOrientation</code> property.
      */
     public static final int PAGE_AXIS = 3;
 
-    /**
+    /** {@collect.stats}
      * Creates a layout manager that will lay out components along the
      * given axis.
      *
@@ -182,7 +182,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         this.target = target;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a BoxLayout that
      * produces debugging messages.
      *
@@ -201,7 +201,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         this.dbg = dbg;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the container that uses this layout manager.
      *
      * @return the container that uses this layout manager
@@ -212,7 +212,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return this.target;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the axis that was used to lay out components.
      * Returns one of:
      * <code>BoxLayout.X_AXIS</code>,
@@ -228,7 +228,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return this.axis;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates that a child has changed its layout related information,
      * and thus any cached calculations should be flushed.
      * <p>
@@ -250,7 +250,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         yTotal = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Not used by this class.
      *
      * @param name the name of the component
@@ -260,7 +260,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Not used by this class.
      *
      * @param comp the component
@@ -269,7 +269,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Not used by this class.
      *
      * @param comp the component
@@ -279,7 +279,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred dimensions for this layout, given the components
      * in the specified target container.
      *
@@ -305,7 +305,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum dimensions needed to lay out the components
      * contained in the specified target container.
      *
@@ -330,7 +330,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum dimensions the target container can use
      * to lay out the components it contains.
      *
@@ -355,7 +355,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the X axis for the container.
      * If the box is horizontal, the default
      * alignment will be returned. Otherwise, the alignment needed
@@ -372,7 +372,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return xTotal.alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the Y axis for the container.
      * If the box is vertical, the default
      * alignment will be returned. Otherwise, the alignment needed
@@ -389,7 +389,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         return yTotal.alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the AWT <!-- XXX CHECK! --> when the specified container
      * needs to be laid out.
      *
@@ -501,7 +501,7 @@ public class BoxLayout implements LayoutManager2, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Given one of the 4 axis values, resolve it to an absolute axis.
      * The relative axis values, PAGE_AXIS and LINE_AXIS are converted
      * to their absolute couterpart given the target's ComponentOrientation

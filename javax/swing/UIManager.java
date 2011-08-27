@@ -60,7 +60,7 @@ import sun.swing.SwingUtilities2;
 import java.lang.reflect.Method;
 
 
-/**
+/** {@collect.stats}
  * {@code UIManager} manages the current look and feel, the set of
  * available look and feels, {@code PropertyChangeListeners} that
  * are notified when the look and feel changes, look and feel defaults, and
@@ -172,7 +172,7 @@ import java.lang.reflect.Method;
  */
 public class UIManager implements Serializable
 {
-    /**
+    /** {@collect.stats}
      * This class defines the state managed by the <code>UIManager</code>.  For
      * Swing applications the fields in this class could just as well
      * be static members of <code>UIManager</code> however we give them
@@ -202,7 +202,7 @@ public class UIManager implements Serializable
         UIDefaults getSystemDefaults() { return tables[1]; }
         void setSystemDefaults(UIDefaults x) { tables[1] = x; }
 
-        /**
+        /** {@collect.stats}
          * Returns the SwingPropertyChangeSupport for the current
          * AppContext.  If <code>create</code> is a true, a non-null
          * <code>SwingPropertyChangeSupport</code> will be returned, if
@@ -226,7 +226,7 @@ public class UIManager implements Serializable
      */
     private static final Object classLock = new Object();
 
-    /**
+    /** {@collect.stats}
      * Return the <code>LAFState</code> object, lazily create one if necessary.
      * All access to the <code>LAFState</code> fields is done via this method,
      * for example:
@@ -262,7 +262,7 @@ public class UIManager implements Serializable
     private static final String installedLAFsKey = "swing.installedlafs";
     private static final String disableMnemonicKey = "swing.disablenavaids";
 
-    /**
+    /** {@collect.stats}
      * Return a swing.properties file key for the attribute of specified
      * look and feel.  The attr is either "name" or "class", a typical
      * key would be: "swing.installedlaf.windows.name"
@@ -271,7 +271,7 @@ public class UIManager implements Serializable
         return "swing.installedlaf." + laf + "." + attr;
     }
 
-    /**
+    /** {@collect.stats}
      * The filename for swing.properties is a path like this (Unix version):
      * <java.home>/lib/swing.properties.  This method returns a bogus
      * filename if java.home isn't defined.
@@ -288,7 +288,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Provides a little information about an installed
      * <code>LookAndFeel</code> for the sake of configuring a menu or
      * for initial application set up.
@@ -300,7 +300,7 @@ public class UIManager implements Serializable
         private String name;
         private String className;
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>UIManager</code>s
          * <code>LookAndFeelInfo</code> object.
          *
@@ -314,7 +314,7 @@ public class UIManager implements Serializable
             this.className = className;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the name of the look and feel in a form suitable
          * for a menu or other presentation
          * @return a <code>String</code> containing the name
@@ -324,7 +324,7 @@ public class UIManager implements Serializable
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the name of the class that implements this look and feel.
          * @return the name of the class that implements this
          *              <code>LookAndFeel</code>
@@ -334,7 +334,7 @@ public class UIManager implements Serializable
             return className;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string that displays and identifies this
          * object's properties.
          *
@@ -346,7 +346,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * The default value of <code>installedLAFS</code> is used when no
      * swing.properties
      * file is available or if the file doesn't contain a "swing.installedlafs"
@@ -386,7 +386,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code LookAndFeelInfo}s representing the
      * {@code LookAndFeel} implementations currently available. The
      * <code>LookAndFeelInfo</code> objects can be used by an
@@ -418,7 +418,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the set of available look and feels. While this method does
      * not check to ensure all of the {@code LookAndFeelInfos} are
      * {@code non-null}, it is strongly recommended that only {@code non-null}
@@ -440,7 +440,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the specified look and feel to the set of available look
      * and feels. While this method allows a {@code null} {@code info},
      * it is strongly recommended that a {@code non-null} value be used.
@@ -458,7 +458,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the specified look and feel to the set of available look
      * and feels. While this method does not check the
      * arguments in any way, it is strongly recommended that {@code
@@ -473,7 +473,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current look and feel or <code>null</code>.
      *
      * @return current look and feel, or <code>null</code>
@@ -485,7 +485,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current look and feel to {@code newLookAndFeel}.
      * If the current look and feel is {@code non-null} {@code
      * uninitialize} is invoked on it. If {@code newLookAndFeel} is
@@ -542,7 +542,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Loads the {@code LookAndFeel} specified by the given class
      * name, using the current thread's context class loader, and
      * passes it to {@code setLookAndFeel(LookAndFeel)}.
@@ -575,7 +575,7 @@ public class UIManager implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the <code>LookAndFeel</code> class that implements
      * the native system look and feel if there is one, otherwise
      * the name of the default cross platform <code>LookAndFeel</code>
@@ -614,7 +614,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the <code>LookAndFeel</code> class that implements
      * the default cross platform look and feel -- the Java
      * Look and Feel (JLF).  This value can be overriden by setting the
@@ -634,7 +634,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the defaults. The returned defaults resolve using the
      * logic specified in the class documentation.
      *
@@ -645,7 +645,7 @@ public class UIManager implements Serializable
         return getLAFState().multiUIDefaults;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a font from the defaults. If the value for {@code key} is
      * not a {@code Font}, {@code null} is returned.
      *
@@ -657,7 +657,7 @@ public class UIManager implements Serializable
         return getDefaults().getFont(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a font from the defaults that is appropriate
      * for the given locale. If the value for {@code key} is
      * not a {@code Font}, {@code null} is returned.
@@ -674,7 +674,7 @@ public class UIManager implements Serializable
         return getDefaults().getFont(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a color from the defaults. If the value for {@code key} is
      * not a {@code Color}, {@code null} is returned.
      *
@@ -686,7 +686,7 @@ public class UIManager implements Serializable
         return getDefaults().getColor(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a color from the defaults that is appropriate
      * for the given locale. If the value for {@code key} is
      * not a {@code Color}, {@code null} is returned.
@@ -703,7 +703,7 @@ public class UIManager implements Serializable
         return getDefaults().getColor(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> from the defaults. If the value for
      * {@code key} is not an {@code Icon}, {@code null} is returned.
      *
@@ -715,7 +715,7 @@ public class UIManager implements Serializable
         return getDefaults().getIcon(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> from the defaults that is appropriate
      * for the given locale. If the value for
      * {@code key} is not an {@code Icon}, {@code null} is returned.
@@ -732,7 +732,7 @@ public class UIManager implements Serializable
         return getDefaults().getIcon(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a border from the defaults. If the value for
      * {@code key} is not a {@code Border}, {@code null} is returned.
      *
@@ -744,7 +744,7 @@ public class UIManager implements Serializable
         return getDefaults().getBorder(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a border from the defaults that is appropriate
      * for the given locale.  If the value for
      * {@code key} is not a {@code Border}, {@code null} is returned.
@@ -761,7 +761,7 @@ public class UIManager implements Serializable
         return getDefaults().getBorder(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string from the defaults. If the value for
      * {@code key} is not a {@code String}, {@code null} is returned.
      *
@@ -773,7 +773,7 @@ public class UIManager implements Serializable
         return getDefaults().getString(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string from the defaults that is appropriate for the
      * given locale.  If the value for
      * {@code key} is not a {@code String}, {@code null} is returned.
@@ -790,7 +790,7 @@ public class UIManager implements Serializable
         return getDefaults().getString(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string from the defaults that is appropriate for the
      * given locale.  If the value for
      * {@code key} is not a {@code String}, {@code null} is returned.
@@ -807,7 +807,7 @@ public class UIManager implements Serializable
         return getString(key, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an integer from the defaults. If the value for
      * {@code key} is not an {@code Integer}, or does not exist,
      * {@code 0} is returned.
@@ -820,7 +820,7 @@ public class UIManager implements Serializable
         return getDefaults().getInt(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an integer from the defaults that is appropriate
      * for the given locale. If the value for
      * {@code key} is not an {@code Integer}, or does not exist,
@@ -838,7 +838,7 @@ public class UIManager implements Serializable
         return getDefaults().getInt(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a boolean from the defaults which is associated with
      * the key value. If the key is not found or the key doesn't represent
      * a boolean value then {@code false} is returned.
@@ -852,7 +852,7 @@ public class UIManager implements Serializable
         return getDefaults().getBoolean(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a boolean from the defaults which is associated with
      * the key value and the given <code>Locale</code>. If the key is not
      * found or the key doesn't represent
@@ -871,7 +871,7 @@ public class UIManager implements Serializable
         return getDefaults().getBoolean(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Insets</code> object from the defaults. If the value
      * for {@code key} is not an {@code Insets}, {@code null} is returned.
      *
@@ -883,7 +883,7 @@ public class UIManager implements Serializable
         return getDefaults().getInsets(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Insets</code> object from the defaults that is
      * appropriate for the given locale. If the value
      * for {@code key} is not an {@code Insets}, {@code null} is returned.
@@ -900,7 +900,7 @@ public class UIManager implements Serializable
         return getDefaults().getInsets(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a dimension from the defaults. If the value
      * for {@code key} is not a {@code Dimension}, {@code null} is returned.
      *
@@ -912,7 +912,7 @@ public class UIManager implements Serializable
         return getDefaults().getDimension(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a dimension from the defaults that is appropriate
      * for the given locale. If the value
      * for {@code key} is not a {@code Dimension}, {@code null} is returned.
@@ -929,7 +929,7 @@ public class UIManager implements Serializable
         return getDefaults().getDimension(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object from the defaults.
      *
      * @param key  an <code>Object</code> specifying the desired object
@@ -940,7 +940,7 @@ public class UIManager implements Serializable
         return getDefaults().get(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object from the defaults that is appropriate for
      * the given locale.
      *
@@ -956,7 +956,7 @@ public class UIManager implements Serializable
         return getDefaults().get(key,l);
     }
 
-    /**
+    /** {@collect.stats}
      * Stores an object in the developer defaults. This is a cover method
      * for {@code getDefaults().put(key, value)}. This only effects the
      * developer defaults, not the system or look and feel defaults.
@@ -973,7 +973,7 @@ public class UIManager implements Serializable
         return getDefaults().put(key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the appropriate {@code ComponentUI} implementation for
      * {@code target}. Typically, this is a cover for
      * {@code getDefaults().getUI(target)}. However, if an auxiliary
@@ -1003,7 +1003,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code UIDefaults} from the current look and feel,
      * that were obtained at the time the look and feel was installed.
      * <p>
@@ -1022,7 +1022,7 @@ public class UIManager implements Serializable
         return getLAFState().getLookAndFeelDefaults();
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the Multiplexing <code>LookAndFeel</code>.
      */
     private static LookAndFeel getMultiLookAndFeel() {
@@ -1040,7 +1040,7 @@ public class UIManager implements Serializable
         return multiLookAndFeel;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>LookAndFeel</code> to the list of auxiliary look and feels.
      * The auxiliary look and feels tell the multiplexing look and feel what
      * other <code>LookAndFeel</code> classes for a component instance are to be used
@@ -1080,7 +1080,7 @@ public class UIManager implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>LookAndFeel</code> from the list of auxiliary look and feels.
      * The auxiliary look and feels tell the multiplexing look and feel what
      * other <code>LookAndFeel</code> classes for a component instance are to be used
@@ -1119,7 +1119,7 @@ public class UIManager implements Serializable
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of auxiliary look and feels (can be <code>null</code>).
      * The auxiliary look and feels tell the multiplexing look and feel what
      * other <code>LookAndFeel</code> classes for a component instance are
@@ -1150,7 +1150,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>PropertyChangeListener</code> to the listener list.
      * The listener is registered for all properties.
      *
@@ -1166,7 +1166,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChangeListener</code> from the listener list.
      * This removes a <code>PropertyChangeListener</code> that was registered
      * for all properties.
@@ -1183,7 +1183,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>PropertyChangeListener</code>s added
      * to this UIManager with addPropertyChangeListener().
      *
@@ -1252,7 +1252,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * If a swing.properties file exist and it has a swing.installedlafs property
      * then initialize the <code>installedLAFs</code> field.
      *
@@ -1297,7 +1297,7 @@ public class UIManager implements Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the user has specified a default look and feel, use that.
      * Otherwise use the look and feel that's native to this platform.
      * If this code is called after the application has explicitly

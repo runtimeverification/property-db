@@ -29,7 +29,7 @@ import javax.management.openmbean.CompositeData;
 import sun.management.ThreadInfoCompositeData;
 import static java.lang.Thread.State.*;
 
-/**
+/** {@collect.stats}
  * Thread information. <tt>ThreadInfo</tt> contains the information
  * about a thread including:
  * <h4>General thread information</h4>
@@ -109,7 +109,7 @@ public class ThreadInfo {
     private static MonitorInfo[] EMPTY_MONITORS = new MonitorInfo[0];
     private static LockInfo[] EMPTY_SYNCS = new LockInfo[0];
 
-    /**
+    /** {@collect.stats}
      * Constructor of ThreadInfo created by the JVM
      *
      * @param t             Thread
@@ -132,7 +132,7 @@ public class ThreadInfo {
                    EMPTY_MONITORS, EMPTY_SYNCS);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor of ThreadInfo created by the JVM
      * for {@link ThreadMXBean#getThreadInfo(long[],boolean,boolean)}
      * and {@link ThreadMXBean#dumpAllThreads}
@@ -197,7 +197,7 @@ public class ThreadInfo {
                    lockedMonitors, lockedSynchronizers);
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize ThreadInfo object
      *
      * @param t             Thread
@@ -303,7 +303,7 @@ public class ThreadInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ID of the thread associated with this <tt>ThreadInfo</tt>.
      *
      * @return the ID of the associated thread.
@@ -312,7 +312,7 @@ public class ThreadInfo {
         return threadId;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the thread associated with this <tt>ThreadInfo</tt>.
      *
      * @return the name of the associated thread.
@@ -321,7 +321,7 @@ public class ThreadInfo {
         return threadName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the state of the thread associated with this <tt>ThreadInfo</tt>.
      *
      * @return <tt>Thread.State</tt> of the associated thread.
@@ -330,7 +330,7 @@ public class ThreadInfo {
          return threadState;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the approximate accumulated elapsed time (in milliseconds)
      * that the thread associated with this <tt>ThreadInfo</tt>
      * has blocked to enter or reenter a monitor
@@ -359,7 +359,7 @@ public class ThreadInfo {
         return blockedTime;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of times that
      * the thread associated with this <tt>ThreadInfo</tt>
      * blocked to enter or reenter a monitor.
@@ -373,7 +373,7 @@ public class ThreadInfo {
         return blockedCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the approximate accumulated elapsed time (in milliseconds)
      * that the thread associated with this <tt>ThreadInfo</tt>
      * has waited for notification
@@ -404,7 +404,7 @@ public class ThreadInfo {
         return waitedTime;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of times that
      * the thread associated with this <tt>ThreadInfo</tt>
      * waited for notification.
@@ -419,7 +419,7 @@ public class ThreadInfo {
         return waitedCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <tt>LockInfo</tt> of an object for which
      * the thread associated with this <tt>ThreadInfo</tt>
      * is blocked waiting.
@@ -460,7 +460,7 @@ public class ThreadInfo {
         return lock;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@link LockInfo#toString string representation}
      * of an object for which the thread associated with this
      * <tt>ThreadInfo</tt> is blocked waiting.
@@ -483,7 +483,7 @@ public class ThreadInfo {
         return lockName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ID of the thread which owns the object
      * for which the thread associated with this <tt>ThreadInfo</tt>
      * is blocked waiting.
@@ -501,7 +501,7 @@ public class ThreadInfo {
         return lockOwnerId;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the thread which owns the object
      * for which the thread associated with this <tt>ThreadInfo</tt>
      * is blocked waiting.
@@ -519,7 +519,7 @@ public class ThreadInfo {
         return lockOwnerName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the stack trace of the thread
      * associated with this <tt>ThreadInfo</tt>.
      * If no stack trace was requested for this thread info, this method
@@ -542,7 +542,7 @@ public class ThreadInfo {
         return stackTrace;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the thread associated with this <tt>ThreadInfo</tt>
      * is suspended.  This method returns <tt>true</tt> if
      * {@link Thread#suspend} has been called.
@@ -554,7 +554,7 @@ public class ThreadInfo {
          return suspended;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the thread associated with this <tt>ThreadInfo</tt>
      * is executing native code via the Java Native Interface (JNI).
      * The JNI native code does not include
@@ -568,7 +568,7 @@ public class ThreadInfo {
          return inNative;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this thread info.
      * The format of this string depends on the implementation.
      * The returned string will typically include
@@ -647,7 +647,7 @@ public class ThreadInfo {
     }
     private static final int MAX_FRAMES = 8;
 
-    /**
+    /** {@collect.stats}
      * Returns a <tt>ThreadInfo</tt> object represented by the
      * given <tt>CompositeData</tt>.
      * The given <tt>CompositeData</tt> must contain the following attributes
@@ -801,7 +801,7 @@ public class ThreadInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@link MonitorInfo} objects, each of which
      * represents an object monitor currently locked by the thread
      * associated with this <tt>ThreadInfo</tt>.
@@ -818,7 +818,7 @@ public class ThreadInfo {
         return lockedMonitors;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@link LockInfo} objects, each of which
      * represents an <a href="LockInfo.html#OwnableSynchronizer">ownable
      * synchronizer</a> currently locked by the thread associated with

@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-/**
+/** {@collect.stats}
  * Indicates an exceptional condition that occured while executing a
  * transform algorithm.
  *
@@ -46,7 +46,7 @@ public class TransformException extends Exception {
 
     private static final long serialVersionUID = 5082634801360427800L;
 
-    /**
+    /** {@collect.stats}
      * The throwable that caused this exception to get thrown, or null if this
      * exception was not caused by another throwable or if the causative
      * throwable is unknown.
@@ -55,7 +55,7 @@ public class TransformException extends Exception {
      */
     private Throwable cause;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>TransformException</code> with
      * <code>null</code> as its detail message.
      */
@@ -63,7 +63,7 @@ public class TransformException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>TransformException</code> with the specified
      * detail message.
      *
@@ -73,7 +73,7 @@ public class TransformException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>TransformException</code> with the
      * specified detail message and cause.
      * <p>Note that the detail message associated with
@@ -89,7 +89,7 @@ public class TransformException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>TransformException</code> with the specified
      * cause and a detail message of
      * <code>(cause==null ? null : cause.toString())</code>
@@ -104,7 +104,7 @@ public class TransformException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this <code>TransformException</code> or
      * <code>null</code> if the cause is nonexistent or unknown.  (The
      * cause is the throwable that caused this
@@ -117,7 +117,7 @@ public class TransformException extends Exception {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>TransformException</code>, its backtrace and
      * the cause's backtrace to the standard error stream.
      */
@@ -128,7 +128,7 @@ public class TransformException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>TransformException</code>, its backtrace and
      * the cause's backtrace to the specified print stream.
      *
@@ -141,7 +141,7 @@ public class TransformException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>TransformException</code>, its backtrace and
      * the cause's backtrace to the specified print writer.
      *

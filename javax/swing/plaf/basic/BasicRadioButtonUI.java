@@ -35,7 +35,7 @@ import sun.swing.SwingUtilities2;
 import sun.awt.AppContext;
 
 
-/**
+/** {@collect.stats}
  * RadioButtonUI implementation for BasicRadioButtonUI
  *
  * @author Jeff Dinkins
@@ -103,7 +103,7 @@ public class BasicRadioButtonUI extends BasicToggleButtonUI
     private static Rectangle iconRect = new Rectangle();
     private static Rectangle textRect = new Rectangle();
 
-    /**
+    /** {@collect.stats}
      * paint the radio button
      */
     public synchronized void paint(Graphics g, JComponent c) {
@@ -210,7 +210,7 @@ public class BasicRadioButtonUI extends BasicToggleButtonUI
     private static Rectangle prefTextRect = new Rectangle();
     private static Insets prefInsets = new Insets(0, 0, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * The preferred size of the radio button
      */
     public Dimension getPreferredSize(JComponent c) {

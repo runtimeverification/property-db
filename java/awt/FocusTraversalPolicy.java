@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-/**
+/** {@collect.stats}
  * A FocusTraversalPolicy defines the order in which Components with a
  * particular focus cycle root are traversed. Instances can apply the policy to
  * arbitrary focus cycle roots, allowing themselves to be shared across
@@ -69,7 +69,7 @@ package java.awt;
  */
 public abstract class FocusTraversalPolicy {
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus after aComponent.
      * aContainer must be a focus cycle root of aComponent or a focus traversal
      * policy provider.
@@ -87,7 +87,7 @@ public abstract class FocusTraversalPolicy {
     public abstract Component getComponentAfter(Container aContainer,
                                                 Component aComponent);
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus before aComponent.
      * aContainer must be a focus cycle root of aComponent or a focus traversal
      * policy provider.
@@ -105,7 +105,7 @@ public abstract class FocusTraversalPolicy {
     public abstract Component getComponentBefore(Container aContainer,
                                                  Component aComponent);
 
-    /**
+    /** {@collect.stats}
      * Returns the first Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * forward direction.
@@ -118,7 +118,7 @@ public abstract class FocusTraversalPolicy {
      */
     public abstract Component getFirstComponent(Container aContainer);
 
-    /**
+    /** {@collect.stats}
      * Returns the last Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * reverse direction.
@@ -131,7 +131,7 @@ public abstract class FocusTraversalPolicy {
      */
     public abstract Component getLastComponent(Container aContainer);
 
-    /**
+    /** {@collect.stats}
      * Returns the default Component to focus. This Component will be the first
      * to receive focus when traversing down into a new focus traversal cycle
      * rooted at aContainer.
@@ -144,7 +144,7 @@ public abstract class FocusTraversalPolicy {
      */
     public abstract Component getDefaultComponent(Container aContainer);
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus when a Window is
      * made visible for the first time. Once the Window has been made visible
      * by a call to <code>show()</code> or <code>setVisible(true)</code>, the

@@ -30,7 +30,7 @@ import java.text.ParseException;
 import javax.swing.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <code>DefaultFormatter</code> formats aribtrary objects. Formatting is done
  * by invoking the <code>toString</code> method. In order to convert the
  * value back to a String, your class must provide a constructor that
@@ -58,29 +58,29 @@ import javax.swing.text.*;
  */
 public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
                     implements Cloneable, Serializable {
-    /** Indicates if the value being edited must match the mask. */
+    /** {@collect.stats} Indicates if the value being edited must match the mask. */
     private boolean allowsInvalid;
 
-    /** If true, editing mode is in overwrite (or strikethough). */
+    /** {@collect.stats} If true, editing mode is in overwrite (or strikethough). */
     private boolean overwriteMode;
 
-    /** If true, any time a valid edit happens commitEdit is invoked. */
+    /** {@collect.stats} If true, any time a valid edit happens commitEdit is invoked. */
     private boolean commitOnEdit;
 
-    /** Class used to create new instances. */
+    /** {@collect.stats} Class used to create new instances. */
     private Class valueClass;
 
-    /** NavigationFilter that forwards calls back to DefaultFormatter. */
+    /** {@collect.stats} NavigationFilter that forwards calls back to DefaultFormatter. */
     private NavigationFilter navigationFilter;
 
-    /** DocumentFilter that forwards calls back to DefaultFormatter. */
+    /** {@collect.stats} DocumentFilter that forwards calls back to DefaultFormatter. */
     private DocumentFilter documentFilter;
 
-    /** Used during replace to track the region to replace. */
+    /** {@collect.stats} Used during replace to track the region to replace. */
     transient ReplaceHolder replaceHolder;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a DefaultFormatter.
      */
     public DefaultFormatter() {
@@ -88,7 +88,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         allowsInvalid = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the <code>DefaultFormatter</code> onto a particular
      * <code>JFormattedTextField</code>.
      * This will invoke <code>valueToString</code> to convert the
@@ -123,7 +123,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         positionCursorAtInitialLocation();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets when edits are published back to the
      * <code>JFormattedTextField</code>. If true, <code>commitEdit</code>
      * is invoked after every valid edit (any time the text is edited). On
@@ -141,7 +141,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         commitOnEdit = commit;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns when edits are published back to the
      * <code>JFormattedTextField</code>.
      *
@@ -151,7 +151,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return commitOnEdit;
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the behavior when inserting characters. If
      * <code>overwriteMode</code> is true (the default), new characters
      * overwrite existing characters in the model.
@@ -162,7 +162,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         this.overwriteMode = overwriteMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the behavior when inserting characters.
      *
      * @return true if newly inserted characters overwrite existing characters
@@ -171,7 +171,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return overwriteMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the value being edited is allowed to be invalid
      * for a length of time (that is, <code>stringToValue</code> throws
      * a <code>ParseException</code>).
@@ -185,7 +185,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         this.allowsInvalid = allowsInvalid;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the value being edited is allowed to be invalid
      * for a length of time.
      *
@@ -195,7 +195,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return allowsInvalid;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets that class that is used to create new Objects. If the
      * passed in class does not have a single argument constructor that
      * takes a String, String values will be used.
@@ -207,7 +207,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         this.valueClass = valueClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns that class that is used to create new Objects.
      *
      * @return Class used to constuct return value from stringToValue
@@ -216,7 +216,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return valueClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the passed in String into an instance of
      * <code>getValueClass</code> by way of the constructor that
      * takes a String argument. If <code>getValueClass</code>
@@ -262,7 +262,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return string;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the passed in Object into a String by way of the
      * <code>toString</code> method.
      *
@@ -277,7 +277,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return value.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>DocumentFilter</code> used to restrict the characters
      * that can be input into the <code>JFormattedTextField</code>.
      *
@@ -290,7 +290,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return documentFilter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>NavigationFilter</code> used to restrict where the
      * cursor can be placed.
      *
@@ -303,7 +303,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return navigationFilter;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of the DefaultFormatter.
      *
      * @return copy of the DefaultFormatter
@@ -318,7 +318,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * Positions the cursor at the initial location.
      */
     void positionCursorAtInitialLocation() {
@@ -328,7 +328,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initial location to position the cursor at. This forwards
      * the call to <code>getNextNavigatableChar</code>.
      */
@@ -336,7 +336,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return getNextNavigatableChar(0, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses should override this if they want cursor navigation
      * to skip certain characters. A return value of false indicates
      * the character at <code>offset</code> should be skipped when
@@ -346,7 +346,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the text in <code>text</code> can be inserted.  This
      * does not mean the text will ultimately be inserted, it is used if
      * text can trivially reject certain characters.
@@ -355,7 +355,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next editable character starting at offset incrementing
      * the offset by <code>direction</code>.
      */
@@ -371,7 +371,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience methods to return the result of deleting
      * <code>deleteLength</code> characters at <code>offset</code>
      * and inserting <code>replaceString</code> at <code>offset</code>
@@ -412,7 +412,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>commitEdit</code> on the JFormattedTextField.
      */
     void commitEdit() throws ParseException {
@@ -423,7 +423,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes the value to the JFormattedTextField if the current value
      * is valid and invokes <code>setEditValid</code> based on the
      * validity of the value.
@@ -432,7 +432,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         updateValue(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes the <code>value</code> to the editor if we are to
      * commit on edits. If <code>value</code> is null, the current value
      * will be obtained from the text component.
@@ -454,7 +454,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next cursor position from offset by incrementing
      * <code>direction</code>. This uses
      * <code>getNextNavigatableChar</code>
@@ -484,7 +484,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return newOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the cursor by using getNextCursorPosition.
      */
     void repositionCursor(int offset, int direction) {
@@ -493,7 +493,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * Finds the next navigatable character.
      */
     int getNextVisualPositionFrom(JTextComponent text, int pos,
@@ -531,7 +531,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the edit described by <code>rh</code> will result
      * in a legal value.
      */
@@ -539,7 +539,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return isValidEdit(rh);
     }
 
-    /**
+    /** {@collect.stats}
      * DocumentFilter method, funnels into <code>replace</code>.
      */
     void replace(DocumentFilter.FilterBypass fb, int offset,
@@ -550,7 +550,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         replace(rh);
     }
 
-    /**
+    /** {@collect.stats}
      * If the edit described by <code>rh</code> is legal, this will
      * return true, commit the edit (if necessary) and update the cursor
      * position.  This forwards to <code>canReplace</code> and
@@ -599,7 +599,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * NavigationFilter method, subclasses that wish finer control should
      * override this.
      */
@@ -607,7 +607,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
         fb.setDot(dot, bias);
     }
 
-    /**
+    /** {@collect.stats}
      * NavigationFilter method, subclasses that wish finer control should
      * override this.
      */
@@ -617,7 +617,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the ReplaceHolder to track the replace of the specified
      * text.
      */
@@ -632,24 +632,24 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * ReplaceHolder is used to track where insert/remove/replace is
      * going to happen.
      */
     static class ReplaceHolder {
-        /** The FilterBypass that was passed to the DocumentFilter method. */
+        /** {@collect.stats} The FilterBypass that was passed to the DocumentFilter method. */
         DocumentFilter.FilterBypass fb;
-        /** Offset where the remove/insert is going to occur. */
+        /** {@collect.stats} Offset where the remove/insert is going to occur. */
         int offset;
-        /** Length of text to remove. */
+        /** {@collect.stats} Length of text to remove. */
         int length;
-        /** The text to insert, may be null. */
+        /** {@collect.stats} The text to insert, may be null. */
         String text;
-        /** AttributeSet to attach to text, may be null. */
+        /** {@collect.stats} AttributeSet to attach to text, may be null. */
         AttributeSet attrs;
-        /** The resulting value, this may never be set. */
+        /** {@collect.stats} The resulting value, this may never be set. */
         Object value;
-        /** Position the cursor should be adjusted from.  If this is -1
+        /** {@collect.stats} Position the cursor should be adjusted from.  If this is -1
          * the cursor position will be adjusted based on the direction of
          * the replace (-1: offset, 1: offset + text.length()), otherwise
          * the cursor position is adusted from this position.
@@ -669,7 +669,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * NavigationFilter implementation that calls back to methods with
      * same name in DefaultFormatter.
      */
@@ -712,7 +712,7 @@ public class DefaultFormatter extends JFormattedTextField.AbstractFormatter
     }
 
 
-    /**
+    /** {@collect.stats}
      * DocumentFilter implementation that calls back to the replace
      * method of DefaultFormatter.
      */

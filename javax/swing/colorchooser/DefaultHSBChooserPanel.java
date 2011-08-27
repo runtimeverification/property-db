@@ -32,7 +32,7 @@ import javax.swing.event.*;
 import javax.swing.border.*;
 import java.awt.image.*;
 
-/**
+/** {@collect.stats}
  * Implements the default HSB Color chooser
  *
  *  @author Tom Santos
@@ -197,7 +197,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the values of the RGB fields to reflect the new color change
      */
     private void updateRGBTextFields( Color color ) {
@@ -206,7 +206,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         blueField.setText(String.valueOf(color.getBlue()));
     }
 
-    /**
+    /** {@collect.stats}
      * Main internal method of updating the ui controls and the color model.
      */
     private void updateHSB( float h, float s, float b ) {
@@ -226,7 +226,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Invoked automatically when the model's state changes.
       * It is also called by <code>installChooserPanel</code> to allow
       * you to set up the initial state of your chooser.
@@ -245,7 +245,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         addHierarchyListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the panel is removed from the chooser.
      */
     public void uninstallChooserPanel(JColorChooser enclosingChooser) {
@@ -255,7 +255,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         removeHierarchyListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an float array containing the HSB values of the selected color from
      * the ColorSelectionModel
      */
@@ -267,7 +267,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return hsb;
     }
 
-    /**
+    /** {@collect.stats}
      * Builds a new chooser panel.
      */
     protected void buildChooser() {
@@ -292,7 +292,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         add( controlHolder, BorderLayout.CENTER);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the panel with the uneditable RGB field
      */
     private JComponent buildRGBControls() {
@@ -329,7 +329,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return panel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the panel with the editable HSB fields and the radio buttons.
      */
     private JComponent buildHSBControls() {
@@ -385,7 +385,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return panel;
     }
 
-    /**
+    /** {@collect.stats}
      * Handler for the radio button classes.
      */
     private class RadioButtonHandler implements ActionListener  {
@@ -533,7 +533,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return UIManager.getString("ColorChooser.hsbNameText");
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the
      * <code>KeyEvent.VK</code> constant that can be used as a mnemonic to
      * access the panel. A return value <= 0 indicates there is no mnemonic.
@@ -556,7 +556,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return getInt("ColorChooser.hsbMnemonic", -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the index of the character in
      * <code>getDisplayName</code> that should be visually identified as the
      * mnemonic. The look and feel should only use this if
@@ -592,7 +592,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Class for the slider and palette images.
      */
     class HSBImage extends SyntheticImage {
@@ -727,7 +727,7 @@ class DefaultHSBChooserPanel extends AbstractColorChooserPanel implements Change
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Overriden method from SyntheticImage
          */
         protected void computeRow( int y, int[] row ) {

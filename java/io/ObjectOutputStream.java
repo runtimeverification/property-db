@@ -37,7 +37,7 @@ import java.util.concurrent.ConcurrentMap;
 import static java.io.ObjectStreamClass.processQueue;
 import java.io.SerialCallbackContext;
 
-/**
+/** {@collect.stats}
  * An ObjectOutputStream writes primitive data types and graphs of Java objects
  * to an OutputStream.  The objects can be read (reconstituted) using an
  * ObjectInputStream.  Persistent storage of objects can be accomplished by
@@ -163,48 +163,48 @@ public class ObjectOutputStream
 {
 
     private static class Caches {
-        /** cache of subclass security audit results */
+        /** {@collect.stats} cache of subclass security audit results */
         static final ConcurrentMap<WeakClassKey,Boolean> subclassAudits =
             new ConcurrentHashMap<WeakClassKey,Boolean>();
 
-        /** queue for WeakReferences to audited subclasses */
+        /** {@collect.stats} queue for WeakReferences to audited subclasses */
         static final ReferenceQueue<Class<?>> subclassAuditsQueue =
             new ReferenceQueue<Class<?>>();
     }
 
-    /** filter stream for handling block data conversion */
+    /** {@collect.stats} filter stream for handling block data conversion */
     private final BlockDataOutputStream bout;
-    /** obj -> wire handle map */
+    /** {@collect.stats} obj -> wire handle map */
     private final HandleTable handles;
-    /** obj -> replacement obj map */
+    /** {@collect.stats} obj -> replacement obj map */
     private final ReplaceTable subs;
-    /** stream protocol version */
+    /** {@collect.stats} stream protocol version */
     private int protocol = PROTOCOL_VERSION_2;
-    /** recursion depth */
+    /** {@collect.stats} recursion depth */
     private int depth;
 
-    /** buffer for writing primitive field values */
+    /** {@collect.stats} buffer for writing primitive field values */
     private byte[] primVals;
 
-    /** if true, invoke writeObjectOverride() instead of writeObject() */
+    /** {@collect.stats} if true, invoke writeObjectOverride() instead of writeObject() */
     private final boolean enableOverride;
-    /** if true, invoke replaceObject() */
+    /** {@collect.stats} if true, invoke replaceObject() */
     private boolean enableReplace;
 
     // values below valid only during upcalls to writeObject()/writeExternal()
-    /**
+    /** {@collect.stats}
      * Context during upcalls to class-defined writeObject methods; holds
      * object currently being serialized and descriptor for current class.
      * Null when not during writeObject upcall.
      */
     private SerialCallbackContext curContext;
-    /** current PutField object */
+    /** {@collect.stats} current PutField object */
     private PutFieldImpl curPut;
 
-    /** custom storage for debug trace info */
+    /** {@collect.stats} custom storage for debug trace info */
     private final DebugTraceInfoStack debugInfoStack;
 
-    /**
+    /** {@collect.stats}
      * value of "sun.io.serialization.extendedDebugInfo" property,
      * as true or false for extended information about exception's place
      */
@@ -213,7 +213,7 @@ public class ObjectOutputStream
             new sun.security.action.GetBooleanAction(
                 "sun.io.serialization.extendedDebugInfo")).booleanValue();
 
-    /**
+    /** {@collect.stats}
      * Creates an ObjectOutputStream that writes to the specified OutputStream.
      * This constructor writes the serialization stream header to the
      * underlying stream; callers may wish to flush the stream immediately to
@@ -251,7 +251,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provide a way for subclasses that are completely reimplementing
      * ObjectOutputStream to not have to allocate private data just used by
      * this implementation of ObjectOutputStream.
@@ -279,7 +279,7 @@ public class ObjectOutputStream
         debugInfoStack = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Specify stream protocol version to use when writing the stream.
      *
      * <p>This routine provides a hook to enable the current version of
@@ -316,7 +316,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write the specified object to the ObjectOutputStream.  The class of the
      * object, the signature of the class, and the values of the non-transient
      * and non-static fields of the class and all of its supertypes are
@@ -352,7 +352,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Method used by subclasses to override the default writeObject method.
      * This method is called by trusted subclasses of ObjectInputStream that
      * constructed ObjectInputStream using the protected no-arg constructor.
@@ -369,7 +369,7 @@ public class ObjectOutputStream
     protected void writeObjectOverride(Object obj) throws IOException {
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an "unshared" object to the ObjectOutputStream.  This method is
      * identical to writeObject, except that it always writes the given object
      * as a new, unique object in the stream (as opposed to a back-reference
@@ -419,7 +419,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write the non-static and non-transient fields of the current class to
      * this stream.  This may only be called from the writeObject method of the
      * class being serialized. It will throw the NotActiveException if it is
@@ -439,7 +439,7 @@ public class ObjectOutputStream
         bout.setBlockDataMode(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the object used to buffer persistent fields to be written to
      * the stream.  The fields will be written to the stream when writeFields
      * method is called.
@@ -461,7 +461,7 @@ public class ObjectOutputStream
         return curPut;
     }
 
-    /**
+    /** {@collect.stats}
      * Write the buffered fields to the stream.
      *
      * @throws  IOException if I/O errors occur while writing to the underlying
@@ -479,7 +479,7 @@ public class ObjectOutputStream
         bout.setBlockDataMode(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Reset will disregard the state of any objects already written to the
      * stream.  The state is reset to be the same as a new ObjectOutputStream.
      * The current point in the stream is marked as reset so the corresponding
@@ -499,7 +499,7 @@ public class ObjectOutputStream
         bout.setBlockDataMode(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses may implement this method to allow class data to be stored in
      * the stream. By default this method does nothing.  The corresponding
      * method in ObjectInputStream is resolveClass.  This method is called
@@ -518,7 +518,7 @@ public class ObjectOutputStream
     protected void annotateClass(Class<?> cl) throws IOException {
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses may implement this method to store custom data in the stream
      * along with descriptors for dynamic proxy classes.
      *
@@ -542,7 +542,7 @@ public class ObjectOutputStream
     protected void annotateProxyClass(Class<?> cl) throws IOException {
     }
 
-    /**
+    /** {@collect.stats}
      * This method will allow trusted subclasses of ObjectOutputStream to
      * substitute one object for another during serialization. Replacing
      * objects is disabled until enableReplaceObject is called. The
@@ -584,7 +584,7 @@ public class ObjectOutputStream
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Enable the stream to do replacement of objects in the stream.  When
      * enabled, the replaceObject method is called for every object being
      * serialized.
@@ -620,7 +620,7 @@ public class ObjectOutputStream
         return !enableReplace;
     }
 
-    /**
+    /** {@collect.stats}
      * The writeStreamHeader method is provided so subclasses can append or
      * prepend their own header to the stream.  It writes the magic number and
      * version to the stream.
@@ -633,7 +633,7 @@ public class ObjectOutputStream
         bout.writeShort(STREAM_VERSION);
     }
 
-    /**
+    /** {@collect.stats}
      * Write the specified class descriptor to the ObjectOutputStream.  Class
      * descriptors are used to identify the classes of objects written to the
      * stream.  Subclasses of ObjectOutputStream may override this method to
@@ -664,7 +664,7 @@ public class ObjectOutputStream
         desc.writeNonProxy(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a byte. This method will block until the byte is actually
      * written.
      *
@@ -675,7 +675,7 @@ public class ObjectOutputStream
         bout.write(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an array of bytes. This method will block until the bytes are
      * actually written.
      *
@@ -686,7 +686,7 @@ public class ObjectOutputStream
         bout.write(buf, 0, buf.length, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a sub array of bytes.
      *
      * @param   buf the data to be written
@@ -705,7 +705,7 @@ public class ObjectOutputStream
         bout.write(buf, off, len, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream. This will write any buffered output bytes and flush
      * through to the underlying stream.
      *
@@ -715,7 +715,7 @@ public class ObjectOutputStream
         bout.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * Drain any buffered data in ObjectOutputStream.  Similar to flush but
      * does not propagate the flush to the underlying stream.
      *
@@ -726,7 +726,7 @@ public class ObjectOutputStream
         bout.drain();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the stream. This method must be called to release any resources
      * associated with the stream.
      *
@@ -738,7 +738,7 @@ public class ObjectOutputStream
         bout.close();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a boolean.
      *
      * @param   val the boolean to be written
@@ -749,7 +749,7 @@ public class ObjectOutputStream
         bout.writeBoolean(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an 8 bit byte.
      *
      * @param   val the byte value to be written
@@ -760,7 +760,7 @@ public class ObjectOutputStream
         bout.writeByte(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 16 bit short.
      *
      * @param   val the short value to be written
@@ -771,7 +771,7 @@ public class ObjectOutputStream
         bout.writeShort(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 16 bit char.
      *
      * @param   val the char value to be written
@@ -782,7 +782,7 @@ public class ObjectOutputStream
         bout.writeChar(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 32 bit int.
      *
      * @param   val the integer value to be written
@@ -793,7 +793,7 @@ public class ObjectOutputStream
         bout.writeInt(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 64 bit long.
      *
      * @param   val the long value to be written
@@ -804,7 +804,7 @@ public class ObjectOutputStream
         bout.writeLong(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 32 bit float.
      *
      * @param   val the float value to be written
@@ -815,7 +815,7 @@ public class ObjectOutputStream
         bout.writeFloat(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a 64 bit double.
      *
      * @param   val the double value to be written
@@ -826,7 +826,7 @@ public class ObjectOutputStream
         bout.writeDouble(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a String as a sequence of bytes.
      *
      * @param   str the String of bytes to be written
@@ -837,7 +837,7 @@ public class ObjectOutputStream
         bout.writeBytes(str);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a String as a sequence of chars.
      *
      * @param   str the String of chars to be written
@@ -848,7 +848,7 @@ public class ObjectOutputStream
         bout.writeChars(str);
     }
 
-    /**
+    /** {@collect.stats}
      * Primitive data write of this String in
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
      * format.  Note that there is a
@@ -865,7 +865,7 @@ public class ObjectOutputStream
         bout.writeUTF(str);
     }
 
-    /**
+    /** {@collect.stats}
      * Provide programmatic access to the persistent fields to be written
      * to ObjectOutput.
      *
@@ -873,7 +873,7 @@ public class ObjectOutputStream
      */
     public static abstract class PutField {
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named boolean field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -885,7 +885,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, boolean val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named byte field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -897,7 +897,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, byte val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named char field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -909,7 +909,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, char val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named short field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -921,7 +921,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, short val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named int field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -933,7 +933,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, int val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named long field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -945,7 +945,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, long val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named float field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -957,7 +957,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, float val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named double field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -969,7 +969,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, double val);
 
-        /**
+        /** {@collect.stats}
          * Put the value of the named Object field into the persistent field.
          *
          * @param  name the name of the serializable field
@@ -982,7 +982,7 @@ public class ObjectOutputStream
          */
         public abstract void put(String name, Object val);
 
-        /**
+        /** {@collect.stats}
          * Write the data and fields to the specified ObjectOutput stream,
          * which must be the same stream that produced this
          * <code>PutField</code> object.
@@ -1005,14 +1005,14 @@ public class ObjectOutputStream
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns protocol version in use.
      */
     int getProtocolVersion() {
         return protocol;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes string without allowing it to be replaced in stream.  Used by
      * ObjectStreamClass to write class descriptor type strings.
      */
@@ -1027,7 +1027,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Verifies that this (possibly subclass) instance can be constructed
      * without violating security constraints: the subclass must not override
      * security-sensitive non-final methods, or else the
@@ -1055,7 +1055,7 @@ public class ObjectOutputStream
         sm.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);
     }
 
-    /**
+    /** {@collect.stats}
      * Performs reflective checks on given subclass to verify that it doesn't
      * override security-sensitive non-final methods.  Returns true if subclass
      * is "safe", false otherwise.
@@ -1087,7 +1087,7 @@ public class ObjectOutputStream
         return result.booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Clears internal data structures.
      */
     private void clear() {
@@ -1095,7 +1095,7 @@ public class ObjectOutputStream
         handles.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Underlying writeObject/writeUnshared implementation.
      */
     private void writeObject0(Object obj, boolean unshared)
@@ -1186,14 +1186,14 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes null code to stream.
      */
     private void writeNull() throws IOException {
         bout.writeByte(TC_NULL);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes given object handle to stream.
      */
     private void writeHandle(int handle) throws IOException {
@@ -1201,7 +1201,7 @@ public class ObjectOutputStream
         bout.writeInt(baseWireHandle + handle);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes representation of given class to stream.
      */
     private void writeClass(Class cl, boolean unshared) throws IOException {
@@ -1210,7 +1210,7 @@ public class ObjectOutputStream
         handles.assign(unshared ? null : cl);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes representation of given class descriptor to stream.
      */
     private void writeClassDesc(ObjectStreamClass desc, boolean unshared)
@@ -1228,7 +1228,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes class descriptor representing a dynamic proxy class to stream.
      */
     private void writeProxyDesc(ObjectStreamClass desc, boolean unshared)
@@ -1252,7 +1252,7 @@ public class ObjectOutputStream
         writeClassDesc(desc.getSuperDesc(), false);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes class descriptor representing a standard (i.e., not a dynamic
      * proxy) class to stream.
      */
@@ -1278,7 +1278,7 @@ public class ObjectOutputStream
         writeClassDesc(desc.getSuperDesc(), false);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes given string to stream, using standard or long UTF format
      * depending on string length.
      */
@@ -1294,7 +1294,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes given array object to stream.
      */
     private void writeArray(Object array,
@@ -1374,7 +1374,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes given enum constant to stream.
      */
     private void writeEnum(Enum en,
@@ -1389,7 +1389,7 @@ public class ObjectOutputStream
         writeString(en.name(), false);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes representation of a "ordinary" (i.e., not a String, Class,
      * ObjectStreamClass, array, or enum constant) serializable object to the
      * stream.
@@ -1422,7 +1422,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes externalizable data of given object by invoking its
      * writeExternal() method.
      */
@@ -1454,7 +1454,7 @@ public class ObjectOutputStream
         curPut = oldPut;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes instance data for each serializable class of given object, from
      * superclass to subclass.
      */
@@ -1495,7 +1495,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches and writes values of serializable fields of given object to
      * stream.  The given class descriptor specifies which field values to
      * write, and in which order they should be written.
@@ -1535,7 +1535,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to write to stream fatal IOException that has caused
      * serialization to abort.
      */
@@ -1561,7 +1561,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts specified span of float values into byte values.
      */
     // REMIND: remove once hotspot inlines Float.floatToIntBits
@@ -1569,7 +1569,7 @@ public class ObjectOutputStream
                                              byte[] dst, int dstpos,
                                              int nfloats);
 
-    /**
+    /** {@collect.stats}
      * Converts specified span of double values into byte values.
      */
     // REMIND: remove once hotspot inlines Double.doubleToLongBits
@@ -1577,19 +1577,19 @@ public class ObjectOutputStream
                                               byte[] dst, int dstpos,
                                               int ndoubles);
 
-    /**
+    /** {@collect.stats}
      * Default PutField implementation.
      */
     private class PutFieldImpl extends PutField {
 
-        /** class descriptor describing serializable fields */
+        /** {@collect.stats} class descriptor describing serializable fields */
         private final ObjectStreamClass desc;
-        /** primitive field values */
+        /** {@collect.stats} primitive field values */
         private final byte[] primVals;
-        /** object field values */
+        /** {@collect.stats} object field values */
         private final Object[] objVals;
 
-        /**
+        /** {@collect.stats}
          * Creates PutFieldImpl object for writing fields defined in given
          * class descriptor.
          */
@@ -1668,7 +1668,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Writes buffered primitive data and object fields to stream.
          */
         void writeFields() throws IOException {
@@ -1694,7 +1694,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns offset of field with given name and type.  A specified type
          * of null matches all types, Object.class matches all non-primitive
          * types, and any other non-null type matches assignable types only.
@@ -1710,7 +1710,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Buffered output stream with two modes: in default mode, outputs data in
      * same format as DataOutputStream; in "block data" mode, outputs data
      * bracketed by block data markers (see object serialization specification
@@ -1719,31 +1719,31 @@ public class ObjectOutputStream
     private static class BlockDataOutputStream
         extends OutputStream implements DataOutput
     {
-        /** maximum data block length */
+        /** {@collect.stats} maximum data block length */
         private static final int MAX_BLOCK_SIZE = 1024;
-        /** maximum data block header length */
+        /** {@collect.stats} maximum data block header length */
         private static final int MAX_HEADER_SIZE = 5;
-        /** (tunable) length of char buffer (for writing strings) */
+        /** {@collect.stats} (tunable) length of char buffer (for writing strings) */
         private static final int CHAR_BUF_SIZE = 256;
 
-        /** buffer for writing general/block data */
+        /** {@collect.stats} buffer for writing general/block data */
         private final byte[] buf = new byte[MAX_BLOCK_SIZE];
-        /** buffer for writing block data headers */
+        /** {@collect.stats} buffer for writing block data headers */
         private final byte[] hbuf = new byte[MAX_HEADER_SIZE];
-        /** char buffer for fast string writes */
+        /** {@collect.stats} char buffer for fast string writes */
         private final char[] cbuf = new char[CHAR_BUF_SIZE];
 
-        /** block data mode */
+        /** {@collect.stats} block data mode */
         private boolean blkmode = false;
-        /** current offset into buf */
+        /** {@collect.stats} current offset into buf */
         private int pos = 0;
 
-        /** underlying output stream */
+        /** {@collect.stats} underlying output stream */
         private final OutputStream out;
-        /** loopback stream (for data writes that span data blocks) */
+        /** {@collect.stats} loopback stream (for data writes that span data blocks) */
         private final DataOutputStream dout;
 
-        /**
+        /** {@collect.stats}
          * Creates new BlockDataOutputStream on top of given underlying stream.
          * Block data mode is turned off by default.
          */
@@ -1752,7 +1752,7 @@ public class ObjectOutputStream
             dout = new DataOutputStream(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets block data mode to the given mode (true == on, false == off)
          * and returns the previous mode value.  If the new mode is the same as
          * the old mode, no action is taken.  If the new mode differs from the
@@ -1768,7 +1768,7 @@ public class ObjectOutputStream
             return !blkmode;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the stream is currently in block data mode, false
          * otherwise.
          */
@@ -1808,7 +1808,7 @@ public class ObjectOutputStream
             out.close();
         }
 
-        /**
+        /** {@collect.stats}
          * Writes specified span of byte values from given array.  If copy is
          * true, copies the values to an intermediate buffer before writing
          * them to underlying stream (to avoid exposing a reference to the
@@ -1843,7 +1843,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Writes all buffered data from this stream to the underlying stream,
          * but does not flush underlying stream.
          */
@@ -1858,7 +1858,7 @@ public class ObjectOutputStream
             pos = 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Writes block data header.  Data blocks shorter than 256 bytes are
          * prefixed with a 2-byte header; all others start with a 5-byte
          * header.
@@ -2109,7 +2109,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the length in bytes of the UTF encoding of the given string.
          */
         long getUTFLength(String s) {
@@ -2133,7 +2133,7 @@ public class ObjectOutputStream
             return utflen;
         }
 
-        /**
+        /** {@collect.stats}
          * Writes the given string in UTF format.  This method is used in
          * situations where the UTF encoding length of the string is already
          * known; specifying it explicitly avoids a prescan of the string to
@@ -2151,7 +2151,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Writes given string in "long" UTF format.  "Long" UTF format is
          * identical to standard UTF, except that it uses an 8 byte header
          * (instead of the standard 2 bytes) to convey the UTF encoding length.
@@ -2160,7 +2160,7 @@ public class ObjectOutputStream
             writeLongUTF(s, getUTFLength(s));
         }
 
-        /**
+        /** {@collect.stats}
          * Writes given string in "long" UTF format, where the UTF encoding
          * length of the string is already known.
          */
@@ -2173,7 +2173,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Writes the "body" (i.e., the UTF representation minus the 2-byte or
          * 8-byte length header) of the UTF encoding for the given string.
          */
@@ -2216,7 +2216,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Lightweight identity hash table which maps objects to integer handles,
      * assigned in ascending order.
      */
@@ -2235,7 +2235,7 @@ public class ObjectOutputStream
         /* maps handle value -> associated object */
         private Object[] objs;
 
-        /**
+        /** {@collect.stats}
          * Creates new HandleTable with given capacity and load factor.
          */
         HandleTable(int initialCapacity, float loadFactor) {
@@ -2247,7 +2247,7 @@ public class ObjectOutputStream
             clear();
         }
 
-        /**
+        /** {@collect.stats}
          * Assigns next available handle to given object, and returns handle
          * value.  Handles are assigned in ascending order starting at 0.
          */
@@ -2262,7 +2262,7 @@ public class ObjectOutputStream
             return size++;
         }
 
-        /**
+        /** {@collect.stats}
          * Looks up and returns handle associated with given object, or -1 if
          * no mapping found.
          */
@@ -2279,7 +2279,7 @@ public class ObjectOutputStream
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets table to its initial (empty) state.
          */
         void clear() {
@@ -2288,14 +2288,14 @@ public class ObjectOutputStream
             size = 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of mappings currently in table.
          */
         int size() {
             return size;
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts mapping object -> handle mapping into table.  Assumes table
          * is large enough to accommodate new mapping.
          */
@@ -2306,7 +2306,7 @@ public class ObjectOutputStream
             spine[index] = handle;
         }
 
-        /**
+        /** {@collect.stats}
          * Expands the hash "spine" -- equivalent to increasing the number of
          * buckets in a conventional hash table.
          */
@@ -2319,7 +2319,7 @@ public class ObjectOutputStream
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Increases hash table capacity by lengthening entry arrays.
          */
         private void growEntries() {
@@ -2333,7 +2333,7 @@ public class ObjectOutputStream
             objs = newObjs;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns hash value for given object.
          */
         private int hash(Object obj) {
@@ -2341,7 +2341,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Lightweight identity hash table which maps objects to replacement
      * objects.
      */
@@ -2352,7 +2352,7 @@ public class ObjectOutputStream
         /* maps index -> replacement object */
         private Object[] reps;
 
-        /**
+        /** {@collect.stats}
          * Creates new ReplaceTable with given capacity and load factor.
          */
         ReplaceTable(int initialCapacity, float loadFactor) {
@@ -2360,7 +2360,7 @@ public class ObjectOutputStream
             reps = new Object[initialCapacity];
         }
 
-        /**
+        /** {@collect.stats}
          * Enters mapping from object to replacement object.
          */
         void assign(Object obj, Object rep) {
@@ -2371,7 +2371,7 @@ public class ObjectOutputStream
             reps[index] = rep;
         }
 
-        /**
+        /** {@collect.stats}
          * Looks up and returns replacement for given object.  If no
          * replacement is found, returns the lookup object itself.
          */
@@ -2380,7 +2380,7 @@ public class ObjectOutputStream
             return (index >= 0) ? reps[index] : obj;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets table to its initial (empty) state.
          */
         void clear() {
@@ -2388,14 +2388,14 @@ public class ObjectOutputStream
             htab.clear();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of mappings currently in table.
          */
         int size() {
             return htab.size();
         }
 
-        /**
+        /** {@collect.stats}
          * Increases table capacity.
          */
         private void grow() {
@@ -2405,7 +2405,7 @@ public class ObjectOutputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stack to keep debug information about the state of the
      * serialization process, for embedding in exception messages.
      */
@@ -2416,28 +2416,28 @@ public class ObjectOutputStream
             stack = new ArrayList<String>();
         }
 
-        /**
+        /** {@collect.stats}
          * Removes all of the elements from enclosed list.
          */
         void clear() {
             stack.clear();
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the object at the top of enclosed list.
          */
         void pop() {
             stack.remove(stack.size()-1);
         }
 
-        /**
+        /** {@collect.stats}
          * Pushes a String onto the top of enclosed list.
          */
         void push(String entry) {
             stack.add("\t- " + entry);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this object
          */
         public String toString() {

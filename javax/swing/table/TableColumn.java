@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-/**
+/** {@collect.stats}
  *  A <code>TableColumn</code> represents all the attributes of a column in a
  *  <code>JTable</code>, such as width, resizibility, minimum and maximum width.
  *  In addition, the <code>TableColumn</code> provides slots for a renderer and
@@ -84,7 +84,7 @@ import java.beans.PropertyChangeListener;
  */
 public class TableColumn extends Object implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use string literals to identify
      * properties.
      */
@@ -94,19 +94,19 @@ public class TableColumn extends Object implements Serializable {
      */
     public final static String COLUMN_WIDTH_PROPERTY = "columWidth";
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use string literals to identify
      * properties.
      */
     public final static String HEADER_VALUE_PROPERTY = "headerValue";
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use string literals to identify
      * properties.
      */
     public final static String HEADER_RENDERER_PROPERTY = "headerRenderer";
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use string literals to identify
      * properties.
      */
@@ -116,14 +116,14 @@ public class TableColumn extends Object implements Serializable {
 //  Instance Variables
 //
 
-    /**
+    /** {@collect.stats}
       * The index of the column in the model which is to be displayed by
       * this <code>TableColumn</code>. As columns are moved around in the
       * view <code>modelIndex</code> remains constant.
       */
     protected int       modelIndex;
 
-    /**
+    /** {@collect.stats}
      *  This object is not used internally by the drawing machinery of
      *  the <code>JTable</code>; identifiers may be set in the
      *  <code>TableColumn</code> as as an
@@ -135,34 +135,34 @@ public class TableColumn extends Object implements Serializable {
      */
     protected Object    identifier;
 
-    /** The width of the column. */
+    /** {@collect.stats} The width of the column. */
     protected int       width;
 
-    /** The minimum width of the column. */
+    /** {@collect.stats} The minimum width of the column. */
     protected int       minWidth;
 
-    /** The preferred width of the column. */
+    /** {@collect.stats} The preferred width of the column. */
     private int         preferredWidth;
 
-    /** The maximum width of the column. */
+    /** {@collect.stats} The maximum width of the column. */
     protected int       maxWidth;
 
-    /** The renderer used to draw the header of the column. */
+    /** {@collect.stats} The renderer used to draw the header of the column. */
     protected TableCellRenderer headerRenderer;
 
-    /** The header value of the column. */
+    /** {@collect.stats} The header value of the column. */
     protected Object            headerValue;
 
-    /** The renderer used to draw the data cells of the column. */
+    /** {@collect.stats} The renderer used to draw the data cells of the column. */
     protected TableCellRenderer cellRenderer;
 
-    /** The editor used to edit the data cells of the column. */
+    /** {@collect.stats} The editor used to edit the data cells of the column. */
     protected TableCellEditor   cellEditor;
 
-    /** If true, the user is allowed to resize the column; the default is true. */
+    /** {@collect.stats} If true, the user is allowed to resize the column; the default is true. */
     protected boolean   isResizable;
 
-    /**
+    /** {@collect.stats}
      * This field was not used in previous releases and there are
      * currently no plans to support it in the future.
      *
@@ -175,7 +175,7 @@ public class TableColumn extends Object implements Serializable {
     @Deprecated
     transient protected int     resizedPostingDisableCount;
 
-    /**
+    /** {@collect.stats}
      * If any <code>PropertyChangeListeners</code> have been registered, the
      * <code>changeSupport</code> field describes them.
      */
@@ -185,7 +185,7 @@ public class TableColumn extends Object implements Serializable {
 // Constructors
 //
 
-    /**
+    /** {@collect.stats}
      *  Cover method, using a default model index of 0,
      *  default width of 75, a <code>null</code> renderer and a
      *  <code>null</code> editor.
@@ -196,7 +196,7 @@ public class TableColumn extends Object implements Serializable {
         this(0);
     }
 
-    /**
+    /** {@collect.stats}
      *  Cover method, using a default width of 75, a <code>null</code>
      *  renderer and a <code>null</code> editor.
      *  @see #TableColumn(int, int, TableCellRenderer, TableCellEditor)
@@ -205,7 +205,7 @@ public class TableColumn extends Object implements Serializable {
         this(modelIndex, 75, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      *  Cover method, using a <code>null</code> renderer and a
      *  <code>null</code> editor.
      *  @see #TableColumn(int, int, TableCellRenderer, TableCellEditor)
@@ -214,7 +214,7 @@ public class TableColumn extends Object implements Serializable {
         this(modelIndex, width, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      *  Creates and initializes an instance of
      *  <code>TableColumn</code> with the specified model index,
      *  width, cell renderer, and cell editor;
@@ -291,7 +291,7 @@ public class TableColumn extends Object implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the model index for this column. The model index is the
      * index of the column in the model that will be displayed by this
      * <code>TableColumn</code>. As the <code>TableColumn</code>
@@ -307,7 +307,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("modelIndex", old, modelIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model index for this column.
      * @return the <code>modelIndex</code> property
      */
@@ -315,7 +315,7 @@ public class TableColumn extends Object implements Serializable {
         return modelIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableColumn</code>'s identifier to
      * <code>anIdentifier</code>. <p>
      * Note: identifiers are not used by the <code>JTable</code>,
@@ -335,7 +335,7 @@ public class TableColumn extends Object implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      *  Returns the <code>identifier</code> object for this column.
      *  Note identifiers are not used by <code>JTable</code>,
      *  they are purely a convenience for external use.
@@ -351,7 +351,7 @@ public class TableColumn extends Object implements Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Object</code> whose string representation will be
      * used as the value for the <code>headerRenderer</code>.  When the
      * <code>TableColumn</code> is created, the default <code>headerValue</code>
@@ -368,7 +368,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("headerValue", old, headerValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Object</code> used as the value for the header
      * renderer.
      *
@@ -383,7 +383,7 @@ public class TableColumn extends Object implements Serializable {
     // Renderers and Editors
     //
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableCellRenderer</code> used to draw the
      * <code>TableColumn</code>'s header to <code>headerRenderer</code>.
      * <p>
@@ -404,7 +404,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("headerRenderer", old, headerRenderer);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableCellRenderer</code> used to draw the header of the
      * <code>TableColumn</code>. When the <code>headerRenderer</code> is
      * <code>null</code>, the <code>JTableHeader</code>
@@ -420,7 +420,7 @@ public class TableColumn extends Object implements Serializable {
         return headerRenderer;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableCellRenderer</code> used by <code>JTable</code>
      * to draw individual values for this column.
      *
@@ -436,7 +436,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("cellRenderer", old, cellRenderer);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableCellRenderer</code> used by the
      * <code>JTable</code> to draw
      * values for this column.  The <code>cellRenderer</code> of the column
@@ -455,7 +455,7 @@ public class TableColumn extends Object implements Serializable {
         return cellRenderer;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the editor to used by when a cell in this column is edited.
      *
      * @param cellEditor  the new cellEditor
@@ -470,7 +470,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("cellEditor", old, cellEditor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableCellEditor</code> used by the
      * <code>JTable</code> to edit values for this column.  When the
      * <code>cellEditor</code> is <code>null</code>, the <code>JTable</code>
@@ -486,7 +486,7 @@ public class TableColumn extends Object implements Serializable {
         return cellEditor;
     }
 
-    /**
+    /** {@collect.stats}
      * This method should not be used to set the widths of columns in the
      * <code>JTable</code>, use <code>setPreferredWidth</code> instead.
      * Like a layout manager in the
@@ -514,7 +514,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("width", old, this.width);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of the <code>TableColumn</code>. The default width is
      * 75.
      *
@@ -525,7 +525,7 @@ public class TableColumn extends Object implements Serializable {
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this column's preferred width to <code>preferredWidth</code>.
      * If <code>preferredWidth</code> exceeds the minimum or maximum width,
      * it is adjusted to the appropriate limiting value.
@@ -548,7 +548,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("preferredWidth", old, this.preferredWidth);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred width of the <code>TableColumn</code>.
      * The default preferred width is 75.
      *
@@ -559,7 +559,7 @@ public class TableColumn extends Object implements Serializable {
         return preferredWidth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableColumn</code>'s minimum width to
      * <code>minWidth</code>,
      * adjusting the new minimum width if necessary to ensure that
@@ -593,7 +593,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("minWidth", old, this.minWidth);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum width for the <code>TableColumn</code>. The
      * <code>TableColumn</code>'s width can't be made less than this either
      * by the user or programmatically.
@@ -606,7 +606,7 @@ public class TableColumn extends Object implements Serializable {
         return minWidth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableColumn</code>'s maximum width to
      * <code>maxWidth</code> or,
      * if <code>maxWidth</code> is less than the minimum width,
@@ -638,7 +638,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("maxWidth", old, this.maxWidth);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum width for the <code>TableColumn</code>. The
      * <code>TableColumn</code>'s width can't be made larger than this
      * either by the user or programmatically.  The default maxWidth
@@ -651,7 +651,7 @@ public class TableColumn extends Object implements Serializable {
         return maxWidth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether this column can be resized.
      *
      * @param isResizable  if true, resizing is allowed; otherwise false
@@ -666,7 +666,7 @@ public class TableColumn extends Object implements Serializable {
         firePropertyChange("isResizable", old, this.isResizable);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the user is allowed to resize the
      * <code>TableColumn</code>'s
      * width, false otherwise. You can change the width programmatically
@@ -679,7 +679,7 @@ public class TableColumn extends Object implements Serializable {
         return isResizable;
     }
 
-    /**
+    /** {@collect.stats}
      * Resizes the <code>TableColumn</code> to fit the width of its header cell.
      * This method does nothing if the header renderer is <code>null</code>
      * (the default case). Otherwise, it sets the minimum, maximum and preferred
@@ -705,7 +705,7 @@ public class TableColumn extends Object implements Serializable {
         setWidth(getPreferredWidth());
     }
 
-    /**
+    /** {@collect.stats}
      * This field was not used in previous releases and there are
      * currently no plans to support it in the future.
      *
@@ -716,7 +716,7 @@ public class TableColumn extends Object implements Serializable {
         resizedPostingDisableCount++;
     }
 
-    /**
+    /** {@collect.stats}
      * This field was not used in previous releases and there are
      * currently no plans to support it in the future.
      *
@@ -731,7 +731,7 @@ public class TableColumn extends Object implements Serializable {
 // Property Change Support
 //
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>PropertyChangeListener</code> to the listener list.
      * The listener is registered for all properties.
      * <p>
@@ -754,7 +754,7 @@ public class TableColumn extends Object implements Serializable {
         changeSupport.addPropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChangeListener</code> from the listener list.
      * The <code>PropertyChangeListener</code> to be removed was registered
      * for all properties.
@@ -770,7 +770,7 @@ public class TableColumn extends Object implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>PropertyChangeListener</code>s added
      * to this TableColumn with addPropertyChangeListener().
      *
@@ -789,7 +789,7 @@ public class TableColumn extends Object implements Serializable {
 // Protected Methods
 //
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3, this method is not called by the <code>TableColumn</code>
      * constructor.  Previously this method was used by the
      * <code>TableColumn</code> to create a default header renderer.

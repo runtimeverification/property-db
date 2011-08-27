@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * A class extends <code>AWTEventMulticaster</code> to implement efficient and
  * thread-safe multi-cast event dispatching for the drag-and-drop events defined
  * in the java.awt.dnd package.
@@ -42,7 +42,7 @@ import java.util.EventListener;
 class DnDEventMulticaster extends AWTEventMulticaster
     implements DragSourceListener, DragSourceMotionListener {
 
-    /**
+    /** {@collect.stats}
      * Creates an event multicaster instance which chains listener-a
      * with listener-b. Input parameters <code>a</code> and <code>b</code>
      * should not be <code>null</code>, though implementations may vary in
@@ -56,7 +56,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         super(a,b);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceDragEvent</code> by invoking
      * <code>dragEnter</code> on listener-a and listener-b.
      *
@@ -67,7 +67,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceListener)b).dragEnter(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceDragEvent</code> by invoking
      * <code>dragOver</code> on listener-a and listener-b.
      *
@@ -78,7 +78,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceListener)b).dragOver(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceDragEvent</code> by invoking
      * <code>dropActionChanged</code> on listener-a and listener-b.
      *
@@ -89,7 +89,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceListener)b).dropActionChanged(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceEvent</code> by invoking
      * <code>dragExit</code> on listener-a and listener-b.
      *
@@ -100,7 +100,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceListener)b).dragExit(dse);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceDropEvent</code> by invoking
      * <code>dragDropEnd</code> on listener-a and listener-b.
      *
@@ -111,7 +111,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceListener)b).dragDropEnd(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles the <code>DragSourceDragEvent</code> by invoking
      * <code>dragMouseMoved</code> on listener-a and listener-b.
      *
@@ -122,7 +122,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         ((DragSourceMotionListener)b).dragMouseMoved(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds drag-source-listener-a with drag-source-listener-b and
      * returns the resulting multicast listener.
      *
@@ -134,7 +134,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return (DragSourceListener)addInternal(a, b);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds drag-source-motion-listener-a with drag-source-motion-listener-b and
      * returns the resulting multicast listener.
      *
@@ -146,7 +146,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return (DragSourceMotionListener)addInternal(a, b);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the old drag-source-listener from drag-source-listener-l
      * and returns the resulting multicast listener.
      *
@@ -158,7 +158,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return (DragSourceListener)removeInternal(l, oldl);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the old drag-source-motion-listener from
      * drag-source-motion-listener-l and returns the resulting multicast
      * listener.
@@ -171,7 +171,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return (DragSourceMotionListener)removeInternal(l, ol);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the resulting multicast listener from adding listener-a
      * and listener-b together.
      * If listener-a is null, it returns listener-b;
@@ -187,7 +187,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return new DnDEventMulticaster(a, b);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from this multicaster and returns the
      * resulting multicast listener.
      * @param oldl the listener to be removed
@@ -203,7 +203,7 @@ class DnDEventMulticaster extends AWTEventMulticaster
         return addInternal(a2, b2);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the resulting multicast listener after removing the
      * old listener from listener-l.
      * If listener-l equals the old listener OR listener-l is null,

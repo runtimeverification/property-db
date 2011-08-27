@@ -31,7 +31,7 @@ import java.awt.*;
 import javax.swing.text.*;
 
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleHypertext class is the base class for all
  * classes that present hypertext information on the display.  This class
  * provides the standard mechanism for an assistive technology to access
@@ -53,14 +53,14 @@ import javax.swing.text.*;
  */
 public interface AccessibleHypertext extends AccessibleText {
 
-    /**
+    /** {@collect.stats}
      * Returns the number of links within this hypertext document.
      *
      * @return number of links in this hypertext doc.
      */
     public abstract int getLinkCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the nth Link of this Hypertext document.
      *
      * @param linkIndex within the links of this Hypertext
@@ -68,7 +68,7 @@ public interface AccessibleHypertext extends AccessibleText {
      */
     public abstract AccessibleHyperlink getLink(int linkIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the index into an array of hyperlinks that
      * is associated with this character index, or -1 if there
      * is no hyperlink associated with this index.

@@ -29,7 +29,7 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * Interface describing an object capable of rendering a border
  * around the edges of a swing component.
  * For examples of using borders see
@@ -63,7 +63,7 @@ import java.awt.Component;
  */
 public interface Border
 {
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the specified
      * position and size.
      * @param c the component for which this border is being painted
@@ -75,13 +75,13 @@ public interface Border
      */
     void paintBorder(Component c, Graphics g, int x, int y, int width, int height);
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
     Insets getBorderInsets(Component c);
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.  If the border
      * is opaque, it is responsible for filling in it's own
      * background when painting.

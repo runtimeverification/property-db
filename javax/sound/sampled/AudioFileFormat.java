@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
+/** {@collect.stats}
  * An instance of the <code>AudioFileFormat</code> class describes
  * an audio file, including the file type, the file's length in bytes,
  * the length in sample frames of the audio data contained in the file,
@@ -107,32 +107,32 @@ public class AudioFileFormat {
     // INSTANCE VARIABLES
 
 
-    /**
+    /** {@collect.stats}
      * File type.
      */
     private Type type;
 
-    /**
+    /** {@collect.stats}
      * File length in bytes
      */
     private int byteLength;
 
-    /**
+    /** {@collect.stats}
      * Format of the audio data contained in the file.
      */
     private AudioFormat format;
 
-    /**
+    /** {@collect.stats}
      * Audio data length in sample frames
      */
     private int frameLength;
 
 
-    /** The set of properties */
+    /** {@collect.stats} The set of properties */
     private HashMap<String, Object> properties;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an audio file format object.
      * This protected constructor is intended for use by providers of file-reading
      * services when returning information about an audio file or about supported audio file
@@ -154,7 +154,7 @@ public class AudioFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an audio file format object.
      * This public constructor may be used by applications to describe the
      * properties of a requested audio file.
@@ -168,7 +168,7 @@ public class AudioFileFormat {
         this(type,AudioSystem.NOT_SPECIFIED,format,frameLength);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an audio file format object with a set of
      * defined properties.
      * This public constructor may be used by applications to describe the
@@ -191,7 +191,7 @@ public class AudioFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file type, such as <code>WAVE</code> or <code>AU</code>.
      * @return the audio file type
      *
@@ -205,7 +205,7 @@ public class AudioFileFormat {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the size in bytes of the entire audio file (not just its audio data).
      * @return the audio file length in bytes
      * @see AudioSystem#NOT_SPECIFIED
@@ -214,7 +214,7 @@ public class AudioFileFormat {
         return byteLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the format of the audio data contained in the audio file.
      * @return the audio data format
      */
@@ -222,7 +222,7 @@ public class AudioFileFormat {
         return format;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the audio data contained in the file, expressed in sample frames.
      * @return the number of sample frames of audio data in the file
      * @see AudioSystem#NOT_SPECIFIED
@@ -231,7 +231,7 @@ public class AudioFileFormat {
         return frameLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtain an unmodifiable map of properties.
      * The concept of properties is further explained in
      * the {@link AudioFileFormat class description}.
@@ -254,7 +254,7 @@ public class AudioFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtain the property value specified by the key.
      * The concept of properties is further explained in
      * the {@link AudioFileFormat class description}.
@@ -278,7 +278,7 @@ public class AudioFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Provides a string representation of the file format.
      * @return the file format as a string
      */
@@ -307,7 +307,7 @@ public class AudioFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>Type</code> class represents one of the
      * standard types of audio file.  Static instances are provided for the
      * common types.
@@ -316,27 +316,27 @@ public class AudioFileFormat {
 
         // FILE FORMAT TYPE DEFINES
 
-        /**
+        /** {@collect.stats}
          * Specifies a WAVE file.
          */
         public static final Type WAVE = new Type("WAVE", "wav");
 
-        /**
+        /** {@collect.stats}
          * Specifies an AU file.
          */
         public static final Type AU = new Type("AU", "au");
 
-        /**
+        /** {@collect.stats}
          * Specifies an AIFF file.
          */
         public static final Type AIFF = new Type("AIFF", "aif");
 
-        /**
+        /** {@collect.stats}
          * Specifies an AIFF-C file.
          */
         public static final Type AIFC = new Type("AIFF-C", "aifc");
 
-        /**
+        /** {@collect.stats}
          * Specifies a SND file.
          */
         public static final Type SND = new Type("SND", "snd");
@@ -344,12 +344,12 @@ public class AudioFileFormat {
 
         // INSTANCE VARIABLES
 
-        /**
+        /** {@collect.stats}
          * File type name.
          */
         private final String name;
 
-        /**
+        /** {@collect.stats}
          * File type extension.
          */
         private final String extension;
@@ -357,7 +357,7 @@ public class AudioFileFormat {
 
         // CONSTRUCTOR
 
-        /**
+        /** {@collect.stats}
          * Constructs a file type.
          * @param name the string that names the file type
          * @param extension the string that commonly marks the file type
@@ -372,7 +372,7 @@ public class AudioFileFormat {
 
         // METHODS
 
-        /**
+        /** {@collect.stats}
          * Finalizes the equals method
          */
         public final boolean equals(Object obj) {
@@ -385,7 +385,7 @@ public class AudioFileFormat {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashCode method
          */
         public final int hashCode() {
@@ -395,7 +395,7 @@ public class AudioFileFormat {
             return toString().hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * Provides the file type's name as the <code>String</code> representation
          * of the file type.
          * @return the file type's name
@@ -404,7 +404,7 @@ public class AudioFileFormat {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the common file name extension for this file type.
          * @return file type extension
          */

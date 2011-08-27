@@ -25,7 +25,7 @@
 
 package java.awt.datatransfer;
 
-/**
+/** {@collect.stats}
  * Signals that the requested data is not supported in this flavor.
  * @see Transferable#getTransferData
  *
@@ -38,7 +38,7 @@ public class UnsupportedFlavorException extends Exception {
      */
     private static final long serialVersionUID = 5383814944251665601L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an UnsupportedFlavorException.
      *
      * @param flavor the flavor object which caused the exception. May

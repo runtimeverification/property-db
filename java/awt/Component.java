@@ -77,7 +77,7 @@ import sun.java2d.SunGraphics2D;
 import sun.java2d.pipe.Region;
 import sun.awt.RequestFocusController;
 
-/**
+/** {@collect.stats}
  * A <em>component</em> is an object having a graphical representation
  * that can be displayed on the screen and that can interact with the
  * user. Examples of components are the buttons, checkboxes, and scrollbars
@@ -175,7 +175,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     private static final Logger focusLog = Logger.getLogger("java.awt.focus.Component");
     private static final Logger mixingLog = Logger.getLogger("java.awt.mixing.Component");
 
-    /**
+    /** {@collect.stats}
      * The peer of the component. The peer implements the component's
      * behavior. The peer is set when the <code>Component</code> is
      * added to a container that also is a peer.
@@ -184,20 +184,20 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     transient ComponentPeer peer;
 
-    /**
+    /** {@collect.stats}
      * The parent of the object. It may be <code>null</code>
      * for top-level components.
      * @see #getParent
      */
     transient Container parent;
 
-    /**
+    /** {@collect.stats}
      * The <code>AppContext</code> of the component. Applets/Plugin may
      * change the AppContext.
      */
     transient AppContext appContext;
 
-    /**
+    /** {@collect.stats}
      * The x position of the component in the parent's coordinate system.
      *
      * @serial
@@ -205,7 +205,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     int x;
 
-    /**
+    /** {@collect.stats}
      * The y position of the component in the parent's coordinate system.
      *
      * @serial
@@ -213,7 +213,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     int y;
 
-    /**
+    /** {@collect.stats}
      * The width of the component.
      *
      * @serial
@@ -221,7 +221,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     int width;
 
-    /**
+    /** {@collect.stats}
      * The height of the component.
      *
      * @serial
@@ -229,7 +229,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     int height;
 
-    /**
+    /** {@collect.stats}
      * The foreground color for this component.
      * <code>foreground</code> can be <code>null</code>.
      *
@@ -239,7 +239,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Color       foreground;
 
-    /**
+    /** {@collect.stats}
      * The background color for this component.
      * <code>background</code> can be <code>null</code>.
      *
@@ -249,7 +249,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Color       background;
 
-    /**
+    /** {@collect.stats}
      * The font used by this component.
      * The <code>font</code> can be <code>null</code>.
      *
@@ -259,13 +259,13 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Font        font;
 
-    /**
+    /** {@collect.stats}
      * The font which the peer is currently using.
      * (<code>null</code> if no peer exists.)
      */
     Font        peerFont;
 
-    /**
+    /** {@collect.stats}
      * The cursor displayed when pointer is over this component.
      * This value can be <code>null</code>.
      *
@@ -275,7 +275,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Cursor      cursor;
 
-    /**
+    /** {@collect.stats}
      * The locale for the component.
      *
      * @serial
@@ -284,7 +284,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Locale      locale;
 
-    /**
+    /** {@collect.stats}
      * A reference to a <code>GraphicsConfiguration</code> object
      * used to describe the characteristics of a graphics
      * destination.
@@ -297,7 +297,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     transient GraphicsConfiguration graphicsConfig = null;
 
-    /**
+    /** {@collect.stats}
      * A reference to a <code>BufferStrategy</code> object
      * used to manipulate the buffers on this component.
      *
@@ -307,7 +307,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     transient BufferStrategy bufferStrategy = null;
 
-    /**
+    /** {@collect.stats}
      * True when the object should ignore all repaint events.
      *
      * @since 1.4
@@ -317,7 +317,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     boolean ignoreRepaint = false;
 
-    /**
+    /** {@collect.stats}
      * True when the object is visible. An object that is not
      * visible is not drawn on the screen.
      *
@@ -327,7 +327,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     boolean visible = true;
 
-    /**
+    /** {@collect.stats}
      * True when the object is enabled. An object that is not
      * enabled does not interact with the user.
      *
@@ -337,7 +337,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     boolean enabled = true;
 
-    /**
+    /** {@collect.stats}
      * True when the object is valid. An invalid object needs to
      * be layed out. This flag is set to false when the object
      * size is changed.
@@ -349,7 +349,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     volatile boolean valid = false;
 
-    /**
+    /** {@collect.stats}
      * The <code>DropTarget</code> associated with this component.
      *
      * @since 1.2
@@ -359,13 +359,13 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     DropTarget dropTarget;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @see #add
      */
     Vector popups;
 
-    /**
+    /** {@collect.stats}
      * A component's name.
      * This field can be <code>null</code>.
      *
@@ -375,7 +375,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * A bool to determine whether the name has
      * been set explicitly. <code>nameExplicitlySet</code> will
      * be false if the name has not been set and
@@ -387,7 +387,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private boolean nameExplicitlySet = false;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this Component can be focused.
      *
      * @serial
@@ -401,7 +401,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     private static final int FOCUS_TRAVERSABLE_DEFAULT = 1;
     private static final int FOCUS_TRAVERSABLE_SET = 2;
 
-    /**
+    /** {@collect.stats}
      * Tracks whether this Component is relying on default focus travesability.
      *
      * @serial
@@ -409,7 +409,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private int isFocusTraversableOverridden = FOCUS_TRAVERSABLE_UNKNOWN;
 
-    /**
+    /** {@collect.stats}
      * The focus traversal keys. These keys will generate focus traversal
      * behavior for Components for which focus traversal keys are enabled. If a
      * value of null is specified for a traversal key, this Component inherits
@@ -431,7 +431,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         "downCycleFocusTraversalKeys"
     };
 
-    /**
+    /** {@collect.stats}
      * Indicates whether focus traversal keys are enabled for this Component.
      * Components for which focus traversal keys are disabled receive key
      * events for focus traversal keys. Components for which focus traversal
@@ -445,7 +445,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private boolean focusTraversalKeysEnabled = true;
 
-    /**
+    /** {@collect.stats}
      * The locking object for AWT component-tree and layout operations.
      *
      * @see #getTreeLock
@@ -459,7 +459,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     private transient volatile AccessControlContext acc =
         AccessController.getContext();
 
-    /**
+    /** {@collect.stats}
      * Minimum size.
      * (This field perhaps should have been transient).
      *
@@ -467,12 +467,12 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Dimension minSize;
 
-    /**
+    /** {@collect.stats}
      * Whether or not setMinimumSize has been invoked with a non-null value.
      */
     boolean minSizeSet;
 
-    /**
+    /** {@collect.stats}
      * Preferred size.
      * (This field perhaps should have been transient).
      *
@@ -480,24 +480,24 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     Dimension prefSize;
 
-    /**
+    /** {@collect.stats}
      * Whether or not setPreferredSize has been invoked with a non-null value.
      */
     boolean prefSizeSet;
 
-    /**
+    /** {@collect.stats}
      * Maximum size
      *
      * @serial
      */
     Dimension maxSize;
 
-    /**
+    /** {@collect.stats}
      * Whether or not setMaximumSize has been invoked with a non-null value.
      */
     boolean maxSizeSet;
 
-    /**
+    /** {@collect.stats}
      * The orientation for this component.
      * @see #getComponentOrientation
      * @see #setComponentOrientation
@@ -505,7 +505,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     transient ComponentOrientation componentOrientation
     = ComponentOrientation.UNKNOWN;
 
-    /**
+    /** {@collect.stats}
      * <code>newEventsOnly</code> will be true if the event is
      * one of the event types enabled for the component.
      * It will then allow for normal processing to
@@ -529,7 +529,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     transient RuntimeException windowClosingException = null;
 
-    /** Internal, constants for serialization */
+    /** {@collect.stats} Internal, constants for serialization */
     final static String actionListenerK = "actionL";
     final static String adjustmentListenerK = "adjustmentL";
     final static String componentListenerK = "componentL";
@@ -549,7 +549,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     final static String windowStateListenerK = "windowStateL";
     final static String windowFocusListenerK = "windowFocusL";
 
-    /**
+    /** {@collect.stats}
      * The <code>eventMask</code> is ONLY set by subclasses via
      * <code>enableEvents</code>.
      * The mask should NOT be set when listeners are registered
@@ -565,7 +565,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     long eventMask = AWTEvent.INPUT_METHODS_ENABLED_MASK;
 
-    /**
+    /** {@collect.stats}
      * Static properties for incremental drawing.
      * @see #imageUpdate
      */
@@ -588,14 +588,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
         incRate = (s != null) ? Integer.parseInt(s) : 100;
     }
 
-    /**
+    /** {@collect.stats}
      * Ease-of-use constant for <code>getAlignmentY()</code>.
      * Specifies an alignment to the top of the component.
      * @see     #getAlignmentY
      */
     public static final float TOP_ALIGNMENT = 0.0f;
 
-    /**
+    /** {@collect.stats}
      * Ease-of-use constant for <code>getAlignmentY</code> and
      * <code>getAlignmentX</code>. Specifies an alignment to
      * the center of the component
@@ -604,21 +604,21 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     public static final float CENTER_ALIGNMENT = 0.5f;
 
-    /**
+    /** {@collect.stats}
      * Ease-of-use constant for <code>getAlignmentY</code>.
      * Specifies an alignment to the bottom of the component.
      * @see     #getAlignmentY
      */
     public static final float BOTTOM_ALIGNMENT = 1.0f;
 
-    /**
+    /** {@collect.stats}
      * Ease-of-use constant for <code>getAlignmentX</code>.
      * Specifies an alignment to the left side of the component.
      * @see     #getAlignmentX
      */
     public static final float LEFT_ALIGNMENT = 0.0f;
 
-    /**
+    /** {@collect.stats}
      * Ease-of-use constant for <code>getAlignmentX</code>.
      * Specifies an alignment to the right side of the component.
      * @see     #getAlignmentX
@@ -630,7 +630,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private static final long serialVersionUID = -7644114512714619750L;
 
-    /**
+    /** {@collect.stats}
      * If any <code>PropertyChangeListeners</code> have been registered,
      * the <code>changeSupport</code> field describes them.
      *
@@ -661,7 +661,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     boolean isPacked = false;
 
-    /**
+    /** {@collect.stats}
      * Pseudoparameter for direct Geometry API (setLocation, setBounds setSize
      * to signal setBounds what's changing. Should be used under TreeLock.
      * This is only needed due to the inability to change the cross-calling
@@ -669,7 +669,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     private int boundsOp = ComponentPeer.DEFAULT_OPERATION;
 
-    /**
+    /** {@collect.stats}
      * Enumeration of the common ways the baseline of a component can
      * change as the size changes.  The baseline resize behavior is
      * primarily for layout managers that need to know how the
@@ -688,7 +688,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      * @since 1.6
      */
     public enum BaselineResizeBehavior {
-        /**
+        /** {@collect.stats}
          * Indicates the baseline remains fixed relative to the
          * y-origin.  That is, <code>getBaseline</code> returns
          * the same value regardless of the height or width.  For example, a
@@ -698,7 +698,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
          */
         CONSTANT_ASCENT,
 
-        /**
+        /** {@collect.stats}
          * Indicates the baseline remains fixed relative to the height
          * and does not change as the width is varied.  That is, for
          * any height H the difference between H and
@@ -709,7 +709,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
          */
         CONSTANT_DESCENT,
 
-        /**
+        /** {@collect.stats}
          * Indicates the baseline remains a fixed distance from
          * the center of the component.  That is, for any height H the
          * difference between <code>getBaseline(w, H)</code> and
@@ -748,7 +748,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
          */
         CENTER_OFFSET,
 
-        /**
+        /** {@collect.stats}
          * Indicates the baseline resize behavior can not be expressed using
          * any of the other constants.  This may also indicate the baseline
          * varies with the width of the component.  This is also returned
@@ -777,7 +777,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         };
 
-    /**
+    /** {@collect.stats}
      * Should only be used in subclass getBounds to check that part of bounds
      * is actualy changing
      */
@@ -806,7 +806,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new component. Class <code>Component</code> can be
      * extended directly to create a lightweight component that does not
      * utilize an opaque native window. A lightweight component must be
@@ -821,7 +821,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         focusTraversalKeys = new Set[3];
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a name for this component.  Called by <code>getName</code>
      * when the name is <code>null</code>.
      */
@@ -831,7 +831,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                      // getName()
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the name of the component.
      * @return this component's name
      * @see    #setName
@@ -847,7 +847,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the name of the component to the specified string.
      * @param name  the string that is to be this
      *           component's name
@@ -864,7 +864,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange("name", oldName, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the parent of this component.
      * @return the parent container of this component
      * @since JDK1.0
@@ -888,7 +888,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getParent();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * programs should not directly manipulate peers;
      * replaced by <code>boolean isDisplayable()</code>.
@@ -898,7 +898,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return peer;
     }
 
-    /**
+    /** {@collect.stats}
      * Associate a <code>DropTarget</code> with this component.
      * The <code>Component</code> will receive drops only if it
      * is enabled.
@@ -946,14 +946,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>DropTarget</code> associated with this
      * <code>Component</code>.
      */
 
     public synchronized DropTarget getDropTarget() { return dropTarget; }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>GraphicsConfiguration</code> associated with this
      * <code>Component</code>.
      * If the <code>Component</code> has not been assigned a specific
@@ -992,7 +992,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets this <code>Component</code>'s
      * <code>GraphicsConfiguration</code> back to a default
      * value.  For most componenets, this is <code>null</code>.
@@ -1018,7 +1018,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that this component's <code>GraphicsDevice</code>
      * <code>idString</code> matches the string argument.
      */
@@ -1031,7 +1031,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets this component's locking object (the object that owns the thread
      * sychronization monitor) for AWT component-tree and layout
      * operations.
@@ -1047,7 +1047,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the toolkit of this component. Note that
      * the frame that contains a component controls which
      * toolkit is used by that component. Therefore if the component
@@ -1075,7 +1075,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return Toolkit.getDefaultToolkit();
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component is valid. A component is valid
      * when it is correctly sized and positioned within its parent
      * container and all its children are also valid.
@@ -1092,7 +1092,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (peer != null) && valid;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component is displayable. A component is
      * displayable when it is connected to a native screen resource.
      * <p>
@@ -1120,7 +1120,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getPeer() != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component should be visible when its
      * parent is visible. Components are
      * initially visible, with the exception of top level components such
@@ -1137,7 +1137,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return visible;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component will be displayed on the screen.
      * @return <code>true</code> if the component and all of its ancestors
      *          until a toplevel window or null parent are visible,
@@ -1147,7 +1147,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return visible && (parent == null || parent.isRecursivelyVisible());
     }
 
-    /**
+    /** {@collect.stats}
      * Translates absolute coordinates into coordinates in the coordinate
      * space of this component.
      */
@@ -1157,7 +1157,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                          absolute.y - compCoords.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Assuming that mouse location is stored in PointerInfo passed
      * to this method, it finds a Component that is in the same
      * Window as this Component and is located under the mouse pointer.
@@ -1182,7 +1182,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return inTheSameWindow;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position of the mouse pointer in this <code>Component</code>'s
      * coordinate space if the <code>Component</code> is directly under the mouse
      * pointer, otherwise returns <code>null</code>.
@@ -1231,14 +1231,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden in Container. Must be called under TreeLock.
      */
     boolean isSameOrAncestorOf(Component comp, boolean allowChildren) {
         return comp == this;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component is showing on screen. This means
      * that the component must be visible, and it must be in a container
      * that is visible and showing.
@@ -1264,7 +1264,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this component is enabled. An enabled component
      * can respond to user input and generate events. Components are
      * enabled initially by default. A component may be enabled or disabled by
@@ -1286,7 +1286,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables or disables this component, depending on the value of the
      * parameter <code>b</code>. An enabled component can respond to user
      * input and generate events. Components are enabled initially by default.
@@ -1307,7 +1307,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         enable(b);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -1332,7 +1332,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -1345,7 +1345,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -1378,7 +1378,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this component is painted to an offscreen image
      * ("buffer") that's copied to the screen later.  Component
      * subclasses that support double buffering should override this
@@ -1390,7 +1390,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables or disables input method support for this component. If input
      * method support is enabled and the component also processes key events,
      * incoming events are offered to
@@ -1432,7 +1432,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Shows or hides this component depending on the value of parameter
      * <code>b</code>.
      * @param b  if <code>true</code>, shows this component;
@@ -1444,7 +1444,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         show(b);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setVisible(boolean)</code>.
      */
@@ -1482,7 +1482,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setVisible(boolean)</code>.
      */
@@ -1507,7 +1507,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         /* do nothing */
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setVisible(boolean)</code>.
      */
@@ -1551,7 +1551,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the foreground color of this component.
      * @return this component's foreground color; if this component does
      * not have a foreground color, the foreground color of its parent
@@ -1570,7 +1570,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (parent != null) ? parent.getForeground() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the foreground color of this component.
      * @param c the color to become this component's
      *          foreground color; if this parameter is <code>null</code>
@@ -1594,7 +1594,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange("foreground", oldColor, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the foreground color has been explicitly set for this
      * Component. If this method returns <code>false</code>, this Component is
      * inheriting its foreground color from an ancestor.
@@ -1607,7 +1607,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (foreground != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the background color of this component.
      * @return this component's background color; if this component does
      *          not have a background color,
@@ -1624,7 +1624,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (parent != null) ? parent.getBackground() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color of this component.
      * <p>
      * The background color affects each component differently and the
@@ -1654,7 +1654,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange("background", oldColor, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the background color has been explicitly set for this
      * Component. If this method returns <code>false</code>, this Component is
      * inheriting its background color from an ancestor.
@@ -1667,7 +1667,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (background != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font of this component.
      * @return this component's font; if a font has not been set
      * for this component, the font of its parent is returned
@@ -1691,7 +1691,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (parent != null) ? parent.getFont_NoClientCode() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the font of this component.
      * @param f the font to become this component's font;
      *          if this parameter is <code>null</code> then this
@@ -1730,7 +1730,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the font has been explicitly set for this Component. If
      * this method returns <code>false</code>, this Component is inheriting its
      * font from an ancestor.
@@ -1743,7 +1743,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (font != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the locale of this component.
      * @return this component's locale; if this component does not
      *          have a locale, the locale of its parent is returned
@@ -1768,7 +1768,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the locale of this component.  This is a bound property.
      * @param l the locale to become this component's locale
      * @see #getLocale
@@ -1788,7 +1788,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the instance of <code>ColorModel</code> used to display
      * the component on the output device.
      * @return the color model used by this component
@@ -1807,7 +1807,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getToolkit().getColorModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the location of this component in the form of a
      * point specifying the component's top-left corner.
      * The location will be relative to the parent's coordinate space.
@@ -1831,7 +1831,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return location();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the location of this component in the form of a point
      * specifying the component's top-left corner in the screen's
      * coordinate space.
@@ -1876,7 +1876,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getLocation()</code>.
      */
@@ -1889,7 +1889,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Point(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves this component to a new location. The top-left corner of
      * the new location is specified by the <code>x</code> and <code>y</code>
      * parameters in the coordinate space of this component's parent.
@@ -1905,7 +1905,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         move(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setLocation(int, int)</code>.
      */
@@ -1917,7 +1917,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves this component to a new location. The top-left corner of
      * the new location is specified by point <code>p</code>. Point
      * <code>p</code> is given in the parent's coordinate space.
@@ -1932,7 +1932,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         setLocation(p.x, p.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of this component in the form of a
      * <code>Dimension</code> object. The <code>height</code>
      * field of the <code>Dimension</code> object contains
@@ -1948,7 +1948,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return size();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getSize()</code>.
      */
@@ -1957,7 +1957,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Dimension(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Resizes this component so that it has width <code>width</code>
      * and height <code>height</code>.
      * @param width the new width of this component in pixels
@@ -1970,7 +1970,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         resize(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setSize(int, int)</code>.
      */
@@ -1982,7 +1982,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resizes this component so that it has width <code>d.width</code>
      * and height <code>d.height</code>.
      * @param d the dimension specifying the new size
@@ -1995,7 +1995,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         resize(d);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setSize(Dimension)</code>.
      */
@@ -2004,7 +2004,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         setSize(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the bounds of this component in the form of a
      * <code>Rectangle</code> object. The bounds specify this
      * component's width, height, and location relative to
@@ -2018,7 +2018,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return bounds();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getBounds()</code>.
      */
@@ -2027,7 +2027,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Rectangle(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves and resizes this component. The new location of the top-left
      * corner is specified by <code>x</code> and <code>y</code>, and the
      * new size is specified by <code>width</code> and <code>height</code>.
@@ -2047,7 +2047,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         reshape(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setBounds(int, int, int, int)</code>.
      */
@@ -2167,7 +2167,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                 }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves and resizes this component to conform to the new
      * bounding rectangle <code>r</code>. This component's new
      * position is specified by <code>r.x</code> and <code>r.y</code>,
@@ -2186,7 +2186,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current x coordinate of the components origin.
      * This method is preferable to writing
      * <code>component.getBounds().x</code>,
@@ -2201,7 +2201,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current y coordinate of the components origin.
      * This method is preferable to writing
      * <code>component.getBounds().y</code>,
@@ -2216,7 +2216,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current width of this component.
      * This method is preferable to writing
      * <code>component.getBounds().width</code>,
@@ -2231,7 +2231,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current height of this component.
      * This method is preferable to writing
      * <code>component.getBounds().height</code>,
@@ -2245,7 +2245,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return height;
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the bounds of this component into "return value" <b>rv</b> and
      * return <b>rv</b>.  If rv is <code>null</code> a new
      * <code>Rectangle</code> is allocated.
@@ -2266,7 +2266,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the width/height of this component into "return value" <b>rv</b>
      * and return <b>rv</b>.   If rv is <code>null</code> a new
      * <code>Dimension</code> object is allocated.  This version of
@@ -2286,7 +2286,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the x,y origin of this component into "return value" <b>rv</b>
      * and return <b>rv</b>.   If rv is <code>null</code> a new
      * <code>Point</code> is allocated.
@@ -2307,7 +2307,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this component is completely opaque, returns
      * false by default.
      * <p>
@@ -2336,7 +2336,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * A lightweight component doesn't have a native toolkit peer.
      * Subclasses of <code>Component</code> and <code>Container</code>,
      * other than the ones defined in this package like <code>Button</code>
@@ -2357,7 +2357,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the preferred size of this component to a constant
      * value.  Subsequent calls to <code>getPreferredSize</code> will always
      * return this value.  Setting the preferred size to <code>null</code>
@@ -2385,7 +2385,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the preferred size has been set to a
      * non-<code>null</code> value otherwise returns false.
      *
@@ -2398,7 +2398,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the preferred size of this component.
      * @return a dimension object indicating this component's preferred size
      * @see #getMinimumSize
@@ -2409,7 +2409,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize()</code>.
      */
@@ -2430,7 +2430,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Dimension(dim);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the minimum size of this component to a constant
      * value.  Subsequent calls to <code>getMinimumSize</code> will always
      * return this value.  Setting the minimum size to <code>null</code>
@@ -2457,7 +2457,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange("minimumSize", old, minimumSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not <code>setMinimumSize</code> has been
      * invoked with a non-null value.
      *
@@ -2469,7 +2469,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return minSizeSet;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the mininimum size of this component.
      * @return a dimension object indicating this component's minimum size
      * @see #getPreferredSize
@@ -2479,7 +2479,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return minimumSize();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize()</code>.
      */
@@ -2500,7 +2500,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Dimension(dim);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum size of this component to a constant
      * value.  Subsequent calls to <code>getMaximumSize</code> will always
      * return this value.  Setting the maximum size to <code>null</code>
@@ -2528,7 +2528,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange("maximumSize", old, maximumSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the maximum size has been set to a non-<code>null</code>
      * value otherwise returns false.
      *
@@ -2540,7 +2540,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return maxSizeSet;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the maximum size of this component.
      * @return a dimension object indicating this component's maximum size
      * @see #getMinimumSize
@@ -2554,7 +2554,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Dimension(Short.MAX_VALUE, Short.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -2565,7 +2565,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return CENTER_ALIGNMENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -2576,7 +2576,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return CENTER_ALIGNMENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.  The baseline is measured from the top of
      * the component.  This method is primarily meant for
      * <code>LayoutManager</code>s to align components along their
@@ -2608,7 +2608,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.  This method is primarily meant for
      * layout managers and GUI builders.
@@ -2633,7 +2633,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return BaselineResizeBehavior.OTHER;
     }
 
-    /**
+    /** {@collect.stats}
      * Prompts the layout manager to lay out this component. This is
      * usually called when the component (more specifically, container)
      * is validated.
@@ -2644,7 +2644,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         layout();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>doLayout()</code>.
      */
@@ -2652,7 +2652,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     public void layout() {
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that this component has a valid layout.  This method is
      * primarily intended to operate on instances of <code>Container</code>.
      * @see       #invalidate
@@ -2678,7 +2678,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invalidates this component.  This component and all parents
      * above it are marked as needing to be laid out.  This method can
      * be called often, so it needs to execute quickly.
@@ -2709,7 +2709,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a graphics context for this component. This method will
      * return <code>null</code> if this component is currently not
      * displayable.
@@ -2763,7 +2763,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font metrics for the specified font.
      * Warning: Since Font metrics are affected by the
      * {@link java.awt.font.FontRenderContext FontRenderContext} and
@@ -2793,7 +2793,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return sun.font.FontDesignMetrics.getMetrics(font);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the cursor image to the specified cursor.  This cursor
      * image is displayed when the <code>contains</code> method for
      * this component returns true for the current cursor location, and
@@ -2823,7 +2823,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         updateCursorImmediately();
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the cursor.  May not be invoked from the native
      * message pump.
      */
@@ -2843,7 +2843,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the cursor set in the component. If the component does
      * not have a cursor set, the cursor of its parent is returned.
      * If no cursor is set in the entire hierarchy,
@@ -2868,7 +2868,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the cursor has been explicitly set for this Component.
      * If this method returns <code>false</code>, this Component is inheriting
      * its cursor from an ancestor.
@@ -2881,7 +2881,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (cursor != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints this component.
      * <p>
      * This method is called when the contents of the component should
@@ -2908,7 +2908,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     public void paint(Graphics g) {
     }
 
-    /**
+    /** {@collect.stats}
      * Updates this component.
      * <p>
      * If this component is not a lightweight component, the
@@ -2945,7 +2945,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints this component and all of its subcomponents.
      * <p>
      * The origin of the graphics context, its
@@ -2967,7 +2967,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Simulates the peer callbacks into java.awt for painting of
      * lightweight Components.
      * @param     g   the graphics context to use for painting
@@ -2977,13 +2977,13 @@ public abstract class Component implements ImageObserver, MenuContainer,
         paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints all the heavyweight subcomponents.
      */
     void paintHeavyweightComponents(Graphics g) {
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints this component.
      * <p>
      * If this component is a lightweight component, this method
@@ -3005,7 +3005,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         repaint(0, 0, 0, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the component.  If this component is a lightweight
      * component, this results in a call to <code>paint</code>
      * within <code>tm</code> milliseconds.
@@ -3024,7 +3024,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         repaint(tm, 0, 0, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified rectangle of this component.
      * <p>
      * If this component is a lightweight component, this method
@@ -3048,7 +3048,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         repaint(0, x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified rectangle of this component within
      * <code>tm</code> milliseconds.
      * <p>
@@ -3093,7 +3093,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this component. Applications should override this method
      * for components that must do special processing before being
      * printed or should be printed differently than they are painted.
@@ -3113,7 +3113,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this component and all of its subcomponents.
      * <p>
      * The origin of the graphics context, its
@@ -3134,7 +3134,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Simulates the peer callbacks into java.awt for printing of
      * lightweight Components.
      * @param     g   the graphics context to use for printing
@@ -3144,7 +3144,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         print(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints all the heavyweight subcomponents.
      */
     void printHeavyweightComponents(Graphics g) {
@@ -3158,7 +3158,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return new Insets(0, 0, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the component when the image has changed.
      * This <code>imageUpdate</code> method of an <code>ImageObserver</code>
      * is called when more information about an
@@ -3223,7 +3223,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (infoflags & (ALLBITS|ABORT)) == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an image from the specified image producer.
      * @param     producer  the image producer
      * @return    the image produced
@@ -3237,7 +3237,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getToolkit().createImage(producer);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an off-screen drawable image
      *     to be used for double buffering.
      * @param     width the specified width
@@ -3261,7 +3261,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a volatile off-screen drawable image
      *     to be used for double buffering.
      * @param     width the specified width.
@@ -3289,7 +3289,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a volatile off-screen drawable image, with the given capabilities.
      * The contents of this image may be lost at any time due
      * to operating system issues, so the image must be managed
@@ -3310,7 +3310,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return createVolatileImage(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Prepares an image for rendering on this component.  The image
      * data is downloaded asynchronously in another thread and the
      * appropriate screen representation of the image is generated.
@@ -3326,7 +3326,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return prepareImage(image, -1, -1, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Prepares an image for rendering on this component at the
      * specified width and height.
      * <p>
@@ -3358,7 +3358,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the status of the construction of a screen representation
      * of the specified image.
      * <p>
@@ -3384,7 +3384,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return checkImage(image, -1, -1, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the status of the construction of a screen representation
      * of the specified image.
      * <p>
@@ -3430,7 +3430,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new strategy for multi-buffering on this component.
      * Multi-buffering is useful for rendering performance.  This method
      * attempts to create the best strategy available with the number of
@@ -3489,7 +3489,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         throw new InternalError("Could not create a buffer strategy");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new strategy for multi-buffering on this component with the
      * required buffer capabilities.  This is useful, for example, if only
      * accelerated memory or page flipping is desired (as specified by the
@@ -3537,7 +3537,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @return the buffer strategy used by this component
      * @see Window#createBufferStrategy
      * @see Canvas#createBufferStrategy
@@ -3547,7 +3547,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return bufferStrategy;
     }
 
-    /**
+    /** {@collect.stats}
      * @return the back buffer currently used by this component's
      * BufferStrategy.  If there is no BufferStrategy or no
      * back buffer, this method returns null.
@@ -3565,7 +3565,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class for flipping buffers on a component.  That component must
      * be a <code>Canvas</code> or <code>Window</code>.
      * @see Canvas
@@ -3575,28 +3575,28 @@ public abstract class Component implements ImageObserver, MenuContainer,
      * @since 1.4
      */
     protected class FlipBufferStrategy extends BufferStrategy {
-        /**
+        /** {@collect.stats}
          * The number of buffers
          */
         protected int numBuffers; // = 0
-        /**
+        /** {@collect.stats}
          * The buffering capabilities
          */
         protected BufferCapabilities caps; // = null
-        /**
+        /** {@collect.stats}
          * The drawing buffer
          */
         protected Image drawBuffer; // = null
-        /**
+        /** {@collect.stats}
          * The drawing buffer as a volatile image
          */
         protected VolatileImage drawVBuffer; // = null
-        /**
+        /** {@collect.stats}
          * Whether or not the drawing buffer has been recently restored from
          * a lost state.
          */
         protected boolean validatedContents; // = false
-        /**
+        /** {@collect.stats}
          * Size of the back buffers.  (Note: these fields were added in 6.0
          * but kept package-private to avoid exposing them in the spec.
          * None of these fields/methods really should have been marked
@@ -3606,7 +3606,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         int width;
         int height;
 
-        /**
+        /** {@collect.stats}
          * Creates a new flipping buffer strategy for this component.
          * The component must be a <code>Canvas</code> or <code>Window</code>.
          * @see Canvas
@@ -3632,7 +3632,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             createBuffers(numBuffers, caps);
         }
 
-        /**
+        /** {@collect.stats}
          * Creates one or more complex, flipping buffers with the given
          * capabilities.
          * @param numBuffers number of buffers to create; must be greater than
@@ -3679,7 +3679,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             updateInternalBuffers();
         }
 
-        /**
+        /** {@collect.stats}
          * Updates internal buffers (both volatile and non-volatile)
          * by requesting the back-buffer from the peer.
          */
@@ -3693,7 +3693,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return direct access to the back buffer, as an image.
          * @exception IllegalStateException if the buffers have not yet
          * been created
@@ -3707,7 +3707,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Flipping moves the contents of the back buffer to the front buffer,
          * either by copying or by moving the video pointer.
          * @param flipAction an integer value describing the flipping action
@@ -3727,7 +3727,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Destroys the buffers created through this object
          */
         protected void destroyBuffers() {
@@ -3739,14 +3739,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return the buffering capabilities of this strategy
          */
         public BufferCapabilities getCapabilities() {
             return caps;
         }
 
-        /**
+        /** {@collect.stats}
          * @return the graphics on the drawing buffer.  This method may not
          * be synchronized for performance reasons; use of this method by multiple
          * threads should be handled at the application level.  Disposal of the
@@ -3757,7 +3757,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return drawBuffer.getGraphics();
         }
 
-        /**
+        /** {@collect.stats}
          * Restore the drawing buffer if it has been lost
          */
         protected void revalidate() {
@@ -3803,7 +3803,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return whether the drawing buffer was lost since the last call to
          * <code>getDrawGraphics</code>
          */
@@ -3814,7 +3814,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return drawVBuffer.contentsLost();
         }
 
-        /**
+        /** {@collect.stats}
          * @return whether the drawing buffer was recently restored from a lost
          * state and reinitialized to the default background color (white)
          */
@@ -3822,7 +3822,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return validatedContents;
         }
 
-        /**
+        /** {@collect.stats}
          * Makes the next available buffer visible by either blitting or
          * flipping.
          */
@@ -3830,7 +3830,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             flip(caps.getFlipContents());
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.6
          */
@@ -3845,7 +3845,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     } // Inner class FlipBufferStrategy
 
-    /**
+    /** {@collect.stats}
      * Inner class for blitting offscreen surfaces to a component.
      *
      * @author Michael Martak
@@ -3853,32 +3853,32 @@ public abstract class Component implements ImageObserver, MenuContainer,
      */
     protected class BltBufferStrategy extends BufferStrategy {
 
-        /**
+        /** {@collect.stats}
          * The buffering capabilities
          */
         protected BufferCapabilities caps; // = null
-        /**
+        /** {@collect.stats}
          * The back buffers
          */
         protected VolatileImage[] backBuffers; // = null
-        /**
+        /** {@collect.stats}
          * Whether or not the drawing buffer has been recently restored from
          * a lost state.
          */
         protected boolean validatedContents; // = false
-        /**
+        /** {@collect.stats}
          * Size of the back buffers
          */
         protected int width;
         protected int height;
 
-        /**
+        /** {@collect.stats}
          * Insets for the hosting Component.  The size of the back buffer
          * is constrained by these.
          */
         private Insets insets;
 
-        /**
+        /** {@collect.stats}
          * Creates a new blt buffer strategy around a component
          * @param numBuffers number of buffers to create, including the
          * front buffer
@@ -3889,7 +3889,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             createBackBuffers(numBuffers - 1);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.6
          */
@@ -3908,7 +3908,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates the back buffers
          */
         protected void createBackBuffers(int numBuffers) {
@@ -3946,14 +3946,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return the buffering capabilities of this strategy
          */
         public BufferCapabilities getCapabilities() {
             return caps;
         }
 
-        /**
+        /** {@collect.stats}
          * @return the draw graphics
          */
         public Graphics getDrawGraphics() {
@@ -3969,7 +3969,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return g;
         }
 
-        /**
+        /** {@collect.stats}
          * @return direct access to the back buffer, as an image.
          * If there is no back buffer, returns null.
          */
@@ -3981,7 +3981,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Makes the next available buffer visible.
          */
         public void show() {
@@ -3990,7 +3990,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                           height - insets.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Package-private method to present a specific rectangular area
          * of this buffer.  This class currently shows only the entire
          * buffer, by calling showSubRegion() with the full dimensions of
@@ -4033,7 +4033,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Restore the drawing buffer if it has been lost
          */
         protected void revalidate() {
@@ -4077,7 +4077,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return whether the drawing buffer was lost since the last call to
          * <code>getDrawGraphics</code>
          */
@@ -4089,7 +4089,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * @return whether the drawing buffer was recently restored from a lost
          * state and reinitialized to the default background color (white)
          */
@@ -4098,7 +4098,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     } // Inner class BltBufferStrategy
 
-    /**
+    /** {@collect.stats}
      * Private class to perform sub-region flipping.
      * REMIND: this subclass currently punts on subregions and
      * flips the entire buffer.
@@ -4129,7 +4129,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Private class to perform sub-region blitting.  Swing will use
      * this subclass via the SubRegionShowable interface in order to
      * copy only the area changed during a repaint.
@@ -4160,7 +4160,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class for flipping buffers on a component.  That component must
      * be a <code>Canvas</code> or <code>Window</code>.
      * @see Canvas
@@ -4193,7 +4193,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     } // Inner class SingleBufferStrategy
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not paint messages received from the operating system
      * should be ignored.  This does not affect paint events generated in
      * software by the AWT, unless they are an immediate response to an
@@ -4214,7 +4214,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         this.ignoreRepaint = ignoreRepaint;
     }
 
-    /**
+    /** {@collect.stats}
      * @return whether or not paint messages received from the operating system
      * should be ignored.
      *
@@ -4225,7 +4225,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return ignoreRepaint;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether this component "contains" the specified point,
      * where <code>x</code> and <code>y</code> are defined to be
      * relative to the coordinate system of this component.
@@ -4238,7 +4238,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return inside(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by contains(int, int).
      */
@@ -4247,7 +4247,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (x >= 0) && (x < width) && (y >= 0) && (y < height);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether this component "contains" the specified point,
      * where the point's <i>x</i> and <i>y</i> coordinates are defined
      * to be relative to the coordinate system of this component.
@@ -4259,7 +4259,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return contains(p.x, p.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if this component or one of its immediate
      * subcomponents contains the (<i>x</i>,&nbsp;<i>y</i>) location,
      * and if so, returns the containing component. This method only
@@ -4284,7 +4284,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return locate(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by getComponentAt(int, int).
      */
@@ -4293,7 +4293,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return contains(x, y) ? this : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component or subcomponent that contains the
      * specified point.
      * @param     p   the point
@@ -4304,7 +4304,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getComponentAt(p.x, p.y);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>dispatchEvent(AWTEvent e)</code>.
      */
@@ -4313,7 +4313,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         postEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Dispatches an event to this component or one of its sub components.
      * Calls <code>processEvent</code> before returning for 1.1-style
      * events which have been enabled for the <code>Component</code>.
@@ -4780,7 +4780,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by dispatchEvent(AWTEvent).
      */
@@ -4811,7 +4811,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     // Event source interfaces
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component listener to receive component events from
      * this component.
      * If listener <code>l</code> is <code>null</code>,
@@ -4834,7 +4834,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component listener so that it no longer
      * receives component events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -4857,7 +4857,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         componentListener = AWTEventMulticaster.remove(componentListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the component listeners
      * registered on this component.
      *
@@ -4873,7 +4873,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (ComponentListener[]) (getListeners(ComponentListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified focus listener to receive focus events from
      * this component when this component gains input focus.
      * If listener <code>l</code> is <code>null</code>,
@@ -4902,7 +4902,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified focus listener so that it no longer
      * receives focus events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -4926,7 +4926,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         focusListener = AWTEventMulticaster.remove(focusListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the focus listeners
      * registered on this component.
      *
@@ -4942,7 +4942,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (FocusListener[]) (getListeners(FocusListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified hierarchy listener to receive hierarchy changed
      * events from this component when the hierarchy to which this container
      * belongs changes.
@@ -4979,7 +4979,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified hierarchy listener so that it no longer
      * receives hierarchy changed events from this component. This method
      * performs no function, nor does it throw an exception, if the listener
@@ -5017,7 +5017,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the hierarchy listeners
      * registered on this component.
      *
@@ -5033,7 +5033,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (HierarchyListener[])(getListeners(HierarchyListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified hierarchy bounds listener to receive hierarchy
      * bounds events from this component when the hierarchy to which this
      * container belongs changes.
@@ -5072,7 +5072,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified hierarchy bounds listener so that it no longer
      * receives hierarchy bounds events from this component. This method
      * performs no function, nor does it throw an exception, if the listener
@@ -5179,7 +5179,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the hierarchy bounds listeners
      * registered on this component.
      *
@@ -5207,7 +5207,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified key listener to receive key events from
      * this component.
      * If l is null, no exception is thrown and no action is performed.
@@ -5235,7 +5235,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified key listener so that it no longer
      * receives key events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -5259,7 +5259,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         keyListener = AWTEventMulticaster.remove(keyListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the key listeners
      * registered on this component.
      *
@@ -5275,7 +5275,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (KeyListener[]) (getListeners(KeyListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified mouse listener to receive mouse events from
      * this component.
      * If listener <code>l</code> is <code>null</code>,
@@ -5304,7 +5304,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified mouse listener so that it no longer
      * receives mouse events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -5328,7 +5328,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         mouseListener = AWTEventMulticaster.remove(mouseListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the mouse listeners
      * registered on this component.
      *
@@ -5344,7 +5344,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (MouseListener[]) (getListeners(MouseListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified mouse motion listener to receive mouse motion
      * events from this component.
      * If listener <code>l</code> is <code>null</code>,
@@ -5373,7 +5373,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified mouse motion listener so that it no longer
      * receives mouse motion events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -5397,7 +5397,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         mouseMotionListener = AWTEventMulticaster.remove(mouseMotionListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the mouse motion listeners
      * registered on this component.
      *
@@ -5413,7 +5413,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (MouseMotionListener[]) (getListeners(MouseMotionListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified mouse wheel listener to receive mouse wheel events
      * from this component.  Containers also receive mouse wheel events from
      * sub-components.
@@ -5447,7 +5447,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified mouse wheel listener so that it no longer
      * receives mouse wheel events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -5470,7 +5470,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         mouseWheelListener = AWTEventMulticaster.remove(mouseWheelListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the mouse wheel listeners
      * registered on this component.
      *
@@ -5486,7 +5486,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (MouseWheelListener[]) (getListeners(MouseWheelListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified input method listener to receive
      * input method events from this component. A component will
      * only receive input method events from input methods
@@ -5513,7 +5513,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified input method listener so that it no longer
      * receives input method events from this component. This method performs
      * no function, nor does it throw an exception, if the listener
@@ -5537,7 +5537,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         inputMethodListener = AWTEventMulticaster.remove(inputMethodListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the input method listeners
      * registered on this component.
      *
@@ -5553,7 +5553,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (InputMethodListener[]) (getListeners(InputMethodListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>Component</code>.
@@ -5621,7 +5621,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return AWTEventMulticaster.getListeners(l, listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input method request handler which supports
      * requests from input methods for this component. A component
      * that supports on-the-spot text input must override this
@@ -5637,7 +5637,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input context used by this component for handling
      * the communication with input methods when text is entered
      * in this component. By default, the input context used for
@@ -5657,7 +5657,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enables the events defined by the specified event mask parameter
      * to be delivered to this component.
      * <p>
@@ -5703,7 +5703,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Disables the events defined by the specified event mask parameter
      * from being delivered to this component.
      * @param      eventsToDisable   the event mask defining the event types
@@ -5734,13 +5734,13 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     transient EventQueueItem[] eventCache;
 
-    /**
+    /** {@collect.stats}
      * @see #isCoalescingEnabled
      * @see #checkCoalescing
      */
     transient private boolean coalescingEnabled = checkCoalescing();
 
-    /**
+    /** {@collect.stats}
      * Weak map of known coalesceEvent overriders.
      * Value indicates whether overriden.
      * Bootstrap classes are not included.
@@ -5748,7 +5748,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     private static final Map<Class<?>, Boolean> coalesceMap =
         new java.util.WeakHashMap<Class<?>, Boolean>();
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this class overrides coalesceEvents.
      * It is assumed that all classes that are loaded from the bootstrap
      *   do not.
@@ -5781,14 +5781,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
          }
      }
 
-    /**
+    /** {@collect.stats}
      * Parameter types of coalesceEvents(AWTEvent,AWTEVent).
      */
     private static final Class[] coalesceEventsParams = {
         AWTEvent.class, AWTEvent.class
     };
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a class or its superclasses override coalesceEvents.
      * Must be called with lock on coalesceMap and privileged.
      * @see checkCoalsecing
@@ -5828,7 +5828,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether coalesceEvents may do something.
      */
     final boolean isCoalescingEnabled() {
@@ -5836,7 +5836,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
      }
 
 
-    /**
+    /** {@collect.stats}
      * Potentially coalesce an event being posted with an existing
      * event.  This method is called by <code>EventQueue.postEvent</code>
      * if an event with the same ID as the event to be posted is found in
@@ -5867,7 +5867,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes events occurring on this component. By default this
      * method calls the appropriate
      * <code>process&lt;event&nbsp;type&gt;Event</code>
@@ -5929,7 +5929,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes component events occurring on this component by
      * dispatching them to any registered
      * <code>ComponentListener</code> objects.
@@ -5974,7 +5974,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes focus events occurring on this component by
      * dispatching them to any registered
      * <code>FocusListener</code> objects.
@@ -6031,7 +6031,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes key events occurring on this component by
      * dispatching them to any registered
      * <code>KeyListener</code> objects.
@@ -6100,7 +6100,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes mouse events occurring on this component by
      * dispatching them to any registered
      * <code>MouseListener</code> objects.
@@ -6148,7 +6148,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes mouse motion events occurring on this component by
      * dispatching them to any registered
      * <code>MouseMotionListener</code> objects.
@@ -6187,7 +6187,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes mouse wheel events occurring on this component by
      * dispatching them to any registered
      * <code>MouseWheelListener</code> objects.
@@ -6231,7 +6231,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes input method events occurring on this component by
      * dispatching them to any registered
      * <code>InputMethodListener</code> objects.
@@ -6270,7 +6270,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes hierarchy events occurring on this component by
      * dispatching them to any registered
      * <code>HierarchyListener</code> objects.
@@ -6306,7 +6306,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes hierarchy bounds events occurring on this component by
      * dispatching them to any registered
      * <code>HierarchyBoundsListener</code> objects.
@@ -6345,7 +6345,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1
      * replaced by processEvent(AWTEvent).
      */
@@ -6388,7 +6388,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseEvent(MouseEvent).
      */
@@ -6397,7 +6397,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseMotionEvent(MouseEvent).
      */
@@ -6406,7 +6406,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseEvent(MouseEvent).
      */
@@ -6415,7 +6415,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseMotionEvent(MouseEvent).
      */
@@ -6424,7 +6424,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseEvent(MouseEvent).
      */
@@ -6433,7 +6433,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processMouseEvent(MouseEvent).
      */
@@ -6442,7 +6442,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processKeyEvent(KeyEvent).
      */
@@ -6451,7 +6451,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processKeyEvent(KeyEvent).
      */
@@ -6460,7 +6460,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * should register this component as ActionListener on component
      * which fires action events.
@@ -6470,7 +6470,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Makes this <code>Component</code> displayable by connecting it to a
      * native screen resource.
      * This method is called internally by the toolkit and should
@@ -6582,7 +6582,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes this <code>Component</code> undisplayable by destroying it native
      * screen resource.
      * <p>
@@ -6681,7 +6681,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processFocusEvent(FocusEvent).
      */
@@ -6690,7 +6690,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by processFocusEvent(FocusEvent).
      */
@@ -6699,7 +6699,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this <code>Component</code> can become the focus
      * owner.
      *
@@ -6717,7 +6717,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return focusable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this Component can be focused.
      *
      * @return <code>true</code> if this Component is focusable;
@@ -6729,7 +6729,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return isFocusTraversable();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the focusable state of this Component to the specified value. This
      * value overrides the Component's default focusability.
      *
@@ -6760,7 +6760,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (isFocusTraversableOverridden != FOCUS_TRAVERSABLE_DEFAULT);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the focus traversal keys for a given traversal operation for this
      * Component.
      * <p>
@@ -6840,7 +6840,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         setFocusTraversalKeys_NoIDCheck(id, keystrokes);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Set of focus traversal keys for a given traversal operation
      * for this Component. (See
      * <code>setFocusTraversalKeys</code> for a full description of each key.)
@@ -6947,7 +6947,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the Set of focus traversal keys for the given focus
      * traversal operation has been explicitly defined for this Component. If
      * this method returns <code>false</code>, this Component is inheriting the
@@ -6973,7 +6973,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (focusTraversalKeys != null && focusTraversalKeys[id] != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether focus traversal keys are enabled for this Component.
      * Components for which focus traversal keys are disabled receive key
      * events for focus traversal keys. Components for which focus traversal
@@ -7001,7 +7001,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                            focusTraversalKeysEnabled);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether focus traversal keys are enabled for this Component.
      * Components for which focus traversal keys are disabled receive key
      * events for focus traversal keys. Components for which focus traversal
@@ -7018,7 +7018,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return focusTraversalKeysEnabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that this Component get the input focus, and that this
      * Component's top-level ancestor become the focused Window. This
      * component must be displayable, focusable, visible and all of
@@ -7060,7 +7060,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         requestFocusHelper(false, true, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that this <code>Component</code> get the input focus,
      * and that this <code>Component</code>'s top-level ancestor
      * become the focused <code>Window</code>. This component must be
@@ -7126,7 +7126,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     boolean requestFocus(boolean temporary, CausedFocusEvent.Cause cause) {
         return requestFocusHelper(temporary, true, cause);
     }
-    /**
+    /** {@collect.stats}
      * Requests that this Component get the input focus, if this
      * Component's top-level ancestor is already the focused
      * Window. This component must be displayable, focusable, visible
@@ -7178,7 +7178,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return requestFocusHelper(false, false, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that this <code>Component</code> get the input focus,
      * if this <code>Component</code>'s top-level ancestor is already
      * the focused <code>Window</code>.  This component must be
@@ -7457,7 +7457,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the focus to the next component, as though this Component were
      * the focus owner.
      * @see       #requestFocus()
@@ -7467,7 +7467,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         nextFocus();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Container which is the focus cycle root of this Component's
      * focus traversal cycle. Each focus traversal cycle has only a single
      * focus cycle root and each Component which is not a Container belongs to
@@ -7489,7 +7489,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return rootAncestor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the specified Container is the focus cycle root of this
      * Component's focus traversal cycle. Each focus traversal cycle has only
      * a single focus cycle root and each Component which is not a Container
@@ -7506,7 +7506,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return (rootAncestor == container);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by transferFocus().
      */
@@ -7581,7 +7581,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the focus to the previous component, as though this Component
      * were the focus owner.
      * @see       #requestFocus()
@@ -7610,7 +7610,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the focus up one focus traversal cycle. Typically, the focus
      * owner is set to this Component's focus cycle root, and the current focus
      * cycle root is set to the new focus owner's focus cycle root. If,
@@ -7656,7 +7656,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>Component</code> is the
      * focus owner.  This method is obsolete, and has been replaced by
      * <code>isFocusOwner()</code>.
@@ -7670,7 +7670,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
                 getFocusOwner() == this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>Component</code> is the
      *    focus owner.
      *
@@ -7682,7 +7682,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return hasFocus();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified popup menu to the component.
      * @param     popup the popup menu to be added to the component.
      * @see       #remove(MenuComponent)
@@ -7708,7 +7708,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified popup menu from the component.
      * @param     popup the popup menu to be removed
      * @see       #add(PopupMenu)
@@ -7734,7 +7734,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this component. This
      * method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -7759,7 +7759,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this component and its values.
      * @return    a string representation of this component
      * @since     JDK1.0
@@ -7768,7 +7768,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return getClass().getName() + "[" + paramString() + "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Prints a listing of this component to the standard system output
      * stream <code>System.out</code>.
      * @see       java.lang.System#out
@@ -7778,7 +7778,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         list(System.out, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints a listing of this component to the specified output
      * stream.
      * @param    out   a print stream
@@ -7788,7 +7788,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         list(out, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints out a list, starting at the specified indentation, to the
      * specified print stream.
      * @param     out      a print stream
@@ -7803,7 +7803,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         out.println(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints a listing to the specified print writer.
      * @param  out  the print writer to print to
      * @since JDK1.1
@@ -7812,7 +7812,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         list(out, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints out a list, starting at the specified indentation, to
      * the specified print writer.
      * @param out the print writer to print to
@@ -7839,7 +7839,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a PropertyChangeListener to the listener list. The listener is
      * registered for all bound properties of this class, including the
      * following:
@@ -7886,7 +7886,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a PropertyChangeListener from the listener list. This method
      * should be used to remove PropertyChangeListeners that were registered
      * for all bound properties of this class.
@@ -7909,7 +7909,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the property change listeners
      * registered on this component.
      *
@@ -7932,7 +7932,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a PropertyChangeListener to the listener list for a specific
      * property. The specified property may be user-defined, or one of the
      * following:
@@ -7977,7 +7977,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChangeListener</code> from the listener
      * list for a specific property. This method should be used to remove
      * <code>PropertyChangeListener</code>s
@@ -8004,7 +8004,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the listeners which have been associated
      * with the named property.
      *
@@ -8028,7 +8028,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Support for reporting bound property changes for Object properties.
      * This method can be called when a bound property has changed and it will
      * send the appropriate PropertyChangeEvent to any registered
@@ -8051,7 +8051,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Support for reporting bound property changes for boolean properties.
      * This method can be called when a bound property has changed and it will
      * send the appropriate PropertyChangeEvent to any registered
@@ -8071,7 +8071,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Support for reporting bound property changes for integer properties.
      * This method can be called when a bound property has changed and it will
      * send the appropriate PropertyChangeEvent to any registered
@@ -8091,7 +8091,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8109,7 +8109,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange(propertyName, Byte.valueOf(oldValue), Byte.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8127,7 +8127,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange(propertyName, new Character(oldValue), new Character(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8146,7 +8146,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8164,7 +8164,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange(propertyName, Long.valueOf(oldValue), Long.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8182,7 +8182,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         firePropertyChange(propertyName, Float.valueOf(oldValue), Float.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property change.
      *
      * @param propertyName the programmatic name of the property
@@ -8203,14 +8203,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     // Serialization support.
 
-    /**
+    /** {@collect.stats}
      * Component Serialized Data Version.
      *
      * @serial
      */
     private int componentSerializedDataVersion = 4;
 
-    /**
+    /** {@collect.stats}
      * This hack is for Swing serialization. It will invoke
      * the Swing package private method <code>compWriteObjectNotify</code>.
      */
@@ -8260,7 +8260,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * a variety of serializable listeners as optional data.
      * The non-serializable listeners are detected and
@@ -8331,7 +8331,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code> and if it isn't
      * <code>null</code> adds a listener to receive a variety
      * of events fired by the component.
@@ -8476,7 +8476,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the language-sensitive orientation that is to be used to order
      * the elements or text within this component.  Language-sensitive
      * <code>LayoutManager</code> and <code>Component</code>
@@ -8514,7 +8514,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the language-sensitive orientation that is to be used to order
      * the elements or text within this component.  <code>LayoutManager</code>
      * and <code>Component</code>
@@ -8529,7 +8529,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return componentOrientation;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>ComponentOrientation</code> property of this component
      * and all components contained within it.
      *
@@ -8549,7 +8549,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     transient NativeInLightFixer nativeInLightFixer;
 
-    /**
+    /** {@collect.stats}
      * Checks that this component meets the prerequesites to be focus owner:
      * - it is enabled, visible, focusable
      * - it's parents are all enabled and showing
@@ -8573,7 +8573,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * This odd class is to help out a native component that has been
      * embedded in a lightweight component.  Moving lightweight
      * components around and changing their visibility is not seen
@@ -8630,7 +8630,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
         // --- ComponentListener -------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Invoked when one of the lightweight parents has been resized.
          * This doesn't change the position of the native child so it
          * is ignored.
@@ -8638,7 +8638,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         public void componentResized(ComponentEvent e) {
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when one of the lightweight parents has been moved.
          * The native peer must be told of the new position which is
          * relative to the native container that is hosting the
@@ -8662,7 +8662,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a lightweight parent component has been
          * shown.  The associated native component must also be
          * shown if it hasn't had an overriding hide done on it.
@@ -8677,7 +8677,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when one of the lightweight parents become visible.
          * Returns true if component and all its lightweight
          * parents are visible.
@@ -8694,7 +8694,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return isLwParentsVisible;
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when component has been hidden.
          */
         public void componentHidden(ComponentEvent e) {
@@ -8709,14 +8709,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
         // --- ContainerListener ------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Invoked when a component has been added to a lightweight
          * parent.  This doesn't effect the native component.
          */
         public void componentAdded(ContainerEvent e) {
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a lightweight parent has been removed.
          * This means the services of this listener are no longer
          * required and it should remove all references (ie
@@ -8738,7 +8738,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes references to this object so it can be
          * garbage collected.
          */
@@ -8758,7 +8758,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         Container nativeHost;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Window</code> ancestor of the component.
      * @return Window ancestor of the component or component by itself if it is Window;
      *         null, if component is not a part of window hierarchy
@@ -8766,7 +8766,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     Window getContainingWindow() {
         return getContainingWindow(this);
     }
-    /**
+    /** {@collect.stats}
      * Returns the <code>Window</code> ancestor of the component <code>comp</code>.
      * @return Window ancestor of the component or component by itself if it is Window;
      *         null, if component is not a part of window hierarchy
@@ -8789,7 +8789,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
 
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -8804,7 +8804,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated
      * with this <code>Component</code>.
      * The method implemented by this base
@@ -8821,7 +8821,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class of Component used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -8835,7 +8835,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
         private static final long serialVersionUID = 642321655757800191L;
 
-        /**
+        /** {@collect.stats}
          * Though the class is abstract, this should be called by
          * all sub-classes.
          */
@@ -8845,7 +8845,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         protected ComponentListener accessibleAWTComponentHandler = null;
         protected FocusListener accessibleAWTFocusHandler = null;
 
-        /**
+        /** {@collect.stats}
          * Fire PropertyChange listener, if one is registered,
          * when shown/hidden..
          * @since 1.3
@@ -8875,7 +8875,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         } // inner class AccessibleAWTComponentHandler
 
 
-        /**
+        /** {@collect.stats}
          * Fire PropertyChange listener, if one is registered,
          * when focus events happen
          * @since 1.3
@@ -8898,7 +8898,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }  // inner class AccessibleAWTFocusHandler
 
 
-        /**
+        /** {@collect.stats}
          * Adds a <code>PropertyChangeListener</code> to the listener list.
          *
          * @param listener  the property change listener to be added
@@ -8915,7 +8915,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             super.addPropertyChangeListener(listener);
         }
 
-        /**
+        /** {@collect.stats}
          * Remove a PropertyChangeListener from the listener list.
          * This removes a PropertyChangeListener that was registered
          * for all properties.
@@ -8936,7 +8936,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
         // AccessibleContext methods
         //
-        /**
+        /** {@collect.stats}
          * Gets the accessible name of this object.  This should almost never
          * return <code>java.awt.Component.getName()</code>,
          * as that generally isn't a localized name,
@@ -8955,7 +8955,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return accessibleName;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the accessible description of this object.  This should be
          * a concise, localized description of what this object is - what
          * is its meaning to the user.  If the object has a tooltip, the
@@ -8974,7 +8974,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return accessibleDescription;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of <code>AccessibleRole</code>
@@ -8985,7 +8985,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return AccessibleRole.AWT_COMPONENT;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state of this object.
          *
          * @return an instance of <code>AccessibleStateSet</code>
@@ -8996,7 +8996,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getAccessibleStateSet();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>Accessible</code> parent of this object.
          * If the parent of this object implements <code>Accessible</code>,
          * this method should simply return <code>getParent</code>.
@@ -9017,7 +9017,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the index of this object in its accessible parent.
          *
          * @return the index of this object in its parent; or -1 if this
@@ -9028,7 +9028,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getAccessibleIndexInParent();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement <code>Accessible</code>,
          * then this method should return the number of children of this object.
@@ -9039,7 +9039,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return 0; // Components don't have children
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the nth <code>Accessible</code> child of the object.
          *
          * @param i zero-based index of child
@@ -9049,7 +9049,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return null; // Components don't have children
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the locale of this object.
          *
          * @return the locale of this object
@@ -9058,7 +9058,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getLocale();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>AccessibleComponent</code> associated
          * with this object if one exists.
          * Otherwise return <code>null</code>.
@@ -9072,7 +9072,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
         // AccessibleComponent methods
         //
-        /**
+        /** {@collect.stats}
          * Gets the background color of this object.
          *
          * @return the background color, if supported, of the object;
@@ -9082,7 +9082,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getBackground();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the background color of this object.
          * (For transparency, see <code>isOpaque</code>.)
          *
@@ -9093,7 +9093,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setBackground(c);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the foreground color of this object.
          *
          * @return the foreground color, if supported, of the object;
@@ -9103,7 +9103,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getForeground();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the foreground color of this object.
          *
          * @param c the new <code>Color</code> for the foreground
@@ -9112,7 +9112,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setForeground(c);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>Cursor</code> of this object.
          *
          * @return the <code>Cursor</code>, if supported,
@@ -9122,7 +9122,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getCursor();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the <code>Cursor</code> of this object.
          * <p>
          * The method may have no visual effect if the Java platform
@@ -9134,7 +9134,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setCursor(cursor);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>Font</code> of this object.
          *
          * @return the <code>Font</code>, if supported,
@@ -9144,7 +9144,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getFont();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the <code>Font</code> of this object.
          *
          * @param f the new <code>Font</code> for the object
@@ -9153,7 +9153,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setFont(f);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>FontMetrics</code> of this object.
          *
          * @param f the <code>Font</code>
@@ -9169,7 +9169,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is enabled.
          *
          * @return true if object is enabled; otherwise, false
@@ -9178,7 +9178,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.isEnabled();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the enabled state of the object.
          *
          * @param b if true, enables this object; otherwise, disables it
@@ -9201,7 +9201,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is visible.  Note: this means that the
          * object intends to be visible; however, it may not in fact be
          * showing on the screen because one of the objects that this object
@@ -9214,7 +9214,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.isVisible();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the visible state of the object.
          *
          * @param b if true, shows this object; otherwise, hides it
@@ -9237,7 +9237,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is showing.  This is determined by checking
          * the visibility of the object and ancestors of the object.  Note:
          * this will return true even if the object is obscured by another
@@ -9250,7 +9250,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.isShowing();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether the specified point is within this object's bounds,
          * where the point's x and y coordinates are defined to be relative to
          * the coordinate system of the object.
@@ -9263,7 +9263,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.contains(p);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the location of the object on the screen.
          *
          * @return location of object on screen -- can be
@@ -9279,7 +9279,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the location of the object relative to the parent in the form
          * of a point specifying the object's top-left corner in the screen's
          * coordinate space.
@@ -9292,7 +9292,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getLocation();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the location of the object relative to the parent.
          * @param p  the coordinates of the object
          */
@@ -9300,7 +9300,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setLocation(p);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the bounds of this object in the form of a Rectangle object.
          * The bounds specify this object's width, height, and location
          * relative to its parent.
@@ -9312,7 +9312,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getBounds();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the bounds of this object in the form of a
          * <code>Rectangle</code> object.
          * The bounds specify this object's width, height, and location
@@ -9324,7 +9324,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setBounds(r);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the size of this object in the form of a
          * <code>Dimension</code> object. The height field of the
          * <code>Dimension</code> object contains this objects's
@@ -9339,7 +9339,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.getSize();
         }
 
-        /**
+        /** {@collect.stats}
          * Resizes this object so that it has width and height.
          *
          * @param d - the dimension specifying the new size of the object
@@ -9348,7 +9348,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.setSize(d);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>Accessible</code> child,
          * if one exists, contained at the local
          * coordinate <code>Point</code>.  Otherwise returns
@@ -9364,7 +9364,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return null; // Components don't have children
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether this object can accept focus or not.
          *
          * @return true if object can accept focus; otherwise false
@@ -9373,14 +9373,14 @@ public abstract class Component implements ImageObserver, MenuContainer,
             return Component.this.isFocusTraversable();
         }
 
-        /**
+        /** {@collect.stats}
          * Requests focus for this object.
          */
         public void requestFocus() {
             Component.this.requestFocus();
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the specified focus listener to receive focus events from this
          * component.
          *
@@ -9390,7 +9390,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
             Component.this.addFocusListener(l);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the specified focus listener so it no longer receives focus
          * events from this component.
          *
@@ -9403,7 +9403,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
     } // inner class AccessibleAWTComponent
 
 
-    /**
+    /** {@collect.stats}
      * Gets the index of this object in its accessible parent.
      * If this object does not have an accessible parent, returns
      * -1.
@@ -9429,7 +9429,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current state set of this object.
      *
      * @return an instance of <code>AccessibleStateSet</code>
@@ -9484,7 +9484,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that the given object is instance of the given class.
      * @param obj Object to be checked
      * @param className The name of the class. Must be fully-qualified class name.
@@ -9508,7 +9508,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
 
     // ************************** MIXING CODE *******************************
 
-    /**
+    /** {@collect.stats}
      * Applies the shape to the component
      * @param shape Shape to be applied to the component
      */
@@ -9545,7 +9545,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shape previously set with applyCompoundShape().
      * If the component is LW or no shape was applied yet,
      * the method returns the normal shape.
@@ -9571,7 +9571,7 @@ public abstract class Component implements ImageObserver, MenuContainer,
         return curLocation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the full shape of the component located in window coordinates
      */
     final Region getNormalShape() {

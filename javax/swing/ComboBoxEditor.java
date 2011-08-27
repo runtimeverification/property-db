@@ -27,30 +27,30 @@ package javax.swing;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
+/** {@collect.stats}
  * The editor component used for JComboBox components.
  *
  * @author Arnaud Weber
  */
 public interface ComboBoxEditor {
 
-  /** Return the component that should be added to the tree hierarchy for
+  /** {@collect.stats} Return the component that should be added to the tree hierarchy for
     * this editor
     */
   public Component getEditorComponent();
 
-  /** Set the item that should be edited. Cancel any editing if necessary **/
+  /** {@collect.stats} Set the item that should be edited. Cancel any editing if necessary **/
   public void setItem(Object anObject);
 
-  /** Return the edited item **/
+  /** {@collect.stats} Return the edited item **/
   public Object getItem();
 
-  /** Ask the editor to start editing and to select everything **/
+  /** {@collect.stats} Ask the editor to start editing and to select everything **/
   public void selectAll();
 
-  /** Add an ActionListener. An action event is generated when the edited item changes **/
+  /** {@collect.stats} Add an ActionListener. An action event is generated when the edited item changes **/
   public void addActionListener(ActionListener l);
 
-  /** Remove an ActionListener **/
+  /** {@collect.stats} Remove an ActionListener **/
   public void removeActionListener(ActionListener l);
 }

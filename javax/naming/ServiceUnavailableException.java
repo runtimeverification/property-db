@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when attempting to communicate with a
   * directory or naming service and that service is not available.
   * It might be unavailable for different reasons. For example,
@@ -42,7 +42,7 @@ package javax.naming;
   */
 
 public class ServiceUnavailableException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of ServiceUnavailableException using an
      * explanation. All other fields default to null.
      *
@@ -53,7 +53,7 @@ public class ServiceUnavailableException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ServiceUnavailableException.
       * All fields default to null.
       */
@@ -61,7 +61,7 @@ public class ServiceUnavailableException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -4996964726566773444L;

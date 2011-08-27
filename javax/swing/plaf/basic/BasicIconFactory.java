@@ -34,7 +34,7 @@ import java.awt.Component;
 import java.awt.Polygon;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Factory object that can vend Icons appropriate for the basic L & F.
  * <p>
  * <strong>Warning:</strong>

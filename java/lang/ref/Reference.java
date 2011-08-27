@@ -28,7 +28,7 @@ package java.lang.ref;
 import sun.misc.Cleaner;
 
 
-/**
+/** {@collect.stats}
  * Abstract base class for reference objects.  This class defines the
  * operations common to all reference objects.  Because reference objects are
  * implemented in close cooperation with the garbage collector, this class may
@@ -165,7 +165,7 @@ public abstract class Reference<T> {
 
     /* -- Referent accessor and setters -- */
 
-    /**
+    /** {@collect.stats}
      * Returns this reference object's referent.  If this reference object has
      * been cleared, either by the program or by the garbage collector, then
      * this method returns <code>null</code>.
@@ -177,7 +177,7 @@ public abstract class Reference<T> {
         return this.referent;
     }
 
-    /**
+    /** {@collect.stats}
      * Clears this reference object.  Invoking this method will not cause this
      * object to be enqueued.
      *
@@ -191,7 +191,7 @@ public abstract class Reference<T> {
 
     /* -- Queue operations -- */
 
-    /**
+    /** {@collect.stats}
      * Tells whether or not this reference object has been enqueued, either by
      * the program or by the garbage collector.  If this reference object was
      * not registered with a queue when it was created, then this method will
@@ -208,7 +208,7 @@ public abstract class Reference<T> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds this reference object to the queue with which it is registered,
      * if any.
      *

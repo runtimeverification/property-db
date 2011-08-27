@@ -37,7 +37,7 @@ import javax.accessibility.*;
 import java.awt.im.InputMethodRequests;
 
 
-/**
+/** {@collect.stats}
  * The <code>TextComponent</code> class is the superclass of
  * any component that allows the editing of some text.
  * <p>
@@ -59,7 +59,7 @@ import java.awt.im.InputMethodRequests;
  */
 public class TextComponent extends Component implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * The value of the text.
      * A <code>null</code> value is the same as "".
      *
@@ -69,7 +69,7 @@ public class TextComponent extends Component implements Accessible {
      */
     String text;
 
-    /**
+    /** {@collect.stats}
      * A boolean indicating whether or not this
      * <code>TextComponent</code> is editable.
      * It will be <code>true</code> if the text component
@@ -80,7 +80,7 @@ public class TextComponent extends Component implements Accessible {
      */
     boolean editable = true;
 
-    /**
+    /** {@collect.stats}
      * The selection refers to the selected text, and the
      * <code>selectionStart</code> is the start position
      * of the selected text.
@@ -91,7 +91,7 @@ public class TextComponent extends Component implements Accessible {
      */
     int selectionStart;
 
-    /**
+    /** {@collect.stats}
      * The selection refers to the selected text, and the
      * <code>selectionEnd</code>
      * is the end position of the selected text.
@@ -107,7 +107,7 @@ public class TextComponent extends Component implements Accessible {
     // the background color of non-editable TextComponents.
     boolean backgroundSetByClientCode = false;
 
-    /**
+    /** {@collect.stats}
      * True if this <code>TextComponent</code> has access
      * to the System clipboard.
      */
@@ -120,7 +120,7 @@ public class TextComponent extends Component implements Accessible {
      */
     private static final long serialVersionUID = -2214773872412987419L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text component initialized with the
      * specified text. Sets the value of the cursor to
      * <code>Cursor.TEXT_CURSOR</code>.
@@ -157,7 +157,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enables or disables input method support for this text component. If input
      * method support is enabled and the text component also processes key events,
      * incoming events are offered to the current input method and will only be
@@ -194,7 +194,7 @@ public class TextComponent extends Component implements Accessible {
 
 
 
-    /**
+    /** {@collect.stats}
      * Makes this Component displayable by connecting it to a
      * native screen resource.
      * This method is called internally by the toolkit and should
@@ -206,7 +206,7 @@ public class TextComponent extends Component implements Accessible {
         enableInputMethodsIfNecessary();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>TextComponent</code>'s peer.
      * The peer allows us to modify the appearance of the
      * <code>TextComponent</code> without changing its
@@ -224,7 +224,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the text that is presented by this
      * text component to be the specified text.
      * @param       t   the new text;
@@ -240,7 +240,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text that is presented by this text component.
      * By default, this is an empty string.
      *
@@ -255,7 +255,7 @@ public class TextComponent extends Component implements Accessible {
         return text;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selected text from the text that is
      * presented by this text component.
      * @return      the selected text of this text component
@@ -265,7 +265,7 @@ public class TextComponent extends Component implements Accessible {
         return getText().substring(getSelectionStart(), getSelectionEnd());
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not this text component is editable.
      * @return     <code>true</code> if this text component is
      *                  editable; <code>false</code> otherwise.
@@ -276,7 +276,7 @@ public class TextComponent extends Component implements Accessible {
         return editable;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the flag that determines whether or not this
      * text component is editable.
      * <p>
@@ -304,7 +304,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the background color of this text component.
      *
      * By default, non-editable text components have a background color
@@ -325,7 +325,7 @@ public class TextComponent extends Component implements Accessible {
         return super.getBackground();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color of this text component.
      *
      * @param c The color to become this text component's color.
@@ -339,7 +339,7 @@ public class TextComponent extends Component implements Accessible {
         super.setBackground(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the start position of the selected text in
      * this text component.
      * @return      the start position of the selected text
@@ -354,7 +354,7 @@ public class TextComponent extends Component implements Accessible {
         return selectionStart;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection start for this text component to
      * the specified position. The new start point is constrained
      * to be at or before the current selection end. It also
@@ -376,7 +376,7 @@ public class TextComponent extends Component implements Accessible {
         select(selectionStart, getSelectionEnd());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the end position of the selected text in
      * this text component.
      * @return      the end position of the selected text
@@ -391,7 +391,7 @@ public class TextComponent extends Component implements Accessible {
         return selectionEnd;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection end for this text component to
      * the specified position. The new end point is constrained
      * to be at or after the current selection start. It also
@@ -412,7 +412,7 @@ public class TextComponent extends Component implements Accessible {
         select(getSelectionStart(), selectionEnd);
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the text between the specified start and end positions.
      * <p>
      * This method sets the start and end positions of the
@@ -468,7 +468,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Selects all the text in this text component.
      * @see        java.awt.TextComponent#select
      */
@@ -482,7 +482,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position of the text insertion caret.
      * The caret position is constrained to be between 0
      * and the last character of the text, inclusive.
@@ -516,7 +516,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position of the text insertion caret.
      * The caret position is constrained to be between 0
      * and the last character of the text, inclusive.
@@ -543,7 +543,7 @@ public class TextComponent extends Component implements Accessible {
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified text event listener to receive text events
      * from this text component.
      * If <code>l</code> is <code>null</code>, no exception is
@@ -564,7 +564,7 @@ public class TextComponent extends Component implements Accessible {
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified text event listener so that it no longer
      * receives text events from this text component
      * If <code>l</code> is <code>null</code>, no exception is
@@ -585,7 +585,7 @@ public class TextComponent extends Component implements Accessible {
         textListener = AWTEventMulticaster.remove(textListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the text listeners
      * registered on this text component.
      *
@@ -602,7 +602,7 @@ public class TextComponent extends Component implements Accessible {
         return (TextListener[])(getListeners(TextListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>TextComponent</code>.
@@ -657,7 +657,7 @@ public class TextComponent extends Component implements Accessible {
         return super.eventEnabled(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes events on this text component. If the event is a
      * <code>TextEvent</code>, it invokes the <code>processTextEvent</code>
      * method else it invokes its superclass's <code>processEvent</code>.
@@ -675,7 +675,7 @@ public class TextComponent extends Component implements Accessible {
         super.processEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes text events occurring on this text component by
      * dispatching them to any registered <code>TextListener</code> objects.
      * <p>
@@ -706,7 +706,7 @@ public class TextComponent extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this
      * <code>TextComponent</code>. This
      * method is intended to be used only for debugging purposes, and the
@@ -724,7 +724,7 @@ public class TextComponent extends Component implements Accessible {
         return str + ",selection=" + getSelectionStart() + "-" + getSelectionEnd();
     }
 
-    /**
+    /** {@collect.stats}
      * Assigns a valid value to the canAccessClipboard instance variable.
      */
     private void checkSystemClipboardAccess() {
@@ -743,14 +743,14 @@ public class TextComponent extends Component implements Accessible {
     /*
      * Serialization support.
      */
-    /**
+    /** {@collect.stats}
      * The textComponent SerializedDataVersion.
      *
      * @serial
      */
     private int textComponentSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * a list of serializable TextListener(s) as optional data.
      * The non-serializable TextListener(s) are detected and
@@ -784,7 +784,7 @@ public class TextComponent extends Component implements Accessible {
         s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Read the ObjectInputStream, and if it isn't null,
      * add a listener to receive text events fired by the
      * TextComponent.  Unrecognized keys or values will be
@@ -829,7 +829,7 @@ public class TextComponent extends Component implements Accessible {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      *
      */
     int getIndexAtPoint(Point p) {
@@ -844,7 +844,7 @@ public class TextComponent extends Component implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      *
      */
     Rectangle getCharacterBounds(int i) {
@@ -859,7 +859,7 @@ public class TextComponent extends Component implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this TextComponent.
      * For text components, the AccessibleContext takes the form of an
      * AccessibleAWTTextComponent.
@@ -876,7 +876,7 @@ public class TextComponent extends Component implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>TextComponent</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to text component user-interface
@@ -891,7 +891,7 @@ public class TextComponent extends Component implements Accessible {
          */
         private static final long serialVersionUID = 3631432373506317811L;
 
-        /**
+        /** {@collect.stats}
          * Constructs an AccessibleAWTTextComponent.  Adds a listener to track
          * caret change.
          */
@@ -899,7 +899,7 @@ public class TextComponent extends Component implements Accessible {
             TextComponent.this.addTextListener(this);
         }
 
-        /**
+        /** {@collect.stats}
          * TextListener notification of a text value change.
          */
         public void textValueChanged(TextEvent textEvent)  {
@@ -907,7 +907,7 @@ public class TextComponent extends Component implements Accessible {
             firePropertyChange(ACCESSIBLE_TEXT_PROPERTY, null, cpos);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of the TextComponent.
          * The AccessibleStateSet of an object is composed of a set of
          * unique AccessibleStates.  A change in the AccessibleStateSet
@@ -929,7 +929,7 @@ public class TextComponent extends Component implements Accessible {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -940,7 +940,7 @@ public class TextComponent extends Component implements Accessible {
             return AccessibleRole.TEXT;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleText associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -955,12 +955,12 @@ public class TextComponent extends Component implements Accessible {
 
         // --- interface AccessibleText methods ------------------------
 
-        /**
+        /** {@collect.stats}
          * Many of these methods are just convenience methods; they
          * just call the equivalent on the parent
          */
 
-        /**
+        /** {@collect.stats}
          * Given a point in local coordinates, return the zero-based index
          * of the character under that Point.  If the point is invalid,
          * this method returns -1.
@@ -972,7 +972,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getIndexAtPoint(p);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the bounding box of the character at the given
          * index into the string.  The bounds are returned in local
          * coordinates.  If the index is invalid a null rectangle
@@ -985,7 +985,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getCharacterBounds(i);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of characters (valid indicies)
          *
          * @return the number of characters >= 0
@@ -994,7 +994,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getText().length();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the zero-based offset of the caret.
          *
          * Note: The character to the right of the caret will have the
@@ -1007,7 +1007,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getCaretPosition();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet for a given character (at a given index).
          *
          * @param i the zero-based index into the text
@@ -1017,7 +1017,7 @@ public class TextComponent extends Component implements Accessible {
             return null; // No attributes in TextComponent
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the start offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1030,7 +1030,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getSelectionStart();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1043,7 +1043,7 @@ public class TextComponent extends Component implements Accessible {
             return TextComponent.this.getSelectionEnd();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the portion of the text that is selected.
          *
          * @return the text, null if no selection
@@ -1057,7 +1057,7 @@ public class TextComponent extends Component implements Accessible {
             return selText;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String at a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,
@@ -1095,7 +1095,7 @@ public class TextComponent extends Component implements Accessible {
         private static final boolean NEXT = true;
         private static final boolean PREVIOUS = false;
 
-        /**
+        /** {@collect.stats}
          * Needed to unify forward and backward searching.
          * The method assumes that s is the text assigned to words.
          */
@@ -1123,7 +1123,7 @@ public class TextComponent extends Component implements Accessible {
             return BreakIterator.DONE;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String after a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,
@@ -1176,7 +1176,7 @@ public class TextComponent extends Component implements Accessible {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the String before a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,

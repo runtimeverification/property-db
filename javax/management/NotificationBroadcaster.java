@@ -28,7 +28,7 @@ package javax.management;
 
 import java.util.concurrent.CopyOnWriteArrayList;  // for Javadoc
 
-/**
+/** {@collect.stats}
  * <p>Interface implemented by an MBean that emits Notifications. It
  * allows a listener to be registered with the MBean as a notification
  * listener.</p>
@@ -72,7 +72,7 @@ import java.util.concurrent.CopyOnWriteArrayList;  // for Javadoc
  */
 public interface NotificationBroadcaster {
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to this MBean.
      *
      * @param listener The listener object which will handle the
@@ -93,7 +93,7 @@ public interface NotificationBroadcaster {
                                         Object handback)
             throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from this MBean.  If the listener
      * has been registered with different handback objects or
      * notification filters, all entries corresponding to the listener
@@ -111,7 +111,7 @@ public interface NotificationBroadcaster {
     public void removeNotificationListener(NotificationListener listener)
             throws ListenerNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an array indicating, for each notification this
      * MBean may send, the name of the Java class of the notification
      * and the notification type.</p>

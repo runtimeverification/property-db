@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/**
+/** {@collect.stats}
  * The management interface for a memory manager.
  * A memory manager manages one or more memory pools of the
  * Java virtual machine.
@@ -56,14 +56,14 @@ package java.lang.management;
  * @since   1.5
  */
 public interface MemoryManagerMXBean {
-    /**
+    /** {@collect.stats}
      * Returns the name representing this memory manager.
      *
      * @return the name of this memory manager.
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Tests if this memory manager is valid in the Java virtual
      * machine.  A memory manager becomes invalid once the Java virtual
      * machine removes it from the memory system.
@@ -74,7 +74,7 @@ public interface MemoryManagerMXBean {
      */
     public boolean isValid();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of memory pools that this memory manager manages.
      *
      * @return an array of <tt>String</tt> objects, each is

@@ -37,7 +37,7 @@ import java.io.Serializable;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * The standard color swatch chooser.
  * <p>
  * <strong>Warning:</strong>
@@ -69,7 +69,7 @@ class DefaultSwatchChooserPanel extends AbstractColorChooserPanel {
         return UIManager.getString("ColorChooser.swatchesNameText");
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the
      * <code>KeyEvent.VK</code> constant that can be used as a mnemonic to
      * access the panel. A return value <= 0 indicates there is no mnemonic.
@@ -92,7 +92,7 @@ class DefaultSwatchChooserPanel extends AbstractColorChooserPanel {
         return getInt("ColorChooser.swatchesMnemonic", -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the index of the character in
      * <code>getDisplayName</code> that should be visually identified as the
      * mnemonic. The look and feel should only use this if
@@ -128,7 +128,7 @@ class DefaultSwatchChooserPanel extends AbstractColorChooserPanel {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The background color, foreground color, and font are already set to the
      * defaults from the defaults table before this method is called.
      */

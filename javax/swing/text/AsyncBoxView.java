@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 
-/**
+/** {@collect.stats}
  * A box that does layout asynchronously.  This
  * is useful to keep the GUI event thread moving by
  * not doing any layout on it.  The layout is done
@@ -49,7 +49,7 @@ import javax.swing.event.DocumentEvent;
  */
 public class AsyncBoxView extends View {
 
-    /**
+    /** {@collect.stats}
      * Construct a box view that does asynchronous layout.
      *
      * @param elem the element of the model to represent
@@ -66,7 +66,7 @@ public class AsyncBoxView extends View {
         estimatedMajorSpan = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the major axis (the axis the children
      * are tiled along).  This will have a value of
      * either X_AXIS or Y_AXIS.
@@ -75,7 +75,7 @@ public class AsyncBoxView extends View {
         return axis;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the minor axis (the axis orthoginal
      * to the tiled axis).  This will have a value of
      * either X_AXIS or Y_AXIS.
@@ -84,14 +84,14 @@ public class AsyncBoxView extends View {
         return (axis == X_AXIS) ? Y_AXIS : X_AXIS;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the top part of the margin around the view.
      */
     public float getTopInset() {
         return topInset;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the top part of the margin around the view.
      *
      * @param i the value of the inset
@@ -100,14 +100,14 @@ public class AsyncBoxView extends View {
         topInset = i;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the bottom part of the margin around the view.
      */
     public float getBottomInset() {
         return bottomInset;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the bottom part of the margin around the view.
      *
      * @param i the value of the inset
@@ -116,14 +116,14 @@ public class AsyncBoxView extends View {
         bottomInset = i;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the left part of the margin around the view.
      */
     public float getLeftInset() {
         return leftInset;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the left part of the margin around the view.
      *
      * @param i the value of the inset
@@ -132,14 +132,14 @@ public class AsyncBoxView extends View {
         leftInset = i;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the right part of the margin around the view.
      */
     public float getRightInset() {
         return rightInset;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the right part of the margin around the view.
      *
      * @param i the value of the inset
@@ -148,7 +148,7 @@ public class AsyncBoxView extends View {
         rightInset = i;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the span along an axis that is taken up by the insets.
      *
      * @param axis the axis to determine the total insets along,
@@ -161,7 +161,7 @@ public class AsyncBoxView extends View {
         return margin;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the estimatedMajorSpan property that determines if the
      * major span should be treated as being estimated.  If this
      * property is true, the value of setSize along the major axis
@@ -178,7 +178,7 @@ public class AsyncBoxView extends View {
         estimatedMajorSpan = isEstimated;
     }
 
-    /**
+    /** {@collect.stats}
      * Is the major span currently estimated?
      *
      * @since 1.4
@@ -187,7 +187,7 @@ public class AsyncBoxView extends View {
         return estimatedMajorSpan;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the object representing the layout state of
      * of the child at the given index.
      *
@@ -203,14 +203,14 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the queue to use for layout.
      */
     protected LayoutQueue getLayoutQueue() {
         return LayoutQueue.getDefaultQueue();
     }
 
-    /**
+    /** {@collect.stats}
      * New ChildState records are created through
      * this method to allow subclasses the extend
      * the ChildState records to do/hold more
@@ -219,7 +219,7 @@ public class AsyncBoxView extends View {
         return new ChildState(v);
     }
 
-    /**
+    /** {@collect.stats}
      * Requirements changed along the major axis.
      * This is called by the thread doing layout for
      * the given ChildState object when it has completed
@@ -244,7 +244,7 @@ public class AsyncBoxView extends View {
         majorChanged = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Requirements changed along the minor axis.
      * This is called by the thread doing layout for
      * the given ChildState object when it has completed
@@ -258,7 +258,7 @@ public class AsyncBoxView extends View {
         minorChanged = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Publish the changes in preferences upward to the parent
      * view.  This is normally called by the layout thread.
      */
@@ -341,7 +341,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calls the superclass to update the child views, and
      * updates the status records for the children.  This
      * is expected to be called while a write lock is held
@@ -381,7 +381,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Loads all of the children to initialize the view.
      * This is called by the <a href="#setParent">setParent</a>
      * method.  Subclasses can reimplement this to initialize
@@ -411,7 +411,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view index representing the given position in
      * the model.  This is implemented to fetch the view in the case
      * where there is a child view for each child element.
@@ -427,7 +427,7 @@ public class AsyncBoxView extends View {
         return elem.getElementIndex(pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Update the layout in response to receiving notification of
      * change from the model.  This is implemented to note the
      * change on the ChildLocator so that offsets of the children
@@ -456,7 +456,7 @@ public class AsyncBoxView extends View {
 
     // --- View methods ------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the parent of the view.
      * This is reimplemented to provide the superclass
      * behavior as well as calling the <code>loadChildren</code>
@@ -479,7 +479,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Child views can call this on the parent to indicate that
      * the preference has changed and should be reconsidered
      * for layout.  This is reimplemented to queue new work
@@ -514,7 +514,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view if the view caches any layout
      * information.
@@ -532,7 +532,7 @@ public class AsyncBoxView extends View {
         setSpanOnAxis(Y_AXIS, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the size of the view along an axis.
      *
      * @param axis may be either <code>View.X_AXIS</code> or
@@ -546,7 +546,7 @@ public class AsyncBoxView extends View {
         return minorSpan;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view along an axis.  Since the major
      * axis is updated asynchronously and should be the sum of the
      * tiled children the call is ignored for the major axis.  Since
@@ -587,7 +587,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Render the view using the given allocation and
      * rendering surface.
      * <p>
@@ -612,7 +612,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -637,7 +637,7 @@ public class AsyncBoxView extends View {
         return margin + 30;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.
      *
@@ -665,7 +665,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.
      *
@@ -684,7 +684,7 @@ public class AsyncBoxView extends View {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of views in this view.  Since
      * the default is to not be a composite view this
      * returns 0.
@@ -698,7 +698,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the nth child view.  Since there are no
      * children by default, this returns null.
      *
@@ -713,7 +713,7 @@ public class AsyncBoxView extends View {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the allocation for the given child view.
      * This enables finding out where various views
      * are located, without assuming the views store
@@ -729,7 +729,7 @@ public class AsyncBoxView extends View {
         return ca;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child view index representing the given position in
      * the model.  By default a view has no children so this is implemented
      * to return -1 to indicate there is no valid child index for any
@@ -744,7 +744,7 @@ public class AsyncBoxView extends View {
         return getViewIndexAtPosition(pos, b);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -774,7 +774,7 @@ public class AsyncBoxView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.  The biasReturn argument will be
      * filled in to indicate that the point given is closer to the next
@@ -821,7 +821,7 @@ public class AsyncBoxView extends View {
         return pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location that one might place a caret.  Some views may not be visible,
      * they might not be in the same order found in the model, or they just
@@ -854,18 +854,18 @@ public class AsyncBoxView extends View {
 
     // --- variables -----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The major axis against which the children are
      * tiled.
      */
     int axis;
 
-    /**
+    /** {@collect.stats}
      * The children and their layout statistics.
      */
     java.util.List stats;
 
-    /**
+    /** {@collect.stats}
      * Current span along the major axis.  This
      * is also the value returned by getMinimumSize,
      * getPreferredSize, and getMaximumSize along
@@ -873,19 +873,19 @@ public class AsyncBoxView extends View {
      */
     float majorSpan;
 
-    /**
+    /** {@collect.stats}
      * Is the span along the major axis estimated?
      */
     boolean estimatedMajorSpan;
 
-    /**
+    /** {@collect.stats}
      * Current span along the minor axis.  This
      * is what layout was done against (i.e. things
      * are flexible in this direction).
      */
     float minorSpan;
 
-    /**
+    /** {@collect.stats}
      * Object that manages the offsets of the
      * children.  All locking for management of
      * child locations is on this object.
@@ -903,7 +903,7 @@ public class AsyncBoxView extends View {
     boolean minorChanged;
     Runnable flushTask;
 
-    /**
+    /** {@collect.stats}
      * Child that is actively changing size.  This often
      * causes a preferenceChanged, so this is a cache to
      * possibly speed up the marking the state.  It also
@@ -912,7 +912,7 @@ public class AsyncBoxView extends View {
      */
     ChildState changing;
 
-    /**
+    /** {@collect.stats}
      * A class to manage the effective position of the
      * child views in a localized area while changes are
      * being made around the localized area.  The AsyncBoxView
@@ -923,7 +923,7 @@ public class AsyncBoxView extends View {
      */
     public class ChildLocator {
 
-        /**
+        /** {@collect.stats}
          * construct a child locator.
          */
         public ChildLocator() {
@@ -931,7 +931,7 @@ public class AsyncBoxView extends View {
             childAlloc = new Rectangle();
         }
 
-        /**
+        /** {@collect.stats}
          * Notification that a child changed.  This can effect
          * whether or not new offset calculations are needed.
          * This is called by a ChildState object that has
@@ -947,7 +947,7 @@ public class AsyncBoxView extends View {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Paint the children that intersect the clip area.
          */
         public synchronized void paintChildren(Graphics g) {
@@ -974,7 +974,7 @@ public class AsyncBoxView extends View {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the allocation to use for a child view.
          * This will update the offsets for all children
          * not yet updated before the given index.
@@ -997,7 +997,7 @@ public class AsyncBoxView extends View {
             return ca;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the child view index at the given point.
          * This is called by the various View methods that
          * need to calculate which child to forward a message
@@ -1018,7 +1018,7 @@ public class AsyncBoxView extends View {
             return index;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the allocation to use for a child view.
          * <em>This does not update the offsets in the ChildState
          * records.</em>
@@ -1044,7 +1044,7 @@ public class AsyncBoxView extends View {
             return childAlloc;
         }
 
-        /**
+        /** {@collect.stats}
          * Copy the currently allocated shape into the Rectangle
          * used to store the current allocation.  This would be
          * a floating point rectangle in a Java2D-specific implmentation.
@@ -1058,7 +1058,7 @@ public class AsyncBoxView extends View {
             setSize(lastAlloc.width, lastAlloc.height);
         }
 
-        /**
+        /** {@collect.stats}
          * Locate the view responsible for an offset into the box
          * along the major axis.  Make sure that offsets are set
          * on the ChildState objects up to the given target span
@@ -1104,7 +1104,7 @@ public class AsyncBoxView extends View {
             return n - 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Move the location of the last offset calculation forward
          * to the desired offset.
          */
@@ -1129,7 +1129,7 @@ public class AsyncBoxView extends View {
             return targetIndex;
         }
 
-        /**
+        /** {@collect.stats}
          * Move the location of the last offset calculation forward
          * to the desired index.
          */
@@ -1155,26 +1155,26 @@ public class AsyncBoxView extends View {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * The location of the last offset calculation
          * that is valid.
          */
         protected ChildState lastValidOffset;
 
-        /**
+        /** {@collect.stats}
          * The last seen allocation (for repainting when changes
          * are flushed upward).
          */
         protected Rectangle lastAlloc;
 
-        /**
+        /** {@collect.stats}
          * A shape to use for the child allocation to avoid
          * creating a lot of garbage.
          */
         protected Rectangle childAlloc;
     }
 
-    /**
+    /** {@collect.stats}
      * A record representing the layout state of a
      * child view.  It is runnable as a task on another
      * thread.  All access to the child view that is
@@ -1188,7 +1188,7 @@ public class AsyncBoxView extends View {
      */
     public class ChildState implements Runnable {
 
-        /**
+        /** {@collect.stats}
          * Construct a child status.  This needs to start
          * out as fairly large so we don't falsely begin with
          * the idea that all of the children are visible.
@@ -1202,14 +1202,14 @@ public class AsyncBoxView extends View {
             child.setParent(AsyncBoxView.this);
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the child view this record represents
          */
         public View getChildView() {
             return child;
         }
 
-        /**
+        /** {@collect.stats}
          * Update the child state.  This should be
          * called by the thread that desires to spend
          * time updating the child state (intended to
@@ -1311,7 +1311,7 @@ public class AsyncBoxView extends View {
 
         }
 
-        /**
+        /** {@collect.stats}
          * What is the span along the minor axis.
          */
         public float getMinorSpan() {
@@ -1322,7 +1322,7 @@ public class AsyncBoxView extends View {
             return Math.max(min, minorSpan);
         }
 
-        /**
+        /** {@collect.stats}
          * What is the offset along the minor axis
          */
         public float getMinorOffset() {
@@ -1334,21 +1334,21 @@ public class AsyncBoxView extends View {
             return 0f;
         }
 
-        /**
+        /** {@collect.stats}
          * What is the span along the major axis.
          */
         public float getMajorSpan() {
             return span;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the offset along the major axis
          */
         public float getMajorOffset() {
             return offset;
         }
 
-        /**
+        /** {@collect.stats}
          * This method should only be called by the ChildLocator,
          * it is simply a convenient place to hold the cached
          * location.
@@ -1357,7 +1357,7 @@ public class AsyncBoxView extends View {
             offset = offs;
         }
 
-        /**
+        /** {@collect.stats}
          * Mark preferences changed for this child.
          *
          * @param width true if the width preference has changed
@@ -1383,7 +1383,7 @@ public class AsyncBoxView extends View {
             childSizeValid = false;
         }
 
-        /**
+        /** {@collect.stats}
          * Has the child view been laid out.
          */
         public boolean isLayoutValid() {
@@ -1406,7 +1406,7 @@ public class AsyncBoxView extends View {
         private boolean childSizeValid;
     }
 
-    /**
+    /** {@collect.stats}
      * Task to flush requirement changes upward
      */
     class FlushTask implements Runnable {

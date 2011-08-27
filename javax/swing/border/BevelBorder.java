@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.awt.Color;
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * A class which implements a simple two-line bevel border.
  * <p>
  * <strong>Warning:</strong>
@@ -46,9 +46,9 @@ import java.awt.Component;
  */
 public class BevelBorder extends AbstractBorder
 {
-    /** Raised bevel type. */
+    /** {@collect.stats} Raised bevel type. */
     public static final int RAISED  = 0;
-    /** Lowered bevel type. */
+    /** {@collect.stats} Lowered bevel type. */
     public static final int LOWERED = 1;
 
     protected int bevelType;
@@ -57,7 +57,7 @@ public class BevelBorder extends AbstractBorder
     protected Color shadowInner;
     protected Color shadowOuter;
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type and whose
      * colors will be derived from the background color of the
      * component passed into the paintBorder method.
@@ -67,7 +67,7 @@ public class BevelBorder extends AbstractBorder
         this.bevelType = bevelType;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type, highlight and
      * shadow colors.
      * @param bevelType the type of bevel for the border
@@ -78,7 +78,7 @@ public class BevelBorder extends AbstractBorder
         this(bevelType, highlight.brighter(), highlight, shadow, shadow.brighter());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a bevel border with the specified type, highlight and
      * shadow colors.
      * <p>
@@ -101,7 +101,7 @@ public class BevelBorder extends AbstractBorder
         this.shadowInner = shadowInnerColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the specified
      * position and size.
      * @param c the component for which this border is being painted
@@ -120,7 +120,7 @@ public class BevelBorder extends AbstractBorder
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
@@ -128,7 +128,7 @@ public class BevelBorder extends AbstractBorder
         return new Insets(2, 2, 2, 2);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -138,7 +138,7 @@ public class BevelBorder extends AbstractBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the outer highlight color of the bevel border
      * when rendered on the specified component.  If no highlight
      * color was specified at instantiation, the highlight color
@@ -152,7 +152,7 @@ public class BevelBorder extends AbstractBorder
                                        c.getBackground().brighter().brighter();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inner highlight color of the bevel border
      * when rendered on the specified component.  If no highlight
      * color was specified at instantiation, the highlight color
@@ -166,7 +166,7 @@ public class BevelBorder extends AbstractBorder
                                        c.getBackground().brighter();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inner shadow color of the bevel border
      * when rendered on the specified component.  If no shadow
      * color was specified at instantiation, the shadow color
@@ -180,7 +180,7 @@ public class BevelBorder extends AbstractBorder
                                     c.getBackground().darker();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the outer shadow color of the bevel border
      * when rendered on the specified component.  If no shadow
      * color was specified at instantiation, the shadow color
@@ -194,7 +194,7 @@ public class BevelBorder extends AbstractBorder
                                     c.getBackground().darker().darker();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the outer highlight color of the bevel border.
      * Will return null if no highlight color was specified
      * at instantiation.
@@ -204,7 +204,7 @@ public class BevelBorder extends AbstractBorder
         return highlightOuter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inner highlight color of the bevel border.
      * Will return null if no highlight color was specified
      * at instantiation.
@@ -214,7 +214,7 @@ public class BevelBorder extends AbstractBorder
         return highlightInner;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inner shadow color of the bevel border.
      * Will return null if no shadow color was specified
      * at instantiation.
@@ -224,7 +224,7 @@ public class BevelBorder extends AbstractBorder
         return shadowInner;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the outer shadow color of the bevel border.
      * Will return null if no shadow color was specified
      * at instantiation.
@@ -234,14 +234,14 @@ public class BevelBorder extends AbstractBorder
         return shadowOuter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of the bevel border.
      */
     public int getBevelType()       {
         return bevelType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() { return true; }

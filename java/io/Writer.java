@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Abstract class for writing to character streams.  The only methods that a
  * subclass must implement are write(char[], int, int), flush(), and close().
  * Most subclasses, however, will override some of the methods defined here in
@@ -49,17 +49,17 @@ package java.io;
 
 public abstract class Writer implements Appendable, Closeable, Flushable {
 
-    /**
+    /** {@collect.stats}
      * Temporary buffer used to hold writes of strings and single characters
      */
     private char[] writeBuffer;
 
-    /**
+    /** {@collect.stats}
      * Size of writeBuffer, must be >= 1
      */
     private final int writeBufferSize = 1024;
 
-    /**
+    /** {@collect.stats}
      * The object used to synchronize operations on this stream.  For
      * efficiency, a character-stream object may use an object other than
      * itself to protect critical sections.  A subclass should therefore use
@@ -68,7 +68,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
      */
     protected Object lock;
 
-    /**
+    /** {@collect.stats}
      * Creates a new character-stream writer whose critical sections will
      * synchronize on the writer itself.
      */
@@ -76,7 +76,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         this.lock = this;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new character-stream writer whose critical sections will
      * synchronize on the given object.
      *
@@ -90,7 +90,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         this.lock = lock;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a single character.  The character to be written is contained in
      * the 16 low-order bits of the given integer value; the 16 high-order bits
      * are ignored.
@@ -114,7 +114,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an array of characters.
      *
      * @param  cbuf
@@ -127,7 +127,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         write(cbuf, 0, cbuf.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of an array of characters.
      *
      * @param  cbuf
@@ -144,7 +144,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
      */
     abstract public void write(char cbuf[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a string.
      *
      * @param  str
@@ -157,7 +157,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         write(str, 0, str.length());
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of a string.
      *
      * @param  str
@@ -193,7 +193,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq)</tt>
@@ -228,7 +228,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a subsequence of the specified character sequence to this writer.
      * <tt>Appendable</tt>.
      *
@@ -270,7 +270,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(c)</tt>
@@ -294,7 +294,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream.  If the stream has saved any characters from the
      * various write() methods in a buffer, write them immediately to their
      * intended destination.  Then, if that destination is another character or
@@ -312,7 +312,7 @@ public abstract class Writer implements Appendable, Closeable, Flushable {
      */
     abstract public void flush() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Closes the stream, flushing it first. Once the stream has been closed,
      * further write() or flush() invocations will cause an IOException to be
      * thrown. Closing a previously closed stream has no effect.

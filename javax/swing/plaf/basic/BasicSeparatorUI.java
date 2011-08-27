@@ -35,7 +35,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.SeparatorUI;
 
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of SeparatorUI.  This implementation
  * is a "combined" view/controller.
  *

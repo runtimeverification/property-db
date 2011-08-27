@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/**
+/** {@collect.stats}
  * A specification of <code>CertStore</code> parameters.
  * <p>
  * The purpose of this interface is to group (and provide type safety for)
@@ -48,7 +48,7 @@ package java.security.cert;
  */
 public interface CertStoreParameters extends Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of this <code>CertStoreParameters</code>.
      * <p>
      * The precise meaning of "copy" may depend on the class of

@@ -34,7 +34,7 @@ import java.util.Set;
 import javax.print.attribute.Attribute;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterStateReasons is a printing attribute class, a set of
  * enumeration values, that provides additional information about the
  * printer's current state, i.e., information that augments the value of the
@@ -88,7 +88,7 @@ public final class PrinterStateReasons
 
     private static final long serialVersionUID = -3731791085163619457L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty printer state reasons attribute; the underlying
      * hash map has the default initial capacity and load factor.
      */
@@ -96,7 +96,7 @@ public final class PrinterStateReasons
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * super a new, empty printer state reasons attribute; the underlying
      * hash map has the given initial capacity and the default load factor.
      *
@@ -109,7 +109,7 @@ public final class PrinterStateReasons
         super (initialCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty printer state reasons attribute; the underlying
      * hash map has the given initial capacity and load factor.
      *
@@ -123,7 +123,7 @@ public final class PrinterStateReasons
         super (initialCapacity, loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new printer state reasons attribute that contains the same
      * {@link PrinterStateReason PrinterStateReason}-to-{@link Severity
      * Severity} mappings as the given map. The underlying hash map's initial
@@ -148,7 +148,7 @@ public final class PrinterStateReasons
             put(e.getKey(), e.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the given printer state reason to this printer state reasons
      * attribute, associating it with the given severity level. If this
      * printer state reasons attribute previously contained a mapping for the
@@ -184,7 +184,7 @@ public final class PrinterStateReasons
                          (Severity) severity);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -198,7 +198,7 @@ public final class PrinterStateReasons
         return PrinterStateReasons.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>
@@ -211,7 +211,7 @@ public final class PrinterStateReasons
         return "printer-state-reasons";
     }
 
-    /**
+    /** {@collect.stats}
      * Obtain an unmodifiable set view of the individual printer state reason
      * attributes at the given severity level in this PrinterStateReasons
      * attribute. Each element in the set view is a {@link PrinterStateReason

@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * Represents strings that are arguments to relational constraints.
  * A <CODE>StringValueExp</CODE> may be used anywhere a <CODE>ValueExp</CODE> is required.
  *
@@ -38,18 +38,18 @@ public class StringValueExp implements ValueExp   {
     /* Serial version */
     private static final long serialVersionUID = -3256390509806284044L;
 
-    /**
+    /** {@collect.stats}
      * @serial The string literal
      */
     private String val;
 
-    /**
+    /** {@collect.stats}
      * Basic constructor.
      */
     public StringValueExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <CODE>StringValueExp</CODE> representing the
      * given string.
      *
@@ -59,7 +59,7 @@ public class StringValueExp implements ValueExp   {
         this.val = val;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string represented by the
      * <CODE>StringValueExp</CODE> instance.
      *
@@ -69,7 +69,7 @@ public class StringValueExp implements ValueExp   {
         return val;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {
@@ -77,7 +77,7 @@ public class StringValueExp implements ValueExp   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the MBean server on which the query is to be performed.
      *
      * @param s The MBean server on which the query is to be performed.
@@ -87,7 +87,7 @@ public class StringValueExp implements ValueExp   {
        and that QueryExp will itself have done setMBeanServer.  */
     public void setMBeanServer(MBeanServer s)  { }
 
-    /**
+    /** {@collect.stats}
      * Applies the ValueExp on a MBean.
      *
      * @param name The name of the MBean on which the ValueExp will be applied.

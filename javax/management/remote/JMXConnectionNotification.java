@@ -29,7 +29,7 @@ package javax.management.remote;
 import javax.management.Notification;
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * <p>Notification emitted when a client connection is opened or
  * closed or when notifications are lost.  These notifications are
  * sent by connector servers (instances of {@link JMXConnectorServer})
@@ -79,29 +79,29 @@ public class JMXConnectionNotification extends Notification {
 
     private static final long serialVersionUID = -2331308725952627538L;
 
-    /**
+    /** {@collect.stats}
      * <p>Notification type string for a connection-opened notification.
      */
     public static final String OPENED = "jmx.remote.connection.opened";
 
-    /**
+    /** {@collect.stats}
      * <p>Notification type string for a connection-closed notification.
      */
     public static final String CLOSED = "jmx.remote.connection.closed";
 
-    /**
+    /** {@collect.stats}
      * <p>Notification type string for a connection-failed notification.
      */
     public static final String FAILED = "jmx.remote.connection.failed";
 
-    /**
+    /** {@collect.stats}
      * <p>Notification type string for a connection that has possibly
      * lost notifications.</p>
      */
     public static final String NOTIFS_LOST =
         "jmx.remote.connection.notifs.lost";
 
-    /**
+    /** {@collect.stats}
      * Constructs a new connection notification.  The {@link
      * #getSource() source} of the notification depends on whether it
      * is being sent by a connector server or a connector client:
@@ -180,7 +180,7 @@ public class JMXConnectionNotification extends Notification {
             return arg;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The connection ID to which this notification pertains.
      *
      * @return the connection ID.
@@ -189,7 +189,7 @@ public class JMXConnectionNotification extends Notification {
         return connectionId;
     }
 
-    /**
+    /** {@collect.stats}
      * @serial The connection ID to which this notification pertains.
      * @see #getConnectionId()
      **/

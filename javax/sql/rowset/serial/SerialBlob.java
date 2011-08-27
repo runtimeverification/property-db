@@ -30,7 +30,7 @@ import java.io.*;
 import java.lang.reflect.*;
 
 
-/**
+/** {@collect.stats}
  * A serialized mapping in the Java programming language of an SQL
  * <code>BLOB</code> value.
  * <P>
@@ -54,34 +54,34 @@ import java.lang.reflect.*;
  */
 public class SerialBlob implements Blob, Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * A serialized array of uninterpreted bytes representing the
      * value of this <code>SerialBlob</code> object.
      * @serial
      */
     private byte buf[];
 
-    /**
+    /** {@collect.stats}
      * The internal representation of the <code>Blob</code> object on which this
      * <code>SerialBlob</code> object is based.
      */
     private Blob blob;
 
-    /**
+    /** {@collect.stats}
      * The number of bytes in this <code>SerialBlob</code> object's
      * array of bytes.
      * @serial
      */
     private long len;
 
-    /**
+    /** {@collect.stats}
      * The orginal number of bytes in this <code>SerialBlob</code> object's
      * array of bytes when it was first established.
      * @serial
      */
     private long origLen;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialBlob</code> object that is a serialized version of
      * the given <code>byte</code> array.
      * <p>
@@ -106,7 +106,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialBlob</code> object that is a serialized
      * version of the given <code>Blob</code> object.
      * <P>
@@ -141,7 +141,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         origLen = len;
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the specified number of bytes, starting at the given
      * position, from this <code>SerialBlob</code> object to
      * another array of bytes.
@@ -181,7 +181,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of bytes in this <code>SerialBlob</code>
      * object's array of bytes.
      *
@@ -193,7 +193,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return len;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this <code>SerialBlob</code> object as an input stream.
      * Unlike the related method, <code>setBinaryStream</code>,
      * a stream is produced regardless of whether the <code>SerialBlob</code>
@@ -209,7 +209,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
          return (java.io.InputStream)stream;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position in this <code>SerialBlob</code> object where
      * the given pattern of bytes begins, starting the search at the
      * specified position.
@@ -252,7 +252,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return -1; // not found
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position in this <code>SerialBlob</code> object where
      * the given <code>Blob</code> object begins, starting the search at the
      * specified position.
@@ -277,7 +277,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return position(pattern.getBytes(1, (int)(pattern.length())), start);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the given array of bytes to the <code>BLOB</code> value that
      * this <code>Blob</code> object represents, starting at position
      * <code>pos</code>, and returns the number of bytes written.
@@ -301,7 +301,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return (setBytes(pos, bytes, 0, bytes.length));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes all or part of the given <code>byte</code> array to the
      * <code>BLOB</code> value that this <code>Blob</code> object represents
      * and returns the number of bytes written.
@@ -360,7 +360,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a stream that can be used to write to the <code>BLOB</code>
      * value that this <code>Blob</code> object represents.  The stream begins
      * at position <code>pos</code>. This method forwards the
@@ -390,7 +390,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Truncates the <code>BLOB</code> value that this <code>Blob</code>
      * object represents to be <code>len</code> bytes in length.
      *
@@ -415,7 +415,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>InputStream</code> object that contains a partial <code>Blob</code> value,
      * starting  with the byte specified by pos, which is length bytes in length.
      *
@@ -434,7 +434,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method frees the <code>Blob</code> object and releases the resources that it holds.
      * <code>Blob</code> object. The object is invalid once the <code>free</code>
      * method is called. If <code>free</code> is called multiple times, the subsequent
@@ -447,7 +447,7 @@ public class SerialBlob implements Blob, Serializable, Cloneable {
     public void free() throws SQLException {
         throw new java.lang.UnsupportedOperationException("Not supported");
     }
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this <code>SerialBlob</code>
      * object.
      */

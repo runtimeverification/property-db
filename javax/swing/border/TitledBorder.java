@@ -40,7 +40,7 @@ import java.awt.Dimension;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
 
-/**
+/** {@collect.stats}
  * A class which implements an arbitrary border
  * with the addition of a String title in a
  * specified position and justification.
@@ -79,39 +79,39 @@ public class TitledBorder extends AbstractBorder
 
     private Point textLoc = new Point();
 
-    /**
+    /** {@collect.stats}
      * Use the default vertical orientation for the title text.
      */
     static public final int     DEFAULT_POSITION        = 0;
-    /** Position the title above the border's top line. */
+    /** {@collect.stats} Position the title above the border's top line. */
     static public final int     ABOVE_TOP       = 1;
-    /** Position the title in the middle of the border's top line. */
+    /** {@collect.stats} Position the title in the middle of the border's top line. */
     static public final int     TOP             = 2;
-    /** Position the title below the border's top line. */
+    /** {@collect.stats} Position the title below the border's top line. */
     static public final int     BELOW_TOP       = 3;
-    /** Position the title above the border's bottom line. */
+    /** {@collect.stats} Position the title above the border's bottom line. */
     static public final int     ABOVE_BOTTOM    = 4;
-    /** Position the title in the middle of the border's bottom line. */
+    /** {@collect.stats} Position the title in the middle of the border's bottom line. */
     static public final int     BOTTOM          = 5;
-    /** Position the title below the border's bottom line. */
+    /** {@collect.stats} Position the title below the border's bottom line. */
     static public final int     BELOW_BOTTOM    = 6;
 
-    /**
+    /** {@collect.stats}
      * Use the default justification for the title text.
      */
     static public final int     DEFAULT_JUSTIFICATION   = 0;
-    /** Position title text at the left side of the border line. */
+    /** {@collect.stats} Position title text at the left side of the border line. */
     static public final int     LEFT    = 1;
-    /** Position title text in the center of the border line. */
+    /** {@collect.stats} Position title text in the center of the border line. */
     static public final int     CENTER  = 2;
-    /** Position title text at the right side of the border line. */
+    /** {@collect.stats} Position title text at the right side of the border line. */
     static public final int     RIGHT   = 3;
-    /** Position title text at the left side of the border line
+    /** {@collect.stats} Position title text at the left side of the border line
      *  for left to right orientation, at the right side of the
      *  border line for right to left orientation.
      */
     static public final int     LEADING = 4;
-    /** Position title text at the right side of the border line
+    /** {@collect.stats} Position title text at the right side of the border line
      *  for left to right orientation, at the left side of the
      *  border line for right to left orientation.
      */
@@ -126,7 +126,7 @@ public class TitledBorder extends AbstractBorder
     // Horizontal inset of text that is left or right justified
     static protected final int TEXT_INSET_H = 5;
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance.
      *
      * @param title  the title the border should display
@@ -135,7 +135,7 @@ public class TitledBorder extends AbstractBorder
         this(null, title, LEADING, DEFAULT_POSITION, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance with the specified border
      * and an empty title.
      *
@@ -145,7 +145,7 @@ public class TitledBorder extends AbstractBorder
         this(border, "", LEADING, DEFAULT_POSITION, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance with the specified border
      * and title.
      *
@@ -156,7 +156,7 @@ public class TitledBorder extends AbstractBorder
         this(border, title, LEADING, DEFAULT_POSITION, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance with the specified border,
      * title, title-justification, and title-position.
      *
@@ -173,7 +173,7 @@ public class TitledBorder extends AbstractBorder
                         titlePosition, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance with the specified border,
      * title, title-justification, title-position, and title-font.
      *
@@ -192,7 +192,7 @@ public class TitledBorder extends AbstractBorder
                         titlePosition, titleFont, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TitledBorder instance with the specified border,
      * title, title-justification, title-position, title-font, and
      * title-color.
@@ -219,7 +219,7 @@ public class TitledBorder extends AbstractBorder
         setTitlePosition(titlePosition);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the
      * specified position and size.
      * @param c the component for which this border is being painted
@@ -404,7 +404,7 @@ public class TitledBorder extends AbstractBorder
         g.setColor(color);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
@@ -412,7 +412,7 @@ public class TitledBorder extends AbstractBorder
         return getBorderInsets(c, new Insets(0, 0, 0, 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -485,17 +485,17 @@ public class TitledBorder extends AbstractBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() { return false; }
 
-    /**
+    /** {@collect.stats}
      * Returns the title of the titled border.
      */
     public String getTitle()        {       return title;   }
 
-    /**
+    /** {@collect.stats}
      * Returns the border of the titled border.
      */
     public Border getBorder()       {
@@ -505,7 +505,7 @@ public class TitledBorder extends AbstractBorder
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the title-position of the titled border.
      */
     public int getTitlePosition() {
@@ -536,12 +536,12 @@ public class TitledBorder extends AbstractBorder
         return titlePosition;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the title-justification of the titled border.
      */
     public int getTitleJustification()      {       return titleJustification;      }
 
-    /**
+    /** {@collect.stats}
      * Returns the title-font of the titled border.
      */
     public Font getTitleFont()      {
@@ -551,7 +551,7 @@ public class TitledBorder extends AbstractBorder
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the title-color of the titled border.
      */
     public Color getTitleColor()    {
@@ -564,19 +564,19 @@ public class TitledBorder extends AbstractBorder
 
     // REMIND(aim): remove all or some of these set methods?
 
-    /**
+    /** {@collect.stats}
      * Sets the title of the titled border.
      * param title the title for the border
      */
     public void setTitle(String title)      {       this.title = title;     }
 
-    /**
+    /** {@collect.stats}
      * Sets the border of the titled border.
      * @param border the border
      */
     public void setBorder(Border border)    {       this.border = border;   }
 
-    /**
+    /** {@collect.stats}
      * Sets the title-position of the titled border.
      * @param titlePosition the position for the border
      */
@@ -597,7 +597,7 @@ public class TitledBorder extends AbstractBorder
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the title-justification of the titled border.
      * @param titleJustification the justification for the border
      */
@@ -617,7 +617,7 @@ public class TitledBorder extends AbstractBorder
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the title-font of the titled border.
      * @param titleFont the font for the border title
      */
@@ -625,7 +625,7 @@ public class TitledBorder extends AbstractBorder
         this.titleFont = titleFont;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the title-color of the titled border.
      * @param titleColor the color for the border title
      */
@@ -633,7 +633,7 @@ public class TitledBorder extends AbstractBorder
       this.titleColor = titleColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum dimensions this border requires
      * in order to fully display the border and title.
      * @param c the component where this border will be drawn
@@ -662,7 +662,7 @@ public class TitledBorder extends AbstractBorder
         return minSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -724,7 +724,7 @@ public class TitledBorder extends AbstractBorder
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the border
      * changes as the size changes.
      *

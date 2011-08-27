@@ -27,7 +27,7 @@ package javax.swing.plaf.synth;
 import java.awt.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * <code>SynthPainter</code> is used for painting portions of
  * <code>JComponent</code>s. At a minimum each <code>JComponent</code>
  * has two paint methods: one for the border and one for the background. Some
@@ -61,13 +61,13 @@ import javax.swing.*;
  * @author Scott Violet
  */
 public abstract class SynthPainter {
-    /**
+    /** {@collect.stats}
      * Used to avoid null painter checks everywhere.
      */
     static SynthPainter NULL_PAINTER = new SynthPainter() {};
 
 
-    /**
+    /** {@collect.stats}
      * Paints the background of an arrow button. Arrow buttons are created by
      * some components, such as <code>JScrollBar</code>.
      *
@@ -84,7 +84,7 @@ public abstract class SynthPainter {
                                            int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of an arrow button. Arrow buttons are created by
      * some components, such as <code>JScrollBar</code>.
      *
@@ -101,7 +101,7 @@ public abstract class SynthPainter {
                                        int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the foreground of an arrow button. This method is responsible
      * for drawing a graphical representation of a direction, typically
      * an arrow. Arrow buttons are created by
@@ -123,7 +123,7 @@ public abstract class SynthPainter {
                                            int direction) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -139,7 +139,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -155,7 +155,7 @@ public abstract class SynthPainter {
                                   int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a check box menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -171,7 +171,7 @@ public abstract class SynthPainter {
                                                 int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a check box menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -187,7 +187,7 @@ public abstract class SynthPainter {
                                             int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a check box.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -203,7 +203,7 @@ public abstract class SynthPainter {
                                         int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a check box.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -219,7 +219,7 @@ public abstract class SynthPainter {
                                     int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a color chooser.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -235,7 +235,7 @@ public abstract class SynthPainter {
                                             int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a color chooser.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -251,7 +251,7 @@ public abstract class SynthPainter {
                                         int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a combo box.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -267,7 +267,7 @@ public abstract class SynthPainter {
                                         int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a combo box.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -283,7 +283,7 @@ public abstract class SynthPainter {
                                         int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a desktop icon.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -299,7 +299,7 @@ public abstract class SynthPainter {
                                         int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a desktop icon.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -315,7 +315,7 @@ public abstract class SynthPainter {
                                            int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a desktop pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -331,7 +331,7 @@ public abstract class SynthPainter {
                                            int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a desktop pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -347,7 +347,7 @@ public abstract class SynthPainter {
                                        int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of an editor pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -363,7 +363,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of an editor pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -379,7 +379,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a file chooser.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -395,7 +395,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a file chooser.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -411,7 +411,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a formatted text field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -427,7 +427,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a formatted text field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -443,7 +443,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of an internal frame title pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -459,7 +459,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of an internal frame title pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -475,7 +475,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of an internal frame.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -491,7 +491,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of an internal frame.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -507,7 +507,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a label.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -523,7 +523,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a label.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -539,7 +539,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a list.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -555,7 +555,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a list.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -571,7 +571,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a menu bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -587,7 +587,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a menu bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -603,7 +603,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -619,7 +619,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -635,7 +635,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a menu.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -651,7 +651,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a menu.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -667,7 +667,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of an option pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -683,7 +683,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of an option pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -699,7 +699,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a panel.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -715,7 +715,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a panel.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -731,7 +731,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a password field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -747,7 +747,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a password field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -763,7 +763,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a popup menu.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -779,7 +779,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a popup menu.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -795,7 +795,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a progress bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -811,7 +811,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a progress bar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -832,7 +832,7 @@ public abstract class SynthPainter {
         paintProgressBarBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a progress bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -848,7 +848,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a progress bar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -869,7 +869,7 @@ public abstract class SynthPainter {
         paintProgressBarBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the foreground of a progress bar. is responsible for
      * providing an indication of the progress of the progress bar.
      *
@@ -888,7 +888,7 @@ public abstract class SynthPainter {
                                  int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a radio button menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -904,7 +904,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a radio button menu item.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -920,7 +920,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a radio button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -936,7 +936,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a radio button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -952,7 +952,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a root pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -968,7 +968,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a root pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -984,7 +984,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a scrollbar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1000,7 +1000,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a scrollbar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1022,7 +1022,7 @@ public abstract class SynthPainter {
         paintScrollBarBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a scrollbar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1038,7 +1038,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a scrollbar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1060,7 +1060,7 @@ public abstract class SynthPainter {
         paintScrollBarBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the thumb of a scrollbar. The thumb provides
      * a graphical indication as to how much of the Component is visible in a
      * <code>JScrollPane</code>.
@@ -1081,7 +1081,7 @@ public abstract class SynthPainter {
                                      int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the thumb of a scrollbar. The thumb provides
      * a graphical indication as to how much of the Component is visible in a
      * <code>JScrollPane</code>.
@@ -1102,7 +1102,7 @@ public abstract class SynthPainter {
                                  int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the track of a scrollbar. The track contains
      * the thumb.
      *
@@ -1119,7 +1119,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the track of a scrollbar. The track contains
      * the thumb. This implementation invokes the method of the same name without
      * the orientation.
@@ -1142,7 +1142,7 @@ public abstract class SynthPainter {
         paintScrollBarTrackBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the track of a scrollbar. The track contains
      * the thumb.
      *
@@ -1159,7 +1159,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the track of a scrollbar. The track contains
      * the thumb. This implementation invokes the method of the same name without
      * the orientation.
@@ -1182,7 +1182,7 @@ public abstract class SynthPainter {
         paintScrollBarTrackBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a scroll pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1198,7 +1198,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a scroll pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1214,7 +1214,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a separator.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1230,7 +1230,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a separator. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1251,7 +1251,7 @@ public abstract class SynthPainter {
         paintSeparatorBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a separator.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1267,7 +1267,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a separator. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1288,7 +1288,7 @@ public abstract class SynthPainter {
         paintSeparatorBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the foreground of a separator.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1306,7 +1306,7 @@ public abstract class SynthPainter {
                                  int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1322,7 +1322,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a slider. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1343,7 +1343,7 @@ public abstract class SynthPainter {
         paintSliderBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1359,7 +1359,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a slider. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1380,7 +1380,7 @@ public abstract class SynthPainter {
         paintSliderBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the thumb of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1398,7 +1398,7 @@ public abstract class SynthPainter {
                                      int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the thumb of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1416,7 +1416,7 @@ public abstract class SynthPainter {
                                  int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the track of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1432,7 +1432,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the track of a slider. This implementation invokes
      * the method of the same name without the orientation.
      *
@@ -1453,7 +1453,7 @@ public abstract class SynthPainter {
         paintSliderTrackBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the track of a slider.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1469,7 +1469,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the track of a slider. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -1490,7 +1490,7 @@ public abstract class SynthPainter {
         paintSliderTrackBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a spinner.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1506,7 +1506,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a spinner.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1522,7 +1522,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the divider of a split pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1538,7 +1538,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the divider of a split pane. This implementation
      * invokes the method of the same name without the orientation.
      *
@@ -1559,7 +1559,7 @@ public abstract class SynthPainter {
         paintSplitPaneDividerBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the foreground of the divider of a split pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1577,7 +1577,7 @@ public abstract class SynthPainter {
                                      int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the divider, when the user is dragging the divider, of a
      * split pane.
      *
@@ -1596,7 +1596,7 @@ public abstract class SynthPainter {
                                      int w, int h, int orientation) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a split pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1612,7 +1612,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a split pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1628,7 +1628,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1644,7 +1644,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1660,7 +1660,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the area behind the tabs of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1676,7 +1676,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the area behind the tabs of a tabbed pane.
      * This implementation invokes the method of the same name without the
      * orientation.
@@ -1700,7 +1700,7 @@ public abstract class SynthPainter {
         paintTabbedPaneTabAreaBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the area behind the tabs of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1716,7 +1716,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the area behind the tabs of a tabbed pane. This
      * implementation invokes the method of the same name without the orientation.
      *
@@ -1739,7 +1739,7 @@ public abstract class SynthPainter {
         paintTabbedPaneTabAreaBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tab of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1756,7 +1756,7 @@ public abstract class SynthPainter {
                                          int tabIndex) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tab of a tabbed pane. This implementation
      * invokes the method of the same name without the orientation.
      *
@@ -1780,7 +1780,7 @@ public abstract class SynthPainter {
         paintTabbedPaneTabBackground(context, g, x, y, w, h, tabIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tab of a tabbed pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1797,7 +1797,7 @@ public abstract class SynthPainter {
                                          int tabIndex) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tab of a tabbed pane. This implementation invokes
      * the method of the same name without the orientation.
      *
@@ -1821,7 +1821,7 @@ public abstract class SynthPainter {
         paintTabbedPaneTabBorder(context, g, x, y, w, h, tabIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the area that contains the content of the
      * selected tab of a tabbed pane.
      *
@@ -1838,7 +1838,7 @@ public abstract class SynthPainter {
                                          int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the area that contains the content of the
      * selected tab of a tabbed pane.
      *
@@ -1854,7 +1854,7 @@ public abstract class SynthPainter {
                                          int x, int y, int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the header of a table.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1870,7 +1870,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the header of a table.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1886,7 +1886,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a table.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1902,7 +1902,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a table.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1918,7 +1918,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a text area.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1934,7 +1934,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a text area.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1950,7 +1950,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a text pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1966,7 +1966,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a text pane.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1982,7 +1982,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a text field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -1998,7 +1998,7 @@ public abstract class SynthPainter {
                                           int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a text field.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2014,7 +2014,7 @@ public abstract class SynthPainter {
                                       int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a toggle button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2030,7 +2030,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a toggle button.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2046,7 +2046,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tool bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2062,7 +2062,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tool bar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -2083,7 +2083,7 @@ public abstract class SynthPainter {
         paintToolBarBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tool bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2099,7 +2099,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tool bar. This implementation invokes the
      * method of the same name without the orientation.
      *
@@ -2120,7 +2120,7 @@ public abstract class SynthPainter {
         paintToolBarBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the tool bar's content area.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2136,7 +2136,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the tool bar's content area. This implementation
      * invokes the method of the same name without the orientation.
      *
@@ -2157,7 +2157,7 @@ public abstract class SynthPainter {
         paintToolBarContentBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the content area of a tool bar.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2173,7 +2173,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the content area of a tool bar. This implementation
      * invokes the method of the same name without the orientation.
      *
@@ -2194,7 +2194,7 @@ public abstract class SynthPainter {
         paintToolBarContentBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the window containing the tool bar when it
      * has been detached from its primary frame.
      *
@@ -2211,7 +2211,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the window containing the tool bar when it
      * has been detached from its primary frame. This implementation invokes the
      * method of the same name without the orientation.
@@ -2233,7 +2233,7 @@ public abstract class SynthPainter {
         paintToolBarDragWindowBackground(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the window containing the tool bar when it
      * has been detached from it's primary frame.
      *
@@ -2250,7 +2250,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the window containing the tool bar when it
      * has been detached from it's primary frame. This implementation invokes the
      * method of the same name without the orientation.
@@ -2272,7 +2272,7 @@ public abstract class SynthPainter {
         paintToolBarDragWindowBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tool tip.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2288,7 +2288,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tool tip.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2304,7 +2304,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of a tree.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2320,7 +2320,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a tree.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2336,7 +2336,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the row containing a cell in a tree.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2352,7 +2352,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of the row containing a cell in a tree.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2368,7 +2368,7 @@ public abstract class SynthPainter {
                                  int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the focus indicator for a cell in a tree when it has focus.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2384,7 +2384,7 @@ public abstract class SynthPainter {
                                    int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the viewport.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and
@@ -2400,7 +2400,7 @@ public abstract class SynthPainter {
                                      int w, int h) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border of a viewport.
      *
      * @param context SynthContext identifying the <code>JComponent</code> and

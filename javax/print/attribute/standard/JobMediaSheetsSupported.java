@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.SetOfIntegerSyntax;
 import javax.print.attribute.SupportedValuesAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobMediaSheetsSupported is a printing attribute class, a set of
  * integers, that gives the supported values for a {@link JobMediaSheets
  * JobMediaSheets} attribute. It is restricted to a single contiguous range of
@@ -51,7 +51,7 @@ public final class JobMediaSheetsSupported extends SetOfIntegerSyntax
 
     private static final long serialVersionUID = 2953685470388672940L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job media sheets supported attribute containing a single
      * range of integers. That is, only those values of JobMediaSheets in the
      * one range are supported.
@@ -74,7 +74,7 @@ public final class JobMediaSheetsSupported extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job media sheets supported attribute is equivalent
      * to the passed in object. To be equivalent, all of the following
      * conditions must be true:
@@ -98,7 +98,7 @@ public final class JobMediaSheetsSupported extends SetOfIntegerSyntax
                 object instanceof JobMediaSheetsSupported);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public final class JobMediaSheetsSupported extends SetOfIntegerSyntax
         return JobMediaSheetsSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

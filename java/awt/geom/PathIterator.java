@@ -25,7 +25,7 @@
 
 package java.awt.geom;
 
-/**
+/** {@collect.stats}
  * The <code>PathIterator</code> interface provides the mechanism
  * for objects that implement the {@link java.awt.Shape Shape}
  * interface to return the geometry of their boundary by allowing
@@ -58,7 +58,7 @@ package java.awt.geom;
  * @author Jim Graham
  */
 public interface PathIterator {
-    /**
+    /** {@collect.stats}
      * The winding rule constant for specifying an even-odd rule
      * for determining the interior of a path.
      * The even-odd rule specifies that a point lies inside the
@@ -67,7 +67,7 @@ public interface PathIterator {
      */
     public static final int WIND_EVEN_ODD       = 0;
 
-    /**
+    /** {@collect.stats}
      * The winding rule constant for specifying a non-zero rule
      * for determining the interior of a path.
      * The non-zero rule specifies that a point lies inside the
@@ -78,20 +78,20 @@ public interface PathIterator {
      */
     public static final int WIND_NON_ZERO       = 1;
 
-    /**
+    /** {@collect.stats}
      * The segment type constant for a point that specifies the
      * starting location for a new subpath.
      */
     public static final int SEG_MOVETO          = 0;
 
-    /**
+    /** {@collect.stats}
      * The segment type constant for a point that specifies the
      * end point of a line to be drawn from the most recently
      * specified point.
      */
     public static final int SEG_LINETO          = 1;
 
-    /**
+    /** {@collect.stats}
      * The segment type constant for the pair of points that specify
      * a quadratic parametric curve to be drawn from the most recently
      * specified point.
@@ -113,7 +113,7 @@ public interface PathIterator {
      */
     public static final int SEG_QUADTO          = 2;
 
-    /**
+    /** {@collect.stats}
      * The segment type constant for the set of 3 points that specify
      * a cubic parametric curve to be drawn from the most recently
      * specified point.
@@ -137,14 +137,14 @@ public interface PathIterator {
      */
     public static final int SEG_CUBICTO         = 3;
 
-    /**
+    /** {@collect.stats}
      * The segment type constant that specifies that
      * the preceding subpath should be closed by appending a line segment
      * back to the point corresponding to the most recent SEG_MOVETO.
      */
     public static final int SEG_CLOSE           = 4;
 
-    /**
+    /** {@collect.stats}
      * Returns the winding rule for determining the interior of the
      * path.
      * @return the winding rule.
@@ -153,21 +153,21 @@ public interface PathIterator {
      */
     public int getWindingRule();
 
-    /**
+    /** {@collect.stats}
      * Tests if the iteration is complete.
      * @return <code>true</code> if all the segments have
      * been read; <code>false</code> otherwise.
      */
     public boolean isDone();
 
-    /**
+    /** {@collect.stats}
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
      */
     public void next();
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path-segment type:
@@ -190,7 +190,7 @@ public interface PathIterator {
      */
     public int currentSegment(float[] coords);
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path-segment type:

@@ -26,7 +26,7 @@
 
 package javax.naming.directory;
 
-/**
+/** {@collect.stats}
   * This class encapsulates
   * factors that determine scope of search and what gets returned
   * as a result of the search.
@@ -41,7 +41,7 @@ package javax.naming.directory;
   */
 
 public class SearchControls implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Search the named object.
      *<p>
      * The NamingEnumeration that results from search()
@@ -58,7 +58,7 @@ public class SearchControls implements java.io.Serializable {
      */
     public final static int OBJECT_SCOPE = 0;
 
-    /**
+    /** {@collect.stats}
      * Search one level of the named context.
      *<p>
      * The NamingEnumeration that results from search()
@@ -71,7 +71,7 @@ public class SearchControls implements java.io.Serializable {
      * The value of this constant is <tt>1</tt>.
      */
     public final static int ONELEVEL_SCOPE = 1;
-    /**
+    /** {@collect.stats}
      * Search the entire subtree rooted at the named object.
      *<p>
      * If the named object is not a DirContext, search only the object.
@@ -94,7 +94,7 @@ public class SearchControls implements java.io.Serializable {
      */
     public final static int SUBTREE_SCOPE = 2;
 
-    /**
+    /** {@collect.stats}
      * Contains the scope with which to apply the search. One of
      * <tt>ONELEVEL_SCOPE</tt>, <tt>OBJECT_SCOPE</tt>, or
      * <tt>SUBTREE_SCOPE</tt>.
@@ -102,33 +102,33 @@ public class SearchControls implements java.io.Serializable {
      */
     private int searchScope;
 
-    /**
+    /** {@collect.stats}
      * Contains the milliseconds to wait before returning
      * from search.
      * @serial
      */
     private int timeLimit;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether JNDI links are dereferenced during
      * search.
      * @serial
      */
     private boolean derefLink;
 
-    /**
+    /** {@collect.stats}
      *  Indicates whether object is returned in <tt>SearchResult</tt>.
      * @serial
      */
     private boolean returnObj;
 
-    /**
+    /** {@collect.stats}
      * Contains the maximum number of SearchResults to return.
      * @serial
      */
     private long countLimit;
 
-    /**
+    /** {@collect.stats}
      *  Contains the list of attributes to be returned in
      * <tt>SearchResult</tt> for each matching entry of search. <tt>null</tt>
      * indicates that all attributes are to be returned.
@@ -136,7 +136,7 @@ public class SearchControls implements java.io.Serializable {
      */
     private String[] attributesToReturn;
 
-    /**
+    /** {@collect.stats}
      * Constructs a search constraints using defaults.
      *<p>
      * The defaults are:
@@ -159,7 +159,7 @@ public class SearchControls implements java.io.Serializable {
         attributesToReturn = null; // return all
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a search constraints using arguments.
      * @param scope     The search scope.  One of:
      *                  OBJECT_SCOPE, ONELEVEL_SCOPE, SUBTREE_SCOPE.
@@ -188,7 +188,7 @@ public class SearchControls implements java.io.Serializable {
         attributesToReturn = attrs; // return all
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the search scope of these SearchControls.
      *<p>
      * One of OBJECT_SCOPE, ONELEVEL_SCOPE, SUBTREE_SCOPE.
@@ -200,7 +200,7 @@ public class SearchControls implements java.io.Serializable {
         return searchScope;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the time limit of these SearchControls in milliseconds.
      *<p>
      * If the value is 0, this means to wait indefinitely.
@@ -211,7 +211,7 @@ public class SearchControls implements java.io.Serializable {
         return timeLimit;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether links will be dereferenced during the search.
      *
      * @return true if links will be dereferenced; false otherwise.
@@ -221,7 +221,7 @@ public class SearchControls implements java.io.Serializable {
         return derefLink;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether objects will be returned as part of the result.
      *
      * @return true if objects will be returned; false otherwise.
@@ -231,7 +231,7 @@ public class SearchControls implements java.io.Serializable {
         return returnObj;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of entries that will be returned
      * as a result of the search.
      *<p>
@@ -243,7 +243,7 @@ public class SearchControls implements java.io.Serializable {
         return countLimit;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the attributes that will be returned as part of the search.
      *<p>
      * A value of null indicates that all attributes will be returned.
@@ -257,7 +257,7 @@ public class SearchControls implements java.io.Serializable {
         return attributesToReturn;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the search scope to one of:
      * OBJECT_SCOPE, ONELEVEL_SCOPE, SUBTREE_SCOPE.
      * @param scope     The search scope of this SearchControls.
@@ -267,7 +267,7 @@ public class SearchControls implements java.io.Serializable {
         searchScope = scope;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the time limit of these SearchControls in milliseconds.
      *<p>
      * If the value is 0, this means to wait indefinitely.
@@ -278,7 +278,7 @@ public class SearchControls implements java.io.Serializable {
         timeLimit = ms;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables/disables link dereferencing during the search.
      *
      * @param on        if true links will be dereferenced; if false, not followed.
@@ -288,7 +288,7 @@ public class SearchControls implements java.io.Serializable {
         derefLink = on;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables/disables returning objects returned as part of the result.
      *<p>
      * If disabled, only the name and class of the object is returned.
@@ -302,7 +302,7 @@ public class SearchControls implements java.io.Serializable {
         returnObj = on;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum number of entries to be returned
      * as a result of the search.
      *<p>
@@ -315,7 +315,7 @@ public class SearchControls implements java.io.Serializable {
         countLimit = limit;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies the attributes that will be returned as part of the search.
      *<p>
      * null indicates that all attributes will be returned.
@@ -329,7 +329,7 @@ public class SearchControls implements java.io.Serializable {
         attributesToReturn = attrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability.
      */
     private static final long serialVersionUID = -2480540967773454797L;

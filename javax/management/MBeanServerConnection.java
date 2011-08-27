@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Set;
 
 
-/**
+/** {@collect.stats}
  * This interface represents a way to talk to an MBean server, whether
  * local or remote.  The {@link MBeanServer} interface, representing a
  * local MBean server, extends this interface.
@@ -40,7 +40,7 @@ import java.util.Set;
  * @since 1.5
  */
 public interface MBeanServerConnection {
-    /**
+    /** {@collect.stats}
      * <p>Instantiates and registers an MBean in the MBean server.  The
      * MBean server will use its {@link
      * javax.management.loading.ClassLoaderRepository Default Loader
@@ -93,7 +93,7 @@ public interface MBeanServerConnection {
                    MBeanRegistrationException, MBeanException,
                    NotCompliantMBeanException, IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates and registers an MBean in the MBean server.  The
      * class loader to be used is identified by its object name. An
      * object name is associated to the MBean. If the object name of
@@ -151,7 +151,7 @@ public interface MBeanServerConnection {
                    IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Instantiates and registers an MBean in the MBean server.  The
      * MBean server will use its {@link
      * javax.management.loading.ClassLoaderRepository Default Loader
@@ -204,7 +204,7 @@ public interface MBeanServerConnection {
                    MBeanRegistrationException, MBeanException,
                    NotCompliantMBeanException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Instantiates and registers an MBean in the MBean server.  The
      * class loader to be used is identified by its object name. An
      * object name is associated to the MBean. If the object name of
@@ -262,7 +262,7 @@ public interface MBeanServerConnection {
                    NotCompliantMBeanException, InstanceNotFoundException,
                    IOException;
 
-    /**
+    /** {@collect.stats}
      * Unregisters an MBean from the MBean server. The MBean is
      * identified by its object name. Once the method has been
      * invoked, the MBean may no longer be accessed by its object
@@ -288,7 +288,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, MBeanRegistrationException,
                    IOException;
 
-    /**
+    /** {@collect.stats}
      * Gets the <CODE>ObjectInstance</CODE> for a given MBean
      * registered with the MBean server.
      *
@@ -307,7 +307,7 @@ public interface MBeanServerConnection {
     public ObjectInstance getObjectInstance(ObjectName name)
             throws InstanceNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Gets MBeans controlled by the MBean server. This method allows
      * any of the following to be obtained: All MBeans, a set of
      * MBeans specified by pattern matching on the
@@ -336,7 +336,7 @@ public interface MBeanServerConnection {
     public Set<ObjectInstance> queryMBeans(ObjectName name, QueryExp query)
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Gets the names of MBeans controlled by the MBean server. This
      * method enables any of the following to be obtained: The names
      * of all MBeans, the names of a set of MBeans specified by
@@ -366,7 +366,7 @@ public interface MBeanServerConnection {
 
 
 
-    /**
+    /** {@collect.stats}
      * Checks whether an MBean, identified by its object name, is
      * already registered with the MBean server.
      *
@@ -385,7 +385,7 @@ public interface MBeanServerConnection {
             throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of MBeans registered in the MBean server.
      *
      * @return the number of MBeans registered.
@@ -396,7 +396,7 @@ public interface MBeanServerConnection {
     public Integer getMBeanCount()
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Gets the value of a specific attribute of a named MBean. The MBean
      * is identified by its object name.
      *
@@ -431,7 +431,7 @@ public interface MBeanServerConnection {
                    IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Enables the values of several attributes of a named MBean. The MBean
      * is identified by its object name.
      *
@@ -457,7 +457,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, ReflectionException,
                    IOException;
 
-    /**
+    /** {@collect.stats}
      * Sets the value of a specific attribute of a named MBean. The MBean
      * is identified by its object name.
      *
@@ -493,7 +493,7 @@ public interface MBeanServerConnection {
 
 
 
-    /**
+    /** {@collect.stats}
      * Sets the values of several attributes of a named MBean. The MBean is
      * identified by its object name.
      *
@@ -521,7 +521,7 @@ public interface MBeanServerConnection {
                                        AttributeList attributes)
         throws InstanceNotFoundException, ReflectionException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Invokes an operation on an MBean.
      *
      * @param name The object name of the MBean on which the method is
@@ -555,7 +555,7 @@ public interface MBeanServerConnection {
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the default domain used for naming the MBean.
      * The default domain name is used as the domain part in the ObjectName
      * of MBeans if no domain is specified by the user.
@@ -568,7 +568,7 @@ public interface MBeanServerConnection {
     public String getDefaultDomain()
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the list of domains in which any MBean is currently
      * registered.  A string is in the returned array if and only if
      * there is at least one MBean registered with an ObjectName whose
@@ -585,7 +585,7 @@ public interface MBeanServerConnection {
     public String[] getDomains()
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Adds a listener to a registered MBean.</p>
      *
      * <P> A notification emitted by an MBean will be forwarded by the
@@ -618,7 +618,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Adds a listener to a registered MBean.</p>
      *
      * <p>A notification emitted by an MBean will be forwarded by the
@@ -662,7 +662,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from a registered MBean.
      *
      * <P> If the listener is registered more than once, perhaps with
@@ -688,7 +688,7 @@ public interface MBeanServerConnection {
         throws InstanceNotFoundException, ListenerNotFoundException,
                IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from a registered MBean.</p>
      *
      * <p>The MBean must have a listener that exactly matches the
@@ -728,7 +728,7 @@ public interface MBeanServerConnection {
                    IOException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from a registered MBean.</p>
      *
      * <P> If the listener is registered more than once, perhaps with
@@ -754,7 +754,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, ListenerNotFoundException,
                    IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from a registered MBean.</p>
      *
      * <p>The MBean must have a listener that exactly matches the
@@ -793,7 +793,7 @@ public interface MBeanServerConnection {
             throws InstanceNotFoundException, ListenerNotFoundException,
                    IOException;
 
-    /**
+    /** {@collect.stats}
      * This method discovers the attributes and operations that an
      * MBean exposes for management.
      *
@@ -816,7 +816,7 @@ public interface MBeanServerConnection {
                    ReflectionException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns true if the MBean specified is an instance of the
      * specified class, false otherwise.</p>
      *

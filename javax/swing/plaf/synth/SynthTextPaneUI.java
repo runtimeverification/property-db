@@ -31,7 +31,7 @@ import javax.swing.plaf.*;
 import java.beans.PropertyChangeEvent;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a styled text editor in the
  * Synth look and feel.
  * <p>
@@ -48,7 +48,7 @@ import java.awt.*;
  */
 class SynthTextPaneUI extends SynthEditorPaneUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for the JTextPane.
      *
      * @param c the JTextPane object
@@ -58,7 +58,7 @@ class SynthTextPaneUI extends SynthEditorPaneUI {
         return new SynthTextPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -75,7 +75,7 @@ class SynthTextPaneUI extends SynthEditorPaneUI {
         updateFont(c.getFont());
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the
@@ -102,7 +102,7 @@ class SynthTextPaneUI extends SynthEditorPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the color in the default style of the document.
      *
      * @param color the new color to use or null to remove the color attribute
@@ -123,7 +123,7 @@ class SynthTextPaneUI extends SynthEditorPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the font in the default style of the document.
      *
      * @param font the new font to use or null to remove the font attribute

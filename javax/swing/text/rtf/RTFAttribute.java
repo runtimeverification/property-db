@@ -28,7 +28,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.MutableAttributeSet;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This interface describes a class which defines a 1-1 mapping between
  * an RTF keyword and a SwingText attribute.
  */

@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>Transmitter</code> sends <code>{@link MidiEvent}</code> objects to one or more
  * <code>{@link Receiver Receivers}</code>. Common MIDI transmitters include sequencers
  * and MIDI input ports.
@@ -38,7 +38,7 @@ package javax.sound.midi;
 public interface Transmitter {
 
 
-    /**
+    /** {@collect.stats}
      * Sets the receiver to which this transmitter will deliver MIDI messages.
      * If a receiver is currently set, it is replaced with this one.
      * @param receiver the desired receiver.
@@ -46,7 +46,7 @@ public interface Transmitter {
     public void setReceiver(Receiver receiver);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current receiver to which this transmitter will deliver MIDI messages.
      * @return the current receiver.  If no receiver is currently set,
      * returns <code>null</code>
@@ -54,7 +54,7 @@ public interface Transmitter {
     public Receiver getReceiver();
 
 
-    /**
+    /** {@collect.stats}
      * Indicates that the application has finished using the transmitter, and
      * that limited resources it requires may be released or made available.
      *

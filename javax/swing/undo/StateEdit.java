@@ -29,7 +29,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * <P>StateEdit is a general edit for objects that change state.
  * Objects being edited must conform to the StateEditable interface.</P>
  *
@@ -65,22 +65,22 @@ public class StateEdit
     // Attributes
     //
 
-    /**
+    /** {@collect.stats}
      * The object being edited
      */
     protected StateEditable object;
 
-    /**
+    /** {@collect.stats}
      * The state information prior to the edit
      */
     protected Hashtable<Object,Object> preState;
 
-    /**
+    /** {@collect.stats}
      * The state information after the edit
      */
     protected Hashtable<Object,Object> postState;
 
-    /**
+    /** {@collect.stats}
      * The undo/redo presentation name
      */
     protected String undoRedoName;
@@ -89,7 +89,7 @@ public class StateEdit
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Create and return a new StateEdit.
      *
      * @param anObject The object to watch for changing state
@@ -101,7 +101,7 @@ public class StateEdit
         init (anObject,null);
     }
 
-    /**
+    /** {@collect.stats}
      * Create and return a new StateEdit with a presentation name.
      *
      * @param anObject The object to watch for changing state
@@ -128,7 +128,7 @@ public class StateEdit
     //
 
 
-    /**
+    /** {@collect.stats}
      * Gets the post-edit state of the StateEditable object and
      * ends the edit.
      */
@@ -138,7 +138,7 @@ public class StateEdit
         this.removeRedundantState();
     }
 
-    /**
+    /** {@collect.stats}
      * Tells the edited object to apply the state prior to the edit
      */
     public void undo() {
@@ -146,7 +146,7 @@ public class StateEdit
         this.object.restoreState(preState);
     }
 
-    /**
+    /** {@collect.stats}
      * Tells the edited object to apply the state after the edit
      */
     public void redo() {
@@ -154,7 +154,7 @@ public class StateEdit
         this.object.restoreState(postState);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the presentation name for this edit
      */
     public String getPresentationName() {
@@ -166,7 +166,7 @@ public class StateEdit
     // Internal support
     //
 
-    /**
+    /** {@collect.stats}
      * Remove redundant key/values in state hashtables.
      */
     protected void removeRedundantState() {

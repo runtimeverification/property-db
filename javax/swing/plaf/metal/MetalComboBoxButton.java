@@ -33,7 +33,7 @@ import javax.swing.plaf.*;
 import javax.swing.border.*;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * JButton subclass to help out MetalComboBoxUI
  * <p>
  * <strong>Warning:</strong>

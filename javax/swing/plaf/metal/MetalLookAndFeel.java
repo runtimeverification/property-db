@@ -48,7 +48,7 @@ import sun.swing.DefaultLayoutStyle;
 import sun.swing.SwingLazyValue;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * The Java Look and Feel, otherwise known as Metal.
  * <p>
  * Each of the {@code ComponentUI}s provided by {@code
@@ -91,28 +91,28 @@ public class MetalLookAndFeel extends BasicLookAndFeel
     private static boolean isOnlyOneContext = true;
     private static AppContext cachedAppContext;
 
-    /**
+    /** {@collect.stats}
      * True if checked for windows yet.
      */
     private static boolean checkedWindows;
-    /**
+    /** {@collect.stats}
      * True if running on Windows.
      */
     private static boolean isWindows;
 
-    /**
+    /** {@collect.stats}
      * Set to true first time we've checked swing.useSystemFontSettings.
      */
     private static boolean checkedSystemFontSettings;
 
-    /**
+    /** {@collect.stats}
      * True indicates we should use system fonts, unless the developer has
      * specified otherwise with Application.useSystemFontSettings.
      */
     private static boolean useSystemFonts;
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if running on Windows.
      */
     static boolean isWindows() {
@@ -130,7 +130,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return isWindows;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if system fonts should be used, this is only useful
      * for windows.
      */
@@ -152,7 +152,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the high contrast theme should be used as the default
      * theme.
      */
@@ -167,14 +167,14 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if we're using the Ocean Theme.
      */
     static boolean usingOcean() {
         return (getCurrentTheme() instanceof OceanTheme);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this look and feel. This returns
      * {@code "Metal"}.
      *
@@ -184,7 +184,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return "Metal";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an identifier for this look and feel. This returns
      * {@code "Metal"}.
      *
@@ -194,7 +194,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return "Metal";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a short description of this look and feel. This returns
      * {@code "The Java(tm) Look and Feel"}.
 
@@ -204,7 +204,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return "The Java(tm) Look and Feel";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code false}; {@code MetalLookAndFeel} is not a native
      * look and feel.
      *
@@ -214,7 +214,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true}; {@code MetalLookAndFeel} can be run on
      * any platform.
      *
@@ -224,7 +224,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true}; metal can provide {@code Window}
      * decorations.
      *
@@ -239,7 +239,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with mappings from {@code uiClassID} to
      * the fully qualified name of the ui class. {@code
      * MetalLookAndFeel} registers an entry for each of the classes in
@@ -290,7 +290,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         table.putDefaults(uiDefaults);
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with system colors. The following values are
      * added to {@code table}:
      * <table border="1" cellpadding="1" cellspacing="0"
@@ -419,7 +419,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         table.putDefaults(systemColors);
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize the defaults table with the name of the ResourceBundle
      * used for getting localized defaults.
      */
@@ -427,7 +427,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         table.addResourceBundle( "com.sun.swing.internal.plaf.metal.resources.metal" );
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with the defaults for metal.
      *
      * @param table the {@code UIDefaults} to add the values to
@@ -1566,7 +1566,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         new AATextListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures the current {@code MetalTheme} is {@code non-null}. This is
      * a cover method for {@code getCurrentTheme}.
      *
@@ -1576,7 +1576,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         getCurrentTheme();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the look and feel defaults. This invokes, in order,
      * {@code createDefaultTheme()}, {@code super.getDefaults()} and
      * {@code getCurrentTheme().addCustomEntriesToTable(table)}.
@@ -1602,7 +1602,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return table;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @since 1.4
@@ -1611,7 +1611,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         super.provideErrorFeedback(component);
     }
 
-    /**
+    /** {@collect.stats}
      * Set the theme used by <code>MetalLookAndFeel</code>.
      * <p>
      * After the theme is set, {@code MetalLookAndFeel} needs to be
@@ -1645,7 +1645,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         cachedAppContext.put( "currentMetalTheme", theme );
     }
 
-    /**
+    /** {@collect.stats}
      * Return the theme currently being used by <code>MetalLookAndFeel</code>.
      * If the current theme is {@code null}, the default theme is created.
      *
@@ -1689,7 +1689,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return currentTheme;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> with a disabled appearance.
      * This method is used to generate a disabled <code>Icon</code> when
      * one has not been specified.  For example, if you create a
@@ -1715,7 +1715,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return super.getDisabledIcon(component, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> for use by disabled
      * components that are also selected. This method is used to generate an
      * <code>Icon</code> for components that are in both the disabled and
@@ -1743,7 +1743,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
         return super.getDisabledSelectedIcon(component, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the control text font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlTextColor()}.
      *
@@ -1753,7 +1753,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getControlTextFont() { return getCurrentTheme().getControlTextFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the sytem text font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getSystemTextFont()}.
      *
@@ -1763,7 +1763,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getSystemTextFont() { return getCurrentTheme().getSystemTextFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the user text font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getUserTextFont()}.
      *
@@ -1773,7 +1773,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getUserTextFont() { return getCurrentTheme().getUserTextFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the menu text font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getMenuTextFont()}.
      *
@@ -1783,7 +1783,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getMenuTextFont() { return getCurrentTheme().getMenuTextFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the window title font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getWindowTitleFont()}.
      *
@@ -1793,7 +1793,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getWindowTitleFont() { return getCurrentTheme().getWindowTitleFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the sub-text font of the current theme. This is a
      * cover method for {@code getCurrentTheme().getSubTextFont()}.
      *
@@ -1803,7 +1803,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static FontUIResource getSubTextFont() { return getCurrentTheme().getSubTextFont();}
 
-    /**
+    /** {@collect.stats}
      * Returns the desktop color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getDesktopColor()}.
      *
@@ -1813,7 +1813,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getDesktopColor() { return getCurrentTheme().getDesktopColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the focus color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getFocusColor()}.
      *
@@ -1823,7 +1823,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getFocusColor() { return getCurrentTheme().getFocusColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the white color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getWhite()}.
      *
@@ -1833,7 +1833,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWhite() { return getCurrentTheme().getWhite(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the black color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getBlack()}.
      *
@@ -1843,7 +1843,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getBlack() { return getCurrentTheme().getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControl()}.
      *
@@ -1853,7 +1853,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControl() { return getCurrentTheme().getControl(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control shadow color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlShadow()}.
      *
@@ -1863,7 +1863,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlShadow() { return getCurrentTheme().getControlShadow(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control dark shadow color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlDarkShadow()}.
      *
@@ -1873,7 +1873,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlDarkShadow() { return getCurrentTheme().getControlDarkShadow(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control info color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlInfo()}.
      *
@@ -1883,7 +1883,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlInfo() { return getCurrentTheme().getControlInfo(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control highlight color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlHighlight()}.
      *
@@ -1893,7 +1893,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlHighlight() { return getCurrentTheme().getControlHighlight(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control disabled color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlDisabled()}.
      *
@@ -1903,7 +1903,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlDisabled() { return getCurrentTheme().getControlDisabled(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getPrimaryControl()}.
      *
@@ -1913,7 +1913,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getPrimaryControl() { return getCurrentTheme().getPrimaryControl(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control shadow color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getPrimaryControlShadow()}.
      *
@@ -1923,7 +1923,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getPrimaryControlShadow() { return getCurrentTheme().getPrimaryControlShadow(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control dark shadow color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getPrimaryControlDarkShadow()}.
@@ -1934,7 +1934,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getPrimaryControlDarkShadow() { return getCurrentTheme().getPrimaryControlDarkShadow(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control info color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getPrimaryControlInfo()}.
      *
@@ -1944,7 +1944,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getPrimaryControlInfo() { return getCurrentTheme().getPrimaryControlInfo(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control highlight color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getPrimaryControlHighlight()}.
@@ -1955,7 +1955,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getPrimaryControlHighlight() { return getCurrentTheme().getPrimaryControlHighlight(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the system text color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getSystemTextColor()}.
      *
@@ -1965,7 +1965,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getSystemTextColor() { return getCurrentTheme().getSystemTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control text color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getControlTextColor()}.
      *
@@ -1975,7 +1975,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getControlTextColor() { return getCurrentTheme().getControlTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the inactive control text color of the current theme. This is a
      * cover method for {@code
      * getCurrentTheme().getInactiveControlTextColor()}.
@@ -1986,7 +1986,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getInactiveControlTextColor() { return getCurrentTheme().getInactiveControlTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the inactive system text color of the current theme. This is a
      * cover method for {@code
      * getCurrentTheme().getInactiveSystemTextColor()}.
@@ -1997,7 +1997,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getInactiveSystemTextColor() { return getCurrentTheme().getInactiveSystemTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the user text color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getUserTextColor()}.
      *
@@ -2007,7 +2007,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getUserTextColor() { return getCurrentTheme().getUserTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the text highlight color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getTextHighlightColor()}.
      *
@@ -2017,7 +2017,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getTextHighlightColor() { return getCurrentTheme().getTextHighlightColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the highlighted text color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getHighlightedTextColor()}.
      *
@@ -2027,7 +2027,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getHighlightedTextColor() { return getCurrentTheme().getHighlightedTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window background color of the current theme. This is a
      * cover method for {@code getCurrentTheme().getWindowBackground()}.
      *
@@ -2037,7 +2037,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWindowBackground() { return getCurrentTheme().getWindowBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title background color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getWindowTitleBackground()}.
@@ -2048,7 +2048,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWindowTitleBackground() { return getCurrentTheme().getWindowTitleBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title foreground color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getWindowTitleForeground()}.
@@ -2059,7 +2059,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWindowTitleForeground() { return getCurrentTheme().getWindowTitleForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title inactive background color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getWindowTitleInactiveBackground()}.
@@ -2070,7 +2070,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWindowTitleInactiveBackground() { return getCurrentTheme().getWindowTitleInactiveBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title inactive foreground color of the current
      * theme. This is a cover method for {@code
      * getCurrentTheme().getWindowTitleInactiveForeground()}.
@@ -2081,7 +2081,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getWindowTitleInactiveForeground() { return getCurrentTheme().getWindowTitleInactiveForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu background color of the current theme. This is
      * a cover method for {@code getCurrentTheme().getMenuBackground()}.
      *
@@ -2091,7 +2091,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getMenuBackground() { return getCurrentTheme().getMenuBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu foreground color of the current theme. This is
      * a cover method for {@code getCurrentTheme().getMenuForeground()}.
      *
@@ -2101,7 +2101,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getMenuForeground() { return getCurrentTheme().getMenuForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu selected background color of the current theme. This is
      * a cover method for
      * {@code getCurrentTheme().getMenuSelectedBackground()}.
@@ -2112,7 +2112,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getMenuSelectedBackground() { return getCurrentTheme().getMenuSelectedBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu selected foreground color of the current theme. This is
      * a cover method for
      * {@code getCurrentTheme().getMenuSelectedForeground()}.
@@ -2123,7 +2123,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getMenuSelectedForeground() { return getCurrentTheme().getMenuSelectedForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu disabled foreground color of the current theme. This is
      * a cover method for
      * {@code getCurrentTheme().getMenuDisabledForeground()}.
@@ -2134,7 +2134,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getMenuDisabledForeground() { return getCurrentTheme().getMenuDisabledForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the separator background color of the current theme. This is
      * a cover method for {@code getCurrentTheme().getSeparatorBackground()}.
      *
@@ -2144,7 +2144,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getSeparatorBackground() { return getCurrentTheme().getSeparatorBackground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the separator foreground color of the current theme. This is
      * a cover method for {@code getCurrentTheme().getSeparatorForeground()}.
      *
@@ -2154,7 +2154,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getSeparatorForeground() { return getCurrentTheme().getSeparatorForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the accelerator foreground color of the current theme. This is
      * a cover method for {@code getCurrentTheme().getAcceleratorForeground()}.
      *
@@ -2164,7 +2164,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
      */
     public static ColorUIResource getAcceleratorForeground() { return getCurrentTheme().getAcceleratorForeground(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the accelerator selected foreground color of the
      * current theme. This is a cover method for {@code
      * getCurrentTheme().getAcceleratorSelectedForeground()}.
@@ -2176,7 +2176,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
     public static ColorUIResource getAcceleratorSelectedForeground() { return getCurrentTheme().getAcceleratorSelectedForeground(); }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code LayoutStyle} implementing the Java look and feel
      * design guidelines as specified at
      * <a href="http://java.sun.com/products/jlf/ed2/book/HIG.Visual2.html">http://java.sun.com/products/jlf/ed2/book/HIG.Visual2.html</a>.
@@ -2190,13 +2190,13 @@ public class MetalLookAndFeel extends BasicLookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * MetalLazyValue is a slimmed down version of <code>ProxyLaxyValue</code>.
      * The code is duplicate so that it can get at the package private
      * classes in metal.
      */
     private static class MetalLazyValue implements UIDefaults.LazyValue {
-        /**
+        /** {@collect.stats}
          * Name of the class to create.
          */
         private String className;
@@ -2245,7 +2245,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * FontActiveValue redirects to the appropriate metal theme method.
      */
     private static class FontActiveValue implements UIDefaults.ActiveValue {
@@ -2322,7 +2322,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
             tk.removePropertyChangeListener(key, this);
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the UI of the passed in window and all its children.
          */
         private static void updateWindowUI(Window window) {
@@ -2333,7 +2333,7 @@ public class MetalLookAndFeel extends BasicLookAndFeel
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the UIs of all the known Frames.
          */
         private static void updateAllUIs() {
@@ -2343,19 +2343,19 @@ public class MetalLookAndFeel extends BasicLookAndFeel
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates if an updateUI call is pending.
          */
         private static boolean updatePending;
 
-        /**
+        /** {@collect.stats}
          * Sets whether or not an updateUI call is pending.
          */
         private static synchronized void setUpdatePending(boolean update) {
             updatePending = update;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if a UI update is pending.
          */
         private static synchronized boolean isUpdatePending() {

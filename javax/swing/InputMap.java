@@ -31,7 +31,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * <code>InputMap</code> provides a binding between an input event
  * (currently only <code>KeyStroke</code>s are used)
  * and an <code>Object</code>. <code>InputMap</code>s
@@ -53,19 +53,19 @@ import java.util.Set;
  * @since 1.3
  */
 public class InputMap implements Serializable {
-    /** Handles the mapping between KeyStroke and Action name. */
+    /** {@collect.stats} Handles the mapping between KeyStroke and Action name. */
     private transient ArrayTable     arrayTable;
-    /** Parent that handles any bindings we don't contain. */
+    /** {@collect.stats} Parent that handles any bindings we don't contain. */
     private InputMap                                parent;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>InputMap</code> with no parent and no mappings.
      */
     public InputMap() {
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this <code>InputMap</code>'s parent.
      *
      * @param map  the <code>InputMap</code> that is the parent of this one
@@ -74,7 +74,7 @@ public class InputMap implements Serializable {
         this.parent = map;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets this <code>InputMap</code>'s parent.
      *
      * @return map  the <code>InputMap</code> that is the parent of this one,
@@ -84,7 +84,7 @@ public class InputMap implements Serializable {
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a binding for <code>keyStroke</code> to <code>actionMapKey</code>.
      * If <code>actionMapKey</code> is null, this removes the current binding
      * for <code>keyStroke</code>.
@@ -104,7 +104,7 @@ public class InputMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the binding for <code>keyStroke</code>, messaging the
      * parent <code>InputMap</code> if the binding is not locally defined.
      */
@@ -129,7 +129,7 @@ public class InputMap implements Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the binding for <code>key</code> from this
      * <code>InputMap</code>.
      */
@@ -139,7 +139,7 @@ public class InputMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the mappings from this <code>InputMap</code>.
      */
     public void clear() {
@@ -148,7 +148,7 @@ public class InputMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>KeyStroke</code>s that are bound in this <code>InputMap</code>.
      */
     public KeyStroke[] keys() {
@@ -160,7 +160,7 @@ public class InputMap implements Serializable {
         return keys;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of <code>KeyStroke</code> bindings.
      */
     public int size() {
@@ -170,7 +170,7 @@ public class InputMap implements Serializable {
         return arrayTable.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the <code>KeyStroke</code>s defined in this
      * <code>InputMap</code> and its parent. This differs from <code>keys()</code> in that
      * this method includes the keys defined in the parent.

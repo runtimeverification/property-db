@@ -25,7 +25,7 @@
 
 package javax.print;
 
-/**
+/** {@collect.stats}
  * Services may optionally provide UIs which allow different styles
  * of interaction in different roles.
  * One role may be end-user browsing and setting of print options.
@@ -58,57 +58,57 @@ package javax.print;
 
 public abstract class ServiceUIFactory {
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI implemented as a Swing component.
      * The value of the String is the fully qualified classname :
      * "javax.swing.JComponent".
      */
     public static final String JCOMPONENT_UI = "javax.swing.JComponent";
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI implemented as an AWT panel.
      * The value of the String is the fully qualified classname :
      * "java.awt.Panel"
      */
     public static final String PANEL_UI = "java.awt.Panel";
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI implemented as an AWT dialog.
      * The value of the String is the fully qualified classname :
      * "java.awt.Dialog"
      */
     public static final String DIALOG_UI = "java.awt.Dialog";
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI implemented as a Swing dialog.
      * The value of the String is the fully qualified classname :
      * "javax.swing.JDialog"
      */
     public static final String JDIALOG_UI = "javax.swing.JDialog";
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI which performs an informative "About" role.
      */
     public static final int ABOUT_UIROLE = 1;
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI which performs an administrative role.
      */
     public static final int ADMIN_UIROLE = 2;
 
-    /**
+    /** {@collect.stats}
      * Denotes a UI which performs the normal end user role.
      */
     public static final int MAIN_UIROLE = 3;
 
-    /**
+    /** {@collect.stats}
      * Not a valid role but role id's greater than this may be used
      * for private roles supported by a service. Knowledge of the
      * function performed by this role is required to make proper use
      * of it.
      */
     public static final int RESERVED_UIROLE = 99;
-    /**
+    /** {@collect.stats}
      * Get a UI object which may be cast to the requested UI type
      * by the application and used in its user interface.
      * <P>
@@ -123,7 +123,7 @@ public abstract class ServiceUIFactory {
      */
     public abstract Object getUI(int role, String ui) ;
 
-    /**
+    /** {@collect.stats}
      * Given a UI role obtained from this factory obtain the UI
      * types available from this factory which implement this role.
      * The returned Strings should refer to the static variables defined

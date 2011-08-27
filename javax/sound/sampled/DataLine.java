@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * <code>DataLine</code> adds media-related functionality to its
  * superinterface, <code>{@link Line}</code>.  This functionality includes
  * transport-control methods that start, stop, drain, and flush
@@ -68,7 +68,7 @@ package javax.sound.sampled;
 public interface DataLine extends Line {
 
 
-    /**
+    /** {@collect.stats}
      * Drains queued data from the line by continuing data I/O until the
      * data line's internal buffer has been emptied.
      * This method blocks until the draining is complete.  Because this is a
@@ -83,7 +83,7 @@ public interface DataLine extends Line {
      */
     public void drain();
 
-    /**
+    /** {@collect.stats}
      * Flushes queued data from the line.  The flushed data is discarded.
      * In some cases, not all queued data can be discarded.  For example, a
      * mixer can flush data from the buffer for a specific input line, but any
@@ -99,7 +99,7 @@ public interface DataLine extends Line {
      */
     public void flush();
 
-    /**
+    /** {@collect.stats}
      * Allows a line to engage in data I/O.  If invoked on a line
      * that is already running, this method does nothing.  Unless the data in
      * the buffer has been flushed, the line resumes I/O starting
@@ -113,7 +113,7 @@ public interface DataLine extends Line {
      */
     public void start();
 
-    /**
+    /** {@collect.stats}
      * Stops the line.  A stopped line should cease I/O activity.
      * If the line is open and running, however, it should retain the resources required
      * to resume activity.  A stopped line should retain any audio data in its buffer
@@ -131,7 +131,7 @@ public interface DataLine extends Line {
      */
     public void stop();
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the line is running.  The default is <code>false</code>.
      * An open line begins running when the first data is presented in response to an
      * invocation of the <code>start</code> method, and continues
@@ -143,7 +143,7 @@ public interface DataLine extends Line {
      */
     public boolean isRunning();
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the line is engaging in active I/O (such as playback
      * or capture).  When an inactive line becomes active, it sends a
      * <code>{@link LineEvent.Type#START START}</code> event to its listeners.  Similarly, when
@@ -159,7 +159,7 @@ public interface DataLine extends Line {
      */
     public boolean isActive();
 
-    /**
+    /** {@collect.stats}
      * Obtains the current format (encoding, sample rate, number of channels,
      * etc.) of the data line's audio data.
      *
@@ -178,7 +178,7 @@ public interface DataLine extends Line {
      */
     public AudioFormat getFormat();
 
-    /**
+    /** {@collect.stats}
      * Obtains the maximum number of bytes of data that will fit in the data line's
      * internal buffer.  For a source data line, this is the size of the buffer to
      * which data can be written.  For a target data line, it is the size of
@@ -190,7 +190,7 @@ public interface DataLine extends Line {
      */
     public int getBufferSize();
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of bytes of data currently available to the
      * application for processing in the data line's internal buffer.  For a
      * source data line, this is the amount of data that can be written to the
@@ -211,7 +211,7 @@ public interface DataLine extends Line {
      */
     public int available();
 
-    /**
+    /** {@collect.stats}
      * Obtains the current position in the audio data, in sample frames.
      * The frame position measures the number of sample
      * frames captured by, or rendered from, the line since it was opened.
@@ -224,7 +224,7 @@ public interface DataLine extends Line {
     public int getFramePosition();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current position in the audio data, in sample frames.
      * The frame position measures the number of sample
      * frames captured by, or rendered from, the line since it was opened.
@@ -235,7 +235,7 @@ public interface DataLine extends Line {
     public long getLongFramePosition();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current position in the audio data, in microseconds.
      * The microsecond position measures the time corresponding to the number
      * of sample frames captured by, or rendered from, the line since it was opened.
@@ -248,7 +248,7 @@ public interface DataLine extends Line {
      */
     public long getMicrosecondPosition();
 
-    /**
+    /** {@collect.stats}
      * Obtains the current volume level for the line.  This level is a measure
      * of the signal's current amplitude, and should not be confused with the
      * current setting of a gain control. The range is from 0.0 (silence) to
@@ -260,7 +260,7 @@ public interface DataLine extends Line {
      */
     public float getLevel();
 
-    /**
+    /** {@collect.stats}
      * Besides the class information inherited from its superclass,
      * <code>DataLine.Info</code> provides additional information specific to data lines.
      * This information includes:
@@ -286,7 +286,7 @@ public interface DataLine extends Line {
         private int minBufferSize;
         private int maxBufferSize;
 
-        /**
+        /** {@collect.stats}
          * Constructs a data line's info object from the specified information,
          * which includes a set of supported audio formats and a range for the buffer size.
          * This constructor is typically used by mixer implementations
@@ -312,7 +312,7 @@ public interface DataLine extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a data line's info object from the specified information,
          * which includes a single audio format and a desired buffer size.
          * This constructor is typically used by an application to
@@ -338,7 +338,7 @@ public interface DataLine extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a data line's info object from the specified information,
          * which includes a single audio format.
          * This constructor is typically used by an application to
@@ -352,7 +352,7 @@ public interface DataLine extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains a set of audio formats supported by the data line.
          * Note that <code>isFormatSupported(AudioFormat)</code> might return
          * <code>true</code> for certain additional formats that are missing from
@@ -379,7 +379,7 @@ public interface DataLine extends Line {
             return returnedArray;
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates whether this data line supports a particular audio format.
          * The default implementation of this method simply returns <code>true</code> if
          * the specified format matches any of the supported formats.
@@ -400,7 +400,7 @@ public interface DataLine extends Line {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the minimum buffer size supported by the data line.
          * @return minimum buffer size in bytes, or <code>AudioSystem.NOT_SPECIFIED</code>
          */
@@ -409,7 +409,7 @@ public interface DataLine extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the maximum buffer size supported by the data line.
          * @return maximum buffer size in bytes, or <code>AudioSystem.NOT_SPECIFIED</code>
          */
@@ -418,7 +418,7 @@ public interface DataLine extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Determines whether the specified info object matches this one.
          * To match, the superclass match requirements must be met.  In
          * addition, this object's minimum buffer size must be at least as
@@ -467,7 +467,7 @@ public interface DataLine extends Line {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains a textual description of the data line info.
          * @return a string description
          */

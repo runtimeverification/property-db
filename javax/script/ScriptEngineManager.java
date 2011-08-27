@@ -33,7 +33,7 @@ import sun.misc.ServiceConfigurationError;
 import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * The <code>ScriptEngineManager</code> implements a discovery and instantiation
  * mechanism for <code>ScriptEngine</code> classes and also maintains a
  * collection of key/value pairs storing state shared by all engines created
@@ -54,7 +54,7 @@ import sun.security.util.SecurityConstants;
  */
 public class ScriptEngineManager  {
     private static final boolean DEBUG = false;
-    /**
+    /** {@collect.stats}
      * If the thread context ClassLoader can be accessed by the caller,
      * then the effect of calling this constructor is the same as calling
      * <code>ScriptEngineManager(Thread.currentThread().getContextClassLoader())</code>.
@@ -73,7 +73,7 @@ public class ScriptEngineManager  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This constructor loads the implementations of
      * <code>ScriptEngineFactory</code> visible to the given
      * <code>ClassLoader</code> using the <a href="../../../technotes/guides/jar/jar.html#Service%20Provider">service provider</a> mechanism.<br><br>
@@ -149,7 +149,7 @@ public class ScriptEngineManager  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <code>setBindings</code> stores the specified <code>Bindings</code>
      * in the <code>globalScope</code> field. ScriptEngineManager sets this
      * <code>Bindings</code> as global bindings for <code>ScriptEngine</code>
@@ -166,7 +166,7 @@ public class ScriptEngineManager  {
         globalScope = bindings;
     }
 
-    /**
+    /** {@collect.stats}
      * <code>getBindings</code> returns the value of the <code>globalScope</code> field.
      * ScriptEngineManager sets this <code>Bindings</code> as global bindings for
      * <code>ScriptEngine</code> objects created by it.
@@ -177,7 +177,7 @@ public class ScriptEngineManager  {
         return globalScope;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified key/value pair in the Global Scope.
      * @param key Key to set
      * @param value Value to set.
@@ -188,7 +188,7 @@ public class ScriptEngineManager  {
         globalScope.put(key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value for the specified key in the Global Scope
      * @param key The key whose value is to be returned.
      * @return The value for the specified key.
@@ -197,7 +197,7 @@ public class ScriptEngineManager  {
         return globalScope.get(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Looks up and creates a <code>ScriptEngine</code> for a given  name.
      * The algorithm first searches for a <code>ScriptEngineFactory</code> that has been
      * registered as a handler for the specified name using the <code>registerEngineName</code>
@@ -254,7 +254,7 @@ public class ScriptEngineManager  {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Look up and create a <code>ScriptEngine</code> for a given extension.  The algorithm
      * used by <code>getEngineByName</code> is used except that the search starts
      * by looking for a <code>ScriptEngineFactory</code> registered to handle the
@@ -302,7 +302,7 @@ public class ScriptEngineManager  {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Look up and create a <code>ScriptEngine</code> for a given mime type.  The algorithm
      * used by <code>getEngineByName</code> is used except that the search starts
      * by looking for a <code>ScriptEngineFactory</code> registered to handle the
@@ -350,7 +350,7 @@ public class ScriptEngineManager  {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array whose elements are instances of all the <code>ScriptEngineFactory</code> classes
      * found by the discovery mechanism.
      * @return List of all discovered <code>ScriptEngineFactory</code>s.
@@ -363,7 +363,7 @@ public class ScriptEngineManager  {
         return Collections.unmodifiableList(res);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers a <code>ScriptEngineFactory</code> to handle a language
      * name.  Overrides any such association found using the Discovery mechanism.
      * @param name The name to be associated with the <code>ScriptEngineFactory</code>.
@@ -375,7 +375,7 @@ public class ScriptEngineManager  {
         nameAssociations.put(name, factory);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers a <code>ScriptEngineFactory</code> to handle a mime type.
      * Overrides any such association found using the Discovery mechanism.
      *
@@ -390,7 +390,7 @@ public class ScriptEngineManager  {
         mimeTypeAssociations.put(type, factory);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers a <code>ScriptEngineFactory</code> to handle an extension.
      * Overrides any such association found using the Discovery mechanism.
      *
@@ -404,19 +404,19 @@ public class ScriptEngineManager  {
         extensionAssociations.put(extension, factory);
     }
 
-    /** Set of script engine factories discovered. */
+    /** {@collect.stats} Set of script engine factories discovered. */
     private HashSet<ScriptEngineFactory> engineSpis;
 
-    /** Map of engine name to script engine factory. */
+    /** {@collect.stats} Map of engine name to script engine factory. */
     private HashMap<String, ScriptEngineFactory> nameAssociations;
 
-    /** Map of script file extension to script engine factory. */
+    /** {@collect.stats} Map of script file extension to script engine factory. */
     private HashMap<String, ScriptEngineFactory> extensionAssociations;
 
-    /** Map of script script MIME type to script engine factory. */
+    /** {@collect.stats} Map of script script MIME type to script engine factory. */
     private HashMap<String, ScriptEngineFactory> mimeTypeAssociations;
 
-    /** Global bindings associated with script engines created by this manager. */
+    /** {@collect.stats} Global bindings associated with script engines created by this manager. */
     private Bindings globalScope;
 
     private boolean canCallerAccessLoader(ClassLoader loader) {

@@ -30,7 +30,7 @@ import javax.print.attribute.DateTimeSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobHoldUntil is a printing attribute class, a date-time attribute, that
  * specifies the exact date and time at which the job must become a candidate
  * for printing.
@@ -88,7 +88,7 @@ public final class JobHoldUntil extends DateTimeSyntax
     private static final long serialVersionUID = -1664471048860415024L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new job hold until date-time attribute with the given
      * {@link java.util.Date Date} value.
      *
@@ -101,7 +101,7 @@ public final class JobHoldUntil extends DateTimeSyntax
         super (dateTime);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job hold until attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -125,7 +125,7 @@ public final class JobHoldUntil extends DateTimeSyntax
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -138,7 +138,7 @@ public final class JobHoldUntil extends DateTimeSyntax
         return JobHoldUntil.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * An <code>InvalidMidiDataException</code> indicates that inappropriate MIDI
  * data was encountered. This often means that the data is invalid in and of
  * itself, from the perspective of the MIDI specification.  An example would
@@ -40,7 +40,7 @@ package javax.sound.midi;
  */
 public class InvalidMidiDataException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>InvalidMidiDataException</code> with
      * <code>null</code> for its error detail message.
      */
@@ -50,7 +50,7 @@ public class InvalidMidiDataException extends Exception {
     }
 
 
-    /**
+    /** {@collect.stats}
      *  Constructs an <code>InvalidMidiDataException</code> with the
      * specified detail message.
      *

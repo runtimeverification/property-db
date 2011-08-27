@@ -31,7 +31,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
-/**
+/** {@collect.stats}
  * Indicates an exceptional condition thrown while dereferencing a
  * {@link URIReference}.
  *
@@ -48,7 +48,7 @@ public class URIReferenceException extends Exception {
 
     private static final long serialVersionUID = 7173469703932561419L;
 
-    /**
+    /** {@collect.stats}
      * The throwable that caused this exception to get thrown, or null if this
      * exception was not caused by another throwable or if the causative
      * throwable is unknown.
@@ -59,7 +59,7 @@ public class URIReferenceException extends Exception {
 
     private URIReference uriReference;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>URIReferenceException</code> with
      * <code>null</code> as its detail message.
      */
@@ -67,7 +67,7 @@ public class URIReferenceException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>URIReferenceException</code> with the specified
      * detail message.
      *
@@ -77,7 +77,7 @@ public class URIReferenceException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>URIReferenceException</code> with the
      * specified detail message and cause.
      * <p>Note that the detail message associated with
@@ -93,7 +93,7 @@ public class URIReferenceException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>URIReferenceException</code> with the
      * specified detail message, cause and <code>URIReference</code>.
      * <p>Note that the detail message associated with
@@ -117,7 +117,7 @@ public class URIReferenceException extends Exception {
         this.uriReference = uriReference;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>URIReferenceException</code> with the specified
      * cause and a detail message of <code>(cause==null ? null :
      * cause.toString())</code> (which typically contains the class and detail
@@ -131,7 +131,7 @@ public class URIReferenceException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>URIReference</code> that was being dereferenced
      * when the exception was thrown.
      *
@@ -142,7 +142,7 @@ public class URIReferenceException extends Exception {
         return uriReference;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this <code>URIReferenceException</code> or
      * <code>null</code> if the cause is nonexistent or unknown.  (The
      * cause is the throwable that caused this
@@ -155,7 +155,7 @@ public class URIReferenceException extends Exception {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>URIReferenceException</code>, its backtrace and
      * the cause's backtrace to the standard error stream.
      */
@@ -164,7 +164,7 @@ public class URIReferenceException extends Exception {
         //XXX print backtrace of cause
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>URIReferenceException</code>, its backtrace and
      * the cause's backtrace to the specified print stream.
      *
@@ -175,7 +175,7 @@ public class URIReferenceException extends Exception {
         //XXX print backtrace of cause
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>URIReferenceException</code>, its backtrace and
      * the cause's backtrace to the specified print writer.
      *

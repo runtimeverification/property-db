@@ -29,7 +29,7 @@ package javax.xml.crypto;
 
 import java.security.Key;
 
-/**
+/** {@collect.stats}
  * The result returned by the {@link KeySelector#select KeySelector.select}
  * method.
  * <p>
@@ -45,7 +45,7 @@ import java.security.Key;
  */
 public interface KeySelectorResult {
 
-    /**
+    /** {@collect.stats}
      * Returns the selected key.
      *
      * @return the selected key, or <code>null</code> if none can be found

@@ -25,7 +25,7 @@
 
 package javax.smartcardio;
 
-/**
+/** {@collect.stats}
  * Exception for errors that occur during communication with the
  * Smart Card stack or the card itself.
  *
@@ -37,7 +37,7 @@ public class CardException extends Exception {
 
     private static final long serialVersionUID = 7787607144922050628L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardException with the specified detail message.
      *
      * @param message the detail message
@@ -46,7 +46,7 @@ public class CardException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardException with the specified cause and a detail message
      * of <code>(cause==null ? null : cause.toString())</code>.
      *
@@ -56,7 +56,7 @@ public class CardException extends Exception {
         super(cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardException with the specified detail message and cause.
      *
      * @param message the detail message

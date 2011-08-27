@@ -27,14 +27,14 @@ package javax.swing.plaf.basic;
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel implementation for
  * <code>JFormattedTextField</code>.
  *
  * @since 1.4
  */
 public class BasicFormattedTextFieldUI extends BasicTextFieldUI {
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JFormattedTextField.
      *
      * @param c the formatted text field
@@ -44,7 +44,7 @@ public class BasicFormattedTextFieldUI extends BasicTextFieldUI {
         return new BasicFormattedTextFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.

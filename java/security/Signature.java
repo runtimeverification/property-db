@@ -46,7 +46,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This Signature class is used to provide applications the functionality
  * of a digital signature algorithm. Digital signatures are used for
  * authentication and integrity assurance of digital data.
@@ -117,30 +117,30 @@ public abstract class Signature extends SignatureSpi {
     // The provider
     Provider provider;
 
-    /**
+    /** {@collect.stats}
      * Possible {@link #state} value, signifying that
      * this signature object has not yet been initialized.
      */
     protected final static int UNINITIALIZED = 0;
 
-    /**
+    /** {@collect.stats}
      * Possible {@link #state} value, signifying that
      * this signature object has been initialized for signing.
      */
     protected final static int SIGN = 2;
 
-    /**
+    /** {@collect.stats}
      * Possible {@link #state} value, signifying that
      * this signature object has been initialized for verification.
      */
     protected final static int VERIFY = 3;
 
-    /**
+    /** {@collect.stats}
      * Current state of this signature object.
      */
     protected int state = UNINITIALIZED;
 
-    /**
+    /** {@collect.stats}
      * Creates a Signature object for the specified algorithm.
      *
      * @param algorithm the standard string name of the algorithm.
@@ -170,7 +170,7 @@ public abstract class Signature extends SignatureSpi {
         }
     );
 
-    /**
+    /** {@collect.stats}
      * Returns a Signature object that implements the specified signature
      * algorithm.
      *
@@ -290,7 +290,7 @@ public abstract class Signature extends SignatureSpi {
         return result.booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Signature object that implements the specified signature
      * algorithm.
      *
@@ -343,7 +343,7 @@ public abstract class Signature extends SignatureSpi {
         return getInstance(instance, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Signature object that implements the specified
      * signature algorithm.
      *
@@ -408,7 +408,7 @@ public abstract class Signature extends SignatureSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this signature object.
      *
      * @return the provider of this signature object
@@ -422,7 +422,7 @@ public abstract class Signature extends SignatureSpi {
         // empty, overridden in Delegate
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this object for verification. If this method is called
      * again with a different argument, it negates the effect
      * of this call.
@@ -438,7 +438,7 @@ public abstract class Signature extends SignatureSpi {
         state = VERIFY;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this object for verification, using the public key from
      * the given certificate.
      * <p>If the certificate is of type X.509 and has a <i>key usage</i>
@@ -482,7 +482,7 @@ public abstract class Signature extends SignatureSpi {
         state = VERIFY;
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize this object for signing. If this method is called
      * again with a different argument, it negates the effect
      * of this call.
@@ -498,7 +498,7 @@ public abstract class Signature extends SignatureSpi {
         state = SIGN;
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize this object for signing. If this method is called
      * again with a different argument, it negates the effect
      * of this call.
@@ -516,7 +516,7 @@ public abstract class Signature extends SignatureSpi {
         state = SIGN;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the signature bytes of all the data updated.
      * The format of the signature depends on the underlying
      * signature scheme.
@@ -542,7 +542,7 @@ public abstract class Signature extends SignatureSpi {
                                      "signing");
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes the signature operation and stores the resulting signature
      * bytes in the provided buffer <code>outbuf</code>, starting at
      * <code>offset</code>.
@@ -586,7 +586,7 @@ public abstract class Signature extends SignatureSpi {
         return engineSign(outbuf, offset, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Verifies the passed-in signature.
      *
      * <p>A call to this method resets this signature object to the state
@@ -612,7 +612,7 @@ public abstract class Signature extends SignatureSpi {
                                      "verification");
     }
 
-    /**
+    /** {@collect.stats}
      * Verifies the passed-in signature in the specified array
      * of bytes, starting at the specified offset.
      *
@@ -654,7 +654,7 @@ public abstract class Signature extends SignatureSpi {
                                      "verification");
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the data to be signed or verified by a byte.
      *
      * @param b the byte to use for the update.
@@ -671,7 +671,7 @@ public abstract class Signature extends SignatureSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the data to be signed or verified, using the specified
      * array of bytes.
      *
@@ -684,7 +684,7 @@ public abstract class Signature extends SignatureSpi {
         update(data, 0, data.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the data to be signed or verified, using the specified
      * array of bytes, starting at the specified offset.
      *
@@ -705,7 +705,7 @@ public abstract class Signature extends SignatureSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the data to be signed or verified using the specified
      * ByteBuffer. Processes the <code>data.remaining()</code> bytes
      * starting at at <code>data.position()</code>.
@@ -729,7 +729,7 @@ public abstract class Signature extends SignatureSpi {
         engineUpdate(data);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the algorithm for this signature object.
      *
      * @return the name of the algorithm for this signature object.
@@ -738,7 +738,7 @@ public abstract class Signature extends SignatureSpi {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this signature object,
      * providing information that includes the state of the object
      * and the name of the algorithm used.
@@ -761,7 +761,7 @@ public abstract class Signature extends SignatureSpi {
         return "Signature object: " + getAlgorithm() + initState;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified algorithm parameter to the specified value.
      * This method supplies a general-purpose mechanism through
      * which it is possible to set the various parameters of this object.
@@ -792,7 +792,7 @@ public abstract class Signature extends SignatureSpi {
         engineSetParameter(param, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this signature engine with the specified parameter set.
      *
      * @param params the parameters
@@ -807,7 +807,7 @@ public abstract class Signature extends SignatureSpi {
         engineSetParameter(params);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parameters used with this signature object.
      *
      * <p>The returned parameters may be the same that were used to initialize
@@ -826,7 +826,7 @@ public abstract class Signature extends SignatureSpi {
         return engineGetParameters();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the specified algorithm parameter. This method
      * supplies a general-purpose mechanism through which it is possible to
      * get the various parameters of this object. A parameter may be any
@@ -855,7 +855,7 @@ public abstract class Signature extends SignatureSpi {
         return engineGetParameter(param);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone if the implementation is cloneable.
      *
      * @return a clone if the implementation is cloneable.
@@ -918,7 +918,7 @@ public abstract class Signature extends SignatureSpi {
             this.lock = new Object();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a clone if the delegate is cloneable.
          *
          * @return a clone if the delegate is cloneable.
@@ -965,7 +965,7 @@ public abstract class Signature extends SignatureSpi {
         // max number of debug warnings to print from chooseFirstProvider()
         private static int warnCount = 10;
 
-        /**
+        /** {@collect.stats}
          * Choose the Spi from the first provider available. Used if
          * delayed provider selection is not possible because initSign()/
          * initVerify() is not the first method called.

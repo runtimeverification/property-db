@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * This class is for various network permissions.
  * A NetPermission contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -155,7 +155,7 @@ that class really didn't come from that location.</td>
 public final class NetPermission extends BasicPermission {
     private static final long serialVersionUID = -8343910153355041693L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new NetPermission with the specified name.
      * The name is the symbolic name of the NetPermission, such as
      * "setDefaultAuthenticator", etc. An asterisk
@@ -173,7 +173,7 @@ public final class NetPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new NetPermission object with the specified name.
      * The name is the symbolic name of the NetPermission, and the
      * actions String is currently unused and should be null.

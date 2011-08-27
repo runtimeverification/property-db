@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A <code>EnumControl</code> provides control over a set of
  * discrete possible values, each represented by an object.  In a
  * graphical user interface, such a control might be represented
@@ -58,13 +58,13 @@ public abstract class EnumControl extends Control {
     // INSTANCE VARIABLES
 
 
-    /**
+    /** {@collect.stats}
      * The set of possible values.
      */
     private Object[] values;
 
 
-    /**
+    /** {@collect.stats}
      * The current value.
      */
     private Object value;
@@ -74,7 +74,7 @@ public abstract class EnumControl extends Control {
     // CONSTRUCTORS
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new enumerated control object with the given parameters.
      *
      * @param type the type of control represented this enumerated control object
@@ -94,7 +94,7 @@ public abstract class EnumControl extends Control {
     // METHODS
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current value for the control.  The default implementation
      * simply sets the value as indicated.  If the value indicated is not
      * supported, an IllegalArgumentException is thrown.
@@ -113,7 +113,7 @@ public abstract class EnumControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains this control's current value.
      * @return the current value
      */
@@ -122,7 +122,7 @@ public abstract class EnumControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the set of possible values for this control.
      * @return the set of possible values
      */
@@ -138,7 +138,7 @@ public abstract class EnumControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the value specified is supported.
      * @param value the value for which support is queried
      * @return <code>true</code> if the value is supported,
@@ -162,7 +162,7 @@ public abstract class EnumControl extends Control {
     // ABSTRACT METHOD IMPLEMENTATIONS: CONTROL
 
 
-    /**
+    /** {@collect.stats}
      * Provides a string representation of the control.
      * @return a string description
      */
@@ -174,7 +174,7 @@ public abstract class EnumControl extends Control {
     // INNER CLASSES
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>EnumControl.Type</code> inner class identifies one kind of
      * enumerated control.  Static instances are provided for the
      * common types.
@@ -189,7 +189,7 @@ public abstract class EnumControl extends Control {
 
         // TYPE DEFINES
 
-        /**
+        /** {@collect.stats}
          * Represents a control over a set of possible reverberation settings.
          * Each reverberation setting is described by an instance of the
          * {@link ReverbType} class.  (To access these settings,
@@ -202,7 +202,7 @@ public abstract class EnumControl extends Control {
         // CONSTRUCTOR
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a new enumerated control type.
          * @param name  the name of the new enumerated control type
          */

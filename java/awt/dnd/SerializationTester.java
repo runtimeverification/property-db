@@ -30,7 +30,7 @@ import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Tests if an object can truly be serialized by serializing it to a null
  * OutputStream.
  *

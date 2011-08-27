@@ -28,7 +28,7 @@ package java.text;
 import java.util.*;
 import java.text.AttributedCharacterIterator.Attribute;
 
-/**
+/** {@collect.stats}
  * An AttributedString holds text and related attribute information. It
  * may be used as the actual data storage in some cases where a text
  * reader wants to access attributed text through the AttributedCharacterIterator
@@ -64,7 +64,7 @@ public class AttributedString {
     Vector runAttributes[];         // vector of attribute keys for each run
     Vector runAttributeValues[];    // parallel vector of attribute values for each run
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the given
      * AttributedCharacterIterators.
      *
@@ -117,7 +117,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the given text.
      * @param text The text for this attributed string.
      * @exception NullPointerException if <code>text</code> is null.
@@ -129,7 +129,7 @@ public class AttributedString {
         this.text = text;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the given text and attributes.
      * @param text The text for this attributed string.
      * @param attributes The attributes that apply to the entire string.
@@ -169,7 +169,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the given attributed
      * text represented by AttributedCharacterIterator.
      * @param text The text for this attributed string.
@@ -182,7 +182,7 @@ public class AttributedString {
         this(text, text.getBeginIndex(), text.getEndIndex(), null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the subrange of
      * the given attributed text represented by
      * AttributedCharacterIterator. If the given range produces an
@@ -205,7 +205,7 @@ public class AttributedString {
         this(text, beginIndex, endIndex, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an AttributedString instance with the subrange of
      * the given attributed text represented by
      * AttributedCharacterIterator.  Only attributes that match the
@@ -306,7 +306,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute to the entire string.
      * @param attribute the attribute key
      * @param value the value of the attribute; may be null
@@ -328,7 +328,7 @@ public class AttributedString {
         addAttributeImpl(attribute, value, 0, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute to a subrange of the string.
      * @param attribute the attribute key
      * @param value The value of the attribute. May be null.
@@ -353,7 +353,7 @@ public class AttributedString {
         addAttributeImpl(attribute, value, beginIndex, endIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of attributes to a subrange of the string.
      * @param attributes The attributes to be added to the string.
      * @param beginIndex Index of the first character of the range.
@@ -430,7 +430,7 @@ public class AttributedString {
         return ensureRunBreak(offset, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures there is a run break at offset, returning the index of
      * the run. If this results in splitting a run, two things can happen:
      * <ul>
@@ -539,7 +539,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an AttributedCharacterIterator instance that provides access to the entire contents of
      * this string.
      *
@@ -549,7 +549,7 @@ public class AttributedString {
         return getIterator(null, 0, length());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an AttributedCharacterIterator instance that provides access to
      * selected contents of this string.
      * Information about attributes not listed in attributes that the
@@ -564,7 +564,7 @@ public class AttributedString {
         return getIterator(attributes, 0, length());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an AttributedCharacterIterator instance that provides access to
      * selected contents of this string.
      * Information about attributes not listed in attributes that the
@@ -671,7 +671,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the contents of the CharacterIterator iterator into the
      * StringBuffer buf.
      */
@@ -686,7 +686,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the attributes for the range from offset to the next run break
      * (typically the end of the text) to the ones specified in attrs.
      * This is only meant to be called from the constructor!
@@ -715,7 +715,7 @@ public class AttributedString {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the attributes specified in last and attrs differ.
      */
     private static boolean mapsDiffer(Map last, Map attrs) {

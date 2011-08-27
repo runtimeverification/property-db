@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when attempting to access
   * an attribute that does not exist.
   * <p>
@@ -40,7 +40,7 @@ import javax.naming.NamingException;
   */
 
 public class NoSuchAttributeException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NoSuchAttributeException using
      * an explanation. All other fields are set to null.
      * @param   explanation     Additional detail about this exception. Can be null.
@@ -51,7 +51,7 @@ public class NoSuchAttributeException extends NamingException {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NoSuchAttributeException.
      * All fields are initialized to null.
      */
@@ -59,7 +59,7 @@ public class NoSuchAttributeException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 4836415647935888137L;

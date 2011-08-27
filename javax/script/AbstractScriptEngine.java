@@ -28,7 +28,7 @@ import java.io.Reader;
 import java.util.Map;
 import java.util.Iterator;
 
-/**
+/** {@collect.stats}
  * Provides a standard implementation for several of the variants of the <code>eval</code>
  * method.
  * <br><br>
@@ -49,13 +49,13 @@ import java.util.Iterator;
  */
 public abstract class AbstractScriptEngine  implements ScriptEngine {
 
-    /**
+    /** {@collect.stats}
      * The default <code>ScriptContext</code> of this <code>AbstractScriptEngine</code>.
      */
 
     protected ScriptContext context;
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of AbstractScriptEngine using a <code>SimpleScriptContext</code>
      * as its default <code>ScriptContext</code>.
      */
@@ -65,7 +65,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance using the specified <code>Bindings</code> as the
      * <code>ENGINE_SCOPE</code> <code>Bindings</code> in the protected <code>context</code> field.
      *
@@ -81,7 +81,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         context.setBindings(n, ScriptContext.ENGINE_SCOPE);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the protected <code>context</code> field to the specified
      * <code>ScriptContext</code>.
      *
@@ -95,7 +95,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         context = ctxt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the protected <code>context</code> field.
      *
      * @return The value of the protected <code>context</code> field.
@@ -104,7 +104,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         return context;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Bindings</code> with the specified scope value in
      * the protected <code>context</code> field.
      *
@@ -126,7 +126,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Bindings</code> with the corresponding scope value in the
      * <code>context</code> field.
      *
@@ -149,7 +149,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified value with the specified key in the <code>ENGINE_SCOPE</code>
      * <code>Bindings</code> of the protected <code>context</code> field.
      *
@@ -168,7 +168,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value for the specified key in the <code>ENGINE_SCOPE</code> of the
      * protected <code>context</code> field.
      *
@@ -188,7 +188,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>eval(Reader, Bindings)</code> calls the abstract
      * <code>eval(Reader, ScriptContext)</code> method, passing it a <code>ScriptContext</code>
      * whose Reader, Writers and Bindings for scopes other that <code>ENGINE_SCOPE</code>
@@ -213,7 +213,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Same as <code>eval(Reader, Bindings)</code> except that the abstract
      * <code>eval(String, ScriptContext)</code> is used.
      *
@@ -233,7 +233,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         return eval(script , ctxt);
     }
 
-    /**
+    /** {@collect.stats}
      * <code>eval(Reader)</code> calls the abstract
      * <code>eval(Reader, ScriptContext)</code> passing the value of the <code>context</code>
      * field.
@@ -249,7 +249,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         return eval(reader, context);
     }
 
-    /**
+    /** {@collect.stats}
      * Same as <code>eval(Reader)</code> except that the abstract
      * <code>eval(String, ScriptContext)</code> is used.
      *
@@ -264,7 +264,7 @@ public abstract class AbstractScriptEngine  implements ScriptEngine {
         return eval(script, context);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SimpleScriptContext</code>.  The <code>SimpleScriptContext</code>:
      *<br><br>
      * <ul>

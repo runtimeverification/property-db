@@ -29,7 +29,7 @@ import java.util.*;
 import java.io.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * A simple tree data model that uses TreeNodes.
  * For further information and examples that use DefaultTreeModel,
  * see <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/tree.html">How to Use Trees</a>
@@ -49,11 +49,11 @@ import javax.swing.event.*;
  * @author Scott Violet
  */
 public class DefaultTreeModel implements Serializable, TreeModel {
-    /** Root of the tree. */
+    /** {@collect.stats} Root of the tree. */
     protected TreeNode root;
-    /** Listeners. */
+    /** {@collect.stats} Listeners. */
     protected EventListenerList listenerList = new EventListenerList();
-    /**
+    /** {@collect.stats}
       * Determines how the <code>isLeaf</code> method figures
       * out if a node is a leaf node. If true, a node is a leaf
       * node if it does not allow children. (If it allows
@@ -72,7 +72,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
     protected boolean asksAllowsChildren;
 
 
-    /**
+    /** {@collect.stats}
       * Creates a tree in which any node can have children.
       *
       * @param root a TreeNode object that is the root of the tree
@@ -82,7 +82,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         this(root, false);
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a tree specifying whether any node can have children,
       * or whether only certain nodes can have children.
       *
@@ -98,7 +98,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         this.asksAllowsChildren = asksAllowsChildren;
     }
 
-    /**
+    /** {@collect.stats}
       * Sets whether or not to test leafness by asking getAllowsChildren()
       * or isLeaf() to the TreeNodes.  If newvalue is true, getAllowsChildren()
       * is messaged, otherwise isLeaf() is messaged.
@@ -107,7 +107,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         asksAllowsChildren = newValue;
     }
 
-    /**
+    /** {@collect.stats}
       * Tells how leaf nodes are determined.
       *
       * @return true if only nodes which do not allow children are
@@ -119,7 +119,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return asksAllowsChildren;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the root to <code>root</code>. A null <code>root</code> implies
      * the tree is to display nothing, and is legal.
      */
@@ -134,7 +134,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root of the tree.  Returns null only if the tree has
      * no nodes.
      *
@@ -144,7 +144,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return root;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of child in parent.
      * If either the parent or child is <code>null</code>, returns -1.
      * @param parent a note in the tree, obtained from this data source
@@ -158,7 +158,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return ((TreeNode)parent).getIndex((TreeNode)child);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child of <I>parent</I> at index <I>index</I> in the parent's
      * child array.  <I>parent</I> must be a node previously obtained from
      * this data source. This should not return null if <i>index</i>
@@ -172,7 +172,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return ((TreeNode)parent).getChildAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of children of <I>parent</I>.  Returns 0 if the node
      * is a leaf or if it has no children.  <I>parent</I> must be a node
      * previously obtained from this data source.
@@ -184,7 +184,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return ((TreeNode)parent).getChildCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the specified node is a leaf node.
      * The way the test is performed depends on the
      * <code>askAllowsChildren</code> setting.
@@ -201,7 +201,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return ((TreeNode)node).isLeaf();
     }
 
-    /**
+    /** {@collect.stats}
      * Invoke this method if you've modified the {@code TreeNode}s upon which
      * this model depends. The model will notify all of its listeners that the
      * model has changed.
@@ -210,7 +210,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         reload(root);
     }
 
-    /**
+    /** {@collect.stats}
       * This sets the user object of the TreeNode identified by path
       * and posts a node changed.  If you use custom user objects in
       * the TreeModel you're going to need to subclass this and
@@ -223,7 +223,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         nodeChanged(aNode);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked this to insert newChild at location index in parents children.
      * This will then message nodesWereInserted to create the appropriate
      * event. This is the preferred way to add children as it will create
@@ -239,7 +239,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         nodesWereInserted(parent, newIndexs);
     }
 
-    /**
+    /** {@collect.stats}
      * Message this to remove node from its parent. This will message
      * nodesWereRemoved to create the appropriate event. This is the
      * preferred way to remove a node as it handles the event creation
@@ -260,7 +260,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         nodesWereRemoved(parent, childIndex, removedArray);
     }
 
-    /**
+    /** {@collect.stats}
       * Invoke this method after you've changed how node is to be
       * represented in the tree.
       */
@@ -283,7 +283,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoke this method if you've modified the {@code TreeNode}s upon which
      * this model depends. The model will notify all of its listeners that the
      * model has changed below the given node.
@@ -296,7 +296,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Invoke this method after you've inserted some TreeNodes into
       * node.  childIndices should be the index of the new elements and
       * must be sorted in ascending order.
@@ -314,7 +314,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Invoke this method after you've removed some TreeNodes from
       * node.  childIndices should be the index of the removed elements and
       * must be sorted in ascending order. And removedChildren should be
@@ -328,7 +328,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Invoke this method after you've changed how the children identified by
       * childIndicies are to be represented in the tree.
       */
@@ -353,7 +353,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Invoke this method if you've totally changed the children of
       * node and its childrens children...  This will post a
       * treeStructureChanged event.
@@ -364,7 +364,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Builds the parents of node up to and including the root node,
      * where the original node is the last element in the returned array.
      * The length of the returned array gives the node's depth in the
@@ -376,7 +376,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         return getPathToRoot(aNode, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Builds the parents of node up to and including the root node,
      * where the original node is the last element in the returned array.
      * The length of the returned array gives the node's depth in the
@@ -417,7 +417,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
     //  Events
     //
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for the TreeModelEvent posted after the tree changes.
      *
      * @see     #removeTreeModelListener
@@ -427,7 +427,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         listenerList.add(TreeModelListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener previously added with <B>addTreeModelListener()</B>.
      *
      * @see     #addTreeModelListener
@@ -437,7 +437,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         listenerList.remove(TreeModelListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the tree model listeners
      * registered on this model.
      *
@@ -455,7 +455,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
                 TreeModelListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -486,7 +486,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -517,7 +517,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -548,7 +548,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -605,7 +605,7 @@ public class DefaultTreeModel implements Serializable, TreeModel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this model.

@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * A RelationSupport object is used internally by the Relation Service to
  * represent simple relations (only roles, no properties or methods), with an
  * unlimited number of roles, of any relation type. As internal representation,
@@ -48,7 +48,7 @@ package javax.management.relation;
 public interface RelationSupportMBean
     extends Relation {
 
-    /**
+    /** {@collect.stats}
      * Returns an internal flag specifying if the object is still handled by
      * the Relation Service.
      *
@@ -58,7 +58,7 @@ public interface RelationSupportMBean
      */
     public Boolean isInRelationService();
 
-    /**
+    /** {@collect.stats}
      * <p>Specifies whether this relation is handled by the Relation
      * Service.</p>
      * <P>BEWARE, this method has to be exposed as the Relation Service will

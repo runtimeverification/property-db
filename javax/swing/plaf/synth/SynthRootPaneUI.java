@@ -34,7 +34,7 @@ import javax.swing.plaf.*;
 import javax.swing.plaf.basic.BasicRootPaneUI;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's RootPaneUI.
  *
  * @author Scott Violet
@@ -113,7 +113,7 @@ class SynthRootPaneUI extends BasicRootPaneUI implements SynthUI {
         context.getPainter().paintRootPaneBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a property changes on the root pane. If the event
      * indicates the <code>defaultButton</code> has changed, this will
      * reinstall the keyboard actions.

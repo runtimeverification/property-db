@@ -26,7 +26,7 @@
 
 package javax.security.cert;
 
-/**
+/** {@collect.stats}
  * This exception indicates one of a variety of certificate problems.
  *
  * <p><em>Note: The classes in the package <code>javax.security.cert</code>
@@ -41,7 +41,7 @@ package javax.security.cert;
  */
 public class CertificateException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs a certificate exception with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -49,7 +49,7 @@ public class CertificateException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a certificate exception with the given detail
      * message. A detail message is a String that describes this
      * particular exception.

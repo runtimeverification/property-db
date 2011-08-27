@@ -32,7 +32,7 @@ import java.io.*;
 import java.math.*;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * The standard interface that all standard implementations of
  * <code>JdbcRowSet</code> must implement.
  *
@@ -123,7 +123,7 @@ import java.io.*;
 
 public interface JdbcRowSet extends RowSet, Joinable {
 
-    /**
+    /** {@collect.stats}
      * Retrieves a <code>boolean</code> indicating whether rows marked
      * for deletion appear in the set of current rows. If <code>true</code> is
      * returned, deleted rows are visible with the current rows. If
@@ -149,7 +149,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
      */
     public boolean getShowDeleted() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the property <code>showDeleted</code> to the given
      * <code>boolean</code> value. This property determines whether
      * rows marked for deletion continue to appear in the set of current rows.
@@ -171,7 +171,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
      */
     public void setShowDeleted(boolean b) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the first warning reported by calls on this <code>JdbcRowSet</code>
      * object.
      * If a second warning was reported on this <code>JdbcRowSet</code> object,
@@ -206,7 +206,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
      */
     public RowSetWarning getRowSetWarnings() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Each <code>JdbcRowSet</code> contains a <code>Connection</code> object from
     * the <code>ResultSet</code> or JDBC properties passed to it's constructors.
     * This method wraps the <code>Connection</code> commit method to allow flexible
@@ -224,7 +224,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
     public void commit() throws SQLException;
 
 
-   /**
+   /** {@collect.stats}
     * Each <code>JdbcRowSet</code> contains a <code>Connection</code> object from
     * the original <code>ResultSet</code> or JDBC properties passed to it. This
     * method wraps the <code>Connection</code>'s <code>getAutoCommit</code> method
@@ -244,7 +244,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
     public boolean getAutoCommit() throws SQLException;
 
 
-   /**
+   /** {@collect.stats}
     * Each <code>JdbcRowSet</code> contains a <code>Connection</code> object from
     * the original <code>ResultSet</code> or JDBC properties passed to it. This
     * method wraps the <code>Connection</code>'s <code>getAutoCommit</code> method
@@ -257,7 +257,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
     */
     public void setAutoCommit(boolean autoCommit) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Each <code>JdbcRowSet</code> contains a <code>Connection</code> object from
      * the original <code>ResultSet</code> or JDBC properties passed to it.
      * Undoes all changes made in the current transaction and releases any
@@ -271,7 +271,7 @@ public interface JdbcRowSet extends RowSet, Joinable {
      public void rollback() throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Each <code>JdbcRowSet</code> contains a <code>Connection</code> object from
      * the original <code>ResultSet</code> or JDBC properties passed to it.
      * Undoes all changes made in the current transaction to the last set savepoint

@@ -26,7 +26,7 @@ package javax.swing.tree;
 
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * The model used by <code>JTree</code>.
  * <p>
  * <code>JTree</code> and its related classes make extensive use of
@@ -61,7 +61,7 @@ import javax.swing.event.*;
 public interface TreeModel
 {
 
-    /**
+    /** {@collect.stats}
      * Returns the root of the tree.  Returns <code>null</code>
      * only if the tree has no nodes.
      *
@@ -70,7 +70,7 @@ public interface TreeModel
     public Object getRoot();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the child of <code>parent</code> at index <code>index</code>
      * in the parent's
      * child array.  <code>parent</code> must be a node previously obtained
@@ -85,7 +85,7 @@ public interface TreeModel
     public Object getChild(Object parent, int index);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of children of <code>parent</code>.
      * Returns 0 if the node
      * is a leaf or if it has no children.  <code>parent</code> must be a node
@@ -97,7 +97,7 @@ public interface TreeModel
     public int getChildCount(Object parent);
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if <code>node</code> is a leaf.
      * It is possible for this method to return <code>false</code>
      * even if <code>node</code> has no children.
@@ -110,7 +110,7 @@ public interface TreeModel
      */
     public boolean isLeaf(Object node);
 
-    /**
+    /** {@collect.stats}
       * Messaged when the user has altered the value for the item identified
       * by <code>path</code> to <code>newValue</code>.
       * If <code>newValue</code> signifies a truly new value
@@ -121,7 +121,7 @@ public interface TreeModel
       */
     public void valueForPathChanged(TreePath path, Object newValue);
 
-    /**
+    /** {@collect.stats}
      * Returns the index of child in parent.  If either <code>parent</code>
      * or <code>child</code> is <code>null</code>, returns -1.
      * If either <code>parent</code> or <code>child</code> don't
@@ -139,7 +139,7 @@ public interface TreeModel
 //  Change Events
 //
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for the <code>TreeModelEvent</code>
      * posted after the tree changes.
      *
@@ -148,7 +148,7 @@ public interface TreeModel
      */
     void addTreeModelListener(TreeModelListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener previously added with
      * <code>addTreeModelListener</code>.
      *

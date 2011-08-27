@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving mouse wheel events on a component.
  * (For clicks and other mouse events, use the <code>MouseListener</code>.
  * For mouse movement and drags, use the <code>MouseMotionListener</code>.)
@@ -50,7 +50,7 @@ import java.util.EventListener;
  */
 public interface MouseWheelListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse wheel is rotated.
      * @see MouseWheelEvent
      */

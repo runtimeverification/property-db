@@ -27,7 +27,7 @@ package javax.management;
 
 import java.util.concurrent.CopyOnWriteArrayList;  // for Javadoc
 
-/**
+/** {@collect.stats}
  * <p>Interface implemented by an MBean that emits Notifications. It
  * allows a listener to be registered with the MBean as a notification
  * listener.</p>
@@ -70,7 +70,7 @@ import java.util.concurrent.CopyOnWriteArrayList;  // for Javadoc
  * @since 1.5
  */
 public interface NotificationEmitter extends NotificationBroadcaster {
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from this MBean.  The MBean must have a
      * listener that exactly matches the given <code>listener</code>,
      * <code>filter</code>, and <code>handback</code> parameters.  If

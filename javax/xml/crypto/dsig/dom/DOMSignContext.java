@@ -34,7 +34,7 @@ import javax.xml.crypto.dsig.XMLSignature;
 import java.security.Key;
 import org.w3c.dom.Node;
 
-/**
+/** {@collect.stats}
  * A DOM-specific {@link XMLSignContext}. This class contains additional methods
  * to specify the location in a DOM tree where an {@link XMLSignature}
  * object is to be marshalled when generating the signature.
@@ -55,7 +55,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
     private Node parent;
     private Node nextSibling;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMSignContext</code> with the specified signing key
      * and parent node. The signing key is stored in a
      * {@link KeySelector#singletonKeySelector singleton KeySelector} that is
@@ -80,7 +80,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.parent = parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMSignContext</code> with the specified signing key,
      * parent and next sibling nodes. The signing key is stored in a
      * {@link KeySelector#singletonKeySelector singleton KeySelector} that is
@@ -110,7 +110,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.nextSibling = nextSibling;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMSignContext</code> with the specified key selector
      * and parent node. The marshalled <code>XMLSignature</code> will be added
      * as the last child element of the specified parent node unless a next
@@ -133,7 +133,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.parent = parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMSignContext</code> with the specified key selector,
      * parent and next sibling nodes. The marshalled <code>XMLSignature</code>
      * will be inserted as a child element of the specified parent node and
@@ -160,7 +160,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.nextSibling = nextSibling;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the parent node.
      *
      * @param parent the parent node. The marshalled <code>XMLSignature</code>
@@ -175,7 +175,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.parent = parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the next sibling node.
      *
      * @param nextSibling the next sibling node. The marshalled
@@ -187,7 +187,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         this.nextSibling = nextSibling;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parent node.
      *
      * @return the parent node (never <code>null</code>)
@@ -197,7 +197,7 @@ public class DOMSignContext extends DOMCryptoContext implements XMLSignContext {
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the nextSibling node.
      *
      * @return the nextSibling node, or <code>null</code> if not specified.

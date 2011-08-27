@@ -33,7 +33,7 @@ import java.awt.Rectangle;
 
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * <code>JLayeredPane</code> adds depth to a JFC/Swing container,
  * allowing components to overlap each other when needed.
  * An <code>Integer</code> object specifies each component's depth in the
@@ -155,17 +155,17 @@ import javax.accessibility.*;
  */
 public class JLayeredPane extends JComponent implements Accessible {
     /// Watch the values in getObjectForLayer()
-    /** Convenience object defining the Default layer. Equivalent to new Integer(0).*/
+    /** {@collect.stats} Convenience object defining the Default layer. Equivalent to new Integer(0).*/
     public final static Integer DEFAULT_LAYER = new Integer(0);
-    /** Convenience object defining the Palette layer. Equivalent to new Integer(100).*/
+    /** {@collect.stats} Convenience object defining the Palette layer. Equivalent to new Integer(100).*/
     public final static Integer PALETTE_LAYER = new Integer(100);
-    /** Convenience object defining the Modal layer. Equivalent to new Integer(200).*/
+    /** {@collect.stats} Convenience object defining the Modal layer. Equivalent to new Integer(200).*/
     public final static Integer MODAL_LAYER = new Integer(200);
-    /** Convenience object defining the Popup layer. Equivalent to new Integer(300).*/
+    /** {@collect.stats} Convenience object defining the Popup layer. Equivalent to new Integer(300).*/
     public final static Integer POPUP_LAYER = new Integer(300);
-    /** Convenience object defining the Drag layer. Equivalent to new Integer(400).*/
+    /** {@collect.stats} Convenience object defining the Drag layer. Equivalent to new Integer(400).*/
     public final static Integer DRAG_LAYER = new Integer(400);
-    /** Convenience object defining the Frame Content layer.
+    /** {@collect.stats} Convenience object defining the Frame Content layer.
       * This layer is normally only use to positon the contentPane and menuBar
       * components of JFrame.
       * Equivalent to new Integer(-30000).
@@ -173,7 +173,7 @@ public class JLayeredPane extends JComponent implements Accessible {
       */
     public final static Integer FRAME_CONTENT_LAYER = new Integer(-30000);
 
-    /** Bound property */
+    /** {@collect.stats} Bound property */
     public final static String LAYER_PROPERTY = "layeredContainerLayer";
     // Hashtable to store layer values for non-JComponent components
     private Hashtable<Component,Integer> componentToLayer;
@@ -183,7 +183,7 @@ public class JLayeredPane extends JComponent implements Accessible {
 //////////////////////////////////////////////////////////////////////////////
 //// Container Override methods
 //////////////////////////////////////////////////////////////////////////////
-    /** Create a new JLayeredPane */
+    /** {@collect.stats} Create a new JLayeredPane */
     public JLayeredPane() {
         setLayout(null);
     }
@@ -229,7 +229,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         validateOptimizedDrawing();
     }
 
-    /**
+    /** {@collect.stats}
      * Remove the indexed component from this pane.
      * This is the absolute index, ignoring layers.
      *
@@ -245,7 +245,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         validateOptimizedDrawing();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the components from this container.
      *
      * @since 1.5
@@ -262,7 +262,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         super.removeAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false if components in the pane can overlap, which makes
      * optimized drawing impossible. Otherwise, returns true.
      *
@@ -277,7 +277,7 @@ public class JLayeredPane extends JComponent implements Accessible {
 //////////////////////////////////////////////////////////////////////////////
 //// New methods for managing layers
 //////////////////////////////////////////////////////////////////////////////
-    /** Sets the layer property on a JComponent. This method does not cause
+    /** {@collect.stats} Sets the layer property on a JComponent. This method does not cause
       * any side effects like setLayer() (painting, add/remove, etc).
       * Normally you should use the instance method setLayer(), in order to
       * get the desired side-effects (like repainting).
@@ -294,7 +294,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         c.putClientProperty(LAYER_PROPERTY, layerObj);
     }
 
-    /** Gets the layer property for a JComponent, it
+    /** {@collect.stats} Gets the layer property for a JComponent, it
       * does not cause any side effects like setLayer(). (painting, add/remove, etc)
       * Normally you should use the instance method getLayer().
       *
@@ -308,7 +308,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return DEFAULT_LAYER.intValue();
     }
 
-    /** Convenience method that returns the first JLayeredPane which
+    /** {@collect.stats} Convenience method that returns the first JLayeredPane which
       * contains the specified component. Note that all JFrames have a
       * JLayeredPane at their root, so any component in a JFrame will
       * have a JLayeredPane parent.
@@ -329,7 +329,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return (JLayeredPane)parent;
     }
 
-    /** Sets the layer attribute on the specified component,
+    /** {@collect.stats} Sets the layer attribute on the specified component,
       * making it the bottommost component in that layer.
       * Should be called before adding to parent.
       *
@@ -341,7 +341,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         setLayer(c, layer, -1);
     }
 
-    /** Sets the layer attribute for the specified component and
+    /** {@collect.stats} Sets the layer attribute for the specified component and
       * also sets its position within that layer.
       *
       * @param c         the Component to set the layer for
@@ -377,7 +377,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         repaint(c.getBounds());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the layer attribute for the specified Component.
      *
      * @param c  the Component to check
@@ -395,7 +395,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return i.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the specified Component.
      * This is the absolute index, ignoring layers.
      * Index numbers, like position numbers, have the topmost component
@@ -414,7 +414,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         }
         return -1;
     }
-    /**
+    /** {@collect.stats}
      * Moves the component to the top of the components in its current layer
      * (position 0).
      *
@@ -425,7 +425,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         setPosition(c, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the component to the bottom of the components in its current layer
      * (position -1).
      *
@@ -436,7 +436,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         setPosition(c, -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the component to <code>position</code> within its current layer,
      * where 0 is the topmost position within the layer and -1 is the bottommost
      * position.
@@ -454,7 +454,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         setLayer(c, getLayer(c), position);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the relative position of the component within its layer.
      *
      * @param c  the Component to check
@@ -484,7 +484,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return pos;
     }
 
-    /** Returns the highest layer value from all current children.
+    /** {@collect.stats} Returns the highest layer value from all current children.
       * Returns 0 if there are no children.
       *
       * @return an int indicating the layer of the topmost component in the
@@ -496,7 +496,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return 0;
     }
 
-    /** Returns the lowest layer value from all current children.
+    /** {@collect.stats} Returns the lowest layer value from all current children.
       * Returns 0 if there are no children.
       *
       * @return an int indicating the layer of the bottommost component in the
@@ -509,7 +509,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of children currently in the specified layer.
      *
      * @param layer  an int specifying the layer to check
@@ -533,7 +533,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return layerCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the components in the specified layer.
      *
      * @param layer  an int specifying the layer to check
@@ -559,7 +559,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return results;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints this JLayeredPane within the specified graphics context.
      *
      * @param g  the Graphics context within which to paint
@@ -585,7 +585,7 @@ public class JLayeredPane extends JComponent implements Accessible {
 //// Implementation Details
 //////////////////////////////////////////////////////////////////////////////
 
-    /**
+    /** {@collect.stats}
      * Returns the hashtable that maps components to layers.
      *
      * @return the Hashtable used to map components to their layers
@@ -596,7 +596,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return componentToLayer;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Integer object associated with a specified layer.
      *
      * @param layer an int specifying the layer
@@ -626,7 +626,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return layerObj;
     }
 
-    /**
+    /** {@collect.stats}
      * Primitive method that determines the proper location to
      * insert a new child based on layer and position requests.
      *
@@ -640,7 +640,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return insertIndexForLayer(null, layer, position);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is an extended version of insertIndexForLayer()
      * to support setLayer which uses Container.setZOrder which does
      * not remove the component from the containment heirarchy though
@@ -712,7 +712,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return layerEnd;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JLayeredPane. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -733,7 +733,7 @@ public class JLayeredPane extends JComponent implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JLayeredPane.
      * For layered panes, the AccessibleContext takes the form of an
      * AccessibleJLayeredPane.
@@ -749,7 +749,7 @@ public class JLayeredPane extends JComponent implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JLayeredPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to layered pane user-interface
@@ -766,7 +766,7 @@ public class JLayeredPane extends JComponent implements Accessible {
      */
     protected class AccessibleJLayeredPane extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

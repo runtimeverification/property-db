@@ -41,7 +41,7 @@ import sun.awt.shell.ShellFolder;
 import sun.swing.*;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * Basic L&F implementation of a FileChooser.
  *
  * @author Jeff Dinkins
@@ -67,7 +67,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     protected int updateButtonMnemonic = 0;
     protected int helpButtonMnemonic = 0;
 
-    /**
+    /** {@collect.stats}
      * The mnemonic keycode used for the approve button when a directory
      * is selected and the current selection mode is FILES_ONLY.
      *
@@ -81,7 +81,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     protected String updateButtonText = null;
     protected String helpButtonText = null;
 
-    /**
+    /** {@collect.stats}
      * The label text displayed on the approve button when a directory
      * is selected and the current selection mode is FILES_ONLY.
      *
@@ -98,7 +98,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     protected String updateButtonToolTipText = null;
     protected String helpButtonToolTipText = null;
 
-    /**
+    /** {@collect.stats}
      * The tooltip text displayed on the approve button when a directory
      * is selected and the current selection mode is FILES_ONLY.
      *
@@ -545,7 +545,7 @@ public class BasicFileChooserUI extends FileChooserUI {
             handler = new Handler(list);
         }
 
-        /**
+        /** {@collect.stats}
          * The JList used for representing the files is created by subclasses, but the
          * selection is monitored in this class.  The TransferHandler installed in the
          * JFileChooser is also installed in the file list as it is used as the actual
@@ -571,7 +571,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Property to remember whether a directory is currently selected in the UI.
      *
      * @return <code>true</code> iff a directory is currently selected.
@@ -581,7 +581,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         return directorySelected;
     }
 
-    /**
+    /** {@collect.stats}
      * Property to remember whether a directory is currently selected in the UI.
      * This is normally called by the UI on a selection event.
      *
@@ -592,7 +592,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         directorySelected = b;
     }
 
-    /**
+    /** {@collect.stats}
      * Property to remember the directory that is currently selected in the UI.
      *
      * @return the value of the <code>directory</code> property
@@ -603,7 +603,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         return directory;
     }
 
-    /**
+    /** {@collect.stats}
      * Property to remember the directory that is currently selected in the UI.
      * This is normally called by the UI on a selection event.
      *
@@ -615,7 +615,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         directory = f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the mnemonic for the given key.
      */
     private int getMnemonic(String key, Locale l) {
@@ -626,7 +626,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     // ************ FileChooser UI PLAF methods **************
     // *******************************************************
 
-    /**
+    /** {@collect.stats}
      * Returns the default accept all file filter
      */
     public FileFilter getAcceptAllFileFilter(JFileChooser fc) {
@@ -639,7 +639,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the title of this dialog
      */
     public String getDialogTitle(JFileChooser fc) {
@@ -720,7 +720,7 @@ public class BasicFileChooserUI extends FileChooserUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new folder.
      */
     protected class NewFolderAction extends AbstractAction {
@@ -753,7 +753,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Acts on the "home" key event or equivalent event.
      */
     protected class GoHomeAction extends AbstractAction {
@@ -779,7 +779,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Responds to an Open or Save request
      */
     protected class ApproveSelectionAction extends AbstractAction {
@@ -1087,7 +1087,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Responds to a cancel request.
      */
     protected class CancelSelectionAction extends AbstractAction {
@@ -1096,7 +1096,7 @@ public class BasicFileChooserUI extends FileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Rescans the files in the current directory
      */
     protected class UpdateAction extends AbstractAction {
@@ -1237,13 +1237,13 @@ public class BasicFileChooserUI extends FileChooserUI {
 
     private static final TransferHandler defaultTransferHandler = new FileTransferHandler();
 
-    /**
+    /** {@collect.stats}
      * Data transfer support for the file chooser.  Since files are currently presented
      * as a list, the list support is reused with the added flavor of DataFlavor.javaFileListFlavor
      */
     static class FileTransferHandler extends TransferHandler implements UIResource {
 
-        /**
+        /** {@collect.stats}
          * Create a Transferable to use as the source for a data transfer.
          *
          * @param c  The component holding the data to be transfered.  This
@@ -1302,7 +1302,7 @@ public class BasicFileChooserUI extends FileChooserUI {
                 this.fileData = fileData;
             }
 
-            /**
+            /** {@collect.stats}
              * Best format of the file chooser is DataFlavor.javaFileListFlavor.
              */
             protected DataFlavor[] getRicherFlavors() {
@@ -1311,7 +1311,7 @@ public class BasicFileChooserUI extends FileChooserUI {
                 return flavors;
             }
 
-            /**
+            /** {@collect.stats}
              * The only richer format supported is the file list flavor
              */
             protected Object getRicherData(DataFlavor flavor) {

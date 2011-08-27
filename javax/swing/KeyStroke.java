@@ -27,7 +27,7 @@ package javax.swing;
 import java.awt.AWTKeyStroke;
 import java.awt.event.KeyEvent;
 
-/**
+/** {@collect.stats}
  * A KeyStroke represents a key action on the keyboard, or equivalent input
  * device. KeyStrokes can correspond to only a press or release of a particular
  * key, just as KEY_PRESSED and KEY_RELEASED KeyEvents do; alternately, they
@@ -63,7 +63,7 @@ import java.awt.event.KeyEvent;
  */
 public class KeyStroke extends AWTKeyStroke {
 
-    /**
+    /** {@collect.stats}
      * Serial Version ID.
      */
     private static final long serialVersionUID = -9060180771037902530L;
@@ -75,7 +75,7 @@ public class KeyStroke extends AWTKeyStroke {
         super(keyChar, keyCode, modifiers, onKeyRelease);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of a <code>KeyStroke</code>
      * that represents a <code>KEY_TYPED</code> event for the
      * specified character.
@@ -90,7 +90,7 @@ public class KeyStroke extends AWTKeyStroke {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of a KeyStroke, specifying whether the key is
      * considered to be activated when it is pressed or released. Unlike all
      * other factory methods in this class, the instances returned by this
@@ -107,7 +107,7 @@ public class KeyStroke extends AWTKeyStroke {
         return new KeyStroke(keyChar, KeyEvent.VK_UNDEFINED, 0, onKeyRelease);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of a {@code KeyStroke}
      * that represents a {@code KEY_TYPED} event for the
      * specified Character object and a
@@ -151,7 +151,7 @@ public class KeyStroke extends AWTKeyStroke {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of a KeyStroke, given a numeric key code and a
      * set of modifiers, specifying whether the key is activated when it is
      * pressed or released.
@@ -200,7 +200,7 @@ public class KeyStroke extends AWTKeyStroke {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of a KeyStroke, given a numeric key code and a
      * set of modifiers. The returned KeyStroke will correspond to a key press.
      * <p>
@@ -244,7 +244,7 @@ public class KeyStroke extends AWTKeyStroke {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a KeyStroke which represents the stroke which generated a given
      * KeyEvent.
      * <p>
@@ -263,7 +263,7 @@ public class KeyStroke extends AWTKeyStroke {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a string and returns a <code>KeyStroke</code>.
      * The string must have the following syntax:
      * <pre>

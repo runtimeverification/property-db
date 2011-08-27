@@ -25,7 +25,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * A generic account exception.
  *
  * @since 1.5
@@ -34,7 +34,7 @@ public class AccountException extends LoginException {
 
     private static final long serialVersionUID = -2112878680072211787L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -42,7 +42,7 @@ public class AccountException extends LoginException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountException with the specified detail message.
      * A detail message is a String that describes this particular
      * exception.

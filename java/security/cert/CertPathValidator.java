@@ -37,7 +37,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * A class for validating certification paths (also known as certificate
  * chains).
  * <p>
@@ -88,7 +88,7 @@ public class CertPathValidator {
     private Provider provider;
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertPathValidator</code> object of the given algorithm,
      * and encapsulates the given provider implementation (SPI object) in it.
      *
@@ -104,7 +104,7 @@ public class CertPathValidator {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertPathValidator</code> object that implements the
      * specified algorithm.
      *
@@ -140,7 +140,7 @@ public class CertPathValidator {
             instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertPathValidator</code> object that implements the
      * specified algorithm.
      *
@@ -184,7 +184,7 @@ public class CertPathValidator {
             instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertPathValidator</code> object that implements the
      * specified algorithm.
      *
@@ -222,7 +222,7 @@ public class CertPathValidator {
             instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Provider</code> of this
      * <code>CertPathValidator</code>.
      *
@@ -232,7 +232,7 @@ public class CertPathValidator {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>CertPathValidator</code>.
      *
      * @return the algorithm name of this <code>CertPathValidator</code>
@@ -241,7 +241,7 @@ public class CertPathValidator {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Validates the specified certification path using the specified
      * algorithm parameter set.
      * <p>
@@ -267,7 +267,7 @@ public class CertPathValidator {
         return validatorSpi.engineValidate(certPath, params);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>CertPathValidator</code> type as specified in
      * the Java security properties file, or the string &quot;PKIX&quot;
      * if no such property exists. The Java security properties file is

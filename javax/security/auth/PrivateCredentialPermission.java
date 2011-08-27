@@ -32,7 +32,7 @@ import java.security.PermissionCollection;
 import java.security.Principal;
 import sun.security.util.ResourcesMgr;
 
-/**
+/** {@collect.stats}
  * This class is used to protect access to private Credentials
  * belonging to a particular <code>Subject</code>.  The <code>Subject</code>
  * is represented by a Set of Principals.
@@ -107,12 +107,12 @@ public final class PrivateCredentialPermission extends Permission {
 
     private static final CredOwner[] EMPTY_PRINCIPALS = new CredOwner[0];
 
-    /**
+    /** {@collect.stats}
      * @serial
      */
     private String credentialClass;
 
-    /**
+    /** {@collect.stats}
      * @serial The Principals associated with this permission.
      *          The set contains elements of type,
      *          <code>PrivateCredentialPermission.CredOwner</code>.
@@ -120,12 +120,12 @@ public final class PrivateCredentialPermission extends Permission {
     private Set principals;  // ignored - kept around for compatibility
     private transient CredOwner[] credOwners;
 
-    /**
+    /** {@collect.stats}
      * @serial
      */
     private boolean testing = false;
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>PrivateCredentialPermission</code>
      * with the specified <code>credentialClass</code> and Principals.
      */
@@ -152,7 +152,7 @@ public final class PrivateCredentialPermission extends Permission {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>PrivateCredentialPermission</code>
      * with the specified <code>name</code>.  The <code>name</code>
      * specifies both a Credential class and a <code>Principal</code> Set.
@@ -176,7 +176,7 @@ public final class PrivateCredentialPermission extends Permission {
         init(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Class name of the Credential associated with this
      * <code>PrivateCredentialPermission</code>.
      *
@@ -189,7 +189,7 @@ public final class PrivateCredentialPermission extends Permission {
         return credentialClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Principal</code> classes and names
      * associated with this <code>PrivateCredentialPermission</code>.
      * The information is returned as a two-dimensional array (array[x][y]).
@@ -221,7 +221,7 @@ public final class PrivateCredentialPermission extends Permission {
         return pArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if this <code>PrivateCredentialPermission</code> implies
      * the specified <code>Permission</code>.
      *
@@ -259,7 +259,7 @@ public final class PrivateCredentialPermission extends Permission {
         return impliesPrincipalSet(credOwners, that.credOwners);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two <code>PrivateCredentialPermission</code> objects for
      * equality.  Checks that <i>obj</i> is a
      * <code>PrivateCredentialPermission</code>,
@@ -288,7 +288,7 @@ public final class PrivateCredentialPermission extends Permission {
         return (this.implies(that) && that.implies(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -297,7 +297,7 @@ public final class PrivateCredentialPermission extends Permission {
         return this.credentialClass.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the "canonical string representation" of the actions.
      * This method always returns the String, "read".
      *
@@ -309,7 +309,7 @@ public final class PrivateCredentialPermission extends Permission {
         return "read";
     }
 
-    /**
+    /** {@collect.stats}
      * Return a homogeneous collection of PrivateCredentialPermissions
      * in a <code>PermissionCollection</code>.
      * No such <code>PermissionCollection</code> is defined,
@@ -446,7 +446,7 @@ public final class PrivateCredentialPermission extends Permission {
         if (thisC.equals("*"))
             return true;
 
-        /**
+        /** {@collect.stats}
          * XXX let's not enable this for now --
          *      if people want it, we'll enable it later
          */
@@ -487,7 +487,7 @@ public final class PrivateCredentialPermission extends Permission {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads this object from a stream (i.e., deserializes it)
      */
     private void readObject(java.io.ObjectInputStream s) throws
@@ -511,18 +511,18 @@ public final class PrivateCredentialPermission extends Permission {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @serial include
      */
     static class CredOwner implements java.io.Serializable {
 
         private static final long serialVersionUID = -5607449830436408266L;
 
-        /**
+        /** {@collect.stats}
          * @serial
          */
         String principalClass;
-        /**
+        /** {@collect.stats}
          * @serial
          */
         String principalName;
@@ -547,7 +547,7 @@ public final class PrivateCredentialPermission extends Permission {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * XXX no code yet to support a.b.*
              */
 

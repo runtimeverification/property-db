@@ -27,7 +27,7 @@ package java.util.prefs;
 
 import java.io.NotSerializableException;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that an operation could not complete because
  * the input did not conform to the appropriate XML document type
  * for a collection of preferences, as per the {@link Preferences}
@@ -38,7 +38,7 @@ import java.io.NotSerializableException;
  * @since   1.4
  */
 public class InvalidPreferencesFormatException extends Exception {
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidPreferencesFormatException with the specified
      * cause.
      *
@@ -49,7 +49,7 @@ public class InvalidPreferencesFormatException extends Exception {
         super(cause);
     }
 
-   /**
+   /** {@collect.stats}
     * Constructs an InvalidPreferencesFormatException with the specified
     * detail message.
     *
@@ -60,7 +60,7 @@ public class InvalidPreferencesFormatException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidPreferencesFormatException with the specified
      * detail message and cause.
      *

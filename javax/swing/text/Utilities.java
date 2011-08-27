@@ -43,14 +43,14 @@ import javax.swing.SwingConstants;
 import javax.swing.text.ParagraphView.Row;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A collection of methods to deal with various text
  * related activities.
  *
  * @author  Timothy Prinzing
  */
 public class Utilities {
-    /**
+    /** {@collect.stats}
      * If <code>view</code>'s container is a <code>JComponent</code> it
      * is returned, after casting.
      */
@@ -64,7 +64,7 @@ public class Utilities {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Draws the given text, expanding any tabs that are contained
      * using the given tab expansion technique.  This particular
      * implementation renders in a 1.1 style coordinate system
@@ -84,7 +84,7 @@ public class Utilities {
         return drawTabbedText(null, s, x, y, g, e, startOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Draws the given text, expanding any tabs that are contained
      * using the given tab expansion technique.  This particular
      * implementation renders in a 1.1 style coordinate system
@@ -190,7 +190,7 @@ public class Utilities {
         return nextX;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the width of the given segment of text taking tabs
      * into consideration.  This is implemented in a 1.1 style coordinate
      * system where ints are used and 72dpi is assumed.
@@ -280,7 +280,7 @@ public class Utilities {
         return nextX - x;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the relative offset into the given text that
      * best represents the given span in the view coordinate
      * system.  This is implemented in a 1.1 style coordinate
@@ -403,7 +403,7 @@ public class Utilities {
         return txtCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Determine where to break the given text to fit
      * within the given span. This tries to find a word boundary.
      * @param s  the source of the text
@@ -453,7 +453,7 @@ public class Utilities {
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the starting row model position of the row that contains
      * the specified model position.  The component given must have a
      * size to compute the result.  If the component doesn't have a size
@@ -483,7 +483,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the ending row model position of the row that contains
      * the specified model position.  The component given must have a
      * size to compute the result.  If the component doesn't have a size
@@ -514,7 +514,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the position in the model that is closest to the given
      * view location in the row above.  The component given must have a
      * size to compute the result.  If the component doesn't have a size
@@ -551,7 +551,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the position in the model that is closest to the given
      * view location in the row below.  The component given must have a
      * size to compute the result.  If the component doesn't have a size
@@ -589,7 +589,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the start of a word for the given model location.
      * Uses BreakIterator.getWordInstance() to actually get the words.
      *
@@ -623,7 +623,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the end of a word for the given location.
      * Uses BreakIterator.getWordInstance() to actually get the words.
      *
@@ -656,7 +656,7 @@ public class Utilities {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the start of the next word for the given location.
      * Uses BreakIterator.getWordInstance() to actually get the words.
      *
@@ -679,7 +679,7 @@ public class Utilities {
         return nextWord;
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the next word in the given elements text.  The first
      * parameter allows searching multiple paragraphs where even
      * the first offset is desired.
@@ -734,7 +734,7 @@ public class Utilities {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determine the start of the prev word for the given location.
      * Uses BreakIterator.getWordInstance() to actually get the words.
      *
@@ -757,7 +757,7 @@ public class Utilities {
         return prevWord;
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the previous word in the given elements text.  The first
      * parameter allows searching multiple paragraphs where even
      * the first offset is desired.
@@ -809,7 +809,7 @@ public class Utilities {
         return BreakIterator.DONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the element to use for a paragraph/line.
      *
      * @param c the editor
@@ -848,7 +848,7 @@ public class Utilities {
                 (as.isDefined(StyleConstants.ComposedTextAttribute)));
     }
 
-    /**
+    /** {@collect.stats}
      * Draws the given composed text passed from an input method.
      *
      * @param view View hosting text
@@ -876,7 +876,7 @@ public class Utilities {
                              getJComponent(view), g2d,aci,x,y);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the composed text in a GlyphView
      */
     static void paintComposedText(Graphics g, Rectangle alloc, GlyphView v) {
@@ -929,7 +929,7 @@ public class Utilities {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location that one might place a caret.  Some views may not be visible,
      * they might not be in the same order found in the model, or they just

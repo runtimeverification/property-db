@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.security.cert.*;
 
-/**
+/** {@collect.stats}
  * Instance of this interface manage which X509 certificates
  * may be used to authenticate the remote side of a secure
  * socket. Decisions may be based on trusted certificate
@@ -37,7 +37,7 @@ import java.security.cert.*;
  * @since 1.4
  */
 public interface X509TrustManager extends TrustManager {
-    /**
+    /** {@collect.stats}
      * Given the partial or complete certificate chain provided by the
      * peer, build a certificate path to a trusted root and return if
      * it can be validated and is trusted for client SSL
@@ -58,7 +58,7 @@ public interface X509TrustManager extends TrustManager {
     public void checkClientTrusted(X509Certificate[] chain, String authType)
         throws CertificateException;
 
-    /**
+    /** {@collect.stats}
      * Given the partial or complete certificate chain provided by the
      * peer, build a certificate path to a trusted root and return if
      * it can be validated and is trusted for server SSL
@@ -84,7 +84,7 @@ public interface X509TrustManager extends TrustManager {
     public void checkServerTrusted(X509Certificate[] chain, String authType)
         throws CertificateException;
 
-    /**
+    /** {@collect.stats}
      * Return an array of certificate authority certificates
      * which are trusted for authenticating peers.
      *

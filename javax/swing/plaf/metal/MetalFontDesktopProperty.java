@@ -28,13 +28,13 @@ import java.awt.*;
 import java.beans.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * DesktopProperty that only uses font height in configuring font. This
  * is only used on Windows.
  *
  */
 class MetalFontDesktopProperty extends com.sun.java.swing.plaf.windows.DesktopProperty {
-    /**
+    /** {@collect.stats}
      * Maps from metal font theme type as defined in MetalTheme
      * to the corresponding desktop property name.
      */
@@ -47,13 +47,13 @@ class MetalFontDesktopProperty extends com.sun.java.swing.plaf.windows.DesktopPr
         "win.menu.font.height"
     };
 
-    /**
+    /** {@collect.stats}
      * Corresponds to a MetalTheme font type.
      */
     private int type;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a MetalFontDesktopProperty. The key used to lookup the
      * desktop property is determined from the type of font.
      *
@@ -63,7 +63,7 @@ class MetalFontDesktopProperty extends com.sun.java.swing.plaf.windows.DesktopPr
         this(propertyMapping[type], Toolkit.getDefaultToolkit(), type);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a MetalFontDesktopProperty.
      *
      * @param key Key used in looking up desktop value.
@@ -77,7 +77,7 @@ class MetalFontDesktopProperty extends com.sun.java.swing.plaf.windows.DesktopPr
         this.type = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to create a Font with the size coming from the desktop
      * and the style and name coming from DefaultMetalTheme.
      */
@@ -90,7 +90,7 @@ class MetalFontDesktopProperty extends com.sun.java.swing.plaf.windows.DesktopPr
         return super.configureValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default font.
      */
     protected Object getDefaultValue() {

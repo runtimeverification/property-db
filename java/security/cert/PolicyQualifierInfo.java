@@ -30,7 +30,7 @@ import java.io.IOException;
 import sun.misc.HexDumpEncoder;
 import sun.security.util.DerValue;
 
-/**
+/** {@collect.stats}
  * An immutable policy qualifier represented by the ASN.1 PolicyQualifierInfo
  * structure.
  *
@@ -89,7 +89,7 @@ public class PolicyQualifierInfo {
     private byte [] mData;
     private String pqiString;
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>PolicyQualifierInfo</code> from the
      * encoded bytes. The encoded byte array is copied on construction.
      *
@@ -114,7 +114,7 @@ public class PolicyQualifierInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>policyQualifierId</code> field of this
      * <code>PolicyQualifierInfo</code>. The <code>policyQualifierId</code>
      * is an Object Identifier (OID) represented by a set of nonnegative
@@ -126,7 +126,7 @@ public class PolicyQualifierInfo {
         return mId;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ASN.1 DER encoded form of this
      * <code>PolicyQualifierInfo</code>.
      *
@@ -138,7 +138,7 @@ public class PolicyQualifierInfo {
         return mEncoded.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ASN.1 DER encoded form of the <code>qualifier</code>
      * field of this <code>PolicyQualifierInfo</code>.
      *
@@ -150,7 +150,7 @@ public class PolicyQualifierInfo {
         return (mData == null ? null : mData.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Return a printable representation of this
      * <code>PolicyQualifierInfo</code>.
      *

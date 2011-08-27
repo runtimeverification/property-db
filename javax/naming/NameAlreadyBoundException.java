@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown by methods to indicate that
   * a binding cannot be added because the name is already bound to
   * another object.
@@ -46,7 +46,7 @@ package javax.naming;
   */
 
 public class NameAlreadyBoundException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NameAlreadyBoundException using the
      * explanation supplied. All other fields default to null.
      *
@@ -58,7 +58,7 @@ public class NameAlreadyBoundException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of NameAlreadyBoundException.
       * All fields are set to null;
       */
@@ -66,7 +66,7 @@ public class NameAlreadyBoundException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -8491441000356780586L;

@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * A class implements the <code>Cloneable</code> interface to
  * indicate to the {@link java.lang.Object#clone()} method that it
  * is legal for that method to make a

@@ -26,7 +26,7 @@ package javax.swing.plaf.synth;
 
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * Constants used by Synth. Not all Components support all states. A
  * Component will at least be in one of the primary states. That is, the
  * return value from <code>SynthContext.getComponentState()</code> will at
@@ -37,33 +37,33 @@ import javax.swing.*;
  * @since 1.5
  */
 public interface SynthConstants {
-    /**
+    /** {@collect.stats}
      * Primary state indicating the component is enabled.
      */
     public static final int ENABLED = 1 << 0;
-    /**
+    /** {@collect.stats}
      * Primary state indicating the mouse is over the region.
      */
     public static final int MOUSE_OVER = 1 << 1;
-    /**
+    /** {@collect.stats}
      * Primary state indicating the region is in a pressed state. Pressed
      * does not necessarily mean the user has pressed the mouse button.
      */
     public static final int PRESSED = 1 << 2;
-    /**
+    /** {@collect.stats}
      * Primary state indicating the region is not enabled.
      */
     public static final int DISABLED = 1 << 3;
 
-    /**
+    /** {@collect.stats}
      * Indicates the region has focus.
      */
     public static final int FOCUSED = 1 << 8;
-    /**
+    /** {@collect.stats}
      * Indicates the region is selected.
      */
     public static final int SELECTED = 1 << 9;
-    /**
+    /** {@collect.stats}
      * Indicates the region is the default. This is typically used for buttons
      * to indicate this button is somehow special.
      */

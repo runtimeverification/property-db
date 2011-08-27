@@ -27,7 +27,7 @@ package javax.naming;
 
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * This interface represents a naming context, which
  * consists of a set of name-to-object bindings.
  * It contains methods for examining and updating these bindings.
@@ -280,7 +280,7 @@ import java.util.Hashtable;
 
 public interface Context {
 
-    /**
+    /** {@collect.stats}
      * Retrieves the named object.
      * If <tt>name</tt> is empty, returns a new instance of this context
      * (which represents the same naming context as this context, but its
@@ -297,7 +297,7 @@ public interface Context {
      */
     public Object lookup(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the named object.
      * See {@link #lookup(Name)} for details.
      * @param name
@@ -307,7 +307,7 @@ public interface Context {
      */
     public Object lookup(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object.
      * All intermediate contexts and the target context (that named by all
      * but terminal atomic component of the name) must already exist.
@@ -328,7 +328,7 @@ public interface Context {
      */
     public void bind(Name name, Object obj) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object.
      * See {@link #bind(Name, Object)} for details.
      *
@@ -343,7 +343,7 @@ public interface Context {
      */
     public void bind(String name, Object obj) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, overwriting any existing binding.
      * All intermediate contexts and the target context (that named by all
      * but terminal atomic component of the name) must already exist.
@@ -369,7 +369,7 @@ public interface Context {
      */
     public void rebind(Name name, Object obj) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, overwriting any existing binding.
      * See {@link #rebind(Name, Object)} for details.
      *
@@ -383,7 +383,7 @@ public interface Context {
      */
     public void rebind(String name, Object obj) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Unbinds the named object.
      * Removes the terminal atomic name in <code>name</code>
      * from the target context--that named by all but the terminal
@@ -406,7 +406,7 @@ public interface Context {
      */
     public void unbind(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Unbinds the named object.
      * See {@link #unbind(Name)} for details.
      *
@@ -417,7 +417,7 @@ public interface Context {
      */
     public void unbind(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a new name to the object bound to an old name, and unbinds
      * the old name.  Both names are relative to this context.
      * Any attributes associated with the old name become associated
@@ -437,7 +437,7 @@ public interface Context {
      */
     public void rename(Name oldName, Name newName) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a new name to the object bound to an old name, and unbinds
      * the old name.
      * See {@link #rename(Name, Name)} for details.
@@ -451,7 +451,7 @@ public interface Context {
      */
     public void rename(String oldName, String newName) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Enumerates the names bound in the named context, along with the
      * class names of objects bound to them.
      * The contents of any subcontexts are not included.
@@ -473,7 +473,7 @@ public interface Context {
     public NamingEnumeration<NameClassPair> list(Name name)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Enumerates the names bound in the named context, along with the
      * class names of objects bound to them.
      * See {@link #list(Name)} for details.
@@ -488,7 +488,7 @@ public interface Context {
     public NamingEnumeration<NameClassPair> list(String name)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Enumerates the names bound in the named context, along with the
      * objects bound to them.
      * The contents of any subcontexts are not included.
@@ -510,7 +510,7 @@ public interface Context {
     public NamingEnumeration<Binding> listBindings(Name name)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Enumerates the names bound in the named context, along with the
      * objects bound to them.
      * See {@link #listBindings(Name)} for details.
@@ -525,7 +525,7 @@ public interface Context {
     public NamingEnumeration<Binding> listBindings(String name)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Destroys the named context and removes it from the namespace.
      * Any attributes associated with the name are also removed.
      * Intermediate contexts are not destroyed.
@@ -560,7 +560,7 @@ public interface Context {
      */
     public void destroySubcontext(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Destroys the named context and removes it from the namespace.
      * See {@link #destroySubcontext(Name)} for details.
      *
@@ -574,7 +574,7 @@ public interface Context {
      */
     public void destroySubcontext(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Creates and binds a new context.
      * Creates a new context with the given name and binds it in
      * the target context (that named by all but terminal atomic
@@ -596,7 +596,7 @@ public interface Context {
      */
     public Context createSubcontext(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Creates and binds a new context.
      * See {@link #createSubcontext(Name)} for details.
      *
@@ -612,7 +612,7 @@ public interface Context {
      */
     public Context createSubcontext(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the named object, following links except
      * for the terminal atomic component of the name.
      * If the object bound to <tt>name</tt> is not a link,
@@ -628,7 +628,7 @@ public interface Context {
      */
     public Object lookupLink(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the named object, following links except
      * for the terminal atomic component of the name.
      * See {@link #lookupLink(Name)} for details.
@@ -641,7 +641,7 @@ public interface Context {
      */
     public Object lookupLink(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the parser associated with the named context.
      * In a federation of namespaces, different naming systems will
      * parse names differently.  This method allows an application
@@ -662,7 +662,7 @@ public interface Context {
      */
     public NameParser getNameParser(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the parser associated with the named context.
      * See {@link #getNameParser(Name)} for details.
      *
@@ -674,7 +674,7 @@ public interface Context {
      */
     public NameParser getNameParser(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Composes the name of this context with a name relative to
      * this context.
      * Given a name (<code>name</code>) relative to this context, and
@@ -711,7 +711,7 @@ public interface Context {
     public Name composeName(Name name, Name prefix)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Composes the name of this context with a name relative to
      * this context.
      * See {@link #composeName(Name, Name)} for details.
@@ -726,7 +726,7 @@ public interface Context {
     public String composeName(String name, String prefix)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Adds a new environment property to the environment of this
      * context.  If the property already exists, its value is overwritten.
      * See class description for more details on environment properties.
@@ -745,7 +745,7 @@ public interface Context {
     public Object addToEnvironment(String propName, Object propVal)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Removes an environment property from the environment of this
      * context.  See class description for more details on environment
      * properties.
@@ -762,7 +762,7 @@ public interface Context {
     public Object removeFromEnvironment(String propName)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the environment in effect for this context.
      * See class description for more details on environment properties.
      *
@@ -779,7 +779,7 @@ public interface Context {
      */
     public Hashtable<?,?> getEnvironment() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Closes this context.
      * This method releases this context's resources immediately, instead of
      * waiting for them to be released automatically by the garbage collector.
@@ -792,7 +792,7 @@ public interface Context {
      */
     public void close() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the full name of this context within its own namespace.
      *
      * <p> Many naming services have a notion of a "full name" for objects
@@ -816,7 +816,7 @@ public interface Context {
 // public static final:  JLS says recommended style is to omit these modifiers
 // because they are the default
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the initial context factory to use. The value
      * of the property should be the fully qualified class name
@@ -841,7 +841,7 @@ public interface Context {
      */
     String INITIAL_CONTEXT_FACTORY = "java.naming.factory.initial";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the list of object factories to use. The value
      * of the property should be a colon-separated list of the fully
@@ -860,7 +860,7 @@ public interface Context {
      */
     String OBJECT_FACTORIES = "java.naming.factory.object";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the list of state factories to use. The value
      * of the property should be a colon-separated list of the fully
@@ -880,7 +880,7 @@ public interface Context {
      */
     String STATE_FACTORIES = "java.naming.factory.state";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the list of package prefixes to use when
      * loading in URL context factories. The value
@@ -904,7 +904,7 @@ public interface Context {
       */
     String URL_PKG_PREFIXES = "java.naming.factory.url.pkgs";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying configuration information for the service provider
      * to use. The value of the property should contain a URL string
@@ -922,7 +922,7 @@ public interface Context {
      */
     String PROVIDER_URL = "java.naming.provider.url";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the DNS host and domain names to use for the
      * JNDI URL context (for example, "dns://somehost/wiz.com").
@@ -939,7 +939,7 @@ public interface Context {
      */
     String DNS_URL = "java.naming.dns.url";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the authoritativeness of the service requested.
      * If the value of the property is the string "true", it means
@@ -955,7 +955,7 @@ public interface Context {
      */
     String AUTHORITATIVE = "java.naming.authoritative";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the batch size to use when returning data via the
      * service's protocol. This is a hint to the provider to return
@@ -973,7 +973,7 @@ public interface Context {
      */
     String BATCHSIZE = "java.naming.batchsize";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying how referrals encountered by the service provider
      * are to be processed. The value of the property is one of the
@@ -996,7 +996,7 @@ public interface Context {
      */
     String REFERRAL = "java.naming.referral";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the security protocol to use.
      * Its value is a string determined by the service provider
@@ -1011,7 +1011,7 @@ public interface Context {
      */
     String SECURITY_PROTOCOL = "java.naming.security.protocol";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the security level to use.
      * Its value is one of the following strings:
@@ -1026,7 +1026,7 @@ public interface Context {
      */
     String SECURITY_AUTHENTICATION = "java.naming.security.authentication";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the identity of the principal for authenticating
      * the caller to the service. The format of the principal
@@ -1041,7 +1041,7 @@ public interface Context {
      */
     String SECURITY_PRINCIPAL = "java.naming.security.principal";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the credentials of the principal for authenticating
      * the caller to the service. The value of the property depends
@@ -1057,7 +1057,7 @@ public interface Context {
      */
 
     String SECURITY_CREDENTIALS = "java.naming.security.credentials";
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying the preferred language to use with the service.
      * The value of the property is a colon-separated list of language
@@ -1072,7 +1072,7 @@ public interface Context {
      */
     String LANGUAGE = "java.naming.language";
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property for
      * specifying an applet for the initial context constructor to use
      * when searching for other properties.

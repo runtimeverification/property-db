@@ -42,7 +42,7 @@ import java.util.TreeMap;
 //
 
 
-/**
+/** {@collect.stats}
  * The <tt>CompositeDataSupport</tt> class is the <i>open data</i> class which
  * implements the <tt>CompositeData</tt> interface.
  *
@@ -55,19 +55,19 @@ public class CompositeDataSupport
     /* Serial version */
     static final long serialVersionUID = 8003518976613702244L;
 
-    /**
+    /** {@collect.stats}
      * @serial Internal representation of the mapping of item names to their
      * respective values.
      *         A {@link SortedMap} is used for faster retrieval of elements.
      */
     private SortedMap<String, Object> contents = new TreeMap<String, Object>();
 
-    /**
+    /** {@collect.stats}
      * @serial The <i>composite type </i> of this <i>composite data</i> instance.
      */
     private CompositeType compositeType;
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Constructs a <tt>CompositeDataSupport</tt> instance with the specified
      * <tt>compositeType</tt>, whose item values
@@ -178,7 +178,7 @@ public class CompositeDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Constructs a <tt>CompositeDataSupport</tt> instance with the specified <tt>compositeType</tt>, whose item names and corresponding values
      * are given by the mappings in the map <tt>items</tt>.
@@ -216,7 +216,7 @@ public class CompositeDataSupport
               (items==null  ?  null  :  items.values().toArray()) );
     }
 
-    /**
+    /** {@collect.stats}
      *
      */
     private static void checkForNullElement(Object[] arg, String argName) {
@@ -232,7 +232,7 @@ public class CompositeDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      *
      */
     private static void checkForEmptyString(String[] arg, String argName) {
@@ -244,7 +244,7 @@ public class CompositeDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>composite type </i> of this <i>composite data</i> instance.
      */
     public CompositeType getCompositeType() {
@@ -252,7 +252,7 @@ public class CompositeDataSupport
         return compositeType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the item whose name is <tt>key</tt>.
      *
      * @throws IllegalArgumentException  if <tt>key</tt> is a null or empty String.
@@ -271,7 +271,7 @@ public class CompositeDataSupport
         return contents.get(key.trim());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the values of the items whose names are specified by
      * <tt>keys</tt>, in the same order as <tt>keys</tt>.
      *
@@ -293,7 +293,7 @@ public class CompositeDataSupport
         return results;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>CompositeData</tt> instance contains
      * an item whose name is <tt>key</tt>.
      * If <tt>key</tt> is a null or empty String, this method simply returns false.
@@ -306,7 +306,7 @@ public class CompositeDataSupport
         return contents.containsKey(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>CompositeData</tt> instance
      * contains an item
      * whose value is <tt>value</tt>.
@@ -316,7 +316,7 @@ public class CompositeDataSupport
         return contents.containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Collection view of the item values contained in this
      * <tt>CompositeData</tt> instance.
      * The returned collection's iterator will return the values in the ascending
@@ -328,7 +328,7 @@ public class CompositeDataSupport
         return Collections.unmodifiableCollection(contents.values());
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this
      * <code>CompositeDataSupport</code> instance for equality.
      * <p>
@@ -398,7 +398,7 @@ public class CompositeDataSupport
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>CompositeDataSupport</code> instance.
      * <p>
      * The hash code of a <code>CompositeDataSupport</code> instance is the sum of the hash codes
@@ -448,7 +448,7 @@ public class CompositeDataSupport
         return hashcode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>CompositeDataSupport</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.CompositeDataSupport</code>),

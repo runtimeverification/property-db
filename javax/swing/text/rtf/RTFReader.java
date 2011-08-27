@@ -32,7 +32,7 @@ import java.awt.Color;
 
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Takes a sequence of RTF tokens and text and appends the text
  * described by the RTF to a <code>StyledDocument</code> (the <em>target</em>).
  * The RTF is lexed
@@ -48,40 +48,40 @@ import javax.swing.text.*;
  */
 class RTFReader extends RTFParser
 {
-  /** The object to which the parsed text is sent. */
+  /** {@collect.stats} The object to which the parsed text is sent. */
   StyledDocument target;
 
-  /** Miscellaneous information about the parser's state. This
+  /** {@collect.stats} Miscellaneous information about the parser's state. This
    *  dictionary is saved and restored when an RTF group begins
    *  or ends. */
   Dictionary parserState;   /* Current parser state */
-  /** This is the "dst" item from parserState. rtfDestination
+  /** {@collect.stats} This is the "dst" item from parserState. rtfDestination
    *  is the current rtf destination. It is cached in an instance
    *  variable for speed. */
   Destination rtfDestination;
-  /** This holds the current document attributes. */
+  /** {@collect.stats} This holds the current document attributes. */
   MutableAttributeSet documentAttributes;
 
-  /** This Dictionary maps Integer font numbers to String font names. */
+  /** {@collect.stats} This Dictionary maps Integer font numbers to String font names. */
   Dictionary fontTable;
-  /** This array maps color indices to Color objects. */
+  /** {@collect.stats} This array maps color indices to Color objects. */
   Color[] colorTable;
-  /** This array maps character style numbers to Style objects. */
+  /** {@collect.stats} This array maps character style numbers to Style objects. */
   Style[] characterStyles;
-  /** This array maps paragraph style numbers to Style objects. */
+  /** {@collect.stats} This array maps paragraph style numbers to Style objects. */
   Style[] paragraphStyles;
-  /** This array maps section style numbers to Style objects. */
+  /** {@collect.stats} This array maps section style numbers to Style objects. */
   Style[] sectionStyles;
 
-  /** This is the RTF version number, extracted from the \rtf keyword.
+  /** {@collect.stats} This is the RTF version number, extracted from the \rtf keyword.
    *  The version information is currently not used. */
   int rtfversion;
 
-  /** <code>true</code> to indicate that if the next keyword is unknown,
+  /** {@collect.stats} <code>true</code> to indicate that if the next keyword is unknown,
    *  the containing group should be ignored. */
   boolean ignoreGroupIfUnknownKeyword;
 
-  /** The parameter of the most recently parsed \\ucN keyword,
+  /** {@collect.stats} The parameter of the most recently parsed \\ucN keyword,
    *  used for skipping alternative representations after a
    *  Unicode character. */
   int skippingCharacters;
@@ -94,7 +94,7 @@ class RTFReader extends RTFParser
   private MockAttributeSet mockery;
 
   /* this should be final, but there's a bug in javac... */
-  /** textKeywords maps RTF keywords to single-character strings,
+  /** {@collect.stats} textKeywords maps RTF keywords to single-character strings,
    *  for those keywords which simply insert some text. */
   static Dictionary textKeywords = null;
   static {
@@ -137,7 +137,7 @@ class RTFReader extends RTFParser
 
 /* TODO: per-font font encodings ( \fcharset control word ) ? */
 
-/**
+/** {@collect.stats}
  * Creates a new RTFReader instance. Text will be sent to
  * the specified TextAcceptor.
  *
@@ -157,7 +157,7 @@ public RTFReader(StyledDocument destination)
     documentAttributes = new SimpleAttributeSet();
 }
 
-/** Called when the RTFParser encounters a bin keyword in the
+/** {@collect.stats} Called when the RTFParser encounters a bin keyword in the
  *  RTF stream.
  *
  *  @see RTFParser
@@ -174,7 +174,7 @@ public void handleBinaryBlob(byte[] data)
 }
 
 
-/**
+/** {@collect.stats}
  * Handles any pure text (containing no control characters) in the input
  * stream. Called by the superclass. */
 public void handleText(String text)
@@ -197,13 +197,13 @@ public void handleText(String text)
     warning("Text with no destination. oops.");
 }
 
-/** The default color for text which has no specified color. */
+/** {@collect.stats} The default color for text which has no specified color. */
 Color defaultColor()
 {
     return Color.black;
 }
 
-/** Called by the superclass when a new RTF group is begun.
+/** {@collect.stats} Called by the superclass when a new RTF group is begun.
  *  This implementation saves the current <code>parserState</code>, and gives
  *  the current destination a chance to save its own state.
  * @see RTFParser#begingroup
@@ -229,7 +229,7 @@ public void begingroup()
         rtfDestination.begingroup();
 }
 
-/** Called by the superclass when the current RTF group is closed.
+/** {@collect.stats} Called by the superclass when the current RTF group is closed.
  *  This restores the parserState saved by <code>begingroup()</code>
  *  as well as invoking the endgroup method of the current
  *  destination.
@@ -269,7 +269,7 @@ protected void setRTFDestination(Destination newDestination)
     parserState.put("dst", rtfDestination);
 }
 
-/** Called by the user when there is no more input (<i>i.e.</i>,
+/** {@collect.stats} Called by the user when there is no more input (<i>i.e.</i>,
  * at the end of the RTF file.)
  *
  * @see OutputStream#close
@@ -291,7 +291,7 @@ public void close()
     super.close();
 }
 
-/**
+/** {@collect.stats}
  * Handles a parameterless RTF keyword. This is called by the superclass
  * (RTFParser) when a keyword is found in the input stream.
  *
@@ -436,7 +436,7 @@ public boolean handleKeyword(String keyword)
     return false;
 }
 
-/**
+/** {@collect.stats}
  * Handles an RTF keyword and its integer parameter.
  * This is called by the superclass
  * (RTFParser) when a keyword is found in the input stream.
@@ -503,7 +503,7 @@ private void setTargetAttribute(String name, Object value)
 //    target.changeAttributes(new LFDictionary(LFArray.arrayWithObject(value), LFArray.arrayWithObject(name)));
 }
 
-/**
+/** {@collect.stats}
  * setCharacterSet sets the current translation table to correspond with
  * the named character set. The character set is loaded if necessary.
  *
@@ -536,7 +536,7 @@ public void setCharacterSet(String name)
     setTargetAttribute(Constants.RTFCharacterSet, name);
 }
 
-/** Adds a character set to the RTFReader's list
+/** {@collect.stats} Adds a character set to the RTFReader's list
  *  of known character sets */
 public static void
 defineCharacterSet(String name, char[] table)
@@ -546,7 +546,7 @@ defineCharacterSet(String name, char[] table)
     characterSets.put(name, table);
 }
 
-/** Looks up a named character set. A character set is a 256-entry
+/** {@collect.stats} Looks up a named character set. A character set is a 256-entry
  *  array of characters, mapping unsigned byte values to their Unicode
  *  equivalents. The character set is loaded if necessary.
  *
@@ -574,7 +574,7 @@ getCharacterSet(final String name)
     return set;
 }
 
-/** Parses a character set from an InputStream. The character set
+/** {@collect.stats} Parses a character set from an InputStream. The character set
  * must contain 256 decimal integers, separated by whitespace, with
  * no punctuation. B- and C- style comments are allowed.
  *
@@ -619,7 +619,7 @@ static char[] readCharset(java.net.URL href)
     return readCharset(href.openStream());
 }
 
-/** An interface (could be an entirely abstract class) describing
+/** {@collect.stats} An interface (could be an entirely abstract class) describing
  *  a destination. The RTF reader always has a current destination
  *  which is where text is sent.
  *
@@ -637,7 +637,7 @@ interface Destination {
     void close();
 }
 
-/** This data-sink class is used to implement ignored destinations
+/** {@collect.stats} This data-sink class is used to implement ignored destinations
  *  (e.g. {\*\blegga blah blah blah} )
  *  It accepts all keywords and text but does nothing with them. */
 class DiscardingDestination implements Destination
@@ -681,7 +681,7 @@ class DiscardingDestination implements Destination
     }
 }
 
-/** Reads the fonttbl group, inserting fonts into the RTFReader's
+/** {@collect.stats} Reads the fonttbl group, inserting fonts into the RTFReader's
  *  fontTable dictionary. */
 class FonttblDestination implements Destination
 {
@@ -756,7 +756,7 @@ class FonttblDestination implements Destination
     }
 }
 
-/** Reads the colortbl group. Upon end-of-group, the RTFReader's
+/** {@collect.stats} Reads the colortbl group. Upon end-of-group, the RTFReader's
  *  color table is set to an array containing the read colors. */
 class ColortblDestination implements Destination
 {
@@ -817,7 +817,7 @@ class ColortblDestination implements Destination
     public void handleBinaryBlob(byte[] data) {}
 }
 
-/** Handles the stylesheet keyword. Styles are read and sorted
+/** {@collect.stats} Handles the stylesheet keyword. Styles are read and sorted
  *  into the three style arrays in the RTFReader. */
 class StylesheetDestination
     extends DiscardingDestination
@@ -897,7 +897,7 @@ class StylesheetDestination
 */
     }
 
-    /** This subclass handles an individual style */
+    /** {@collect.stats} This subclass handles an individual style */
     class StyleDefiningDestination
         extends AttributeTrackingDestination
         implements Destination
@@ -1034,7 +1034,7 @@ class StylesheetDestination
     }
 }
 
-/** Handles the info group. Currently no info keywords are recognized
+/** {@collect.stats} Handles the info group. Currently no info keywords are recognized
  *  so this is a subclass of DiscardingDestination. */
 class InfoDestination
     extends DiscardingDestination
@@ -1042,20 +1042,20 @@ class InfoDestination
 {
 }
 
-/** RTFReader.TextHandlingDestination is an abstract RTF destination
+/** {@collect.stats} RTFReader.TextHandlingDestination is an abstract RTF destination
  *  which simply tracks the attributes specified by the RTF control words
  *  in internal form and can produce acceptable AttributeSets for the
  *  current character, paragraph, and section attributes. It is up
  *  to the subclasses to determine what is done with the actual text. */
 abstract class AttributeTrackingDestination implements Destination
 {
-    /** This is the "chr" element of parserState, cached for
+    /** {@collect.stats} This is the "chr" element of parserState, cached for
      *  more efficient use */
     MutableAttributeSet characterAttributes;
-    /** This is the "pgf" element of parserState, cached for
+    /** {@collect.stats} This is the "pgf" element of parserState, cached for
      *  more efficient use */
     MutableAttributeSet paragraphAttributes;
-    /** This is the "sec" element of parserState, cached for
+    /** {@collect.stats} This is the "sec" element of parserState, cached for
      *  more efficient use */
     MutableAttributeSet sectionAttributes;
 
@@ -1307,7 +1307,7 @@ abstract class AttributeTrackingDestination implements Destination
         return false;
     }
 
-    /** Returns a new MutableAttributeSet containing the
+    /** {@collect.stats} Returns a new MutableAttributeSet containing the
      *  default character attributes */
     protected MutableAttributeSet rootCharacterAttributes()
     {
@@ -1323,7 +1323,7 @@ abstract class AttributeTrackingDestination implements Destination
         return set;
     }
 
-    /** Returns a new MutableAttributeSet containing the
+    /** {@collect.stats} Returns a new MutableAttributeSet containing the
      *  default paragraph attributes */
     protected MutableAttributeSet rootParagraphAttributes()
     {
@@ -1339,7 +1339,7 @@ abstract class AttributeTrackingDestination implements Destination
         return set;
     }
 
-    /** Returns a new MutableAttributeSet containing the
+    /** {@collect.stats} Returns a new MutableAttributeSet containing the
      *  default section attributes */
     protected MutableAttributeSet rootSectionAttributes()
     {
@@ -1348,7 +1348,7 @@ abstract class AttributeTrackingDestination implements Destination
         return set;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the current text (character) attributes in a form suitable
      * for SwingText from the current parser state.
      *
@@ -1409,7 +1409,7 @@ abstract class AttributeTrackingDestination implements Destination
         return attributes;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the current paragraph attributes (with keys
      * as given in StyleConstants) from the current parser state.
      *
@@ -1423,7 +1423,7 @@ abstract class AttributeTrackingDestination implements Destination
 
         Integer stateItem;
 
-        /*** Tab stops ***/
+        /** {@collect.stats}* Tab stops ***/
         TabStop tabs[];
 
         tabs = (TabStop[])parserState.get("_tabs_immutable");
@@ -1447,7 +1447,7 @@ abstract class AttributeTrackingDestination implements Destination
         return bld;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the current section attributes
      * from the current parser state.
      *
@@ -1464,7 +1464,7 @@ abstract class AttributeTrackingDestination implements Destination
         return attributes;
     }
 
-    /** Resets the filter's internal notion of the current character
+    /** {@collect.stats} Resets the filter's internal notion of the current character
      *  attributes to their default values. Invoked to handle the
      *  \plain keyword. */
     protected void resetCharacterAttributes()
@@ -1486,7 +1486,7 @@ abstract class AttributeTrackingDestination implements Destination
         parserState.remove("characterStyle");
     }
 
-    /** Resets the filter's internal notion of the current paragraph's
+    /** {@collect.stats} Resets the filter's internal notion of the current paragraph's
      *  attributes to their default values. Invoked to handle the
      *  \pard keyword. */
     protected void resetParagraphAttributes()
@@ -1506,7 +1506,7 @@ abstract class AttributeTrackingDestination implements Destination
         }
     }
 
-    /** Resets the filter's internal notion of the current section's
+    /** {@collect.stats} Resets the filter's internal notion of the current section's
      *  attributes to their default values. Invoked to handle the
      *  \sectd keyword. */
     protected void resetSectionAttributes()
@@ -1522,7 +1522,7 @@ abstract class AttributeTrackingDestination implements Destination
     }
 }
 
-/** RTFReader.TextHandlingDestination provides basic text handling
+/** {@collect.stats} RTFReader.TextHandlingDestination provides basic text handling
  *  functionality. Subclasses must implement: <dl>
  *  <dt>deliverText()<dd>to handle a run of text with the same
  *                       attributes
@@ -1535,7 +1535,7 @@ abstract class TextHandlingDestination
     extends AttributeTrackingDestination
     implements Destination
 {
-    /** <code>true</code> if the reader has not just finished
+    /** {@collect.stats} <code>true</code> if the reader has not just finished
      *  a paragraph; false upon startup */
     boolean inParagraph;
 
@@ -1602,7 +1602,7 @@ abstract class TextHandlingDestination
     abstract void endSection();
 }
 
-/** RTFReader.DocumentDestination is a concrete subclass of
+/** {@collect.stats} RTFReader.DocumentDestination is a concrete subclass of
  *  TextHandlingDestination which appends the text to the
  *  StyledDocument given by the <code>target</code> ivar of the
  *  containing RTFReader.

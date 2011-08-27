@@ -30,7 +30,7 @@ import java.awt.*;
 import sun.awt.ModalExclude;
 import sun.awt.SunToolkit;
 
-/**
+/** {@collect.stats}
  * Popups are used to display a <code>Component</code> to the user, typically
  * on top of all the other <code>Component</code>s in a particular containment
  * hierarchy. <code>Popup</code>s have a very small life cycle. Once you
@@ -56,12 +56,12 @@ import sun.awt.SunToolkit;
  * @since 1.4
  */
 public class Popup {
-    /**
+    /** {@collect.stats}
      * The Component representing the Popup.
      */
     private Component component;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Popup</code> for the Component <code>owner</code>
      * containing the Component <code>contents</code>. <code>owner</code>
      * is used to determine which <code>Window</code> the new
@@ -88,13 +88,13 @@ public class Popup {
         reset(owner, contents, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Popup</code>. This is provided for subclasses.
      */
     protected Popup() {
     }
 
-    /**
+    /** {@collect.stats}
      * Makes the <code>Popup</code> visible. If the <code>Popup</code> is
      * currently visible, this has no effect.
      */
@@ -106,7 +106,7 @@ public class Popup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Hides and disposes of the <code>Popup</code>. Once a <code>Popup</code>
      * has been disposed you should no longer invoke methods on it. A
      * <code>dispose</code>d <code>Popup</code> may be reclaimed and later used
@@ -124,7 +124,7 @@ public class Popup {
         dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * Frees any resources the <code>Popup</code> may be holding onto.
      */
     void dispose() {
@@ -141,7 +141,7 @@ public class Popup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the <code>Popup</code> to an initial state.
      */
     void reset(Component owner, Component contents, int ownerX, int ownerY) {
@@ -166,7 +166,7 @@ public class Popup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Causes the <code>Popup</code> to be sized to fit the preferred size
      * of the <code>Component</code> it contains.
      */
@@ -178,7 +178,7 @@ public class Popup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Window</code> to use as the parent of the
      * <code>Window</code> created for the <code>Popup</code>. This creates
      * a new <code>DefaultFrame</code>, if necessary.
@@ -198,7 +198,7 @@ public class Popup {
         return window;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the Component to use as the parent of the <code>Popup</code>.
      * The default implementation creates a <code>Window</code>, subclasses
      * should override.
@@ -211,7 +211,7 @@ public class Popup {
         return new HeavyWeightWindow(getParentWindow(owner));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Component</code> returned from
      * <code>createComponent</code> that will hold the <code>Popup</code>.
      */
@@ -220,7 +220,7 @@ public class Popup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Component used to house window.
      */
     static class HeavyWeightWindow extends JWindow implements ModalExclude {
@@ -260,7 +260,7 @@ public class Popup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used if no valid Window ancestor of the supplied owner is found.
      * <p>
      * PopupFactory uses this as a way to know when the Popup shouldn't

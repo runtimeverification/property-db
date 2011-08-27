@@ -28,7 +28,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.beans.*;
 
-/**
+/** {@collect.stats}
  * The <code>Action</code> interface provides a useful extension to the
  * <code>ActionListener</code>
  * interface in cases where the same functionality may be accessed by
@@ -213,31 +213,31 @@ import java.beans.*;
  * @see AbstractAction
  */
 public interface Action extends ActionListener {
-    /**
+    /** {@collect.stats}
      * Useful constants that can be used as the storage-retrieval key
      * when setting or getting one of this object's properties (text
      * or icon).
      */
-    /**
+    /** {@collect.stats}
      * Not currently used.
      */
     public static final String DEFAULT = "Default";
-    /**
+    /** {@collect.stats}
      * The key used for storing the <code>String</code> name
      * for the action, used for a menu or button.
      */
     public static final String NAME = "Name";
-    /**
+    /** {@collect.stats}
      * The key used for storing a short <code>String</code>
      * description for the action, used for tooltip text.
      */
     public static final String SHORT_DESCRIPTION = "ShortDescription";
-    /**
+    /** {@collect.stats}
      * The key used for storing a longer <code>String</code>
      * description for the action, could be used for context-sensitive help.
      */
     public static final String LONG_DESCRIPTION = "LongDescription";
-    /**
+    /** {@collect.stats}
      * The key used for storing a small <code>Icon</code>, such
      * as <code>ImageIcon</code>.  This is typically used with
      * menus such as <code>JMenuItem</code>.
@@ -250,7 +250,7 @@ public interface Action extends ActionListener {
      */
     public static final String SMALL_ICON = "SmallIcon";
 
-    /**
+    /** {@collect.stats}
      * The key used to determine the command <code>String</code> for the
      * <code>ActionEvent</code> that will be created when an
      * <code>Action</code> is going to be notified as the result of
@@ -259,7 +259,7 @@ public interface Action extends ActionListener {
      */
     public static final String ACTION_COMMAND_KEY = "ActionCommandKey";
 
-    /**
+    /** {@collect.stats}
      * The key used for storing a <code>KeyStroke</code> to be used as the
      * accelerator for the action.
      *
@@ -267,7 +267,7 @@ public interface Action extends ActionListener {
      */
     public static final String ACCELERATOR_KEY="AcceleratorKey";
 
-    /**
+    /** {@collect.stats}
      * The key used for storing an <code>Integer</code> that corresponds to
      * one of the <code>KeyEvent</code> key codes.  The value is
      * commonly used to specify a mnemonic.  For example:
@@ -278,7 +278,7 @@ public interface Action extends ActionListener {
      */
     public static final String MNEMONIC_KEY="MnemonicKey";
 
-    /**
+    /** {@collect.stats}
      * The key used for storing a <code>Boolean</code> that corresponds
      * to the selected state.  This is typically used only for components
      * that have a meaningful selection state.  For example,
@@ -300,7 +300,7 @@ public interface Action extends ActionListener {
      */
     public static final String SELECTED_KEY = "SwingSelectedKey";
 
-    /**
+    /** {@collect.stats}
      * The key used for storing an <code>Integer</code> that corresponds
      * to the index in the text (identified by the <code>NAME</code>
      * property) that the decoration for a mnemonic should be rendered at.  If
@@ -316,7 +316,7 @@ public interface Action extends ActionListener {
     public static final String DISPLAYED_MNEMONIC_INDEX_KEY =
                                  "SwingDisplayedMnemonicIndexKey";
 
-    /**
+    /** {@collect.stats}
      * The key used for storing an <code>Icon</code>.  This is typically
      * used by buttons, such as <code>JButton</code> and
      * <code>JToggleButton</code>.
@@ -333,13 +333,13 @@ public interface Action extends ActionListener {
      */
     public static final String LARGE_ICON_KEY = "SwingLargeIconKey";
 
-    /**
+    /** {@collect.stats}
      * Gets one of this object's properties
      * using the associated key.
      * @see #putValue
      */
     public Object getValue(String key);
-    /**
+    /** {@collect.stats}
      * Sets one of this object's properties
      * using the associated key. If the value has
      * changed, a <code>PropertyChangeEvent</code> is sent
@@ -350,7 +350,7 @@ public interface Action extends ActionListener {
      */
     public void putValue(String key, Object value);
 
-    /**
+    /** {@collect.stats}
      * Sets the enabled state of the <code>Action</code>.  When enabled,
      * any component associated with this object is active and
      * able to fire this object's <code>actionPerformed</code> method.
@@ -360,7 +360,7 @@ public interface Action extends ActionListener {
      * @param  b true to enable this <code>Action</code>, false to disable it
      */
     public void setEnabled(boolean b);
-    /**
+    /** {@collect.stats}
      * Returns the enabled state of the <code>Action</code>. When enabled,
      * any component associated with this object is active and
      * able to fire this object's <code>actionPerformed</code> method.
@@ -369,7 +369,7 @@ public interface Action extends ActionListener {
      */
     public boolean isEnabled();
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>PropertyChange</code> listener. Containers and attached
      * components use these methods to register interest in this
      * <code>Action</code> object. When its enabled state or other property
@@ -378,7 +378,7 @@ public interface Action extends ActionListener {
      * @param listener  a <code>PropertyChangeListener</code> object
      */
     public void addPropertyChangeListener(PropertyChangeListener listener);
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChange</code> listener.
      *
      * @param listener  a <code>PropertyChangeListener</code> object

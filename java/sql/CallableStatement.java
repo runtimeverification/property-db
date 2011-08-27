@@ -30,7 +30,7 @@ import java.util.Calendar;
 import java.io.Reader;
 import java.io.InputStream;
 
-/**
+/** {@collect.stats}
  * The interface used to execute SQL stored procedures.  The JDBC API
  * provides a stored procedure SQL escape syntax that allows stored procedures
  * to be called in a standard way for all RDBMSs. This escape syntax has one
@@ -64,7 +64,7 @@ import java.io.InputStream;
 
 public interface CallableStatement extends PreparedStatement {
 
-    /**
+    /** {@collect.stats}
      * Registers the OUT parameter in ordinal position
      * <code>parameterIndex</code> to the JDBC type
      * <code>sqlType</code>.  All OUT parameters must be registered
@@ -102,7 +102,7 @@ public interface CallableStatement extends PreparedStatement {
     void registerOutParameter(int parameterIndex, int sqlType)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Registers the parameter in ordinal position
      * <code>parameterIndex</code> to be of JDBC type
      * <code>sqlType</code>. All OUT parameters must be registered
@@ -136,7 +136,7 @@ public interface CallableStatement extends PreparedStatement {
     void registerOutParameter(int parameterIndex, int sqlType, int scale)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether the last OUT parameter read had the value of
      * SQL <code>NULL</code>.  Note that this method should be called only after
      * calling a getter method; otherwise, there is no value to use in
@@ -149,7 +149,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     boolean wasNull() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>CHAR</code>,
      * <code>VARCHAR</code>, or <code>LONGVARCHAR</code> parameter as a
      * <code>String</code> in the Java programming language.
@@ -172,7 +172,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     String getString(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>BIT</code>
      * or <code>BOOLEAN</code> parameter as a
      * <code>boolean</code> in the Java programming language.
@@ -188,7 +188,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     boolean getBoolean(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>TINYINT</code> parameter
      * as a <code>byte</code> in the Java programming language.
      *
@@ -203,7 +203,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     byte getByte(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>SMALLINT</code> parameter
      * as a <code>short</code> in the Java programming language.
      *
@@ -218,7 +218,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     short getShort(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>INTEGER</code> parameter
      * as an <code>int</code> in the Java programming language.
      *
@@ -233,7 +233,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     int getInt(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>BIGINT</code> parameter
      * as a <code>long</code> in the Java programming language.
      *
@@ -248,7 +248,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     long getLong(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>FLOAT</code> parameter
      * as a <code>float</code> in the Java programming language.
      *
@@ -263,7 +263,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     float getFloat(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>DOUBLE</code> parameter as a <code>double</code>
      * in the Java programming language.
      * @param parameterIndex the first parameter is 1, the second is 2,
@@ -277,7 +277,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     double getDouble(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>NUMERIC</code> parameter as a
      * <code>java.math.BigDecimal</code> object with <i>scale</i> digits to
      * the right of the decimal point.
@@ -298,7 +298,7 @@ public interface CallableStatement extends PreparedStatement {
     BigDecimal getBigDecimal(int parameterIndex, int scale)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>BINARY</code> or
      * <code>VARBINARY</code> parameter as an array of <code>byte</code>
      * values in the Java programming language.
@@ -313,7 +313,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     byte[] getBytes(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>DATE</code> parameter as a
      * <code>java.sql.Date</code> object.
      * @param parameterIndex the first parameter is 1, the second is 2,
@@ -327,7 +327,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.sql.Date getDate(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>TIME</code> parameter as a
      * <code>java.sql.Time</code> object.
      *
@@ -342,7 +342,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.sql.Time getTime(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>TIMESTAMP</code> parameter as a
      * <code>java.sql.Timestamp</code> object.
      *
@@ -362,7 +362,7 @@ public interface CallableStatement extends PreparedStatement {
     // Advanced features:
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated parameter as an <code>Object</code>
      * in the Java programming language. If the value is an SQL <code>NULL</code>,
      * the driver returns a Java <code>null</code>.
@@ -387,7 +387,7 @@ public interface CallableStatement extends PreparedStatement {
 
     //--------------------------JDBC 2.0-----------------------------
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>NUMERIC</code> parameter as a
      * <code>java.math.BigDecimal</code> object with as many digits to the
      * right of the decimal point as the value contains.
@@ -403,7 +403,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     BigDecimal getBigDecimal(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns an object representing the value of OUT parameter
      * <code>parameterIndex</code> and uses <code>map</code> for the custom
      * mapping of the parameter value.
@@ -427,7 +427,7 @@ public interface CallableStatement extends PreparedStatement {
     Object getObject(int parameterIndex, java.util.Map<String,Class<?>> map)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>REF(&lt;structured-type&gt;)</code>
      * parameter as a {@link java.sql.Ref} object in the Java programming language.
      * @param parameterIndex the first parameter is 1, the second is 2,
@@ -444,7 +444,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Ref getRef (int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>BLOB</code> parameter as a
      * {@link java.sql.Blob} object in the Java programming language.
      * @param parameterIndex the first parameter is 1, the second is 2, and so on
@@ -460,7 +460,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Blob getBlob (int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>CLOB</code> parameter as a
      * <code>java.sql.Clob</code> object in the Java programming language.
      * @param parameterIndex the first parameter is 1, the second is 2, and
@@ -477,7 +477,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Clob getClob (int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      *
      * Retrieves the value of the designated JDBC <code>ARRAY</code> parameter as an
      * {@link java.sql.Array} object in the Java programming language.
@@ -495,7 +495,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Array getArray (int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>DATE</code> parameter as a
      * <code>java.sql.Date</code> object, using
      * the given <code>Calendar</code> object
@@ -520,7 +520,7 @@ public interface CallableStatement extends PreparedStatement {
     java.sql.Date getDate(int parameterIndex, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>TIME</code> parameter as a
      * <code>java.sql.Time</code> object, using
      * the given <code>Calendar</code> object
@@ -545,7 +545,7 @@ public interface CallableStatement extends PreparedStatement {
     java.sql.Time getTime(int parameterIndex, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>TIMESTAMP</code> parameter as a
      * <code>java.sql.Timestamp</code> object, using
      * the given <code>Calendar</code> object to construct
@@ -572,7 +572,7 @@ public interface CallableStatement extends PreparedStatement {
         throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Registers the designated output parameter.
      * This version of
      * the method <code>registerOutParameter</code>
@@ -620,7 +620,7 @@ public interface CallableStatement extends PreparedStatement {
 
   //--------------------------JDBC 3.0-----------------------------
 
-    /**
+    /** {@collect.stats}
      * Registers the OUT parameter named
      * <code>parameterName</code> to the JDBC type
      * <code>sqlType</code>.  All OUT parameters must be registered
@@ -657,7 +657,7 @@ public interface CallableStatement extends PreparedStatement {
     void registerOutParameter(String parameterName, int sqlType)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Registers the parameter named
      * <code>parameterName</code> to be of JDBC type
      * <code>sqlType</code>.  All OUT parameters must be registered
@@ -692,7 +692,7 @@ public interface CallableStatement extends PreparedStatement {
     void registerOutParameter(String parameterName, int sqlType, int scale)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Registers the designated output parameter.  This version of
      * the method <code>registerOutParameter</code>
      * should be used for a user-named or REF output parameter.  Examples
@@ -739,7 +739,7 @@ public interface CallableStatement extends PreparedStatement {
     void registerOutParameter (String parameterName, int sqlType, String typeName)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>DATALINK</code> parameter as a
      * <code>java.net.URL</code> object.
      *
@@ -759,7 +759,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.net.URL getURL(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.net.URL</code> object.
      * The driver converts this to an SQL <code>DATALINK</code> value when
      * it sends it to the database.
@@ -777,7 +777,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setURL(String parameterName, java.net.URL val) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to SQL <code>NULL</code>.
      *
      * <P><B>Note:</B> You must specify the parameter's SQL type.
@@ -793,7 +793,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setNull(String parameterName, int sqlType) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>boolean</code> value.
      * The driver converts this
      * to an SQL <code>BIT</code> or <code>BOOLEAN</code> value when it sends it to the database.
@@ -810,7 +810,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBoolean(String parameterName, boolean x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>byte</code> value.
      * The driver converts this
      * to an SQL <code>TINYINT</code> value when it sends it to the database.
@@ -827,7 +827,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setByte(String parameterName, byte x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>short</code> value.
      * The driver converts this
      * to an SQL <code>SMALLINT</code> value when it sends it to the database.
@@ -844,7 +844,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setShort(String parameterName, short x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>int</code> value.
      * The driver converts this
      * to an SQL <code>INTEGER</code> value when it sends it to the database.
@@ -861,7 +861,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setInt(String parameterName, int x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>long</code> value.
      * The driver converts this
      * to an SQL <code>BIGINT</code> value when it sends it to the database.
@@ -878,7 +878,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setLong(String parameterName, long x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>float</code> value.
      * The driver converts this
      * to an SQL <code>FLOAT</code> value when it sends it to the database.
@@ -895,7 +895,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setFloat(String parameterName, float x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>double</code> value.
      * The driver converts this
      * to an SQL <code>DOUBLE</code> value when it sends it to the database.
@@ -912,7 +912,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setDouble(String parameterName, double x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.math.BigDecimal</code> value.
      * The driver converts this to an SQL <code>NUMERIC</code> value when
@@ -930,7 +930,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBigDecimal(String parameterName, BigDecimal x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java <code>String</code> value.
      * The driver converts this
      * to an SQL <code>VARCHAR</code> or <code>LONGVARCHAR</code> value
@@ -950,7 +950,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setString(String parameterName, String x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given Java array of bytes.
      * The driver converts this to an SQL <code>VARBINARY</code> or
      * <code>LONGVARBINARY</code> (depending on the argument's size relative
@@ -969,7 +969,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBytes(String parameterName, byte x[]) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Date</code> value
      * using the default time zone of the virtual machine that is running
      * the application.
@@ -989,7 +989,7 @@ public interface CallableStatement extends PreparedStatement {
     void setDate(String parameterName, java.sql.Date x)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Time</code> value.
      * The driver converts this
      * to an SQL <code>TIME</code> value when it sends it to the database.
@@ -1007,7 +1007,7 @@ public interface CallableStatement extends PreparedStatement {
     void setTime(String parameterName, java.sql.Time x)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Timestamp</code> value.
      * The driver
      * converts this to an SQL <code>TIMESTAMP</code> value when it sends it to the
@@ -1026,7 +1026,7 @@ public interface CallableStatement extends PreparedStatement {
     void setTimestamp(String parameterName, java.sql.Timestamp x)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream, which will have
      * the specified number of bytes.
      * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
@@ -1052,7 +1052,7 @@ public interface CallableStatement extends PreparedStatement {
     void setAsciiStream(String parameterName, java.io.InputStream x, int length)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream, which will have
      * the specified number of bytes.
      * When a very large binary value is input to a <code>LONGVARBINARY</code>
@@ -1077,7 +1077,7 @@ public interface CallableStatement extends PreparedStatement {
     void setBinaryStream(String parameterName, java.io.InputStream x,
                          int length) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the designated parameter with the given object. The second
      * argument must be an object type; for integral values, the
      * <code>java.lang</code> equivalent objects should be used.
@@ -1122,7 +1122,7 @@ public interface CallableStatement extends PreparedStatement {
     void setObject(String parameterName, Object x, int targetSqlType, int scale)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the designated parameter with the given object.
      * This method is like the method <code>setObject</code>
      * above, except that it assumes a scale of zero.
@@ -1147,7 +1147,7 @@ public interface CallableStatement extends PreparedStatement {
     void setObject(String parameterName, Object x, int targetSqlType)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the designated parameter with the given object.
      * The second parameter must be of type <code>Object</code>; therefore, the
      * <code>java.lang</code> equivalent objects should be used for built-in types.
@@ -1192,7 +1192,7 @@ public interface CallableStatement extends PreparedStatement {
     void setObject(String parameterName, Object x) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>Reader</code>
      * object, which is the given number of characters long.
      * When a very large UNICODE value is input to a <code>LONGVARCHAR</code>
@@ -1220,7 +1220,7 @@ public interface CallableStatement extends PreparedStatement {
                             java.io.Reader reader,
                             int length) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Date</code> value,
      * using the given <code>Calendar</code> object.  The driver uses
      * the <code>Calendar</code> object to construct an SQL <code>DATE</code> value,
@@ -1245,7 +1245,7 @@ public interface CallableStatement extends PreparedStatement {
     void setDate(String parameterName, java.sql.Date x, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Time</code> value,
      * using the given <code>Calendar</code> object.  The driver uses
      * the <code>Calendar</code> object to construct an SQL <code>TIME</code> value,
@@ -1270,7 +1270,7 @@ public interface CallableStatement extends PreparedStatement {
     void setTime(String parameterName, java.sql.Time x, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Timestamp</code> value,
      * using the given <code>Calendar</code> object.  The driver uses
      * the <code>Calendar</code> object to construct an SQL <code>TIMESTAMP</code> value,
@@ -1295,7 +1295,7 @@ public interface CallableStatement extends PreparedStatement {
     void setTimestamp(String parameterName, java.sql.Timestamp x, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to SQL <code>NULL</code>.
      * This version of the method <code>setNull</code> should
      * be used for user-defined types and REF type parameters.  Examples
@@ -1329,7 +1329,7 @@ public interface CallableStatement extends PreparedStatement {
     void setNull (String parameterName, int sqlType, String typeName)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>CHAR</code>, <code>VARCHAR</code>,
      * or <code>LONGVARCHAR</code> parameter as a <code>String</code> in
      * the Java programming language.
@@ -1352,7 +1352,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     String getString(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>BIT</code> or <code>BOOLEAN</code>
      * parameter as a
      * <code>boolean</code> in the Java programming language.
@@ -1369,7 +1369,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     boolean getBoolean(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>TINYINT</code> parameter as a <code>byte</code>
      * in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1385,7 +1385,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     byte getByte(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>SMALLINT</code> parameter as a <code>short</code>
      * in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1401,7 +1401,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     short getShort(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>INTEGER</code> parameter as an <code>int</code>
      * in the Java programming language.
      *
@@ -1418,7 +1418,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     int getInt(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>BIGINT</code> parameter as a <code>long</code>
      * in the Java programming language.
      *
@@ -1435,7 +1435,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     long getLong(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>FLOAT</code> parameter as a <code>float</code>
      * in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1451,7 +1451,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     float getFloat(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>DOUBLE</code> parameter as a <code>double</code>
      * in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1467,7 +1467,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     double getDouble(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>BINARY</code> or <code>VARBINARY</code>
      * parameter as an array of <code>byte</code> values in the Java
      * programming language.
@@ -1484,7 +1484,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     byte[] getBytes(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>DATE</code> parameter as a
      * <code>java.sql.Date</code> object.
      * @param parameterName the name of the parameter
@@ -1500,7 +1500,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.sql.Date getDate(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>TIME</code> parameter as a
      * <code>java.sql.Time</code> object.
      * @param parameterName the name of the parameter
@@ -1516,7 +1516,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.sql.Time getTime(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>TIMESTAMP</code> parameter as a
      * <code>java.sql.Timestamp</code> object.
      * @param parameterName the name of the parameter
@@ -1532,7 +1532,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.sql.Timestamp getTimestamp(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a parameter as an <code>Object</code> in the Java
      * programming language. If the value is an SQL <code>NULL</code>, the
      * driver returns a Java <code>null</code>.
@@ -1555,7 +1555,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Object getObject(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>NUMERIC</code> parameter as a
      * <code>java.math.BigDecimal</code> object with as many digits to the
      * right of the decimal point as the value contains.
@@ -1572,7 +1572,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     BigDecimal getBigDecimal(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns an object representing the value of OUT parameter
      * <code>parameterName</code> and uses <code>map</code> for the custom
      * mapping of the parameter value.
@@ -1596,7 +1596,7 @@ public interface CallableStatement extends PreparedStatement {
     Object getObject(String parameterName, java.util.Map<String,Class<?>> map)
       throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>REF(&lt;structured-type&gt;)</code>
      * parameter as a {@link java.sql.Ref} object in the Java programming language.
      *
@@ -1613,7 +1613,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Ref getRef (String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>BLOB</code> parameter as a
      * {@link java.sql.Blob} object in the Java programming language.
      *
@@ -1630,7 +1630,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Blob getBlob (String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>CLOB</code> parameter as a
      * <code>java.sql.Clob</code> object in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1646,7 +1646,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Clob getClob (String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>ARRAY</code> parameter as an
      * {@link java.sql.Array} object in the Java programming language.
      *
@@ -1663,7 +1663,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     Array getArray (String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>DATE</code> parameter as a
      * <code>java.sql.Date</code> object, using
      * the given <code>Calendar</code> object
@@ -1689,7 +1689,7 @@ public interface CallableStatement extends PreparedStatement {
     java.sql.Date getDate(String parameterName, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>TIME</code> parameter as a
      * <code>java.sql.Time</code> object, using
      * the given <code>Calendar</code> object
@@ -1715,7 +1715,7 @@ public interface CallableStatement extends PreparedStatement {
     java.sql.Time getTime(String parameterName, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>TIMESTAMP</code> parameter as a
      * <code>java.sql.Timestamp</code> object, using
      * the given <code>Calendar</code> object to construct
@@ -1742,7 +1742,7 @@ public interface CallableStatement extends PreparedStatement {
     java.sql.Timestamp getTimestamp(String parameterName, Calendar cal)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>DATALINK</code> parameter as a
      * <code>java.net.URL</code> object.
      *
@@ -1763,7 +1763,7 @@ public interface CallableStatement extends PreparedStatement {
 
     //------------------------- JDBC 4.0 -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>ROWID</code> parameter as a
      * <code>java.sql.RowId</code> object.
      *
@@ -1780,7 +1780,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     RowId getRowId(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>ROWID</code> parameter as a
      * <code>java.sql.RowId</code> object.
      *
@@ -1797,7 +1797,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     RowId getRowId(String parameterName) throws SQLException;
 
-     /**
+     /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.RowId</code> object. The
      * driver converts this to a SQL <code>ROWID</code> when it sends it to the
      * database.
@@ -1813,7 +1813,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setRowId(String parameterName, RowId x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>String</code> object.
      * The driver converts this to a SQL <code>NCHAR</code> or
      * <code>NVARCHAR</code> or <code>LONGNVARCHAR</code>
@@ -1831,7 +1831,7 @@ public interface CallableStatement extends PreparedStatement {
     void setNString(String parameterName, String value)
             throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object. The
      * <code>Reader</code> reads the data till end-of-file is reached. The
      * driver does the necessary conversion from Java character format to
@@ -1851,7 +1851,7 @@ public interface CallableStatement extends PreparedStatement {
     void setNCharacterStream(String parameterName, Reader value, long length)
             throws SQLException;
 
-     /**
+     /** {@collect.stats}
      * Sets the designated parameter to a <code>java.sql.NClob</code> object. The object
      * implements the <code>java.sql.NClob</code> interface. This <code>NClob</code>
      * object maps to a SQL <code>NCLOB</code>.
@@ -1868,7 +1868,7 @@ public interface CallableStatement extends PreparedStatement {
      */
      void setNClob(String parameterName, NClob value) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain  the number
      * of characters specified by length otherwise a <code>SQLException</code> will be
      * generated when the <code>CallableStatement</code> is executed.
@@ -1892,7 +1892,7 @@ public interface CallableStatement extends PreparedStatement {
      void setClob(String parameterName, Reader reader, long length)
        throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>InputStream</code> object.  The <code>inputstream</code> must contain  the number
      * of characters specified by length, otherwise a <code>SQLException</code> will be
      * generated when the <code>CallableStatement</code> is executed.
@@ -1920,7 +1920,7 @@ public interface CallableStatement extends PreparedStatement {
      */
      void setBlob(String parameterName, InputStream inputStream, long length)
         throws SQLException;
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain  the number
      * of characters specified by length otherwise a <code>SQLException</code> will be
      * generated when the <code>CallableStatement</code> is executed.
@@ -1946,7 +1946,7 @@ public interface CallableStatement extends PreparedStatement {
      void setNClob(String parameterName, Reader reader, long length)
        throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated JDBC <code>NCLOB</code> parameter as a
      * <code>java.sql.NClob</code> object in the Java programming language.
      *
@@ -1967,7 +1967,7 @@ public interface CallableStatement extends PreparedStatement {
     NClob getNClob (int parameterIndex) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of a JDBC <code>NCLOB</code> parameter as a
      * <code>java.sql.NClob</code> object in the Java programming language.
      * @param parameterName the name of the parameter
@@ -1985,7 +1985,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     NClob getNClob (String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.SQLXML</code> object. The driver converts this to an
      * <code>SQL XML</code> value when it sends it to the database.
      *
@@ -2003,7 +2003,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setSQLXML(String parameterName, SQLXML xmlObject) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated <code>SQL XML</code> parameter as a
      * <code>java.sql.SQLXML</code> object in the Java programming language.
      * @param parameterIndex index of the first parameter is 1, the second is 2, ...
@@ -2017,7 +2017,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     SQLXML getSQLXML(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated <code>SQL XML</code> parameter as a
      * <code>java.sql.SQLXML</code> object in the Java programming language.
      * @param parameterName the name of the parameter
@@ -2031,7 +2031,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     SQLXML getSQLXML(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated <code>NCHAR</code>,
      * <code>NVARCHAR</code>
      * or <code>LONGNVARCHAR</code> parameter as
@@ -2057,7 +2057,7 @@ public interface CallableStatement extends PreparedStatement {
     String getNString(int parameterIndex) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      *  Retrieves the value of the designated <code>NCHAR</code>,
      * <code>NVARCHAR</code>
      * or <code>LONGNVARCHAR</code> parameter as
@@ -2083,7 +2083,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     String getNString(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated parameter as a
      * <code>java.io.Reader</code> object in the Java programming language.
      * It is intended for use when
@@ -2103,7 +2103,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.io.Reader getNCharacterStream(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated parameter as a
      * <code>java.io.Reader</code> object in the Java programming language.
      * It is intended for use when
@@ -2123,7 +2123,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.io.Reader getNCharacterStream(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated parameter as a
      * <code>java.io.Reader</code> object in the Java programming language.
      *
@@ -2137,7 +2137,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.io.Reader getCharacterStream(int parameterIndex) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the designated parameter as a
      * <code>java.io.Reader</code> object in the Java programming language.
      *
@@ -2154,7 +2154,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     java.io.Reader getCharacterStream(String parameterName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Blob</code> object.
      * The driver converts this to an SQL <code>BLOB</code> value when it
      * sends it to the database.
@@ -2170,7 +2170,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBlob (String parameterName, Blob x) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Clob</code> object.
      * The driver converts this to an SQL <code>CLOB</code> value when it
      * sends it to the database.
@@ -2185,7 +2185,7 @@ public interface CallableStatement extends PreparedStatement {
      * @since 1.6
      */
     void setClob (String parameterName, Clob x) throws SQLException;
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream, which will have
      * the specified number of bytes.
      * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
@@ -2211,7 +2211,7 @@ public interface CallableStatement extends PreparedStatement {
     void setAsciiStream(String parameterName, java.io.InputStream x, long length)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream, which will have
      * the specified number of bytes.
      * When a very large binary value is input to a <code>LONGVARBINARY</code>
@@ -2235,7 +2235,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBinaryStream(String parameterName, java.io.InputStream x,
                          long length) throws SQLException;
-        /**
+        /** {@collect.stats}
      * Sets the designated parameter to the given <code>Reader</code>
      * object, which is the given number of characters long.
      * When a very large UNICODE value is input to a <code>LONGVARCHAR</code>
@@ -2263,7 +2263,7 @@ public interface CallableStatement extends PreparedStatement {
                             java.io.Reader reader,
                             long length) throws SQLException;
      //--
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream.
      * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
      * parameter, it may be more practical to send it via a
@@ -2288,7 +2288,7 @@ public interface CallableStatement extends PreparedStatement {
     */
     void setAsciiStream(String parameterName, java.io.InputStream x)
             throws SQLException;
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given input stream.
      * When a very large binary value is input to a <code>LONGVARBINARY</code>
      * parameter, it may be more practical to send it via a
@@ -2312,7 +2312,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setBinaryStream(String parameterName, java.io.InputStream x)
     throws SQLException;
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>Reader</code>
      * object.
      * When a very large UNICODE value is input to a <code>LONGVARCHAR</code>
@@ -2339,7 +2339,7 @@ public interface CallableStatement extends PreparedStatement {
      */
     void setCharacterStream(String parameterName,
                           java.io.Reader reader) throws SQLException;
-  /**
+  /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object. The
      * <code>Reader</code> reads the data till end-of-file is reached. The
      * driver does the necessary conversion from Java character format to
@@ -2364,7 +2364,7 @@ public interface CallableStatement extends PreparedStatement {
      */
      void setNCharacterStream(String parameterName, Reader value) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object.
      * This method differs from the <code>setCharacterStream (int, Reader)</code> method
      * because it informs the driver that the parameter value should be sent to
@@ -2388,7 +2388,7 @@ public interface CallableStatement extends PreparedStatement {
      void setClob(String parameterName, Reader reader)
        throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>InputStream</code> object.
      * This method differs from the <code>setBinaryStream (int, InputStream)</code>
      * method because it informs the driver that the parameter value should be
@@ -2412,7 +2412,7 @@ public interface CallableStatement extends PreparedStatement {
      */
      void setBlob(String parameterName, InputStream inputStream)
         throws SQLException;
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object.
      * This method differs from the <code>setCharacterStream (int, Reader)</code> method
      * because it informs the driver that the parameter value should be sent to

@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig;
 import javax.xml.crypto.XMLStructure;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>Manifest</code> element as defined in
  * the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -64,14 +64,14 @@ import java.util.List;
  */
 public interface Manifest extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * URI that identifies the <code>Manifest</code> element (this can be
      * specified as the value of the <code>type</code> parameter of the
      * {@link Reference} class to identify the referent's type).
      */
     final static String TYPE = "http://www.w3.org/2000/09/xmldsig#Manifest";
 
-    /**
+    /** {@collect.stats}
      * Returns the Id of this <code>Manifest</code>.
      *
      * @return the Id  of this <code>Manifest</code> (or <code>null</code>
@@ -79,7 +79,7 @@ public interface Manifest extends XMLStructure {
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of one or more {@link Reference}s that are contained in this
      * <code>Manifest</code>.

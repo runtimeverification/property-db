@@ -30,7 +30,7 @@ import java.net.*;
 import java.util.*;
 import java.util.jar.*;
 
-/**
+/** {@collect.stats}
  * The JCE security manager.
  *
  * <p>The JCE security manager is responsible for determining the maximum
@@ -72,7 +72,7 @@ final class JceSecurityManager extends SecurityManager {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum allowable crypto strength for the given
      * applet/application, for the given algorithm.
      */
@@ -211,7 +211,7 @@ final class JceSecurityManager extends SecurityManager {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default permission for the given algorithm.
      */
     private CryptoPermission getDefaultPermission(String alg) {

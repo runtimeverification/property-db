@@ -45,7 +45,7 @@ import javax.accessibility.*;
 import sun.awt.shell.ShellFolder;
 import sun.swing.*;
 
-/**
+/** {@collect.stats}
  * Metal L&F implementation of a FileChooser.
  *
  * @author Jeff Dinkins
@@ -534,7 +534,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         return filePane.createDetailsView();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a selection listener for the list of files and directories.
      *
      * @param fc a <code>JFileChooser</code>
@@ -570,7 +570,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         super.uninstallUI(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the specified
      * <code>JFileChooser</code>.
      * The preferred size is at least as large,
@@ -593,7 +593,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum size of the <code>JFileChooser</code>.
      *
      * @param c  a <code>JFileChooser</code>
@@ -604,7 +604,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         return MIN_SIZE;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum size of the <code>JFileChooser</code>.
      *
      * @param c  a <code>JFileChooser</code>
@@ -832,7 +832,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Property to remember whether a directory is currently selected in the UI.
      * This is normally called by the UI on a selection event.
      *
@@ -925,7 +925,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         return new DirectoryComboBoxModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Data model for a type-face selection combo-box.
      */
     protected class DirectoryComboBoxModel extends AbstractListModel implements ComboBoxModel {
@@ -944,7 +944,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the directory to the model and sets it to be selected,
          * additionally clears out the previous selected directory and
          * the paths leading up to it, if any.
@@ -1055,7 +1055,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         return new FilterComboBoxRenderer();
     }
 
-    /**
+    /** {@collect.stats}
      * Render different type sizes and styles.
      */
     public class FilterComboBoxRenderer extends DefaultListCellRenderer {
@@ -1080,7 +1080,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         return new FilterComboBoxModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Data model for a type-face selection combo-box.
      */
     protected class FilterComboBoxModel extends AbstractListModel implements ComboBoxModel, PropertyChangeListener {
@@ -1157,7 +1157,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Acts when DirectoryComboBox has changed the selected item.
      */
     protected class DirectoryComboBoxAction extends AbstractAction {
@@ -1179,7 +1179,7 @@ public class MetalFileChooserUI extends BasicFileChooserUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>ButtonAreaLayout</code> behaves in a similar manner to
      * <code>FlowLayout</code>. It lays out all components from left to
      * right, flushed right. The widths of all components will be set

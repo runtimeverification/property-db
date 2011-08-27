@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A layout manager to arrange components over the top
  * of each other.  The requested size of the container
  * will be the largest requested size of the children,
@@ -52,7 +52,7 @@ import java.io.Serializable;
  */
 public class OverlayLayout implements LayoutManager2,Serializable {
 
-    /**
+    /** {@collect.stats}
      * Constructs a layout manager that performs overlay
      * arrangement of the children.  The layout manager
      * created is dedicated to the given container.
@@ -63,7 +63,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         this.target = target;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the container that uses this layout manager.
      *
      * @return the container that uses this layout manager
@@ -74,7 +74,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return this.target;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates a child has changed its layout related information,
      * which causes any cached calculations to be flushed.
      *
@@ -88,7 +88,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         yTotal = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout. Used by
      * this class to know when to invalidate layout.
      *
@@ -99,7 +99,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the layout. Used by
      * this class to know when to invalidate layout.
      *
@@ -109,7 +109,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout, using the specified
      * constraint object. Used by this class to know when to invalidate
      * layout.
@@ -121,7 +121,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         invalidateLayout(comp.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred dimensions for this layout given the components
      * in the specified target container.  Recomputes the layout if it
      * has been invalidated.  Factors in the current inset setting returned
@@ -142,7 +142,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum dimensions needed to lay out the components
      * contained in the specified target container.  Recomputes the layout
      * if it has been invalidated, and factors in the current inset setting.
@@ -162,7 +162,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum dimensions needed to lay out the components
      * contained in the specified target container.  Recomputes the
      * layout if it has been invalidated, and factors in the inset setting
@@ -184,7 +184,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis for the container.
      *
      * @param target the container
@@ -196,7 +196,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return xTotal.alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis for the container.
      *
      * @param target the container
@@ -208,7 +208,7 @@ public class OverlayLayout implements LayoutManager2,Serializable {
         return yTotal.alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the AWT when the specified container needs to be laid out.
      *
      * @param target  the container to lay out

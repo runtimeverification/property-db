@@ -26,7 +26,7 @@
 package javax.swing.plaf;
 
 
-/**
+/** {@collect.stats}
  * This interface is used to mark objects created by ComponentUI delegates.
  * The <code>ComponentUI.installUI()</code> and
  * <code>ComponentUI.uninstallUI()</code> methods can use this interface

@@ -30,7 +30,7 @@ import java.util.HashSet;
 import javax.print.attribute.Attribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobStateReasons is a printing attribute class, a set of enumeration
  * values, that provides additional information about the job's current state,
  * i.e., information that augments the value of the job's {@link JobState
@@ -71,7 +71,7 @@ public final class JobStateReasons
 
     private static final long serialVersionUID = 8849088261264331812L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty job state reasons attribute; the underlying hash
      * set has the default initial capacity and load factor.
      */
@@ -79,7 +79,7 @@ public final class JobStateReasons
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty job state reasons attribute; the underlying hash
      * set has the given initial capacity and the default load factor.
      *
@@ -91,7 +91,7 @@ public final class JobStateReasons
         super (initialCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty job state reasons attribute; the underlying hash
      * set has the given initial capacity and load factor.
      *
@@ -104,7 +104,7 @@ public final class JobStateReasons
         super (initialCapacity, loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new job state reasons attribute that contains the same
      * {@link JobStateReason JobStateReason} objects as the given collection.
      * The underlying hash set's initial capacity and load factor are as
@@ -126,7 +126,7 @@ public final class JobStateReasons
        super (collection);
    }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified element to this job state reasons attribute if it is
      * not already present. The element to be added must be an instance of class
      * {@link JobStateReason JobStateReason}. If this job state reasons
@@ -152,7 +152,7 @@ public final class JobStateReasons
         return super.add ((JobStateReason) o);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -165,7 +165,7 @@ public final class JobStateReasons
         return JobStateReasons.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

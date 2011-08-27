@@ -35,7 +35,7 @@ import java.util.Vector;
 import javax.swing.event.*;
 import javax.swing.DefaultListSelectionModel;
 
-/**
+/** {@collect.stats}
  * Default implementation of TreeSelectionModel.  Listeners are notified
  * whenever
  * the paths in the selection change, not the rows. In order
@@ -63,39 +63,39 @@ import javax.swing.DefaultListSelectionModel;
  */
 public class DefaultTreeSelectionModel extends Object implements Cloneable, Serializable, TreeSelectionModel
 {
-    /** Property name for selectionMode. */
+    /** {@collect.stats} Property name for selectionMode. */
     public static final String          SELECTION_MODE_PROPERTY = "selectionMode";
 
-    /** Used to messaged registered listeners. */
+    /** {@collect.stats} Used to messaged registered listeners. */
     protected SwingPropertyChangeSupport     changeSupport;
 
-    /** Paths that are currently selected.  Will be null if nothing is
+    /** {@collect.stats} Paths that are currently selected.  Will be null if nothing is
       * currently selected. */
     protected TreePath[]                selection;
 
-    /** Event listener list. */
+    /** {@collect.stats} Event listener list. */
     protected EventListenerList   listenerList = new EventListenerList();
 
-    /** Provides a row for a given path. */
+    /** {@collect.stats} Provides a row for a given path. */
     transient protected RowMapper               rowMapper;
 
-    /** Handles maintaining the list selection model. The RowMapper is used
+    /** {@collect.stats} Handles maintaining the list selection model. The RowMapper is used
      * to map from a TreePath to a row, and the value is then placed here. */
     protected DefaultListSelectionModel     listSelectionModel;
 
-    /** Mode for the selection, will be either SINGLE_TREE_SELECTION,
+    /** {@collect.stats} Mode for the selection, will be either SINGLE_TREE_SELECTION,
      * CONTIGUOUS_TREE_SELECTION or DISCONTIGUOUS_TREE_SELECTION.
      */
     protected int                           selectionMode;
 
-    /** Last path that was added. */
+    /** {@collect.stats} Last path that was added. */
     protected TreePath                      leadPath;
-    /** Index of the lead path in selection. */
+    /** {@collect.stats} Index of the lead path in selection. */
     protected int                           leadIndex;
-    /** Lead row. */
+    /** {@collect.stats} Lead row. */
     protected int                           leadRow;
 
-    /** Used to make sure the paths are unique, will contain all the paths
+    /** {@collect.stats} Used to make sure the paths are unique, will contain all the paths
      * in <code>selection</code>.
      */
     private Hashtable                       uniquePaths;
@@ -103,7 +103,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
     private TreePath[]                      tempPaths;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of DefaultTreeSelectionModel that is
      * empty, with a selection mode of DISCONTIGUOUS_TREE_SELECTION.
      */
@@ -116,7 +116,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         tempPaths = new TreePath[1];
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the RowMapper instance. This instance is used to determine
      * the row for a particular TreePath.
      */
@@ -125,7 +125,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         resetRowSelection();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the RowMapper instance that is able to map a TreePath to a
      * row.
      */
@@ -133,7 +133,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return rowMapper;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection model, which must be one of SINGLE_TREE_SELECTION,
      * CONTIGUOUS_TREE_SELECTION or DISCONTIGUOUS_TREE_SELECTION. If mode
      * is not one of the defined value,
@@ -161,7 +161,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
                                              new Integer(selectionMode));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selection mode, one of <code>SINGLE_TREE_SELECTION</code>,
      * <code>DISCONTIGUOUS_TREE_SELECTION</code> or
      * <code>CONTIGUOUS_TREE_SELECTION</code>.
@@ -170,7 +170,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return selectionMode;
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the selection to path. If this represents a change, then
       * the TreeSelectionListeners are notified. If <code>path</code> is
       * null, this has the same effect as invoking <code>clearSelection</code>.
@@ -188,7 +188,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the selection to the paths in paths.  If this represents a
       * change the TreeSelectionListeners are notified.  Potentially
       * paths will be held by this object; in other words don't change
@@ -305,7 +305,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds path to the current selection. If path is not currently
       * in the selection the TreeSelectionListeners are notified. This has
       * no effect if <code>path</code> is null.
@@ -321,7 +321,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds paths to the current selection. If any of the paths in
       * paths are not currently in the selection the TreeSelectionListeners
       * are notified. This has
@@ -429,7 +429,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Removes path from the selection. If path is in the selection
       * The TreeSelectionListeners are notified. This has no effect if
       * <code>path</code> is null.
@@ -445,7 +445,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Removes paths from the selection.  If any of the paths in paths
       * are in the selection the TreeSelectionListeners are notified.
       * This has no effect if <code>paths</code> is null.
@@ -517,7 +517,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the first path in the selection. This is useful if there
       * if only one item currently selected.
       */
@@ -527,7 +527,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the paths in the selection. This will return null (or an
       * empty array) if nothing is currently selected.
       */
@@ -542,14 +542,14 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of paths that are selected.
      */
     public int getSelectionCount() {
         return (selection == null) ? 0 : selection.length;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the path, <code>path</code>,
       * is in the current selection.
       */
@@ -557,14 +557,14 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return (path != null) ? (uniquePaths.get(path) != null) : false;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the selection is currently empty.
       */
     public boolean isSelectionEmpty() {
         return (selection == null);
     }
 
-    /**
+    /** {@collect.stats}
       * Empties the current selection.  If this represents a change in the
       * current selection, the selection listeners are notified.
       */
@@ -588,7 +588,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds x to the list of listeners that are notified each time the
       * set of selected TreePaths changes.
       *
@@ -598,7 +598,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         listenerList.add(TreeSelectionListener.class, x);
     }
 
-    /**
+    /** {@collect.stats}
       * Removes x from the list of listeners that are notified each time
       * the set of selected TreePaths changes.
       *
@@ -608,7 +608,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         listenerList.remove(TreeSelectionListener.class, x);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the tree selection listeners
      * registered on this model.
      *
@@ -626,7 +626,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
                 TreeSelectionListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that are registered for
      * tree selection events on this object.
      * @see #addTreeSelectionListener
@@ -648,7 +648,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this model.
@@ -689,7 +689,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return listenerList.getListeners(listenerType);
     }
 
-    /**
+    /** {@collect.stats}
       * Returns all of the currently selected rows. This will return
       * null (or an empty array) if there are no selected TreePaths or
       * a RowMapper has not been set.
@@ -733,7 +733,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the smallest value obtained from the RowMapper for the
      * current set of selected TreePaths. If nothing is selected,
      * or there is no RowMapper, this will return -1.
@@ -742,7 +742,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return listSelectionModel.getMinSelectionIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the largest value obtained from the RowMapper for the
      * current set of selected TreePaths. If nothing is selected,
      * or there is no RowMapper, this will return -1.
@@ -751,14 +751,14 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return listSelectionModel.getMaxSelectionIndex();
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the row identified by <code>row</code> is selected.
       */
     public boolean isRowSelected(int row) {
         return listSelectionModel.isSelectedIndex(row);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates this object's mapping from TreePath to rows. This should
      * be invoked when the mapping from TreePaths to integers has changed
      * (for example, a node has been expanded).
@@ -802,7 +802,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
             leadRow = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lead selection index. That is the last index that was
      * added.
      */
@@ -810,7 +810,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return leadRow;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last path that was added. This may differ from the
      * leadSelectionPath property maintained by the JTree.
      */
@@ -818,7 +818,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return leadPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a PropertyChangeListener to the listener list.
      * The listener is registered for all properties.
      * <p>
@@ -835,7 +835,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         changeSupport.addPropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a PropertyChangeListener from the listener list.
      * This removes a PropertyChangeListener that was registered
      * for all properties.
@@ -851,7 +851,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         changeSupport.removePropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the property change listeners
      * registered on this <code>DefaultTreeSelectionModel</code>.
      *
@@ -871,7 +871,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return changeSupport.getPropertyChangeListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Makes sure the currently selected <code>TreePath</code>s are valid
      * for the current selection mode.
      * If the selection mode is <code>CONTIGUOUS_TREE_SELECTION</code>
@@ -922,7 +922,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the paths are contiguous,
      * or this object has no RowMapper.
      */
@@ -966,7 +966,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Used to test if a particular set of <code>TreePath</code>s can
      * be added. This will return true if <code>paths</code> is null (or
      * empty), or this object has no RowMapper, or nothing is currently selected,
@@ -1020,7 +1020,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the paths can be removed without breaking the
      * continuity of the model.
      * This is rather expensive.
@@ -1072,7 +1072,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return true;
     }
 
-    /**
+    /** {@collect.stats}
       * Notifies listeners of a change in path. changePaths should contain
       * instances of PathPlaceHolder.
       */
@@ -1095,7 +1095,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         fireValueChanged(event);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the leadIndex instance variable.
      */
     protected void updateLeadIndex() {
@@ -1122,7 +1122,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method is obsolete and its implementation is now a noop.  It's
      * still called by setSelectionPaths and addSelectionPaths, but only
      * for backwards compatability.
@@ -1131,7 +1131,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *
@@ -1158,7 +1158,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
         return retBuffer.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this object with the same selection.
      * This method does not duplicate
      * selection listeners and property listeners.
@@ -1216,7 +1216,7 @@ public class DefaultTreeSelectionModel extends Object implements Cloneable, Seri
     }
 }
 
-/**
+/** {@collect.stats}
  * Holds a path and whether or not it is new.
  */
 class PathPlaceHolder {

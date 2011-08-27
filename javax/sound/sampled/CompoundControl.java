@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A <code>CompoundControl</code>, such as a graphic equalizer, provides control
  * over two or more related properties, each of which is itself represented as
  * a <code>Control</code>.
@@ -42,7 +42,7 @@ public abstract class CompoundControl extends Control {
     // INSTANCE VARIABLES
 
 
-    /**
+    /** {@collect.stats}
      * The set of member controls.
      */
     private Control[] controls;
@@ -52,7 +52,7 @@ public abstract class CompoundControl extends Control {
     // CONSTRUCTORS
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new compound control object with the given parameters.
      *
      * @param type the type of control represented this compound control object
@@ -69,7 +69,7 @@ public abstract class CompoundControl extends Control {
     // METHODS
 
 
-    /**
+    /** {@collect.stats}
      * Returns the set of member controls that comprise the compound control.
      * @return the set of member controls.
      */
@@ -88,7 +88,7 @@ public abstract class CompoundControl extends Control {
     // ABSTRACT METHOD IMPLEMENTATIONS: CONTROL
 
 
-    /**
+    /** {@collect.stats}
      * Provides a string representation of the control
      * @return a string description
      */
@@ -112,7 +112,7 @@ public abstract class CompoundControl extends Control {
     // INNER CLASSES
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>CompoundControl.Type</code> inner class identifies one kind of
      * compound control.  Static instances are provided for the
      * common types.
@@ -128,7 +128,7 @@ public abstract class CompoundControl extends Control {
         // CONSTRUCTOR
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a new compound control type.
          * @param name  the name of the new compound control type
          */

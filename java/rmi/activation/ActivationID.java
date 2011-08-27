@@ -41,7 +41,7 @@ import java.rmi.server.RemoteObjectInvocationHandler;
 import java.rmi.server.RemoteRef;
 import java.rmi.server.UID;
 
-/**
+/** {@collect.stats}
  * Activation makes use of special identifiers to denote remote
  * objects that can be activated over time. An activation identifier
  * (an instance of the class <code>ActivationID</code>) contains several
@@ -68,20 +68,20 @@ import java.rmi.server.UID;
  * @since       1.2
  */
 public class ActivationID implements Serializable {
-    /**
+    /** {@collect.stats}
      * the object's activator
      */
     private transient Activator activator;
 
-    /**
+    /** {@collect.stats}
      * the object's unique id
      */
     private transient UID uid = new UID();
 
-    /** indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = -4608673054848209235L;
 
-    /**
+    /** {@collect.stats}
      * The constructor for <code>ActivationID</code> takes a single
      * argument, activator, that specifies a remote reference to the
      * activator responsible for activating the object associated with
@@ -96,7 +96,7 @@ public class ActivationID implements Serializable {
         this.activator = activator;
     }
 
-    /**
+    /** {@collect.stats}
      * Activate the object for this id.
      *
      * @param force if true, forces the activator to contact the group
@@ -125,7 +125,7 @@ public class ActivationID implements Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for the activation id.  Two identifiers that
      * refer to the same remote object will have the same hash code.
      *
@@ -136,7 +136,7 @@ public class ActivationID implements Serializable {
         return uid.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares two activation ids for content equality.
      * Returns true if both of the following conditions are true:
      * 1) the unique identifiers equivalent (by content), and
@@ -157,7 +157,7 @@ public class ActivationID implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <code>writeObject</code> for custom serialization.
      *
      * <p>This method writes this object's serialized form for
@@ -225,7 +225,7 @@ public class ActivationID implements Serializable {
         ref.writeExternal(out);
     }
 
-    /**
+    /** {@collect.stats}
      * <code>readObject</code> for custom serialization.
      *
      * <p>This method reads this object's serialized form for this

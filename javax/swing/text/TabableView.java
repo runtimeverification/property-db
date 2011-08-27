@@ -25,7 +25,7 @@
 package javax.swing.text;
 
 
-/**
+/** {@collect.stats}
  * Interface for <code>View</code>s that have size dependent upon tabs.
  *
  * @author  Timothy Prinzing
@@ -36,7 +36,7 @@ package javax.swing.text;
  */
 public interface TabableView {
 
-    /**
+    /** {@collect.stats}
      * Determines the desired span when using the given
      * tab expansion implementation.  If a container
      * calls this method, it will do so prior to the
@@ -52,7 +52,7 @@ public interface TabableView {
      */
     float getTabbedSpan(float x, TabExpander e);
 
-    /**
+    /** {@collect.stats}
      * Determines the span along the same axis as tab
      * expansion for a portion of the view.  This is
      * intended for use by the TabExpander for cases

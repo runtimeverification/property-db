@@ -32,7 +32,7 @@ import java.security.NoSuchProviderException;
 import java.security.InvalidKeyException;
 import java.security.SignatureException;
 
-/**
+/** {@collect.stats}
  * <p>Abstract class for managing a variety of identity certificates.
  * An identity certificate is a guarantee by a principal that
  * a public key is that of another principal.  (A principal represents
@@ -62,7 +62,7 @@ import java.security.SignatureException;
  */
 public abstract class Certificate {
 
-    /**
+    /** {@collect.stats}
      * Compares this certificate for equality with the specified
      * object. If the <code>other</code> object is an
      * <code>instanceof</code> <code>Certificate</code>, then
@@ -93,7 +93,7 @@ public abstract class Certificate {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode value for this certificate from its
      * encoded form.
      *
@@ -112,7 +112,7 @@ public abstract class Certificate {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the encoded form of this certificate. It is
      * assumed that each certificate type would have only a single
      * form of encoding; for example, X.509 certificates would
@@ -124,7 +124,7 @@ public abstract class Certificate {
      */
     public abstract byte[] getEncoded() throws CertificateEncodingException;
 
-    /**
+    /** {@collect.stats}
      * Verifies that this certificate was signed using the
      * private key that corresponds to the specified public key.
      *
@@ -142,7 +142,7 @@ public abstract class Certificate {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /**
+    /** {@collect.stats}
      * Verifies that this certificate was signed using the
      * private key that corresponds to the specified public key.
      * This method uses the signature verification engine
@@ -161,14 +161,14 @@ public abstract class Certificate {
         InvalidKeyException, NoSuchProviderException,
         SignatureException;
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this certificate.
      *
      * @return a string representation of this certificate.
      */
     public abstract String toString();
 
-    /**
+    /** {@collect.stats}
      * Gets the public key from this certificate.
      *
      * @return the public key.

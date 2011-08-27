@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
+/** {@collect.stats}
  * <P>Class AccessibleRelation describes a relation between the
  * object that implements the AccessibleRelation and one or more other
  * objects.  The actual relations that an object has with other
@@ -61,7 +61,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     private Object [] target = new Object[0];
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is a label for one or more target objects.
      *
      * @see #getTarget
@@ -72,7 +72,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String LABEL_FOR = new String("labelFor");
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is labeled by one or more target objects.
      *
      * @see #getTarget
@@ -83,7 +83,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String LABELED_BY = new String("labeledBy");
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is a member of a group of one or more
      * target objects.
      *
@@ -95,7 +95,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String MEMBER_OF = new String("memberOf");
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is a controller for one or more target
      * objects.
      *
@@ -107,7 +107,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String CONTROLLER_FOR = new String("controllerFor");
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is controlled by one or more target
      * objects.
      *
@@ -119,7 +119,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String CONTROLLED_BY = new String("controlledBy");
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is logically contiguous with a second
      * object where the second object occurs after the object.
      * An example is a paragraph of text that runs to the end of
@@ -135,7 +135,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String FLOWS_TO = "flowsTo";
 
-    /**
+    /** {@collect.stats}
      * Indicates an object is logically contiguous with a second
      * object where the second object occurs before the object.
      * An example is a paragraph of text that runs to the end of
@@ -150,7 +150,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String FLOWS_FROM = "flowsFrom";
 
-    /**
+    /** {@collect.stats}
      * Indicates that an object is a subwindow of one or more
      * objects.
      *
@@ -158,7 +158,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String SUBWINDOW_OF = "subwindowOf";
 
-    /**
+    /** {@collect.stats}
      * Indicates that an object is a parent window of one or more
      * objects.
      *
@@ -166,7 +166,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String PARENT_WINDOW_OF = "parentWindowOf";
 
-    /**
+    /** {@collect.stats}
      * Indicates that an object has one or more objects
      * embedded in it.
      *
@@ -174,7 +174,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String EMBEDS = "embeds";
 
-    /**
+    /** {@collect.stats}
      * Indicates that an object is embedded in one or more
      * objects.
      *
@@ -182,7 +182,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String EMBEDDED_BY = "embeddedBy";
 
-    /**
+    /** {@collect.stats}
      * Indicates that an object is a child node of one
      * or more objects.
      *
@@ -190,33 +190,33 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String CHILD_NODE_OF = "childNodeOf";
 
-    /**
+    /** {@collect.stats}
      * Identifies that the target group for a label has changed
      */
     public static final String LABEL_FOR_PROPERTY = "labelForProperty";
 
-    /**
+    /** {@collect.stats}
      * Identifies that the objects that are doing the labeling have changed
      */
     public static final String LABELED_BY_PROPERTY = "labeledByProperty";
 
-    /**
+    /** {@collect.stats}
      * Identifies that group membership has changed.
      */
     public static final String MEMBER_OF_PROPERTY = "memberOfProperty";
 
-    /**
+    /** {@collect.stats}
      * Identifies that the controller for the target object has changed
      */
     public static final String CONTROLLER_FOR_PROPERTY = "controllerForProperty";
 
-    /**
+    /** {@collect.stats}
      * Identifies that the target object that is doing the controlling has
      * changed
      */
     public static final String CONTROLLED_BY_PROPERTY = "controlledByProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the FLOWS_TO relation between two objects
      * has changed.
      *
@@ -224,7 +224,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String FLOWS_TO_PROPERTY = "flowsToProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the FLOWS_FROM relation between two objects
      * has changed.
      *
@@ -232,7 +232,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String FLOWS_FROM_PROPERTY = "flowsFromProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the SUBWINDOW_OF relation between two or more objects
      * has changed.
      *
@@ -240,7 +240,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String SUBWINDOW_OF_PROPERTY = "subwindowOfProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the PARENT_WINDOW_OF relation between two or more objects
      * has changed.
      *
@@ -248,7 +248,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String PARENT_WINDOW_OF_PROPERTY = "parentWindowOfProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the EMBEDS relation between two or more objects
      * has changed.
      *
@@ -256,7 +256,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String EMBEDS_PROPERTY = "embedsProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the EMBEDDED_BY relation between two or more objects
      * has changed.
      *
@@ -264,7 +264,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String EMBEDDED_BY_PROPERTY = "embeddedByProperty";
 
-    /**
+    /** {@collect.stats}
      * Indicates the CHILD_NODE_OF relation between two or more objects
      * has changed.
      *
@@ -272,7 +272,7 @@ public class AccessibleRelation extends AccessibleBundle {
      */
     public static final String CHILD_NODE_OF_PROPERTY = "childNodeOfProperty";
 
-    /**
+    /** {@collect.stats}
      * Create a new AccessibleRelation using the given locale independent key.
      * The key String should be a locale independent key for the relation.
      * It is not intended to be used as the actual String to display
@@ -286,7 +286,7 @@ public class AccessibleRelation extends AccessibleBundle {
         this.target = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AccessibleRelation using the given locale independent key.
      * The key String should be a locale independent key for the relation.
      * It is not intended to be used as the actual String to display
@@ -302,7 +302,7 @@ public class AccessibleRelation extends AccessibleBundle {
         this.target[0] = target;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AccessibleRelation using the given locale independent key.
      * The key String should be a locale independent key for the relation.
      * It is not intended to be used as the actual String to display
@@ -317,7 +317,7 @@ public class AccessibleRelation extends AccessibleBundle {
         this.target = target;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key for this relation
      *
      * @return the key for this relation
@@ -332,7 +332,7 @@ public class AccessibleRelation extends AccessibleBundle {
         return this.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the target objects for this relation
      *
      * @return an array containing the target objects for this relation
@@ -348,7 +348,7 @@ public class AccessibleRelation extends AccessibleBundle {
         return retval;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the target object for this relation
      *
      * @param target the target object for this relation
@@ -358,7 +358,7 @@ public class AccessibleRelation extends AccessibleBundle {
         this.target[0] = target;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the target objects for this relation
      *
      * @param target an array containing the target objects for this relation

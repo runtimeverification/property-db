@@ -29,7 +29,7 @@ package javax.management.monitor;
 //
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * Exposes the remote management interface of the gauge monitor MBean.
  *
  *
@@ -40,7 +40,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge.
      *
      * @return The derived gauge.
@@ -49,7 +49,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
     @Deprecated
     public Number getDerivedGauge();
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp.
      *
      * @return The derived gauge timestamp.
@@ -58,7 +58,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
     @Deprecated
     public long getDerivedGaugeTimeStamp();
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge for the specified MBean.
      *
      * @param object the MBean for which the derived gauge is to be returned
@@ -68,7 +68,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public Number getDerivedGauge(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp for the specified MBean.
      *
      * @param object the MBean for which the derived gauge timestamp is to be returned
@@ -78,21 +78,21 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public long getDerivedGaugeTimeStamp(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the high threshold value.
      *
      * @return The high threshold value.
      */
     public Number getHighThreshold();
 
-    /**
+    /** {@collect.stats}
      * Gets the low threshold value.
      *
      * @return The low threshold value.
      */
     public Number getLowThreshold();
 
-    /**
+    /** {@collect.stats}
      * Sets the high and the low threshold values.
      *
      * @param highValue The high threshold value.
@@ -103,7 +103,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public void setThresholds(Number highValue, Number lowValue) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the high notification's on/off switch value.
      *
      * @return <CODE>true</CODE> if the gauge monitor notifies when
@@ -113,7 +113,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public boolean getNotifyHigh();
 
-    /**
+    /** {@collect.stats}
      * Sets the high notification's on/off switch value.
      *
      * @param value The high notification's on/off switch value.
@@ -122,7 +122,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public void setNotifyHigh(boolean value);
 
-    /**
+    /** {@collect.stats}
      * Gets the low notification's on/off switch value.
      *
      * @return <CODE>true</CODE> if the gauge monitor notifies when
@@ -132,7 +132,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public boolean getNotifyLow();
 
-    /**
+    /** {@collect.stats}
      * Sets the low notification's on/off switch value.
      *
      * @param value The low notification's on/off switch value.
@@ -141,7 +141,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public void setNotifyLow(boolean value);
 
-    /**
+    /** {@collect.stats}
      * Gets the difference mode flag value.
      *
      * @return <CODE>true</CODE> if the difference mode is used,
@@ -151,7 +151,7 @@ public interface GaugeMonitorMBean extends MonitorMBean {
      */
     public boolean getDifferenceMode();
 
-    /**
+    /** {@collect.stats}
      * Sets the difference mode flag value.
      *
      * @param value The difference mode flag value.

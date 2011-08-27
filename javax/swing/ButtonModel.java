@@ -29,7 +29,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * State model for buttons.
  * <p>
  * This model is used for regular buttons, as well as check boxes
@@ -75,7 +75,7 @@ import javax.swing.event.*;
  */
 public interface ButtonModel extends ItemSelectable {
 
-    /**
+    /** {@collect.stats}
      * Indicates partial commitment towards triggering the
      * button.
      *
@@ -85,7 +85,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     boolean isArmed();
 
-    /**
+    /** {@collect.stats}
      * Indicates if the button has been selected. Only needed for
      * certain types of buttons - such as radio buttons and check boxes.
      *
@@ -93,7 +93,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     boolean isSelected();
 
-    /**
+    /** {@collect.stats}
      * Indicates if the button can be selected or triggered by
      * an input device, such as a mouse pointer.
      *
@@ -101,28 +101,28 @@ public interface ButtonModel extends ItemSelectable {
      */
     boolean isEnabled();
 
-    /**
+    /** {@collect.stats}
      * Indicates if the button is pressed.
      *
      * @return <code>true</code> if the button is pressed
      */
     boolean isPressed();
 
-    /**
+    /** {@collect.stats}
      * Indicates that the mouse is over the button.
      *
      * @return <code>true</code> if the mouse is over the button
      */
     boolean isRollover();
 
-    /**
+    /** {@collect.stats}
      * Marks the button as armed or unarmed.
      *
      * @param b whether or not the button should be armed
      */
     public void setArmed(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Selects or deselects the button.
      *
      * @param b <code>true</code> selects the button,
@@ -130,7 +130,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setSelected(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Enables or disables the button.
      *
      * @param b whether or not the button should be enabled
@@ -138,7 +138,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setEnabled(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Sets the button to pressed or unpressed.
      *
      * @param b whether or not the button should be pressed
@@ -146,7 +146,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setPressed(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Sets or clears the button's rollover state
      *
      * @param b whether or not the button is in the rollover state
@@ -154,7 +154,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setRollover(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Sets the keyboard mnemonic (shortcut key or
      * accelerator key) for the button.
      *
@@ -162,7 +162,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setMnemonic(int key);
 
-    /**
+    /** {@collect.stats}
      * Gets the keyboard mnemonic for the button.
      *
      * @return an int specifying the accelerator key
@@ -170,7 +170,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public int  getMnemonic();
 
-    /**
+    /** {@collect.stats}
      * Sets the action command string that gets sent as part of the
      * <code>ActionEvent</code> when the button is triggered.
      *
@@ -180,7 +180,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setActionCommand(String s);
 
-    /**
+    /** {@collect.stats}
      * Returns the action command string for the button.
      *
      * @return the <code>String</code> that identifies the generated event
@@ -188,7 +188,7 @@ public interface ButtonModel extends ItemSelectable {
      */
     public String getActionCommand();
 
-    /**
+    /** {@collect.stats}
      * Identifies the group the button belongs to --
      * needed for radio buttons, which are mutually
      * exclusive within their group.
@@ -197,42 +197,42 @@ public interface ButtonModel extends ItemSelectable {
      */
     public void setGroup(ButtonGroup group);
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>ActionListener</code> to the model.
      *
      * @param l the listener to add
      */
     void addActionListener(ActionListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>ActionListener</code> from the model.
      *
      * @param l the listener to remove
      */
     void removeActionListener(ActionListener l);
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>ItemListener</code> to the model.
      *
      * @param l the listener to add
      */
     void addItemListener(ItemListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>ItemListener</code> from the model.
      *
      * @param l the listener to remove
      */
     void removeItemListener(ItemListener l);
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to the model.
      *
      * @param l the listener to add
      */
     void addChangeListener(ChangeListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the model.
      *
      * @param l the listener to remove

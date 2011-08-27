@@ -26,7 +26,7 @@
 
 package java.util.logging;
 
-/**
+/** {@collect.stats}
  * ErrorManager objects can be attached to Handlers to process
  * any error that occur on a Handler during Logging.
  * <p>
@@ -43,33 +43,33 @@ public class ErrorManager {
      * We declare standard error codes for important categories of errors.
      */
 
-    /**
+    /** {@collect.stats}
      * GENERIC_FAILURE is used for failure that don't fit
      * into one of the other categories.
      */
     public final static int GENERIC_FAILURE = 0;
-    /**
+    /** {@collect.stats}
      * WRITE_FAILURE is used when a write to an output stream fails.
      */
     public final static int WRITE_FAILURE = 1;
-    /**
+    /** {@collect.stats}
      * FLUSH_FAILURE is used when a flush to an output stream fails.
      */
     public final static int FLUSH_FAILURE = 2;
-    /**
+    /** {@collect.stats}
      * CLOSE_FAILURE is used when a close of an output stream fails.
      */
     public final static int CLOSE_FAILURE = 3;
-    /**
+    /** {@collect.stats}
      * OPEN_FAILURE is used when an open of an output stream fails.
      */
     public final static int OPEN_FAILURE = 4;
-    /**
+    /** {@collect.stats}
      * FORMAT_FAILURE is used when formatting fails for any reason.
      */
     public final static int FORMAT_FAILURE = 5;
 
-    /**
+    /** {@collect.stats}
      * The error method is called when a Handler failure occurs.
      * <p>
      * This method may be overriden in subclasses.  The default

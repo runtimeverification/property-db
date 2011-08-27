@@ -26,7 +26,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * Reports a bad SSL key.  Normally, this indicates misconfiguration
  * of the server or client SSL certificate and private key.
  *
@@ -38,7 +38,7 @@ class SSLKeyException extends SSLException
 {
     private static final long serialVersionUID = -8071664081941937874L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an exception reporting a key management error
      * found by an SSL subsystem.
      *

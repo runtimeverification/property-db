@@ -28,7 +28,7 @@ package javax.imageio.event;
 import java.util.EventListener;
 import javax.imageio.ImageReader;
 
-/**
+/** {@collect.stats}
  * An interface used by <code>ImageReader</code> implementations to
  * notify callers of their image and thumbnail reading methods of
  * warnings (non-fatal errors).  Fatal errors cause the relevant
@@ -45,7 +45,7 @@ import javax.imageio.ImageReader;
  */
 public interface IIOReadWarningListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Reports the occurence of a non-fatal error in decoding.  Decoding
      * will continue following the call to this method.  The application
      * may choose to display a dialog, print the warning to the console,

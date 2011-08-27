@@ -40,7 +40,7 @@ import java.security.PrivilegedAction;
 import sun.security.action.GetBooleanAction;
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * Utility class for HTML form encoding. This class contains static methods
  * for converting a String to the <CODE>application/x-www-form-urlencoded</CODE> MIME
  * format. For more information about HTML form encoding, consult the HTML
@@ -146,12 +146,12 @@ public class URLEncoder {
         );
     }
 
-    /**
+    /** {@collect.stats}
      * You can't call the constructor.
      */
     private URLEncoder() { }
 
-    /**
+    /** {@collect.stats}
      * Translates a string into <code>x-www-form-urlencoded</code>
      * format. This method uses the platform's default encoding
      * as the encoding scheme to obtain the bytes for unsafe characters.
@@ -176,7 +176,7 @@ public class URLEncoder {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a string into <code>application/x-www-form-urlencoded</code>
      * format using a specific encoding scheme. This method uses the
      * supplied encoding scheme to obtain the bytes for unsafe

@@ -33,7 +33,7 @@ import java.io.Reader;
 import java.io.CharArrayReader;
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * An entity is described in a DTD using the ENTITY construct.
  * It defines the type and value of the the entity.
  *
@@ -46,7 +46,7 @@ class Entity implements DTDConstants {
     public int type;
     public char data[];
 
-    /**
+    /** {@collect.stats}
      * Creates an entity.
      * @param name the name of the entity
      * @param type the type of the entity
@@ -58,7 +58,7 @@ class Entity implements DTDConstants {
         this.data = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the name of the entity.
      * @return the name of the entity, as a <code>String</code>
      */
@@ -66,7 +66,7 @@ class Entity implements DTDConstants {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the type of the entity.
      * @return the type of the entity
      */
@@ -74,7 +74,7 @@ class Entity implements DTDConstants {
         return type & 0xFFFF;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if it is a parameter entity.
      * @return <code>true</code> if it is a parameter entity
      */
@@ -82,7 +82,7 @@ class Entity implements DTDConstants {
         return (type & PARAMETER) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if it is a general entity.
      * @return <code>true</code> if it is a general entity
      */
@@ -90,7 +90,7 @@ class Entity implements DTDConstants {
         return (type & GENERAL) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>data</code>.
      * @return the <code>data</code>
      */
@@ -98,7 +98,7 @@ class Entity implements DTDConstants {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data as a <code>String</code>.
      * @return the data as a <code>String</code>
      */
@@ -121,7 +121,7 @@ class Entity implements DTDConstants {
         entityTypes.put("SYSTEM", new Integer(SYSTEM));
     }
 
-    /**
+    /** {@collect.stats}
      * Converts <code>nm</code> string to the corresponding
      * entity type.  If the string does not have a corresponding
      * entity type, returns the type corresponding to "CDATA".

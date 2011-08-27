@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * A <code>ComponentInputMap</code> is an <code>InputMap</code>
  * associated with a particular <code>JComponent</code>.
  * The component is automatically notified whenever
@@ -36,10 +36,10 @@ package javax.swing;
  * @since 1.3
  */
 public class ComponentInputMap extends InputMap {
-    /** Component binding is created for. */
+    /** {@collect.stats} Component binding is created for. */
     private JComponent          component;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ComponentInputMap</code> associated with the
      * specified component.
      *
@@ -53,7 +53,7 @@ public class ComponentInputMap extends InputMap {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the parent, which must be a <code>ComponentInputMap</code>
      * associated with the same component as this
      * <code>ComponentInputMap</code>.
@@ -76,14 +76,14 @@ public class ComponentInputMap extends InputMap {
         getComponent().componentInputMapChanged(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component the <code>InputMap</code> was created for.
      */
     public JComponent getComponent() {
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a binding for <code>keyStroke</code> to <code>actionMapKey</code>.
      * If <code>actionMapKey</code> is null, this removes the current binding
      * for <code>keyStroke</code>.
@@ -95,7 +95,7 @@ public class ComponentInputMap extends InputMap {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the binding for <code>key</code> from this object.
      */
     public void remove(KeyStroke key) {
@@ -105,7 +105,7 @@ public class ComponentInputMap extends InputMap {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the mappings from this object.
      */
     public void clear() {

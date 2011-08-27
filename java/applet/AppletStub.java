@@ -26,7 +26,7 @@ package java.applet;
 
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * When an applet is first created, an applet stub is attached to it
  * using the applet's <code>setStub</code> method. This stub
  * serves as the interface between the applet and the browser
@@ -38,7 +38,7 @@ import java.net.URL;
  * @since       JDK1.0
  */
 public interface AppletStub {
-    /**
+    /** {@collect.stats}
      * Determines if the applet is active. An applet is active just
      * before its <code>start</code> method is called. It becomes
      * inactive just before its <code>stop</code> method is called.
@@ -49,7 +49,7 @@ public interface AppletStub {
     boolean isActive();
 
 
-    /**
+    /** {@collect.stats}
      * Gets the URL of the document in which the applet is embedded.
      * For example, suppose an applet is contained
      * within the document:
@@ -67,7 +67,7 @@ public interface AppletStub {
      */
     URL getDocumentBase();
 
-    /**
+    /** {@collect.stats}
      * Gets the base URL. This is the URL of the directory which contains the applet.
      *
      * @return  the base {@link java.net.URL} of
@@ -76,7 +76,7 @@ public interface AppletStub {
      */
     URL getCodeBase();
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the named parameter in the HTML tag. For
      * example, if an applet is specified as
      * <blockquote><pre>
@@ -94,14 +94,14 @@ public interface AppletStub {
      */
     String getParameter(String name);
 
-    /**
+    /** {@collect.stats}
      * Returns the applet's context.
      *
      * @return  the applet's context.
      */
     AppletContext getAppletContext();
 
-    /**
+    /** {@collect.stats}
      * Called when the applet wants to be resized.
      *
      * @param   width    the new requested width for the applet.

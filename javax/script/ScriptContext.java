@@ -28,7 +28,7 @@ import java.util.List;
 import java.io.Writer;
 import java.io.Reader;
 
-/**
+/** {@collect.stats}
  * The interface whose implementing classes are used to connect Script Engines
  * with objects, such as scoped Bindings, in hosting applications.  Each scope is a set
  * of named attributes whose values can be set and retrieved using the
@@ -41,20 +41,20 @@ import java.io.Reader;
 public interface ScriptContext {
 
 
-    /**
+    /** {@collect.stats}
      * EngineScope attributes are visible during the lifetime of a single
      * <code>ScriptEngine</code> and a set of attributes is maintained for each
      * engine.
      */
     public static final int ENGINE_SCOPE = 100;
 
-    /**
+    /** {@collect.stats}
      * GlobalScope attributes are visible to all engines created by same ScriptEngineFactory.
      */
     public static final int GLOBAL_SCOPE = 200;
 
 
-    /**
+    /** {@collect.stats}
      * Associates a <code>Bindings</code> instance with a particular scope in this
      * <code>ScriptContext</code>.  Calls to the <code>getAttribute</code> and
      * <code>setAttribute</code> methods must map to the <code>get</code> and
@@ -71,7 +71,7 @@ public interface ScriptContext {
      */
     public void setBindings(Bindings bindings, int scope);
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>Bindings</code>  associated with the given scope in this
      * <code>ScriptContext</code>.
      *
@@ -83,7 +83,7 @@ public interface ScriptContext {
      */
     public Bindings getBindings(int scope);
 
-    /**
+    /** {@collect.stats}
      * Sets the value of an attribute in a given scope.
      *
      * @param name The name of the attribute to set
@@ -96,7 +96,7 @@ public interface ScriptContext {
      */
     public void setAttribute(String name, Object value, int scope);
 
-    /**
+    /** {@collect.stats}
      * Gets the value of an attribute in a given scope.
      *
      * @param name The name of the attribute to retrieve.
@@ -110,7 +110,7 @@ public interface ScriptContext {
      */
     public Object getAttribute(String name, int scope);
 
-    /**
+    /** {@collect.stats}
      * Remove an attribute in a given scope.
      *
      * @param name The name of the attribute to remove
@@ -123,7 +123,7 @@ public interface ScriptContext {
      */
     public Object removeAttribute(String name, int scope);
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value of the attribute with the given name in
      * the scope occurring earliest in the search order.  The order
      * is determined by the numeric value of the scope parameter (lowest
@@ -139,7 +139,7 @@ public interface ScriptContext {
     public Object getAttribute(String name);
 
 
-    /**
+    /** {@collect.stats}
      * Get the lowest scope in which an attribute is defined.
      * @param name Name of the attribute
      * .
@@ -150,7 +150,7 @@ public interface ScriptContext {
      */
     public int getAttributesScope(String name);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Writer</code> for scripts to use when displaying output.
      *
      * @return The <code>Writer</code>.
@@ -158,14 +158,14 @@ public interface ScriptContext {
     public Writer getWriter();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Writer</code> used to display error output.
      *
      * @return The <code>Writer</code>
      */
     public Writer getErrorWriter();
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Writer</code> for scripts to use when displaying output.
      *
      * @param writer The new <code>Writer</code>.
@@ -173,14 +173,14 @@ public interface ScriptContext {
     public void setWriter(Writer writer);
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Writer</code> used to display error output.
      *
      * @param writer The <code>Writer</code>.
      */
     public void setErrorWriter(Writer writer);
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Reader</code> to be used by the script to read
      * input.
      *
@@ -189,14 +189,14 @@ public interface ScriptContext {
     public Reader getReader();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Reader</code> for scripts to read input
      * .
      * @param reader The new <code>Reader</code>.
      */
     public void setReader(Reader reader);
 
-    /**
+    /** {@collect.stats}
      * Returns immutable <code>List</code> of all the valid values for
      * scope in the ScriptContext.
      *

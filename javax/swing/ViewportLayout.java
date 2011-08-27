@@ -34,7 +34,7 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * The default layout manager for <code>JViewport</code>.
  * <code>ViewportLayout</code> defines
  * a policy for layout that should be useful for most applications.
@@ -60,14 +60,14 @@ public class ViewportLayout implements LayoutManager, Serializable
     // Single instance used by JViewport.
     static ViewportLayout SHARED_INSTANCE = new ViewportLayout();
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout. Not used by this class.
      * @param name the name of the component
      * @param c the the component to be added
      */
     public void addLayoutComponent(String name, Component c) { }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the layout. Not used by
      * this class.
      * @param c the component to remove
@@ -75,7 +75,7 @@ public class ViewportLayout implements LayoutManager, Serializable
     public void removeLayoutComponent(Component c) { }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred dimensions for this layout given the components
      * in the specified target container.
      * @param parent the component which needs to be laid out
@@ -97,7 +97,7 @@ public class ViewportLayout implements LayoutManager, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum dimensions needed to layout the components
      * contained in the specified target container.
      *
@@ -111,7 +111,7 @@ public class ViewportLayout implements LayoutManager, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called by the AWT when the specified container needs to be laid out.
      *
      * @param parent  the container to lay out

@@ -39,7 +39,7 @@ import java.awt.Graphics;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Factory object that can vend Borders appropriate for the basic L & F.
  * @author Georges Saab
  * @author Amy Fowler
@@ -100,7 +100,7 @@ public class BasicBorders {
         return splitPaneBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a JSplitPane divider
      * @since 1.3
      */
@@ -142,7 +142,7 @@ public class BasicBorders {
         return internalFrameBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Special thin border for rollover toolbar buttons.
      * @since 1.4
      */
@@ -191,7 +191,7 @@ public class BasicBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A border which is like a Margin border but it will only honor the margin
      * if the margin has been explicitly set by the developer.
      *
@@ -448,7 +448,7 @@ public class BasicBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Draws the border around the divider in a splitpane
      * (when BasicSplitPaneUI is used). To get the appropriate effect, this
      * needs to be used with a SplitPaneBorder.
@@ -528,7 +528,7 @@ public class BasicBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Draws the border around the splitpane. To work correctly you shoudl
      * also install a border on the divider (property SplitPaneDivider.border).
      */

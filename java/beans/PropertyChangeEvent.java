@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * A "PropertyChange" event gets delivered whenever a bean changes a "bound"
  * or "constrained" property.  A PropertyChangeEvent object is sent as an
  * argument to the PropertyChangeListener and VetoableChangeListener methods.
@@ -45,7 +45,7 @@ package java.beans;
 
 public class PropertyChangeEvent extends java.util.EventObject {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>PropertyChangeEvent</code>.
      *
      * @param source  The bean that fired the event.
@@ -62,7 +62,7 @@ public class PropertyChangeEvent extends java.util.EventObject {
         this.oldValue = oldValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the programmatic name of the property that was changed.
      *
      * @return  The programmatic name of the property that was changed.
@@ -72,7 +72,7 @@ public class PropertyChangeEvent extends java.util.EventObject {
         return propertyName;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the new value for the property, expressed as an Object.
      *
      * @return  The new value for the property, expressed as an Object.
@@ -82,7 +82,7 @@ public class PropertyChangeEvent extends java.util.EventObject {
         return newValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the old value for the property, expressed as an Object.
      *
      * @return  The old value for the property, expressed as an Object.
@@ -92,7 +92,7 @@ public class PropertyChangeEvent extends java.util.EventObject {
         return oldValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the propagationId object for the event.
      *
      * @param propagationId  The propagationId object for the event.
@@ -101,7 +101,7 @@ public class PropertyChangeEvent extends java.util.EventObject {
         this.propagationId = propagationId;
     }
 
-    /**
+    /** {@collect.stats}
      * The "propagationId" field is reserved for future use.  In Beans 1.0
      * the sole requirement is that if a listener catches a PropertyChangeEvent
      * and then fires a PropertyChangeEvent of its own, then it should
@@ -115,25 +115,25 @@ public class PropertyChangeEvent extends java.util.EventObject {
         return propagationId;
     }
 
-    /**
+    /** {@collect.stats}
      * name of the property that changed.  May be null, if not known.
      * @serial
      */
     private String propertyName;
 
-    /**
+    /** {@collect.stats}
      * New value for property.  May be null if not known.
      * @serial
      */
     private Object newValue;
 
-    /**
+    /** {@collect.stats}
      * Previous value for property.  May be null if not known.
      * @serial
      */
     private Object oldValue;
 
-    /**
+    /** {@collect.stats}
      * Propagation ID.  May be null.
      * @serial
      * @see #getPropagationId

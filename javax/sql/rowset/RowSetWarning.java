@@ -27,7 +27,7 @@ package javax.sql.rowset;
 
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * An extension of <code>SQLException</code> that provides information
  * about database warnings set on <code>RowSet</code> objects.
  * Warnings are silently chained to the object whose method call
@@ -53,12 +53,12 @@ import java.sql.SQLException;
  */
 public class RowSetWarning extends SQLException {
 
-    /**
+    /** {@collect.stats}
      * RowSetWarning object handle.
      */
      private RowSetWarning rwarning;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>RowSetWarning</code> object
      * with the given value for the reason; SQLState defaults to null,
      * and vendorCode defaults to 0.
@@ -72,7 +72,7 @@ public class RowSetWarning extends SQLException {
         super(reason);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a default <code>RowSetWarning</code> object. The reason
      * defaults to <code>null</code>, SQLState defaults to null and vendorCode
      * defaults to 0.
@@ -81,7 +81,7 @@ public class RowSetWarning extends SQLException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>RowSetWarning</code> object initialized with the
      * given values for the reason and SQLState. The vendor code defaults to 0.
      *
@@ -98,7 +98,7 @@ public class RowSetWarning extends SQLException {
         super(reason, SQLState);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a fully specified <code>RowSetWarning</code> object initialized
      * with the given values for the reason, SQLState and vendorCode.
      *
@@ -116,7 +116,7 @@ public class RowSetWarning extends SQLException {
         super(reason, SQLState, vendorCode);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the warning chained to this <code>RowSetWarning</code>
      * object.
      *
@@ -129,7 +129,7 @@ public class RowSetWarning extends SQLException {
         return rwarning;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets <i>warning</i> as the next warning, that is, the warning chained
      * to this <code>RowSetWarning</code> object.
      *

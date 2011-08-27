@@ -25,21 +25,21 @@
 
 package java.util.zip;
 
-/**
+/** {@collect.stats}
  * An interface representing a data checksum.
  *
  * @author      David Connelly
  */
 public
 interface Checksum {
-    /**
+    /** {@collect.stats}
      * Updates the current checksum with the specified byte.
      *
      * @param b the byte to update the checksum with
      */
     public void update(int b);
 
-    /**
+    /** {@collect.stats}
      * Updates the current checksum with the specified array of bytes.
      * @param b the byte array to update the checksum with
      * @param off the start offset of the data
@@ -47,13 +47,13 @@ interface Checksum {
      */
     public void update(byte[] b, int off, int len);
 
-    /**
+    /** {@collect.stats}
      * Returns the current checksum value.
      * @return the current checksum value
      */
     public long getValue();
 
-    /**
+    /** {@collect.stats}
      * Resets the checksum to its initial value.
      */
     public void reset();

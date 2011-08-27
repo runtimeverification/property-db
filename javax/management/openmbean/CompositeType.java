@@ -38,7 +38,7 @@ import java.util.Iterator;
 //
 
 
-/**
+/** {@collect.stats}
  * The <code>CompositeType</code> class is the <i>open type</i> class
  * whose instances describe the types of {@link CompositeData <code>CompositeData</code>} values.
  *
@@ -50,12 +50,12 @@ public class CompositeType extends OpenType<CompositeData> {
     /* Serial version */
     static final long serialVersionUID = -5366242454346948798L;
 
-    /**
+    /** {@collect.stats}
      * @serial Sorted mapping of the item names to their descriptions
      */
     private TreeMap<String,String> nameToDescription;
 
-    /**
+    /** {@collect.stats}
      * @serial Sorted mapping of the item names to their open types
      */
     private TreeMap<String,OpenType<?>> nameToType;
@@ -69,7 +69,7 @@ public class CompositeType extends OpenType<CompositeData> {
 
     /* *** Constructor *** */
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>CompositeType</code> instance, checking for the validity of the given parameters.
      * The validity constraints are described below for each parameter.
      * <p>
@@ -179,7 +179,7 @@ public class CompositeType extends OpenType<CompositeData> {
 
     /* *** Composite type specific information methods *** */
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>CompositeType</code> instance defines an item
      * whose name is <var>itemName</var>.
      *
@@ -195,7 +195,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return nameToDescription.containsKey(itemName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the description of the item whose name is <var>itemName</var>,
      * or <code>null</code> if this <code>CompositeType</code> instance does not define any item
      * whose name is <var>itemName</var>.
@@ -212,7 +212,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return nameToDescription.get(itemName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>open type</i> of the item whose name is <var>itemName</var>,
      * or <code>null</code> if this <code>CompositeType</code> instance does not define any item
      * whose name is <var>itemName</var>.
@@ -229,7 +229,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return (OpenType<?>) nameToType.get(itemName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Set view of all the item names defined by this <code>CompositeType</code> instance.
      * The set's iterator will return the item names in ascending order.
      *
@@ -246,7 +246,7 @@ public class CompositeType extends OpenType<CompositeData> {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a value which could be
      * described by this <code>CompositeType</code> instance.
      *
@@ -316,7 +316,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return this.isAssignableFrom(valueType);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether values of the given type can be assigned to this
      * open type.  The result is true if the given type is also a
      * CompositeType with the same name ({@link #getTypeName()}), and
@@ -348,7 +348,7 @@ public class CompositeType extends OpenType<CompositeData> {
 
     /* *** Methods overriden from class Object *** */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>obj</code> parameter with this <code>CompositeType</code> instance for equality.
      * <p>
      * Two <code>CompositeType</code> instances are equal if and only if all of the following statements are true:
@@ -397,7 +397,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>CompositeType</code> instance.
      * <p>
      * The hash code of a <code>CompositeType</code> instance is the sum of the hash codes
@@ -434,7 +434,7 @@ public class CompositeType extends OpenType<CompositeData> {
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>CompositeType</code> instance.
      * <p>
      * The string representation consists of

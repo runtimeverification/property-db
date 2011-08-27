@@ -25,7 +25,7 @@
 
 package javax.print.event;
 
-/**
+/** {@collect.stats}
   * Implementations of this interface are attached to a
   * {@link javax.print.DocPrintJob DocPrintJob} to monitor
   * the status of attribute changes associated with the print job.
@@ -33,7 +33,7 @@ package javax.print.event;
   */
 public interface PrintJobAttributeListener {
 
-    /**
+    /** {@collect.stats}
      * Notifies the listener of a change in some print job attributes.
      * One example of an occurrence triggering this event is if the
      * {@link javax.print.attribute.standard.JobState JobState}

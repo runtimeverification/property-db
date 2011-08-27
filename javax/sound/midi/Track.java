@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import com.sun.media.sound.MidiUtils;
 
-/**
+/** {@collect.stats}
  * A MIDI track is an independent stream of MIDI events (time-stamped MIDI
  * data) that can be stored along with other tracks in a standard MIDI file.
  * The MIDI specification allows only 16 channels of MIDI data, but tracks
@@ -74,7 +74,7 @@ public class Track {
     private MidiEvent eotEvent;
 
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor.  Constructs a new, empty Track object,
      * which initially contains one event, the meta-event End of Track.
      */
@@ -86,7 +86,7 @@ public class Track {
         set.add(eotEvent);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new event to the track.  However, if the event is already
      * contained in the track, it is not added again.  The list of events
      * is kept in time order, meaning that this event inserted at the
@@ -177,7 +177,7 @@ public class Track {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified event from the track.
      * @param event the event to remove
      * @return <code>true</code> if the event existed in the track and was removed,
@@ -208,7 +208,7 @@ public class Track {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the event at the specified index.
      * @param index the location of the desired event in the event vector
      * @throws <code>ArrayIndexOutOfBoundsException</code>  if the
@@ -227,7 +227,7 @@ public class Track {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of events in this track.
      * @return the size of the track's event vector
      */
@@ -238,7 +238,7 @@ public class Track {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the track, expressed in MIDI ticks.  (The
      * duration of a tick in seconds is determined by the timing resolution
      * of the <code>Sequence</code> containing this track, and also by

@@ -29,7 +29,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.DateTimeSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class DateTimeAtCreation is a printing attribute class, a date-time
  * attribute, that indicates the date and time at which the Print Job was
  * created.
@@ -56,7 +56,7 @@ public final class DateTimeAtCreation   extends DateTimeSyntax
 
     private static final long serialVersionUID = -2923732231056647903L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new date-time at creation attribute with the given {@link
      * java.util.Date Date} value.
      *
@@ -69,7 +69,7 @@ public final class DateTimeAtCreation   extends DateTimeSyntax
         super (dateTime);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this date-time at creation attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -93,7 +93,7 @@ public final class DateTimeAtCreation   extends DateTimeSyntax
                object instanceof DateTimeAtCreation);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -107,7 +107,7 @@ public final class DateTimeAtCreation   extends DateTimeSyntax
         return DateTimeAtCreation.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

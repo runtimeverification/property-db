@@ -35,7 +35,7 @@ import javax.swing.plaf.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * CheckboxUI implementation for BasicCheckboxUI
  * <p>
  * <strong>Warning:</strong>

@@ -27,7 +27,7 @@ package javax.print.attribute.standard;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Class Severity is a printing attribute class, an enumeration, that denotes
  * the severity of a {@link PrinterStateReason PrinterStateReason} attribute.
  * <P>
@@ -66,7 +66,7 @@ public final class Severity extends EnumSyntax implements Attribute {
 
     private static final long serialVersionUID = 8781881462717925380L;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the {@link PrinterStateReason PrinterStateReason} is a
      * "report" (least severe). An implementation may choose to omit some or
      * all reports.
@@ -76,7 +76,7 @@ public final class Severity extends EnumSyntax implements Attribute {
      */
     public static final Severity REPORT = new Severity (0);
 
-    /**
+    /** {@collect.stats}
      * Indicates that the {@link PrinterStateReason PrinterStateReason} is a
      * "warning." An implementation may choose to omit some or all warnings.
      * Warnings serve as a precursor to an error. A warning must contain
@@ -85,7 +85,7 @@ public final class Severity extends EnumSyntax implements Attribute {
      */
     public static final Severity WARNING = new Severity (1);
 
-    /**
+    /** {@collect.stats}
      * Indicates that the {@link PrinterStateReason PrinterStateReason} is an
      * "error" (most severe). An implementation must include all errors.
      * If this attribute contains one or more errors, the printer's
@@ -93,7 +93,7 @@ public final class Severity extends EnumSyntax implements Attribute {
      */
     public static final Severity ERROR = new Severity (2);
 
-    /**
+    /** {@collect.stats}
      * Construct a new severity enumeration value with the given integer
      * value.
      *
@@ -115,14 +115,14 @@ public final class Severity extends EnumSyntax implements Attribute {
         ERROR
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class Severity.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class Severity.
      */
     protected EnumSyntax[] getEnumValueTable() {
@@ -130,7 +130,7 @@ public final class Severity extends EnumSyntax implements Attribute {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -143,7 +143,7 @@ public final class Severity extends EnumSyntax implements Attribute {
         return Severity.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

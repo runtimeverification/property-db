@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This class is thrown when an attempt is
   * made to add to an attribute a value that conflicts with the attribute's
   * schema definition.  This could happen, for example, if attempting
@@ -45,7 +45,7 @@ import javax.naming.NamingException;
   */
 
 public class InvalidAttributeValueException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidAttributeValueException using
      * an explanation. All other fields are set to null.
      * @param   explanation     Additional detail about this exception. Can be null.
@@ -55,7 +55,7 @@ public class InvalidAttributeValueException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of InvalidAttributeValueException.
       * All fields are set to null.
       */
@@ -63,7 +63,7 @@ public class InvalidAttributeValueException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 8720050295499275011L;

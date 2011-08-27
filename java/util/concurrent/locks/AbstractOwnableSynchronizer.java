@@ -35,7 +35,7 @@
 
 package java.util.concurrent.locks;
 
-/**
+/** {@collect.stats}
  * A synchronizer that may be exclusively owned by a thread.  This
  * class provides a basis for creating locks and related synchronizers
  * that may entail a notion of ownership.  The
@@ -50,20 +50,20 @@ package java.util.concurrent.locks;
 public abstract class AbstractOwnableSynchronizer
     implements java.io.Serializable {
 
-    /** Use serial ID even though all fields transient. */
+    /** {@collect.stats} Use serial ID even though all fields transient. */
     private static final long serialVersionUID = 3737899427754241961L;
 
-    /**
+    /** {@collect.stats}
      * Empty constructor for use by subclasses.
      */
     protected AbstractOwnableSynchronizer() { }
 
-    /**
+    /** {@collect.stats}
      * The current owner of exclusive mode synchronization.
      */
     private transient Thread exclusiveOwnerThread;
 
-    /**
+    /** {@collect.stats}
      * Sets the thread that currently owns exclusive access. A
      * <tt>null</tt> argument indicates that no thread owns access.
      * This method does not otherwise impose any synchronization or
@@ -73,7 +73,7 @@ public abstract class AbstractOwnableSynchronizer
         exclusiveOwnerThread = t;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the thread last set by
      * <tt>setExclusiveOwnerThread</tt>, or <tt>null</tt> if never
      * set.  This method does not otherwise impose any synchronization

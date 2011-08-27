@@ -27,7 +27,7 @@ package java.lang;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * An object to which <tt>char</tt> sequences and values can be appended.  The
  * <tt>Appendable</tt> interface must be implemented by any class whose
  * instances are intended to receive formatted output from a {@link
@@ -50,7 +50,7 @@ import java.io.IOException;
  */
 public interface Appendable {
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character sequence to this <tt>Appendable</tt>.
      *
      * <p> Depending on which class implements the character sequence
@@ -70,7 +70,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Appends a subsequence of the specified character sequence to this
      * <tt>Appendable</tt>.
      *
@@ -106,7 +106,7 @@ public interface Appendable {
      */
     Appendable append(CharSequence csq, int start, int end) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character to this <tt>Appendable</tt>.
      *
      * @param  c

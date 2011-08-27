@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * This is an abstract class that provides base functionality
  * for the {@link PropertyChangeSupport PropertyChangeSupport} class
  * and the {@link VetoableChangeSupport VetoableChangeSupport} class.
@@ -47,7 +47,7 @@ import java.util.Set;
 abstract class ChangeListenerMap<L extends EventListener> {
     private Map<String, L[]> map;
 
-    /**
+    /** {@collect.stats}
      * Creates an array of listeners.
      * This method can be optimized by using
      * the same instance of the empty array
@@ -58,7 +58,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
      */
     protected abstract L[] newArray(int length);
 
-    /**
+    /** {@collect.stats}
      * Creates a proxy listener for the specified property.
      *
      * @param name      the name of the property to listen on
@@ -67,7 +67,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
      */
     protected abstract L newProxy(String name, L listener);
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list of listeners for the specified property.
      * This listener is called as many times as it was added.
      *
@@ -91,7 +91,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         this.map.put(name, clone);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from the list of listeners for the specified property.
      * If the listener was added more than once to the same event source,
      * this listener will be notified one less time after being removed.
@@ -125,7 +125,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of listeners for the specified property.
      *
      * @param name  the name of the property
@@ -137,7 +137,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
                 : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets new list of listeners for the specified property.
      *
      * @param name       the name of the property
@@ -158,7 +158,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all listeners in the map.
      *
      * @return an array of all listeners
@@ -186,7 +186,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         return list.toArray(newArray(list.size()));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns listeners that have been associated with the named property.
      *
      * @param name  the name of the property
@@ -202,7 +202,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         return newArray(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the map contains
      * at least one listener to be notified.
      *
@@ -218,7 +218,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
         return (array != null) || ((name != null) && (null != this.map.get(name)));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a set of entries from the map.
      * Each entry is a pair consisted of the property name
      * and the corresponding list of listeners.
@@ -231,7 +231,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
                 : Collections.<Entry<String, L[]>>emptySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Extracts a real listener from the proxy listener.
      * It is necessary because default proxy class is not serializable.
      *

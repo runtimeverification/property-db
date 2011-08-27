@@ -33,7 +33,7 @@ import java.awt.LayoutManager2;
 import java.awt.Rectangle;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A <code>SpringLayout</code> lays out the children of its associated container
  * according to a set of constraints.
  * See <a href="http://java.sun.com/docs/books/tutorial/uiswing/layout/spring.html">How to Use SpringLayout</a>
@@ -192,55 +192,55 @@ public class SpringLayout implements LayoutManager2 {
     private Set acyclicSprings;
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the top edge of a component's bounding rectangle.
      */
     public static final String NORTH  = "North";
 
-    /**
+    /** {@collect.stats}
      * Specifies the bottom edge of a component's bounding rectangle.
      */
     public static final String SOUTH  = "South";
 
-    /**
+    /** {@collect.stats}
      * Specifies the right edge of a component's bounding rectangle.
      */
     public static final String EAST   = "East";
 
-    /**
+    /** {@collect.stats}
      * Specifies the left edge of a component's bounding rectangle.
      */
     public static final String WEST   = "West";
 
-    /**
+    /** {@collect.stats}
      * Specifies the horizontal center of a component's bounding rectangle.
      *
      * @since 1.6
      */
     public static final String HORIZONTAL_CENTER   = "HorizontalCenter";
 
-    /**
+    /** {@collect.stats}
      * Specifies the vertical center of a component's bounding rectangle.
      *
      * @since 1.6
      */
     public static final String VERTICAL_CENTER   = "VerticalCenter";
 
-    /**
+    /** {@collect.stats}
      * Specifies the baseline of a component.
      *
      * @since 1.6
      */
     public static final String BASELINE   = "Baseline";
 
-    /**
+    /** {@collect.stats}
      * Specifies the width of a component's bounding rectangle.
      *
      * @since 1.6
      */
     public static final String WIDTH = "Width";
 
-    /**
+    /** {@collect.stats}
      * Specifies the height of a component's bounding rectangle.
      *
      * @since 1.6
@@ -251,7 +251,7 @@ public class SpringLayout implements LayoutManager2 {
 
     private static String[] ALL_VERTICAL = {NORTH, HEIGHT, SOUTH, VERTICAL_CENTER, BASELINE};
 
-    /**
+    /** {@collect.stats}
      * A <code>Constraints</code> object holds the
      * constraints that govern the way a component's size and position
      * change in a container controlled by a <code>SpringLayout</code>.
@@ -332,13 +332,13 @@ public class SpringLayout implements LayoutManager2 {
         // Used for baseline calculations
         private Component c;
 
-       /**
+       /** {@collect.stats}
         * Creates an empty <code>Constraints</code> object.
         */
        public Constraints() {
        }
 
-       /**
+       /** {@collect.stats}
         * Creates a <code>Constraints</code> object with the
         * specified values for its
         * <code>x</code> and <code>y</code> properties.
@@ -353,7 +353,7 @@ public class SpringLayout implements LayoutManager2 {
            setY(y);
        }
 
-       /**
+       /** {@collect.stats}
         * Creates a <code>Constraints</code> object with the
         * specified values for its
         * <code>x</code>, <code>y</code>, <code>width</code>,
@@ -375,7 +375,7 @@ public class SpringLayout implements LayoutManager2 {
            setHeight(height);
        }
 
-        /**
+        /** {@collect.stats}
          * Creates a <code>Constraints</code> object with
          * suitable <code>x</code>, <code>y</code>, <code>width</code> and
          * <code>height</code> springs for component, <code>c</code>.
@@ -499,7 +499,7 @@ public class SpringLayout implements LayoutManager2 {
             return history.contains(s1) && history.contains(s2);
         }
 
-       /**
+       /** {@collect.stats}
         * Sets the <code>x</code> property,
         * which controls the <code>x</code> value
         * of a component's location.
@@ -515,7 +515,7 @@ public class SpringLayout implements LayoutManager2 {
            pushConstraint(WEST, x, true);
        }
 
-       /**
+       /** {@collect.stats}
         * Returns the value of the <code>x</code> property.
         *
         * @return the spring controlling the <code>x</code> value
@@ -537,7 +537,7 @@ public class SpringLayout implements LayoutManager2 {
            return x;
        }
 
-       /**
+       /** {@collect.stats}
         * Sets the <code>y</code> property,
         * which controls the <code>y</code> value
         * of a component's location.
@@ -553,7 +553,7 @@ public class SpringLayout implements LayoutManager2 {
            pushConstraint(NORTH, y, false);
        }
 
-       /**
+       /** {@collect.stats}
         * Returns the value of the <code>y</code> property.
         *
         * @return the spring controlling the <code>y</code> value
@@ -583,7 +583,7 @@ public class SpringLayout implements LayoutManager2 {
            return y;
        }
 
-       /**
+       /** {@collect.stats}
         * Sets the <code>width</code> property,
         * which controls the width of a component.
         *
@@ -598,7 +598,7 @@ public class SpringLayout implements LayoutManager2 {
            pushConstraint(WIDTH, width, true);
        }
 
-       /**
+       /** {@collect.stats}
         * Returns the value of the <code>width</code> property.
         *
         * @return the spring controlling the width of a component
@@ -617,7 +617,7 @@ public class SpringLayout implements LayoutManager2 {
            return width;
        }
 
-       /**
+       /** {@collect.stats}
         * Sets the <code>height</code> property,
         * which controls the height of a component.
         *
@@ -632,7 +632,7 @@ public class SpringLayout implements LayoutManager2 {
            pushConstraint(HEIGHT, height, false);
        }
 
-       /**
+       /** {@collect.stats}
         * Returns the value of the <code>height</code> property.
         *
         * @return the spring controlling the height of a component
@@ -713,7 +713,7 @@ public class SpringLayout implements LayoutManager2 {
             pushConstraint(BASELINE, baseline, false);
         }
 
-       /**
+       /** {@collect.stats}
         * Sets the spring controlling the specified edge.
         * The edge must have one of the following values:
         * <code>SpringLayout.NORTH</code>,
@@ -769,7 +769,7 @@ public class SpringLayout implements LayoutManager2 {
            }
        }
 
-       /**
+       /** {@collect.stats}
         * Returns the value of the specified edge, which may be
         * a derived value, or even <code>null</code>.
         * The edge must have one of the following values:
@@ -875,7 +875,7 @@ public class SpringLayout implements LayoutManager2 {
        }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SpringLayout</code>.
      */
     public SpringLayout() {}
@@ -938,14 +938,14 @@ public class SpringLayout implements LayoutManager2 {
 
     // LayoutManager methods.
 
-    /**
+    /** {@collect.stats}
      * Has no effect,
      * since this layout manager does not
      * use a per-component string.
      */
     public void addLayoutComponent(String name, Component c) {}
 
-    /**
+    /** {@collect.stats}
      * Removes the constraints associated with the specified component.
      *
      * @param c the component being removed from the container
@@ -985,7 +985,7 @@ public class SpringLayout implements LayoutManager2 {
                          parent);
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>constraints</code> is an instance of
      * <code>SpringLayout.Constraints</code>,
      * associates the constraints with the specified component.
@@ -1001,14 +1001,14 @@ public class SpringLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns 0.5f (centered).
      */
     public float getLayoutAlignmentX(Container p) {
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns 0.5f (centered).
      */
     public float getLayoutAlignmentY(Container p) {
@@ -1019,7 +1019,7 @@ public class SpringLayout implements LayoutManager2 {
 
     // End of LayoutManger2 methods
 
-   /**
+   /** {@collect.stats}
      * Links edge <code>e1</code> of component <code>c1</code> to
      * edge <code>e2</code> of component <code>c2</code>,
      * with a fixed distance between the edges. This
@@ -1040,7 +1040,7 @@ public class SpringLayout implements LayoutManager2 {
         putConstraint(e1, c1, Spring.constant(pad), e2, c2);
     }
 
-    /**
+    /** {@collect.stats}
      * Links edge <code>e1</code> of component <code>c1</code> to
      * edge <code>e2</code> of component <code>c2</code>. As edge
      * <code>(e2, c2)</code> changes value, edge <code>(e1, c1)</code> will
@@ -1122,7 +1122,7 @@ public class SpringLayout implements LayoutManager2 {
         componentConstraints.put(component, applyDefaults(component, constraints));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the constraints for the specified component.
      * Note that,
      * unlike the <code>GridBagLayout</code>
@@ -1159,7 +1159,7 @@ public class SpringLayout implements LayoutManager2 {
        return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the spring controlling the distance between
      * the specified edge of
      * the component and the top or left edge of its parent. This

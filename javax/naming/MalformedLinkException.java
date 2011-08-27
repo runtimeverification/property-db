@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a malformed link was encountered while
   * resolving or constructing a link.
   * <p>
@@ -41,7 +41,7 @@ package javax.naming;
   */
 
 public class MalformedLinkException extends LinkException {
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of MalformedLinkException with an explanation
       * All the other fields are initialized to null.
       * @param  explanation     A possibly null string containing additional
@@ -52,7 +52,7 @@ public class MalformedLinkException extends LinkException {
     }
 
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of Malformed LinkException.
       * All fields are initialized to null.
       */
@@ -60,7 +60,7 @@ public class MalformedLinkException extends LinkException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3066740437737830242L;

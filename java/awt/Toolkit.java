@@ -62,7 +62,7 @@ import sun.security.util.SecurityConstants;
 
 import sun.util.CoreResourceBundleControl;
 
-/**
+/** {@collect.stats}
  * This class is the abstract superclass of all actual
  * implementations of the Abstract Window Toolkit. Subclasses of
  * <code>Toolkit</code> are used to bind the various components
@@ -114,7 +114,7 @@ import sun.util.CoreResourceBundleControl;
  */
 public abstract class Toolkit {
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of the <code>Desktop</code>
      * using the specified peer interface.
      * @param     target the desktop to be implemented
@@ -130,7 +130,7 @@ public abstract class Toolkit {
       throws HeadlessException;
 
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Button</code> using
      * the specified peer interface.
      * @param     target the button to be implemented.
@@ -144,7 +144,7 @@ public abstract class Toolkit {
     protected abstract ButtonPeer createButton(Button target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>TextField</code> using
      * the specified peer interface.
      * @param     target the text field to be implemented.
@@ -158,7 +158,7 @@ public abstract class Toolkit {
     protected abstract TextFieldPeer createTextField(TextField target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Label</code> using
      * the specified peer interface.
      * @param     target the label to be implemented.
@@ -172,7 +172,7 @@ public abstract class Toolkit {
     protected abstract LabelPeer createLabel(Label target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>List</code> using
      * the specified peer interface.
      * @param     target the list to be implemented.
@@ -186,7 +186,7 @@ public abstract class Toolkit {
     protected abstract ListPeer createList(java.awt.List target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Checkbox</code> using
      * the specified peer interface.
      * @param     target the check box to be implemented.
@@ -200,7 +200,7 @@ public abstract class Toolkit {
     protected abstract CheckboxPeer createCheckbox(Checkbox target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Scrollbar</code> using
      * the specified peer interface.
      * @param     target the scroll bar to be implemented.
@@ -214,7 +214,7 @@ public abstract class Toolkit {
     protected abstract ScrollbarPeer createScrollbar(Scrollbar target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>ScrollPane</code> using
      * the specified peer interface.
      * @param     target the scroll pane to be implemented.
@@ -229,7 +229,7 @@ public abstract class Toolkit {
     protected abstract ScrollPanePeer createScrollPane(ScrollPane target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>TextArea</code> using
      * the specified peer interface.
      * @param     target the text area to be implemented.
@@ -243,7 +243,7 @@ public abstract class Toolkit {
     protected abstract TextAreaPeer createTextArea(TextArea target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Choice</code> using
      * the specified peer interface.
      * @param     target the choice to be implemented.
@@ -257,7 +257,7 @@ public abstract class Toolkit {
     protected abstract ChoicePeer createChoice(Choice target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Frame</code> using
      * the specified peer interface.
      * @param     target the frame to be implemented.
@@ -271,7 +271,7 @@ public abstract class Toolkit {
     protected abstract FramePeer createFrame(Frame target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Canvas</code> using
      * the specified peer interface.
      * @param     target the canvas to be implemented.
@@ -281,7 +281,7 @@ public abstract class Toolkit {
      */
     protected abstract CanvasPeer       createCanvas(Canvas target);
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Panel</code> using
      * the specified peer interface.
      * @param     target the panel to be implemented.
@@ -291,7 +291,7 @@ public abstract class Toolkit {
      */
     protected abstract PanelPeer        createPanel(Panel target);
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Window</code> using
      * the specified peer interface.
      * @param     target the window to be implemented.
@@ -305,7 +305,7 @@ public abstract class Toolkit {
     protected abstract WindowPeer createWindow(Window target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Dialog</code> using
      * the specified peer interface.
      * @param     target the dialog to be implemented.
@@ -319,7 +319,7 @@ public abstract class Toolkit {
     protected abstract DialogPeer createDialog(Dialog target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>MenuBar</code> using
      * the specified peer interface.
      * @param     target the menu bar to be implemented.
@@ -333,7 +333,7 @@ public abstract class Toolkit {
     protected abstract MenuBarPeer createMenuBar(MenuBar target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Menu</code> using
      * the specified peer interface.
      * @param     target the menu to be implemented.
@@ -347,7 +347,7 @@ public abstract class Toolkit {
     protected abstract MenuPeer createMenu(Menu target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>PopupMenu</code> using
      * the specified peer interface.
      * @param     target the popup menu to be implemented.
@@ -362,7 +362,7 @@ public abstract class Toolkit {
     protected abstract PopupMenuPeer createPopupMenu(PopupMenu target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>MenuItem</code> using
      * the specified peer interface.
      * @param     target the menu item to be implemented.
@@ -376,7 +376,7 @@ public abstract class Toolkit {
     protected abstract MenuItemPeer createMenuItem(MenuItem target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>FileDialog</code> using
      * the specified peer interface.
      * @param     target the file dialog to be implemented.
@@ -390,7 +390,7 @@ public abstract class Toolkit {
     protected abstract FileDialogPeer createFileDialog(FileDialog target)
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>CheckboxMenuItem</code> using
      * the specified peer interface.
      * @param     target the checkbox menu item to be implemented.
@@ -404,7 +404,7 @@ public abstract class Toolkit {
     protected abstract CheckboxMenuItemPeer createCheckboxMenuItem(
         CheckboxMenuItem target) throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Obtains this toolkit's implementation of helper class for
      * <code>MouseInfo</code> operations.
      * @return    this toolkit's implementation of  helper for <code>MouseInfo</code>
@@ -419,7 +419,7 @@ public abstract class Toolkit {
 
     private static LightweightPeer lightweightMarker;
 
-    /**
+    /** {@collect.stats}
      * Creates a peer for a component or container.  This peer is windowless
      * and allows the Component and Container classes to be extended directly
      * to create windowless components that are defined entirely in java.
@@ -433,7 +433,7 @@ public abstract class Toolkit {
         return lightweightMarker;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates this toolkit's implementation of <code>Font</code> using
      * the specified peer interface.
      * @param     name the font to be implemented
@@ -451,7 +451,7 @@ public abstract class Toolkit {
     // The following method is called by the private method
     // <code>updateSystemColors</code> in <code>SystemColor</code>.
 
-    /**
+    /** {@collect.stats}
      * Fills in the integer array that is supplied as an argument
      * with the current system color values.
      *
@@ -465,7 +465,7 @@ public abstract class Toolkit {
         throws HeadlessException {
     }
 
-/**
+/** {@collect.stats}
      * Controls whether the layout of Containers is validated dynamically
      * during resizing, or statically, after resizing is complete.
      * Note that this feature is supported not on all platforms, and
@@ -496,7 +496,7 @@ public abstract class Toolkit {
         throws HeadlessException {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the layout of Containers is validated dynamically
      * during resizing, or statically, after resizing is complete.
      * Note: this method returns the value that was set programmatically;
@@ -524,7 +524,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether dynamic layout of Containers on resize is
      * currently active (both set in program
      *, and supported
@@ -551,7 +551,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the size of the screen.  On systems with multiple displays, the
      * primary display is used.  Multi-screen aware display dimensions are
      * available from <code>GraphicsConfiguration</code> and
@@ -566,7 +566,7 @@ public abstract class Toolkit {
     public abstract Dimension getScreenSize()
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Returns the screen resolution in dots-per-inch.
      * @return    this toolkit's screen resolution, in dots-per-inch.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -576,7 +576,7 @@ public abstract class Toolkit {
     public abstract int getScreenResolution()
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Gets the insets of the screen.
      * @param     gc a <code>GraphicsConfiguration</code>
      * @return    the insets of this toolkit's screen, in pixels.
@@ -594,7 +594,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the color model of this toolkit's screen.
      * <p>
      * <code>ColorModel</code> is an abstract class that
@@ -615,7 +615,7 @@ public abstract class Toolkit {
     public abstract ColorModel getColorModel()
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the available fonts in this toolkit.<p>
      * For 1.1, the following font names are deprecated (the replacement
      * name follows):
@@ -634,7 +634,7 @@ public abstract class Toolkit {
     @Deprecated
     public abstract String[] getFontList();
 
-    /**
+    /** {@collect.stats}
      * Gets the screen device metrics for rendering of the font.
      * @param     font   a font
      * @return    the screen metrics of the specified font in this toolkit
@@ -647,7 +647,7 @@ public abstract class Toolkit {
     @Deprecated
     public abstract FontMetrics getFontMetrics(Font font);
 
-    /**
+    /** {@collect.stats}
      * Synchronizes this toolkit's graphics state. Some window systems
      * may do buffering of graphics events.
      * <p>
@@ -656,18 +656,18 @@ public abstract class Toolkit {
      */
     public abstract void sync();
 
-    /**
+    /** {@collect.stats}
      * The default toolkit.
      */
     private static Toolkit toolkit;
 
-    /**
+    /** {@collect.stats}
      * Used internally by the assistive technologies functions; set at
      * init time and used at load time
      */
     private static String atNames;
 
-    /**
+    /** {@collect.stats}
      * Initializes properties related to assistive technologies.
      * These properties are used both in the loadAssistiveProperties()
      * function below, as well as other classes in the jdk that depend
@@ -749,7 +749,7 @@ public abstract class Toolkit {
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Loads additional classes into the VM, using the property
      * 'assistive_technologies' specified in the Sun reference
      * implementation by a line in the 'accessibility.properties'
@@ -801,7 +801,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the default toolkit.
      * <p>
      * If a system property named <code>"java.awt.headless"</code> is set
@@ -880,7 +880,7 @@ public abstract class Toolkit {
         return toolkit;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an image which gets pixel data from the specified file,
      * whose format can be either GIF, JPEG or PNG.
      * The underlying toolkit attempts to resolve multiple requests
@@ -914,7 +914,7 @@ public abstract class Toolkit {
      */
     public abstract Image getImage(String filename);
 
-    /**
+    /** {@collect.stats}
      * Returns an image which gets pixel data from the specified URL.
      * The pixel data referenced by the specified URL must be in one
      * of the following formats: GIF, JPEG or PNG.
@@ -955,7 +955,7 @@ public abstract class Toolkit {
      */
     public abstract Image getImage(URL url);
 
-    /**
+    /** {@collect.stats}
      * Returns an image which gets pixel data from the specified file.
      * The returned Image is a new object which will not be shared
      * with any other caller of this method or its getImage variant.
@@ -974,7 +974,7 @@ public abstract class Toolkit {
      */
     public abstract Image createImage(String filename);
 
-    /**
+    /** {@collect.stats}
      * Returns an image which gets pixel data from the specified URL.
      * The returned Image is a new object which will not be shared
      * with any other caller of this method or its getImage variant.
@@ -999,7 +999,7 @@ public abstract class Toolkit {
      */
     public abstract Image createImage(URL url);
 
-    /**
+    /** {@collect.stats}
      * Prepares an image for rendering.
      * <p>
      * If the values of the width and height arguments are both
@@ -1037,7 +1037,7 @@ public abstract class Toolkit {
     public abstract boolean prepareImage(Image image, int width, int height,
                                          ImageObserver observer);
 
-    /**
+    /** {@collect.stats}
      * Indicates the construction status of a specified image that is
      * being prepared for display.
      * <p>
@@ -1078,7 +1078,7 @@ public abstract class Toolkit {
     public abstract int checkImage(Image image, int width, int height,
                                    ImageObserver observer);
 
-    /**
+    /** {@collect.stats}
      * Creates an image with the specified image producer.
      * @param     producer the image producer to be used.
      * @return    an image with the specified image producer.
@@ -1088,7 +1088,7 @@ public abstract class Toolkit {
      */
     public abstract Image createImage(ImageProducer producer);
 
-    /**
+    /** {@collect.stats}
      * Creates an image which decodes the image stored in the specified
      * byte array.
      * <p>
@@ -1103,7 +1103,7 @@ public abstract class Toolkit {
         return createImage(imagedata, 0, imagedata.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an image which decodes the image stored in the specified
      * byte array, and at the specified offset and length.
      * The data must be in some image format, such as GIF or JPEG,
@@ -1120,7 +1120,7 @@ public abstract class Toolkit {
                                       int imageoffset,
                                       int imagelength);
 
-    /**
+    /** {@collect.stats}
      * Gets a <code>PrintJob</code> object which is the result of initiating
      * a print operation on the toolkit's platform.
      * <p>
@@ -1159,7 +1159,7 @@ public abstract class Toolkit {
     public abstract PrintJob getPrintJob(Frame frame, String jobtitle,
                                          Properties props);
 
-    /**
+    /** {@collect.stats}
      * Gets a <code>PrintJob</code> object which is the result of initiating
      * a print operation on the toolkit's platform.
      * <p>
@@ -1235,13 +1235,13 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Emits an audio beep.
      * @since     JDK1.1
      */
     public abstract void beep();
 
-    /**
+    /** {@collect.stats}
      * Gets the singleton instance of the system Clipboard which interfaces
      * with clipboard facilities provided by the native platform. This
      * clipboard enables data transfer between Java programs and native
@@ -1289,7 +1289,7 @@ public abstract class Toolkit {
     public abstract Clipboard getSystemClipboard()
         throws HeadlessException;
 
-    /**
+    /** {@collect.stats}
      * Gets the singleton instance of the system selection as a
      * <code>Clipboard</code> object. This allows an application to read and
      * modify the current, system-wide selection.
@@ -1349,7 +1349,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines which modifier key is the appropriate accelerator
      * key for menu shortcuts.
      * <p>
@@ -1373,7 +1373,7 @@ public abstract class Toolkit {
         return Event.CTRL_MASK;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the given locking key on the keyboard is currently in
      * its "on" state.
      * Valid key codes are
@@ -1401,7 +1401,7 @@ public abstract class Toolkit {
         throw new UnsupportedOperationException("Toolkit.getLockingKeyState");
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the state of the given locking key on the keyboard.
      * Valid key codes are
      * {@link java.awt.event.KeyEvent#VK_CAPS_LOCK VK_CAPS_LOCK},
@@ -1432,7 +1432,7 @@ public abstract class Toolkit {
         throw new UnsupportedOperationException("Toolkit.setLockingKeyState");
     }
 
-    /**
+    /** {@collect.stats}
      * Give native peers the ability to query the native container
      * given a native component (eg the direct parent may be lightweight).
      */
@@ -1440,7 +1440,7 @@ public abstract class Toolkit {
         return c.getNativeContainer();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new custom cursor object.
      * If the image to display is invalid, the cursor will be hidden (made
      * completely transparent), and the hotspot will be set to (0, 0).
@@ -1472,7 +1472,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the supported cursor dimension which is closest to the desired
      * sizes.  Systems which only support a single cursor size will return that
      * size regardless of the desired sizes.  Systems which don't support custom
@@ -1507,7 +1507,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of colors the Toolkit supports in a custom cursor
      * palette.<p>
      * Note: if an image is used which has more colors in its palette than
@@ -1533,7 +1533,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether Toolkit supports this state for
      * <code>Frame</code>s.  This method tells whether the <em>UI
      * concept</em> of, say, maximization or iconification is
@@ -1565,19 +1565,19 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Support for I18N: any visible strings should be stored in
      * sun.awt.resources.awt.properties.  The ResourceBundle is stored
      * here, so that only one copy is maintained.
      */
     private static ResourceBundle resources;
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method ids
      */
     private static native void initIDs();
 
-    /**
+    /** {@collect.stats}
      * WARNING: This is a temporary workaround for a problem in the
      * way the AWT loads native libraries. A number of classes in the
      * AWT package have a native method, initIDs(), which initializes
@@ -1636,7 +1636,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a property with the specified key and default.
      * This method returns defaultValue if the property is not found.
      */
@@ -1651,7 +1651,7 @@ public abstract class Toolkit {
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the application's or applet's EventQueue instance.
      * Depending on the Toolkit implementation, different EventQueues
      * may be returned for different applets.  Applets should
@@ -1681,7 +1681,7 @@ public abstract class Toolkit {
         return getSystemEventQueueImpl();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the application's or applet's <code>EventQueue</code>
      * instance, without checking access.  For security reasons,
      * this can only be called from a <code>Toolkit</code> subclass.
@@ -1694,7 +1694,7 @@ public abstract class Toolkit {
         return getDefaultToolkit().getSystemEventQueueImpl();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the peer for a DragSourceContext.
      * Always throws InvalidDndOperationException if
      * GraphicsEnvironment.isHeadless() returns true.
@@ -1702,7 +1702,7 @@ public abstract class Toolkit {
      */
     public abstract DragSourceContextPeer createDragSourceContextPeer(DragGestureEvent dge) throws InvalidDnDOperationException;
 
-    /**
+    /** {@collect.stats}
      * Creates a concrete, platform dependent, subclass of the abstract
      * DragGestureRecognizer class requested, and associates it with the
      * DragSource, Component and DragGestureListener specified.
@@ -1727,7 +1727,7 @@ public abstract class Toolkit {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains a value for the specified desktop property.
      *
      * A desktop property is a uniquely named value for a resource that
@@ -1776,7 +1776,7 @@ public abstract class Toolkit {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the named desktop property to the specified value and fires a
      * property change event to notify any listeners that the value has changed.
      */
@@ -1800,20 +1800,20 @@ public abstract class Toolkit {
         desktopPropsSupport.firePropertyChange(name, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * an opportunity to lazily evaluate desktop property values.
      */
     protected Object lazilyLoadDesktopProperty(String name) {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * initializeDesktopProperties
      */
     protected void initializeDesktopProperties() {
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified property change listener for the named desktop
      * property.
      * If pcl is null, no exception is thrown and no action is performed.
@@ -1826,7 +1826,7 @@ public abstract class Toolkit {
         desktopPropsSupport.addPropertyChangeListener(name, pcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified property change listener for the named
      * desktop property.
      * If pcl is null, no exception is thrown and no action is performed.
@@ -1839,7 +1839,7 @@ public abstract class Toolkit {
         desktopPropsSupport.removePropertyChangeListener(name, pcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the property change listeners
      * registered on this toolkit.
      *
@@ -1853,7 +1853,7 @@ public abstract class Toolkit {
         return desktopPropsSupport.getPropertyChangeListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>PropertyChangeListener</code>s
      * associated with the named property.
      *
@@ -1872,7 +1872,7 @@ public abstract class Toolkit {
     protected final PropertyChangeSupport desktopPropsSupport =
             Toolkit.createPropertyChangeSupport(this);
 
-    /**
+    /** {@collect.stats}
      * Returns whether the always-on-top mode is supported by this toolkit.
      * To detect whether the always-on-top mode is supported for a
      * particular Window, use {@link Window#isAlwaysOnTopSupported}.
@@ -1886,7 +1886,7 @@ public abstract class Toolkit {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the given modality type is supported by this toolkit. If
      * a dialog with unsupported modality type is created, then
      * <code>Dialog.ModalityType.MODELESS</code> is used instead.
@@ -1904,7 +1904,7 @@ public abstract class Toolkit {
      */
     public abstract boolean isModalityTypeSupported(Dialog.ModalityType modalityType);
 
-    /**
+    /** {@collect.stats}
      * Returns whether the given modal exclusion type is supported by this
      * toolkit. If an unsupported modal exclusion type property is set on a window,
      * then <code>Dialog.ModalExclusionType.NO_EXCLUDE</code> is used instead.
@@ -1949,7 +1949,7 @@ public abstract class Toolkit {
         return localL;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an AWTEventListener to receive all AWTEvents dispatched
      * system-wide that conform to the given <code>eventMask</code>.
      * <p>
@@ -2024,7 +2024,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an AWTEventListener from receiving dispatched AWTEvents.
      * <p>
      * First, if there is a security manager, its <code>checkPermission</code>
@@ -2101,7 +2101,7 @@ public abstract class Toolkit {
         ci--;
         return calls[ci];
     }
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>AWTEventListener</code>s
      * registered on this toolkit.
      * If there is a security manager, its {@code checkPermission}
@@ -2149,7 +2149,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>AWTEventListener</code>s
      * registered on this toolkit which listen to all of the event
      * types specified in the {@code eventMask} argument.
@@ -2377,7 +2377,7 @@ public abstract class Toolkit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a map of visual attributes for the abstract level description
      * of the given input method highlight, or null if no mapping is found.
      * The style field of the input method highlight is ignored. The map

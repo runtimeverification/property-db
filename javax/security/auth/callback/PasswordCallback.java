@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>PasswordCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to retrieve password information.
@@ -36,23 +36,23 @@ public class PasswordCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = 2267422647454909926L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String prompt;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private boolean echoOn;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private char[] inputPassword;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>PasswordCallback</code> with a prompt
      * and a boolean specifying whether the password should be displayed
      * as it is being typed.
@@ -75,7 +75,7 @@ public class PasswordCallback implements Callback, java.io.Serializable {
         this.echoOn = echoOn;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the prompt.
      *
      * <p>
@@ -86,7 +86,7 @@ public class PasswordCallback implements Callback, java.io.Serializable {
         return prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Return whether the password
      * should be displayed as it is being typed.
      *
@@ -99,7 +99,7 @@ public class PasswordCallback implements Callback, java.io.Serializable {
         return echoOn;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the retrieved password.
      *
      * <p> This method makes a copy of the input <i>password</i>
@@ -115,7 +115,7 @@ public class PasswordCallback implements Callback, java.io.Serializable {
         this.inputPassword = (password == null ? null : password.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Get the retrieved password.
      *
      * <p> This method returns a copy of the retrieved password.
@@ -130,7 +130,7 @@ public class PasswordCallback implements Callback, java.io.Serializable {
         return (inputPassword == null ? null : inputPassword.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Clear the retrieved password.
      */
     public void clearPassword() {

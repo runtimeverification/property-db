@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> An application implements a <code>CallbackHandler</code> and passes
  * it to underlying security services so that they may interact with
  * the application to retrieve specific authentication data,
@@ -70,7 +70,7 @@ package javax.security.auth.callback;
  */
 public interface CallbackHandler {
 
-    /**
+    /** {@collect.stats}
      * <p> Retrieve or display the information requested in the
      * provided Callbacks.
      *

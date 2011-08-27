@@ -28,7 +28,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Shape;
 
-/**
+/** {@collect.stats}
  * An interface for an object that allows one to mark up the background
  * with colored areas.
  *
@@ -36,7 +36,7 @@ import java.awt.Shape;
  */
 public interface Highlighter {
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being installed into the
      * interface of a JTextComponent.  This can be used
      * to gain access to the model that is being navigated
@@ -46,7 +46,7 @@ public interface Highlighter {
      */
     public void install(JTextComponent c);
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being removed from the
      * interface of a JTextComponent.  This is used to
      * unregister any listeners that were attached.
@@ -55,14 +55,14 @@ public interface Highlighter {
      */
     public void deinstall(JTextComponent c);
 
-    /**
+    /** {@collect.stats}
      * Renders the highlights.
      *
      * @param g the graphics context.
      */
     public void paint(Graphics g);
 
-    /**
+    /** {@collect.stats}
      * Adds a highlight to the view.  Returns a tag that can be used
      * to refer to the highlight.
      *
@@ -74,19 +74,19 @@ public interface Highlighter {
      */
     public Object addHighlight(int p0, int p1, HighlightPainter p) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Removes a highlight from the view.
      *
      * @param tag  which highlight to remove
      */
     public void removeHighlight(Object tag);
 
-    /**
+    /** {@collect.stats}
      * Removes all highlights this highlighter is responsible for.
      */
     public void removeAllHighlights();
 
-    /**
+    /** {@collect.stats}
      * Changes the given highlight to span a different portion of
      * the document.  This may be more efficient than a remove/add
      * when a selection is expanding/shrinking (such as a sweep
@@ -99,19 +99,19 @@ public interface Highlighter {
      */
     public void changeHighlight(Object tag, int p0, int p1) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Fetches the current list of highlights.
      *
      * @return the highlight list
      */
     public Highlight[] getHighlights();
 
-    /**
+    /** {@collect.stats}
      * Highlight renderer.
      */
     public interface HighlightPainter {
 
-        /**
+        /** {@collect.stats}
          * Renders the highlight.
          *
          * @param g the graphics context
@@ -126,21 +126,21 @@ public interface Highlighter {
 
     public interface Highlight {
 
-        /**
+        /** {@collect.stats}
          * Gets the starting model offset for the highlight.
          *
          * @return the starting offset >= 0
          */
         public int getStartOffset();
 
-        /**
+        /** {@collect.stats}
          * Gets the ending model offset for the highlight.
          *
          * @return the ending offset >= 0
          */
         public int getEndOffset();
 
-        /**
+        /** {@collect.stats}
          * Gets the painter for the highlighter.
          *
          * @return the painter

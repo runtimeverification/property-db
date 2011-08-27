@@ -33,7 +33,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-/**
+/** {@collect.stats}
  * BasicPanel implementation
  *
  * @author Steve Wilson
@@ -76,7 +76,7 @@ public class BasicPanelUI extends PanelUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -93,7 +93,7 @@ public class BasicPanelUI extends PanelUI {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *

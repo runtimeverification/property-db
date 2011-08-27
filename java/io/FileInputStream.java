@@ -29,7 +29,7 @@ import java.nio.channels.FileChannel;
 import sun.nio.ch.FileChannelImpl;
 
 
-/**
+/** {@collect.stats}
  * A <code>FileInputStream</code> obtains input bytes
  * from a file in a file system. What files
  * are  available depends on the host environment.
@@ -65,7 +65,7 @@ class FileInputStream extends InputStream
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>FileInputStream</code> by
      * opening a connection to an actual file,
      * the file named by the path name <code>name</code>
@@ -96,7 +96,7 @@ class FileInputStream extends InputStream
         this(name != null ? new File(name) : null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>FileInputStream</code> by
      * opening a connection to an actual file,
      * the file named by the <code>File</code>
@@ -137,7 +137,7 @@ class FileInputStream extends InputStream
         open(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>FileInputStream</code> by using the file descriptor
      * <code>fdObj</code>, which represents an existing connection to an
      * actual file in the file system.
@@ -174,13 +174,13 @@ class FileInputStream extends InputStream
         fd.incrementAndGetUseCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Opens the specified file for reading.
      * @param name the name of the file
      */
     private native void open(String name) throws FileNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Reads a byte of data from this input stream. This method blocks
      * if no input is yet available.
      *
@@ -190,7 +190,7 @@ class FileInputStream extends InputStream
      */
     public native int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a subarray as a sequence of bytes.
      * @param b the data to be written
      * @param off the start offset in the data
@@ -199,7 +199,7 @@ class FileInputStream extends InputStream
      */
     private native int readBytes(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>b.length</code> bytes of data from this input
      * stream into an array of bytes. This method blocks until some input
      * is available.
@@ -214,7 +214,7 @@ class FileInputStream extends InputStream
         return readBytes(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes. If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
@@ -236,7 +236,7 @@ class FileInputStream extends InputStream
         return readBytes(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Skips over and discards <code>n</code> bytes of data from the
      * input stream.
      *
@@ -260,7 +260,7 @@ class FileInputStream extends InputStream
      */
     public native long skip(long n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns an estimate of the number of remaining bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation might be
@@ -278,7 +278,7 @@ class FileInputStream extends InputStream
      */
     public native int available() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Closes this file input stream and releases any system resources
      * associated with the stream.
      *
@@ -321,7 +321,7 @@ class FileInputStream extends InputStream
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>FileDescriptor</code>
      * object  that represents the connection to
      * the actual file in the file system being
@@ -336,7 +336,7 @@ class FileInputStream extends InputStream
         throw new IOException();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file input stream.
      *
@@ -376,7 +376,7 @@ class FileInputStream extends InputStream
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that the <code>close</code> method of this file input stream is
      * called when there are no more references to it.
      *

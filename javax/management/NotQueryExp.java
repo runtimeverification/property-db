@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent negations
  * of relational expressions.
  * @serial include
@@ -39,19 +39,19 @@ class NotQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = 5269643775896723397L;
 
-    /**
+    /** {@collect.stats}
      * @serial The negated {@link QueryExp}
      */
     private QueryExp exp;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public NotQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new NotQueryExp for negating the specified QueryExp.
      */
     public NotQueryExp(QueryExp q) {
@@ -59,14 +59,14 @@ class NotQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the negated query expression of the query.
      */
     public QueryExp getNegatedExp()  {
         return exp;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the NotQueryExp on a MBean.
      *
      * @param name The name of the MBean on which the NotQueryExp will be applied.
@@ -83,7 +83,7 @@ class NotQueryExp extends QueryEval implements QueryExp {
         return exp.apply(name) == false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

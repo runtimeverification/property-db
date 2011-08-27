@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Private implementation class for EnumSet, for "regular sized" enum types
  * (i.e., those with 64 or fewer enum constants).
  *
@@ -34,7 +34,7 @@ package java.util;
  * @serial exclude
  */
 class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
-    /**
+    /** {@collect.stats}
      * Bit vector representation of this set.  The 2^k bit indicates the
      * presence of universe[k] in this set.
      */
@@ -60,7 +60,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements contained in this set.  The
      * iterator traverses the elements in their <i>natural order</i> (which is
      * the order in which the enum constants are declared). The returned
@@ -75,13 +75,13 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
     }
 
     private class EnumSetIterator<E extends Enum<E>> implements Iterator<E> {
-        /**
+        /** {@collect.stats}
          * A bit vector representing the elements in the set not yet
          * returned by this iterator.
          */
         long unseen;
 
-        /**
+        /** {@collect.stats}
          * The bit representing the last element returned by this iterator
          * but not removed, or zero if no such element exists.
          */
@@ -111,7 +111,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this set.
      *
      * @return the number of elements in this set
@@ -120,7 +120,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return Long.bitCount(elements);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains no elements.
      *
      * @return <tt>true</tt> if this set contains no elements
@@ -129,7 +129,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return elements == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains the specified element.
      *
      * @param e element to be checked for containment in this collection
@@ -147,7 +147,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
 
     // Modification Operations
 
-    /**
+    /** {@collect.stats}
      * Adds the specified element to this set if it is not already present.
      *
      * @param e element to be added to this set
@@ -163,7 +163,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return elements != oldElements;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified element from this set if it is present.
      *
      * @param e element to be removed from this set, if present
@@ -183,7 +183,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
 
     // Bulk Operations
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains all of the elements
      * in the specified collection.
      *
@@ -203,7 +203,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return (es.elements & ~elements) == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the elements in the specified collection to this set.
      *
      * @param c collection whose elements are to be added to this set
@@ -229,7 +229,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return elements != oldElements;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes from this set all of its elements that are contained in
      * the specified collection.
      *
@@ -250,7 +250,7 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return elements != oldElements;
     }
 
-    /**
+    /** {@collect.stats}
      * Retains only the elements in this set that are contained in the
      * specified collection.
      *
@@ -274,14 +274,14 @@ class RegularEnumSet<E extends Enum<E>> extends EnumSet<E> {
         return elements != oldElements;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this set.
      */
     public void clear() {
         elements = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this set for equality.  Returns
      * <tt>true</tt> if the given object is also a set, the two sets have
      * the same size, and every member of the given set is contained in

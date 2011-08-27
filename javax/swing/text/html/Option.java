@@ -27,7 +27,7 @@ package javax.swing.text.html;
 import java.io.Serializable;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Value for the ListModel used to represent
  * &lt;option&gt; elements.  This is the object
  * installed as items of the DefaultComboBoxModel
@@ -46,7 +46,7 @@ import javax.swing.text.*;
  */
 public class Option implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * Creates a new Option object.
      *
      * @param attr the attributes associated with the
@@ -58,49 +58,49 @@ public class Option implements Serializable {
         selected = (attr.getAttribute(HTML.Attribute.SELECTED) != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the label to be used for the option.
      */
     public void setLabel(String label) {
         this.label = label;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the label associated with the option.
      */
     public String getLabel() {
         return label;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the attributes associated with this option.
      */
     public AttributeSet getAttributes() {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * String representation is the label.
      */
     public String toString() {
         return label;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected state.
      */
     protected void setSelection(boolean state) {
         selected = state;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the selection state associated with this option.
      */
     public boolean isSelected() {
         return selected;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to return the string associated
      * with the <code>value</code> attribute.  If the
      * value has not been specified, the label will be

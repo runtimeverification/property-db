@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * The facility that a disconnected <code>RowSet</code> object calls on
  * to populate itself with rows of data. A reader (an object implementing the
  * <code>RowSetReader</code> interface) may be registered with
@@ -40,7 +40,7 @@ import java.sql.*;
 
 public interface RowSetReader {
 
-  /**
+  /** {@collect.stats}
    * Reads the new contents of the calling <code>RowSet</code> object.
    * In order to call this method, a <code>RowSet</code>
    * object must have implemented the <code>RowSetInternal</code> interface

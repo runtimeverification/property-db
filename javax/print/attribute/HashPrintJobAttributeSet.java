@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class HashPrintJobAttributeSet provides an attribute set
  * which inherits its implementation from class {@link HashAttributeSet
  * HashAttributeSet} and enforces the semantic restrictions of interface
@@ -42,14 +42,14 @@ public class HashPrintJobAttributeSet extends HashAttributeSet
 
     private static final long serialVersionUID = -4204473656070350348L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty hash print job attribute set.
      */
     public HashPrintJobAttributeSet() {
         super(PrintJobAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new hash print job attribute set,
      * initially populated with the given value.
      *
@@ -62,7 +62,7 @@ public class HashPrintJobAttributeSet extends HashAttributeSet
         super(attribute, PrintJobAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new hash print job attribute set,
      * initially populated with the values from the given array.
      * The new attribute set is populated
@@ -81,7 +81,7 @@ public class HashPrintJobAttributeSet extends HashAttributeSet
         super (attributes, PrintJobAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the
      * values from the  given set where the members of the attribute set
      * are restricted to the <code>PrintJobAttribute</code> interface.

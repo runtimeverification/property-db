@@ -27,7 +27,7 @@ package java.util.spi;
 
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * An abstract class for service providers that
  * provide localized names for the
  * {@link java.util.Locale Locale} class.
@@ -36,14 +36,14 @@ import java.util.Locale;
  */
 public abstract class LocaleNameProvider extends LocaleServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected LocaleNameProvider() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a localized name for the given ISO 639 language code and the
      * given locale that is appropriate for display to the user.
      * For example, if <code>languageCode</code> is "fr" and <code>locale</code>
@@ -67,7 +67,7 @@ public abstract class LocaleNameProvider extends LocaleServiceProvider {
      */
     public abstract String getDisplayLanguage(String languageCode, Locale locale);
 
-    /**
+    /** {@collect.stats}
      * Returns a localized name for the given ISO 3166 country code and the
      * given locale that is appropriate for display to the user.
      * For example, if <code>countryCode</code> is "FR" and <code>locale</code>
@@ -91,7 +91,7 @@ public abstract class LocaleNameProvider extends LocaleServiceProvider {
      */
     public abstract String getDisplayCountry(String countryCode, Locale locale);
 
-    /**
+    /** {@collect.stats}
      * Returns a localized name for the given variant code and the given locale that
      * is appropriate for display to the user.
      * If the name returned cannot be localized according to <code>locale</code>,

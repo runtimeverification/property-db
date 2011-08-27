@@ -29,7 +29,7 @@ import java.io.DataInput;
 import java.io.IOException;
 import java.nio.ByteOrder;
 
-/**
+/** {@collect.stats}
  * A seekable input stream interface for use by
  * <code>ImageReader</code>s.  Various input sources, such as
  * <code>InputStream</code>s and <code>File</code>s,
@@ -44,7 +44,7 @@ import java.nio.ByteOrder;
  */
 public interface ImageInputStream extends DataInput {
 
-    /**
+    /** {@collect.stats}
      * Sets the desired byte order for future reads of data values
      * from this stream.  For example, the sequence of bytes '0x01
      * 0x02 0x03 0x04' if read as a 4-byte integer would have the
@@ -74,7 +74,7 @@ public interface ImageInputStream extends DataInput {
      */
     void setByteOrder(ByteOrder byteOrder);
 
-    /**
+    /** {@collect.stats}
      * Returns the byte order with which data values will be read from
      * this stream as an instance of the
      * <code>java.nio.ByteOrder</code> enumeration.
@@ -88,7 +88,7 @@ public interface ImageInputStream extends DataInput {
      */
     ByteOrder getByteOrder();
 
-    /**
+    /** {@collect.stats}
      * Reads a single byte from the stream and returns it as an
      * integer between 0 and 255.  If the end of the stream is
      * reached, -1 is returned.
@@ -103,7 +103,7 @@ public interface ImageInputStream extends DataInput {
      */
     int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>b.length</code> bytes from the stream, and
      * stores them into <code>b</code> starting at index 0.  The
      * number of bytes read is returned.  If no bytes can be read
@@ -124,7 +124,7 @@ public interface ImageInputStream extends DataInput {
      */
     int read(byte[] b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes from the stream, and stores
      * them into <code>b</code> starting at index <code>off</code>.
      * The number of bytes read is returned.  If no bytes can be read
@@ -150,7 +150,7 @@ public interface ImageInputStream extends DataInput {
      */
     int read(byte[] b, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes from the stream, and
      * modifies the supplied <code>IIOByteBuffer</code> to indicate
      * the byte array, offset, and length where the data may be found.
@@ -172,7 +172,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readBytes(IIOByteBuffer buf, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a byte from the stream and returns a <code>boolean</code>
      * value of <code>true</code> if it is nonzero, <code>false</code>
      * if it is zero.
@@ -187,7 +187,7 @@ public interface ImageInputStream extends DataInput {
      */
     boolean readBoolean() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a byte from the stream and returns it as a
      * <code>byte</code> value.  Byte values between <code>0x00</code>
      * and <code>0x7f</code> represent integer values between
@@ -205,7 +205,7 @@ public interface ImageInputStream extends DataInput {
      */
     byte readByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a byte from the stream, and (conceptually) converts it to
      * an int, masks it with <code>0xff</code> in order to strip off
      * any sign-extension bits, and returns it as a <code>byte</code>
@@ -229,7 +229,7 @@ public interface ImageInputStream extends DataInput {
      */
     int readUnsignedByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads two bytes from the stream, and (conceptually)
      * concatenates them according to the current byte order, and
      * returns the result as a <code>short</code> value.
@@ -247,7 +247,7 @@ public interface ImageInputStream extends DataInput {
      */
     short readShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads two bytes from the stream, and (conceptually)
      * concatenates them according to the current byte order, converts
      * the resulting value to an <code>int</code>, masks it with
@@ -268,7 +268,7 @@ public interface ImageInputStream extends DataInput {
      */
     int readUnsignedShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>readUnsignedShort</code>, except that the
      * result is returned using the <code>char</code> datatype.
      *
@@ -285,7 +285,7 @@ public interface ImageInputStream extends DataInput {
      */
     char readChar() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads 4 bytes from the stream, and (conceptually) concatenates
      * them according to the current byte order and returns the result
      * as an <code>int</code>.
@@ -303,7 +303,7 @@ public interface ImageInputStream extends DataInput {
      */
     int readInt() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads 4 bytes from the stream, and (conceptually) concatenates
      * them according to the current byte order, converts the result
      * to a long, masks it with <code>0xffffffffL</code> in order to
@@ -323,7 +323,7 @@ public interface ImageInputStream extends DataInput {
      */
     long readUnsignedInt() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads 8 bytes from the stream, and (conceptually) concatenates
      * them according to the current byte order and returns the result
      * as a <code>long</code>.
@@ -341,7 +341,7 @@ public interface ImageInputStream extends DataInput {
      */
     long readLong() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads 4 bytes from the stream, and (conceptually) concatenates
      * them according to the current byte order and returns the result
      * as a <code>float</code>.
@@ -359,7 +359,7 @@ public interface ImageInputStream extends DataInput {
      */
     float readFloat() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads 8 bytes from the stream, and (conceptually) concatenates
      * them according to the current byte order and returns the result
      * as a <code>double</code>.
@@ -377,7 +377,7 @@ public interface ImageInputStream extends DataInput {
      */
     double readDouble() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next line of text from the input stream.  It reads
      * successive bytes, converting each byte separately into a
      * character, until it encounters a line terminator or end of
@@ -411,7 +411,7 @@ public interface ImageInputStream extends DataInput {
      */
     String readLine() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads in a string that has been encoded using a
      * <a href="../../../java/io/DataInput.html#modified-utf-8">modified
      * UTF-8</a>
@@ -495,7 +495,7 @@ public interface ImageInputStream extends DataInput {
      */
     String readUTF() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> bytes from the stream, and stores them
      * into <code>b</code> starting at index <code>off</code>.
      * If the end of the stream is reached, an <code>EOFException</code>
@@ -519,7 +519,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(byte[] b, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>b.length</code> bytes from the stream, and stores them
      * into <code>b</code> starting at index <code>0</code>.
      * If the end of the stream is reached, an <code>EOFException</code>
@@ -538,7 +538,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(byte[] b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> shorts (signed 16-bit integers) from the
      * stream according to the current byte order, and
      * stores them into <code>s</code> starting at index
@@ -563,7 +563,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(short[] s, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> chars (unsigned 16-bit integers) from the
      * stream according to the current byte order, and
      * stores them into <code>c</code> starting at index
@@ -588,7 +588,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(char[] c, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> ints (signed 32-bit integers) from the
      * stream according to the current byte order, and
      * stores them into <code>i</code> starting at index
@@ -613,7 +613,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(int[] i, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> longs (signed 64-bit integers) from the
      * stream according to the current byte order, and
      * stores them into <code>l</code> starting at index
@@ -638,7 +638,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(long[] l, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> floats (32-bit IEEE single-precision
      * floats) from the stream according to the current byte order,
      * and stores them into <code>f</code> starting at
@@ -663,7 +663,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(float[] f, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads <code>len</code> doubles (64-bit IEEE double-precision
      * floats) from the stream according to the current byte order,
      * and stores them into <code>d</code> starting at
@@ -688,7 +688,7 @@ public interface ImageInputStream extends DataInput {
      */
     void readFully(double[] d, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns the current byte position of the stream.  The next read
      * will take place starting at this offset.
      *
@@ -698,7 +698,7 @@ public interface ImageInputStream extends DataInput {
      */
     long getStreamPosition() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns the current bit offset, as an integer between 0 and 7,
      * inclusive.  The bit offset is updated implicitly by calls to
      * the <code>readBits</code> method.  A value of 0 indicates the
@@ -719,7 +719,7 @@ public interface ImageInputStream extends DataInput {
      */
     int getBitOffset() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Sets the bit offset to an integer between 0 and 7, inclusive.
      * The byte offset within the stream, as returned by
      * <code>getStreamPosition</code>, is left unchanged.
@@ -738,7 +738,7 @@ public interface ImageInputStream extends DataInput {
      */
     void setBitOffset(int bitOffset) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a single bit from the stream and returns it as an
      * <code>int</code> with the value <code>0</code> or
      * <code>1</code>.  The bit offset is advanced by one and reduced
@@ -753,7 +753,7 @@ public interface ImageInputStream extends DataInput {
      */
     int readBit() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads a bitstring from the stream and returns it as a
      * <code>long</code>, with the first bit read becoming the most
      * significant bit of the output.  The read starts within the byte
@@ -796,7 +796,7 @@ public interface ImageInputStream extends DataInput {
      */
     long readBits(int numBits) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns the total length of the stream, if known.  Otherwise,
      * <code>-1</code> is returned.
      *
@@ -807,7 +807,7 @@ public interface ImageInputStream extends DataInput {
      */
     long length() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Moves the stream position forward by a given number of bytes.  It
      * is possible that this method will only be able to skip forward
      * by a smaller number of bytes than requested, for example if the
@@ -824,7 +824,7 @@ public interface ImageInputStream extends DataInput {
      */
     int skipBytes(int n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Moves the stream position forward by a given number of bytes.
      * This method is identical to <code>skipBytes(int)</code> except
      * that it allows for a larger skip distance.
@@ -839,7 +839,7 @@ public interface ImageInputStream extends DataInput {
      */
     long skipBytes(long n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Sets the current stream position to the desired location.  The
      * next read will occur at this location.  The bit offset is set
      * to 0.
@@ -861,7 +861,7 @@ public interface ImageInputStream extends DataInput {
      */
     void seek(long pos) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Marks a position in the stream to be returned to by a
      * subsequent call to <code>reset</code>.  Unlike a standard
      * <code>InputStream</code>, all <code>ImageInputStream</code>s
@@ -886,7 +886,7 @@ public interface ImageInputStream extends DataInput {
      */
     void mark();
 
-    /**
+    /** {@collect.stats}
      * Returns the stream pointer to its previous position, including
      * the bit offset, at the time of the most recent unmatched call
      * to <code>mark</code>.
@@ -901,7 +901,7 @@ public interface ImageInputStream extends DataInput {
      */
     void reset() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Discards the initial portion of the stream prior to the
      * indicated postion.  Attempting to seek to an offset within the
      * flushed portion of the stream will result in an
@@ -922,7 +922,7 @@ public interface ImageInputStream extends DataInput {
      */
     void flushBefore(long pos) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Discards the initial position of the stream prior to the current
      * stream position.  Equivalent to
      * <code>flushBefore(getStreamPosition())</code>.
@@ -931,7 +931,7 @@ public interface ImageInputStream extends DataInput {
      */
     void flush() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns the earliest position in the stream to which seeking
      * may be performed.  The returned value will be the maximum of
      * all values passed into previous calls to
@@ -942,7 +942,7 @@ public interface ImageInputStream extends DataInput {
      */
     long getFlushedPosition();
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>ImageInputStream</code>
      * caches data itself in order to allow seeking backwards.
      * Applications may consult this in order to decide how frequently,
@@ -956,7 +956,7 @@ public interface ImageInputStream extends DataInput {
      */
     boolean isCached();
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>ImageInputStream</code>
      * caches data itself in order to allow seeking backwards, and
      * the cache is kept in main memory.  Applications may consult
@@ -971,7 +971,7 @@ public interface ImageInputStream extends DataInput {
      */
     boolean isCachedMemory();
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>ImageInputStream</code>
      * caches data itself in order to allow seeking backwards, and
      * the cache is kept in a temporary file.  Applications may consult
@@ -986,7 +986,7 @@ public interface ImageInputStream extends DataInput {
      */
     boolean isCachedFile();
 
-    /**
+    /** {@collect.stats}
      * Closes the stream.  Attempts to access a stream that has been
      * closed may result in <code>IOException</code>s or incorrect
      * behavior.  Calling this method may allow classes implementing

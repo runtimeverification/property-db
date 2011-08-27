@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * An <code>UnsupportedAudioFileException</code> is an exception indicating that an
  * operation failed because a file did not contain valid data of a recognized file
  * type and format.
@@ -43,7 +43,7 @@ package javax.sound.sampled;
 
 public class UnsupportedAudioFileException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>UnsupportedAudioFileException</code> that has
      * <code>null</code> as its error detail message.
      */
@@ -53,7 +53,7 @@ public class UnsupportedAudioFileException extends Exception {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>UnsupportedAudioFileException</code> that has
      * the specified detail message.
      *

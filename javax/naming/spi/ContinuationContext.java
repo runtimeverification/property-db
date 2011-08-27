@@ -28,7 +28,7 @@ package javax.naming.spi;
 import java.util.Hashtable;
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
   * This class is for dealing with federations/continuations.
   *
   * @author Rosanna Lee

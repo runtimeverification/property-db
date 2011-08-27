@@ -39,7 +39,7 @@ import javax.accessibility.*;
 import sun.swing.SwingUtilities2;
 
 
-/**
+/** {@collect.stats}
  * <code>JColorChooser</code> provides a pane of controls designed to allow
  * a user to manipulate and select a color.
  * For information about using color choosers, see
@@ -87,7 +87,7 @@ import sun.swing.SwingUtilities2;
  */
 public class JColorChooser extends JComponent implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -101,23 +101,23 @@ public class JColorChooser extends JComponent implements Accessible {
 
     private boolean dragEnabled;
 
-    /**
+    /** {@collect.stats}
      * The selection model property name.
      */
     public static final String      SELECTION_MODEL_PROPERTY = "selectionModel";
 
-    /**
+    /** {@collect.stats}
      * The preview panel property name.
      */
     public static final String      PREVIEW_PANEL_PROPERTY = "previewPanel";
 
-    /**
+    /** {@collect.stats}
      * The chooserPanel array property name.
      */
     public static final String      CHOOSER_PANELS_PROPERTY = "chooserPanels";
 
 
-    /**
+    /** {@collect.stats}
      * Shows a modal color-chooser dialog and blocks until the
      * dialog is hidden.  If the user presses the "OK" button, then
      * this method hides/disposes the dialog and returns the selected color.
@@ -150,7 +150,7 @@ public class JColorChooser extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a new dialog containing the specified
      * <code>ColorChooser</code> pane along with "OK", "Cancel", and "Reset"
      * buttons. If the "OK" or "Cancel" buttons are pressed, the dialog is
@@ -187,14 +187,14 @@ public class JColorChooser extends JComponent implements Accessible {
         return dialog;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a color chooser pane with an initial color of white.
      */
     public JColorChooser() {
         this(Color.white);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a color chooser pane with the specified initial color.
      *
      * @param initialColor the initial color set in the chooser
@@ -204,7 +204,7 @@ public class JColorChooser extends JComponent implements Accessible {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a color chooser pane with the specified
      * <code>ColorSelectionModel</code>.
      *
@@ -216,7 +216,7 @@ public class JColorChooser extends JComponent implements Accessible {
         dragEnabled = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return the <code>ColorChooserUI</code> object that renders
@@ -226,7 +226,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return (ColorChooserUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the <code>ColorChooserUI</code> L&F object
@@ -241,7 +241,7 @@ public class JColorChooser extends JComponent implements Accessible {
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIManager</code> that the L&F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
@@ -252,7 +252,7 @@ public class JColorChooser extends JComponent implements Accessible {
         setUI((ColorChooserUI)UIManager.getUI(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "ColorChooserUI"
@@ -263,7 +263,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current color value from the color chooser.
      * By default, this delegates to the model.
      *
@@ -273,7 +273,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return selectionModel.getSelectedColor();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color of the color chooser to the specified color.
      * The <code>ColorSelectionModel</code> will fire a <code>ChangeEvent</code>
      * @param color the color to be set in the color chooser
@@ -289,7 +289,7 @@ public class JColorChooser extends JComponent implements Accessible {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color of the color chooser to the
      * specified RGB color.  Note that the values of red, green,
      * and blue should be between the numbers 0 and 255, inclusive.
@@ -304,7 +304,7 @@ public class JColorChooser extends JComponent implements Accessible {
         setColor(new Color(r,g,b));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color of the color chooser to the
      * specified color.
      *
@@ -317,7 +317,7 @@ public class JColorChooser extends JComponent implements Accessible {
         setColor((c >> 16) & 0xFF, (c >> 8) & 0xFF, c & 0xFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>dragEnabled</code> property,
      * which must be <code>true</code> to enable
      * automatic drag handling (the first part of drag and drop)
@@ -363,7 +363,7 @@ public class JColorChooser extends JComponent implements Accessible {
         dragEnabled = b;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <code>dragEnabled</code> property.
      *
      * @return  the value of the <code>dragEnabled</code> property
@@ -374,7 +374,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return dragEnabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current preview panel.
      * This will fire a <code>PropertyChangeEvent</code> for the property
      * named "previewPanel".
@@ -396,7 +396,7 @@ public class JColorChooser extends JComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preview panel that shows a chosen color.
      *
      * @return a <code>JComponent</code> object -- the preview panel
@@ -405,7 +405,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return previewPanel;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a color chooser panel to the color chooser.
      *
      * @param panel the <code>AbstractColorChooserPanel</code> to be added
@@ -418,7 +418,7 @@ public class JColorChooser extends JComponent implements Accessible {
         setChooserPanels(newPanels);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the Color Panel specified.
      *
      * @param panel   a string that specifies the panel to be removed
@@ -461,7 +461,7 @@ public class JColorChooser extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the Color Panels used to choose a color value.
      *
      * @param panels  an array of <code>AbstractColorChooserPanel</code>
@@ -478,7 +478,7 @@ public class JColorChooser extends JComponent implements Accessible {
         firePropertyChange(CHOOSER_PANELS_PROPERTY, oldValue, panels);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified color panels.
      *
      * @return an array of <code>AbstractColorChooserPanel</code> objects
@@ -487,7 +487,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return chooserPanels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data model that handles color selections.
      *
      * @return a <code>ColorSelectionModel</code> object
@@ -497,7 +497,7 @@ public class JColorChooser extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the model containing the selected color.
      *
      * @param newModel   the new <code>ColorSelectionModel</code> object
@@ -514,7 +514,7 @@ public class JColorChooser extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -531,7 +531,7 @@ public class JColorChooser extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JColorChooser</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -561,7 +561,7 @@ public class JColorChooser extends JComponent implements Accessible {
 
     protected AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JColorChooser.
      * For color choosers, the AccessibleContext takes the form of an
      * AccessibleJColorChooser.
@@ -577,7 +577,7 @@ public class JColorChooser extends JComponent implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JColorChooser</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to color chooser user-interface
@@ -585,7 +585,7 @@ public class JColorChooser extends JComponent implements Accessible {
      */
     protected class AccessibleJColorChooser extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

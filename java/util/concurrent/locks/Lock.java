@@ -36,7 +36,7 @@
 package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 
-/**
+/** {@collect.stats}
  * {@code Lock} implementations provide more extensive locking
  * operations than can be obtained using {@code synchronized} methods
  * and statements.  They allow more flexible structuring, may have
@@ -165,7 +165,7 @@ import java.util.concurrent.TimeUnit;
  */
 public interface Lock {
 
-    /**
+    /** {@collect.stats}
      * Acquires the lock.
      *
      * <p>If the lock is not available then the current thread becomes
@@ -182,7 +182,7 @@ public interface Lock {
      */
     void lock();
 
-    /**
+    /** {@collect.stats}
      * Acquires the lock unless the current thread is
      * {@linkplain Thread#interrupt interrupted}.
      *
@@ -230,7 +230,7 @@ public interface Lock {
      */
     void lockInterruptibly() throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Acquires the lock only if it is free at the time of invocation.
      *
      * <p>Acquires the lock if it is available and returns immediately
@@ -259,7 +259,7 @@ public interface Lock {
      */
     boolean tryLock();
 
-    /**
+    /** {@collect.stats}
      * Acquires the lock if it is free within the given waiting time and the
      * current thread has not been {@linkplain Thread#interrupt interrupted}.
      *
@@ -319,7 +319,7 @@ public interface Lock {
      */
     boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Releases the lock.
      *
      * <p><b>Implementation Considerations</b>
@@ -333,7 +333,7 @@ public interface Lock {
      */
     void unlock();
 
-    /**
+    /** {@collect.stats}
      * Returns a new {@link Condition} instance that is bound to this
      * {@code Lock} instance.
      *

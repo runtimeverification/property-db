@@ -46,7 +46,7 @@ import sun.awt.dnd.SunDragSourceContextPeer;
 import sun.security.action.GetIntegerAction;
 
 
-/**
+/** {@collect.stats}
  * The <code>DragSource</code> is the entity responsible
  * for the initiation of the Drag
  * and Drop operation, and may be used in a number of scenarios:
@@ -137,7 +137,7 @@ public class DragSource implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a copy operation indicating
      * that a drop is currently allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -147,7 +147,7 @@ public class DragSource implements Serializable {
     public static final Cursor DefaultCopyDrop =
         load("DnD.Cursor.CopyDrop");
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a move operation indicating
      * that a drop is currently allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -157,7 +157,7 @@ public class DragSource implements Serializable {
     public static final Cursor DefaultMoveDrop =
         load("DnD.Cursor.MoveDrop");
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a link operation indicating
      * that a drop is currently allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -167,7 +167,7 @@ public class DragSource implements Serializable {
     public static final Cursor DefaultLinkDrop =
         load("DnD.Cursor.LinkDrop");
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a copy operation indicating
      * that a drop is currently not allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -177,7 +177,7 @@ public class DragSource implements Serializable {
     public static final Cursor DefaultCopyNoDrop =
         load("DnD.Cursor.CopyNoDrop");
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a move operation indicating
      * that a drop is currently not allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -187,7 +187,7 @@ public class DragSource implements Serializable {
     public static final Cursor DefaultMoveNoDrop =
         load("DnD.Cursor.MoveNoDrop");
 
-    /**
+    /** {@collect.stats}
      * The default <code>Cursor</code> to use with a link operation indicating
      * that a drop is currently not allowed. <code>null</code> if
      * <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.
@@ -200,13 +200,13 @@ public class DragSource implements Serializable {
     private static final DragSource dflt =
         (GraphicsEnvironment.isHeadless()) ? null : new DragSource();
 
-    /**
+    /** {@collect.stats}
      * Internal constants for serialization.
      */
     static final String dragSourceListenerK = "dragSourceL";
     static final String dragSourceMotionListenerK = "dragSourceMotionL";
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>DragSource</code> object associated with
      * the underlying platform.
      *
@@ -223,7 +223,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reports
      * whether or not drag
      * <code>Image</code> support
@@ -246,7 +246,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>DragSource</code>.
      *
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -259,7 +259,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Start a drag, given the <code>DragGestureEvent</code>
      * that initiated the drag, the initial
      * <code>Cursor</code> to use,
@@ -322,7 +322,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Start a drag, given the <code>DragGestureEvent</code>
      * that initiated the drag, the initial
      * <code>Cursor</code> to use,
@@ -353,7 +353,7 @@ public class DragSource implements Serializable {
         startDrag(trigger, dragCursor, null, null, transferable, dsl, flavorMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Start a drag, given the <code>DragGestureEvent</code>
      * that initiated the drag, the initial <code>Cursor</code>
      * to use,
@@ -388,7 +388,7 @@ public class DragSource implements Serializable {
         startDrag(trigger, dragCursor, dragImage, dragOffset, transferable, dsl, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Start a drag, given the <code>DragGestureEvent</code>
      * that initiated the drag, the initial
      * <code>Cursor</code> to
@@ -415,7 +415,7 @@ public class DragSource implements Serializable {
         startDrag(trigger, dragCursor, null, null, transferable, dsl, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the <code>DragSourceContext</code> to handle this drag.
      * <p>
      * To incorporate a new <code>DragSourceContext</code>
@@ -466,7 +466,7 @@ public class DragSource implements Serializable {
         return new DragSourceContext(dscp, dgl, dragCursor, dragImage, imageOffset, t, dsl);
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the
      * <code>FlavorMap</code> for this <code>DragSource</code>.
      * <P>
@@ -475,7 +475,7 @@ public class DragSource implements Serializable {
 
     public FlavorMap getFlavorMap() { return flavorMap; }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>DragGestureRecognizer</code>
      * that implements the specified
      * abstract subclass of
@@ -505,7 +505,7 @@ public class DragSource implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>DragGestureRecognizer</code>
      * that implements the default
      * abstract subclass of <code>DragGestureRecognizer</code>
@@ -532,7 +532,7 @@ public class DragSource implements Serializable {
         return Toolkit.getDefaultToolkit().createDragGestureRecognizer(MouseDragGestureRecognizer.class, this, c, actions, dgl);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified <code>DragSourceListener</code> to this
      * <code>DragSource</code> to receive drag source events during drag
      * operations intiated with this <code>DragSource</code>.
@@ -553,7 +553,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified <code>DragSourceListener</code> from this
      * <code>DragSource</code>.
      * If a <code>null</code> listener is specified, no action is taken and no
@@ -576,7 +576,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the <code>DragSourceListener</code>s
      * registered with this <code>DragSource</code>.
      *
@@ -592,7 +592,7 @@ public class DragSource implements Serializable {
         return (DragSourceListener[])getListeners(DragSourceListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified <code>DragSourceMotionListener</code> to this
      * <code>DragSource</code> to receive drag motion events during drag
      * operations intiated with this <code>DragSource</code>.
@@ -613,7 +613,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified <code>DragSourceMotionListener</code> from this
      * <code>DragSource</code>.
      * If a <code>null</code> listener is specified, no action is taken and no
@@ -636,7 +636,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all of the  <code>DragSourceMotionListener</code>s
      * registered with this <code>DragSource</code>.
      *
@@ -653,7 +653,7 @@ public class DragSource implements Serializable {
             getListeners(DragSourceMotionListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s upon this <code>DragSource</code>.
      * <code><em>Foo</em>Listener</code>s are registered using the
@@ -684,7 +684,7 @@ public class DragSource implements Serializable {
         return DnDEventMulticaster.getListeners(l, listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dragEnter</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -699,7 +699,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dragOver</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -714,7 +714,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dropActionChanged</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -729,7 +729,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dragExit</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -744,7 +744,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dragDropEnd</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -759,7 +759,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method calls <code>dragMouseMoved</code> on the
      * <code>DragSourceMotionListener</code>s registered with this
      * <code>DragSource</code>, and passes them the specified
@@ -774,7 +774,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes this <code>DragSource</code>. This method first performs
      * default serialization. Next, it writes out this object's
      * <code>FlavorMap</code> if and only if it can be serialized. If not,
@@ -815,7 +815,7 @@ public class DragSource implements Serializable {
         s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes this <code>DragSource</code>. This method first performs
      * default deserialization. Next, this object's <code>FlavorMap</code> is
      * deserialized by using the next object in the stream.
@@ -868,7 +868,7 @@ public class DragSource implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the drag gesture motion threshold. The drag gesture motion threshold
      * defines the recommended behavior for {@link MouseDragGestureRecognizer}s.
      * <p>

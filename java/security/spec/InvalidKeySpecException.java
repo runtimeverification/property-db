@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.security.GeneralSecurityException;
 
-/**
+/** {@collect.stats}
  * This is the exception for invalid key specifications.
  *
  * @author Jan Luehe
@@ -42,7 +42,7 @@ public class InvalidKeySpecException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 3546139293998810778L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidKeySpecException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -51,7 +51,7 @@ public class InvalidKeySpecException extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidKeySpecException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -62,7 +62,7 @@ public class InvalidKeySpecException extends GeneralSecurityException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>InvalidKeySpecException</code> with the specified
      * detail message and cause.
      *
@@ -77,7 +77,7 @@ public class InvalidKeySpecException extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>InvalidKeySpecException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

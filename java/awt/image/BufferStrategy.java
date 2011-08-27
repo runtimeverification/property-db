@@ -29,7 +29,7 @@ import java.awt.BufferCapabilities;
 import java.awt.Graphics;
 import java.awt.Image;
 
-/**
+/** {@collect.stats}
  * The <code>BufferStrategy</code> class represents the mechanism with which
  * to organize complex memory on a particular <code>Canvas</code> or
  * <code>Window</code>.  Hardware and software limitations determine whether and
@@ -135,7 +135,7 @@ import java.awt.Image;
  */
 public abstract class BufferStrategy {
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>BufferCapabilities</code> for this
      * <code>BufferStrategy</code>.
      *
@@ -143,7 +143,7 @@ public abstract class BufferStrategy {
      */
     public abstract BufferCapabilities getCapabilities();
 
-    /**
+    /** {@collect.stats}
      * Creates a graphics context for the drawing buffer.  This method may not
      * be synchronized for performance reasons; use of this method by multiple
      * threads should be handled at the application level.  Disposal of the
@@ -153,7 +153,7 @@ public abstract class BufferStrategy {
      */
     public abstract Graphics getDrawGraphics();
 
-    /**
+    /** {@collect.stats}
      * Returns whether the drawing buffer was lost since the last call to
      * <code>getDrawGraphics</code>.  Since the buffers in a buffer strategy
      * are usually type <code>VolatileImage</code>, they may become lost.
@@ -165,7 +165,7 @@ public abstract class BufferStrategy {
      */
     public abstract boolean contentsLost();
 
-    /**
+    /** {@collect.stats}
      * Returns whether the drawing buffer was recently restored from a lost
      * state and reinitialized to the default background color (white).
      * Since the buffers in a buffer strategy are usually type
@@ -180,13 +180,13 @@ public abstract class BufferStrategy {
      */
     public abstract boolean contentsRestored();
 
-    /**
+    /** {@collect.stats}
      * Makes the next available buffer visible by either copying the memory
      * (blitting) or changing the display pointer (flipping).
      */
     public abstract void show();
 
-    /**
+    /** {@collect.stats}
      * Releases system resources currently consumed by this
      * <code>BufferStrategy</code> and
      * removes it from the associated Component.  After invoking this

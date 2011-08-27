@@ -37,17 +37,17 @@ import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A Synth L&F implementation of TabbedPaneUI.
  *
  * @author Scott Violet
  */
-/**
+/** {@collect.stats}
  * Looks up 'selectedTabPadInsets' from the Style, which will be additional
  * insets for the selected tab.
  */
 class SynthTabbedPaneUI extends BasicTabbedPaneUI implements SynthUI, PropertyChangeListener  {
-    /**
+    /** {@collect.stats}
      * <p>If non-zero, tabOverlap indicates the amount that the tab bounds
      * should be altered such that they would overlap with a tab on either the
      * leading or trailing end of a run (ie: in TOP, this would be on the left
@@ -70,7 +70,7 @@ class SynthTabbedPaneUI extends BasicTabbedPaneUI implements SynthUI, PropertyCh
      */
     private int tabOverlap = 0;
 
-    /**
+    /** {@collect.stats}
      * When a tabbed pane has multiple rows of tabs, this indicates whether
      * the tabs in the upper row(s) should extend to the base of the tab area,
      * or whether they should remain at their normal tab height. This does not
@@ -262,7 +262,7 @@ class SynthTabbedPaneUI extends BasicTabbedPaneUI implements SynthUI, PropertyCh
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @inheritDoc
      *
      * Overridden to keep track of whether the selected tab is also pressed.
@@ -781,7 +781,7 @@ class SynthTabbedPaneUI extends BasicTabbedPaneUI implements SynthUI, PropertyCh
         tabContext.setComponentState(state);
     }
 
-    /**
+    /** {@collect.stats}
      * @inheritDoc
      *
      * Overridden to create a TabbedPaneLayout subclass which takes into

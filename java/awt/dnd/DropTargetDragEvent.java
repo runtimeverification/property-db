@@ -32,7 +32,7 @@ import java.awt.datatransfer.Transferable;
 
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * The <code>DropTargetDragEvent</code> is delivered to a
  * <code>DropTargetListener</code> via its
  * dragEnter() and dragOver() methods.
@@ -74,7 +74,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
 
     private static final long serialVersionUID = -8422265619058953682L;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>DropTargetDragEvent</code> given the
      * <code>DropTargetContext</code> for this operation,
      * the location of the "Drag" <code>Cursor</code>'s hotspot
@@ -113,7 +113,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
         this.dropAction = dropAction;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a <code>Point</code>
      * indicating the <code>Cursor</code>'s current
      * location within the <code>Component'</code>s
@@ -128,7 +128,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method returns the current <code>DataFlavor</code>s from the
      * <code>DropTargetContext</code>.
      * <P>
@@ -139,7 +139,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
         return getDropTargetContext().getCurrentDataFlavors();
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the current <code>DataFlavor</code>s
      * as a <code>java.util.List</code>
      * <P>
@@ -150,7 +150,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
         return getDropTargetContext().getCurrentDataFlavorsAsList();
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a <code>boolean</code> indicating
      * if the specified <code>DataFlavor</code> is supported.
      * <P>
@@ -163,21 +163,21 @@ public class DropTargetDragEvent extends DropTargetEvent {
         return getDropTargetContext().isDataFlavorSupported(df);
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the source drop actions.
      *
      * @return the source drop actions
      */
     public int getSourceActions() { return actions; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the user drop action.
      *
      * @return the user drop action
      */
     public int getDropAction() { return dropAction; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the Transferable object that represents
      * the data associated with the current drag operation.
      *
@@ -191,7 +191,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
         return getDropTargetContext().getTransferable();
     }
 
-    /**
+    /** {@collect.stats}
      * Accepts the drag.
      *
      * This method should be called from a
@@ -207,7 +207,7 @@ public class DropTargetDragEvent extends DropTargetEvent {
         getDropTargetContext().acceptDrag(dragOperation);
     }
 
-    /**
+    /** {@collect.stats}
      * Rejects the drag as a result of examining either the
      * <code>dropAction</code> or the available <code>DataFlavor</code>
      * types.
@@ -220,21 +220,21 @@ public class DropTargetDragEvent extends DropTargetEvent {
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * The location of the drag cursor's hotspot in Component coordinates.
      *
      * @serial
      */
     private Point               location;
 
-    /**
+    /** {@collect.stats}
      * The source drop actions.
      *
      * @serial
      */
     private int                 actions;
 
-    /**
+    /** {@collect.stats}
      * The user drop action.
      *
      * @serial

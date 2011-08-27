@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class ColorSupported is a printing attribute class, an enumeration, that
  * identifies whether the device is capable of any type of color printing at
  * all, including highlight color as well as full process color. All document
@@ -61,18 +61,18 @@ public final class ColorSupported extends EnumSyntax
 
     private static final long serialVersionUID = -2700555589688535545L;
 
-    /**
+    /** {@collect.stats}
      * The printer is not capable of any type of color printing.
      */
     public static final ColorSupported NOT_SUPPORTED = new ColorSupported(0);
 
-    /**
+    /** {@collect.stats}
      * The printer is capable of some type of color printing, such as
      * highlight color or full process color.
      */
     public static final ColorSupported SUPPORTED = new ColorSupported(1);
 
-    /**
+    /** {@collect.stats}
      * Construct a new color supported enumeration value with the given
      * integer value.
      *
@@ -88,21 +88,21 @@ public final class ColorSupported extends EnumSyntax
     private static final ColorSupported[] myEnumValueTable = {NOT_SUPPORTED,
                                                               SUPPORTED};
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class ColorSupported.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class ColorSupported.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -115,7 +115,7 @@ public final class ColorSupported extends EnumSyntax
         return ColorSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

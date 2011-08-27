@@ -31,7 +31,7 @@ import java.awt.image.RenderedImage;
 import java.util.List;
 import javax.imageio.metadata.IIOMetadata;
 
-/**
+/** {@collect.stats}
  * A simple container class to aggregate an image, a set of
  * thumbnail (preview) images, and an object representing metadata
  * associated with the image.
@@ -59,30 +59,30 @@ import javax.imageio.metadata.IIOMetadata;
  */
 public class IIOImage {
 
-    /**
+    /** {@collect.stats}
      * The <code>RenderedImage</code> being referenced.
      */
     protected RenderedImage image;
 
-    /**
+    /** {@collect.stats}
      * The <code>Raster</code> being referenced.
      */
     protected Raster raster;
 
-    /**
+    /** {@collect.stats}
      * A <code>List</code> of <code>BufferedImage</code> thumbnails,
      * or <code>null</code>.  Non-<code>BufferedImage</code> objects
      * must not be stored in this <code>List</code>.
      */
     protected List<? extends BufferedImage> thumbnails = null;
 
-    /**
+    /** {@collect.stats}
      * An <code>IIOMetadata</code> object containing metadata
      * associated with the image.
      */
     protected IIOMetadata metadata;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOImage</code> containing a
      * <code>RenderedImage</code>, and thumbnails and metadata
      * associated with it.
@@ -114,7 +114,7 @@ public class IIOImage {
         this.metadata = metadata;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOImage</code> containing a
      * <code>Raster</code>, and thumbnails and metadata
      * associated with it.
@@ -142,7 +142,7 @@ public class IIOImage {
         this.metadata = metadata;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set <code>RenderedImage</code>, or
      * <code>null</code> if only a <code>Raster</code> is available.
      *
@@ -156,7 +156,7 @@ public class IIOImage {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>RenderedImage</code>.  The value is
      * stored by reference.  Any existing <code>Raster</code> is
      * discarded.
@@ -178,7 +178,7 @@ public class IIOImage {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>IIOImage</code> stores
      * a <code>Raster</code> rather than a <code>RenderedImage</code>.
      *
@@ -191,7 +191,7 @@ public class IIOImage {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set <code>Raster</code>, or
      * <code>null</code> if only a <code>RenderedImage</code> is
      * available.
@@ -206,7 +206,7 @@ public class IIOImage {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>Raster</code>.  The value is
      * stored by reference.  Any existing <code>RenderedImage</code> is
      * discarded.
@@ -228,7 +228,7 @@ public class IIOImage {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of thumbnails stored in this
      * <code>IIOImage</code>.
      *
@@ -238,7 +238,7 @@ public class IIOImage {
         return thumbnails == null ? 0 : thumbnails.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a thumbnail associated with the main image.
      *
      * @param index the index of the desired thumbnail image.
@@ -261,7 +261,7 @@ public class IIOImage {
         return (BufferedImage)thumbnails.get(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current <code>List</code> of thumbnail
      * <code>BufferedImage</code>s, or <code>null</code> if none is
      * set.  A live reference is returned.
@@ -276,7 +276,7 @@ public class IIOImage {
         return thumbnails;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the list of thumbnails to a new <code>List</code> of
      * <code>BufferedImage</code>s, or to <code>null</code>.  The
      * reference to the previous <code>List</code> is discarded.
@@ -295,7 +295,7 @@ public class IIOImage {
         this.thumbnails = thumbnails;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the current <code>IIOMetadata</code>
      * object, or <code>null</code> is none is set.
      *
@@ -307,7 +307,7 @@ public class IIOImage {
         return metadata;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>IIOMetadata</code> to a new object, or
      * <code>null</code>.
      *

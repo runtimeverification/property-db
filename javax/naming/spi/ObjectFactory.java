@@ -29,7 +29,7 @@ import java.util.Hashtable;
 
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
   * This interface represents a factory for creating an object.
   *<p>
   * The JNDI framework allows for object implementations to
@@ -68,7 +68,7 @@ import javax.naming.*;
   */
 
 public interface ObjectFactory {
-/**
+/** {@collect.stats}
  * Creates an object using the location or reference information
  * specified.
  * <p>

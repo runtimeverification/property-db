@@ -27,7 +27,7 @@ package javax.management.relation;
 
 import javax.management.JMException;
 
-/**
+/** {@collect.stats}
  * This class is the superclass of any exception which can be raised during
  * relation management.
  *
@@ -38,14 +38,14 @@ public class RelationException extends JMException {
     /* Serial version */
     private static final long serialVersionUID = 5434016005679159613L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public RelationException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

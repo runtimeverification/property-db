@@ -51,7 +51,7 @@ import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of SliderUI.
  *
  * @author Tom Santos
@@ -96,11 +96,11 @@ public class BasicSliderUI extends SliderUI{
     private Color highlightColor;
     private Color focusColor;
 
-    /**
+    /** {@collect.stats}
      * Whther or not sameLabelBaselines is up to date.
      */
     private boolean checkedLabelBaselines;
-    /**
+    /** {@collect.stats}
      * Whether or not all the entries in the labeltable have the same
      * baseline.
      */
@@ -119,7 +119,7 @@ public class BasicSliderUI extends SliderUI{
         return focusColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the user is dragging the slider.
      *
      * @return true if the user is dragging the slider
@@ -299,7 +299,7 @@ public class BasicSliderUI extends SliderUI{
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Populates ComboBox's actions.
      */
     static void loadActionMap(LazyActionMap map) {
@@ -318,7 +318,7 @@ public class BasicSliderUI extends SliderUI{
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -377,7 +377,7 @@ public class BasicSliderUI extends SliderUI{
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -395,7 +395,7 @@ public class BasicSliderUI extends SliderUI{
         return Component.BaselineResizeBehavior.OTHER;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if all the labels from the label table have the same
      * baseline.
      *
@@ -656,7 +656,7 @@ public class BasicSliderUI extends SliderUI{
 
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the height of the tick area for horizontal sliders and the width of the
      * tick area for vertical sliders.  BasicSliderUI uses the returned value to
      * determine the tick area rectangle.  If you want to give your ticks some room,
@@ -835,7 +835,7 @@ public class BasicSliderUI extends SliderUI{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the biggest value that has an entry in the label table.
      *
      * @return biggest value that has an entry in the label table, or
@@ -858,7 +858,7 @@ public class BasicSliderUI extends SliderUI{
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the smallest value that has an entry in the label table.
      *
      * @return smallest value that has an entry in the label table, or
@@ -882,7 +882,7 @@ public class BasicSliderUI extends SliderUI{
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the label that corresponds to the highest slider value in the label table.
      * @see JSlider#setLabelTable
      */
@@ -894,7 +894,7 @@ public class BasicSliderUI extends SliderUI{
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the label that corresponds to the lowest slider value in the label table.
      * @see JSlider#setLabelTable
      */
@@ -1131,7 +1131,7 @@ public class BasicSliderUI extends SliderUI{
 
     }
 
-    /**
+    /** {@collect.stats}
      * Called for every label in the label table.  Used to draw the labels for horizontal sliders.
      * The graphics have been translated to labelRect.y already.
      * @see JSlider#setLabelTable
@@ -1144,7 +1144,7 @@ public class BasicSliderUI extends SliderUI{
         g.translate( -labelLeft, 0 );
     }
 
-    /**
+    /** {@collect.stats}
      * Called for every label in the label table.  Used to draw the labels for vertical sliders.
      * The graphics have been translated to labelRect.x already.
      * @see JSlider#setLabelTable
@@ -1301,7 +1301,7 @@ public class BasicSliderUI extends SliderUI{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This function is called when a mousePressed was detected in the track, not
      * in the thumb.  The default behavior is to scroll by block.  You can
      *  override this method to stop it from scrolling or to add additional behavior.
@@ -1339,7 +1339,7 @@ public class BasicSliderUI extends SliderUI{
         return yPositionForValue(value, trackRect.y, trackRect.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the y location for the specified value.  No checking is
      * done on the arguments.  In particular if <code>trackHeight</code> is
      * negative undefined results may occur.
@@ -1372,7 +1372,7 @@ public class BasicSliderUI extends SliderUI{
         return yPosition;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a value give a y position.  If yPos is past the track at the top or the
      * bottom it will set the value to the min or max of the slider, depending if the
      * slider is inverted or not.
@@ -1403,7 +1403,7 @@ public class BasicSliderUI extends SliderUI{
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a value give an x position.  If xPos is past the track at the left or the
      * right it will set the value to the min or max of the slider, depending if the
      * slider is inverted or not.
@@ -1495,7 +1495,7 @@ public class BasicSliderUI extends SliderUI{
     /////////////////////////////////////////////////////////////////////////
     /// Model Listener Class
     /////////////////////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Data model listener.
      *
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -1514,7 +1514,7 @@ public class BasicSliderUI extends SliderUI{
     /////////////////////////////////////////////////////////////////////////
     /// Track Listener Class
     /////////////////////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Track mouse movements.
      *
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -1549,7 +1549,7 @@ public class BasicSliderUI extends SliderUI{
             slider.repaint();
         }
 
-        /**
+        /** {@collect.stats}
         * If the mouse is pressed above the "thumb" component
         * then reduce the scrollbars value by one page ("page up"),
         * otherwise increase it by one page.  If there is no
@@ -1689,7 +1689,7 @@ public class BasicSliderUI extends SliderUI{
             return true;
         }
 
-        /**
+        /** {@collect.stats}
         * Set the models value to the position of the top/left
         * of the thumb relative to the origin of the track.
         */
@@ -1762,7 +1762,7 @@ public class BasicSliderUI extends SliderUI{
         public void mouseMoved(MouseEvent e) { }
     }
 
-    /**
+    /** {@collect.stats}
      * Scroll-event listener.
      *
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -1806,7 +1806,7 @@ public class BasicSliderUI extends SliderUI{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Listener for resizing events.
      * <p>
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -1822,7 +1822,7 @@ public class BasicSliderUI extends SliderUI{
         }
     };
 
-    /**
+    /** {@collect.stats}
      * Focus-change listener.
      * <p>
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -1842,7 +1842,7 @@ public class BasicSliderUI extends SliderUI{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this undocumented class is no longer used.
      * The recommended approach to creating bindings is to use a
      * combination of an <code>ActionMap</code>, to contain the action,
@@ -1885,7 +1885,7 @@ public class BasicSliderUI extends SliderUI{
     };
 
 
-    /**
+    /** {@collect.stats}
      * A static version of the above.
      */
     static class SharedActionScroller extends AbstractAction {

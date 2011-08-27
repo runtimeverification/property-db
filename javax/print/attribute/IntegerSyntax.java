@@ -27,7 +27,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class IntegerSyntax is an abstract base class providing the common
  * implementation of all attributes with integer values.
  * <P>
@@ -46,13 +46,13 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 3644574816328081943L;
 
-    /**
+    /** {@collect.stats}
      * This integer attribute's integer value.
      * @serial
      */
     private int value;
 
-    /**
+    /** {@collect.stats}
      * Construct a new integer attribute with the given integer value.
      *
      * @param  value  Integer value.
@@ -61,7 +61,7 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new integer attribute with the given integer value, which
      * must lie within the given range.
      *
@@ -83,7 +83,7 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this integer attribute's integer value.
      * @return the integer value
      */
@@ -91,7 +91,7 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this integer attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -115,7 +115,7 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
                 value == ((IntegerSyntax) object).value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this integer attribute. The hash code is
      * just this integer attribute's integer value.
      */
@@ -123,7 +123,7 @@ public abstract class IntegerSyntax implements Serializable, Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string value corresponding to this integer attribute. The
      * string value is just this integer attribute's integer value converted to
      * a string.

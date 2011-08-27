@@ -28,7 +28,7 @@ package javax.sound.midi;
 import java.net.URL;
 
 
-/**
+/** {@collect.stats}
  * A <code>Soundbank</code> contains a set of <code>Instruments</code>
  * that can be loaded into a <code>Synthesizer</code>.
  * Note that a Java Sound <code>Soundbank</code> is different from a MIDI bank.
@@ -72,33 +72,33 @@ import java.net.URL;
 public interface Soundbank {
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the name of the sound bank.
      * @return a <code>String</code> naming the sound bank
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Obtains the version string for the sound bank.
      * @return a <code>String</code> that indicates the sound bank's version
      */
     public String getVersion();
 
-    /**
+    /** {@collect.stats}
      * Obtains a <code>string</code> naming the company that provides the
      * sound bank
      * @return the vendor string
      */
     public String getVendor();
 
-    /**
+    /** {@collect.stats}
      * Obtains a textual description of the sound bank, suitable for display.
      * @return a <code>String</code> that describes the sound bank
      */
     public String getDescription();
 
 
-    /**
+    /** {@collect.stats}
      * Extracts a list of non-Instrument resources contained in the sound bank.
      * @return an array of resources, exclusing instruments.  If the sound bank contains
      * no resources (other than instruments), returns an array of length 0.
@@ -106,7 +106,7 @@ public interface Soundbank {
     public SoundbankResource[] getResources();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a list of instruments contained in this sound bank.
      * @return an array of the <code>Instruments</code> in this
      * <code>SoundBank</code>
@@ -117,7 +117,7 @@ public interface Soundbank {
      */
     public Instrument[] getInstruments();
 
-    /**
+    /** {@collect.stats}
      * Obtains an <code>Instrument</code> from the given <code>Patch</code>.
      * @param patch a <code>Patch</code> object specifying the bank index
      * and program change number

@@ -28,7 +28,7 @@ package java.rmi.registry;
 import java.rmi.RemoteException;
 import java.rmi.UnknownHostException;
 
-/**
+/** {@collect.stats}
  * <code>RegistryHandler</code> is an interface used internally by the RMI
  * runtime in previous implementation versions.  It should never be accessed
  * by application code.
@@ -40,7 +40,7 @@ import java.rmi.UnknownHostException;
 @Deprecated
 public interface RegistryHandler {
 
-    /**
+    /** {@collect.stats}
      * Returns a "stub" for contacting a remote registry
      * on the specified host and port.
      *
@@ -57,7 +57,7 @@ public interface RegistryHandler {
     Registry registryStub(String host, int port)
         throws RemoteException, UnknownHostException;
 
-    /**
+    /** {@collect.stats}
      * Constructs and exports a Registry on the specified port.
      * The port must be non-zero.
      *

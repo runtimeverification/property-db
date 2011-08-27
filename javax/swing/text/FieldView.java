@@ -28,7 +28,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * Extends the multi-line plain text view to be suitable
  * for a single-line editor view.  If the view is
  * allocated extra space, the field must adjust for it.
@@ -42,7 +42,7 @@ import javax.swing.event.*;
  */
 public class FieldView extends PlainView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new FieldView wrapped on an element.
      *
      * @param elem the element
@@ -51,7 +51,7 @@ public class FieldView extends PlainView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the font metrics associated with the component hosting
      * this view.
      *
@@ -62,7 +62,7 @@ public class FieldView extends PlainView {
         return c.getFontMetrics(c.getFont());
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the allocation given to the view
      * to be a suitable allocation for a text field.
      * If the view has been allocated more than the
@@ -143,7 +143,7 @@ public class FieldView extends PlainView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Update the visibility model with the associated JTextField
      * (if there is one) to reflect the current visibility as a
      * result of changes to the document model.  The bounded
@@ -172,7 +172,7 @@ public class FieldView extends PlainView {
 
     // --- View methods -------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that surface.
      * The view may need to do layout and create child views to enable
      * itself to render into the given allocation.
@@ -188,14 +188,14 @@ public class FieldView extends PlainView {
         super.paint(g, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts <code>a</code> based on the visible region and returns it.
      */
     Shape adjustPaintRegion(Shape a) {
         return adjustAllocation(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -236,7 +236,7 @@ public class FieldView extends PlainView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the resizability of the view along the
      * given axis.  A value of 0 or less is not resizable.
      *
@@ -250,7 +250,7 @@ public class FieldView extends PlainView {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -265,7 +265,7 @@ public class FieldView extends PlainView {
         return super.modelToView(pos, adjustAllocation(a), b);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -280,7 +280,7 @@ public class FieldView extends PlainView {
         return super.viewToModel(fx, fy, adjustAllocation(a), bias);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the document
      * in a location that this view is responsible for.
      *
@@ -294,7 +294,7 @@ public class FieldView extends PlainView {
         updateVisibilityModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      *

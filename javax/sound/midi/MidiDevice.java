@@ -27,7 +27,7 @@ package javax.sound.midi;
 
 import java.util.List;
 
- /**
+ /** {@collect.stats}
  * <code>MidiDevice</code> is the base interface for all MIDI devices.
  * Common devices include synthesizers, sequencers, MIDI input ports, and MIDI
  * output ports.
@@ -110,7 +110,7 @@ import java.util.List;
 public interface MidiDevice {
 
 
-    /**
+    /** {@collect.stats}
      * Obtains information about the device, including its Java class and
      * <code>Strings</code> containing its name, vendor, and description.
      *
@@ -119,7 +119,7 @@ public interface MidiDevice {
     public Info getDeviceInfo();
 
 
-    /**
+    /** {@collect.stats}
      * Opens the device, indicating that it should now acquire any
      * system resources it requires and become operational.
      *
@@ -143,7 +143,7 @@ public interface MidiDevice {
     public void open() throws MidiUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Closes the device, indicating that the device should now release
      * any system resources it is using.
      *
@@ -157,7 +157,7 @@ public interface MidiDevice {
     public void close();
 
 
-    /**
+    /** {@collect.stats}
      * Reports whether the device is open.
      *
      * @return <code>true</code> if the device is open, otherwise
@@ -168,7 +168,7 @@ public interface MidiDevice {
     public boolean isOpen();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current time-stamp of the device, in microseconds.
      * If a device supports time-stamps, it should start counting at
      * 0 when the device is opened and continue incrementing its
@@ -181,7 +181,7 @@ public interface MidiDevice {
     public long getMicrosecondPosition();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the maximum number of MIDI IN connections available on this
      * MIDI device for receiving MIDI data.
      * @return maximum number of MIDI IN connections,
@@ -190,7 +190,7 @@ public interface MidiDevice {
     public int getMaxReceivers();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the maximum number of MIDI OUT connections available on this
      * MIDI device for transmitting MIDI data.
      * @return maximum number of MIDI OUT connections,
@@ -199,7 +199,7 @@ public interface MidiDevice {
     public int getMaxTransmitters();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI IN receiver through which the MIDI device may receive
      * MIDI data.  The returned receiver must be closed when the application
      * has finished using it.
@@ -218,7 +218,7 @@ public interface MidiDevice {
     public Receiver getReceiver() throws MidiUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns all currently active, non-closed receivers
      * connected with this MidiDevice.
      * A receiver can be removed
@@ -229,7 +229,7 @@ public interface MidiDevice {
     List<Receiver> getReceivers();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI OUT connection from which the MIDI device will transmit
      * MIDI data  The returned transmitter must be closed when the application
      * has finished using it.
@@ -248,7 +248,7 @@ public interface MidiDevice {
     public Transmitter getTransmitter() throws MidiUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns all currently active, non-closed transmitters
      * connected with this MidiDevice.
      * A transmitter can be removed
@@ -260,7 +260,7 @@ public interface MidiDevice {
 
 
 
-    /**
+    /** {@collect.stats}
      * A <code>MidiDevice.Info</code> object contains assorted
      * data about a <code>{@link MidiDevice}</code>, including its
      * name, the company who created it, and descriptive text.
@@ -269,28 +269,28 @@ public interface MidiDevice {
      */
     public static class Info {
 
-        /**
+        /** {@collect.stats}
          * The device's name.
          */
         private String name;
 
-        /**
+        /** {@collect.stats}
          * The name of the company who provides the device.
          */
         private String vendor;
 
-        /**
+        /** {@collect.stats}
          * A description of the device.
          */
         private String description;
 
-        /**
+        /** {@collect.stats}
          * Device version.
          */
         private String version;
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a device info object.
          *
          * @param name the name of the device
@@ -307,7 +307,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Reports whether two objects are equal.
          * Returns <code>true</code> if the objects are identical.
          * @param obj the reference object with which to compare this
@@ -320,7 +320,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashcode method.
          */
         public final int hashCode() {
@@ -328,7 +328,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the name of the device.
          *
          * @return a string containing the device's name
@@ -338,7 +338,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the name of the company who supplies the device.
          * @return device the vendor's name
          */
@@ -347,7 +347,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the description of the device.
          * @return a description of the device
          */
@@ -356,7 +356,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the version of the device.
          * @return textual version information for the device.
          */
@@ -365,7 +365,7 @@ public interface MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Provides a string representation of the device information.
 
          * @return a description of the info object

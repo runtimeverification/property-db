@@ -32,7 +32,7 @@ import javax.swing.event.DocumentEvent;
 
 import javax.swing.text.html.HTML;
 
-/**
+/** {@collect.stats}
  * <p>
  * Implements View interface for a table, that is composed of an
  * element structure where the child elements of the element
@@ -69,7 +69,7 @@ import javax.swing.text.html.HTML;
  */
 public abstract class TableView extends BoxView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a TableView for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -80,7 +80,7 @@ public abstract class TableView extends BoxView {
         gridValid = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new table row.
      *
      * @param elem an element
@@ -90,7 +90,7 @@ public abstract class TableView extends BoxView {
         return new TableRow(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated Table cells can now be any arbitrary
      * View implementation and should be produced by the
      * ViewFactory rather than the table.
@@ -103,14 +103,14 @@ public abstract class TableView extends BoxView {
         return new TableCell(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * The number of columns in the table.
      */
     int getColumnCount() {
         return columnSpans.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the span (width) of the given column.
      * This is used by the nested cells to query the
      * sizes of grid locations outside of themselves.
@@ -119,14 +119,14 @@ public abstract class TableView extends BoxView {
         return columnSpans[col];
     }
 
-    /**
+    /** {@collect.stats}
      * The number of rows in the table.
      */
     int getRowCount() {
         return rows.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the span (height) of the given row.
      */
     int getRowSpan(int row) {
@@ -144,7 +144,7 @@ public abstract class TableView extends BoxView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the number of columns occupied by
      * the table cell represented by given element.
      */
@@ -164,7 +164,7 @@ public abstract class TableView extends BoxView {
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the number of rows occupied by
      * the table cell represented by given element.
      */
@@ -203,7 +203,7 @@ public abstract class TableView extends BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Change the child views.  This is implemented to
      * provide the superclass behavior and invalidate the
      * grid so that rows and columns will be recalculated.
@@ -213,7 +213,7 @@ public abstract class TableView extends BoxView {
         invalidateGrid();
     }
 
-    /**
+    /** {@collect.stats}
      * Fill in the grid locations that are placeholders
      * for multi-column, multi-row, and missing grid
      * locations.
@@ -275,7 +275,7 @@ public abstract class TableView extends BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Mark a grid location as filled in for a cells overflow.
      */
     void addFill(int row, int col) {
@@ -285,7 +285,7 @@ public abstract class TableView extends BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the columns to fit within the given target span.
      * Returns the results through {@code offsets} and {@code spans}.
      *
@@ -306,7 +306,7 @@ public abstract class TableView extends BoxView {
                                                  offsets, spans);
     }
 
-    /**
+    /** {@collect.stats}
      * Perform layout for the minor axis of the box (i.e. the
      * axis orthoginal to the axis that it represents).  The results
      * of the layout should be placed in the given arrays which represent
@@ -346,7 +346,7 @@ public abstract class TableView extends BoxView {
         super.layoutMinorAxis(targetSpan, axis, offsets, spans);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements for the minor axis.  This is called by
      * the superclass whenever the requirements need to be updated (i.e.
      * a preferenceChanged was messaged through this view).
@@ -392,7 +392,7 @@ public abstract class TableView extends BoxView {
     }
     */
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements for each column.  The calculation
      * is done as two passes over the table.  The table cells that
      * occupy a single column are scanned first to determine the
@@ -456,7 +456,7 @@ public abstract class TableView extends BoxView {
         */
     }
 
-    /**
+    /** {@collect.stats}
      * check the requirements of a table cell that spans a single column.
      */
     void checkSingleColumnCell(int axis, int col, View v) {
@@ -466,7 +466,7 @@ public abstract class TableView extends BoxView {
         req.maximum = Math.max((int) v.getMaximumSpan(axis), req.maximum);
     }
 
-    /**
+    /** {@collect.stats}
      * check the requirements of a table cell that spans multiple
      * columns.
      */
@@ -536,7 +536,7 @@ public abstract class TableView extends BoxView {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view that represents the given position in
      * the model.  This is implemented to walk through the children
      * looking for a range that contains the given position.  In this
@@ -582,12 +582,12 @@ public abstract class TableView extends BoxView {
     boolean gridValid;
     static final private BitSet EMPTY = new BitSet();
 
-    /**
+    /** {@collect.stats}
      * View of a row in a row-centric table.
      */
     public class TableRow extends BoxView {
 
-        /**
+        /** {@collect.stats}
          * Constructs a TableView for the given element.
          *
          * @param elem the element that this view is responsible for
@@ -610,12 +610,12 @@ public abstract class TableView extends BoxView {
             return fillColumns.get(col);
         }
 
-        /** get location in the overall set of rows */
+        /** {@collect.stats} get location in the overall set of rows */
         int getRow() {
             return row;
         }
 
-        /**
+        /** {@collect.stats}
          * set location in the overall set of rows, this is
          * set by the TableView.updateGrid() method.
          */
@@ -623,7 +623,7 @@ public abstract class TableView extends BoxView {
             this.row = row;
         }
 
-        /**
+        /** {@collect.stats}
          * The number of columns present in this row.
          */
         int getColumnCount() {
@@ -637,7 +637,7 @@ public abstract class TableView extends BoxView {
             return getViewCount() + nfill;
         }
 
-        /**
+        /** {@collect.stats}
          * Change the child views.  This is implemented to
          * provide the superclass behavior and invalidate the
          * grid so that rows and columns will be recalculated.
@@ -647,7 +647,7 @@ public abstract class TableView extends BoxView {
             invalidateGrid();
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the major axis of the box (i.e. the
          * axis that it represents).  The results of the layout should
          * be placed in the given arrays which represent the allocations
@@ -690,7 +690,7 @@ public abstract class TableView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the minor axis of the box (i.e. the
          * axis orthoginal to the axis that it represents).  The results
          * of the layout should be placed in the given arrays which represent
@@ -737,7 +737,7 @@ public abstract class TableView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the resizability of the view along the
          * given axis.  A value of 0 or less is not resizable.
          *
@@ -749,7 +749,7 @@ public abstract class TableView extends BoxView {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the child view that represents the given position in
          * the model.  This is implemented to walk through the children
          * looking for a range that contains the given position.  In this
@@ -786,19 +786,19 @@ public abstract class TableView extends BoxView {
             return null;
         }
 
-        /** columns filled by multi-column or multi-row cells */
+        /** {@collect.stats} columns filled by multi-column or multi-row cells */
         BitSet fillColumns;
-        /** the row within the overall grid */
+        /** {@collect.stats} the row within the overall grid */
         int row;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated  A table cell can now be any View implementation.
      */
     @Deprecated
     public class TableCell extends BoxView implements GridCell {
 
-        /**
+        /** {@collect.stats}
          * Constructs a TableCell for the given element.
          *
          * @param elem the element that this view is responsible for
@@ -810,7 +810,7 @@ public abstract class TableView extends BoxView {
 
         // --- GridCell methods -------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Gets the number of columns this cell spans (e.g. the
          * grid width).
          *
@@ -820,7 +820,7 @@ public abstract class TableView extends BoxView {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the number of rows this cell spans (that is, the
          * grid height).
          *
@@ -831,7 +831,7 @@ public abstract class TableView extends BoxView {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Sets the grid location.
          *
          * @param row the row >= 0
@@ -842,14 +842,14 @@ public abstract class TableView extends BoxView {
             this.col = col;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the row of the grid location
          */
         public int getGridRow() {
             return row;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the column of the grid location
          */
         public int getGridColumn() {
@@ -860,7 +860,7 @@ public abstract class TableView extends BoxView {
         int col;
     }
 
-    /**
+    /** {@collect.stats}
      * <em>
      * THIS IS NO LONGER USED, AND WILL BE REMOVED IN THE
      * NEXT RELEASE.  THE JCK SIGNATURE TEST THINKS THIS INTERFACE
@@ -869,7 +869,7 @@ public abstract class TableView extends BoxView {
      */
     interface GridCell {
 
-        /**
+        /** {@collect.stats}
          * Sets the grid location.
          *
          * @param row the row >= 0
@@ -877,17 +877,17 @@ public abstract class TableView extends BoxView {
          */
         public void setGridLocation(int row, int col);
 
-        /**
+        /** {@collect.stats}
          * Gets the row of the grid location
          */
         public int getGridRow();
 
-        /**
+        /** {@collect.stats}
          * Gets the column of the grid location
          */
         public int getGridColumn();
 
-        /**
+        /** {@collect.stats}
          * Gets the number of columns this cell spans (e.g. the
          * grid width).
          *
@@ -895,7 +895,7 @@ public abstract class TableView extends BoxView {
          */
         public int getColumnCount();
 
-        /**
+        /** {@collect.stats}
          * Gets the number of rows this cell spans (that is, the
          * grid height).
          *

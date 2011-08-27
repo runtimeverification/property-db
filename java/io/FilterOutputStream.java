@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * This class is the superclass of all classes that filter output
  * streams. These streams sit on top of an already existing output
  * stream (the <i>underlying</i> output stream) which it uses as its
@@ -43,12 +43,12 @@ package java.io;
  */
 public
 class FilterOutputStream extends OutputStream {
-    /**
+    /** {@collect.stats}
      * The underlying output stream to be filtered.
      */
     protected OutputStream out;
 
-    /**
+    /** {@collect.stats}
      * Creates an output stream filter built on top of the specified
      * underlying output stream.
      *
@@ -61,7 +61,7 @@ class FilterOutputStream extends OutputStream {
         this.out = out;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the specified <code>byte</code> to this output stream.
      * <p>
      * The <code>write</code> method of <code>FilterOutputStream</code>
@@ -77,7 +77,7 @@ class FilterOutputStream extends OutputStream {
         out.write(b);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>b.length</code> bytes to this output stream.
      * <p>
      * The <code>write</code> method of <code>FilterOutputStream</code>
@@ -97,7 +97,7 @@ class FilterOutputStream extends OutputStream {
         write(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from the specified
      * <code>byte</code> array starting at offset <code>off</code> to
      * this output stream.
@@ -126,7 +126,7 @@ class FilterOutputStream extends OutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out to the stream.
      * <p>
@@ -140,7 +140,7 @@ class FilterOutputStream extends OutputStream {
         out.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this output stream and releases any system resources
      * associated with the stream.
      * <p>

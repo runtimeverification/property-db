@@ -28,7 +28,7 @@ package java.io;
 import java.io.ObjectOutput;
 import java.io.ObjectInput;
 
-/**
+/** {@collect.stats}
  * Only the identity of the class of an Externalizable instance is
  * written in the serialization stream and it is the responsibility
  * of the class to save and restore the contents of its instances.
@@ -64,7 +64,7 @@ import java.io.ObjectInput;
  * @since   JDK1.1
  */
 public interface Externalizable extends java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * The object implements the writeExternal method to save its contents
      * by calling the methods of DataOutput for its primitive values or
      * calling the writeObject method of ObjectOutput for objects, strings,
@@ -81,7 +81,7 @@ public interface Externalizable extends java.io.Serializable {
      */
     void writeExternal(ObjectOutput out) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * The object implements the readExternal method to restore its
      * contents by calling the methods of DataInput for primitive
      * types and readObject for objects, strings and arrays.  The

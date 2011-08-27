@@ -30,7 +30,7 @@ import java.io.Serializable;
 import javax.swing.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * This is the abstract superclass for color choosers.  If you want to add
  * a new color chooser panel into a <code>JColorChooser</code>, subclass
  * this class.
@@ -49,23 +49,23 @@ import javax.swing.event.*;
  */
 public abstract class AbstractColorChooserPanel extends JPanel {
 
-    /**
+    /** {@collect.stats}
      *
      */
     private JColorChooser chooser;
 
-    /**
+    /** {@collect.stats}
      *
      */
     private ChangeListener colorListener;
 
-    /**
+    /** {@collect.stats}
      *
      */
     private boolean dirty  = true;
 
 
-    /**
+    /** {@collect.stats}
       * Invoked automatically when the model's state changes.
       * It is also called by <code>installChooserPanel</code> to allow
       * you to set up the initial state of your chooser.
@@ -73,18 +73,18 @@ public abstract class AbstractColorChooserPanel extends JPanel {
       */
     public abstract void updateChooser();
 
-    /**
+    /** {@collect.stats}
      * Builds a new chooser panel.
      */
     protected abstract void buildChooser();
 
-    /**
+    /** {@collect.stats}
      * Returns a string containing the display name of the panel.
      * @return the name of the display panel
      */
     public abstract String getDisplayName();
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the
      * <code>KeyEvent.VK</code> constant that can be used as a mnemonic to
      * access the panel. A return value <= 0 indicates there is no mnemonic.
@@ -105,7 +105,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the index of the character in
      * <code>getDisplayName</code> that should be visually identified as the
      * mnemonic. The look and feel should only use this if
@@ -131,19 +131,19 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the small display icon for the panel.
      * @return the small display icon
      */
     public abstract Icon getSmallDisplayIcon();
 
-    /**
+    /** {@collect.stats}
      * Returns the large display icon for the panel.
      * @return the large display icon
      */
     public abstract Icon getLargeDisplayIcon();
 
-    /**
+    /** {@collect.stats}
      * Invoked when the panel is added to the chooser.
      * If you override this, be sure to call <code>super</code>.
      * @param enclosingChooser  the panel to be added
@@ -161,7 +161,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         getColorSelectionModel().addChangeListener(colorListener);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the panel is removed from the chooser.
      * If override this, be sure to call <code>super</code>.
      */
@@ -170,7 +170,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         chooser = null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the model that the chooser panel is editing.
       * @return the <code>ColorSelectionModel</code> model this panel
       *         is editing
@@ -179,7 +179,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         return chooser.getSelectionModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color that is currently selected.
      * @return the <code>Color</code> that is selected
      */
@@ -187,7 +187,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         return getColorSelectionModel().getSelectedColor();
     }
 
-    /**
+    /** {@collect.stats}
      * Draws the panel.
      * @param g  the <code>Graphics</code> object
      */
@@ -199,7 +199,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         super.paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an integer from the defaults table. If <code>key</code> does
      * not map to a valid <code>Integer</code>, <code>default</code> is
      * returned.
@@ -223,7 +223,7 @@ public abstract class AbstractColorChooserPanel extends JPanel {
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      *
      */
     class ModelListener implements ChangeListener, Serializable {

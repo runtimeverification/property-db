@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.plaf.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * Implements the Highlighter interfaces.  Implements a simple highlight
  * painter that renders in a solid color.
  *
@@ -38,7 +38,7 @@ import javax.swing.*;
  */
 public class DefaultHighlighter extends LayeredHighlighter {
 
-    /**
+    /** {@collect.stats}
      * Creates a new DefaultHighlighther object.
      */
     public DefaultHighlighter() {
@@ -47,7 +47,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
 
     // ---- Highlighter methods ----------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Renders the highlights.
      *
      * @param g the graphics context
@@ -77,7 +77,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being installed into the
      * interface of a JTextComponent.  Installs the editor, and
      * removes any existing highlights.
@@ -90,7 +90,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         removeAllHighlights();
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being removed from the interface of
      * a JTextComponent.
      *
@@ -101,7 +101,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         component = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a highlight to the view.  Returns a tag that can be used
      * to refer to the highlight.
      *
@@ -125,7 +125,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a highlight from the view.
      *
      * @param tag the reference to the highlight
@@ -144,7 +144,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         highlights.removeElement(tag);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all highlights.
      */
     public void removeAllHighlights() {
@@ -208,7 +208,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Changes a highlight.
      *
      * @param tag the highlight tag
@@ -249,7 +249,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of the highlights.  Does not actually clone each highlight,
      * but only makes references to them.
      *
@@ -266,7 +266,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         return h;
     }
 
-    /**
+    /** {@collect.stats}
      * When leaf Views (such as LabelView) are rendering they should
      * call into this method. If a highlight is in the given region it will
      * be drawn immediately.
@@ -296,7 +296,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Queues damageRange() call into event dispatch thread
      * to be sure that views are in consistent state.
      */
@@ -304,7 +304,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         safeDamager.damageRange(p0, p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Queues damageRange() call into event dispatch thread
      * to be sure that views are in consistent state.
      */
@@ -313,7 +313,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         safeDamageRange(doc.createPosition(a0), doc.createPosition(a1));
     }
 
-    /**
+    /** {@collect.stats}
      * If true, highlights are drawn as the Views draw the text. That is
      * the Views will call into <code>paintLayeredHighlight</code> which
      * will result in a rectangle being drawn before the text is drawn
@@ -339,7 +339,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
     private SafeDamager safeDamager = new SafeDamager();
 
 
-    /**
+    /** {@collect.stats}
      * Default implementation of LayeredHighlighter.LayerPainter that can
      * be used for painting highlights.
      * <p>
@@ -348,13 +348,13 @@ public class DefaultHighlighter extends LayeredHighlighter {
     public static final LayeredHighlighter.LayerPainter DefaultPainter = new DefaultHighlightPainter(null);
 
 
-    /**
+    /** {@collect.stats}
      * Simple highlight painter that fills a highlighted area with
      * a solid color.
      */
     public static class DefaultHighlightPainter extends LayeredHighlighter.LayerPainter {
 
-        /**
+        /** {@collect.stats}
          * Constructs a new highlight painter. If <code>c</code> is null,
          * the JTextComponent will be queried for its selection color.
          *
@@ -364,7 +364,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
             color = c;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the color of the highlight.
          *
          * @return the color
@@ -375,7 +375,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
 
         // --- HighlightPainter methods ---------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Paints a highlight.
          *
          * @param g the graphics context
@@ -421,7 +421,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         }
 
         // --- LayerPainter methods ----------------------------
-        /**
+        /** {@collect.stats}
          * Paints a portion of a highlight.
          *
          * @param g the graphics context
@@ -507,7 +507,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * LayeredHighlightPainter is used when a drawsLayeredHighlights is
      * true. It maintains a rectangle of the region to paint.
      */
@@ -540,7 +540,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Restricts the region based on the receivers offsets and messages
          * the painter to paint the region.
          */
@@ -564,7 +564,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         int height;
     }
 
-    /**
+    /** {@collect.stats}
      * This class invokes <code>mapper.damageRange</code> in
      * EventDispatchThread. The only one instance per Highlighter
      * is cretaed. When a number of ranges should be damaged
@@ -577,7 +577,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
         private Vector p1 = new Vector(10);
         private Document lastDoc = null;
 
-        /**
+        /** {@collect.stats}
          * Executes range(s) damage and cleans range queue.
          */
         public synchronized void run() {
@@ -601,7 +601,7 @@ public class DefaultHighlighter extends LayeredHighlighter {
             lastDoc = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the range to be damaged into the range queue. If the
          * range queue is empty (the first call or run() was already
          * invoked) then adds this class instance into EventDispatch

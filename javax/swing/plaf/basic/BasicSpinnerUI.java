@@ -41,7 +41,7 @@ import java.util.*;
 import sun.swing.DefaultLookup;
 
 
-/**
+/** {@collect.stats}
  * The default Spinner UI delegate.
  *
  * @author Hans Muller
@@ -49,7 +49,7 @@ import sun.swing.DefaultLookup;
  */
 public class BasicSpinnerUI extends SpinnerUI
 {
-    /**
+    /** {@collect.stats}
      * The spinner that we're a UI delegate for.  Initialized by
      * the <code>installUI</code> method, and reset to null
      * by <code>uninstallUI</code>.
@@ -61,7 +61,7 @@ public class BasicSpinnerUI extends SpinnerUI
     private Handler handler;
 
 
-    /**
+    /** {@collect.stats}
      * The mouse/action listeners that are added to the spinner's
      * arrow buttons.  These listeners are shared by all
      * spinner arrow buttons.
@@ -74,14 +74,14 @@ public class BasicSpinnerUI extends SpinnerUI
     private PropertyChangeListener propertyChangeListener;
 
 
-    /**
+    /** {@collect.stats}
      * Used by the default LayoutManager class - SpinnerLayout for
      * missing (null) editor/nextButton/previousButton children.
      */
     private static final Dimension zeroSize = new Dimension(0, 0);
 
 
-    /**
+    /** {@collect.stats}
      * Returns a new instance of BasicSpinnerUI.  SpinnerListUI
      * delegates are allocated one per JSpinner.
      *
@@ -101,7 +101,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calls <code>installDefaults</code>, <code>installListeners</code>,
      * and then adds the components returned by <code>createNextButton</code>,
      * <code>createPreviousButton</code>, and <code>createEditor</code>.
@@ -125,7 +125,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calls <code>uninstallDefaults</code>, <code>uninstallListeners</code>,
      * and then removes all of the spinners children.
      *
@@ -139,7 +139,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes <code>PropertyChangeListener</code> with
      * a shared object that delegates interesting PropertyChangeEvents
      * to protected methods.
@@ -167,7 +167,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>PropertyChangeListener</code> added
      * by installListeners.
      * <p>
@@ -192,7 +192,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initialize the <code>JSpinner</code> <code>border</code>,
      * <code>foreground</code>, and <code>background</code>, properties
      * based on the corresponding "Spinner.*" properties from defaults table.
@@ -213,7 +213,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>JSpinner's</code> layout manager to null.  This
      * method is called by <code>uninstallUI</code>.
      *
@@ -233,7 +233,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary listeners on the next button, <code>c</code>,
      * to update the <code>JSpinner</code> in response to a user gesture.
      *
@@ -246,7 +246,7 @@ public class BasicSpinnerUI extends SpinnerUI
         installButtonListeners(c, nextButtonHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary listeners on the previous button, <code>c</code>,
      * to update the <code>JSpinner</code> in response to a user gesture.
      *
@@ -267,7 +267,7 @@ public class BasicSpinnerUI extends SpinnerUI
         c.addMouseListener(handler);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a <code>LayoutManager</code> that manages the <code>editor</code>,
      * <code>nextButton</code>, and <code>previousButton</code>
      * children of the JSpinner.  These three children must be
@@ -285,7 +285,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a <code>PropertyChangeListener</code> that can be
      * added to the JSpinner itself.  Typically, this listener
      * will call replaceEditor when the "editor" property changes,
@@ -301,7 +301,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a component that will replace the spinner models value
      * with the object returned by <code>spinner.getPreviousValue</code>.
      * By default the <code>previousButton</code> is a JButton. This
@@ -324,7 +324,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a component that will replace the spinner models value
      * with the object returned by <code>spinner.getNextValue</code>.
      * By default the <code>nextButton</code> is a JButton
@@ -360,7 +360,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is called by installUI to get the editor component
      * of the <code>JSpinner</code>.  By default it just returns
      * <code>JSpinner.getEditor()</code>.  Subclasses can override
@@ -393,7 +393,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called by the <code>PropertyChangeListener</code> when the
      * <code>JSpinner</code> editor property changes.  It's the responsibility
      * of this method to remove the old editor and add the new one.  By
@@ -426,7 +426,7 @@ public class BasicSpinnerUI extends SpinnerUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove the border around the inner editor component for LaFs
      * that install an outside border around the spinner,
      */
@@ -445,7 +445,7 @@ public class BasicSpinnerUI extends SpinnerUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove the border around the inner editor component for LaFs
      * that install an outside border around the spinner,
      */
@@ -479,7 +479,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Updates the enabled state of the children Components based on the
      * enabled state of the <code>JSpinner</code>.
      */
@@ -488,7 +488,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Recursively updates the enabled state of the child
      * <code>Component</code>s of <code>c</code>.
      */
@@ -521,7 +521,7 @@ public class BasicSpinnerUI extends SpinnerUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the keyboard Actions onto the JSpinner.
      *
      * @since 1.5
@@ -538,7 +538,7 @@ public class BasicSpinnerUI extends SpinnerUI
                 "Spinner.actionMap");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the InputMap to install for <code>condition</code>.
      */
     private InputMap getInputMap(int condition) {
@@ -554,7 +554,7 @@ public class BasicSpinnerUI extends SpinnerUI
         map.put("decrement", previousButtonHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -577,7 +577,7 @@ public class BasicSpinnerUI extends SpinnerUI
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -591,7 +591,7 @@ public class BasicSpinnerUI extends SpinnerUI
         return spinner.getEditor().getBaselineResizeBehavior();
     }
 
-    /**
+    /** {@collect.stats}
      * A handler for spinner arrow button mouse and action events.  When
      * a left mouse pressed event occurs we look up the (enabled) spinner
      * that's the source of the event and start the autorepeat timer.  The
@@ -668,7 +668,7 @@ public class BasicSpinnerUI extends SpinnerUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * If the spinner's editor is a DateEditor, this selects the field
          * associated with the value that is being incremented.
          */
@@ -701,7 +701,7 @@ public class BasicSpinnerUI extends SpinnerUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Selects the passed in field, returning true if it is found,
          * false otherwise.
          */
@@ -728,7 +728,7 @@ public class BasicSpinnerUI extends SpinnerUI
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the calendarField under the start of the selection, or
          * -1 if there is no valid calendar field under the selection (or
          * the spinner isn't editing dates.
@@ -798,7 +798,7 @@ public class BasicSpinnerUI extends SpinnerUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Requests focus on a child of the spinner if the spinner doesn't
          * have focus.
          */

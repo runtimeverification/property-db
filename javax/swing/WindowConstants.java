@@ -26,7 +26,7 @@
 package javax.swing;
 
 
-/**
+/** {@collect.stats}
  * Constants used to control the window-closing operation.
  * The <code>setDefaultCloseOperation</code> and
  * <code>getDefaultCloseOperation</code> methods
@@ -47,17 +47,17 @@ package javax.swing;
  */
 public interface WindowConstants
 {
-    /**
+    /** {@collect.stats}
      * The do-nothing default window close operation.
      */
     public static final int DO_NOTHING_ON_CLOSE = 0;
 
-    /**
+    /** {@collect.stats}
      * The hide-window default window close operation
      */
     public static final int HIDE_ON_CLOSE = 1;
 
-    /**
+    /** {@collect.stats}
      * The dispose-window default window close operation.
      * <p>
      * <b>Note</b>: When the last displayable window
@@ -69,7 +69,7 @@ public interface WindowConstants
      */
     public static final int DISPOSE_ON_CLOSE = 2;
 
-    /**
+    /** {@collect.stats}
      * The exit application default window close operation. Attempting
      * to set this on Windows that support this, such as
      * <code>JFrame</code>, may throw a <code>SecurityException</code> based

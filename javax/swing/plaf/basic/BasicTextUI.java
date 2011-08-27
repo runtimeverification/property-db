@@ -41,7 +41,7 @@ import sun.swing.DefaultLookup;
 import sun.awt.AppContext;
 import javax.swing.plaf.basic.DragRecognitionSupport.BeforeDrag;
 
-/**
+/** {@collect.stats}
  * <p>
  * Basis of a text components look-and-feel.  This provides the
  * basic editor view and controller services that may be useful
@@ -101,14 +101,14 @@ import javax.swing.plaf.basic.DragRecognitionSupport.BeforeDrag;
  */
 public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
-    /**
+    /** {@collect.stats}
      * Creates a new UI.
      */
     public BasicTextUI() {
         painted = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the object to use for a caret.  By default an
      * instance of BasicCaret is created.  This method
      * can be redefined to provide something else that implements
@@ -120,7 +120,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return new BasicCaret();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the object to use for adding highlights.  By default
      * an instance of BasicHighlighter is created.  This method
      * can be redefined to provide something else that implements
@@ -132,7 +132,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return new BasicHighlighter();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name of the keymap that will be installed/used
      * by default for this UI. This is implemented to create a
      * name based upon the classname.  The name is the the name
@@ -149,7 +149,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return nm;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the keymap to use for the text component, and installs
      * any necessary bindings into it.  By default, the keymap is
      * shared between all instances of this type of TextUI. The
@@ -183,7 +183,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return map;
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the
@@ -205,7 +205,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the background of the text component based on whether the
      * text component is editable and/or enabled.
      *
@@ -279,7 +279,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the name used as a key to look up properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -288,7 +288,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
      */
     protected abstract String getPropertyPrefix();
 
-    /**
+    /** {@collect.stats}
      * Initializes component properties, e.g. font, foreground,
      * background, caret color, selection color, selected text color,
      * disabled text color, and border color.  The font, foreground, and
@@ -376,7 +376,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the component properties that haven't been explicitly overridden to
      * null.  A property is considered overridden if its current value
      * is not a UIResource.
@@ -430,13 +430,13 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs listeners for the UI.
      */
     protected void installListeners() {
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls listeners for the UI.
      */
     protected void uninstallListeners() {
@@ -461,7 +461,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         updateFocusAcceleratorBinding(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the InputMap to use for the UI.
      */
     InputMap getInputMap() {
@@ -476,7 +476,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return map;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the focus accelerator changes, this will update the
      * key bindings as necessary.
      */
@@ -506,7 +506,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Invoked when editable property is changed.
      *
      * removing 'TAB' and 'SHIFT-TAB' from traversalKeysSet in case
@@ -556,7 +556,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
     }
 
-    /**
+    /** {@collect.stats}
      * As needed updates cursor for the target editor.
      */
     private void updateCursor() {
@@ -567,7 +567,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TransferHandler</code> that will be installed if
      * their isn't one installed on the <code>JTextComponent</code>.
      */
@@ -575,7 +575,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return defaultTransferHandler;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch an action map to use.
      */
     ActionMap getActionMap() {
@@ -615,7 +615,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return componentMap;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a default action map.  This is basically the
      * set of actions found exported by the component.
      */
@@ -645,7 +645,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         SwingUtilities.replaceUIActionMap(editor, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints a background for the view.  This will only be
      * called if isOpaque() on the associated component is
      * true.  The default is to paint the background color
@@ -658,7 +658,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         g.fillRect(0, 0, editor.getWidth(), editor.getHeight());
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the text component associated with this
      * UI implementation.  This will be null until
      * the ui has been installed.
@@ -669,7 +669,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return editor;
     }
 
-    /**
+    /** {@collect.stats}
      * Flags model changes.
      * This is called whenever the model has changed.
      * It is implemented to rebuild the view hierarchy
@@ -684,7 +684,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         setView(f.create(elem));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current root of the view hierarchy and calls invalidate().
      * If there were any child components, they will be removed (i.e.
      * there are assumed to have come from components embedded in views).
@@ -698,7 +698,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         editor.repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the interface safely with a guarantee that
      * the model won't change from the view of this thread.
      * This does the following things, rendering from
@@ -751,7 +751,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
     // --- ComponentUI methods --------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Installs the UI for a component.  This does the following
      * things.
      * <ol>
@@ -822,7 +822,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deinstalls the UI for a component.  This removes the listeners,
      * uninstalls the highlighter, removes views, and nulls out the keymap.
      *
@@ -851,7 +851,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         editor = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Superclass paints background in an uncontrollable way
      * (i.e. one might want an image tiled into the background).
      * To prevent this from happening twice, this method is
@@ -865,7 +865,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         paint(g, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the interface.  This is routed to the
      * paintSafely method under the guarantee that
      * the model won't change from the view of this thread
@@ -892,7 +892,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the preferred size for the editor component.  If the component
      * has been given a size prior to receiving this request, it will
      * set the size of the view hierarchy to reflect the size of the component
@@ -933,7 +933,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the minimum size for the editor component.
      *
      * @param c the editor component
@@ -957,7 +957,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the maximum size for the editor component.
      *
      * @param c the editor component
@@ -986,7 +986,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
     // ---- TextUI methods -------------------------------------------
 
 
-    /**
+    /** {@collect.stats}
      * Gets the allocation to give the root View.  Due
      * to an unfortunate set of historical events this
      * method is inappropriately named.  The Rectangle
@@ -1010,7 +1010,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given location in the model to a place in
      * the view coordinate system.
      * The component must have a non-zero positive size for
@@ -1027,7 +1027,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return modelToView(tc, pos, Position.Bias.Forward);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given location in the model to a place in
      * the view coordinate system.
      * The component must have a non-zero positive size for
@@ -1062,7 +1062,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given place in the view coordinate system
      * to the nearest representative location in the model.
      * The component must have a non-zero positive size for
@@ -1079,7 +1079,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return viewToModel(tc, pt, discardBias);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given place in the view coordinate system
      * to the nearest representative location in the model.
      * The component must have a non-zero positive size for
@@ -1113,7 +1113,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return offs;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public int getNextVisualPositionFrom(JTextComponent t, int pos,
@@ -1140,7 +1140,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the portion of the view responsible for the
      * given part of the model to be repainted.  Does nothing if
      * the view is not currently painted.
@@ -1154,7 +1154,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         damageRange(tc, p0, p1, Position.Bias.Forward, Position.Bias.Backward);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the portion of the view responsible for the
      * given part of the model to be repainted.
      *
@@ -1187,7 +1187,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the EditorKit for the UI.
      *
      * @param tc the text component for which this UI is installed
@@ -1198,7 +1198,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return defaultKit;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a View with the allocation of the associated
      * text component (i.e. the root of the hierarchy) that
      * can be traversed to determine how the model is being
@@ -1221,7 +1221,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the string to be used as the tooltip at the passed in location.
      * This forwards the method onto the root View.
      *
@@ -1254,7 +1254,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
     // --- ViewFactory methods ------------------------------
 
-    /**
+    /** {@collect.stats}
      * Creates a view for an element.
      * If a subclass wishes to directly implement the factory
      * producing the view(s), it should reimplement this
@@ -1268,7 +1268,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view for an element.
      * If a subclass wishes to directly implement the factory
      * producing the view(s), it should reimplement this
@@ -1311,7 +1311,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
     private static final Position.Bias[] discardBias = new Position.Bias[1];
     private DefaultCaret dropCaret;
 
-    /**
+    /** {@collect.stats}
      * Root view that acts as a gateway between the component
      * and the View hierarchy.
      */
@@ -1335,7 +1335,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             view = v;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  At the root
          * level there are no attributes.  If an attribute is resolved
          * up the view hierarchy this is the end of the line.
@@ -1344,7 +1344,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the preferred span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -1360,7 +1360,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 10;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the minimum span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -1376,7 +1376,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 10;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the maximum span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -1389,7 +1389,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return Integer.MAX_VALUE;
         }
 
-        /**
+        /** {@collect.stats}
          * Specifies that a preference has changed.
          * Child views can call this on the parent to indicate that
          * the preference has changed.  The root view routes this to
@@ -1411,7 +1411,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             editor.revalidate();
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the desired alignment for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -1425,7 +1425,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Renders the view.
          *
          * @param g the graphics context
@@ -1440,7 +1440,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the view parent.
          *
          * @param parent the parent view
@@ -1449,7 +1449,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             throw new Error("Can't set parent on root view");
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of views in this view.  Since
          * this view simply wraps the root of the view hierarchy
          * it has exactly one child.
@@ -1461,7 +1461,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the n-th view in this container.
          *
          * @param n the number of the view to get
@@ -1471,7 +1471,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return view;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the child view index representing the given position in
          * the model.  This is implemented to return the index of the only
          * child.
@@ -1485,7 +1485,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the allocation for the given child view.
          * This enables finding out where various views
          * are located, without assuming the views store
@@ -1501,7 +1501,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return a;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -1516,7 +1516,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -1542,7 +1542,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.
          *
@@ -1560,7 +1560,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a way to determine the next visually represented model
          * location that one might place a caret.  Some views may not be visible,
          * they might not be in the same order found in the model, or they just
@@ -1594,7 +1594,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return pos;
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was inserted into the document
          * in a location that this view is responsible for.
          *
@@ -1608,7 +1608,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was removed from the document
          * in a location that this view is responsible for.
          *
@@ -1622,7 +1622,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification from the document that attributes were changed
          * in a location that this view is responsible for.
          *
@@ -1636,7 +1636,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the document model underlying the view.
          *
          * @return the model
@@ -1645,7 +1645,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return editor.getDocument();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the starting offset into the model for this view.
          *
          * @return the starting offset
@@ -1657,7 +1657,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return getElement().getStartOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the ending offset into the model for this view.
          *
          * @return the ending offset
@@ -1669,7 +1669,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return getElement().getEndOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the element that this view is mapped to.
          *
          * @return the view
@@ -1681,7 +1681,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return editor.getDocument().getDefaultRootElement();
         }
 
-        /**
+        /** {@collect.stats}
          * Breaks this view on the given axis at the given length.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -1694,7 +1694,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             throw new Error("Can't break root view");
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the resizability of the view along the
          * given axis.  A value of 0 or less is not resizable.
          *
@@ -1708,7 +1708,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the view size.
          *
          * @param width the width
@@ -1720,7 +1720,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the container hosting the view.  This is useful for
          * things like scheduling a repaint, finding out the host
          * components font, etc.  The default implementation
@@ -1732,7 +1732,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return editor;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the factory to be used for building the
          * various view fragments that make up the view that
          * represents the model.  This is what determines
@@ -1758,7 +1758,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Handles updates from various places.  If the model is changed,
      * this class unregisters as a listener to the old model and
      * registers with the new model.  If the document model changes,
@@ -1770,7 +1770,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
         // --- PropertyChangeListener methods -----------------------
 
-        /**
+        /** {@collect.stats}
          * This method gets called when a bound property is changed.
          * We are looking for document changes on the editor.
          */
@@ -1838,7 +1838,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
         // --- DocumentListener methods -----------------------
 
-        /**
+        /** {@collect.stats}
          * The insert notification.  Gets sent to the root of the view structure
          * that represents the portion of the model being represented by the
          * editor.  The factory is added as an argument to the update so that
@@ -1866,7 +1866,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             rootView.insertUpdate(e, alloc, rootView.getViewFactory());
         }
 
-        /**
+        /** {@collect.stats}
          * The remove notification.  Gets sent to the root of the view structure
          * that represents the portion of the model being represented by the
          * editor.  The factory is added as an argument to the update so that
@@ -1881,7 +1881,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             rootView.removeUpdate(e, alloc, rootView.getViewFactory());
         }
 
-        /**
+        /** {@collect.stats}
          * The change notification.  Gets sent to the root of the view structure
          * that represents the portion of the model being represented by the
          * editor.  The factory is added as an argument to the update so that
@@ -1898,7 +1898,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
         // --- LayoutManager2 methods --------------------------------
 
-        /**
+        /** {@collect.stats}
          * Adds the specified component with the specified name to
          * the layout.
          * @param name the component name
@@ -1908,7 +1908,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             // not supported
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the specified component from the layout.
          * @param comp the component to be removed
          */
@@ -1919,7 +1919,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Calculates the preferred size dimensions for the specified
          * panel given the components in the specified parent container.
          * @param parent the component to be laid out
@@ -1931,7 +1931,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Calculates the minimum size dimensions for the specified
          * panel given the components in the specified parent container.
          * @param parent the component to be laid out
@@ -1942,7 +1942,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Lays out the container in the specified panel.  This is
          * implemented to position all components that were added
          * with a View object as a constraint.  The current allocation
@@ -1985,7 +1985,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Find the Shape representing the given view.
          */
         Shape calculateViewPosition(Shape alloc, View v) {
@@ -1999,7 +1999,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return (child != null) ? alloc : null;
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the specified component to the layout, using the specified
          * constraint object.  We only store those components that were added
          * with a constraint that is of type View.
@@ -2016,7 +2016,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum size of this component.
          * @see java.awt.Component#getMinimumSize()
          * @see java.awt.Component#getPreferredSize()
@@ -2027,7 +2027,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the alignment along the x axis.  This specifies how
          * the component would like to be aligned relative to other
          * components.  The value should be a number between 0 and 1
@@ -2038,7 +2038,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 0.5f;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the alignment along the y axis.  This specifies how
          * the component would like to be aligned relative to other
          * components.  The value should be a number between 0 and 1
@@ -2049,14 +2049,14 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return 0.5f;
         }
 
-        /**
+        /** {@collect.stats}
          * Invalidates the layout, indicating that if the layout manager
          * has cached information it should be discarded.
          */
         public void invalidateLayout(Container target) {
         }
 
-        /**
+        /** {@collect.stats}
          * The "layout constraints" for the LayoutManager2 implementation.
          * These are View objects for those components that are represented
          * by a View in the View tree.
@@ -2066,7 +2066,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         private boolean i18nView = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Wrapper for text actions to return isEnabled false in case editor is non editable
      */
     class TextActionWrapper extends TextAction {
@@ -2074,7 +2074,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             super((String)action.getValue(Action.NAME));
             this.action = action;
         }
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -2089,7 +2089,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Registered in the ActionMap.
      */
     class FocusAction extends AbstractAction {
@@ -2118,7 +2118,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Listens for mouse events for the purposes of detecting drag gestures.
      * BasicTextUI will maintain one of these per AppContext.
      */
@@ -2161,7 +2161,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the following are true:
          * <ul>
          * <li>the component is enabled
@@ -2196,28 +2196,28 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
         private int p0;
         private int p1;
 
-        /**
+        /** {@collect.stats}
          * Whether or not this is a drop using
          * <code>DropMode.INSERT</code>.
          */
         private boolean modeBetween = false;
 
-        /**
+        /** {@collect.stats}
          * Whether or not this is a drop.
          */
         private boolean isDrop = false;
 
-        /**
+        /** {@collect.stats}
          * The drop action.
          */
         private int dropAction = MOVE;
 
-        /**
+        /** {@collect.stats}
          * The drop bias.
          */
         private Position.Bias dropBias;
 
-        /**
+        /** {@collect.stats}
          * Try to find a flavor that can be used to import a Transferable.
          * The set of usable flavors are tried in the following order:
          * <ol>
@@ -2278,7 +2278,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Import the given stream data into the text component.
          */
         protected void handleReaderImport(Reader in, JTextComponent c, boolean useRead)
@@ -2362,7 +2362,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
         // --- TransferHandler methods ------------------------------------
 
-        /**
+        /** {@collect.stats}
          * This is the type of transfer actions supported by the source.  Some models are
          * not mutable, so a transfer operation of COPY only should
          * be advertised in that case.
@@ -2384,7 +2384,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return ((JTextComponent)c).isEditable() ? COPY_OR_MOVE : COPY;
         }
 
-        /**
+        /** {@collect.stats}
          * Create a Transferable to use as the source for a data transfer.
          *
          * @param comp  The component holding the data to be transfered.  This
@@ -2401,7 +2401,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return (p0 != p1) ? (new TextTransferable(exportComp, p0, p1)) : null;
         }
 
-        /**
+        /** {@collect.stats}
          * This method is called after data has been exported.  This method should remove
          * the data that was transfered if the action was MOVE.
          *
@@ -2443,7 +2443,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This method causes a transfer to a component from a clipboard or a
          * DND drop operation.  The Transferable represents the data to be
          * imported into the component.
@@ -2522,7 +2522,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return imported;
         }
 
-        /**
+        /** {@collect.stats}
          * This method indicates if a component would accept an import of the given
          * set of data flavors prior to actually attempting to import it.
          *
@@ -2540,7 +2540,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
             return (getImportFlavor(flavors, c) != null);
         }
 
-        /**
+        /** {@collect.stats}
          * A possible implementation of the Transferable interface
          * for text components.  For a JEditorPane with a rich set
          * of EditorKit implementations, conversions could be made
@@ -2599,7 +2599,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
 
             // ---- EditorKit other than plain or HTML text -----------------------
 
-            /**
+            /** {@collect.stats}
              * If the EditorKit is not for text/plain or text/html, that format
              * is supported through the "richer flavors" part of BasicTransferable.
              */
@@ -2621,7 +2621,7 @@ public abstract class BasicTextUI extends TextUI implements ViewFactory {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * The only richer format supported is the file list flavor
              */
             protected Object getRicherData(DataFlavor flavor) throws UnsupportedFlavorException {

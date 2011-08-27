@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import javax.swing.undo.*;
 
-/**
+/** {@collect.stats}
  * An event indicating that an operation which can be undone has occurred.
  * <p>
  * <strong>Warning:</strong>
@@ -44,7 +44,7 @@ import javax.swing.undo.*;
 public class UndoableEditEvent extends java.util.EventObject {
     private UndoableEdit myEdit;
 
-    /**
+    /** {@collect.stats}
      * Constructs an UndoableEditEvent object.
      *
      * @param source  the Object that originated the event
@@ -56,7 +56,7 @@ public class UndoableEditEvent extends java.util.EventObject {
         myEdit = edit;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the edit value.
      *
      * @return the UndoableEdit object encapsulating the edit

@@ -26,7 +26,7 @@
 
 package javax.security.cert;
 
-/**
+/** {@collect.stats}
  * Certificate is not yet valid exception. This is thrown whenever
  * the current <code>Date</code> or the specified <code>Date</code>
  * is before the <code>notBefore</code> date/time in the Certificate
@@ -43,7 +43,7 @@ package javax.security.cert;
  */
 public class CertificateNotYetValidException extends CertificateException {
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateNotYetValidException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -52,7 +52,7 @@ public class CertificateNotYetValidException extends CertificateException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateNotYetValidException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.

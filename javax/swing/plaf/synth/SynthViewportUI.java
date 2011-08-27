@@ -35,7 +35,7 @@ import java.awt.event.*;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's ViewportUI.
  *
  */

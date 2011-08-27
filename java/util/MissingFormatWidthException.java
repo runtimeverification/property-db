@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when the format width is required.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to anyg
@@ -40,7 +40,7 @@ public class MissingFormatWidthException extends IllegalFormatException {
 
     private String s;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class with the specified format
      * specifier.
      *
@@ -53,7 +53,7 @@ public class MissingFormatWidthException extends IllegalFormatException {
         this.s = s;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the format specifier which does not have a width.
      *
      * @return  The format specifier which does not have a width

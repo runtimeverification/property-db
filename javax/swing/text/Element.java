@@ -24,7 +24,7 @@
  */
 package javax.swing.text;
 
-/**
+/** {@collect.stats}
  * Interface to describe a structural piece of a document.  It
  * is intended to capture the spirit of an SGML element.
  *
@@ -32,14 +32,14 @@ package javax.swing.text;
  */
 public interface Element {
 
-    /**
+    /** {@collect.stats}
      * Fetches the document associated with this element.
      *
      * @return the document
      */
     public Document getDocument();
 
-    /**
+    /** {@collect.stats}
      * Fetches the parent element.  If the element is a root level
      * element returns <code>null</code>.
      *
@@ -47,7 +47,7 @@ public interface Element {
      */
     public Element getParentElement();
 
-    /**
+    /** {@collect.stats}
      * Fetches the name of the element.  If the element is used to
      * represent some type of structure, this would be the type
      * name.
@@ -56,14 +56,14 @@ public interface Element {
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Fetches the collection of attributes this element contains.
      *
      * @return the attributes for the element
      */
     public AttributeSet getAttributes();
 
-    /**
+    /** {@collect.stats}
      * Fetches the offset from the beginning of the document
      * that this element begins at.  If this element has
      * children, this will be the offset of the first child.
@@ -75,7 +75,7 @@ public interface Element {
      */
     public int getStartOffset();
 
-    /**
+    /** {@collect.stats}
      * Fetches the offset from the beginning of the document
      * that this element ends at.  If this element has
      * children, this will be the end offset of the last child.
@@ -94,7 +94,7 @@ public interface Element {
      */
     public int getEndOffset();
 
-    /**
+    /** {@collect.stats}
      * Gets the child element index closest to the given offset.
      * The offset is specified relative to the beginning of the
      * document.  Returns <code>-1</code> if the
@@ -110,7 +110,7 @@ public interface Element {
      */
     public int getElementIndex(int offset);
 
-    /**
+    /** {@collect.stats}
      * Gets the number of child elements contained by this element.
      * If this element is a leaf, a count of zero is returned.
      *
@@ -118,7 +118,7 @@ public interface Element {
      */
     public int getElementCount();
 
-    /**
+    /** {@collect.stats}
      * Fetches the child element at the given index.
      *
      * @param index the specified index >= 0
@@ -126,7 +126,7 @@ public interface Element {
      */
     public Element getElement(int index);
 
-    /**
+    /** {@collect.stats}
      * Is this element a leaf element? An element that
      * <i>may</i> have children, even if it currently
      * has no children, would return <code>false</code>.

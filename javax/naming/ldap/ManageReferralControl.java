@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
  * Requests that referral and other special LDAP objects be manipulated
  * as normal LDAP objects. It enables the requestor to interrogate or
  * update such objects.
@@ -41,7 +41,7 @@ package javax.naming.ldap;
  */
 final public class ManageReferralControl extends BasicControl {
 
-    /**
+    /** {@collect.stats}
      * The ManageReferral control's assigned object identifier
      * is 2.16.840.1.113730.3.4.2.
      */
@@ -49,14 +49,14 @@ final public class ManageReferralControl extends BasicControl {
 
     private static final long serialVersionUID = 3017756160149982566L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a critical ManageReferral control.
      */
     public ManageReferralControl() {
         super(OID, true, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ManageReferral control.
      *
      * @param   criticality The control's criticality setting.

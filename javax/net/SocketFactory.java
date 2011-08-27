@@ -32,7 +32,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-/**
+/** {@collect.stats}
  * This class creates sockets.  It may be subclassed by other factories,
  * which create particular subclasses of sockets and thus provide a general
  * framework for the addition of public socket-level functionality.
@@ -76,13 +76,13 @@ public abstract class SocketFactory
     //
     private static SocketFactory                theFactory;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SocketFactory</code>.
      */
     protected SocketFactory() { /* NOTHING */ }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the environment's default socket factory.
      *
      * @return the default <code>SocketFactory</code>
@@ -105,7 +105,7 @@ public abstract class SocketFactory
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates an unconnected socket.
      *
      * @return the unconnected socket
@@ -129,7 +129,7 @@ public abstract class SocketFactory
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified remote host
      * at the specified remote port.  This socket is configured using
      * the socket options established for this factory.
@@ -145,7 +145,7 @@ public abstract class SocketFactory
     throws IOException, UnknownHostException;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified remote host
      * on the specified remote port.
      * The socket will also be bound to the local address and port supplied.
@@ -166,7 +166,7 @@ public abstract class SocketFactory
     throws IOException, UnknownHostException;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified port number
      * at the specified address.  This socket is configured using
      * the socket options established for this factory.
@@ -181,7 +181,7 @@ public abstract class SocketFactory
     throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connect it to the specified remote address
      * on the specified remote port.  The socket will also be bound
      * to the local address and port suplied.  The socket is configured using

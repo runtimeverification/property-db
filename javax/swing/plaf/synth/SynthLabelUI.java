@@ -45,7 +45,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's LabelUI.
  *
  * @author Scott Violet
@@ -53,7 +53,7 @@ import sun.swing.plaf.synth.SynthUI;
 class SynthLabelUI extends BasicLabelUI implements SynthUI {
     private SynthStyle style;
 
-    /**
+    /** {@collect.stats}
      * Returns the LabelUI implementation used for the skins look and feel.
      */
     public static ComponentUI createUI(JComponent c){
@@ -148,7 +148,7 @@ class SynthLabelUI extends BasicLabelUI implements SynthUI {
         return baseline;
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies this UI delegate that it's time to paint the specified
      * component.  This method is invoked by <code>JComponent</code>
      * when the specified component is being painted.

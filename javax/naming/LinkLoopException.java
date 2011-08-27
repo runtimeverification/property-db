@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when
   * a loop was detected will attempting to resolve a link, or an implementation
   * specific limit on link counts has been reached.
@@ -41,7 +41,7 @@ package javax.naming;
   */
 
 public class LinkLoopException extends LinkException {
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of LinkLoopException with an explanation
       * All the other fields are initialized to null.
       * @param  explanation     A possibly null string containing additional
@@ -52,7 +52,7 @@ public class LinkLoopException extends LinkException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of LinkLoopException.
       * All the non-link-related and link-related fields are initialized to null.
       */
@@ -60,7 +60,7 @@ public class LinkLoopException extends LinkException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3119189944325198009L;

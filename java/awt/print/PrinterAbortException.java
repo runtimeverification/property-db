@@ -25,7 +25,7 @@
 
 package java.awt.print;
 
-/**
+/** {@collect.stats}
  * The <code>PrinterAbortException</code> class is a subclass of
  * {@link PrinterException} and is used to indicate that a user
  * or application has terminated the print job while it was in
@@ -34,7 +34,7 @@ package java.awt.print;
 
 public class PrinterAbortException extends PrinterException {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>PrinterAbortException</code> with no
      * detail message.
      */
@@ -42,7 +42,7 @@ public class PrinterAbortException extends PrinterException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>PrinterAbortException</code> with
      * the specified detail message.
      * @param msg the message to be generated when a

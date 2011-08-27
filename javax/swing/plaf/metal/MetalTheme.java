@@ -28,7 +28,7 @@ package javax.swing.plaf.metal;
 import javax.swing.plaf.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * {@code MetalTheme} provides the color palette and fonts used by
  * the Java Look and Feel.
  * <p>
@@ -76,98 +76,98 @@ public abstract class MetalTheme {
     static ColorUIResource white = new ColorUIResource( 255, 255, 255 );
     private static ColorUIResource black = new ColorUIResource( 0, 0, 0 );
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this theme.
      *
      * @return the name of this theme
      */
     public abstract String getName();
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 1 color.
      *
      * @return the primary 1 color
      */
     protected abstract ColorUIResource getPrimary1();  // these are blue in Metal Default Theme
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 2 color.
      *
      * @return the primary 2 color
      */
     protected abstract ColorUIResource getPrimary2();
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 3 color.
      *
      * @return the primary 3 color
      */
     protected abstract ColorUIResource getPrimary3();
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 1 color.
      *
      * @return the secondary 1 color
      */
     protected abstract ColorUIResource getSecondary1();  // these are gray in Metal Default Theme
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 2 color.
      *
      * @return the secondary 2 color
      */
     protected abstract ColorUIResource getSecondary2();
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 3 color.
      *
      * @return the secondary 3 color
      */
     protected abstract ColorUIResource getSecondary3();
 
-    /**
+    /** {@collect.stats}
      * Returns the control text font.
      *
      * @return the control text font
      */
     public abstract FontUIResource getControlTextFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the system text font.
      *
      * @return the system text font
      */
     public abstract FontUIResource getSystemTextFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the user text font.
      *
      * @return the user text font
      */
     public abstract FontUIResource getUserTextFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the menu text font.
      *
      * @return the menu text font
      */
     public abstract FontUIResource getMenuTextFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the window title font.
      *
      * @return the window title font
      */
     public abstract FontUIResource getWindowTitleFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the sub-text font.
      *
      * @return the sub-text font
      */
     public abstract FontUIResource getSubTextFont();
 
-    /**
+    /** {@collect.stats}
      * Returns the white color. This returns opaque white
      * ({@code 0xFFFFFFFF}).
      *
@@ -175,7 +175,7 @@ public abstract class MetalTheme {
      */
     protected ColorUIResource getWhite() { return white; }
 
-    /**
+    /** {@collect.stats}
      * Returns the black color. This returns opaque black
      * ({@code 0xFF000000}).
      *
@@ -183,7 +183,7 @@ public abstract class MetalTheme {
      */
     protected ColorUIResource getBlack() { return black; }
 
-    /**
+    /** {@collect.stats}
      * Returns the focus color. This returns the value of
      * {@code getPrimary2()}.
      *
@@ -191,7 +191,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getFocusColor() { return getPrimary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the desktop color. This returns the value of
      * {@code getPrimary2()}.
      *
@@ -199,7 +199,7 @@ public abstract class MetalTheme {
      */
     public  ColorUIResource getDesktopColor() { return getPrimary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control color. This returns the value of
      * {@code getSecondary3()}.
      *
@@ -207,7 +207,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControl() { return getSecondary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control shadow color. This returns
      * the value of {@code getSecondary2()}.
      *
@@ -215,7 +215,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlShadow() { return getSecondary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control dark shadow color. This returns
      * the value of {@code getSecondary1()}.
      *
@@ -223,7 +223,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlDarkShadow() { return getSecondary1(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control info color. This returns
      * the value of {@code getBlack()}.
      *
@@ -231,7 +231,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlInfo() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control highlight color. This returns
      * the value of {@code getWhite()}.
      *
@@ -239,7 +239,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlHighlight() { return getWhite(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control disabled color. This returns
      * the value of {@code getSecondary2()}.
      *
@@ -247,7 +247,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlDisabled() { return getSecondary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control color. This returns
      * the value of {@code getPrimary3()}.
      *
@@ -255,14 +255,14 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getPrimaryControl() { return getPrimary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control shadow color. This returns
      * the value of {@code getPrimary2()}.
      *
      * @return the primary control shadow color
      */
     public ColorUIResource getPrimaryControlShadow() { return getPrimary2(); }
-    /**
+    /** {@collect.stats}
      * Returns the primary control dark shadow color. This
      * returns the value of {@code getPrimary1()}.
      *
@@ -270,7 +270,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getPrimaryControlDarkShadow() { return getPrimary1(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control info color. This
      * returns the value of {@code getBlack()}.
      *
@@ -278,7 +278,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getPrimaryControlInfo() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary control highlight color. This
      * returns the value of {@code getWhite()}.
      *
@@ -286,7 +286,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getPrimaryControlHighlight() { return getWhite(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the system text color. This returns the value of
      * {@code getBlack()}.
      *
@@ -294,7 +294,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getSystemTextColor() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the control text color. This returns the value of
      * {@code getControlInfo()}.
      *
@@ -302,7 +302,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getControlTextColor() { return getControlInfo(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the inactive control text color. This returns the value of
      * {@code getControlDisabled()}.
      *
@@ -310,7 +310,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getInactiveControlTextColor() { return getControlDisabled(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the inactive system text color. This returns the value of
      * {@code getSecondary2()}.
      *
@@ -318,7 +318,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getInactiveSystemTextColor() { return getSecondary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the user text color. This returns the value of
      * {@code getBlack()}.
      *
@@ -326,7 +326,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getUserTextColor() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the text highlight color. This returns the value of
      * {@code getPrimary3()}.
      *
@@ -334,7 +334,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getTextHighlightColor() { return getPrimary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the highlighted text color. This returns the value of
      * {@code getControlTextColor()}.
      *
@@ -342,7 +342,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getHighlightedTextColor() { return getControlTextColor(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window background color. This returns the value of
      * {@code getWhite()}.
      *
@@ -350,7 +350,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getWindowBackground() { return getWhite(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title background color. This returns the value of
      * {@code getPrimary3()}.
      *
@@ -358,7 +358,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getWindowTitleBackground() { return getPrimary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title foreground color. This returns the value of
      * {@code getBlack()}.
      *
@@ -366,7 +366,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getWindowTitleForeground() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title inactive background color. This
      * returns the value of {@code getSecondary3()}.
      *
@@ -374,7 +374,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getWindowTitleInactiveBackground() { return getSecondary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title inactive foreground color. This
      * returns the value of {@code getBlack()}.
      *
@@ -382,7 +382,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getWindowTitleInactiveForeground() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu background color. This
      * returns the value of {@code getSecondary3()}.
      *
@@ -390,7 +390,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getMenuBackground() { return getSecondary3(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu foreground color. This
      * returns the value of {@code getBlack()}.
      *
@@ -398,7 +398,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getMenuForeground() { return  getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu selected background color. This
      * returns the value of {@code getPrimary2()}.
      *
@@ -406,7 +406,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getMenuSelectedBackground() { return getPrimary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu selected foreground color. This
      * returns the value of {@code getBlack()}.
      *
@@ -414,7 +414,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getMenuSelectedForeground() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu disabled foreground color. This
      * returns the value of {@code getSecondary2()}.
      *
@@ -422,7 +422,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getMenuDisabledForeground() { return getSecondary2(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the separator background color. This
      * returns the value of {@code getWhite()}.
      *
@@ -430,7 +430,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getSeparatorBackground() { return getWhite(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the separator foreground color. This
      * returns the value of {@code getPrimary1()}.
      *
@@ -438,7 +438,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getSeparatorForeground() { return getPrimary1(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the accelerator foreground color. This
      * returns the value of {@code getPrimary1()}.
      *
@@ -446,7 +446,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getAcceleratorForeground() { return getPrimary1(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the accelerator selected foreground color. This
      * returns the value of {@code getBlack()}.
      *
@@ -454,7 +454,7 @@ public abstract class MetalTheme {
      */
     public ColorUIResource getAcceleratorSelectedForeground() { return getBlack(); }
 
-    /**
+    /** {@collect.stats}
      * Adds values specific to this theme to the defaults table. This method
      * is invoked when the look and feel defaults are obtained from
      * {@code MetalLookAndFeel}.
@@ -468,7 +468,7 @@ public abstract class MetalTheme {
      */
     public void addCustomEntriesToTable(UIDefaults table) {}
 
-    /**
+    /** {@collect.stats}
      * This is invoked when a MetalLookAndFeel is installed and about to
      * start using this theme. When we can add API this should be nuked
      * in favor of DefaultMetalTheme overriding addCustomEntriesToTable.
@@ -476,7 +476,7 @@ public abstract class MetalTheme {
     void install() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this is a theme provided by the core platform.
      */
     boolean isSystemTheme() {

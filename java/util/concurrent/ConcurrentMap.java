@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * A {@link java.util.Map} providing additional atomic
  * <tt>putIfAbsent</tt>, <tt>remove</tt>, and <tt>replace</tt> methods.
  *
@@ -57,7 +57,7 @@ import java.util.Map;
  * @param <V> the type of mapped values
  */
 public interface ConcurrentMap<K, V> extends Map<K, V> {
-    /**
+    /** {@collect.stats}
      * If the specified key is not already associated
      * with a value, associate it with the given value.
      * This is equivalent to
@@ -87,7 +87,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      */
     V putIfAbsent(K key, V value);
 
-    /**
+    /** {@collect.stats}
      * Removes the entry for a key only if currently mapped to a given value.
      * This is equivalent to
      * <pre>
@@ -109,7 +109,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      */
     boolean remove(Object key, Object value);
 
-    /**
+    /** {@collect.stats}
      * Replaces the entry for a key only if currently mapped to a given value.
      * This is equivalent to
      * <pre>
@@ -134,7 +134,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
      */
     boolean replace(K key, V oldValue, V newValue);
 
-    /**
+    /** {@collect.stats}
      * Replaces the entry for a key only if currently mapped to some value.
      * This is equivalent to
      * <pre>

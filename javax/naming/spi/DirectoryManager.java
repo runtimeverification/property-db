@@ -40,7 +40,7 @@ import com.sun.naming.internal.ResourceManager;
 import com.sun.naming.internal.FactoryEnumeration;
 
 
-/**
+/** {@collect.stats}
   * This class contains methods for supporting <tt>DirContext</tt>
   * implementations.
   *<p>
@@ -72,7 +72,7 @@ public class DirectoryManager extends NamingManager {
      */
     DirectoryManager() {}
 
-    /**
+    /** {@collect.stats}
       * Creates a context in which to continue a <tt>DirContext</tt> operation.
       * Operates just like <tt>NamingManager.getContinuationContext()</tt>,
       * only the continuation context returned is a <tt>DirContext</tt>.
@@ -99,7 +99,7 @@ public class DirectoryManager extends NamingManager {
         return (new ContinuationDirContext(cpe, env));
     }
 
-    /**
+    /** {@collect.stats}
       * Creates an instance of an object for the specified object,
       * attributes, and environment.
       * <p>
@@ -242,7 +242,7 @@ public class DirectoryManager extends NamingManager {
         return answer;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the state of an object for binding when given the original
       * object and its attributes.
       * <p>

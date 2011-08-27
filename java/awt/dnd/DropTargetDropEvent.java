@@ -32,7 +32,7 @@ import java.awt.datatransfer.Transferable;
 
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * The <code>DropTargetDropEvent</code> is delivered
  * via the <code>DropTargetListener</code> drop() method.
  * <p>
@@ -73,7 +73,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
 
     private static final long serialVersionUID = -1721911170440459322L;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>DropTargetDropEvent</code> given
      * the <code>DropTargetContext</code> for this operation,
      * the location of the drag <code>Cursor</code>'s
@@ -119,7 +119,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         this.dropAction = dropAction;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>DropTargetEvent</code> given the
      * <code>DropTargetContext</code> for this operation,
      * the location of the drag <code>Cursor</code>'s hotspot
@@ -151,7 +151,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         isLocalTx = isLocal;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a <code>Point</code>
      * indicating the <code>Cursor</code>'s current
      * location in the <code>Component</code>'s coordinates.
@@ -164,7 +164,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method returns the current DataFlavors.
      * <P>
      * @return current DataFlavors
@@ -174,7 +174,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         return getDropTargetContext().getCurrentDataFlavors();
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the currently available
      * <code>DataFlavor</code>s as a <code>java.util.List</code>.
      * <P>
@@ -185,7 +185,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         return getDropTargetContext().getCurrentDataFlavorsAsList();
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a <code>boolean</code> indicating if the
      * specified <code>DataFlavor</code> is available
      * from the source.
@@ -199,21 +199,21 @@ public class DropTargetDropEvent extends DropTargetEvent {
         return getDropTargetContext().isDataFlavorSupported(df);
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the source drop actions.
      *
      * @return the source drop actions.
      */
     public int getSourceActions() { return actions; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the user drop action.
      *
      * @return the user drop actions.
      */
     public int getDropAction() { return dropAction; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the <code>Transferable</code> object
      * associated with the drop.
      * <P>
@@ -224,7 +224,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         return getDropTargetContext().getTransferable();
     }
 
-    /**
+    /** {@collect.stats}
      * accept the drop, using the specified action.
      * <P>
      * @param dropAction the specified action
@@ -234,7 +234,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         getDropTargetContext().acceptDrop(dropAction);
     }
 
-    /**
+    /** {@collect.stats}
      * reject the Drop.
      */
 
@@ -242,7 +242,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         getDropTargetContext().rejectDrop();
     }
 
-    /**
+    /** {@collect.stats}
      * This method notifies the <code>DragSource</code>
      * that the drop transfer(s) are completed.
      * <P>
@@ -253,7 +253,7 @@ public class DropTargetDropEvent extends DropTargetEvent {
         getDropTargetContext().dropComplete(success);
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns an <code>int</code> indicating if
      * the source is in the same JVM as the target.
      * <P>
@@ -270,28 +270,28 @@ public class DropTargetDropEvent extends DropTargetEvent {
 
     static final private Point  zero     = new Point(0,0);
 
-    /**
+    /** {@collect.stats}
      * The location of the drag cursor's hotspot in Component coordinates.
      *
      * @serial
      */
     private Point               location   = zero;
 
-    /**
+    /** {@collect.stats}
      * The source drop actions.
      *
      * @serial
      */
     private int                 actions    = DnDConstants.ACTION_NONE;
 
-    /**
+    /** {@collect.stats}
      * The user drop action.
      *
      * @serial
      */
     private int                 dropAction = DnDConstants.ACTION_NONE;
 
-    /**
+    /** {@collect.stats}
      * <code>true</code> if the source is in the same JVM as the target.
      *
      * @serial

@@ -27,7 +27,7 @@
  */
 package javax.xml.crypto;
 
-/**
+/** {@collect.stats}
  * A representation of an XML structure from any namespace. The purpose of
  * this interface is to group (and provide type safety for) all
  * representations of XML structures.
@@ -38,7 +38,7 @@ package javax.xml.crypto;
  */
 public interface XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a specified feature is supported.
      *
      * @param feature the feature name (as an absolute URI)

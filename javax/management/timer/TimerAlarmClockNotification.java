@@ -25,7 +25,7 @@
 
 package javax.management.timer;
 
-/**
+/** {@collect.stats}
  * <p>Definitions of the notifications sent by TimerAlarmClock
  * MBeans.</p>
  */
@@ -41,7 +41,7 @@ class TimerAlarmClockNotification
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param source the source.

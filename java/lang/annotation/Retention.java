@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/**
+/** {@collect.stats}
  * Indicates how long annotations with the annotated type are to
  * be retained.  If no Retention annotation is present on
  * an annotation type declaration, the retention policy defaults to

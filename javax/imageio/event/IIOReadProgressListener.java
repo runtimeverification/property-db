@@ -28,7 +28,7 @@ package javax.imageio.event;
 import java.util.EventListener;
 import javax.imageio.ImageReader;
 
-/**
+/** {@collect.stats}
  * An interface used by <code>ImageReader</code> implementations to
  * notify callers of their image and thumbnail reading methods of
  * progress.
@@ -50,7 +50,7 @@ import javax.imageio.ImageReader;
  */
 public interface IIOReadProgressListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Reports that a sequence of read operations is beginning.
      * <code>ImageReader</code> implementations are required to call
      * this method exactly once from their
@@ -61,7 +61,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void sequenceStarted(ImageReader source, int minIndex);
 
-    /**
+    /** {@collect.stats}
      * Reports that a sequence of read operationshas completed.
      * <code>ImageReader</code> implementations are required to call
      * this method exactly once from their
@@ -71,7 +71,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void sequenceComplete(ImageReader source);
 
-    /**
+    /** {@collect.stats}
      * Reports that an image read operation is beginning.  All
      * <code>ImageReader</code> implementations are required to call
      * this method exactly once when beginning an image read
@@ -83,7 +83,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void imageStarted(ImageReader source, int imageIndex);
 
-    /**
+    /** {@collect.stats}
      * Reports the approximate degree of completion of the current
      * <code>read</code> call of the associated
      * <code>ImageReader</code>.
@@ -110,7 +110,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void imageProgress(ImageReader source, float percentageDone);
 
-    /**
+    /** {@collect.stats}
      * Reports that the current image read operation has completed.
      * All <code>ImageReader</code> implementations are required to
      * call this method exactly once upon completion of each image
@@ -121,7 +121,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void imageComplete(ImageReader source);
 
-    /**
+    /** {@collect.stats}
      * Reports that a thumbnail read operation is beginning.  All
      * <code>ImageReader</code> implementations are required to call
      * this method exactly once when beginning a thumbnail read
@@ -135,7 +135,7 @@ public interface IIOReadProgressListener extends EventListener {
     void thumbnailStarted(ImageReader source,
                           int imageIndex, int thumbnailIndex);
 
-    /**
+    /** {@collect.stats}
      * Reports the approximate degree of completion of the current
      * <code>getThumbnail</code> call within the associated
      * <code>ImageReader</code>.  The semantics are identical to those
@@ -147,7 +147,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void thumbnailProgress(ImageReader source, float percentageDone);
 
-    /**
+    /** {@collect.stats}
      * Reports that a thumbnail read operation has completed.  All
      * <code>ImageReader</code> implementations are required to call
      * this method exactly once upon completion of each thumbnail read
@@ -158,7 +158,7 @@ public interface IIOReadProgressListener extends EventListener {
      */
     void thumbnailComplete(ImageReader source);
 
-    /**
+    /** {@collect.stats}
      * Reports that a read has been aborted via the reader's
      * <code>abort</code> method.  No further notifications will be
      * given.

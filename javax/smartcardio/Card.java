@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.nio.ByteBuffer;
 
-/**
+/** {@collect.stats}
  * A Smart Card with which a connection has been established. Card objects
  * are obtained by calling {@link CardTerminal#connect CardTerminal.connect()}.
  *
@@ -39,7 +39,7 @@ import java.nio.ByteBuffer;
 */
 public abstract class Card {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new Card object.
      *
      * <p>This constructor is called by subclasses only. Application should
@@ -51,21 +51,21 @@ public abstract class Card {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ATR of this card.
      *
      * @return the ATR of this card.
      */
     public abstract ATR getATR();
 
-    /**
+    /** {@collect.stats}
      * Returns the protocol in use for this card.
      *
      * @return the protocol in use for this card, for example "T=0" or "T=1"
      */
     public abstract String getProtocol();
 
-    /**
+    /** {@collect.stats}
      * Returns the CardChannel for the basic logical channel. The basic
      * logical channel has a channel number of 0.
      *
@@ -77,7 +77,7 @@ public abstract class Card {
      */
     public abstract CardChannel getBasicChannel();
 
-    /**
+    /** {@collect.stats}
      * Opens a new logical channel to the card and returns it. The channel is
      * opened by issuing a <code>MANAGE CHANNEL</code> command that should use
      * the format <code>[00 70 00 00 01]</code>.
@@ -91,7 +91,7 @@ public abstract class Card {
      */
     public abstract CardChannel openLogicalChannel() throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Requests exclusive access to this card.
      *
      * <p>Once a thread has invoked <code>beginExclusive</code>, only this
@@ -114,7 +114,7 @@ public abstract class Card {
      */
     public abstract void beginExclusive() throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Releases the exclusive access previously established using
      * <code>beginExclusive</code>.
      *
@@ -129,7 +129,7 @@ public abstract class Card {
      */
     public abstract void endExclusive() throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Transmits a control command to the terminal device.
      *
      * <p>This can be used to, for example, control terminal functions like
@@ -149,7 +149,7 @@ public abstract class Card {
     public abstract byte[] transmitControlCommand(int controlCode,
             byte[] command) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Disconnects the connection with this card. After this method returns,
      * calling methods on this object or in CardChannels associated with this
      * object that require interaction with the card will raise an

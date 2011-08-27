@@ -24,7 +24,7 @@
  */
 package java.net;
 
-/**
+/** {@collect.stats}
  * Constants used by the SOCKS protocol implementation.
  */
 

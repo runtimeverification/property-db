@@ -33,7 +33,7 @@ import java.awt.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * ComboBox renderer
  * <p>
  * <strong>Warning:</strong>
@@ -50,7 +50,7 @@ import java.io.Serializable;
 public class BasicComboBoxRenderer extends JLabel
 implements ListCellRenderer, Serializable {
 
-   /**
+   /** {@collect.stats}
     * An empty <code>Border</code>. This field might not be used. To change the
     * <code>Border</code> used by this renderer directly set it using
     * the <code>setBorder</code> method.
@@ -95,7 +95,7 @@ implements ListCellRenderer, Serializable {
                                                  boolean cellHasFocus)
     {
 
-        /**if (isSelected) {
+        /** {@collect.stats}if (isSelected) {
             setBackground(UIManager.getColor("ComboBox.selectionBackground"));
             setForeground(UIManager.getColor("ComboBox.selectionForeground"));
         } else {
@@ -124,7 +124,7 @@ implements ListCellRenderer, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A subclass of BasicComboBoxRenderer that implements UIResource.
      * BasicComboBoxRenderer doesn't implement UIResource
      * directly so that applications can safely override the

@@ -42,7 +42,7 @@ import java.util.Hashtable;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of TabbedPaneUI.
  *
  * @author Amy Fowler
@@ -77,7 +77,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
     private boolean tabsOpaque = true;
     private boolean contentOpaque = true;
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -87,7 +87,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
      */
     @Deprecated
     protected KeyStroke upKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -97,7 +97,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
      */
     @Deprecated
     protected KeyStroke downKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -107,7 +107,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
      */
     @Deprecated
     protected KeyStroke leftKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -146,7 +146,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
 
     private Hashtable mnemonicToIndexMap;
 
-    /**
+    /** {@collect.stats}
      * InputMap used for mnemonics. Only non-null if the JTabbedPane has
      * mnemonics associated with it. Lazily created in initMnemonics.
      */
@@ -157,28 +157,28 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
 
     private TabContainer tabContainer;
 
-    /**
+    /** {@collect.stats}
      * A rectangle used for general layout calculations in order
      * to avoid constructing many new Rectangles on the fly.
      */
     protected transient Rectangle calcRect = new Rectangle(0,0,0,0);
 
-    /**
+    /** {@collect.stats}
      * Tab that has focus.
      */
     private int focusIndex;
 
-    /**
+    /** {@collect.stats}
      * Combined listeners.
      */
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * Index of the tab the mouse is over.
      */
     private int rolloverTabIndex;
 
-    /**
+    /** {@collect.stats}
      * This is set to true when a component is added/removed from the tab
      * pane and set to false when layout happens.  If true it indicates that
      * tabRuns is not valid and shouldn't be used.
@@ -236,7 +236,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         this.tabPane = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked by <code>installUI</code> to create
      * a layout manager object to manage
      * the <code>JTabbedPane</code>.
@@ -263,7 +263,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return (tabPane.getLayout() instanceof TabbedPaneScrollLayout);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and installs any required subcomponents for the JTabbedPane.
      * Invoked by installUI.
      *
@@ -299,7 +299,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
          }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a JButton that will provide the user
      * with a way to scroll the tabs in a particular direction. The
      * returned JButton must be instance of UIResource.
@@ -322,7 +322,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return new ScrollableTabButton(direction);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any installed subcomponents from the JTabbedPane.
      * Invoked by uninstallUI.
      *
@@ -512,7 +512,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         mnemonicInputMap = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Reloads the mnemonics. This should be invoked when a memonic changes,
      * when the title of a mnemonic changes, or when tabs are added/removed.
      */
@@ -528,7 +528,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the mnemonics bindings to an empty state.
      */
     private void resetMnemonics() {
@@ -538,7 +538,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified mnemonic at the specified index.
      */
     private void addMnemonic(int index, int mnemonic) {
@@ -550,7 +550,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         mnemonicToIndexMap.put(new Integer(mnemonic), new Integer(index));
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the state needed for mnemonics.
      */
     private void initMnemonics() {
@@ -563,7 +563,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
                                          mnemonicInputMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tab the mouse is over by location. This is a cover method
      * for <code>setRolloverTab(tabForCoordinate(x, y, false))</code>.
      */
@@ -575,7 +575,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         setRolloverTab(tabForCoordinate(tabPane, x, y, false));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tab the mouse is currently over to <code>index</code>.
      * <code>index</code> will be -1 if the mouse is no longer over any
      * tab. No checking is done to ensure the passed in index identifies a
@@ -588,7 +588,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         rolloverTabIndex = index;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab the mouse is currently over, or {@code -1} if the mouse is no
      * longer over any tab.
      *
@@ -610,7 +610,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -642,7 +642,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -664,7 +664,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return Component.BaselineResizeBehavior.OTHER;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline for the specified tab.
      *
      * @param tab index of tab to get baseline for
@@ -710,7 +710,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
                 getBaselineOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount the baseline is offset by.  This is typically
      * the same as <code>getTabLabelShiftY</code>.
      *
@@ -801,7 +801,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the tabs in the tab area.
      * Invoked by paint().
      * The graphics parameter must be a valid <code>Graphics</code>
@@ -1169,7 +1169,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * this function draws the border around each tab
       * note that this function does now draw the background of the tab.
       * that is done elsewhere
@@ -1458,7 +1458,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
 
 // TabbedPaneUI methods
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds of the specified tab index.  The bounds are
      * with respect to the JTabbedPane's coordinate space.
      */
@@ -1473,7 +1473,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return runCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab index which intersects the specified point
      * in the JTabbedPane's coordinate space.
      */
@@ -1509,7 +1509,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds of the specified tab in the coordinate space
      * of the JTabbedPane component.  This is required because the tab rects
      * are by default defined in the coordinate space of the component where
@@ -1548,7 +1548,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return dest;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the tab closest to the passed in location, note
      * that the returned tab may not contain the location x,y.
      */
@@ -1592,7 +1592,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         return min;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a point which is translated from the specified point in the
      * JTabbedPane's coordinate space to the coordinate space of the
      * ScrollableTabPanel.  This is used for SCROLL_TAB_LAYOUT ONLY.
@@ -1689,7 +1689,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
                           tabPane.getDisabledIconAt(tabIndex) : tabPane.getIconAt(tabIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text View object required to render stylized text (HTML) for
      * the specified tab or null if no specialized text rendering is needed
      * for this tab. This is provided to support html rendering inside tabs.
@@ -1985,7 +1985,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified tab.
      */
     private void repaintTab(int index) {
@@ -1996,7 +1996,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes sure the focusIndex is valid.
      */
     private void validateFocusIndex() {
@@ -2005,7 +2005,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the tab that has focus.
      *
      * @return index of tab that has focus
@@ -2264,7 +2264,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTabbedPaneUI.
      */
@@ -3263,7 +3263,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
             createButtons();
         }
 
-        /**
+        /** {@collect.stats}
          * Recreates the scroll buttons and adds them to the TabbedPane.
          */
         void createButtons() {
@@ -3415,7 +3415,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * ActionListener for the scroll buttons.
          */
         public void actionPerformed(ActionEvent e) {
@@ -3737,7 +3737,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTabbedPaneUI.
      */
@@ -3751,7 +3751,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTabbedPaneUI.
      */
@@ -3765,7 +3765,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTabbedPaneUI.
      */
@@ -3779,7 +3779,7 @@ public class BasicTabbedPaneUI extends TabbedPaneUI implements SwingConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTabbedPaneUI.
      */

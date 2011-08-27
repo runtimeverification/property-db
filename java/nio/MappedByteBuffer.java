@@ -26,7 +26,7 @@
 package java.nio;
 
 
-/**
+/** {@collect.stats}
  * A direct byte buffer whose content is a memory-mapped region of a file.
  *
  * <p> Mapped byte buffers are created via the {@link
@@ -93,7 +93,7 @@ public abstract class MappedByteBuffer
             throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether or not this buffer's content is resident in physical
      * memory.
      *
@@ -118,7 +118,7 @@ public abstract class MappedByteBuffer
         return isLoaded0(((DirectByteBuffer)this).address(), capacity());
     }
 
-    /**
+    /** {@collect.stats}
      * Loads this buffer's content into physical memory.
      *
      * <p> This method makes a best effort to ensure that, when it returns,
@@ -136,7 +136,7 @@ public abstract class MappedByteBuffer
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Forces any changes made to this buffer's content to be written to the
      * storage device containing the mapped file.
      *

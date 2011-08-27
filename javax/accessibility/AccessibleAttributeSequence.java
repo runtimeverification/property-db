@@ -27,7 +27,7 @@ package javax.accessibility;
 import javax.swing.text.AttributeSet;
 
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleAttributeSequence provides information about
  * a contiguous sequence of text attributes
  *
@@ -40,7 +40,7 @@ import javax.swing.text.AttributeSet;
  * @author       Lynn Monsanto
  */
 
-/**
+/** {@collect.stats}
  * This class collects together the span of text that share the same
  * contiguous set of attributes, along with that set of attributes.  It
  * is used by implementors of the class <code>AccessibleContext</code> in
@@ -50,16 +50,16 @@ import javax.swing.text.AttributeSet;
  * @see javax.accessibility.AccessibleContext#ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED
  */
 public class AccessibleAttributeSequence {
-    /** The start index of the text sequence */
+    /** {@collect.stats} The start index of the text sequence */
     public int startIndex;
 
-    /** The end index of the text sequence */
+    /** {@collect.stats} The end index of the text sequence */
     public int endIndex;
 
-    /** The text attributes */
+    /** {@collect.stats} The text attributes */
     public AttributeSet attributes;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AccessibleAttributeSequence</code> with the given
      * parameters.
      *

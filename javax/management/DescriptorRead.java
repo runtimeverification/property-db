@@ -25,13 +25,13 @@
 
 package javax.management;
 
-/**
+/** {@collect.stats}
  * Interface to read the Descriptor of a management interface element
  * such as an MBeanInfo.
  * @since 1.6
  */
 public interface DescriptorRead {
-   /**
+   /** {@collect.stats}
     * Returns a copy of Descriptor.
     *
     * @return Descriptor associated with the component implementing this interface.

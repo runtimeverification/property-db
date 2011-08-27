@@ -38,7 +38,7 @@ import java.io.Serializable;
 import sun.swing.SwingUtilities2;
 
 
-/**
+/** {@collect.stats}
  * The standard preview panel for the color chooser.
  * <p>
  * <strong>Warning:</strong>

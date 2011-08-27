@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class HashPrintRequestAttributeSet inherits its implementation from
  * class {@link HashAttributeSet HashAttributeSet} and enforces the
  * semantic restrictions of interface
@@ -42,14 +42,14 @@ public class HashPrintRequestAttributeSet extends HashAttributeSet
 
     private static final long serialVersionUID = 2364756266107751933L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty print request attribute set.
      */
     public HashPrintRequestAttributeSet() {
         super (PrintRequestAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new print request attribute set,
      * initially populated with the given value.
      *
@@ -62,7 +62,7 @@ public class HashPrintRequestAttributeSet extends HashAttributeSet
         super (attribute, PrintRequestAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new print request attribute set, initially populated with
      * the values from the given array. The new attribute set is populated
      * by adding the elements of <CODE>attributes</CODE> array to the set in
@@ -82,7 +82,7 @@ public class HashPrintRequestAttributeSet extends HashAttributeSet
     }
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the
      * values from the  given set where the members of the attribute set
      * are restricted to the <code>(PrintRequestAttributeSe</code> interface.

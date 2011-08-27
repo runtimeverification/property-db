@@ -28,7 +28,7 @@ package javax.naming;
 
 import javax.naming.Name;
 
-/**
+/** {@collect.stats}
  * This exception is thrown when a method
  * does not terminate within the specified time limit.
  * This can happen, for example, if the user specifies that
@@ -44,7 +44,7 @@ import javax.naming.Name;
  * @since 1.3
  */
 public class TimeLimitExceededException extends LimitExceededException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of TimeLimitExceededException.
      * All fields default to null.
      */
@@ -52,7 +52,7 @@ public class TimeLimitExceededException extends LimitExceededException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of TimeLimitExceededException
      * using the argument supplied.
      * @param explanation possibly null detail about this exception.
@@ -62,7 +62,7 @@ public class TimeLimitExceededException extends LimitExceededException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3597009011385034696L;

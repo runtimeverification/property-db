@@ -40,7 +40,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Signals that a resource is missing.
  * @see java.lang.Exception
  * @see ResourceBundle
@@ -50,7 +50,7 @@ package java.util;
 public
 class MissingResourceException extends RuntimeException {
 
-    /**
+    /** {@collect.stats}
      * Constructs a MissingResourceException with the specified information.
      * A detail message is a String that describes this particular exception.
      * @param s the detail message
@@ -63,7 +63,7 @@ class MissingResourceException extends RuntimeException {
         this.key = key;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MissingResourceException</code> with
      * <code>message</code>, <code>className</code>, <code>key</code>,
      * and <code>cause</code>. This constructor is package private for
@@ -87,7 +87,7 @@ class MissingResourceException extends RuntimeException {
         this.key = key;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets parameter passed by constructor.
      *
      * @return the name of the resource class
@@ -96,7 +96,7 @@ class MissingResourceException extends RuntimeException {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets parameter passed by constructor.
      *
      * @return the key for the missing resource
@@ -110,13 +110,13 @@ class MissingResourceException extends RuntimeException {
     // serialization compatibility with JDK1.1
     private static final long serialVersionUID = -4876345176062000401L;
 
-    /**
+    /** {@collect.stats}
      * The class name of the resource bundle requested by the user.
      * @serial
      */
     private String className;
 
-    /**
+    /** {@collect.stats}
      * The name of the specific resource requested by the user.
      * @serial
      */

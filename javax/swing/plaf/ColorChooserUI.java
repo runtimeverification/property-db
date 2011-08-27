@@ -28,7 +28,7 @@ package javax.swing.plaf;
 import javax.swing.*;
 import javax.swing.colorchooser.*;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JColorChooser.
  *
  * @author Amy Fowler

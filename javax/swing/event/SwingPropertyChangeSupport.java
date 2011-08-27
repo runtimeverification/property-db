@@ -30,7 +30,7 @@ import java.beans.PropertyChangeEvent;
 
 import javax.swing.SwingUtilities;
 
-/**
+/** {@collect.stats}
  * This subclass of {@code java.beans.PropertyChangeSupport} is almost
  * identical in functionality. The only difference is if constructed with
  * {@code SwingPropertyChangeSupport(sourceBean, true)} it ensures
@@ -41,7 +41,7 @@ import javax.swing.SwingUtilities;
 
 public final class SwingPropertyChangeSupport extends PropertyChangeSupport {
 
-    /**
+    /** {@collect.stats}
      * Constructs a SwingPropertyChangeSupport object.
      *
      * @param sourceBean  The bean to be given as the source for any
@@ -53,7 +53,7 @@ public final class SwingPropertyChangeSupport extends PropertyChangeSupport {
         this(sourceBean, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SwingPropertyChangeSupport object.
      *
      * @param sourceBean the bean to be given as the source for any events
@@ -69,7 +69,7 @@ public final class SwingPropertyChangeSupport extends PropertyChangeSupport {
         this.notifyOnEDT = notifyOnEDT;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>
@@ -100,7 +100,7 @@ public final class SwingPropertyChangeSupport extends PropertyChangeSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code notifyOnEDT} property.
      *
      * @return {@code notifyOnEDT} property
@@ -114,7 +114,7 @@ public final class SwingPropertyChangeSupport extends PropertyChangeSupport {
     // Serialization version ID
     static final long serialVersionUID = 7162625831330845068L;
 
-    /**
+    /** {@collect.stats}
      * whether to notify listeners on EDT
      *
      * @serial

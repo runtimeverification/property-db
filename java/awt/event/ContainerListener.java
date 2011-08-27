@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving container events.
  * The class that is interested in processing a container event
  * either implements this interface (and all the methods it
@@ -53,12 +53,12 @@ import java.util.EventListener;
  * @since 1.1
  */
 public interface ContainerListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked when a component has been added to the container.
      */
     public void componentAdded(ContainerEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a component has been removed from the container.
      */
     public void componentRemoved(ContainerEvent e);

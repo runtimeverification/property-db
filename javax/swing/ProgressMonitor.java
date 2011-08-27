@@ -52,7 +52,7 @@ import javax.swing.event.*;
 import javax.swing.text.*;
 
 
-/** A class to monitor the progress of some operation. If it looks
+/** {@collect.stats} A class to monitor the progress of some operation. If it looks
  * like the operation will take a while, a progress dialog will be popped up.
  * When the ProgressMonitor is created it is given a numeric range and a
  * descriptive string. As the operation progresses, call the setProgress method
@@ -96,7 +96,7 @@ public class ProgressMonitor extends Object implements Accessible
     private int             max;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a graphic object that shows progress, typically by filling
      * in a rectangular bar as the process nears completion.
      *
@@ -230,7 +230,7 @@ public class ProgressMonitor extends Object implements Accessible
         // Accessibility support for ProgressOptionPane
         ////////////////
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleContext for the ProgressOptionPane
          *
          * @return the AccessibleContext for the ProgressOptionPane
@@ -249,7 +249,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicate the progress of the operation being monitored.
      * If the specified value is >= the maximum, the progress
      * monitor is closed.
@@ -300,7 +300,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicate that the operation is complete.  This happens automatically
      * when the value set by setProgress is >= max, but it may be called
      * earlier if the operation ends early.
@@ -316,7 +316,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum value -- the lower end of the progress value.
      *
      * @return an int representing the minimum value
@@ -327,7 +327,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the minimum value.
      *
      * @param m  an int specifying the minimum value
@@ -341,7 +341,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum value -- the higher end of the progress value.
      *
      * @return an int representing the maximum value
@@ -352,7 +352,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the maximum value.
      *
      * @param m  an int specifying the maximum value
@@ -366,7 +366,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the user hits the Cancel button in the progress dialog.
      */
     public boolean isCanceled() {
@@ -378,7 +378,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the amount of time to wait before deciding whether or
      * not to popup a progress monitor.
      *
@@ -391,7 +391,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of time this object waits before deciding whether
      * or not to popup a progress monitor.
      *
@@ -402,7 +402,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the amount of time it will take for the popup to appear.
      * (If the predicted time remaining is less than this time, the popup
      * won't be displayed.)
@@ -415,7 +415,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of time it will take for the popup to appear.
      *
      * @see #setMillisToPopup
@@ -425,7 +425,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the additional note that is displayed along with the
      * progress message. Used, for example, to show which file the
      * is currently being copied during a multiple-file copy.
@@ -441,7 +441,7 @@ public class ProgressMonitor extends Object implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the additional note that is displayed along with the
      * progress message.
      *
@@ -456,7 +456,7 @@ public class ProgressMonitor extends Object implements Accessible
     // Accessibility support
     ////////////////
 
-    /**
+    /** {@collect.stats}
      * The <code>AccessibleContext</code> for the <code>ProgressMonitor</code>
      * @since 1.5
      */
@@ -464,7 +464,7 @@ public class ProgressMonitor extends Object implements Accessible
 
     private AccessibleContext accessibleJOptionPane = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> for the
      * <code>ProgressMonitor</code>
      *
@@ -490,7 +490,7 @@ public class ProgressMonitor extends Object implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * <code>AccessibleProgressMonitor</code> implements accessibility
      * support for the <code>ProgressMonitor</code> class.
      * @since 1.5
@@ -526,7 +526,7 @@ public class ProgressMonitor extends Object implements Accessible
 
         private Object oldModelValue;
 
-        /**
+        /** {@collect.stats}
          * AccessibleProgressMonitor constructor
          */
         protected AccessibleProgressMonitor() {
@@ -559,7 +559,7 @@ public class ProgressMonitor extends Object implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the target of the listener has changed its state.
          *
          * @param e  a <code>ChangeEvent</code> object. Must not be null.
@@ -579,7 +579,7 @@ public class ProgressMonitor extends Object implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This method gets called when a bound property is changed.
          *
          * @param e A <code>PropertyChangeEvent</code> object describing
@@ -595,7 +595,7 @@ public class ProgressMonitor extends Object implements Accessible
 
         /* ===== Begin AccessileContext ===== */
 
-        /**
+        /** {@collect.stats}
          * Gets the accessibleName property of this object.  The accessibleName
          * property of an object is a localized String that designates the purpose
          * of the object.  For example, the accessibleName property of a label
@@ -620,7 +620,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the accessibleDescription property of this object.  The
          * accessibleDescription property of this object is a short localized
          * phrase describing the purpose of the object.  For example, in the
@@ -642,7 +642,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.  The role of the object is the generic
          * purpose or use of the class of this object.  For example, the role
          * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -664,7 +664,7 @@ public class ProgressMonitor extends Object implements Accessible
             return AccessibleRole.PROGRESS_MONITOR;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.  The AccessibleStateSet of an object
          * is composed of a set of unique AccessibleStates.  A change in the
          * AccessibleStateSet of an object will cause a PropertyChangeEvent to
@@ -684,7 +684,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the Accessible parent of this object.
          *
          * @return the Accessible parent of this object; null if this
@@ -707,7 +707,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the 0-based index of this object in its accessible parent.
          *
          * @return the 0-based index of this object in its parent; -1 if this
@@ -725,7 +725,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children of the object.
          *
          * @return the number of accessible children of the object.
@@ -740,7 +740,7 @@ public class ProgressMonitor extends Object implements Accessible
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specified Accessible child of the object.  The Accessible
          * children of an Accessible object are zero-based, so the first child
          * of an Accessible child is at index 0, the second child is at index 1,
@@ -774,7 +774,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the locale of the component. If the component does not have a
          * locale, then the locale of its parent is returned.
          *
@@ -796,7 +796,7 @@ public class ProgressMonitor extends Object implements Accessible
 
         /* ===== end AccessibleContext ===== */
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleComponent associated with this object that has a
          * graphical representation.
          *
@@ -811,7 +811,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleValue associated with this object that supports a
          * Numerical value.
          *
@@ -826,7 +826,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleText associated with this object presenting
          * text on the display.
          *
@@ -854,7 +854,7 @@ public class ProgressMonitor extends Object implements Accessible
 
         /* ===== Begin AccessibleText impl ===== */
 
-        /**
+        /** {@collect.stats}
          * Given a point in local coordinates, return the zero-based index
          * of the character under that Point.  If the point is invalid,
          * this method returns -1.
@@ -878,7 +878,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the bounding box of the character at the given
          * index into the string.  The bounds are returned in local
          * coordinates.  If the index is invalid an empty rectangle is returned.
@@ -913,7 +913,7 @@ public class ProgressMonitor extends Object implements Accessible
                 SwingUtilities.getWindowAncestor(dest);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of characters (valid indicies)
          *
          * @return the number of characters
@@ -926,7 +926,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the zero-based offset of the caret.
          *
          * Note: That to the right of the caret will have the same index
@@ -941,7 +941,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String at a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -956,7 +956,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String after a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -971,7 +971,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String before a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -986,7 +986,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet for a given character at a given index
          *
          * @param i the zero-based index into the text
@@ -1000,7 +1000,7 @@ public class ProgressMonitor extends Object implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the start offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1015,7 +1015,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1030,7 +1030,7 @@ public class ProgressMonitor extends Object implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the portion of the text that is selected.
          *
          * @return the String portion of the text that is selected

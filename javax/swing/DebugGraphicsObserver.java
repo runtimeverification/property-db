@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.awt.image.*;
 
-/** ImageObserver for DebugGraphics, used for images only.
+/** {@collect.stats} ImageObserver for DebugGraphics, used for images only.
   *
   * @author Dave Karlton
   */

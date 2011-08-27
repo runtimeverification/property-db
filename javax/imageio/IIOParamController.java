@@ -25,7 +25,7 @@
 
 package javax.imageio;
 
-/**
+/** {@collect.stats}
  * An interface to be implemented by objects that can determine the
  * settings of an <code>IIOParam</code> object, either by putting up a
  * GUI to obtain values from a user, or by other means.  This
@@ -98,7 +98,7 @@ package javax.imageio;
  */
 public interface IIOParamController {
 
-    /**
+    /** {@collect.stats}
      * Activates the controller.  If <code>true</code> is returned,
      * all settings in the <code>IIOParam</code> object should be
      * ready for use in a read or write operation.  If

@@ -27,7 +27,7 @@ package javax.swing.event;
 import java.util.EventObject;
 
 
-/**
+/** {@collect.stats}
  * CaretEvent is used to notify interested parties that
  * the text caret has changed in the event source.
  * <p>
@@ -44,7 +44,7 @@ import java.util.EventObject;
  */
 public abstract class CaretEvent extends EventObject {
 
-    /**
+    /** {@collect.stats}
      * Creates a new CaretEvent object.
      *
      * @param source the object responsible for the event
@@ -53,14 +53,14 @@ public abstract class CaretEvent extends EventObject {
         super(source);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the location of the caret.
      *
      * @return the dot >= 0
      */
     public abstract int getDot();
 
-    /**
+    /** {@collect.stats}
      * Fetches the location of other end of a logical
      * selection.  If there is no selection, this
      * will be the same as dot.

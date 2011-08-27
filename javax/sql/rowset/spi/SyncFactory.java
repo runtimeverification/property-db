@@ -44,7 +44,7 @@ import java.io.FileNotFoundException;
 
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
  * The Service Provider Interface (SPI) mechanism that generates <code>SyncProvider</code>
  * instances to be used by disconnected <code>RowSet</code> objects.
  * The <code>SyncProvider</code> instances in turn provide the
@@ -210,7 +210,7 @@ public class SyncFactory {
      */
     private static SyncFactory syncFactory = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SyncFactory</code> object, which is the singleton
      * instance.
      * Having a private constructor guarantees that no more than
@@ -218,72 +218,72 @@ public class SyncFactory {
      */
     private SyncFactory() {};
 
-    /**
+    /** {@collect.stats}
      * The standard property-id for a synchronization provider implementation
      * name.
      */
     public static String ROWSET_SYNC_PROVIDER =
         "rowset.provider.classname";
 
-    /**
+    /** {@collect.stats}
      * The standard property-id for a synchronization provider implementation
      * vendor name.
      */
     public static String ROWSET_SYNC_VENDOR =
         "rowset.provider.vendor";
 
-    /**
+    /** {@collect.stats}
      * The standard property-id for a synchronization provider implementation
      * version tag.
      */
     public static String ROWSET_SYNC_PROVIDER_VERSION =
         "rowset.provider.version";
 
-    /**
+    /** {@collect.stats}
      * The standard resource file name.
      */
     private static String ROWSET_PROPERTIES = "rowset.properties";
 
-    /**
+    /** {@collect.stats}
      * The RI Optimistic Provider.
      */
     private static String default_provider =
         "com.sun.rowset.providers.RIOptimisticProvider";
 
-    /**
+    /** {@collect.stats}
      * The initial JNDI context where <code>SyncProvider</code> implementations can
      * be stored and from which they can be invoked.
      */
     private static Context ic;
 
-    /**
+    /** {@collect.stats}
      * The <code>Logger</code> object to be used by the <code>SyncFactory</code>.
      */
     private static Logger rsLogger;
 
-    /**
+    /** {@collect.stats}
      *
      */
     private static Level rsLevel;
 
-    /**
+    /** {@collect.stats}
      * The registry of available <code>SyncProvider</code> implementations.
      * See section 2.0 of the class comment for <code>SyncFactory</code> for an
      * explanation of how a provider can be added to this registry.
      */
     private static Hashtable implementations;
 
-    /**
+    /** {@collect.stats}
      * Internal sync object used to maintain the SPI as a singleton
      */
     private static Object logSync = new Object();
 
-    /**
+    /** {@collect.stats}
      * Internal PrintWriter field for logging facility
      */
     private static java.io.PrintWriter logWriter = null;
 
-    /**
+    /** {@collect.stats}
      * Adds the the given synchronization provider to the factory register. Guidelines
      * are provided in the <code>SyncProvider</code> specification for the
      * required naming conventions for <code>SyncProvider</code>
@@ -320,7 +320,7 @@ public class SyncFactory {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SyncFactory</code> singleton.
      *
      * @return the <code>SyncFactory</code> instance
@@ -349,7 +349,7 @@ public class SyncFactory {
          return syncFactory;
      }
 
-    /**
+    /** {@collect.stats}
      * Removes the designated currently registered synchronization provider from the
      * Factory SPI register.
      *
@@ -448,24 +448,24 @@ public class SyncFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The internal boolean switch that indicates whether a JNDI
      * context has been established or not.
      */
     private static boolean jndiCtxEstablished = false;
 
-    /**
+    /** {@collect.stats}
      * The internal debug switch.
      */
     private static boolean debug = false;
 
-    /**
+    /** {@collect.stats}
      * Internal registry count for the number of providers contained in the
      * registry.
      */
     private static int providerImplIndex = 0;
 
-    /**
+    /** {@collect.stats}
      * Internal handler for all standard property parsing. Parses standard
      * ROWSET properties and stores lazy references into the the internal registry.
      */
@@ -503,14 +503,14 @@ public class SyncFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Used by the parseProperties methods to disassemble each property tuple.
      */
     private static String[] getPropertyNames(boolean append) {
         return getPropertyNames(append, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Disassembles each property and its associated value. Also handles
      * overloaded property names that contain indexes.
      */
@@ -533,7 +533,7 @@ public class SyncFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Internal debug method that outputs the registry contents.
      */
     private static void showImpl(ProviderImpl impl) {
@@ -544,7 +544,7 @@ public class SyncFactory {
         System.out.println("Impl index: " + impl.getIndex());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SyncProvider</code> instance identified by <i>providerID</i>.
      *
      * @param providerID the unique identifier of the provider
@@ -569,7 +569,7 @@ public class SyncFactory {
         try {
             ClassLoader cl = Thread.currentThread().getContextClassLoader();
 
-            /**
+            /** {@collect.stats}
              * The SyncProvider implementation of the user will be in
              * the classpath. We need to find the ClassLoader which loads
              * this SyncFactory and try to laod the SyncProvider class from
@@ -592,7 +592,7 @@ public class SyncFactory {
             throw new SyncFactoryException("ClassNotFoundException: " + e.getMessage());
         }
     }
-    /**
+    /** {@collect.stats}
      * Returns an Enumeration of currently registered synchronization
      * providers.  A <code>RowSet</code> implementation may use any provider in
      * the enumeration as its <code>SyncProvider</code> object.
@@ -612,7 +612,7 @@ public class SyncFactory {
         return implementations.elements();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the logging object to be used by the <code>SyncProvider</code>
      * implementation provided by the <code>SyncFactory</code>. All
      * <code>SyncProvider</code> implementations can log their events to
@@ -625,7 +625,7 @@ public class SyncFactory {
         rsLogger = logger;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the logging object that is used by <code>SyncProvider</code>
      * implementations provided by the <code>SyncFactory</code> SPI. All
      * <code>SyncProvider</code> implementations can log their events
@@ -643,7 +643,7 @@ public class SyncFactory {
         rsLogger.setLevel(level);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the logging object for applications to retrieve
      * synchronization events posted by SyncProvider implementations.
      *
@@ -657,7 +657,7 @@ public class SyncFactory {
         return rsLogger;
     }
 
-   /**
+   /** {@collect.stats}
     * Sets the initial JNDI context from which SyncProvider implementations
     * can be retrieved from a JNDI namespace
     *
@@ -673,7 +673,7 @@ public class SyncFactory {
         jndiCtxEstablished = true;
    }
 
-    /**
+    /** {@collect.stats}
      * Controls JNDI context intialization.
      *
      * @throws SyncFactoryException if an error occurs parsing the JNDI context
@@ -693,12 +693,12 @@ public class SyncFactory {
             }
         }
     }
-    /**
+    /** {@collect.stats}
      * Internal switch indicating whether the JNDI namespace should be re-read.
      */
     private static boolean lazyJNDICtxRefresh = false;
 
-    /**
+    /** {@collect.stats}
      * Parses the set JNDI Context and passes bindings to the enumerateBindings
      * method when complete.
      */
@@ -713,7 +713,7 @@ public class SyncFactory {
         return properties;
     }
 
-    /**
+    /** {@collect.stats}
      * Scans each binding on JNDI context and determines if any binding is an
      * instance of SyncProvider, if so, add this to the registry and continue to
      * scan the current context using a re-entrant call to this method until all
@@ -756,7 +756,7 @@ public class SyncFactory {
     }
 }
 
-   /**
+   /** {@collect.stats}
      * Internal class that defines the lazy reference construct for each registered
      * SyncProvider implementation.
      */

@@ -32,7 +32,7 @@ import java.util.Enumeration;
 import javax.naming.NamingException;
 import javax.naming.NamingEnumeration;
 
-/**
+/** {@collect.stats}
   * This interface represents a collection of attributes.
   *<p>
   * In a directory, named objects can have associated with them
@@ -69,21 +69,21 @@ import javax.naming.NamingEnumeration;
   */
 
 public interface Attributes extends Cloneable, java.io.Serializable {
-    /**
+    /** {@collect.stats}
       * Determines whether the attribute set ignores the case of
       * attribute identifiers when retrieving or adding attributes.
       * @return true if case is ignored; false otherwise.
       */
     boolean isCaseIgnored();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the number of attributes in the attribute set.
       *
       * @return The nonnegative number of attributes in this attribute set.
       */
     int size();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the attribute with the given attribute id from the
       * attribute set.
       *
@@ -97,7 +97,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     Attribute get(String attrID);
 
-    /**
+    /** {@collect.stats}
       * Retrieves an enumeration of the attributes in the attribute set.
       * The effects of updates to this attribute set on this enumeration
       * are undefined.
@@ -109,7 +109,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     NamingEnumeration<? extends Attribute> getAll();
 
-    /**
+    /** {@collect.stats}
       * Retrieves an enumeration of the ids of the attributes in the
       * attribute set.
       * The effects of updates to this attribute set on this enumeration
@@ -123,7 +123,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     NamingEnumeration<String> getIDs();
 
-    /**
+    /** {@collect.stats}
       * Adds a new attribute to the attribute set.
       *
       * @param attrID   non-null The id of the attribute to add.
@@ -138,7 +138,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     Attribute put(String attrID, Object val);
 
-    /**
+    /** {@collect.stats}
       * Adds a new attribute to the attribute set.
       *
       * @param attr     The non-null attribute to add.
@@ -152,7 +152,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     Attribute put(Attribute attr);
 
-    /**
+    /** {@collect.stats}
       * Removes the attribute with the attribute id 'attrID' from
       * the attribute set. If the attribute does not exist, ignore.
       *
@@ -166,7 +166,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     Attribute remove(String attrID);
 
-    /**
+    /** {@collect.stats}
       * Makes a copy of the attribute set.
       * The new set contains the same attributes as the original set:
       * the attributes are not themselves cloned.
@@ -176,7 +176,7 @@ public interface Attributes extends Cloneable, java.io.Serializable {
       */
     Object clone();
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     // static final long serialVersionUID = -7247874645443605347L;

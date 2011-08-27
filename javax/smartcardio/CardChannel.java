@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.nio.*;
 
-/**
+/** {@collect.stats}
  * A logical channel connection to a Smart Card. It is used to exchange APDUs
  * with a Smart Card.
  * A CardChannel object can be obtained by calling the method
@@ -43,7 +43,7 @@ import java.nio.*;
  */
 public abstract class CardChannel {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardChannel object.
      *
      * <p>This constructor is called by subclasses only. Application should
@@ -55,14 +55,14 @@ public abstract class CardChannel {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Card this channel is associated with.
      *
      * @return the Card this channel is associated with
      */
     public abstract Card getCard();
 
-    /**
+    /** {@collect.stats}
      * Returns the channel number of this CardChannel. A channel number of
      * 0 indicates the basic logical channel.
      *
@@ -74,7 +74,7 @@ public abstract class CardChannel {
      */
     public abstract int getChannelNumber();
 
-    /**
+    /** {@collect.stats}
      * Transmits the specified command APDU to the Smart Card and returns the
      * response APDU.
      *
@@ -120,7 +120,7 @@ public abstract class CardChannel {
      */
     public abstract ResponseAPDU transmit(CommandAPDU command) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Transmits the command APDU stored in the command ByteBuffer and receives
      * the reponse APDU in the response ByteBuffer.
      *
@@ -163,7 +163,7 @@ public abstract class CardChannel {
     public abstract int transmit(ByteBuffer command, ByteBuffer response)
         throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Closes this CardChannel. The logical channel is closed by issuing
      * a <code>MANAGE CHANNEL</code> command that should use the format
      * <code>[xx 70 80 0n]</code> where <code>n</code> is the channel number

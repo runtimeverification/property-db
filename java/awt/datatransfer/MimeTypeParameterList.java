@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Set;
 
 
-/**
+/** {@collect.stats}
  * An object that encapsualtes the parameter list of a MimeType
  * as defined in RFC 2045 and 2046.
  *
@@ -40,7 +40,7 @@ import java.util.Set;
  */
 class MimeTypeParameterList implements Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public MimeTypeParameterList() {
@@ -70,7 +70,7 @@ class MimeTypeParameterList implements Cloneable {
         return code;
     } // hashCode()
 
-    /**
+    /** {@collect.stats}
      * Two parameter lists are considered equal if they have exactly
      * the same set of parameter names and associated values. The
      * order of the parameters is not considered.
@@ -108,7 +108,7 @@ class MimeTypeParameterList implements Cloneable {
         return true;
     } // equals()
 
-    /**
+    /** {@collect.stats}
      * A routine for parsing the parameter list out of a String.
      */
     protected void parse(String rawdata) throws MimeTypeParseException {
@@ -231,21 +231,21 @@ class MimeTypeParameterList implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * return the number of name-value pairs in this list.
      */
     public int size() {
         return parameters.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Determine whether or not this list is empty.
      */
     public boolean isEmpty() {
         return parameters.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the value associated with the given name, or null if there
      * is no current association.
      */
@@ -253,7 +253,7 @@ class MimeTypeParameterList implements Cloneable {
         return (String)parameters.get(name.trim().toLowerCase());
     }
 
-    /**
+    /** {@collect.stats}
      * Set the value to be associated with the given name, replacing
      * any previous association.
      */
@@ -261,14 +261,14 @@ class MimeTypeParameterList implements Cloneable {
         parameters.put(name.trim().toLowerCase(), value);
     }
 
-    /**
+    /** {@collect.stats}
      * Remove any value associated with the given name.
      */
     public void remove(String name) {
         parameters.remove(name.trim().toLowerCase());
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve an enumeration of all the names in this list.
      */
     public Enumeration getNames() {
@@ -293,7 +293,7 @@ class MimeTypeParameterList implements Cloneable {
         return buffer.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * @return a clone of this object
      */
 
@@ -311,14 +311,14 @@ class MimeTypeParameterList implements Cloneable {
 
     //    below here be scary parsing related things
 
-    /**
+    /** {@collect.stats}
      * Determine whether or not a given character belongs to a legal token.
      */
     private static boolean isTokenChar(char c) {
         return ((c > 040) && (c < 0177)) && (TSPECIALS.indexOf(c) < 0);
     }
 
-    /**
+    /** {@collect.stats}
      * return the index of the first non white space character in
      * rawdata at or after index i.
      */
@@ -335,7 +335,7 @@ class MimeTypeParameterList implements Cloneable {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * A routine that knows how and when to quote and escape the given value.
      */
     private static String quote(String value) {
@@ -373,7 +373,7 @@ class MimeTypeParameterList implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A routine that knows how to strip the quotes and escape sequences from the given value.
      */
     private static String unquote(String value) {
@@ -396,7 +396,7 @@ class MimeTypeParameterList implements Cloneable {
         return buffer.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * A string that holds all the special chars.
      */
     private static final String TSPECIALS = "()<>@,;:\\\"/[]?=";

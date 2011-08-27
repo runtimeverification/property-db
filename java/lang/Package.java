@@ -51,7 +51,7 @@ import sun.net.www.ParseUtil;
 
 import java.lang.annotation.Annotation;
 
-/**
+/** {@collect.stats}
  * {@code Package} objects contain version information
  * about the implementation and specification of a Java package.
  * This versioning information is retrieved and made available
@@ -106,7 +106,7 @@ import java.lang.annotation.Annotation;
  * @see ClassLoader#definePackage
  */
 public class Package implements java.lang.reflect.AnnotatedElement {
-    /**
+    /** {@collect.stats}
      * Return the name of this package.
      *
      * @return  The fully-qualified name of this package as defined in the
@@ -119,7 +119,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the title of the specification that this package implements.
      * @return the specification title, null is returned if it is not known.
      */
@@ -127,7 +127,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return specTitle;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the version number of the specification
      * that this package implements.
      * This version string must be a sequence of nonnegative decimal
@@ -140,7 +140,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return specVersion;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the name of the organization, vendor,
      * or company that owns and maintains the specification
      * of the classes that implement this package.
@@ -150,7 +150,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return specVendor;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the title of this package.
      * @return the title of the implementation, null is returned if it is not known.
      */
@@ -158,7 +158,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return implTitle;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the version of this implementation. It consists of any string
      * assigned by the vendor of this implementation and does
      * not have any particular syntax specified or expected by the Java
@@ -171,7 +171,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return implVersion;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the organization,
      * vendor or company that provided this implementation.
      * @return the vendor that implemented this package..
@@ -180,7 +180,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return implVendor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this package is sealed.
      *
      * @return true if the package is sealed, false otherwise
@@ -189,7 +189,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return sealBase != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this package is sealed with respect to the specified
      * code source url.
      *
@@ -200,7 +200,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return url.equals(sealBase);
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this package's specification version with a
      * desired version. It returns true if
      * this packages specification version number is greater than or equal
@@ -257,7 +257,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Find a package by name in the callers {@code ClassLoader} instance.
      * The callers {@code ClassLoader} instance is used to find the package
      * instance corresponding to the named class. If the callers
@@ -282,7 +282,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get all the packages currently known for the caller's {@code ClassLoader}
      * instance.  Those packages correspond to classes loaded via or accessible by
      * name to that {@code ClassLoader} instance.  If the caller's
@@ -303,7 +303,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the package for the specified class.
      * The class's class loader is used to find the package instance
      * corresponding to the specified class. If the class loader
@@ -336,7 +336,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the hash code computed from the package name.
      * @return the hash code computed from the package name.
      */
@@ -344,7 +344,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return pkgName.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation of this Package.
      * Its value is the string "package " and the package name.
      * If the package title is defined it is appended.
@@ -378,7 +378,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return packageInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -386,7 +386,7 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return getPackageInfo().getAnnotation(annotationClass);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -395,21 +395,21 @@ public class Package implements java.lang.reflect.AnnotatedElement {
         return getPackageInfo().isAnnotationPresent(annotationClass);
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getAnnotations() {
         return getPackageInfo().getAnnotations();
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {
         return getPackageInfo().getDeclaredAnnotations();
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a package instance with the specified version
      * information.
      * @param pkgName the name of the package

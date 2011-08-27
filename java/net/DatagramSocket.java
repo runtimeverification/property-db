@@ -32,7 +32,7 @@ import java.nio.channels.DatagramChannel;
 import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 
-/**
+/** {@collect.stats}
  * This class represents a socket for sending and receiving datagram packets.
  *
  * <p>A datagram socket is the sending or receiving point for a packet
@@ -66,7 +66,7 @@ import java.security.PrivilegedExceptionAction;
  */
 public
 class DatagramSocket {
-    /**
+    /** {@collect.stats}
      * Various states of this socket.
      */
     private boolean created = false;
@@ -79,7 +79,7 @@ class DatagramSocket {
      */
     DatagramSocketImpl impl;
 
-    /**
+    /** {@collect.stats}
      * Are we using an older DatagramSocketImpl?
      */
     boolean oldImpl = false;
@@ -102,7 +102,7 @@ class DatagramSocket {
     InetAddress connectedAddress = null;
     int connectedPort = -1;
 
-    /**
+    /** {@collect.stats}
      * Connects this socket to a remote socket address (IP address + port number).
      * Binds socket if not already bound.
      * <p>
@@ -154,7 +154,7 @@ class DatagramSocket {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram socket and binds it to any available port
      * on the local host machine.  The socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
@@ -184,7 +184,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unbound datagram socket with the specified
      * DatagramSocketImpl.
      *
@@ -199,7 +199,7 @@ class DatagramSocket {
         checkOldImpl();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a datagram socket, bound to the specified local
      * socket address.
      * <p>
@@ -230,7 +230,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram socket and binds it to the specified port
      * on the local host machine.  The socket will be bound to the
      * {@link InetAddress#isAnyLocalAddress wildcard} address,
@@ -254,7 +254,7 @@ class DatagramSocket {
         this(port, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a datagram socket, bound to the specified local
      * address.  The local port must be between 0 and 65535 inclusive.
      * If the IP address is 0.0.0.0, the socket will be bound to the
@@ -320,7 +320,7 @@ class DatagramSocket {
         created = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>DatagramSocketImpl</code> attached to this socket,
      * creating it if necessary.
      *
@@ -335,7 +335,7 @@ class DatagramSocket {
         return impl;
     }
 
-    /**
+    /** {@collect.stats}
      * Binds this DatagramSocket to a specific address & port.
      * <p>
      * If the address is <code>null</code>, then the system will pick up
@@ -387,7 +387,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Connects the socket to a remote address for this socket. When a
      * socket is connected to a remote address, packets may only be
      * sent to or received from that address. By default a datagram
@@ -431,7 +431,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Connects this socket to a remote socket address (IP address + port number).
      * <p>
      * @param   addr    The remote address.
@@ -452,7 +452,7 @@ class DatagramSocket {
         connectInternal(epoint.getAddress(), epoint.getPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Disconnects the socket. This does nothing if the socket is not
      * connected.
      *
@@ -471,7 +471,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the binding state of the socket.
      *
      * @return true if the socket successfully bound to an address
@@ -481,7 +481,7 @@ class DatagramSocket {
         return bound;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the connection state of the socket.
      *
      * @return true if the socket successfully connected to a server
@@ -491,7 +491,7 @@ class DatagramSocket {
         return connectState != ST_NOT_CONNECTED;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address to which this socket is connected. Returns
      * <code>null</code> if the socket is not connected.
      *
@@ -501,7 +501,7 @@ class DatagramSocket {
         return connectedAddress;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the port number to which this socket is connected.
      * Returns <code>-1</code> if the socket is not connected.
      *
@@ -511,7 +511,7 @@ class DatagramSocket {
         return connectedPort;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is connected to, or
      * <code>null</code> if it is unconnected.
      *
@@ -529,7 +529,7 @@ class DatagramSocket {
         return new InetSocketAddress(getInetAddress(), getPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      *
@@ -549,7 +549,7 @@ class DatagramSocket {
         return new InetSocketAddress(getLocalAddress(), getLocalPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a datagram packet from this socket. The
      * <code>DatagramPacket</code> includes information indicating the
      * data to be sent, its length, the IP address of the remote host,
@@ -630,7 +630,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Receives a datagram packet from this socket. When this method
      * returns, the <code>DatagramPacket</code>'s buffer is filled with
      * the data received. The datagram packet also contains the sender's
@@ -730,7 +730,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the local address to which the socket is bound.
      *
      * <p>If there is a security manager, its
@@ -765,7 +765,7 @@ class DatagramSocket {
         return in;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the port number on the local host to which this socket
      * is bound.
      *
@@ -781,7 +781,7 @@ class DatagramSocket {
         }
     }
 
-    /** Enable/disable SO_TIMEOUT with the specified timeout, in
+    /** {@collect.stats} Enable/disable SO_TIMEOUT with the specified timeout, in
      *  milliseconds. With this option set to a non-zero timeout,
      *  a call to receive() for this DatagramSocket
      *  will block for only this amount of time.  If the timeout expires,
@@ -802,7 +802,7 @@ class DatagramSocket {
         getImpl().setOption(SocketOptions.SO_TIMEOUT, new Integer(timeout));
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
      *
@@ -825,7 +825,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SO_SNDBUF option to the specified value for this
      * <tt>DatagramSocket</tt>. The SO_SNDBUF option is used by the
      * network implementation as a hint to size the underlying
@@ -864,7 +864,7 @@ class DatagramSocket {
         getImpl().setOption(SocketOptions.SO_SNDBUF, new Integer(size));
     }
 
-    /**
+    /** {@collect.stats}
      * Get value of the SO_SNDBUF option for this <tt>DatagramSocket</tt>, that is the
      * buffer size used by the platform for output on this <tt>DatagramSocket</tt>.
      *
@@ -884,7 +884,7 @@ class DatagramSocket {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SO_RCVBUF option to the specified value for this
      * <tt>DatagramSocket</tt>. The SO_RCVBUF option is used by the
      * the network implementation as a hint to size the underlying
@@ -922,7 +922,7 @@ class DatagramSocket {
         getImpl().setOption(SocketOptions.SO_RCVBUF, new Integer(size));
     }
 
-    /**
+    /** {@collect.stats}
      * Get value of the SO_RCVBUF option for this <tt>DatagramSocket</tt>, that is the
      * buffer size used by the platform for input on this <tt>DatagramSocket</tt>.
      *
@@ -942,7 +942,7 @@ class DatagramSocket {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * For UDP sockets it may be necessary to bind more than one
@@ -986,7 +986,7 @@ class DatagramSocket {
             getImpl().setOption(SocketOptions.SO_REUSEADDR, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if SO_REUSEADDR is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
@@ -1002,7 +1002,7 @@ class DatagramSocket {
         return ((Boolean)o).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable SO_BROADCAST.
      * @param on     whether or not to have broadcast turned on.
      * @exception SocketException if there is an error
@@ -1016,7 +1016,7 @@ class DatagramSocket {
         getImpl().setOption(SocketOptions.SO_BROADCAST, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if SO_BROADCAST is enabled.
      * @return a <code>boolean</code> indicating whether or not SO_BROADCAST is enabled.
      * @exception SocketException if there is an error
@@ -1030,7 +1030,7 @@ class DatagramSocket {
         return ((Boolean)(getImpl().getOption(SocketOptions.SO_BROADCAST))).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets traffic class or type-of-service octet in the IP
      * datagram header for datagrams sent from this DatagramSocket.
      * As the underlying network implementation may ignore this
@@ -1075,7 +1075,7 @@ class DatagramSocket {
         getImpl().setOption(SocketOptions.IP_TOS, new Integer(tc));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets traffic class or type-of-service in the IP datagram
      * header for packets sent from this DatagramSocket.
      * <p>
@@ -1097,7 +1097,7 @@ class DatagramSocket {
         return ((Integer)(getImpl().getOption(SocketOptions.IP_TOS))).intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this datagram socket.
      * <p>
      * Any thread currently blocked in {@link #receive} upon this socket
@@ -1118,7 +1118,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the socket is closed or not.
      *
      * @return true if the socket has been closed
@@ -1130,7 +1130,7 @@ class DatagramSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.DatagramChannel} object
      * associated with this datagram socket, if any.
      *
@@ -1148,12 +1148,12 @@ class DatagramSocket {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * User defined factory for all datagram sockets.
      */
     static DatagramSocketImplFactory factory;
 
-    /**
+    /** {@collect.stats}
      * Sets the datagram socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>

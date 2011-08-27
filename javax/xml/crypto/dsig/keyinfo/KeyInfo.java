@@ -32,7 +32,7 @@ import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.XMLCryptoContext;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>KeyInfo</code> element as defined in
  * the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -80,7 +80,7 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface KeyInfo extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} containing the key information. Each entry of the list is
      * an {@link XMLStructure}.
@@ -96,7 +96,7 @@ public interface KeyInfo extends XMLStructure {
      */
     List getContent();
 
-    /**
+    /** {@collect.stats}
      * Return the optional Id attribute of this <code>KeyInfo</code>, which
      * may be useful for referencing this <code>KeyInfo</code> from other
      * XML structures.
@@ -106,7 +106,7 @@ public interface KeyInfo extends XMLStructure {
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Marshals the key info to XML.
      *
      * @param parent a mechanism-specific structure containing the parent node

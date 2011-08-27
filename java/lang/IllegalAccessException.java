@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * An IllegalAccessException is thrown when an application tries
  * to reflectively create an instance (other than an array),
  * set or get a field, or invoke a method, but the currently
@@ -57,7 +57,7 @@ package java.lang;
  * @since   JDK1.0
  */
 public class IllegalAccessException extends Exception {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalAccessException</code> without a
      * detail message.
      */
@@ -65,7 +65,7 @@ public class IllegalAccessException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalAccessException</code> with a detail message.
      *
      * @param   s   the detail message.

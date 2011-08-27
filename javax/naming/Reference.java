@@ -28,7 +28,7 @@ package javax.naming;
 import java.util.Vector;
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
   * This class represents a reference to an object that is found outside of
   * the naming/directory system.
   *<p>
@@ -81,21 +81,21 @@ import java.util.Enumeration;
 
 
 public class Reference implements Cloneable, java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Contains the fully-qualified name of the class of the object to which
      * this Reference refers.
      * @serial
      * @see java.lang.Class#getName
      */
     protected String className;
-    /**
+    /** {@collect.stats}
      * Contains the addresses contained in this Reference.
      * Initialized by constructor.
      * @serial
      */
     protected Vector<RefAddr> addrs = null;
 
-    /**
+    /** {@collect.stats}
      * Contains the name of the factory class for creating
      * an instance of the object to which this Reference refers.
      * Initialized to null.
@@ -103,14 +103,14 @@ public class Reference implements Cloneable, java.io.Serializable {
      */
     protected String classFactory = null;
 
-    /**
+    /** {@collect.stats}
      * Contains the location of the factory class.
      * Initialized to null.
      * @serial
      */
     protected String classFactoryLocation = null;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new reference for an object with class name 'className'.
       * Class factory and class factory location are set to null.
       * The newly created reference contains zero addresses.
@@ -123,7 +123,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         addrs = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new reference for an object with class name 'className' and
       * an address.
       * Class factory and class factory location are set to null.
@@ -138,7 +138,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         addrs.addElement(addr);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new reference for an object with class name 'className',
       * and the class name and location of the object's factory.
       *
@@ -157,7 +157,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         classFactoryLocation = factoryLocation;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new reference for an object with class name 'className',
       * the class name and location of the object's factory, and the address for
       * the object.
@@ -178,7 +178,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         classFactoryLocation = factoryLocation;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the class name of the object to which this reference refers.
       *
       * @return The non-null fully-qualified class name of the object.
@@ -188,7 +188,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the class name of the factory of the object
       * to which this reference refers.
       *
@@ -199,7 +199,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return classFactory;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the location of the factory of the object
       * to which this reference refers.
       * If it is a codebase, then it is an ordered list of URLs,
@@ -213,7 +213,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return classFactoryLocation;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the first address that has the address type 'addrType'.
       * String.compareTo() is used to test the equality of the address types.
       *
@@ -232,7 +232,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the address at index posn.
       * @param posn The index of the address to retrieve.
       * @return The address at the 0-based index posn. It must be in the
@@ -244,7 +244,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return ((RefAddr) addrs.elementAt(posn));
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves an enumeration of the addresses in this reference.
       * When addresses are added, changed or removed from this reference,
       * its effects on this enumeration are undefined.
@@ -258,7 +258,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return addrs.elements();
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the number of addresses in this reference.
       *
       * @return The nonnegative number of addresses in this reference.
@@ -267,7 +267,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return addrs.size();
     }
 
-    /**
+    /** {@collect.stats}
       * Adds an address to the end of the list of addresses.
       *
       * @param addr The non-null address to add.
@@ -276,7 +276,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         addrs.addElement(addr);
     }
 
-    /**
+    /** {@collect.stats}
       * Adds an address to the list of addresses at index posn.
       * All addresses at index posn or greater are shifted up
       * the list by one (away from index 0).
@@ -290,7 +290,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         addrs.insertElementAt(addr, posn);
     }
 
-    /**
+    /** {@collect.stats}
       * Deletes the address at index posn from the list of addresses.
       * All addresses at index greater than posn are shifted down
       * the list by one (towards index 0).
@@ -306,14 +306,14 @@ public class Reference implements Cloneable, java.io.Serializable {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
       * Deletes all addresses from this reference.
       */
     public void clear() {
         addrs.setSize(0);
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether obj is a reference with the same addresses
       * (in same order) as this reference.
       * The addresses are checked using RefAddr.equals().
@@ -342,7 +342,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
       * Computes the hash code of this reference.
       * The hash code is the sum of the hash code of its addresses.
       *
@@ -355,7 +355,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this reference.
       * The string consists of the class name to which this reference refers,
       * and the string representation of each of its addresses.
@@ -373,7 +373,7 @@ public class Reference implements Cloneable, java.io.Serializable {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of this reference using its class name
      * list of addresses, class factory name and class factory location.
      * Changes to the newly created copy does not affect this Reference
@@ -388,7 +388,7 @@ public class Reference implements Cloneable, java.io.Serializable {
             r.addrs.addElement(a.nextElement());
         return r;
     }
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -1673475790065791735L;

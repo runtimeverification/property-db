@@ -28,7 +28,7 @@ package javax.imageio;
 import java.awt.Dimension;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * A class describing how a stream is to be encoded.  Instances of
  * this class or its subclasses are used to supply prescriptive
  * "how-to" information to instances of <code>ImageWriter</code>.
@@ -85,7 +85,7 @@ import java.util.Locale;
  */
 public class ImageWriteParam extends IIOParam {
 
-    /**
+    /** {@collect.stats}
      * A constant value that may be passed into methods such as
      * <code>setTilingMode</code>, <code>setProgressiveMode</code>,
      * and <code>setCompressionMode</code> to disable a feature for
@@ -106,7 +106,7 @@ public class ImageWriteParam extends IIOParam {
      */
     public static final int MODE_DISABLED = 0;
 
-    /**
+    /** {@collect.stats}
      * A constant value that may be passed into methods such as
      * <code>setTilingMode</code>,
      * <code>setProgressiveMode</code>, and
@@ -129,7 +129,7 @@ public class ImageWriteParam extends IIOParam {
      */
     public static final int MODE_DEFAULT = 1;
 
-    /**
+    /** {@collect.stats}
      * A constant value that may be passed into methods such as
      * <code>setTilingMode</code> or <code>setCompressionMode</code>
      * to enable a feature for future writes. That is, when this mode
@@ -151,7 +151,7 @@ public class ImageWriteParam extends IIOParam {
      */
     public static final int MODE_EXPLICIT = 2;
 
-    /**
+    /** {@collect.stats}
      * A constant value that may be passed into methods such as
      * <code>setTilingMode</code>, <code>setProgressiveMode</code>, or
      * <code>setCompressionMode</code> to enable that feature for
@@ -180,7 +180,7 @@ public class ImageWriteParam extends IIOParam {
     // If more modes are added, this should be updated.
     private static final int MAX_MODE = MODE_COPY_FROM_METADATA;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> that is <code>true</code> if this
      * <code>ImageWriteParam</code> allows tile width and tile height
      * parameters to be set.  By default, the value is
@@ -191,7 +191,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected boolean canWriteTiles = false;
 
-    /**
+    /** {@collect.stats}
      * The mode controlling tiling settings, which Must be
      * set to one of the four <code>MODE_*</code> values.  The default
      * is <code>MODE_COPY_FROM_METADATA</code>.
@@ -207,7 +207,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int tilingMode = MODE_COPY_FROM_METADATA;
 
-    /**
+    /** {@collect.stats}
      * An array of preferred tile size range pairs.  The default value
      * is <code>null</code>, which indicates that there are no
      * preferred sizes.  If the value is non-<code>null</code>, it
@@ -220,7 +220,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected Dimension[] preferredTileSizes = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> that is <code>true</code> if tiling
      * parameters have been specified.
      *
@@ -229,7 +229,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected boolean tilingSet = false;
 
-    /**
+    /** {@collect.stats}
      * The width of each tile if tiling has been set, or 0 otherwise.
      *
      * <p> Subclasses that do not support tiling may ignore this
@@ -237,7 +237,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int tileWidth = 0;
 
-    /**
+    /** {@collect.stats}
      * The height of each tile if tiling has been set, or 0 otherwise.
      * The initial value is <code>0</code>.
      *
@@ -246,7 +246,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int tileHeight = 0;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> that is <code>true</code> if this
      * <code>ImageWriteParam</code> allows tiling grid offset
      * parameters to be set.  By default, the value is
@@ -258,7 +258,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected boolean canOffsetTiles = false;
 
-    /**
+    /** {@collect.stats}
      * The amount by which the tile grid origin should be offset
      * horizontally from the image origin if tiling has been set,
      * or 0 otherwise.  The initial value is <code>0</code>.
@@ -268,7 +268,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int tileGridXOffset = 0;
 
-    /**
+    /** {@collect.stats}
      * The amount by which the tile grid origin should be offset
      * vertically from the image origin if tiling has been set,
      * or 0 otherwise.  The initial value is <code>0</code>.
@@ -278,7 +278,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int tileGridYOffset = 0;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> that is <code>true</code> if this
      * <code>ImageWriteParam</code> allows images to be written as a
      * progressive sequence of increasing quality passes.  By default,
@@ -290,7 +290,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected boolean canWriteProgressive = false;
 
-    /**
+    /** {@collect.stats}
      * The mode controlling progressive encoding, which must be set to
      * one of the four <code>MODE_*</code> values, except
      * <code>MODE_EXPLICIT</code>.  The default is
@@ -308,7 +308,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int progressiveMode = MODE_COPY_FROM_METADATA;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> that is <code>true</code> if this writer
      * can write images using compression. By default, the value is
      * <code>false</code>.  Subclasses must set the value manually.
@@ -318,7 +318,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected boolean canWriteCompressed = false;
 
-    /**
+    /** {@collect.stats}
      * The mode controlling compression settings, which must be set to
      * one of the four <code>MODE_*</code> values.  The default is
      * <code>MODE_COPY_FROM_METADATA</code>.
@@ -335,7 +335,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected int compressionMode = MODE_COPY_FROM_METADATA;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>String</code>s containing the names of the
      * available compression types.  Subclasses must set the value
      * manually.
@@ -345,7 +345,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected String[] compressionTypes = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the name of the current
      * compression type, or <code>null</code> if none is set.
      *
@@ -354,7 +354,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected String compressionType = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>float</code> containing the current compression quality
      * setting.  The initial value is <code>1.0F</code>.
      *
@@ -363,7 +363,7 @@ public class ImageWriteParam extends IIOParam {
      */
     protected float compressionQuality = 1.0F;
 
-    /**
+    /** {@collect.stats}
      * A <code>Locale</code> to be used to localize compression type
      * names and quality descriptions, or <code>null</code> to use a
      * default <code>Locale</code>.  Subclasses must set the value
@@ -371,13 +371,13 @@ public class ImageWriteParam extends IIOParam {
      */
     protected Locale locale = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <code>ImageWriteParam</code>.  It is up to
      * the subclass to set up the instance variables properly.
      */
     protected ImageWriteParam() {}
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageWriteParam</code> set to use a
      * given <code>Locale</code>.
      *
@@ -401,7 +401,7 @@ public class ImageWriteParam extends IIOParam {
         return temp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set <code>Locale</code>, or
      * <code>null</code> if only a default <code>Locale</code> is
      * supported.
@@ -412,7 +412,7 @@ public class ImageWriteParam extends IIOParam {
         return locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer can perform tiling
      * while writing.  If this method returns <code>false</code>, then
      * <code>setTiling</code> will throw an
@@ -427,7 +427,7 @@ public class ImageWriteParam extends IIOParam {
         return canWriteTiles;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer can perform tiling with
      * non-zero grid offsets while writing.  If this method returns
      * <code>false</code>, then <code>setTiling</code> will throw an
@@ -446,7 +446,7 @@ public class ImageWriteParam extends IIOParam {
         return canOffsetTiles;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the image will be tiled in the output
      * stream and, if it will, how the tiling parameters will be
      * determined.  The modes are interpreted as follows:
@@ -496,7 +496,7 @@ public class ImageWriteParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current tiling mode, if tiling is supported.
      * Otherwise throws an <code>UnsupportedOperationException</code>.
      *
@@ -514,7 +514,7 @@ public class ImageWriteParam extends IIOParam {
         return tilingMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Dimension</code>s indicating the
      * legal size ranges for tiles as they will be encoded in the
      * output file or stream.  The returned array is a copy.
@@ -544,7 +544,7 @@ public class ImageWriteParam extends IIOParam {
         return clonePreferredTileSizes(preferredTileSizes);
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that the image should be tiled in the output stream.
      * The <code>tileWidth</code> and <code>tileHeight</code>
      * parameters specify the width and height of the tiles in the
@@ -622,7 +622,7 @@ public class ImageWriteParam extends IIOParam {
         this.tileGridYOffset = tileGridYOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any previous tile grid parameters specified by calls to
      * <code>setTiling</code>.
      *
@@ -652,7 +652,7 @@ public class ImageWriteParam extends IIOParam {
         this.tileGridYOffset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of each tile in an image as it will be
      * written to the output stream.  If tiling parameters have not
      * been set, an <code>IllegalStateException</code> is thrown.
@@ -682,7 +682,7 @@ public class ImageWriteParam extends IIOParam {
         return tileWidth;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of each tile in an image as it will be written to
      * the output stream.  If tiling parameters have not
      * been set, an <code>IllegalStateException</code> is thrown.
@@ -712,7 +712,7 @@ public class ImageWriteParam extends IIOParam {
         return tileHeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal tile grid offset of an image as it will
      * be written to the output stream.  If tiling parameters have not
      * been set, an <code>IllegalStateException</code> is thrown.
@@ -742,7 +742,7 @@ public class ImageWriteParam extends IIOParam {
         return tileGridXOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the vertical tile grid offset of an image as it will
      * be written to the output stream.  If tiling parameters have not
      * been set, an <code>IllegalStateException</code> is thrown.
@@ -772,7 +772,7 @@ public class ImageWriteParam extends IIOParam {
         return tileGridYOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer can write out images
      * as a series of passes of progressively increasing quality.
      *
@@ -786,7 +786,7 @@ public class ImageWriteParam extends IIOParam {
         return canWriteProgressive;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that the writer is to write the image out in a
      * progressive mode such that the stream will contain a series of
      * scans of increasing quality.  If progressive encoding is not
@@ -841,7 +841,7 @@ public class ImageWriteParam extends IIOParam {
         this.progressiveMode = mode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current mode for writing the stream in a
      * progressive manner.
      *
@@ -860,7 +860,7 @@ public class ImageWriteParam extends IIOParam {
         return progressiveMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this writer supports compression.
      *
      * @return <code>true</code> if the writer supports compression.
@@ -869,7 +869,7 @@ public class ImageWriteParam extends IIOParam {
         return canWriteCompressed;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies whether compression is to be performed, and if so how
      * compression parameters are to be determined.  The <code>mode</code>
      * argument must be one of the four modes, interpreted as follows:
@@ -924,7 +924,7 @@ public class ImageWriteParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current compression mode, if compression is
      * supported.
      *
@@ -943,7 +943,7 @@ public class ImageWriteParam extends IIOParam {
         return compressionMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of available compression types, as an array or
      * <code>String</code>s, or <code>null</code> if a compression
      * type may not be chosen using these interfaces.  The array
@@ -980,7 +980,7 @@ public class ImageWriteParam extends IIOParam {
         return (String[])compressionTypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the compression type to one of the values indicated by
      * <code>getCompressionTypes</code>.  If a value of
      * <code>null</code> is passed in, any previous setting is
@@ -1044,7 +1044,7 @@ public class ImageWriteParam extends IIOParam {
         this.compressionType = compressionType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set compression type, or
      * <code>null</code> if none has been set.  The type is returned
      * as a <code>String</code> from among those returned by
@@ -1079,7 +1079,7 @@ public class ImageWriteParam extends IIOParam {
         return compressionType;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any previous compression type and quality settings.
      *
      * <p> The default implementation sets the instance variable
@@ -1108,7 +1108,7 @@ public class ImageWriteParam extends IIOParam {
         this.compressionQuality = 1.0F;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a localized version of the name of the current
      * compression type, using the <code>Locale</code> returned by
      * <code>getLocale</code>.
@@ -1144,7 +1144,7 @@ public class ImageWriteParam extends IIOParam {
         return getCompressionType();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the current compression type
      * provides lossless compression.  If a plug-in provides only
      * one mandatory compression type, then this method may be
@@ -1187,7 +1187,7 @@ public class ImageWriteParam extends IIOParam {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the compression quality to a value between <code>0</code>
      * and <code>1</code>.  Only a single compression quality setting
      * is supported by default; writers can provide extended versions
@@ -1249,7 +1249,7 @@ public class ImageWriteParam extends IIOParam {
         this.compressionQuality = quality;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current compression quality setting.
      *
      * <p> If there are multiple compression types but none has been
@@ -1292,7 +1292,7 @@ public class ImageWriteParam extends IIOParam {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> indicating an estimate of the
      * number of bits of output data for each bit of input image data
      * at the given quality level.  The value will typically lie
@@ -1347,7 +1347,7 @@ public class ImageWriteParam extends IIOParam {
         return -1.0F;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s that may be used along
      * with <code>getCompressionQualityValues</code> as part of a user
      * interface for setting or displaying the compression quality
@@ -1416,7 +1416,7 @@ public class ImageWriteParam extends IIOParam {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>float</code>s that may be used along
      * with <code>getCompressionQualityDescriptions</code> as part of a user
      * interface for setting or displaying the compression quality

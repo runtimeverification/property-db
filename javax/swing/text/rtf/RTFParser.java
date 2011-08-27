@@ -27,7 +27,7 @@ package javax.swing.text.rtf;
 import java.io.*;
 import java.lang.*;
 
-/**
+/** {@collect.stats}
  * <b>RTFParser</b> is a subclass of <b>AbstractFilter</b> which understands basic RTF syntax
  * and passes a stream of control words, text, and begin/end group
  * indications to its subclass.
@@ -40,7 +40,7 @@ import java.lang.*;
  */
 abstract class RTFParser extends AbstractFilter
 {
-  /** The current RTF group nesting level. */
+  /** {@collect.stats} The current RTF group nesting level. */
   public int level;
 
   private int state;
@@ -53,7 +53,7 @@ abstract class RTFParser extends AbstractFilter
   ByteArrayOutputStream binaryBuf;
   private boolean[] savedSpecials;
 
-  /** A stream to which to write warnings and debugging information
+  /** {@collect.stats} A stream to which to write warnings and debugging information
    *  while parsing. This is set to <code>System.out</code> to log
    *  any anomalous information to stdout. */
   protected PrintStream warnings;
@@ -69,24 +69,24 @@ abstract class RTFParser extends AbstractFilter
 
   private final int S_inblob = 6;        // in a \bin blob
 
-  /** Implemented by subclasses to interpret a parameter-less RTF keyword.
+  /** {@collect.stats} Implemented by subclasses to interpret a parameter-less RTF keyword.
    *  The keyword is passed without the leading '/' or any delimiting
    *  whitespace. */
   public abstract boolean handleKeyword(String keyword);
-  /** Implemented by subclasses to interpret a keyword with a parameter.
+  /** {@collect.stats} Implemented by subclasses to interpret a keyword with a parameter.
    *  @param keyword   The keyword, as with <code>handleKeyword(String)</code>.
    *  @param parameter The parameter following the keyword. */
   public abstract boolean handleKeyword(String keyword, int parameter);
-  /** Implemented by subclasses to interpret text from the RTF stream. */
+  /** {@collect.stats} Implemented by subclasses to interpret text from the RTF stream. */
   public abstract void handleText(String text);
   public void handleText(char ch)
   { handleText(String.valueOf(ch)); }
-  /** Implemented by subclasses to handle the contents of the \bin keyword. */
+  /** {@collect.stats} Implemented by subclasses to handle the contents of the \bin keyword. */
   public abstract void handleBinaryBlob(byte[] data);
-  /** Implemented by subclasses to react to an increase
+  /** {@collect.stats} Implemented by subclasses to react to an increase
    *  in the nesting level. */
   public abstract void begingroup();
-  /** Implemented by subclasses to react to the end of a group. */
+  /** {@collect.stats} Implemented by subclasses to react to the end of a group. */
   public abstract void endgroup();
 
   // table of non-text characters in rtf
@@ -291,7 +291,7 @@ abstract class RTFParser extends AbstractFilter
       }
   }
 
-  /** Flushes any buffered but not yet written characters.
+  /** {@collect.stats} Flushes any buffered but not yet written characters.
    *  Subclasses which override this method should call this
    *  method <em>before</em> flushing
    *  any of their own buffers. */
@@ -306,7 +306,7 @@ abstract class RTFParser extends AbstractFilter
     }
   }
 
-  /** Closes the parser. Currently, this simply does a <code>flush()</code>,
+  /** {@collect.stats} Closes the parser. Currently, this simply does a <code>flush()</code>,
    *  followed by some minimal consistency checks. */
   public void close()
     throws IOException

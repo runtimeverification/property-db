@@ -33,7 +33,7 @@ import javax.swing.plaf.basic.BasicEditorPaneUI;
 import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a JEditorPane in the
  * Synth look and feel.
  *
@@ -48,7 +48,7 @@ class SynthEditorPaneUI extends BasicEditorPaneUI implements SynthUI {
     private Boolean localTrue = new Boolean(true);
     private Boolean localFalse = new Boolean(false);
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for the JTextPane.
      *
      * @param c the JTextPane component
@@ -90,7 +90,7 @@ class SynthEditorPaneUI extends BasicEditorPaneUI implements SynthUI {
         super.uninstallDefaults();
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the

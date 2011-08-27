@@ -31,7 +31,7 @@ import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobName is a printing attribute class, a text attribute, that specifies
  * the name of a print job. A job's name is an arbitrary string defined by the
  * client. It does not need to be unique between different jobs. A Print Job's
@@ -57,7 +57,7 @@ public final class JobName extends TextSyntax
 
     private static final long serialVersionUID = 4660359192078689545L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new job name attribute with the given job name and locale.
      *
      * @param  jobName  Job name.
@@ -72,7 +72,7 @@ public final class JobName extends TextSyntax
         super (jobName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job name attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -97,7 +97,7 @@ public final class JobName extends TextSyntax
         return (super.equals(object) && object instanceof JobName);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -110,7 +110,7 @@ public final class JobName extends TextSyntax
         return JobName.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

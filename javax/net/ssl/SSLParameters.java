@@ -25,7 +25,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * Encapsulates parameters for an SSL/TLS connection. The parameters
  * are the list of ciphersuites to be accepted in an SSL/TLS handshake,
  * the list of protocols to be allowed, and whether SSL/TLS servers should
@@ -57,7 +57,7 @@ public class SSLParameters {
     private boolean wantClientAuth;
     private boolean needClientAuth;
 
-    /**
+    /** {@collect.stats}
      * Constructs SSLParameters.
      *
      * <p>The cipherSuites and protocols values are set to <code>null</code>,
@@ -67,7 +67,7 @@ public class SSLParameters {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs SSLParameters from the specified array of ciphersuites.
      * Calling this constructor is equivalent to calling the no-args
      * constructor followed by
@@ -79,7 +79,7 @@ public class SSLParameters {
         setCipherSuites(cipherSuites);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs SSLParameters from the specified array of ciphersuites
      * and protocols.
      * Calling this constructor is equivalent to calling the no-args
@@ -98,7 +98,7 @@ public class SSLParameters {
         return (s == null) ? null : s.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of ciphersuites or null if none
      * have been set.
      *
@@ -109,7 +109,7 @@ public class SSLParameters {
         return clone(cipherSuites);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the array of ciphersuites.
      *
      * @param cipherSuites the array of ciphersuites (or null)
@@ -118,7 +118,7 @@ public class SSLParameters {
         this.cipherSuites = clone(cipherSuites);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of protocols or null if none
      * have been set.
      *
@@ -129,7 +129,7 @@ public class SSLParameters {
         return clone(protocols);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the array of protocols.
      *
      * @param protocols the array of protocols (or null)
@@ -138,7 +138,7 @@ public class SSLParameters {
         this.protocols = clone(protocols);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether client authentication should be requested.
      *
      * @return whether client authentication should be requested.
@@ -147,7 +147,7 @@ public class SSLParameters {
         return wantClientAuth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether client authentication should be requested. Calling
      * this method clears the <code>needClientAuth</code> flag.
      *
@@ -158,7 +158,7 @@ public class SSLParameters {
         this.needClientAuth = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether client authentication should be required.
      *
      * @return whether client authentication should be required.
@@ -167,7 +167,7 @@ public class SSLParameters {
         return needClientAuth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether client authentication should be required. Calling
      * this method clears the <code>wantClientAuth</code> flag.
      *

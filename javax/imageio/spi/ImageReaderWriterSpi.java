@@ -36,7 +36,7 @@ import javax.imageio.metadata.IIOMetadataFormat;
 import javax.imageio.metadata.IIOMetadataFormatImpl;
 import javax.imageio.stream.ImageInputStream;
 
-/**
+/** {@collect.stats}
  * A superclass containing instance variables and methods common to
  * <code>ImageReaderSpi</code> and <code>ImageWriterSpi</code>.
  *
@@ -47,102 +47,102 @@ import javax.imageio.stream.ImageInputStream;
  */
 public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * An array of strings to be returned from
      * <code>getFormatNames</code>, initially <code>null</code>.
      * Constructors should set this to a non-<code>null</code> value.
      */
     protected String[] names = null;
 
-    /**
+    /** {@collect.stats}
      * An array of strings to be returned from
      * <code>getFileSuffixes</code>, initially <code>null</code>.
      */
     protected String[] suffixes = null;
 
-    /**
+    /** {@collect.stats}
      * An array of strings to be returned from
      * <code>getMIMETypes</code>, initially <code>null</code>.
      */
     protected String[] MIMETypes = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the name of the associated
      * plug-in class, initially <code>null</code>.
      */
     protected String pluginClassName = null;
 
-    /**
+    /** {@collect.stats}
      * A boolean indicating whether this plug-in supports the
      * standard metadata format for stream metadata, initially
      * <code>false</code>.
      */
     protected boolean supportsStandardStreamMetadataFormat = false;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the name of the native stream
      * metadata format supported by this plug-in, initially
      * <code>null</code>.
      */
     protected String nativeStreamMetadataFormatName = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the class name of the native
      * stream metadata format supported by this plug-in, initially
      * <code>null</code>.
      */
     protected String nativeStreamMetadataFormatClassName = null;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>String</code>s containing the names of any
      * additional stream metadata formats supported by this plug-in,
      * initially <code>null</code>.
      */
     protected String[] extraStreamMetadataFormatNames = null;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>String</code>s containing the class names of
      * any additional stream metadata formats supported by this plug-in,
      * initially <code>null</code>.
      */
     protected String[] extraStreamMetadataFormatClassNames = null;
 
-    /**
+    /** {@collect.stats}
      * A boolean indicating whether this plug-in supports the
      * standard metadata format for image metadata, initially
      * <code>false</code>.
      */
     protected boolean supportsStandardImageMetadataFormat = false;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the name of the
      * native stream metadata format supported by this plug-in,
      * initially <code>null</code>.
      */
     protected String nativeImageMetadataFormatName = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> containing the class name of the
      * native stream metadata format supported by this plug-in,
      * initially <code>null</code>.
      */
     protected String nativeImageMetadataFormatClassName = null;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>String</code>s containing the names of any
      * additional image metadata formats supported by this plug-in,
      * initially <code>null</code>.
      */
     protected String[] extraImageMetadataFormatNames = null;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>String</code>s containing the class names of
      * any additional image metadata formats supported by this
      * plug-in, initially <code>null</code>.
      */
     protected String[] extraImageMetadataFormatClassNames = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageReaderWriterSpi</code> with a given
      * set of values.
      *
@@ -286,7 +286,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>ImageReaderWriterSpi</code>.  It is up
      * to the subclass to initialize instance variables and/or
      * override method implementations in order to provide working
@@ -295,7 +295,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
     public ImageReaderWriterSpi() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing
      * human-readable names for the formats that are generally usable
      * by the <code>ImageReader</code> or <code>ImageWriter</code>
@@ -311,7 +311,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return (String[])names.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing a list of
      * file suffixes associated with the formats that are generally
      * usable by the <code>ImageReader</code> or
@@ -335,7 +335,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return suffixes == null ? null : (String[])suffixes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing a list of
      * MIME types associated with the formats that are generally
      * usable by the <code>ImageReader</code> or
@@ -370,7 +370,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return MIMETypes == null ? null : (String[])MIMETypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the fully-qualified class name of the
      * <code>ImageReader</code> or <code>ImageWriter</code> plug-in
      * associated with this service provider.
@@ -382,7 +382,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return pluginClassName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the standard metadata format is
      * among the document formats recognized by the
      * <code>getAsTree</code> and <code>setFromTree</code> methods on
@@ -396,7 +396,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return supportsStandardStreamMetadataFormat;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the "native" stream metadata format for
      * this plug-in, which typically allows for lossless encoding and
      * transmission of the stream metadata stored in the format handled by
@@ -415,7 +415,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return nativeStreamMetadataFormatName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the names
      * of additional document formats, other than the native and
      * standard formats, recognized by the
@@ -446,7 +446,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
             null : (String[])extraStreamMetadataFormatNames.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the standard metadata format is
      * among the document formats recognized by the
      * <code>getAsTree</code> and <code>setFromTree</code> methods on
@@ -460,7 +460,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return supportsStandardImageMetadataFormat;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the "native" image metadata format for
      * this plug-in, which typically allows for lossless encoding and
      * transmission of the image metadata stored in the format handled by
@@ -480,7 +480,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
         return nativeImageMetadataFormatName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the names
      * of additional document formats, other than the native and
      * standard formats, recognized by the
@@ -510,7 +510,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
             null : (String[])extraImageMetadataFormatNames.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataFormat</code> object describing the
      * given stream metadata format, or <code>null</code> if no
      * description is available.  The supplied name must be the native
@@ -534,7 +534,7 @@ public abstract class ImageReaderWriterSpi extends IIOServiceProvider {
                                  extraStreamMetadataFormatClassNames);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataFormat</code> object describing the
      * given image metadata format, or <code>null</code> if no
      * description is available.  The supplied name must be the native

@@ -30,7 +30,7 @@ import java.awt.image.ColorModel;
 import java.util.Hashtable;
 import java.awt.Rectangle;
 
-/**
+/** {@collect.stats}
  * An ImageFilter class for cropping images.
  * This class extends the basic ImageFilter Class to extract a given
  * rectangular region of an existing Image and provide a source for a
@@ -49,7 +49,7 @@ public class CropImageFilter extends ImageFilter {
     int cropW;
     int cropH;
 
-    /**
+    /** {@collect.stats}
      * Constructs a CropImageFilter that extracts the absolute rectangular
      * region of pixels from its source Image as specified by the x, y,
      * w, and h parameters.
@@ -65,7 +65,7 @@ public class CropImageFilter extends ImageFilter {
         cropH = h;
     }
 
-    /**
+    /** {@collect.stats}
      * Passes along  the properties from the source object after adding a
      * property indicating the cropped region.
      * This method invokes <code>super.setProperties</code>,
@@ -84,7 +84,7 @@ public class CropImageFilter extends ImageFilter {
         super.setProperties(p);
     }
 
-    /**
+    /** {@collect.stats}
      * Override the source image's dimensions and pass the dimensions
      * of the rectangular cropped region to the ImageConsumer.
      * <p>
@@ -100,7 +100,7 @@ public class CropImageFilter extends ImageFilter {
         consumer.setDimensions(cropW, cropH);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine whether the delivered byte pixels intersect the region to
      * be extracted and passes through only that subset of pixels that
      * appear in the output region.
@@ -140,7 +140,7 @@ public class CropImageFilter extends ImageFilter {
                            off + (y1 - y) * scansize + (x1 - x), scansize);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if the delivered int pixels intersect the region to
      * be extracted and pass through only that subset of pixels that
      * appear in the output region.

@@ -28,7 +28,7 @@ package javax.naming;
 import java.util.Enumeration;
 import java.util.Properties;
 
-/**
+/** {@collect.stats}
  * This class represents a compound name -- a name from
  * a hierarchical name space.
  * Each component in a compound name is an atomic name.
@@ -148,13 +148,13 @@ import java.util.Properties;
 
 public class CompoundName implements Name {
 
-    /**
+    /** {@collect.stats}
       * Implementation of this compound name.
       * This field is initialized by the constructors and cannot be null.
       * It should be treated as a read-only variable by subclasses.
       */
     protected transient NameImpl impl;
-    /**
+    /** {@collect.stats}
       * Syntax properties for this compound name.
       * This field is initialized by the constructors and cannot be null.
       * It should be treated as a read-only variable by subclasses.
@@ -163,7 +163,7 @@ public class CompoundName implements Name {
       */
     protected transient Properties mySyntax;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new compound name instance using the components
       * specified in comps and syntax. This protected method is intended to be
       * to be used by subclasses of CompoundName when they override
@@ -185,7 +185,7 @@ public class CompoundName implements Name {
         impl = new NameImpl(syntax, comps);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new compound name instance by parsing the string n
       * using the syntax specified by the syntax properties supplied.
       *
@@ -204,7 +204,7 @@ public class CompoundName implements Name {
         impl = new NameImpl(syntax, n);
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this compound name, using
       * the syntax rules of the compound name. The syntax rules
       * are described in the class description.
@@ -220,7 +220,7 @@ public class CompoundName implements Name {
         return (impl.toString());
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether obj is syntactically equal to this compound name.
       * If obj is null or not a CompoundName, false is returned.
       * Two compound names are equal if each component in one is "equal"
@@ -250,7 +250,7 @@ public class CompoundName implements Name {
                 impl.equals(((CompoundName)obj).impl));
     }
 
-    /**
+    /** {@collect.stats}
       * Computes the hash code of this compound name.
       * The hash code is the sum of the hash codes of the "canonicalized"
       * forms of individual components of this compound name.
@@ -265,7 +265,7 @@ public class CompoundName implements Name {
         return impl.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a copy of this compound name.
       * Changes to the components of this compound name won't
       * affect the new copy and vice versa.
@@ -277,7 +277,7 @@ public class CompoundName implements Name {
         return (new CompoundName(getAll(), mySyntax));
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this CompoundName with the specified Object for order.
      * Returns a
      * negative integer, zero, or a positive integer as this Name is less
@@ -315,7 +315,7 @@ public class CompoundName implements Name {
         return impl.compareTo(((CompoundName)obj).impl);
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the number of components in this compound name.
       *
       * @return The nonnegative number of components in this compound name.
@@ -324,7 +324,7 @@ public class CompoundName implements Name {
         return (impl.size());
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether this compound name is empty.
       * A compound name is empty if it has zero components.
       *
@@ -334,7 +334,7 @@ public class CompoundName implements Name {
         return (impl.isEmpty());
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the components of this compound name as an enumeration
       * of strings.
       * The effects of updates to this compound name on this enumeration
@@ -347,7 +347,7 @@ public class CompoundName implements Name {
         return (impl.getAll());
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves a component of this compound name.
       *
       * @param  posn    The 0-based index of the component to retrieve.
@@ -360,7 +360,7 @@ public class CompoundName implements Name {
         return (impl.get(posn));
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a compound name whose components consist of a prefix of the
       * components in this compound name.
       * The result and this compound name share the same syntax.
@@ -380,7 +380,7 @@ public class CompoundName implements Name {
         return (new CompoundName(comps, mySyntax));
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a compound name whose components consist of a suffix of the
       * components in this compound name.
       * The result and this compound name share the same syntax.
@@ -400,7 +400,7 @@ public class CompoundName implements Name {
         return (new CompoundName(comps, mySyntax));
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether a compound name is a prefix of this compound name.
       * A compound name 'n' is a prefix if it is equal to
       * getPrefix(n.size())--in other words, this compound name
@@ -421,7 +421,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether a compound name is a suffix of this compound name.
       * A compound name 'n' is a suffix if it it is equal to
       * getSuffix(size()-n.size())--in other words, this
@@ -442,7 +442,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds the components of a compound name -- in order -- to the end of
       * this compound name.
       *<p>
@@ -464,7 +464,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds the components of a compound name -- in order -- at a specified
       * position within this compound name.
       * Components of this compound name at or after the index of the first
@@ -494,7 +494,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a single component to the end of this compound name.
       *
       * @param comp     The non-null component to add.
@@ -507,7 +507,7 @@ public class CompoundName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a single component at a specified position within this
       * compound name.
       * Components of this compound name at or after the index of the new
@@ -528,7 +528,7 @@ public class CompoundName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
       * Deletes a component from this compound name.
       * The component of this compound name at position 'posn' is removed,
       * and components at indices greater than 'posn'
@@ -547,7 +547,7 @@ public class CompoundName implements Name {
         return impl.remove(posn);
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid implementation dependency.
      * @serialData The syntax <tt>Properties</tt>, followed by
      * the number of components (an <tt>int</tt>), and the individual
@@ -563,7 +563,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid implementation dependency.
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -580,7 +580,7 @@ public class CompoundName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 3513100557083972036L;

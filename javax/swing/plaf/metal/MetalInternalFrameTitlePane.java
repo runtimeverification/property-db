@@ -37,7 +37,7 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 
-/**
+/** {@collect.stats}
  * Class that manages a JLF title bar
  * @author Steve Wilson
  * @author Brian Beck
@@ -52,22 +52,22 @@ public class MetalInternalFrameTitlePane  extends BasicInternalFrameTitlePane {
 
     private static final Border handyEmptyBorder = new EmptyBorder(0,0,0,0);
 
-    /**
+    /** {@collect.stats}
      * Key used to lookup Color from UIManager. If this is null,
      * <code>getWindowTitleBackground</code> is used.
      */
     private String selectedBackgroundKey;
-    /**
+    /** {@collect.stats}
      * Key used to lookup Color from UIManager. If this is null,
      * <code>getWindowTitleForeground</code> is used.
      */
     private String selectedForegroundKey;
-    /**
+    /** {@collect.stats}
      * Key used to lookup shadow color from UIManager. If this is null,
      * <code>getPrimaryControlDarkShadow</code> is used.
      */
     private String selectedShadowKey;
-    /**
+    /** {@collect.stats}
      * Boolean indicating the state of the <code>JInternalFrame</code>s
      * closable property at <code>updateUI</code> time.
      */
@@ -151,25 +151,25 @@ public class MetalInternalFrameTitlePane  extends BasicInternalFrameTitlePane {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Override the parent's method to do nothing. Metal frames do not
      * have system menus.
      */
     protected void assembleSystemMenu() {}
 
-    /**
+    /** {@collect.stats}
      * Override the parent's method to do nothing. Metal frames do not
      * have system menus.
      */
     protected void addSystemMenuItems(JMenu systemMenu) {}
 
-    /**
+    /** {@collect.stats}
      * Override the parent's method to do nothing. Metal frames do not
      * have system menus.
      */
     protected void showSystemMenu() {}
 
-    /**
+    /** {@collect.stats}
      * Override the parent's method avoid creating a menu bar. Metal frames
      * do not have system menus.
      */
@@ -491,7 +491,7 @@ public class MetalInternalFrameTitlePane  extends BasicInternalFrameTitlePane {
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Updates any state dependant upon the JInternalFrame being shown in
      * a <code>JOptionPane</code>.
      */

@@ -25,7 +25,7 @@
 
 package javax.security.auth;
 
-/**
+/** {@collect.stats}
  * Objects such as credentials may optionally implement this
  * interface to provide the capability to refresh itself.
  * For example, a credential with a particular time-restricted lifespan
@@ -36,7 +36,7 @@ package javax.security.auth;
  */
 public interface Refreshable {
 
-    /**
+    /** {@collect.stats}
      * Determine if this <code>Object</code> is current.
      *
      * <p>
@@ -46,7 +46,7 @@ public interface Refreshable {
      */
     boolean isCurrent();
 
-    /**
+    /** {@collect.stats}
      * Update or extend the validity period for this
      * <code>Object</code>.
      *

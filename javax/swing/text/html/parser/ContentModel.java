@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.io.*;
 
 
-/**
+/** {@collect.stats}
  * A representation of a content model. A content model is
  * basically a restricted BNF expression. It is restricted in
  * the sense that it must be deterministic. This means that you
@@ -41,17 +41,17 @@ import java.io.*;
  *
  */
 public final class ContentModel implements Serializable {
-    /**
+    /** {@collect.stats}
      * Type. Either '*', '?', '+', ',', '|', '&'.
      */
     public int type;
 
-    /**
+    /** {@collect.stats}
      * The content. Either an Element or a ContentModel.
      */
     public Object content;
 
-    /**
+    /** {@collect.stats}
      * The next content model (in a ',', '|' or '&' expression).
      */
     public ContentModel next;
@@ -59,21 +59,21 @@ public final class ContentModel implements Serializable {
     public ContentModel() {
     }
 
-    /**
+    /** {@collect.stats}
      * Create a content model for an element.
      */
     public ContentModel(Element content) {
         this(0, content, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a content model of a particular type.
      */
     public ContentModel(int type, ContentModel content) {
         this(type, content, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a content model of a particular type.
      */
     public ContentModel(int type, Object content, ContentModel next) {
@@ -82,7 +82,7 @@ public final class ContentModel implements Serializable {
         this.next = next;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the content model could
      * match an empty input stream.
      */
@@ -115,7 +115,7 @@ public final class ContentModel implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update elemVec with the list of elements that are
      * part of the this contentModel.
      */
@@ -144,7 +144,7 @@ public final class ContentModel implements Serializable {
      // by about 10% (based on measurements of the 4-12 code base after
      // buffering was fixed).
 
-    /**
+    /** {@collect.stats}
      * Return true if the token could potentially be the
      * first token in the input stream.
      */
@@ -203,7 +203,7 @@ public final class ContentModel implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the element that must be next.
      */
     public Element first() {
@@ -223,7 +223,7 @@ public final class ContentModel implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convert to a string.
      */
     public String toString() {

@@ -28,7 +28,7 @@ package java.net;
 import java.io.OutputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Represents channels for storing resources in the
  * ResponseCache. Instances of such a class provide an
  * OutputStream object which is called by protocol handlers to
@@ -43,7 +43,7 @@ import java.io.IOException;
  */
 public abstract class CacheRequest {
 
-    /**
+    /** {@collect.stats}
      * Returns an OutputStream to which the response body can be
      * written.
      *
@@ -54,7 +54,7 @@ public abstract class CacheRequest {
      */
     public abstract OutputStream getBody() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Aborts the attempt to cache the response. If an IOException is
      * encountered while reading the response or writing to the cache,
      * the current cache store operation will be abandoned.

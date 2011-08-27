@@ -33,7 +33,7 @@ import com.sun.imageio.stream.CloseableDisposerRecord;
 import com.sun.imageio.stream.StreamFinalizer;
 import sun.java2d.Disposer;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageInputStream</code> that gets its
  * input from a <code>File</code> or <code>RandomAccessFile</code>.
  * The file contents are assumed to be stable during the lifetime of
@@ -44,13 +44,13 @@ public class FileImageInputStream extends ImageInputStreamImpl {
 
     private RandomAccessFile raf;
 
-    /** The referent to be registered with the Disposer. */
+    /** {@collect.stats} The referent to be registered with the Disposer. */
     private final Object disposerReferent;
 
-    /** The DisposerRecord that closes the underlying RandomAccessFile. */
+    /** {@collect.stats} The DisposerRecord that closes the underlying RandomAccessFile. */
     private final CloseableDisposerRecord disposerRecord;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileImageInputStream</code> that will read
      * from a given <code>File</code>.
      *
@@ -73,7 +73,7 @@ public class FileImageInputStream extends ImageInputStreamImpl {
         this(f == null ? null : new RandomAccessFile(f, "r"));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileImageInputStream</code> that will read
      * from a given <code>RandomAccessFile</code>.
      *
@@ -121,7 +121,7 @@ public class FileImageInputStream extends ImageInputStreamImpl {
         return nbytes;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the underlying file, or <code>-1</code>
      * if it is unknown.
      *
@@ -153,7 +153,7 @@ public class FileImageInputStream extends ImageInputStreamImpl {
         raf = null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     protected void finalize() throws Throwable {

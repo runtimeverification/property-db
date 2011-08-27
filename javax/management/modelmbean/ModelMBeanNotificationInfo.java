@@ -45,7 +45,7 @@ import javax.management.DescriptorAccess;
 import javax.management.MBeanNotificationInfo;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * The ModelMBeanNotificationInfo object describes a notification emitted
  * by a ModelMBean.
  * It is a subclass of MBeanNotificationInfo with the addition of an
@@ -111,7 +111,7 @@ public class ModelMBeanNotificationInfo
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField notificationDescriptor Descriptor The descriptor
      *   containing the appropriate metadata for this instance
      */
@@ -136,7 +136,7 @@ public class ModelMBeanNotificationInfo
     //
     // END Serialization compatibility stuff
 
-    /**
+    /** {@collect.stats}
      * @serial The descriptor containing the appropriate metadata for
      *         this instance
      */
@@ -144,7 +144,7 @@ public class ModelMBeanNotificationInfo
 
     private static final String currClass = "ModelMBeanNotificationInfo";
 
-    /**
+    /** {@collect.stats}
      * Constructs a ModelMBeanNotificationInfo object with a default
      * descriptor.
      *
@@ -160,7 +160,7 @@ public class ModelMBeanNotificationInfo
         this(notifTypes,name,description,null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ModelMBeanNotificationInfo object.
      *
      * @param notifTypes The array of strings (in dot notation)
@@ -195,7 +195,7 @@ public class ModelMBeanNotificationInfo
         applyDescriptor(descriptor, mth);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ModelMBeanNotificationInfo object from this
      * ModelMBeanNotfication Object.
      *
@@ -208,7 +208,7 @@ public class ModelMBeanNotificationInfo
              inInfo.getDescription(),inInfo.getDescriptor());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a new ModelMBeanNotificationInfo which is a
      * duplicate of this ModelMBeanNotificationInfo.
      **/
@@ -221,7 +221,7 @@ public class ModelMBeanNotificationInfo
         return(new ModelMBeanNotificationInfo(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the associated Descriptor for the
      * ModelMBeanNotificationInfo.
      *
@@ -251,7 +251,7 @@ public class ModelMBeanNotificationInfo
         return((Descriptor)notificationDescriptor.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets associated Descriptor (full replace) for the
      * ModelMBeanNotificationInfo If the new Descriptor is null,
      * then the associated Descriptor reverts to a default
@@ -277,7 +277,7 @@ public class ModelMBeanNotificationInfo
         applyDescriptor(inDescriptor,"setDescriptor(Descriptor)");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable string containing
      * ModelMBeanNotificationInfo.
      *
@@ -310,7 +310,7 @@ public class ModelMBeanNotificationInfo
         return retStr.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates default descriptor for notification as follows:
      * <pre>descriptorType=notification,
      * name=this.getName(),displayname=this.getName(),severity=6
@@ -330,7 +330,7 @@ public class ModelMBeanNotificationInfo
                       "severity=6"});
     }
 
-    /**
+    /** {@collect.stats}
      * Tests that the descriptor is valid and adds appropriate default
      * fields not already specified. Field values must be correct for
      * field names.
@@ -372,7 +372,7 @@ public class ModelMBeanNotificationInfo
         return results;
     }
 
-    /**
+    /** {@collect.stats}
      * The following fields will be defaulted if they are not already
      * set:
      * displayName=this.getName(),severity=6
@@ -388,7 +388,7 @@ public class ModelMBeanNotificationInfo
         return descriptor;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the given descriptor as this.notificationDescriptor.
      * Creates a default descriptor if the given descriptor is null.
      * If the given descriptor is null, check its validity.
@@ -422,7 +422,7 @@ public class ModelMBeanNotificationInfo
     }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link ModelMBeanNotificationInfo} from an
      * {@link ObjectInputStream}.
      **/
@@ -433,7 +433,7 @@ public class ModelMBeanNotificationInfo
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link ModelMBeanNotificationInfo} to an
      * {@link ObjectOutputStream}.
      **/

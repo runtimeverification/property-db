@@ -28,7 +28,7 @@ import javax.swing.text.*;
 import javax.swing.event.HyperlinkEvent;
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * HTMLFrameHyperlinkEvent is used to notify interested
  * parties that link was activated in a frame.
  *
@@ -37,7 +37,7 @@ import java.net.URL;
 
 public class HTMLFrameHyperlinkEvent extends HyperlinkEvent {
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a html frame
      * hypertext link event.
      *
@@ -53,7 +53,7 @@ public class HTMLFrameHyperlinkEvent extends HyperlinkEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      *
      * @param source the object responsible for the event
@@ -68,7 +68,7 @@ public class HTMLFrameHyperlinkEvent extends HyperlinkEvent {
         this.targetFrame = targetFrame;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      *
      * @param source the object responsible for the event
@@ -85,7 +85,7 @@ public class HTMLFrameHyperlinkEvent extends HyperlinkEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      *
      * @param source the object responsible for the event
@@ -102,7 +102,7 @@ public class HTMLFrameHyperlinkEvent extends HyperlinkEvent {
         this.targetFrame = targetFrame;
     }
 
-    /**
+    /** {@collect.stats}
      * returns the target for the link.
      */
     public String getTarget() {

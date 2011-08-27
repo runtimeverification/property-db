@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import javax.swing.UIManager;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * {@code UndoManager} manages a list of {@code UndoableEdits},
  * providing a way to undo or redo the appropriate edits.  There are
  * two ways to add edits to an <code>UndoManager</code>.  Add the edit
@@ -136,7 +136,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
     int indexOfNextAdd;
     int limit;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>UndoManager</code>.
      */
     public UndoManager() {
@@ -146,7 +146,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         edits.ensureCapacity(limit);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of edits this {@code UndoManager}
      * holds. A value less than 0 indicates the number of edits is not
      * limited.
@@ -159,7 +159,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         return limit;
     }
 
-    /**
+    /** {@collect.stats}
      * Empties the undo manager sending each edit a <code>die</code> message
      * in the process.
      *
@@ -178,7 +178,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         // efficient, and this method can call that instead.
     }
 
-    /**
+    /** {@collect.stats}
      * Reduces the number of queued edits to a range of size limit,
      * centered on the index of the next edit.
      */
@@ -225,7 +225,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes edits in the specified range.
      * All edits in the given range (inclusive, and in reverse order)
      * will have <code>die</code> invoked on them and are removed from
@@ -261,7 +261,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum number of edits this <code>UndoManager</code>
      * holds. A value less than 0 indicates the number of edits is not
      * limited. If edits need to be discarded to shrink the limit,
@@ -283,7 +283,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the the next significant edit to be undone if <code>undo</code>
      * is invoked. This returns <code>null</code> if there are no edits
      * to be undone.
@@ -302,7 +302,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the the next significant edit to be redone if <code>redo</code>
      * is invoked. This returns <code>null</code> if there are no edits
      * to be redone.
@@ -323,7 +323,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Undoes all changes from the index of the next edit to
      * <code>edit</code>, updating the index of the next edit appropriately.
      *
@@ -339,7 +339,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Redoes all changes from the index of the next edit to
      * <code>edit</code>, updating the index of the next edit appropriately.
      *
@@ -355,7 +355,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method that invokes one of <code>undo</code> or
      * <code>redo</code>. If any edits have been undone (the index of
      * the next edit is less than the length of the edits list) this
@@ -377,7 +377,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if it is possible to invoke <code>undo</code> or
      * <code>redo</code>.
      *
@@ -392,7 +392,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Undoes the appropriate edits.  If <code>end</code> has been
      * invoked this calls through to the superclass, otherwise
      * this invokes <code>undo</code> on all edits between the
@@ -418,7 +418,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if edits may be undone.  If <code>end</code> has
      * been invoked, this returns the value from super.  Otherwise
      * this returns true if there are any edits to be undone
@@ -437,7 +437,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Redoes the appropriate edits.  If <code>end</code> has been
      * invoked this calls through to the superclass.  Otherwise
      * this invokes <code>redo</code> on all edits between the
@@ -463,7 +463,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if edits may be redone.  If <code>end</code> has
      * been invoked, this returns the value from super.  Otherwise,
      * this returns true if there are any edits to be redone
@@ -482,7 +482,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>UndoableEdit</code> to this
      * <code>UndoManager</code>, if it's possible.  This removes all
      * edits from the index of the next edit to the end of the edits
@@ -521,7 +521,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Turns this <code>UndoManager</code> into a normal
      * <code>CompoundEdit</code>.  This removes all edits that have
      * been undone.
@@ -533,7 +533,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         this.trimEdits(indexOfNextAdd, edits.size()-1);
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method that returns either
      * <code>getUndoPresentationName</code> or
      * <code>getRedoPresentationName</code>.  If the index of the next
@@ -551,7 +551,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a description of the undoable form of this edit.
      * If <code>end</code> has been invoked this calls into super.
      * Otherwise if there are edits to be undone, this returns
@@ -576,7 +576,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a description of the redoable form of this edit.
      * If <code>end</code> has been invoked this calls into super.
      * Otherwise if there are edits to be redone, this returns
@@ -601,7 +601,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An <code>UndoableEditListener</code> method. This invokes
      * <code>addEdit</code> with <code>e.getEdit()</code>.
      *
@@ -613,7 +613,7 @@ public class UndoManager extends CompoundEdit implements UndoableEditListener {
         addEdit(e.getEdit());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

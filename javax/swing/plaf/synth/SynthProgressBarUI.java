@@ -35,7 +35,7 @@ import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * Synth's ProgressBarUI.
  *
  * @author Joshua Outwater

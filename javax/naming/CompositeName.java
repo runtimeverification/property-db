@@ -28,7 +28,7 @@ package javax.naming;
 import java.util.Enumeration;
 import java.util.Properties;
 
-/**
+/** {@collect.stats}
  * This class represents a composite name -- a sequence of
  * component names spanning multiple namespaces.
  * Each component is a string name from the namespace of a
@@ -203,7 +203,7 @@ import java.util.Properties;
 public class CompositeName implements Name {
 
     private transient NameImpl impl;
-    /**
+    /** {@collect.stats}
       * Constructs a new composite name instance using the components
       * specified by 'comps'. This protected method is intended to be
       * to be used by subclasses of CompositeName when they override
@@ -218,7 +218,7 @@ public class CompositeName implements Name {
         impl = new NameImpl(null, comps); // null means use default syntax
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new composite name instance by parsing the string n
       * using the composite name syntax (left-to-right, slash separated).
       * The composite name syntax is described in detail in the class
@@ -231,7 +231,7 @@ public class CompositeName implements Name {
         impl = new NameImpl(null, n);  // null means use default syntax
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new empty composite name. Such a name returns true
       * when <code>isEmpty()</code> is invoked on it.
       */
@@ -239,7 +239,7 @@ public class CompositeName implements Name {
         impl = new NameImpl(null);  // null means use default syntax
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this composite name.
       * The string representation consists of enumerating in order
       * each component of the composite name and separating
@@ -258,7 +258,7 @@ public class CompositeName implements Name {
         return impl.toString();
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether two composite names are equal.
       * If obj is null or not a composite name, false is returned.
       * Two composite names are equal if each component in one is equal
@@ -277,7 +277,7 @@ public class CompositeName implements Name {
                 impl.equals(((CompositeName)obj).impl));
     }
 
-    /**
+    /** {@collect.stats}
       * Computes the hash code of this composite name.
       * The hash code is the sum of the hash codes of individual components
       * of this composite name.
@@ -290,7 +290,7 @@ public class CompositeName implements Name {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Compares this CompositeName with the specified Object for order.
      * Returns a
      * negative integer, zero, or a positive integer as this Name is less
@@ -324,7 +324,7 @@ public class CompositeName implements Name {
         return impl.compareTo(((CompositeName)obj).impl);
     }
 
-    /**
+    /** {@collect.stats}
       * Generates a copy of this composite name.
       * Changes to the components of this composite name won't
       * affect the new copy and vice versa.
@@ -335,7 +335,7 @@ public class CompositeName implements Name {
         return (new CompositeName(getAll()));
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the number of components in this composite name.
       *
       * @return The nonnegative number of components in this composite name.
@@ -344,7 +344,7 @@ public class CompositeName implements Name {
         return (impl.size());
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether this composite name is empty. A composite name
       * is empty if it has zero components.
       *
@@ -354,7 +354,7 @@ public class CompositeName implements Name {
         return (impl.isEmpty());
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the components of this composite name as an enumeration
       * of strings.
       * The effects of updates to this composite name on this enumeration
@@ -368,7 +368,7 @@ public class CompositeName implements Name {
         return (impl.getAll());
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves a component of this composite name.
       *
       * @param  posn    The 0-based index of the component to retrieve.
@@ -381,7 +381,7 @@ public class CompositeName implements Name {
         return (impl.get(posn));
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a composite name whose components consist of a prefix of the
       * components in this composite name. Subsequent changes to
       * this composite name does not affect the name that is returned.
@@ -398,7 +398,7 @@ public class CompositeName implements Name {
         return (new CompositeName(comps));
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a composite name whose components consist of a suffix of the
       * components in this composite name. Subsequent changes to
       * this composite name does not affect the name that is returned.
@@ -416,7 +416,7 @@ public class CompositeName implements Name {
         return (new CompositeName(comps));
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether a composite name is a prefix of this composite name.
       * A composite name 'n' is a prefix if it is equal to
       * getPrefix(n.size())--in other words, this composite name
@@ -434,7 +434,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether a composite name is a suffix of this composite name.
       * A composite name 'n' is a suffix if it it is equal to
       * getSuffix(size()-n.size())--in other words, this
@@ -453,7 +453,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds the components of a composite name -- in order -- to the end of
       * this composite name.
       *
@@ -473,7 +473,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds the components of a composite name -- in order -- at a specified
       * position within this composite name.
       * Components of this composite name at or after the index of the first
@@ -500,7 +500,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a single component to the end of this composite name.
       *
       * @param comp     The non-null component to add.
@@ -513,7 +513,7 @@ public class CompositeName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a single component at a specified position within this
       * composite name.
       * Components of this composite name at or after the index of the new
@@ -536,7 +536,7 @@ public class CompositeName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
       * Deletes a component from this composite name.
       * The component of this composite name at position 'posn' is removed,
       * and components at indices greater than 'posn'
@@ -555,7 +555,7 @@ public class CompositeName implements Name {
         return impl.remove(posn);
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid implementation dependency.
      * @serialData The number of components (an <tt>int</tt>) followed by
      * the individual components (each a <tt>String</tt>).
@@ -569,7 +569,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid implementation dependency.
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -585,7 +585,7 @@ public class CompositeName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 1667768148915813118L;

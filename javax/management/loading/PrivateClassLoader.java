@@ -25,7 +25,7 @@
 
 package javax.management.loading;
 
-/**
+/** {@collect.stats}
  * Marker interface indicating that a ClassLoader should not be added
  * to the {@link ClassLoaderRepository}.  When a ClassLoader is
  * registered as an MBean in the MBean server, it is added to the

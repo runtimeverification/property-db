@@ -31,7 +31,7 @@ import java.io.*;
 
 import java.lang.reflect.*;
 
-/**
+/** {@collect.stats}
  * Provides implementations for the methods that set and get
  * metadata information about a <code>RowSet</code> object's columns.
  * A <code>RowSetMetaDataImpl</code> object keeps track of the
@@ -51,14 +51,14 @@ import java.lang.reflect.*;
  */
 public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
 
-    /**
+    /** {@collect.stats}
      * The number of columns in the <code>RowSet</code> object that created
      * this <code>RowSetMetaDataImpl</code> object.
      * @serial
      */
     private int colCount;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>ColInfo</code> objects used to store information
      * about each column in the <code>RowSet</code> object for which
      * this <code>RowSetMetaDataImpl</code> object was created. The first
@@ -69,7 +69,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
      */
     private ColInfo[] colInfo;
 
-    /**
+    /** {@collect.stats}
      * Checks to see that the designated column is a valid column number for
      * the <code>RowSet</code> object for which this <code>RowSetMetaDataImpl</code>
      * was created. To be valid, a column number must be greater than
@@ -84,7 +84,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see that the given SQL type is a valid column type and throws an
      * <code>SQLException</code> object if it is not.
      * To be valid, a SQL type must be one of the constant values
@@ -112,7 +112,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         throw new SQLException("Invalid SQL type for column");
     }
 
-    /**
+    /** {@collect.stats}
      * Sets to the given number the number of columns in the <code>RowSet</code>
      * object for which this <code>RowSetMetaDataImpl</code> object was created.
      *
@@ -148,7 +148,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the designated column is automatically
      * numbered, thus read-only, to the given <code>boolean</code>
      * value.
@@ -167,7 +167,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].autoIncrement = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the name of the designated column is case sensitive to
      * the given <code>boolean</code>.
      *
@@ -184,7 +184,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].caseSensitive = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a value stored in the designated column can be used
      * in a <code>WHERE</code> clause to the given <code>boolean</code> value.
      *
@@ -204,7 +204,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].searchable = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a value stored in the designated column is a cash
      * value to the given <code>boolean</code>.
      *
@@ -221,7 +221,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].currency = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a value stored in the designated column can be set
      * to <code>NULL</code> to the given constant from the interface
      * <code>ResultSetMetaData</code>.
@@ -251,7 +251,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].nullable = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a value stored in the designated column is a signed
      * number to the given <code>boolean</code>.
      *
@@ -268,7 +268,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].signed = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the normal maximum number of chars in the designated column
      * to the given number.
      *
@@ -289,7 +289,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].columnDisplaySize = size;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the suggested column label for use in printouts and
      * displays, if any, to <i>label</i>. If <i>label</i> is
      * <code>null</code>, the column label is set to an empty string
@@ -312,7 +312,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the column name of the designated column to the given name.
      *
      * @param columnIndex the first column is 1, the second is 2, and so on;
@@ -332,7 +332,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated column's table's schema name, if any, to
      * <i>schemaName</i>. If <i>schemaName</i> is <code>null</code>,
      * the schema name is set to an empty string ("").
@@ -354,7 +354,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the total number of decimal digits in a value stored in the
      * designated column to the given number.
      *
@@ -376,7 +376,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].colPrecision = precision;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of digits to the right of the decimal point in a value
      * stored in the designated column to the given number.
      *
@@ -397,7 +397,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].colScale = scale;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the name of the table from which the designated column
      * was derived to the given table name.
      *
@@ -417,7 +417,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the catalog name of the table from which the designated
      * column was derived to <i>catalogName</i>. If <i>catalogName</i>
      * is <code>null</code>, the catalog name is set to an empty string.
@@ -437,7 +437,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
             colInfo[columnIndex].catName = new String("");
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SQL type code for values stored in the designated column
      * to the given type code from the class <code>java.sql.Types</code>.
      *
@@ -459,7 +459,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         colInfo[columnIndex].colType = SQLType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the type name used by the data source for values stored in the
      * designated column to the given type name.
      *
@@ -480,7 +480,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of columns in the <code>RowSet</code> object
      * for which this <code>RowSetMetaDataImpl</code> object was created.
      *
@@ -491,7 +491,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a value stored in the designated column is
      * automatically numbered, and thus readonly.
      *
@@ -507,7 +507,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].autoIncrement;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the case of the designated column's name
      * matters.
      *
@@ -523,7 +523,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].caseSensitive;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a value stored in the designated column
      * can be used in a <code>WHERE</code> clause.
      *
@@ -539,7 +539,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].searchable;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a value stored in the designated column
      * is a cash value.
      *
@@ -555,7 +555,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].currency;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a constant indicating whether it is possible
      * to store a <code>NULL</code> value in the designated column.
      *
@@ -573,7 +573,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].nullable;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a value stored in the designated column is
      * a signed number.
      *
@@ -589,7 +589,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].signed;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the normal maximum width in chars of the designated column.
      *
      * @param columnIndex the first column is 1, the second is 2, and so on;
@@ -604,7 +604,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].columnDisplaySize;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the the suggested column title for the designated
      * column for use in printouts and displays.
      *
@@ -619,7 +619,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].columnLabel;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of the designated column.
      *
      * @param columnIndex the first column is 1, the second is 2, and so on;
@@ -633,7 +633,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].columnName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the schema name of the table from which the value
      * in the designated column was derived.
      *
@@ -655,7 +655,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the total number of digits for values stored in
      * the designated column.
      *
@@ -670,7 +670,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].colPrecision;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of digits to the right of the decimal point
      * for values stored in the designated column.
      *
@@ -685,7 +685,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].colScale;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of the table from which the value
      * in the designated column was derived.
      *
@@ -701,7 +701,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].tableName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the catalog name of the table from which the value
      * in the designated column was derived.
      *
@@ -722,7 +722,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the type code (one of the <code>java.sql.Types</code>
      * constants) for the SQL type of the value stored in the
      * designated column.
@@ -740,7 +740,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].colType;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the DBMS-specific type name for values stored in the
      * designated column.
      *
@@ -756,7 +756,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the designated column is definitely
      * not writable, thus readonly.
      *
@@ -772,7 +772,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].readOnly;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether it is possible for a write operation on
      * the designated column to succeed. A return value of
      * <code>true</code> means that a write operation may or may
@@ -790,7 +790,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return colInfo[columnIndex].writable;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a write operation on the designated column
      * will definitely succeed.
      *
@@ -804,7 +804,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
     public  boolean isDefinitelyWritable(int columnIndex)
         throws SQLException { return true;}
 
-    /**
+    /** {@collect.stats}
      * Retrieves the fully-qualified name of the class in the Java
      * programming language to which a value in the designated column
      * will be mapped.  For example, if the value is an <code>int</code>,
@@ -900,7 +900,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object that implements the given interface to allow access to non-standard methods,
      * or standard methods not exposed by the proxy.
      * The result may be either the object found to implement the interface or a proxy for that object.
@@ -918,7 +918,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
         return (T)this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this either implements the interface argument or is directly or indirectly a wrapper
      * for an object that does. Returns false otherwise. If this implements the interface then return true,
      * else if this is a wrapper then return the result of recursively calling <code>isWrapperFor</code> on the wrapped
@@ -939,7 +939,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
     static final long serialVersionUID = 6893806403181801867L;
 
     private class ColInfo implements Serializable {
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column is a number
          * that is incremented automatically, which makes the value read-only.
          * <code>true</code> means that the value in this column
@@ -949,7 +949,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public boolean autoIncrement;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column is case sensitive.
          * <code>true</code> means that it is; <code>false</code> that it is not.
          *
@@ -957,7 +957,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public boolean caseSensitive;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column is a cash value
          * <code>true</code> means that it is; <code>false</code> that it is not.
          *
@@ -965,7 +965,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public boolean currency;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column is nullable.
          * The possible values are the <code>ResultSet</code> constants
          * <code>columnNoNulls</code>, <code>columnNullable</code>, and
@@ -975,7 +975,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public int nullable;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column is a signed number.
          * <code>true</code> means that it is; <code>false</code> that it is not.
          *
@@ -983,7 +983,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public boolean signed;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates whether the value in this column can be used in
          * a <code>WHERE</code> clause.
          * <code>true</code> means that it can; <code>false</code> that it cannot.
@@ -992,7 +992,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public boolean searchable;
 
-        /**
+        /** {@collect.stats}
          * The field that indicates the normal maximum width in characters for
          * this column.
          *
@@ -1000,7 +1000,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public int columnDisplaySize;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the suggested column title for this column, to be
          * used in printing and displays.
          *
@@ -1008,14 +1008,14 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public String columnLabel;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the name of this column.
          *
          * @serial
          */
         public  String columnName;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the schema name for the table from which this column
          * was derived.
          *
@@ -1023,7 +1023,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public String schemaName;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the precision of the value in this column.  For number
          * types, the precision is the total number of decimal digits; for character types,
          * it is the maximum number of characters; for binary types, it is the maximum
@@ -1033,7 +1033,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public int colPrecision;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the scale (number of digits to the right of the decimal
          * point) of the value in this column.
          *
@@ -1041,7 +1041,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public int colScale;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the name of the table from which this column
          * was derived.  This value may be the empty string if there is no
          * table name, such as when this column is produced by a join.
@@ -1050,7 +1050,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public String tableName ="";
 
-        /**
+        /** {@collect.stats}
          * The field that holds the catalog name for the table from which this column
          * was derived.  If the DBMS does not support catalogs, the value may be the
          * empty string.
@@ -1059,7 +1059,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public String catName;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the type code from the class <code>java.sql.Types</code>
          * indicating the type of the value in this column.
          *
@@ -1067,7 +1067,7 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public int colType;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the the type name used by this particular data source
          * for the value stored in this column.
          *
@@ -1075,14 +1075,14 @@ public class RowSetMetaDataImpl implements RowSetMetaData,  Serializable {
          */
         public String colTypeName;
 
-        /**
+        /** {@collect.stats}
          * The field that holds the updatablity boolean per column of a RowSet
          *
          * @serial
          */
         public boolean readOnly = false;
 
-        /**
+        /** {@collect.stats}
          * The field that hold the writable boolean per column of a RowSet
          *
          *@serial

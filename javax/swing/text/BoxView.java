@@ -30,7 +30,7 @@ import java.awt.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.SizeRequirements;
 
-/**
+/** {@collect.stats}
  * A view that arranges its children into a box shape by tiling
  * its children along an axis.  The box is somewhat like that
  * found in TeX where there is alignment of the
@@ -60,7 +60,7 @@ import javax.swing.SizeRequirements;
  */
 public class BoxView extends CompositeView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>BoxView</code>.
      *
      * @param elem the element this view is responsible for
@@ -81,7 +81,7 @@ public class BoxView extends CompositeView {
         minorAllocValid = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the tile axis property.  This is the axis along which
      * the child views are tiled.
      *
@@ -94,7 +94,7 @@ public class BoxView extends CompositeView {
         return majorAxis;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tile axis property.  This is the axis along which
      * the child views are tiled.
      *
@@ -110,7 +110,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout along an axis.  This happens
      * automatically if the preferences have changed for
      * any of the child views.  In some cases the layout
@@ -132,7 +132,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the layout is valid along the given axis.
      *
      * @param axis either <code>View.X_AXIS</code> or <code>View.Y_AXIS</code>
@@ -147,7 +147,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints a child.  By default
      * that is all it does, but a subclass can use this to paint
      * things relative to the child.
@@ -163,7 +163,7 @@ public class BoxView extends CompositeView {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout and resizes the cache of
      * requests/allocations.  The child allocations can still
      * be accessed for the old layout, but the new children
@@ -192,7 +192,7 @@ public class BoxView extends CompositeView {
         minorAllocValid = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Resizes the given layout array to match the new number of
      * child views.  The current number of child views are used to
      * produce the new array.  The contents of the old array are
@@ -216,7 +216,7 @@ public class BoxView extends CompositeView {
         return newArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the given <code>DocumentEvent</code> to the child views
      * that need to be notified of the change to the model.
      * If a child changed its requirements and the allocation
@@ -261,7 +261,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is called by a child to indicate its
      * preferred span has changed.  This is implemented to
      * throw away cached layout information so that new
@@ -286,7 +286,7 @@ public class BoxView extends CompositeView {
         super.preferenceChanged(child, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the resize weight.  A value of 0 or less is not resizable.
      *
      * @param axis may be either <code>View.X_AXIS</code> or
@@ -310,7 +310,7 @@ public class BoxView extends CompositeView {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view along an axis.  This should cause
      * layout of the view along the given axis.
      *
@@ -350,7 +350,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Propagates the current allocations to the child views.
      */
     void updateChildSizes() {
@@ -368,7 +368,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the view along an axis.  This is implemented
      * to return zero.
      *
@@ -384,7 +384,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view if the view caches any layout
      * information.  This is implemented to call the
@@ -398,7 +398,7 @@ public class BoxView extends CompositeView {
                Math.max(0, (int)(height - getTopInset() - getBottomInset())));
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the <code>BoxView</code> using the given
      * rendering surface and area
      * on that surface.  Only the children that intersect
@@ -435,7 +435,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the allocation for the given child view.
      * This enables finding out where various views
      * are located.  This is implemented to return
@@ -464,7 +464,7 @@ public class BoxView extends CompositeView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.  This makes
      * sure the allocation is valid before calling the superclass.
@@ -484,7 +484,7 @@ public class BoxView extends CompositeView {
         return super.modelToView(pos, a, b);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -503,7 +503,7 @@ public class BoxView extends CompositeView {
         return super.viewToModel(x, y, a, bias);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  This is implemented to give the total alignment
      * needed to position the children with the alignment points
@@ -529,7 +529,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -552,7 +552,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.
      *
@@ -575,7 +575,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.
      *
@@ -600,7 +600,7 @@ public class BoxView extends CompositeView {
 
     // --- local methods ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Are the allocations for the children still
      * valid?
      *
@@ -610,7 +610,7 @@ public class BoxView extends CompositeView {
         return (majorAllocValid && minorAllocValid);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if a point falls before an allocated region.
      *
      * @param x the X coordinate >= 0
@@ -627,7 +627,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if a point falls after an allocated region.
      *
      * @param x the X coordinate >= 0
@@ -644,7 +644,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view at the given coordinates.
      *
      * @param x the X coordinate >= 0
@@ -684,7 +684,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Allocates a region for a child view.
      *
      * @param index the index of the child view to
@@ -698,7 +698,7 @@ public class BoxView extends CompositeView {
         alloc.height = getSpan(Y_AXIS, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Perform layout on the box
      *
      * @param width the width (inside of the insets) >= 0
@@ -709,7 +709,7 @@ public class BoxView extends CompositeView {
         setSpanOnAxis(Y_AXIS, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current width of the box.  This is the width that
      * it was last allocated.
      * @return the current width of the box
@@ -725,7 +725,7 @@ public class BoxView extends CompositeView {
         return span;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current height of the box.  This is the height that
      * it was last allocated.
      * @return the current height of the box
@@ -741,7 +741,7 @@ public class BoxView extends CompositeView {
         return span;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs layout for the major axis of the box (i.e. the
      * axis that it represents). The results of the layout (the
      * offset and span for each children) are placed in the given
@@ -814,7 +814,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Performs layout for the minor axis of the box (i.e. the
      * axis orthoginal to the axis that it represents). The results
      * of the layout (the offset and span for each children) are
@@ -849,7 +849,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the size requirements for the major axis
      * <code>axis</code>.
      *
@@ -883,7 +883,7 @@ public class BoxView extends CompositeView {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the size requirements for the minor axis
      * <code>axis</code>.
      *
@@ -915,7 +915,7 @@ public class BoxView extends CompositeView {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the request cache and update if needed.
      * @param axis the axis being studied
      * @exception IllegalArgumentException if <code>axis</code> is
@@ -937,7 +937,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Computes the location and extent of each child view
      * in this <code>BoxView</code> given the <code>targetSpan</code>,
      * which is the width (or height) of the region we have to
@@ -994,7 +994,7 @@ public class BoxView extends CompositeView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the size requirements for this <code>BoxView</code>
      * by examining the size of each child view.
      *
@@ -1090,7 +1090,7 @@ public class BoxView extends CompositeView {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the offset of a particular child's current layout.
      * @param axis the axis being studied
      * @param childIndex the index of the requested child
@@ -1101,7 +1101,7 @@ public class BoxView extends CompositeView {
         return offsets[childIndex];
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the span of a particular childs current layout.
      * @param axis the axis being studied
      * @param childIndex the index of the requested child
@@ -1112,7 +1112,7 @@ public class BoxView extends CompositeView {
         return spans[childIndex];
     }
 
-    /**
+    /** {@collect.stats}
      * Determines in which direction the next view lays.
      * Consider the View at index n. Typically the <code>View</code>s
      * are layed out from left to right, so that the <code>View</code>
@@ -1183,6 +1183,6 @@ public class BoxView extends CompositeView {
     int[] minorOffsets;
     int[] minorSpans;
 
-    /** used in paint. */
+    /** {@collect.stats} used in paint. */
     Rectangle tempRect;
 }

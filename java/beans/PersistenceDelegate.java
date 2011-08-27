@@ -24,7 +24,7 @@
  */
 package java.beans;
 
-/**
+/** {@collect.stats}
  * The PersistenceDelegate class takes the responsibility
  * for expressing the state of an instance of a given class
  * in terms of the methods in the class's public API. Instead
@@ -87,7 +87,7 @@ package java.beans;
 
 public abstract class PersistenceDelegate {
 
-    /**
+    /** {@collect.stats}
      * The <code>writeObject</code> is a single entry point to the persistence
      * and is used by a <code>Encoder</code> in the traditional
      * mode of delegation. Although this method is not final,
@@ -117,7 +117,7 @@ public abstract class PersistenceDelegate {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if an <em>equivalent</em> copy of <code>oldInstance</code> may be
      * created by applying a series of statements to <code>newInstance</code>.
      * In the specification of this method, we mean by equivalent that the modified instance
@@ -141,7 +141,7 @@ public abstract class PersistenceDelegate {
                 oldInstance.getClass() == newInstance.getClass());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an expression whose value is <code>oldInstance</code>.
      * This method is used to characterize the constructor
      * or factory method that should be used to create the given object.
@@ -161,7 +161,7 @@ public abstract class PersistenceDelegate {
      */
     protected abstract Expression instantiate(Object oldInstance, Encoder out);
 
-    /**
+    /** {@collect.stats}
      * Produce a series of statements with side effects on <code>newInstance</code>
      * so that the new instance becomes <em>equivalent</em> to <code>oldInstance</code>.
      * In the specification of this method, we mean by equivalent that, after the method

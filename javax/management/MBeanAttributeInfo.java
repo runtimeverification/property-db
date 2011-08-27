@@ -32,7 +32,7 @@ import com.sun.jmx.mbeanserver.GetPropertyAction;
 import com.sun.jmx.mbeanserver.Introspector;
 
 
-/**
+/** {@collect.stats}
  * Describes an MBean attribute exposed for management.  Instances of
  * this class are immutable.  Subclasses may be mutable but this is
  * not recommended.
@@ -69,28 +69,28 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
     static final MBeanAttributeInfo[] NO_ATTRIBUTES =
         new MBeanAttributeInfo[0];
 
-    /**
+    /** {@collect.stats}
      * @serial The actual attribute type.
      */
     private final String attributeType;
 
-    /**
+    /** {@collect.stats}
      * @serial The attribute write right.
      */
     private final boolean isWrite;
 
-    /**
+    /** {@collect.stats}
      * @serial The attribute read right.
      */
     private final boolean isRead;
 
-    /**
+    /** {@collect.stats}
      * @serial Indicates if this method is a "is"
      */
     private final boolean is;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanAttributeInfo</CODE> object.
      *
      * @param name The name of the attribute.
@@ -116,7 +116,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
              (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanAttributeInfo</CODE> object.
      *
      * @param name The name of the attribute.
@@ -160,7 +160,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
         this.is = isIs;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>This constructor takes the name of a simple attribute, and Method
      * objects for reading and writing the attribute.  The {@link Descriptor}
      * of the constructed object will include fields contributed by any
@@ -190,7 +190,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
                                    Introspector.descriptorForElement(setter)));
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a shallow clone of this instance.
      * The clone is obtained by simply calling <tt>super.clone()</tt>,
      * thus calling the default native shallow cloning mechanism
@@ -209,7 +209,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
          }
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the class name of the attribute.
      *
      * @return the class name.
@@ -218,7 +218,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
         return attributeType;
     }
 
-    /**
+    /** {@collect.stats}
      * Whether the value of the attribute can be read.
      *
      * @return True if the attribute can be read, false otherwise.
@@ -227,7 +227,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
         return isRead;
     }
 
-    /**
+    /** {@collect.stats}
      * Whether new values can be written to the attribute.
      *
      * @return True if the attribute can be written to, false otherwise.
@@ -236,7 +236,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
         return isWrite;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates if this attribute has an "is" getter.
      *
      * @return true if this attribute has an "is" getter.
@@ -268,7 +268,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
             "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this MBeanAttributeInfo to another.
      *
      * @param o the object to compare to.
@@ -311,7 +311,7 @@ public class MBeanAttributeInfo extends MBeanFeatureInfo implements Cloneable {
                  getter.getReturnType().equals(Boolean.class)));
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the type of the attribute.
      */
     private static String attributeType(Method getter, Method setter)

@@ -29,7 +29,7 @@ import java.util.EventObject;
 import javax.swing.tree.TreePath;
 
 
-/**
+/** {@collect.stats}
  * Encapsulates information describing changes to a tree model, and
  * used to notify tree model listeners of the change.
  * For more information and examples see
@@ -51,14 +51,14 @@ import javax.swing.tree.TreePath;
  * @author Scott Violet
  */
 public class TreeModelEvent extends EventObject {
-    /** Path to the parent of the nodes that have changed. */
+    /** {@collect.stats} Path to the parent of the nodes that have changed. */
     protected TreePath  path;
-    /** Indices identifying the position of where the children were. */
+    /** {@collect.stats} Indices identifying the position of where the children were. */
     protected int[]     childIndices;
-    /** Children that have been removed. */
+    /** {@collect.stats} Children that have been removed. */
     protected Object[]  children;
 
-    /**
+    /** {@collect.stats}
      * Used to create an event when nodes have been changed, inserted, or
      * removed, identifying the path to the parent of the modified items as
      * an array of Objects. All of the modified objects are siblings which are
@@ -131,7 +131,7 @@ public class TreeModelEvent extends EventObject {
         this(source, new TreePath(path), childIndices, children);
     }
 
-    /**
+    /** {@collect.stats}
      * Used to create an event when nodes have been changed, inserted, or
      * removed, identifying the path to the parent of the modified items as
      * a TreePath object. For more information on how to specify the indexes
@@ -159,7 +159,7 @@ public class TreeModelEvent extends EventObject {
         this.children = children;
     }
 
-    /**
+    /** {@collect.stats}
      * Used to create an event when the node structure has changed in some way,
      * identifying the path to the root of a modified subtree as an array of
      * Objects. A structure change event might involve nodes swapping position,
@@ -186,7 +186,7 @@ public class TreeModelEvent extends EventObject {
         this(source, new TreePath(path));
     }
 
-    /**
+    /** {@collect.stats}
      * Used to create an event when the node structure has changed in some way,
      * identifying the path to the root of the modified subtree as a TreePath
      * object. For more information on this event specification, see
@@ -210,7 +210,7 @@ public class TreeModelEvent extends EventObject {
         this.childIndices = new int[0];
     }
 
-    /**
+    /** {@collect.stats}
      * For all events, except treeStructureChanged,
      * returns the parent of the changed nodes.
      * For treeStructureChanged events, returns the ancestor of the
@@ -227,7 +227,7 @@ public class TreeModelEvent extends EventObject {
      */
     public TreePath getTreePath() { return path; }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get the array of objects from the TreePath
      * instance that this event wraps.
      *
@@ -241,7 +241,7 @@ public class TreeModelEvent extends EventObject {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the objects that are children of the node identified by
      * <code>getPath</code> at the locations specified by
      * <code>getChildIndices</code>. If this is a removal event the
@@ -263,7 +263,7 @@ public class TreeModelEvent extends EventObject {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the values of the child indexes. If this is a removal event
      * the indexes point to locations in the initial list where items
      * were removed. If it is an insert, the indices point to locations
@@ -284,7 +284,7 @@ public class TreeModelEvent extends EventObject {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this object's
      * properties.
      *

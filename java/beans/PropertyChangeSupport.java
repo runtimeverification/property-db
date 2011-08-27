@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-/**
+/** {@collect.stats}
  * This is a utility class that can be used by beans that support bound
  * properties.  You can use an instance of this class as a member field
  * of your bean and delegate various work to it.
@@ -44,7 +44,7 @@ import java.util.Map.Entry;
 public class PropertyChangeSupport implements Serializable {
     private PropertyChangeListenerMap map = new PropertyChangeListenerMap();
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>PropertyChangeSupport</code> object.
      *
      * @param sourceBean  The bean to be given as the source for any events.
@@ -56,7 +56,7 @@ public class PropertyChangeSupport implements Serializable {
         source = sourceBean;
     }
 
-    /**
+    /** {@collect.stats}
      * Add a PropertyChangeListener to the listener list.
      * The listener is registered for all properties.
      * The same listener object may be added more than once, and will be called
@@ -81,7 +81,7 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove a PropertyChangeListener from the listener list.
      * This removes a PropertyChangeListener that was registered
      * for all properties.
@@ -107,7 +107,7 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the listeners that were added to the
      * PropertyChangeSupport object with addPropertyChangeListener().
      * <p>
@@ -142,7 +142,7 @@ public class PropertyChangeSupport implements Serializable {
         return this.map.getListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Add a PropertyChangeListener for a specific property.  The listener
      * will be invoked only when a call on firePropertyChange names that
      * specific property.
@@ -167,7 +167,7 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove a PropertyChangeListener for a specific property.
      * If <code>listener</code> was added more than once to the same event
      * source for the specified property, it will be notified one less time
@@ -192,7 +192,7 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the listeners which have been associated
      * with the named property.
      *
@@ -207,7 +207,7 @@ public class PropertyChangeSupport implements Serializable {
         return this.map.getListeners(propertyName);
     }
 
-    /**
+    /** {@collect.stats}
      * Report a bound property update to any registered listeners.
      * No event is fired if old and new are equal and non-null.
      *
@@ -230,7 +230,7 @@ public class PropertyChangeSupport implements Serializable {
                                                    oldValue, newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Report an int bound property update to any registered listeners.
      * No event is fired if old and new are equal.
      * <p>
@@ -250,7 +250,7 @@ public class PropertyChangeSupport implements Serializable {
         firePropertyChange(propertyName, Integer.valueOf(oldValue), Integer.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Report a boolean bound property update to any registered listeners.
      * No event is fired if old and new are equal.
      * <p>
@@ -270,7 +270,7 @@ public class PropertyChangeSupport implements Serializable {
         firePropertyChange(propertyName, Boolean.valueOf(oldValue), Boolean.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Fire an existing PropertyChangeEvent to any registered listeners.
      * No event is fired if the given event's old and new values are
      * equal and non-null.
@@ -300,7 +300,7 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Report a bound indexed property update to any registered
      * listeners.
      * <p>
@@ -324,7 +324,7 @@ public class PropertyChangeSupport implements Serializable {
             (source, propertyName, oldValue, newValue, index));
     }
 
-    /**
+    /** {@collect.stats}
      * Report an <code>int</code> bound indexed property update to any registered
      * listeners.
      * <p>
@@ -350,7 +350,7 @@ public class PropertyChangeSupport implements Serializable {
                                   Integer.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Report a <code>boolean</code> bound indexed property update to any
      * registered listeners.
      * <p>
@@ -375,7 +375,7 @@ public class PropertyChangeSupport implements Serializable {
                                   Boolean.valueOf(newValue));
     }
 
-    /**
+    /** {@collect.stats}
      * Check if there are any listeners for a specific property, including
      * those registered on all properties.  If <code>propertyName</code>
      * is null, only check for listeners registered on all properties.
@@ -387,7 +387,7 @@ public class PropertyChangeSupport implements Serializable {
         return this.map.hasListeners(propertyName);
     }
 
-    /**
+    /** {@collect.stats}
      * @serialData Null terminated list of <code>PropertyChangeListeners</code>.
      * <p>
      * At serialization time we skip non-serializable listeners and
@@ -449,12 +449,12 @@ public class PropertyChangeSupport implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The object to be provided as the "source" for any generated events.
      */
     private Object source;
 
-    /**
+    /** {@collect.stats}
      * @serialField children                                   Hashtable
      * @serialField source                                     Object
      * @serialField propertyChangeSupportSerializedDataVersion int
@@ -465,19 +465,19 @@ public class PropertyChangeSupport implements Serializable {
             new ObjectStreamField("propertyChangeSupportSerializedDataVersion", Integer.TYPE)
     };
 
-    /**
+    /** {@collect.stats}
      * Serialization version ID, so we're compatible with JDK 1.1
      */
     static final long serialVersionUID = 6401253773779951803L;
 
-    /**
+    /** {@collect.stats}
      * This is a {@link ChangeListenerMap ChangeListenerMap} implementation
      * that works with {@link PropertyChangeListener PropertyChangeListener} objects.
      */
     private static final class PropertyChangeListenerMap extends ChangeListenerMap<PropertyChangeListener> {
         private static final PropertyChangeListener[] EMPTY = {};
 
-        /**
+        /** {@collect.stats}
          * Creates an array of {@link PropertyChangeListener PropertyChangeListener} objects.
          * This method uses the same instance of the empty array
          * when {@code length} equals {@code 0}.
@@ -492,7 +492,7 @@ public class PropertyChangeSupport implements Serializable {
                     : EMPTY;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a {@link PropertyChangeListenerProxy PropertyChangeListenerProxy}
          * object for the specified property.
          *

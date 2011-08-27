@@ -32,7 +32,7 @@ import sun.security.krb5.PrincipalName;
 import sun.security.krb5.Realm;
 import sun.security.util.*;
 
-/**
+/** {@collect.stats}
  * This class encapsulates a Kerberos principal.
  *
  * @author Mayank Upadhyay
@@ -46,36 +46,36 @@ public final class KerberosPrincipal
 
     //name types
 
-    /**
+    /** {@collect.stats}
      * unknown name type.
      */
 
     public static final int KRB_NT_UNKNOWN =   0;
 
-    /**
+    /** {@collect.stats}
      * user principal name type.
      */
 
     public static final int KRB_NT_PRINCIPAL = 1;
 
-    /**
+    /** {@collect.stats}
      * service and other unique instance (krbtgt) name type.
      */
     public static final int KRB_NT_SRV_INST =  2;
 
-    /**
+    /** {@collect.stats}
      * service with host name as instance (telnet, rcommands) name type.
      */
 
     public static final int KRB_NT_SRV_HST =   3;
 
-    /**
+    /** {@collect.stats}
      * service with host as remaining components name type.
      */
 
     public static final int KRB_NT_SRV_XHST =  4;
 
-    /**
+    /** {@collect.stats}
      * unique ID name type.
      */
 
@@ -90,7 +90,7 @@ public final class KerberosPrincipal
 
     private static final char NAME_REALM_SEPARATOR = '@';
 
-    /**
+    /** {@collect.stats}
      * Constructs a KerberosPrincipal from the provided string input. The
      * name type for this  principal defaults to
      * {@link #KRB_NT_PRINCIPAL KRB_NT_PRINCIPAL}
@@ -129,7 +129,7 @@ public final class KerberosPrincipal
         realm = krb5Principal.getRealmString();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a KerberosPrincipal from the provided string and
      * name type input.  The string is assumed to contain a name in the
      * format that is specified in Section 2.1 (Mandatory Name Forms) of
@@ -172,7 +172,7 @@ public final class KerberosPrincipal
         fullName = krb5Principal.toString();
         realm = krb5Principal.getRealmString();
     }
-    /**
+    /** {@collect.stats}
      * Returns the realm component of this Kerberos principal.
      *
      * @return the realm component of this Kerberos principal.
@@ -181,7 +181,7 @@ public final class KerberosPrincipal
         return realm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this principal. The hash code is defined to
      * be the result of the following  calculation:
      * <pre><code>
@@ -194,7 +194,7 @@ public final class KerberosPrincipal
         return getName().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Object with this Principal for equality.
      * Returns true if the given object is also a
      * <code>KerberosPrincipal</code> and the two
@@ -225,7 +225,7 @@ public final class KerberosPrincipal
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Save the KerberosPrincipal object to a stream
      *
      * @serialData this <code>KerberosPrincipal</code> is serialized
@@ -249,7 +249,7 @@ public final class KerberosPrincipal
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads this object from a stream (i.e., deserializes it)
      */
 
@@ -271,7 +271,7 @@ public final class KerberosPrincipal
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The returned string corresponds to the single-string
      * representation of a Kerberos Principal name as specified in
      * Section 2.1 of <a href=http://www.ietf.org/rfc/rfc1964.txt>RFC 1964</a>.
@@ -282,7 +282,7 @@ public final class KerberosPrincipal
         return fullName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name type of the KerberosPrincipal. Valid name types
      * are specified in Section 6.2 of
      * <a href=http://www.ietf.org/rfc/rfc4120.txt> RFC4120</a>.

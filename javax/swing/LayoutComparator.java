@@ -32,7 +32,7 @@ import java.awt.ComponentOrientation;
 import java.awt.Window;
 
 
-/**
+/** {@collect.stats}
  * Comparator which attempts to sort Components based on their size and
  * position. Code adapted from original javax.swing.DefaultFocusManager
  * implementation.

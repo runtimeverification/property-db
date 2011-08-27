@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving window events.
  * The class that is interested in processing a window event
  * either implements this interface (and all the methods it
@@ -49,24 +49,24 @@ import java.util.EventListener;
  * @since 1.1
  */
 public interface WindowListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked the first time a window is made visible.
      */
     public void windowOpened(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when the user attempts to close the window
      * from the window's system menu.
      */
     public void windowClosing(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a window has been closed as the result
      * of calling dispose on the window.
      */
     public void windowClosed(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a window is changed from a normal to a
      * minimized state. For many platforms, a minimized window
      * is displayed as the icon specified in the window's
@@ -75,13 +75,13 @@ public interface WindowListener extends EventListener {
      */
     public void windowIconified(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a window is changed from a minimized
      * to a normal state.
      */
     public void windowDeiconified(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when the Window is set to be the active Window. Only a Frame or
      * a Dialog can be the active Window. The native windowing system may
      * denote the active Window or its children with special decorations, such
@@ -91,7 +91,7 @@ public interface WindowListener extends EventListener {
      */
     public void windowActivated(WindowEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a Window is no longer the active Window. Only a Frame or a
      * Dialog can be the active Window. The native windowing system may denote
      * the active Window or its children with special decorations, such as a

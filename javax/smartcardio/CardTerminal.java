@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A Smart Card terminal, sometimes refered to as a Smart Card Reader.
  * A CardTerminal object can be obtained by calling
  * {@linkplain CardTerminals#list}
@@ -45,7 +45,7 @@ import java.util.*;
  */
 public abstract class CardTerminal {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardTerminal object.
      *
      * <p>This constructor is called by subclasses only. Application should
@@ -57,14 +57,14 @@ public abstract class CardTerminal {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique name of this terminal.
      *
      * @return the unique name of this terminal.
      */
     public abstract String getName();
 
-    /**
+    /** {@collect.stats}
      * Establishes a connection to the card.
      * If a connection has previously established using
      * the specified protocol, this method returns the same Card object as
@@ -86,7 +86,7 @@ public abstract class CardTerminal {
      */
     public abstract Card connect(String protocol) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Returns whether a card is present in this terminal.
      *
      * @return whether a card is present in this terminal.
@@ -95,7 +95,7 @@ public abstract class CardTerminal {
      */
     public abstract boolean isCardPresent() throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Waits until a card is present in this terminal or the timeout
      * expires. If the method returns due to an expired timeout, it returns
      * false. Otherwise it return true.
@@ -113,7 +113,7 @@ public abstract class CardTerminal {
      */
     public abstract boolean waitForCardPresent(long timeout) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Waits until a card is absent in this terminal or the timeout
      * expires. If the method returns due to an expired timeout, it returns
      * false. Otherwise it return true.

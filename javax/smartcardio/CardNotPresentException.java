@@ -25,7 +25,7 @@
 
 package javax.smartcardio;
 
-/**
+/** {@collect.stats}
  * Exception thrown when an application tries to establish a connection with a
  * terminal that has no card present.
  *
@@ -37,7 +37,7 @@ public class CardNotPresentException extends CardException {
 
     private final static long serialVersionUID = 1346879911706545215L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardNotPresentException with the specified detail message.
      *
      * @param message the detail message
@@ -46,7 +46,7 @@ public class CardNotPresentException extends CardException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardNotPresentException with the specified cause and a detail message
      * of <code>(cause==null ? null : cause.toString())</code>.
      *
@@ -56,7 +56,7 @@ public class CardNotPresentException extends CardException {
         super(cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardNotPresentException with the specified detail message and cause.
      *
      * @param message the detail message

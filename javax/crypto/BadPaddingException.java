@@ -27,7 +27,7 @@ package javax.crypto;
 
 import java.security.GeneralSecurityException;
 
-/**
+/** {@collect.stats}
  * This exception is thrown when a particular padding mechanism is
  * expected for the input data but the data is not padded properly.
  *
@@ -39,7 +39,7 @@ public class BadPaddingException extends GeneralSecurityException {
 
     private static final long serialVersionUID = -5315033893984728443L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a BadPaddingException with no detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -48,7 +48,7 @@ public class BadPaddingException extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a BadPaddingException with the specified
      * detail message.
      *

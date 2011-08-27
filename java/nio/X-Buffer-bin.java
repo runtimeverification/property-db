@@ -29,7 +29,7 @@ class XXX {
 
 #begin
 
-    /**
+    /** {@collect.stats}
      * Relative <i>get</i> method for reading $a$ $type$ value.
      *
      * <p> Reads the next $nbytes$ bytes at this buffer's current position,
@@ -44,7 +44,7 @@ class XXX {
      */
     public abstract $type$ get$Type$();
 
-    /**
+    /** {@collect.stats}
      * Relative <i>put</i> method for writing $a$ $type$
      * value&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -66,7 +66,7 @@ class XXX {
      */
     public abstract ByteBuffer put$Type$($type$ value);
 
-    /**
+    /** {@collect.stats}
      * Absolute <i>get</i> method for reading $a$ $type$ value.
      *
      * <p> Reads $nbytes$ bytes at the given index, composing them into a
@@ -84,7 +84,7 @@ class XXX {
      */
     public abstract $type$ get$Type$(int index);
 
-    /**
+    /** {@collect.stats}
      * Absolute <i>put</i> method for writing $a$ $type$
      * value&nbsp;&nbsp;<i>(optional operation)</i>.
      *
@@ -109,7 +109,7 @@ class XXX {
      */
     public abstract ByteBuffer put$Type$(int index, $type$ value);
 
-    /**
+    /** {@collect.stats}
      * Creates a view of this byte buffer as $a$ $type$ buffer.
      *
      * <p> The content of the new buffer will start at this buffer's current

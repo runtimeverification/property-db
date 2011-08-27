@@ -36,7 +36,7 @@ import java.awt.RenderingHints;
 import java.awt.Transparency;
 import sun.awt.image.ImagingLib;
 
-/**
+/** {@collect.stats}
  * This class uses an affine transform to perform a linear mapping from
  * 2D coordinates in the source image or <CODE>Raster</CODE> to 2D coordinates
  * in the destination image or <CODE>Raster</CODE>.
@@ -66,24 +66,24 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
     private AffineTransform xform;
     RenderingHints hints;
 
-    /**
+    /** {@collect.stats}
      * Nearest-neighbor interpolation type.
      */
     public static final int TYPE_NEAREST_NEIGHBOR = 1;
 
-    /**
+    /** {@collect.stats}
      * Bilinear interpolation type.
      */
     public static final int TYPE_BILINEAR = 2;
 
-    /**
+    /** {@collect.stats}
      * Bicubic interpolation type.
      */
     public static final int TYPE_BICUBIC = 3;
 
     int interpolationType = TYPE_NEAREST_NEIGHBOR;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>AffineTransformOp</CODE> given an affine transform.
      * The interpolation type is determined from the
      * <CODE>RenderingHints</CODE> object.  If the interpolation hint is
@@ -134,7 +134,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>AffineTransformOp</CODE> given an affine transform
      * and the interpolation type.
      *
@@ -161,7 +161,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         this.interpolationType = interpolationType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the interpolation type used by this op.
      * @return the interpolation type.
      * @see #TYPE_NEAREST_NEIGHBOR
@@ -172,7 +172,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return interpolationType;
     }
 
-    /**
+    /** {@collect.stats}
      * Transforms the source <CODE>BufferedImage</CODE> and stores the results
      * in the destination <CODE>BufferedImage</CODE>.
      * If the color models for the two images do not match, a color
@@ -301,7 +301,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return origDst;
     }
 
-    /**
+    /** {@collect.stats}
      * Transforms the source <CODE>Raster</CODE> and stores the results in
      * the destination <CODE>Raster</CODE>.  This operation performs the
      * transform band by band.
@@ -359,7 +359,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return dst;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the transformed destination.  The
      * rectangle returned is the actual bounding box of the
      * transformed points.  The coordinates of the upper-left corner
@@ -374,7 +374,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return getBounds2D(src.getRaster());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the transformed destination.  The
      * rectangle returned will be the actual bounding box of the
      * transformed points.  The coordinates of the upper-left corner
@@ -416,7 +416,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return new Rectangle2D.Float(fminX, fminY, fmaxX-fminX, fmaxY-fminY);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination image with the correct size and number of
      * bands.  A <CODE>RasterFormatException</CODE> may be thrown if the
      * transformed width or height is equal to 0.
@@ -476,7 +476,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination <CODE>Raster</CODE> with the correct size
      * and number of bands.  A <CODE>RasterFormatException</CODE> may be thrown
      * if the transformed width or height is equal to 0.
@@ -494,7 +494,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
                                                   (int)r.getHeight());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the corresponding destination point given a
      * point in the source.  If <CODE>dstPt</CODE> is specified, it
      * is used to hold the return value.
@@ -510,7 +510,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return xform.transform (srcPt, dstPt);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the affine transform used by this transform operation.
      *
      * @return The <CODE>AffineTransform</CODE> associated with this op.
@@ -519,7 +519,7 @@ public class AffineTransformOp implements BufferedImageOp, RasterOp {
         return (AffineTransform) xform.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints used by this transform operation.
      *
      * @return The <CODE>RenderingHints</CODE> object associated with this op.

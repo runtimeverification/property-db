@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.*;
 import java.util.concurrent.locks.*;
 
-/**
+/** {@collect.stats}
  * An optionally-bounded {@linkplain BlockingDeque blocking deque} based on
  * linked nodes.
  *
@@ -84,7 +84,7 @@ public class LinkedBlockingDeque<E>
 
     private static final long serialVersionUID = -387911632671998426L;
 
-    /** Doubly-linked list node class */
+    /** {@collect.stats} Doubly-linked list node class */
     static final class Node<E> {
         E item;
         Node<E> prev;
@@ -96,22 +96,22 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /** Pointer to first node */
+    /** {@collect.stats} Pointer to first node */
     private transient Node<E> first;
-    /** Pointer to last node */
+    /** {@collect.stats} Pointer to last node */
     private transient Node<E> last;
-    /** Number of items in the deque */
+    /** {@collect.stats} Number of items in the deque */
     private transient int count;
-    /** Maximum number of items in the deque */
+    /** {@collect.stats} Maximum number of items in the deque */
     private final int capacity;
-    /** Main lock guarding all access */
+    /** {@collect.stats} Main lock guarding all access */
     private final ReentrantLock lock = new ReentrantLock();
-    /** Condition for waiting takes */
+    /** {@collect.stats} Condition for waiting takes */
     private final Condition notEmpty = lock.newCondition();
-    /** Condition for waiting puts */
+    /** {@collect.stats} Condition for waiting puts */
     private final Condition notFull = lock.newCondition();
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingDeque</tt> with a capacity of
      * {@link Integer#MAX_VALUE}.
      */
@@ -119,7 +119,7 @@ public class LinkedBlockingDeque<E>
         this(Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingDeque</tt> with the given (fixed) capacity.
      *
      * @param capacity the capacity of this deque
@@ -130,7 +130,7 @@ public class LinkedBlockingDeque<E>
         this.capacity = capacity;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingDeque</tt> with a capacity of
      * {@link Integer#MAX_VALUE}, initially containing the elements of
      * the given collection, added in traversal order of the
@@ -149,7 +149,7 @@ public class LinkedBlockingDeque<E>
 
     // Basic linking and unlinking operations, called only while holding lock
 
-    /**
+    /** {@collect.stats}
      * Links e as first element, or returns false if full.
      */
     private boolean linkFirst(E e) {
@@ -167,7 +167,7 @@ public class LinkedBlockingDeque<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Links e as last element, or returns false if full.
      */
     private boolean linkLast(E e) {
@@ -185,7 +185,7 @@ public class LinkedBlockingDeque<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns first element, or null if empty.
      */
     private E unlinkFirst() {
@@ -203,7 +203,7 @@ public class LinkedBlockingDeque<E>
         return f.item;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns last element, or null if empty.
      */
     private E unlinkLast() {
@@ -221,7 +221,7 @@ public class LinkedBlockingDeque<E>
         return l.item;
     }
 
-    /**
+    /** {@collect.stats}
      * Unlink e
      */
     private void unlink(Node<E> x) {
@@ -247,7 +247,7 @@ public class LinkedBlockingDeque<E>
 
     // BlockingDeque methods
 
-    /**
+    /** {@collect.stats}
      * @throws IllegalStateException {@inheritDoc}
      * @throws NullPointerException  {@inheritDoc}
      */
@@ -256,7 +256,7 @@ public class LinkedBlockingDeque<E>
             throw new IllegalStateException("Deque full");
     }
 
-    /**
+    /** {@collect.stats}
      * @throws IllegalStateException {@inheritDoc}
      * @throws NullPointerException  {@inheritDoc}
      */
@@ -265,7 +265,7 @@ public class LinkedBlockingDeque<E>
             throw new IllegalStateException("Deque full");
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      */
     public boolean offerFirst(E e) {
@@ -278,7 +278,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      */
     public boolean offerLast(E e) {
@@ -291,7 +291,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -306,7 +306,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -321,7 +321,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -343,7 +343,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -365,7 +365,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E removeFirst() {
@@ -374,7 +374,7 @@ public class LinkedBlockingDeque<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E removeLast() {
@@ -461,7 +461,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E getFirst() {
@@ -470,7 +470,7 @@ public class LinkedBlockingDeque<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E getLast() {
@@ -531,7 +531,7 @@ public class LinkedBlockingDeque<E>
 
     // BlockingQueue methods
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque unless it would
      * violate capacity restrictions.  When using a capacity-restricted deque,
      * it is generally preferable to use method {@link #offer(Object) offer}.
@@ -547,14 +547,14 @@ public class LinkedBlockingDeque<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException if the specified element is null
      */
     public boolean offer(E e) {
         return offerLast(e);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -562,7 +562,7 @@ public class LinkedBlockingDeque<E>
         putLast(e);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @throws InterruptedException {@inheritDoc}
      */
@@ -571,7 +571,7 @@ public class LinkedBlockingDeque<E>
         return offerLast(e, timeout, unit);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque.
      * This method differs from {@link #poll poll} only in that it throws an
      * exception if this deque is empty.
@@ -597,7 +597,7 @@ public class LinkedBlockingDeque<E>
         return pollFirst(timeout, unit);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque.  This method differs from {@link #peek peek} only in that
      * it throws an exception if this deque is empty.
@@ -615,7 +615,7 @@ public class LinkedBlockingDeque<E>
         return peekFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of additional elements that this deque can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking. This is always equal to the initial capacity of this deque
@@ -635,7 +635,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -660,7 +660,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -692,7 +692,7 @@ public class LinkedBlockingDeque<E>
 
     // Stack methods
 
-    /**
+    /** {@collect.stats}
      * @throws IllegalStateException {@inheritDoc}
      * @throws NullPointerException  {@inheritDoc}
      */
@@ -700,7 +700,7 @@ public class LinkedBlockingDeque<E>
         addFirst(e);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E pop() {
@@ -709,7 +709,7 @@ public class LinkedBlockingDeque<E>
 
     // Collection methods
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -727,7 +727,7 @@ public class LinkedBlockingDeque<E>
         return removeFirstOccurrence(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this deque.
      *
      * @return the number of elements in this deque
@@ -741,7 +741,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this deque contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this deque contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
@@ -762,7 +762,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Variant of removeFirstOccurrence needed by iterator.remove.
      * Searches for the node, not its contents.
      */
@@ -781,7 +781,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this deque, in
      * proper sequence (from first to last element).
      *
@@ -807,7 +807,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this deque, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the deque fits in the specified array, it
@@ -872,7 +872,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically removes all of the elements from this deque.
      * The deque will be empty after this call returns.
      */
@@ -887,7 +887,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this deque in proper sequence.
      * The elements will be returned in order from first (head) to last (tail).
      * The returned <tt>Iterator</tt> is a "weakly consistent" iterator that
@@ -902,7 +902,7 @@ public class LinkedBlockingDeque<E>
         return new Itr();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this deque in reverse
      * sequential order.  The elements will be returned in order from
      * last (tail) to first (head).
@@ -916,16 +916,16 @@ public class LinkedBlockingDeque<E>
         return new DescendingItr();
     }
 
-    /**
+    /** {@collect.stats}
      * Base class for Iterators for LinkedBlockingDeque
      */
     private abstract class AbstractItr implements Iterator<E> {
-        /**
+        /** {@collect.stats}
          * The next node to return in next
          */
          Node<E> next;
 
-        /**
+        /** {@collect.stats}
          * nextItem holds on to item fields because once we claim that
          * an element exists in hasNext(), we must return item read
          * under lock (in advance()) even if it was in the process of
@@ -933,7 +933,7 @@ public class LinkedBlockingDeque<E>
          */
         E nextItem;
 
-        /**
+        /** {@collect.stats}
          * Node returned by most recent call to next. Needed by remove.
          * Reset to null if this element is deleted by a call to remove.
          */
@@ -943,7 +943,7 @@ public class LinkedBlockingDeque<E>
             advance(); // set to initial position
         }
 
-        /**
+        /** {@collect.stats}
          * Advances next, or if not yet initialized, sets to first node.
          * Implemented to move forward vs backward in the two subclasses.
          */
@@ -974,7 +974,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /** Forward iterator */
+    /** {@collect.stats} Forward iterator */
     private class Itr extends AbstractItr {
         void advance() {
             final ReentrantLock lock = LinkedBlockingDeque.this.lock;
@@ -988,7 +988,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Descending iterator for LinkedBlockingDeque
      */
     private class DescendingItr extends AbstractItr {
@@ -1004,7 +1004,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Save the state of this deque to a stream (that is, serialize it).
      *
      * @serialData The capacity (int), followed by elements (each an
@@ -1027,7 +1027,7 @@ public class LinkedBlockingDeque<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute this deque from a stream (that is,
      * deserialize it).
      * @param s the stream

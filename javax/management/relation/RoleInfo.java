@@ -39,7 +39,7 @@ import javax.management.MBeanServer;
 
 import javax.management.NotCompliantMBeanException;
 
-/**
+/** {@collect.stats}
  * A RoleInfo object summarises a role in a relation type.
  *
  * <p>The <b>serialVersionUID</b> of this class is <code>2504952983494636987L</code>.
@@ -87,7 +87,7 @@ public class RoleInfo implements Serializable {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField name String Role name
      * @serialField isReadable boolean Read access mode: <code>true</code> if role is readable
      * @serialField isWritable boolean Write access mode: <code>true</code> if role is writable
@@ -121,7 +121,7 @@ public class RoleInfo implements Serializable {
     // Public constants
     //
 
-    /**
+    /** {@collect.stats}
      * To specify an unlimited cardinality.
      */
     public static final int ROLE_CARDINALITY_INFINITY = -1;
@@ -130,37 +130,37 @@ public class RoleInfo implements Serializable {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial Role name
      */
     private String name = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Read access mode: <code>true</code> if role is readable
      */
     private boolean isReadable;
 
-    /**
+    /** {@collect.stats}
      * @serial Write access mode: <code>true</code> if role is writable
      */
     private boolean isWritable;
 
-    /**
+    /** {@collect.stats}
      * @serial Role description
      */
     private String description = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Minimum degree (i.e. minimum number of referenced MBeans in corresponding role)
      */
     private int minDegree;
 
-    /**
+    /** {@collect.stats}
      * @serial Maximum degree (i.e. maximum number of referenced MBeans in corresponding role)
      */
     private int maxDegree;
 
-    /**
+    /** {@collect.stats}
      * @serial Name of class of MBean(s) expected to be referenced in corresponding role
      */
     private String referencedMBeanClassName = null;
@@ -169,7 +169,7 @@ public class RoleInfo implements Serializable {
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param roleName  name of the role.
@@ -222,7 +222,7 @@ public class RoleInfo implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param roleName  name of the role
@@ -270,7 +270,7 @@ public class RoleInfo implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param roleName  name of the role
@@ -313,7 +313,7 @@ public class RoleInfo implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Copy constructor.
      *
      * @param roleInfo the <tt>RoleInfo</tt> instance to be copied.
@@ -348,7 +348,7 @@ public class RoleInfo implements Serializable {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the role.
      *
      * @return the name of the role.
@@ -357,7 +357,7 @@ public class RoleInfo implements Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns read access mode for the role (true if it is readable).
      *
      * @return true if the role is readable.
@@ -366,7 +366,7 @@ public class RoleInfo implements Serializable {
         return isReadable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns write access mode for the role (true if it is writable).
      *
      * @return true if the role is writable.
@@ -375,7 +375,7 @@ public class RoleInfo implements Serializable {
         return isWritable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns description text for the role.
      *
      * @return the description of the role.
@@ -384,7 +384,7 @@ public class RoleInfo implements Serializable {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns minimum degree for corresponding role reference.
      *
      * @return the minimum degree.
@@ -393,7 +393,7 @@ public class RoleInfo implements Serializable {
         return minDegree;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns maximum degree for corresponding role reference.
      *
      * @return the maximum degree.
@@ -402,7 +402,7 @@ public class RoleInfo implements Serializable {
         return maxDegree;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns name of type of MBean expected to be referenced in
      * corresponding role.</p>
      *
@@ -412,7 +412,7 @@ public class RoleInfo implements Serializable {
         return referencedMBeanClassName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the <tt>value</tt> parameter is greater than or equal to
      * the expected minimum degree, false otherwise.
      *
@@ -430,7 +430,7 @@ public class RoleInfo implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the <tt>value</tt> parameter is lower than or equal to
      * the expected maximum degree, false otherwise.
      *
@@ -449,7 +449,7 @@ public class RoleInfo implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the role info.
      *
      * @return a description of the role info.
@@ -524,7 +524,7 @@ public class RoleInfo implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link RoleInfo} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -579,7 +579,7 @@ public class RoleInfo implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link RoleInfo} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

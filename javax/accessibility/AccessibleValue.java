@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * The AccessibleValue interface should be supported by any object
  * that supports a numerical value (e.g., a scroll bar).  This interface
  * provides the standard mechanism for an assistive technology to determine
@@ -48,7 +48,7 @@ package javax.accessibility;
  */
 public interface AccessibleValue {
 
-    /**
+    /** {@collect.stats}
      * Get the value of this object as a Number.  If the value has not been
      * set, the return value will be null.
      *
@@ -57,7 +57,7 @@ public interface AccessibleValue {
      */
     public Number getCurrentAccessibleValue();
 
-    /**
+    /** {@collect.stats}
      * Set the value of this object as a Number.
      *
      * @return True if the value was set; else False
@@ -65,14 +65,14 @@ public interface AccessibleValue {
      */
     public boolean setCurrentAccessibleValue(Number n);
 
-//    /**
+//    /** {@collect.stats}
 //     * Get the description of the value of this object.
 //     *
 //     * @return description of the value of the object
 //     */
 //    public String getAccessibleValueDescription();
 
-    /**
+    /** {@collect.stats}
      * Get the minimum value of this object as a Number.
      *
      * @return Minimum value of the object; null if this object does not
@@ -81,7 +81,7 @@ public interface AccessibleValue {
      */
     public Number getMinimumAccessibleValue();
 
-    /**
+    /** {@collect.stats}
      * Get the maximum value of this object as a Number.
      *
      * @return Maximum value of the object; null if this object does not

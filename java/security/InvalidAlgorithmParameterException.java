@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * This is the exception for invalid or inappropriate algorithm parameters.
  *
  * @author Jan Luehe
@@ -42,7 +42,7 @@ extends GeneralSecurityException {
 
     private static final long serialVersionUID = 2864672297499471472L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidAlgorithmParameterException with no detail
      * message.
      * A detail message is a String that describes this particular
@@ -52,7 +52,7 @@ extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidAlgorithmParameterException with the specified
      * detail message.
      * A detail message is a String that describes this
@@ -64,7 +64,7 @@ extends GeneralSecurityException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>InvalidAlgorithmParameterException</code> with the
      * specified detail message and cause.
      *
@@ -79,7 +79,7 @@ extends GeneralSecurityException {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>InvalidAlgorithmParameterException</code> with the
      * specified cause and a detail message of
      * <tt>(cause==null ? null : cause.toString())</tt>

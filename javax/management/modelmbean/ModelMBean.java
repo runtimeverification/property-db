@@ -36,7 +36,7 @@ import javax.management.MBeanException;
 import javax.management.PersistentMBean;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * This interface must be implemented by the ModelMBeans. An implementation of this interface
  * must be shipped with every JMX Agent.
  * <P>
@@ -68,7 +68,7 @@ public interface ModelMBean extends
          ModelMBeanNotificationBroadcaster
 {
 
-        /**
+        /** {@collect.stats}
          * Initializes a ModelMBean object using ModelMBeanInfo passed in.
          * This method makes it possible to set a customized ModelMBeanInfo on
          * the ModelMBean as long as it is not registered with the MBeanServer.
@@ -97,7 +97,7 @@ public interface ModelMBean extends
         public void setModelMBeanInfo(ModelMBeanInfo inModelMBeanInfo)
             throws MBeanException, RuntimeOperationsException;
 
-        /**
+        /** {@collect.stats}
          * Sets the instance handle of the object against which to
          * execute all methods in this ModelMBean management interface
          * (MBeanInfo and Descriptors).

@@ -26,7 +26,7 @@
 
 package javax.management.remote;
 
-/**
+/** {@collect.stats}
  * <p>Implemented by objects that can have a {@code JMXServiceURL} address.
  * All {@link JMXConnectorServer} objects implement this interface.
  * Depending on the connector implementation, a {@link JMXConnector}
@@ -42,7 +42,7 @@ package javax.management.remote;
  * @since 1.6
  */
 public interface JMXAddressable {
-    /**
+    /** {@collect.stats}
      * <p>The address of this object.</p>
      *
      * @return the address of this object, or null if it

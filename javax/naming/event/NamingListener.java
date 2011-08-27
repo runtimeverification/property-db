@@ -25,7 +25,7 @@
 
 package javax.naming.event;
 
-/**
+/** {@collect.stats}
   * This interface is the root of listener interfaces that
   * handle <tt>NamingEvent</tt>s.
   * It does not make sense for a listener to implement just this interface.
@@ -55,7 +55,7 @@ package javax.naming.event;
   * @since 1.3
   */
 public interface NamingListener extends java.util.EventListener {
-    /**
+    /** {@collect.stats}
      * Called when a naming exception is thrown while attempting
      * to fire a <tt>NamingEvent</tt>.
      *

@@ -30,7 +30,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileView;
 import java.io.File;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for <code>JFileChooser</code>.
  *
  * @author Jeff Dinkins

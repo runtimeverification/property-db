@@ -26,7 +26,7 @@
 package javax.swing.text.html.parser;
 
 import javax.swing.text.html.HTML;
-/**
+/** {@collect.stats}
  * A generic HTML TagElement class. The methods define how white
  * space is interpreted around the tag.
  *

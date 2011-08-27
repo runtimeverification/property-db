@@ -31,7 +31,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 
-/**
+/** {@collect.stats}
  * Class HashAttributeSet provides an <code>AttributeSet</code>
  * implementation with characteristics of a hash map.
  * <P>
@@ -42,7 +42,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
 
     private static final long serialVersionUID = 5311560590283707917L;
 
-    /**
+    /** {@collect.stats}
      * The interface of which all members of this attribute set must be an
      * instance. It is assumed to be interface {@link Attribute Attribute}
      * or a subinterface thereof.
@@ -56,7 +56,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
      */
     private transient HashMap attrMap = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Write the instance to a stream (ie serialize the object)
      *
      * @serialData
@@ -75,7 +75,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute an instance from a stream that is, deserialize it).
      */
     private void readObject(ObjectInputStream s)
@@ -91,14 +91,14 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty attribute set.
      */
     public HashAttributeSet() {
         this(Attribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set,
      * initially populated with the given attribute.
      *
@@ -111,7 +111,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         this (attribute, Attribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set,
      * initially populated with the values from the
      * given array. The new attribute set is populated by
@@ -131,7 +131,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         this (attributes, Attribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set,
      * initially populated with the values from the  given set.
      *
@@ -143,7 +143,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         this (attributes, Attribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty attribute set, where the members of
      * the attribute set are restricted to the given interface.
      *
@@ -160,7 +160,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         myInterface = interfaceName;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the given
      * attribute, where the members of the attribute set are restricted to the
      * given interface.
@@ -186,7 +186,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         add (attribute);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, where the members of the attribute
      * set are restricted to the given interface.
      * The new attribute set is populated
@@ -222,7 +222,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the
      * values from the  given set where the members of the attribute
      * set are restricted to the given interface.
@@ -250,7 +250,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the attribute value which this attribute set contains in the
      * given attribute category. Returns <tt>null</tt> if this attribute set
      * does not contain any attribute value in the given attribute category.
@@ -280,7 +280,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
                                                 Attribute.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified attribute to this attribute set if it is not
      * already present, first removing any existing in the same
      * attribute category as the specified attribute value.
@@ -305,7 +305,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         return (!attribute.equals(oldAttribute));
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any attribute for this category from this attribute set if
      * present. If <CODE>category</CODE> is null, then
      * <CODE>remove()</CODE> does nothing and returns <tt>false</tt>.
@@ -329,7 +329,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
             attrMap.remove(category) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified attribute from this attribute set if
      * present. If <CODE>attribute</CODE> is null, then
      * <CODE>remove()</CODE> does nothing and returns <tt>false</tt>.
@@ -350,7 +350,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
             attrMap.remove(attribute.getCategory()) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this attribute set contains an
      * attribute for the specified category.
      *
@@ -368,7 +368,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
             attrMap.get(category) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this attribute set contains the given
      * attribute.
      *
@@ -385,7 +385,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
            attribute.equals(attrMap.get(((Attribute)attribute).getCategory()));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the elements in the specified set to this attribute.
      * The outcome is the same as if the
      * {@link #add(Attribute) <CODE>add(Attribute)</CODE>}
@@ -429,7 +429,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of attributes in this attribute set. If this
      * attribute set contains more than <tt>Integer.MAX_VALUE</tt> elements,
      * returns  <tt>Integer.MAX_VALUE</tt>.
@@ -440,7 +440,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         return attrMap.size();
     }
 
-    /**
+    /** {@collect.stats}
      *
      * @return the Attributes contained in this set as an array, zero length
      * if the AttributeSet is empty.
@@ -452,7 +452,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes all attributes from this attribute set.
      *
      * @throws  UnmodifiableSetException
@@ -463,7 +463,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         attrMap.clear();
     }
 
-   /**
+   /** {@collect.stats}
      * Returns true if this attribute set contains no attributes.
      *
      * @return true if this attribute set contains no attributes.
@@ -472,7 +472,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         return attrMap.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this attribute set for equality.
      * Returns <tt>true</tt> if the given object is also an attribute set and
      * the two attribute sets contain the same attribute category-attribute
@@ -505,7 +505,7 @@ public class HashAttributeSet implements AttributeSet, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this attribute set.
      * The hash code of an attribute set is defined to be the sum
      * of the hash codes of each entry in the AttributeSet.

@@ -35,7 +35,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Synth's ComboPopup.
  *
  * @author Scott Violet
@@ -45,7 +45,7 @@ class SynthComboPopup extends BasicComboPopup {
         super(combo);
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the list which is used to hold the combo box items in the
      * popup. This method is called when the UI class
      * is created.

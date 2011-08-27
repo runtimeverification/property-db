@@ -25,7 +25,7 @@
 
 package java.math;
 
-/**
+/** {@collect.stats}
  * A class used to represent multiprecision integers that makes efficient
  * use of allocated space by allowing a number to occupy only part of
  * an array so that the arrays do not have to be reallocated as often.
@@ -46,14 +46,14 @@ package java.math;
 
 class SignedMutableBigInteger extends MutableBigInteger {
 
-   /**
+   /** {@collect.stats}
      * The sign of this MutableBigInteger.
      */
     int sign = 1;
 
     // Constructors
 
-    /**
+    /** {@collect.stats}
      * The default constructor. An empty MutableBigInteger is created with
      * a one word capacity.
      */
@@ -61,7 +61,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with a magnitude specified by
      * the int val.
      */
@@ -69,7 +69,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
         super(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with a magnitude equal to the
      * specified MutableBigInteger.
      */
@@ -79,7 +79,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
 
    // Arithmetic Operations
 
-   /**
+   /** {@collect.stats}
      * Signed addition built upon unsigned add and subtract.
      */
     void signedAdd(SignedMutableBigInteger addend) {
@@ -90,7 +90,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
 
     }
 
-   /**
+   /** {@collect.stats}
      * Signed addition built upon unsigned add and subtract.
      */
     void signedAdd(MutableBigInteger addend) {
@@ -101,7 +101,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
 
     }
 
-   /**
+   /** {@collect.stats}
      * Signed subtraction built upon unsigned add and subtract.
      */
     void signedSubtract(SignedMutableBigInteger addend) {
@@ -112,7 +112,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
 
     }
 
-   /**
+   /** {@collect.stats}
      * Signed subtraction built upon unsigned add and subtract.
      */
     void signedSubtract(MutableBigInteger addend) {
@@ -124,7 +124,7 @@ class SignedMutableBigInteger extends MutableBigInteger {
              sign = 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Print out the first intLen ints of this MutableBigInteger's value
      * array starting at offset.
      */

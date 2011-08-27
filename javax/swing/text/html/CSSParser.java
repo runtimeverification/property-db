@@ -26,7 +26,7 @@ package javax.swing.text.html;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * A CSS parser. This works by way of a delegate that implements the
  * CSSParserCallback interface. The delegate is notified of the following
  * events:
@@ -92,33 +92,33 @@ class CSSParser {
                                                ')', 0};
 
 
-    /** Set to true if one character has been read ahead. */
+    /** {@collect.stats} Set to true if one character has been read ahead. */
     private boolean        didPushChar;
-    /** The read ahead character. */
+    /** {@collect.stats} The read ahead character. */
     private int            pushedChar;
-    /** Temporary place to hold identifiers. */
+    /** {@collect.stats} Temporary place to hold identifiers. */
     private StringBuffer   unitBuffer;
-    /** Used to indicate blocks. */
+    /** {@collect.stats} Used to indicate blocks. */
     private int[]          unitStack;
-    /** Number of valid blocks. */
+    /** {@collect.stats} Number of valid blocks. */
     private int            stackCount;
-    /** Holds the incoming CSS rules. */
+    /** {@collect.stats} Holds the incoming CSS rules. */
     private Reader         reader;
-    /** Set to true when the first non @ rule is encountered. */
+    /** {@collect.stats} Set to true when the first non @ rule is encountered. */
     private boolean        encounteredRuleSet;
-    /** Notified of state. */
+    /** {@collect.stats} Notified of state. */
     private CSSParserCallback callback;
-    /** nextToken() inserts the string here. */
+    /** {@collect.stats} nextToken() inserts the string here. */
     private char[]         tokenBuffer;
-    /** Current number of chars in tokenBufferLength. */
+    /** {@collect.stats} Current number of chars in tokenBufferLength. */
     private int            tokenBufferLength;
-    /** Set to true if any whitespace is read. */
+    /** {@collect.stats} Set to true if any whitespace is read. */
     private boolean        readWS;
 
 
     // The delegate interface.
     static interface CSSParserCallback {
-        /** Called when an @import is encountered. */
+        /** {@collect.stats} Called when an @import is encountered. */
         void handleImport(String importString);
         // There is currently no way to distinguish between '"foo,"' and
         // 'foo,'. But this generally isn't valid CSS. If it becomes
@@ -158,7 +158,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the next statement, returning false if the end is reached. A
      * statement is either an @rule, or a ruleset.
      */
@@ -197,7 +197,7 @@ class CSSParser {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses an @ rule, stopping at a matching brace pair, or ;.
      */
     private void parseAtRule() throws IOException {
@@ -262,7 +262,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the next rule set, which is a selector followed by a
      * declaration block.
      */
@@ -274,7 +274,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a set of selectors, returning false if the end of the stream
      * is reached.
      */
@@ -316,7 +316,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a declaration block. Which a number of declarations followed
      * by a })].
      */
@@ -336,7 +336,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a single declaration, which is an identifier a : and another
      * identifier. This returns the last token seen.
      */
@@ -359,7 +359,7 @@ class CSSParser {
         return token;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses identifiers until <code>extraChar</code> is encountered,
      * returning the ending token, which will be IDENTIFIER if extraChar
      * is found.
@@ -418,7 +418,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses till a matching block close is encountered. This is only
      * appropriate to be called at the top level (no nesting).
      */
@@ -465,7 +465,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the next token.
      */
     private int nextToken(char idChar) throws IOException {
@@ -507,7 +507,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an identifier, returning true if the length of the string is greater than 0,
      * stopping when <code>stopChar</code>, whitespace, or one of {}()[] is
      * hit.
@@ -630,7 +630,7 @@ class CSSParser {
         return (tokenBufferLength > 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads till a <code>stopChar</code> is encountered, escaping characters
      * as necessary.
      */
@@ -730,7 +730,7 @@ class CSSParser {
         tokenBuffer[tokenBufferLength++] = character;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a comment block.
      */
     private void readComment() throws IOException {
@@ -759,7 +759,7 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when a block start is encountered ({[.
      */
     private void startBlock(int startToken) {
@@ -772,7 +772,7 @@ class CSSParser {
         unitStack[stackCount++] = startToken;
     }
 
-    /**
+    /** {@collect.stats}
      * Called when an end block is encountered )]}
      */
     private void endBlock(int endToken) {
@@ -802,14 +802,14 @@ class CSSParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @return true if currently in a block.
      */
     private boolean inBlock() {
         return (stackCount > 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Skips any white space, returning the character after the white space.
      */
     private int readWS() throws IOException {
@@ -821,7 +821,7 @@ class CSSParser {
         return nextChar;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a character from the stream.
      */
     private int readChar() throws IOException {
@@ -839,7 +839,7 @@ class CSSParser {
         */
     }
 
-    /**
+    /** {@collect.stats}
      * Supports one character look ahead, this will throw if called twice
      * in a row.
      */

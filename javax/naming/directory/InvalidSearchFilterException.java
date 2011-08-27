@@ -28,7 +28,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when the specification of
   * a search filter is invalid.  The expression of the filter may
   * be invalid, or there may be a problem with one of the parameters
@@ -42,7 +42,7 @@ import javax.naming.NamingException;
   * @since 1.3
   */
 public class InvalidSearchFilterException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidSearchFilterException.
      * All fields are set to null.
      */
@@ -50,7 +50,7 @@ public class InvalidSearchFilterException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidSearchFilterException
      * with an explanation. All other fields are set to null.
      * @param msg Detail about this exception. Can be null.
@@ -60,7 +60,7 @@ public class InvalidSearchFilterException extends NamingException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 2902700940682875441L;

@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-/**
+/** {@collect.stats}
  * Defines an interface for classes that know how to layout Containers
  * based on a layout constraints object.
  *
@@ -44,7 +44,7 @@ package java.awt;
  */
 public interface LayoutManager2 extends LayoutManager {
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout, using the specified
      * constraint object.
      * @param comp the component to be added
@@ -52,7 +52,7 @@ public interface LayoutManager2 extends LayoutManager {
      */
     void addLayoutComponent(Component comp, Object constraints);
 
-    /**
+    /** {@collect.stats}
      * Calculates the maximum size dimensions for the specified container,
      * given the components it contains.
      * @see java.awt.Component#getMaximumSize
@@ -60,7 +60,7 @@ public interface LayoutManager2 extends LayoutManager {
      */
     public Dimension maximumLayoutSize(Container target);
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -69,7 +69,7 @@ public interface LayoutManager2 extends LayoutManager {
      */
     public float getLayoutAlignmentX(Container target);
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -78,7 +78,7 @@ public interface LayoutManager2 extends LayoutManager {
      */
     public float getLayoutAlignmentY(Container target);
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout, indicating that if the layout manager
      * has cached information it should be discarded.
      */

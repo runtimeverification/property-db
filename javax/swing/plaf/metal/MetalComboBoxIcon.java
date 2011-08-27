@@ -34,7 +34,7 @@ import java.io.Serializable;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
 
-/**
+/** {@collect.stats}
  * This utility class draws the horizontal bars which indicate a MetalComboBox
  *
  * @see MetalComboBoxUI
@@ -42,7 +42,7 @@ import javax.swing.plaf.basic.BasicComboBoxUI;
  */
 public class MetalComboBoxIcon implements Icon, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Paints the horizontal bars for the
      */
     public void paintIcon(Component c, Graphics g, int x, int y){
@@ -61,12 +61,12 @@ public class MetalComboBoxIcon implements Icon, Serializable {
         g.translate( -x, -y );
     }
 
-    /**
+    /** {@collect.stats}
      * Created a stub to satisfy the interface.
      */
     public int getIconWidth() { return 10; }
 
-    /**
+    /** {@collect.stats}
      * Created a stub to satisfy the interface.
      */
     public int getIconHeight()  { return 5; }

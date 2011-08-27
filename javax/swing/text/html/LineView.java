@@ -31,7 +31,7 @@ import javax.swing.border.*;
 import javax.swing.event.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * A view implementation to display an unwrapped
  * preformatted line.<p>
  * This subclasses ParagraphView, but this really only contains one
@@ -40,10 +40,10 @@ import javax.swing.text.*;
  * @author  Timothy Prinzing
  */
 class LineView extends ParagraphView {
-    /** Last place painted at. */
+    /** {@collect.stats} Last place painted at. */
     int tabBase;
 
-    /**
+    /** {@collect.stats}
      * Creates a LineView object.
      *
      * @param elem the element to wrap in a view
@@ -52,7 +52,7 @@ class LineView extends ParagraphView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Preformatted lines are not suppressed if they
      * have only whitespace, so they are always visible.
      */
@@ -60,7 +60,7 @@ class LineView extends ParagraphView {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.  The preformatted line should refuse to be
      * sized less than the preferred size.
@@ -74,7 +74,7 @@ class LineView extends ParagraphView {
         return getPreferredSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the resize weight for the specified axis.
      *
      * @param axis may be either X_AXIS or Y_AXIS
@@ -91,7 +91,7 @@ class LineView extends ParagraphView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the alignment for an axis.
      *
      * @param axis may be either X_AXIS or Y_AXIS
@@ -104,7 +104,7 @@ class LineView extends ParagraphView {
         return super.getAlignment(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the children.  If the layout span has changed,
      * the rows are rebuilt.  The superclass functionality
      * is called after checking and possibly rebuilding the
@@ -123,7 +123,7 @@ class LineView extends ParagraphView {
         super.layout(Integer.MAX_VALUE - 1, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next tab stop position given a reference position.
      * This view implements the tab coordinate system, and calls
      * <code>getTabbedSpan</code> on the logical children in the process
@@ -158,7 +158,7 @@ class LineView extends ParagraphView {
         return super.nextTabStop(x, tabOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location for the tab.
      */
     protected float getPreTab(float x, int tabOffset) {
@@ -177,7 +177,7 @@ class LineView extends ParagraphView {
         return 10.0f + x;
     }
 
-    /**
+    /** {@collect.stats}
      * @return number of characters per tab, 8.
      */
     protected int getCharactersPerTab() {

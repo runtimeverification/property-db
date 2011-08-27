@@ -24,35 +24,35 @@
  */
 package javax.swing.text.rtf;
 
-/**
+/** {@collect.stats}
    Class to hold dictionary keys used by the RTF reader/writer.
    These should be moved into StyleConstants.
 */
 class Constants
 {
-    /** An array of TabStops */
+    /** {@collect.stats} An array of TabStops */
     static final String Tabs = "tabs";
 
-    /** The name of the character set the original RTF file was in */
+    /** {@collect.stats} The name of the character set the original RTF file was in */
     static final String RTFCharacterSet = "rtfCharacterSet";
 
-    /** Indicates the domain of a Style */
+    /** {@collect.stats} Indicates the domain of a Style */
     static final String StyleType = "style:type";
 
-    /** Value for StyleType indicating a section style */
+    /** {@collect.stats} Value for StyleType indicating a section style */
     static final String STSection = "section";
-    /** Value for StyleType indicating a paragraph style */
+    /** {@collect.stats} Value for StyleType indicating a paragraph style */
     static final String STParagraph = "paragraph";
-    /** Value for StyleType indicating a character style */
+    /** {@collect.stats} Value for StyleType indicating a character style */
     static final String STCharacter = "character";
 
-    /** The style of the text following this style */
+    /** {@collect.stats} The style of the text following this style */
     static final String StyleNext = "style:nextStyle";
 
-    /** Whether the style is additive */
+    /** {@collect.stats} Whether the style is additive */
     static final String StyleAdditive = "style:additive";
 
-    /** Whether the style is hidden from the user */
+    /** {@collect.stats} Whether the style is hidden from the user */
     static final String StyleHidden = "style:hidden";
 
     /* Miscellaneous character attributes */

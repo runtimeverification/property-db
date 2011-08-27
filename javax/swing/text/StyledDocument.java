@@ -27,14 +27,14 @@ package javax.swing.text;
 import java.awt.Font;
 import java.awt.Color;
 
-/**
+/** {@collect.stats}
  * Interface for a generic styled document.
  *
  * @author  Timothy Prinzing
  */
 public interface StyledDocument extends Document {
 
-    /**
+    /** {@collect.stats}
      * Adds a new style into the logical style hierarchy.  Style attributes
      * resolve from bottom up so an attribute specified in a child
      * will override an attribute specified in the parent.
@@ -52,14 +52,14 @@ public interface StyledDocument extends Document {
      */
     public Style addStyle(String nm, Style parent);
 
-    /**
+    /** {@collect.stats}
      * Removes a named style previously added to the document.
      *
      * @param nm  the name of the style to remove
      */
     public void removeStyle(String nm);
 
-    /**
+    /** {@collect.stats}
      * Fetches a named style previously added.
      *
      * @param nm  the name of the style
@@ -67,7 +67,7 @@ public interface StyledDocument extends Document {
      */
     public Style getStyle(String nm);
 
-    /**
+    /** {@collect.stats}
      * Changes the content element attributes used for the given range of
      * existing content in the document.  All of the attributes
      * defined in the given Attributes argument are applied to the
@@ -88,7 +88,7 @@ public interface StyledDocument extends Document {
      */
     public void setCharacterAttributes(int offset, int length, AttributeSet s, boolean replace);
 
-    /**
+    /** {@collect.stats}
      * Sets paragraph attributes.
      *
      * @param offset the start of the change >= 0
@@ -103,7 +103,7 @@ public interface StyledDocument extends Document {
      */
     public void setParagraphAttributes(int offset, int length, AttributeSet s, boolean replace);
 
-    /**
+    /** {@collect.stats}
      * Sets the logical style to use for the paragraph at the
      * given position.  If attributes aren't explicitly set
      * for character and paragraph attributes they will resolve
@@ -116,7 +116,7 @@ public interface StyledDocument extends Document {
      */
     public void setLogicalStyle(int pos, Style s);
 
-    /**
+    /** {@collect.stats}
      * Gets a logical style for a given position in a paragraph.
      *
      * @param p the position >= 0
@@ -124,7 +124,7 @@ public interface StyledDocument extends Document {
      */
     public Style getLogicalStyle(int p);
 
-    /**
+    /** {@collect.stats}
      * Gets the element that represents the paragraph that
      * encloses the given offset within the document.
      *
@@ -133,7 +133,7 @@ public interface StyledDocument extends Document {
      */
     public Element getParagraphElement(int pos);
 
-    /**
+    /** {@collect.stats}
      * Gets the element that represents the character that
      * is at the given offset within the document.
      *
@@ -143,7 +143,7 @@ public interface StyledDocument extends Document {
     public Element getCharacterElement(int pos);
 
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a foreground color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.
@@ -153,7 +153,7 @@ public interface StyledDocument extends Document {
      */
     public Color getForeground(AttributeSet attr);
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a background color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.
@@ -163,7 +163,7 @@ public interface StyledDocument extends Document {
      */
     public Color getBackground(AttributeSet attr);
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a font
      * specification.  This can be used to turn things like
      * family, style, size, etc into a font that is available

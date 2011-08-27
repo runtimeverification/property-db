@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 
-/**
+/** {@collect.stats}
  * A Multipurpose Internet Mail Extension (MIME) type, as defined
  * in RFC 2045 and 2046.
  *
@@ -48,7 +48,7 @@ class MimeType implements Externalizable, Cloneable {
 
     static final long serialVersionUID = -6568722458793895906L;
 
-    /**
+    /** {@collect.stats}
      * Constructor for externalization; this constructor should not be
      * called directly by an application, since the result will be an
      * uninitialized, immutable <code>MimeType</code> object.
@@ -56,7 +56,7 @@ class MimeType implements Externalizable, Cloneable {
     public MimeType() {
     }
 
-    /**
+    /** {@collect.stats}
      * Builds a <code>MimeType</code> from a <code>String</code>.
      *
      * @param rawdata text used to initialize the <code>MimeType</code>
@@ -66,7 +66,7 @@ class MimeType implements Externalizable, Cloneable {
         parse(rawdata);
     }
 
-    /**
+    /** {@collect.stats}
      * Builds a <code>MimeType</code> with the given primary and sub
      * type but has an empty parameter list.
      *
@@ -79,7 +79,7 @@ class MimeType implements Externalizable, Cloneable {
         this(primary, sub, new MimeTypeParameterList());
     }
 
-    /**
+    /** {@collect.stats}
      * Builds a <code>MimeType</code> with a pre-defined
      * and valid (or empty) parameter list.
      *
@@ -119,7 +119,7 @@ MimeTypeParseException {
         return code;
     } // hashCode()
 
-    /**
+    /** {@collect.stats}
      * <code>MimeType</code>s are equal if their primary types,
      * subtypes, and  parameters are all equal. No default values
      * are taken into account.
@@ -140,7 +140,7 @@ MimeTypeParseException {
         return isIt;
     } // equals()
 
-    /**
+    /** {@collect.stats}
      * A routine for parsing the MIME type out of a String.
      *
      * @throws NullPointerException if <code>rawdata</code> is null
@@ -190,28 +190,28 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the primary type of this object.
      */
     public String getPrimaryType() {
         return primaryType;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the sub type of this object.
      */
     public String getSubType() {
         return subType;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve a copy of this object's parameter list.
      */
     public MimeTypeParameterList getParameters() {
         return (MimeTypeParameterList)parameters.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the value associated with the given name, or null if there
      * is no current association.
      */
@@ -219,7 +219,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         return parameters.get(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Set the value to be associated with the given name, replacing
      * any previous association.
      *
@@ -229,7 +229,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         parameters.set(name, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Remove any value associated with the given name.
      *
      * @throw IllegalArgumentExcpetion if parameter may not be deleted
@@ -238,14 +238,14 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         parameters.remove(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the String representation of this object.
      */
     public String toString() {
         return getBaseType() + parameters.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Return a String representation of this object
      * without the parameter list.
      */
@@ -253,7 +253,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         return primaryType + "/" + subType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the primary type and the
      * subtype of this object are the same as the specified
      * <code>type</code>; otherwise returns <code>false</code>.
@@ -273,7 +273,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
                             || (subType.equals(type.getSubType())));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the primary type and the
      * subtype of this object are the same as the content type
      * described in <code>rawdata</code>; otherwise returns
@@ -292,7 +292,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         return match(new MimeType(rawdata));
     }
 
-    /**
+    /** {@collect.stats}
      * The object implements the writeExternal method to save its contents
      * by calling the methods of DataOutput for its primitive values or
      * calling the writeObject method of ObjectOutput for objects, strings
@@ -312,7 +312,7 @@ MimeTypeParameterList(rawdata.substring(semIndex));
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The object implements the readExternal method to restore its
      * contents by calling the methods of DataInput for primitive
      * types and readObject for objects, strings and arrays.  The
@@ -336,7 +336,7 @@ ClassNotFoundException {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this object.
      * @return a clone of this object
      */
@@ -357,14 +357,14 @@ ClassNotFoundException {
 
     //    below here be scary parsing related things
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not a given character belongs to a legal token.
      */
     private static boolean isTokenChar(char c) {
         return ((c > 040) && (c < 0177)) && (TSPECIALS.indexOf(c) < 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not a given string is a legal token.
      *
      * @throws NullPointerException if <code>s</code> is null
@@ -384,7 +384,7 @@ ClassNotFoundException {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A string that holds all the special chars.
      */
 

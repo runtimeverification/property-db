@@ -30,7 +30,7 @@ import java.security.*;
 
 import sun.security.jca.GetInstance;
 
-/**
+/** {@collect.stats}
  * This class acts as a factory for key managers based on a
  * source of key material. Each key manager manages a specific
  * type of key material for use by secure sockets. The key
@@ -49,7 +49,7 @@ public class KeyManagerFactory {
     // The name of the key management algorithm.
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * Obtains the default KeyManagerFactory algorithm name.
      *
      * <p>The default algorithm can be changed at runtime by setting
@@ -79,7 +79,7 @@ public class KeyManagerFactory {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a KeyManagerFactory object.
      *
      * @param factorySpi the delegate
@@ -93,7 +93,7 @@ public class KeyManagerFactory {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>KeyManagerFactory</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -106,7 +106,7 @@ public class KeyManagerFactory {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyManagerFactory</code> object that acts as a
      * factory for key managers.
      *
@@ -142,7 +142,7 @@ public class KeyManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyManagerFactory</code> object that acts as a
      * factory for key managers.
      *
@@ -185,7 +185,7 @@ public class KeyManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyManagerFactory</code> object that acts as a
      * factory for key managers.
      *
@@ -221,7 +221,7 @@ public class KeyManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>KeyManagerFactory</code> object.
      *
      * @return the provider of this <code>KeyManagerFactory</code> object
@@ -231,7 +231,7 @@ public class KeyManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of key material.
      * <P>
      * The provider typically uses a KeyStore for obtaining
@@ -257,7 +257,7 @@ public class KeyManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of provider-specific
      * key material.
      * <P>
@@ -279,7 +279,7 @@ public class KeyManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns one key manager for each type of key material.
      *
      * @return the key managers

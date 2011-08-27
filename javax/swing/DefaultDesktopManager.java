@@ -34,7 +34,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-/** This is an implementation of the <code>DesktopManager</code>.
+/** {@collect.stats} This is an implementation of the <code>DesktopManager</code>.
   * It currently implements the basic behaviors for managing
   * <code>JInternalFrame</code>s in an arbitrary parent.
   * <code>JInternalFrame</code>s that are not children of a
@@ -62,14 +62,14 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
     private transient Rectangle desktopBounds = null;
     private transient Rectangle[] floatingItems = {};
 
-    /**
+    /** {@collect.stats}
      * Set to true when the user actually drags a frame vs clicks on it
      * to start the drag operation.  This is only used when dragging with
      * FASTER_DRAG_MODE.
      */
     private transient boolean didDrag;
 
-    /** Normally this method will not be called. If it is, it
+    /** {@collect.stats} Normally this method will not be called. If it is, it
       * try to determine the appropriate parent from the desktopIcon of the frame.
       * Will remove the desktopIcon from its parent if it successfully adds the frame.
       */
@@ -80,7 +80,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the frame, and, if necessary, the
      * <code>desktopIcon</code>, from its parent.
      * @param f the <code>JInternalFrame</code> to be removed
@@ -115,7 +115,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resizes the frame to fill its parents bounds.
      * @param f the frame to be resized
      */
@@ -141,7 +141,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Restores the frame back to its size and position prior
      * to a <code>maximizeFrame</code> call.
      * @param f the <code>JInternalFrame</code> to be restored
@@ -161,7 +161,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the frame from its parent and adds its
      * <code>desktopIcon</code> to the parent.
      * @param f the <code>JInternalFrame</code> to be iconified
@@ -207,7 +207,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the desktopIcon from its parent and adds its frame
      * to the parent.
      * @param f the <code>JInternalFrame</code> to be de-iconified
@@ -242,7 +242,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /** This will activate <b>f</b> moving it to the front. It will
+    /** {@collect.stats} This will activate <b>f</b> moving it to the front. It will
       * set the current active frame's (if any)
       * <code>IS_SELECTED_PROPERTY</code> to <code>false</code>.
       * There can be only one active frame across all Layers.
@@ -338,7 +338,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
 
     private transient Point currentLoc = null;
 
-    /**
+    /** {@collect.stats}
       * Moves the visible location of the frame being dragged
       * to the location specified.  The means by which this occurs can vary depending
       * on the dragging algorithm being used.  The actual logical location of the frame
@@ -388,7 +388,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         setupDragMode(f);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>setBoundsForFrame</code> with the new values.
      * @param f the component to be resized
      * @param newX the new x-coordinate
@@ -427,7 +427,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
     }
 
 
-    /** This moves the <code>JComponent</code> and repaints the damaged areas. */
+    /** {@collect.stats} This moves the <code>JComponent</code> and repaints the damaged areas. */
     public void setBoundsForFrame(JComponent f, int newX, int newY, int newWidth, int newHeight) {
         boolean didResize = (f.getWidth() != newWidth || f.getHeight() != newHeight);
         f.setBounds(newX, newY, newWidth, newHeight);
@@ -436,7 +436,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /** Convenience method to remove the desktopIcon of <b>f</b> is necessary. */
+    /** {@collect.stats} Convenience method to remove the desktopIcon of <b>f</b> is necessary. */
     protected void removeIconFor(JInternalFrame f) {
         JInternalFrame.JDesktopIcon di = f.getDesktopIcon();
         Container c = di.getParent();
@@ -446,7 +446,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /** The iconifyFrame() code calls this to determine the proper bounds
+    /** {@collect.stats} The iconifyFrame() code calls this to determine the proper bounds
       * for the desktopIcon.
       */
 
@@ -544,7 +544,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
       return(availableRectangle);
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the bounds of the component just before a maximize call.
      * @param f the component about to be resized
      * @param r the normal bounds to be saved away
@@ -553,7 +553,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         f.setNormalBounds(r);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the normal bounds of the component prior to the component
      * being maximized.
      * @param f the <code>JInternalFrame</code> of interest
@@ -563,7 +563,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         return f.getNormalBounds();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets that the component has been iconized and the bounds of the
      * <code>desktopIcon</code> are valid.
      */
@@ -573,7 +573,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the component has been iconized
      * and the bounds of the <code>desktopIcon</code> are valid,
      * otherwise returns <code>false</code>.
@@ -749,7 +749,7 @@ public class DefaultDesktopManager implements DesktopManager, java.io.Serializab
       return floaters;
    }
 
-   /**
+   /** {@collect.stats}
      * This method is here to clean up problems associated
      * with a race condition which can occur when the full contents
      * of a copyArea's source argument is not available onscreen.

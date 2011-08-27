@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when an application tries to access a type using a string
  * representing the type's name, but no definition for the type with
  * the specified name can be found.   This exception differs from
@@ -42,7 +42,7 @@ package java.lang;
 public class TypeNotPresentException extends RuntimeException {
     private String typeName;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>TypeNotPresentException</tt> for the named type
      * with the specified cause.
      *
@@ -55,7 +55,7 @@ public class TypeNotPresentException extends RuntimeException {
         this.typeName = typeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified name of the unavailable type.
      *
      * @return the fully qualified name of the unavailable type

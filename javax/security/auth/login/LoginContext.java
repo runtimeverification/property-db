@@ -40,7 +40,7 @@ import java.security.AccessControlContext;
 import sun.security.util.PendingException;
 import sun.security.util.ResourcesMgr;
 
-/**
+/** {@collect.stats}
  * <p> The <code>LoginContext</code> class describes the basic methods used
  * to authenticate Subjects and provides a way to develop an
  * application independent of the underlying authentication technology.
@@ -324,7 +324,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new <code>LoginContext</code> object with a name.
      *
      * @param name the name used as the index into the
@@ -350,7 +350,7 @@ public class LoginContext {
         loadDefaultCallbackHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new <code>LoginContext</code> object with a name
      * and a <code>Subject</code> object.
      *
@@ -388,7 +388,7 @@ public class LoginContext {
         loadDefaultCallbackHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new <code>LoginContext</code> object with a name
      * and a <code>CallbackHandler</code> object.
      *
@@ -424,7 +424,7 @@ public class LoginContext {
                                 callbackHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new <code>LoginContext</code> object with a name,
      * a <code>Subject</code> to be authenticated, and a
      * <code>CallbackHandler</code> object.
@@ -465,7 +465,7 @@ public class LoginContext {
                                 callbackHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new <code>LoginContext</code> object with a name,
      * a <code>Subject</code> to be authenticated,
      * a <code>CallbackHandler</code> object, and a login
@@ -527,7 +527,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Perform the authentication.
      *
      * <p> This method invokes the <code>login</code> method for each
@@ -609,7 +609,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Logout the <code>Subject</code>.
      *
      * <p> This method invokes the <code>logout</code> method for each
@@ -645,7 +645,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the authenticated Subject.
      *
      * <p>
@@ -683,7 +683,7 @@ public class LoginContext {
         throw error;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the login, commit, and logout methods
      * from a LoginModule inside a doPrivileged block.
      *
@@ -704,7 +704,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the login, commit, and logout methods
      * from a LoginModule inside a doPrivileged block restricted
      * by creatorAcc
@@ -944,7 +944,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Wrap the caller-specified CallbackHandler in our own
      * and invoke it within a privileged block, constrained by
      * the caller's AccessControlContext.
@@ -981,7 +981,7 @@ public class LoginContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * LoginModule information -
      *          incapsulates Configuration info and actual module instances
      */

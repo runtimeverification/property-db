@@ -28,7 +28,7 @@ package javax.security.sasl;
 import java.util.Map;
 import javax.security.auth.callback.CallbackHandler;
 
-/**
+/** {@collect.stats}
  * An interface for creating instances of <tt>SaslClient</tt>.
  * A class that implements this interface
  * must be thread-safe and handle multiple simultaneous
@@ -49,7 +49,7 @@ import javax.security.auth.callback.CallbackHandler;
  * @author Rob Weltman
  */
 public abstract interface SaslClientFactory {
-    /**
+    /** {@collect.stats}
      * Creates a SaslClient using the parameters supplied.
      *
      * @param mechanisms The non-null list of mechanism names to try. Each is the
@@ -95,7 +95,7 @@ public abstract interface SaslClientFactory {
         Map<String,?> props,
         CallbackHandler cbh) throws SaslException;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of names of mechanisms that match the specified
      * mechanism selection policies.
      * @param props The possibly null set of properties used to specify the

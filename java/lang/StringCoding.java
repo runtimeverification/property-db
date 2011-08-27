@@ -45,7 +45,7 @@ import java.util.Arrays;
 import sun.misc.MessageUtils;
 import sun.nio.cs.HistoricallyNamedCharset;
 
-/**
+/** {@collect.stats}
  * Utility class for string encoding and decoding.
  */
 

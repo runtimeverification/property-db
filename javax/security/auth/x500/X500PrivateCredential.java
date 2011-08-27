@@ -29,7 +29,7 @@ import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 import javax.security.auth.Destroyable;
 
-/**
+/** {@collect.stats}
  * <p> This class represents an <code>X500PrivateCredential</code>.
  * It associates an X.509 certificate, corresponding private key and the
  * KeyStore alias used to reference that exact key pair in the KeyStore.
@@ -42,7 +42,7 @@ public final class X500PrivateCredential implements Destroyable {
     private PrivateKey key;
     private String alias;
 
-    /**
+    /** {@collect.stats}
      * Creates an X500PrivateCredential that associates an X.509 certificate,
      * a private key and the KeyStore alias.
      * <p>
@@ -61,7 +61,7 @@ public final class X500PrivateCredential implements Destroyable {
         this.alias=null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an X500PrivateCredential that associates an X.509 certificate,
      * a private key and the KeyStore alias.
      * <p>
@@ -81,7 +81,7 @@ public final class X500PrivateCredential implements Destroyable {
         this.alias=alias;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the X.509 certificate.
      * <p>
      * @return the X509Certificate
@@ -91,7 +91,7 @@ public final class X500PrivateCredential implements Destroyable {
         return cert;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the PrivateKey.
      * <p>
      * @return the PrivateKey
@@ -100,7 +100,7 @@ public final class X500PrivateCredential implements Destroyable {
         return key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the KeyStore alias.
      * <p>
      * @return the KeyStore alias
@@ -110,7 +110,7 @@ public final class X500PrivateCredential implements Destroyable {
         return alias;
     }
 
-    /**
+    /** {@collect.stats}
      * Clears the references to the X.509 certificate, private key and the
      * KeyStore alias in this object.
      */
@@ -121,7 +121,7 @@ public final class X500PrivateCredential implements Destroyable {
         alias =null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the references to the X.509 certificate and private key
      * in this object have been cleared.
      * <p>

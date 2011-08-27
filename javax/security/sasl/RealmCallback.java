@@ -27,7 +27,7 @@ package javax.security.sasl;
 
 import javax.security.auth.callback.TextInputCallback;
 
-/**
+/** {@collect.stats}
   * This callback is used by <tt>SaslClient</tt> and <tt>SaslServer</tt>
   * to retrieve realm information.
   *
@@ -38,7 +38,7 @@ import javax.security.auth.callback.TextInputCallback;
   */
 public class RealmCallback extends TextInputCallback {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>RealmCallback</tt> with a prompt.
      *
      * @param prompt The non-null prompt to use to request the realm information.
@@ -49,7 +49,7 @@ public class RealmCallback extends TextInputCallback {
         super(prompt);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>RealmCallback</tt> with a prompt and default
      * realm information.
      *

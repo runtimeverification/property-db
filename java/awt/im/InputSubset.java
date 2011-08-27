@@ -26,7 +26,7 @@
 package java.awt.im;
 
 
-/**
+/** {@collect.stats}
  * Defines additional Unicode subsets for use by input methods.  Unlike the
  * UnicodeBlock subsets defined in the <code>{@link
  * java.lang.Character.UnicodeBlock}</code> class, these constants do not
@@ -41,7 +41,7 @@ public final class InputSubset extends Character.Subset {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Constant for all Latin characters, including the characters
      * in the BASIC_LATIN, LATIN_1_SUPPLEMENT, LATIN_EXTENDED_A,
      * LATIN_EXTENDED_B Unicode character blocks.
@@ -49,14 +49,14 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset LATIN
         = new InputSubset("LATIN");
 
-    /**
+    /** {@collect.stats}
      * Constant for the digits included in the BASIC_LATIN Unicode character
      * block.
      */
     public static final InputSubset LATIN_DIGITS
         = new InputSubset("LATIN_DIGITS");
 
-    /**
+    /** {@collect.stats}
      * Constant for all Han characters used in writing Traditional Chinese,
      * including a subset of the CJK unified ideographs as well as Traditional
      * Chinese Han characters that may be defined as surrogate characters.
@@ -64,7 +64,7 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset TRADITIONAL_HANZI
         = new InputSubset("TRADITIONAL_HANZI");
 
-    /**
+    /** {@collect.stats}
      * Constant for all Han characters used in writing Simplified Chinese,
      * including a subset of the CJK unified ideographs as well as Simplified
      * Chinese Han characters that may be defined as surrogate characters.
@@ -72,7 +72,7 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset SIMPLIFIED_HANZI
         = new InputSubset("SIMPLIFIED_HANZI");
 
-    /**
+    /** {@collect.stats}
      * Constant for all Han characters used in writing Japanese, including a
      * subset of the CJK unified ideographs as well as Japanese Han characters
      * that may be defined as surrogate characters.
@@ -80,7 +80,7 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset KANJI
         = new InputSubset("KANJI");
 
-    /**
+    /** {@collect.stats}
      * Constant for all Han characters used in writing Korean, including a
      * subset of the CJK unified ideographs as well as Korean Han characters
      * that may be defined as surrogate characters.
@@ -88,14 +88,14 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset HANJA
         = new InputSubset("HANJA");
 
-    /**
+    /** {@collect.stats}
      * Constant for the halfwidth katakana subset of the Unicode halfwidth and
      * fullwidth forms character block.
      */
     public static final InputSubset HALFWIDTH_KATAKANA
         = new InputSubset("HALFWIDTH_KATAKANA");
 
-    /**
+    /** {@collect.stats}
      * Constant for the fullwidth ASCII variants subset of the Unicode halfwidth and
      * fullwidth forms character block.
      * @since 1.3
@@ -103,7 +103,7 @@ public final class InputSubset extends Character.Subset {
     public static final InputSubset FULLWIDTH_LATIN
         = new InputSubset("FULLWIDTH_LATIN");
 
-    /**
+    /** {@collect.stats}
      * Constant for the fullwidth digits included in the Unicode halfwidth and
      * fullwidth forms character block.
      * @since 1.3

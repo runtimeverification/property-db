@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * An interface used to tag heavy weight components that we want processed
  * by Swing's RepaintManager.
  *

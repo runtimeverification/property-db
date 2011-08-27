@@ -26,7 +26,7 @@
 package java.nio.charset;
 
 
-/**
+/** {@collect.stats}
  * Checked exception thrown when an input character (or byte) sequence
  * is valid but cannot be mapped to an output byte (or character)
  * sequence.  </p>

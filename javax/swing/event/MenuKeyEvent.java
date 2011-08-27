@@ -31,7 +31,7 @@ import java.awt.event.KeyEvent;
 import java.awt.Component;
 
 
-/**
+/** {@collect.stats}
  * MenuKeyEvent is used to notify interested parties that
  * the menu element has received a KeyEvent forwarded to it
  * in a menu tree.
@@ -51,7 +51,7 @@ public class MenuKeyEvent extends KeyEvent {
     private MenuElement path[];
     private MenuSelectionManager manager;
 
-    /**
+    /** {@collect.stats}
      * Constructs a MenuKeyEvent object.
      *
      * @param source     the Component that originated the event
@@ -76,7 +76,7 @@ public class MenuKeyEvent extends KeyEvent {
         manager = m;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path to the menu item referenced by this event.
      *
      * @return an array of MenuElement objects representing the path value
@@ -85,7 +85,7 @@ public class MenuKeyEvent extends KeyEvent {
         return path;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current menu selection manager.
      *
      * @return a MenuSelectionManager object

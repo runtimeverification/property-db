@@ -28,7 +28,7 @@ package java.util;
 import java.util.Map.Entry;
 import sun.misc.SharedSecrets;
 
-/**
+/** {@collect.stats}
  * A specialized {@link Map} implementation for use with enum type keys.  All
  * of the keys in an enum map must come from a single enum type that is
  * specified, explicitly or implicitly, when the map is created.  Enum maps
@@ -79,31 +79,31 @@ import sun.misc.SharedSecrets;
 public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
     implements java.io.Serializable, Cloneable
 {
-    /**
+    /** {@collect.stats}
      * The <tt>Class</tt> object for the enum type of all the keys of this map.
      *
      * @serial
      */
     private final Class<K> keyType;
 
-    /**
+    /** {@collect.stats}
      * All of the values comprising K.  (Cached for performance.)
      */
     private transient K[] keyUniverse;
 
-    /**
+    /** {@collect.stats}
      * Array representation of this map.  The ith element is the value
      * to which universe[i] is currently mapped, or null if it isn't
      * mapped to anything, or NULL if it's mapped to null.
      */
     private transient Object[] vals;
 
-    /**
+    /** {@collect.stats}
      * The number of mappings in this map.
      */
     private transient int size = 0;
 
-    /**
+    /** {@collect.stats}
      * Distinguished non-null value for representing null values.
      */
     private static final Object NULL = new Object();
@@ -118,7 +118,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     private static Enum[] ZERO_LENGTH_ENUM_ARRAY = new Enum[0];
 
-    /**
+    /** {@collect.stats}
      * Creates an empty enum map with the specified key type.
      *
      * @param keyType the class object of the key type for this enum map
@@ -130,7 +130,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         vals = new Object[keyUniverse.length];
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an enum map with the same key type as the specified enum
      * map, initially containing the same mappings (if any).
      *
@@ -144,7 +144,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         size = m.size;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an enum map initialized from the specified map.  If the
      * specified map is an <tt>EnumMap</tt> instance, this constructor behaves
      * identically to {@link #EnumMap(EnumMap)}.  Otherwise, the specified map
@@ -175,7 +175,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     // Query Operations
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this map.
      *
      * @return the number of key-value mappings in this map
@@ -184,7 +184,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
      *
@@ -201,7 +201,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.
      *
@@ -218,7 +218,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
             maskNull(value).equals(vals[((Enum)key).ordinal()]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -240,7 +240,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     // Modification Operations
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for this key, the old
      * value is replaced.
@@ -265,7 +265,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return unmaskNull(oldValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for this key from this map if present.
      *
      * @param key the key whose mapping is to be removed from the map
@@ -297,7 +297,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if key is of the proper type to be a key in this
      * enum map.
      */
@@ -312,7 +312,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     // Bulk Operations
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
@@ -344,7 +344,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all mappings from this map.
      */
     public void clear() {
@@ -354,14 +354,14 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     // Views
 
-    /**
+    /** {@collect.stats}
      * This field is initialized to contain an instance of the entry set
      * view the first time this view is requested.  The view is stateless,
      * so there's no reason to create more than one.
      */
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the keys contained in this map.
      * The returned set obeys the general contract outlined in
      * {@link Map#keySet()}.  The set's iterator will return the keys
@@ -398,7 +398,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The returned collection obeys the general contract outlined in
      * {@link Map#values()}.  The collection's iterator will return the
@@ -443,7 +443,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The returned set obeys the general contract outlined in
      * {@link Map#keySet()}.  The set's iterator will return the
@@ -552,7 +552,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Since we don't use Entry objects, we use the Iterator itself as entry.
      */
     private class EntryIterator extends EnumMapIterator<Map.Entry<K,V>>
@@ -621,7 +621,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     // Comparison and hashing
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this map for equality.  Returns
      * <tt>true</tt> if the given object is also a map and the two maps
      * represent the same mappings, as specified in the {@link
@@ -649,7 +649,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this enum map.  (The values themselves
      * are not cloned.
      *
@@ -666,7 +666,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Throws an exception if e is not of the correct type for this enum set.
      */
     private void typeCheck(K key) {
@@ -675,7 +675,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
             throw new ClassCastException(keyClass + " != " + keyType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all of the values comprising K.
      * The result is uncloned, cached, and shared by all callers.
      */
@@ -686,7 +686,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
 
     private static final long serialVersionUID = 458661240069192865L;
 
-    /**
+    /** {@collect.stats}
      * Save the state of the <tt>EnumMap</tt> instance to a stream (i.e.,
      * serialize it).
      *
@@ -711,7 +711,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the <tt>EnumMap</tt> instance from a stream (i.e.,
      * deserialize it).
      */

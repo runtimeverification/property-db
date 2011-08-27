@@ -29,7 +29,7 @@ package javax.print.attribute;
 import java.io.Serializable;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * Class TextSyntax is an abstract base class providing the common
  * implementation of all attributes whose value is a string. The text attribute
  * includes a locale to indicate the natural language. Thus, a text attribute
@@ -44,19 +44,19 @@ public abstract class TextSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -8130648736378144102L;
 
-    /**
+    /** {@collect.stats}
      * String value of this text attribute.
      * @serial
      */
     private String value;
 
-    /**
+    /** {@collect.stats}
      * Locale of this text attribute.
      * @serial
      */
     private Locale locale;
 
-    /**
+    /** {@collect.stats}
      * Constructs a TextAttribute with the specified string and locale.
      *
      * @param  value   Text string.
@@ -86,7 +86,7 @@ public abstract class TextSyntax implements Serializable, Cloneable {
         return locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this text attribute's text string.
      * @return the text string.
      */
@@ -94,7 +94,7 @@ public abstract class TextSyntax implements Serializable, Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this text attribute's text string's natural language (locale).
      * @return the locale
      */
@@ -102,7 +102,7 @@ public abstract class TextSyntax implements Serializable, Cloneable {
         return locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this text attribute.
      *
      * @return  A hashcode value for this object.
@@ -111,7 +111,7 @@ public abstract class TextSyntax implements Serializable, Cloneable {
         return value.hashCode() ^ locale.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this text attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -139,7 +139,7 @@ public abstract class TextSyntax implements Serializable, Cloneable {
                this.locale.equals (((TextSyntax) object).locale));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String identifying this text attribute. The String is
      * the attribute's underlying text string.
      *

@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/**
+/** {@collect.stats}
  * A {@link CompletionService} that uses a supplied {@link Executor}
  * to execute tasks.  This class arranges that submitted tasks are,
  * upon completion, placed on a queue accessible using {@code take}.
@@ -109,7 +109,7 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
     private final AbstractExecutorService aes;
     private final BlockingQueue<Future<V>> completionQueue;
 
-    /**
+    /** {@collect.stats}
      * FutureTask extension to enqueue upon completion
      */
     private class QueueingFuture extends FutureTask<Void> {
@@ -135,7 +135,7 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
             return aes.newTaskFor(task, result);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and a
      * {@link LinkedBlockingQueue} as a completion queue.
@@ -152,7 +152,7 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
         this.completionQueue = new LinkedBlockingQueue<Future<V>>();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ExecutorCompletionService using the supplied
      * executor for base task execution and the supplied queue as its
      * completion queue.

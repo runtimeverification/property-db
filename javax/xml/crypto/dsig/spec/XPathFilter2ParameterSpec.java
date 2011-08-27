@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.xml.crypto.dsig.Transform;
 
-/**
+/** {@collect.stats}
  * Parameters for the W3C Recommendation
  * <a href="http://www.w3.org/TR/xmldsig-filter2/">
  * XPath Filter 2.0 Transform Algorithm</a>.
@@ -48,7 +48,7 @@ public final class XPathFilter2ParameterSpec implements TransformParameterSpec {
 
     private final List xPathList;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XPathFilter2ParameterSpec</code>.
      *
      * @param xPathList a list of one or more {@link XPathType} objects. The
@@ -77,7 +77,7 @@ public final class XPathFilter2ParameterSpec implements TransformParameterSpec {
         this.xPathList = Collections.unmodifiableList(xPathListCopy);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of one or more {@link XPathType} objects.
      * <p>
      * This implementation returns an {@link Collections#unmodifiableList

@@ -49,7 +49,7 @@ import com.sun.media.sound.JDK13Services;
  */
 
 
-/**
+/** {@collect.stats}
  * The <code>AudioSystem</code> class acts as the entry point to the
  * sampled-audio system resources. This class lets you query and
  * access the mixers that are installed on the system.
@@ -167,7 +167,7 @@ import com.sun.media.sound.JDK13Services;
  */
 public class AudioSystem {
 
-    /**
+    /** {@collect.stats}
      * An integer that stands for an unknown numeric value.
      * This value is appropriate only for signed quantities that do not
      * normally take negative values.  Examples include file sizes, frame
@@ -178,14 +178,14 @@ public class AudioSystem {
      */
     public static final int NOT_SPECIFIED = -1;
 
-    /**
+    /** {@collect.stats}
      * Private no-args constructor for ensuring against instantiation.
      */
     private AudioSystem() {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an array of mixer info objects that represents
      * the set of audio mixers that are currently installed on the system.
      * @return an array of info objects for the currently installed mixers.  If no mixers
@@ -200,7 +200,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the requested audio mixer.
      * @param info a <code>Mixer.Info</code> object representing the desired
      * mixer, or <code>null</code> for the system default mixer
@@ -259,7 +259,7 @@ public class AudioSystem {
 
 
     //$$fb 2002-11-26: fix for 4757930: DOC: AudioSystem.getTarget/SourceLineInfo() is ambiguous
-    /**
+    /** {@collect.stats}
      * Obtains information about all source lines of a particular type that are supported
      * by the installed mixers.
      * @param info a <code>Line.Info</code> object that specifies the kind of
@@ -299,7 +299,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains information about all target lines of a particular type that are supported
      * by the installed mixers.
      * @param info a <code>Line.Info</code> object that specifies the kind of
@@ -339,7 +339,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the system supports any lines that match
      * the specified <code>Line.Info</code> object.  A line is supported if
      * any installed mixer supports it.
@@ -367,7 +367,7 @@ public class AudioSystem {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains a line that matches the description in the specified
      * <code>Line.Info</code> object.
      *
@@ -478,7 +478,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a clip that can be used for playing back
      * an audio file or an audio stream. The returned clip
      * will be provided by the default system mixer, or,
@@ -521,7 +521,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a clip from the specified mixer that can be
      * used for playing back an audio file or an audio stream.
      *
@@ -557,7 +557,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a source data line that can be used for playing back
      * audio data in the format specified by the
      * <code>AudioFormat</code> object. The returned line
@@ -605,7 +605,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a source data line that can be used for playing back
      * audio data in the format specified by the
      * <code>AudioFormat</code> object, provided by the mixer
@@ -651,7 +651,7 @@ public class AudioSystem {
   }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a target data line that can be used for recording
      * audio data in the format specified by the
      * <code>AudioFormat</code> object. The returned line
@@ -696,7 +696,7 @@ public class AudioSystem {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a target data line that can be used for recording
      * audio data in the format specified by the
      * <code>AudioFormat</code> object, provided by the mixer
@@ -750,7 +750,7 @@ public class AudioSystem {
 
 
     // $$fb 2002-04-12: fix for 4662082: behavior of AudioSystem.getTargetEncodings() methods doesn't match the spec
-    /**
+    /** {@collect.stats}
      * Obtains the encodings that the system can obtain from an
      * audio input stream with the specified encoding using the set
      * of installed format converters.
@@ -784,7 +784,7 @@ public class AudioSystem {
 
 
     // $$fb 2002-04-12: fix for 4662082: behavior of AudioSystem.getTargetEncodings() methods doesn't match the spec
-    /**
+    /** {@collect.stats}
      * Obtains the encodings that the system can obtain from an
      * audio input stream with the specified format using the set
      * of installed format converters.
@@ -825,7 +825,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether an audio input stream of the specified encoding
      * can be obtained from an audio input stream that has the specified
      * format.
@@ -849,7 +849,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream of the indicated encoding, by converting the
      * provided audio input stream.
      * @param targetEncoding the desired encoding after conversion
@@ -877,7 +877,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the formats that have a particular encoding and that the system can
      * obtain from a stream of the specified format using the set of
      * installed format converters.
@@ -917,7 +917,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether an audio input stream of a specified format
      * can be obtained from an audio input stream of another specified format.
      * @param targetFormat the desired audio format after conversion
@@ -940,7 +940,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream of the indicated format, by converting the
      * provided audio input stream.
      * @param targetFormat the desired audio format after conversion
@@ -973,7 +973,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the provided input stream.  The stream must
      * point to valid audio file data.  The implementation of this method may require
      * multiple parsers to examine the stream to determine whether they support it.
@@ -1013,7 +1013,7 @@ public class AudioSystem {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the specified URL.  The URL must
      * point to valid audio file data.
      * @param url the URL from which file format information should be
@@ -1046,7 +1046,7 @@ public class AudioSystem {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the specified <code>File</code>.  The <code>File</code> must
      * point to valid audio file data.
      * @param file the <code>File</code> from which file format information should be
@@ -1080,7 +1080,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the provided input stream.  The stream must
      * point to valid audio file data.  The implementation of this method may
      * require multiple parsers to
@@ -1122,7 +1122,7 @@ public class AudioSystem {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the URL provided.  The URL must
      * point to valid audio file data.
      * @param url the URL for which the <code>AudioInputStream</code> should be
@@ -1156,7 +1156,7 @@ public class AudioSystem {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the provided <code>File</code>.  The <code>File</code> must
      * point to valid audio file data.
      * @param file the <code>File</code> for which the <code>AudioInputStream</code> should be
@@ -1191,7 +1191,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the file types for which file writing support is provided by the system.
      * @return array of unique file types.  If no file types are supported,
      * an array of length 0 is returned.
@@ -1213,7 +1213,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether file writing support for the specified file type is provided
      * by the system.
      * @param fileType the file type for which write capabilities are queried
@@ -1234,7 +1234,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the file types that the system can write from the
      * audio input stream specified.
      * @param stream the audio input stream for which audio file type support
@@ -1259,7 +1259,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether an audio file of the specified file type can be written
      * from the indicated audio input stream.
      * @param fileType the file type for which write capabilities are queried
@@ -1282,7 +1282,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing an audio file of the specified file type
      * to the output stream provided.  Some file types require that
      * the length be written into the file header; such files cannot be written from
@@ -1327,7 +1327,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing an audio file of the specified file type
      * to the external file provided.
      * @param stream the audio input stream containing audio data to be
@@ -1369,7 +1369,7 @@ public class AudioSystem {
 
     // METHODS FOR INTERNAL IMPLEMENTATION USE
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of MixerProviders on the system.
      */
     private static List getMixerProviders() {
@@ -1377,7 +1377,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of format converters (codecs, transcoders, etc.)
      * that are currently installed on the system.
      * @return an array of
@@ -1392,7 +1392,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of audio file readers that are currently installed on the system.
      * @return a List of
      * {@link javax.sound.sampled.spi.AudioFileReader
@@ -1405,7 +1405,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of audio file writers that are currently installed on the system.
      * @return a List of
      * {@link javax.sound.samples.spi.AudioFileWriter AudioFileWriter}
@@ -1418,7 +1418,7 @@ public class AudioSystem {
 
 
 
-    /** Attempts to locate and return a default Mixer that provides lines
+    /** {@collect.stats} Attempts to locate and return a default Mixer that provides lines
      * of the specified type.
      *
      * @param providers the installed mixer providers
@@ -1469,7 +1469,7 @@ public class AudioSystem {
 
 
 
-    /** Return a MixerProvider of a given class from the list of
+    /** {@collect.stats} Return a MixerProvider of a given class from the list of
         MixerProviders.
 
         This method never requires the returned Mixer to do mixing.
@@ -1490,7 +1490,7 @@ public class AudioSystem {
     }
 
 
-    /** Return a Mixer with a given name from a given MixerProvider.
+    /** {@collect.stats} Return a Mixer with a given name from a given MixerProvider.
       This method never requires the returned Mixer to do mixing.
       @param mixerName The name of the Mixer to be returned.
       @param provider The MixerProvider to check for Mixers.
@@ -1515,7 +1515,7 @@ public class AudioSystem {
     }
 
 
-    /** From a List of MixerProviders, return a Mixer with a given name.
+    /** {@collect.stats} From a List of MixerProviders, return a Mixer with a given name.
         This method never requires the returned Mixer to do mixing.
         @param mixerName The name of the Mixer to be returned.
         @param providers The List of MixerProviders to check for Mixers.
@@ -1537,7 +1537,7 @@ public class AudioSystem {
     }
 
 
-    /** From a given MixerProvider, return the first appropriate Mixer.
+    /** {@collect.stats} From a given MixerProvider, return the first appropriate Mixer.
         @param provider The MixerProvider to check for Mixers.
         @param info The type of line the returned Mixer is required to
         support.
@@ -1561,7 +1561,7 @@ public class AudioSystem {
     }
 
 
-    /** Checks if a Mixer is appropriate.
+    /** {@collect.stats} Checks if a Mixer is appropriate.
         A Mixer is considered appropriate if it support the given line type.
         If isMixingRequired is true and the line type is an output one
         (SourceDataLine, Clip), the mixer is appropriate if it supports
@@ -1588,7 +1588,7 @@ public class AudioSystem {
 
 
 
-    /**
+    /** {@collect.stats}
      * Like getMixerInfo, but return List
      */
     private static List getMixerInfoList() {
@@ -1597,7 +1597,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Like getMixerInfo, but return List
      */
     private static List getMixerInfoList(List providers) {
@@ -1619,7 +1619,7 @@ public class AudioSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of services currently installed on the system
      * using sun.misc.Service, the SPI mechanism in 1.3.
      * @return a List of instances of providers for the requested service.

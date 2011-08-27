@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * The AccessibleTableModelChange interface describes a change to
  * the table model.  The attributes of the model change can be
  * obtained by the following methods:
@@ -55,22 +55,22 @@ package javax.accessibility;
  */
 public interface AccessibleTableModelChange {
 
-    /**
+    /** {@collect.stats}
      * Identifies the insertion of new rows and/or columns.
      */
     public static final int INSERT =  1;
 
-    /**
+    /** {@collect.stats}
      * Identifies a change to existing data.
      */
     public static final int UPDATE =  0;
 
-    /**
+    /** {@collect.stats}
      * Identifies the deletion of rows and/or columns.
      */
     public static final int DELETE = -1;
 
-    /**
+    /** {@collect.stats}
      *  Returns the type of event
      *
      *  @see #INSERT
@@ -79,22 +79,22 @@ public interface AccessibleTableModelChange {
      */
     public int getType();
 
-    /**
+    /** {@collect.stats}
      * Returns the first row that changed.
      */
     public int getFirstRow();
 
-    /**
+    /** {@collect.stats}
      * Returns the last row that changed.
      */
     public int getLastRow();
 
-    /**
+    /** {@collect.stats}
      * Returns the first column that changed.
      */
     public int getFirstColumn();
 
-    /**
+    /** {@collect.stats}
      * Returns the last column that changed.
      */
     public int getLastColumn();

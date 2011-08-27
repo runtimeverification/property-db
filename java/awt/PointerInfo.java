@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/**
+/** {@collect.stats}
  * A class that describes the pointer position.
  * It provides the <code>GraphicsDevice</code> where the
  * pointer is and the <code>Point</code> that represents
@@ -47,7 +47,7 @@ public class PointerInfo {
     private GraphicsDevice device;
     private Point location;
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor to prevent instantiation.
      */
     PointerInfo(GraphicsDevice device, Point location) {
@@ -55,7 +55,7 @@ public class PointerInfo {
         this.location = location;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>GraphicsDevice</code> where the mouse pointer
      * was at the moment this <code>PointerInfo</code> was created.
      *
@@ -66,7 +66,7 @@ public class PointerInfo {
         return device;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Point</code> that represents the coordinates
      * of the pointer on the screen. See {@link MouseInfo#getPointerInfo}
      * for more information about coordinate calculation for multiscreen

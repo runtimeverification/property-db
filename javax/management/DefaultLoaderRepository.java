@@ -27,7 +27,7 @@ package javax.management;
 
 import javax.management.loading.ClassLoaderRepository;
 
-/**
+/** {@collect.stats}
  * <p>Keeps the list of Class Loaders registered in the MBean Server.
  * It provides the necessary methods to load classes using the registered
  * Class Loaders.</p>
@@ -50,7 +50,7 @@ import javax.management.loading.ClassLoaderRepository;
  */
 @Deprecated
 public class DefaultLoaderRepository {
-    /**
+    /** {@collect.stats}
      * Go through the list of class loaders and try to load the requested class.
      * The method will stop as soon as the class is found. If the class
      * is not found the method will throw a <CODE>ClassNotFoundException</CODE>
@@ -68,7 +68,7 @@ public class DefaultLoaderRepository {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Go through the list of class loaders but exclude the given class loader, then try to load
      * the requested class.
      * The method will stop as soon as the class is found. If the class

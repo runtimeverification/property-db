@@ -30,7 +30,7 @@ import java.util.Hashtable;
 import javax.naming.spi.NamingManager;
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
  * This class is the starting context for performing
  * directory operations. The documentation in the class description
  * of InitialContext (including those for synchronization) apply here.
@@ -45,7 +45,7 @@ import javax.naming.*;
 
 public class InitialDirContext extends InitialContext implements DirContext {
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial DirContext with the option of not
      * initializing it.  This may be used by a constructor in
      * a subclass when the value of the environment parameter
@@ -66,7 +66,7 @@ public class InitialDirContext extends InitialContext implements DirContext {
         super(lazy);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial DirContext.
      * No environment properties are supplied.
      * Equivalent to <tt>new InitialDirContext(null)</tt>.
@@ -79,7 +79,7 @@ public class InitialDirContext extends InitialContext implements DirContext {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial DirContext using the supplied environment.
      * Environment properties are discussed in the
      * <tt>javax.naming.InitialContext</tt> class description.

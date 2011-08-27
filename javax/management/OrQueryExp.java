@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent
  * disjunctions of relational expressions.
  * @serial include
@@ -39,24 +39,24 @@ class OrQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = 2962973084421716523L;
 
-    /**
+    /** {@collect.stats}
      * @serial The left query expression
      */
     private QueryExp exp1;
 
-    /**
+    /** {@collect.stats}
      * @serial The right query expression
      */
     private QueryExp exp2;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public OrQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new OrQueryExp with the specified ValueExps
      */
     public OrQueryExp(QueryExp q1, QueryExp q2) {
@@ -65,21 +65,21 @@ class OrQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the left query expression.
      */
     public QueryExp getLeftExp() {
         return exp1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the right query expression.
      */
     public QueryExp getRightExp() {
         return exp2;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the OrQueryExp on a MBean.
      *
      * @param name The name of the MBean on which the OrQueryExp will be applied.
@@ -97,7 +97,7 @@ class OrQueryExp extends QueryEval implements QueryExp {
         return exp1.apply(name) || exp2.apply(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this AndQueryExp
      */
     public String toString() {

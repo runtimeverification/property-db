@@ -23,7 +23,7 @@
  * questions.
  */
 
-/**********************************************************************
+/** {@collect.stats}********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -38,7 +38,7 @@ package java.awt.color;
 import java.awt.image.LookupTable;
 import sun.java2d.cmm.ProfileDeferralInfo;
 
-/**
+/** {@collect.stats}
  *
  * The ICC_ProfileRGB class is a subclass of the ICC_Profile class
  * that represents profiles which meet the following criteria:
@@ -92,23 +92,23 @@ extends ICC_Profile {
 
     static final long serialVersionUID = 8505067385152579334L;
 
-    /**
+    /** {@collect.stats}
      * Used to get a gamma value or TRC for the red component.
      */
     public static final int REDCOMPONENT = 0;
 
-    /**
+    /** {@collect.stats}
      * Used to get a gamma value or TRC for the green component.
      */
     public static final int GREENCOMPONENT = 1;
 
-    /**
+    /** {@collect.stats}
      * Used to get a gamma value or TRC for the blue component.
      */
     public static final int BLUECOMPONENT = 2;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an new <code>ICC_ProfileRGB</code> from a CMM ID.
      *
      * @param ID The CMM ID for the profile.
@@ -118,7 +118,7 @@ extends ICC_Profile {
         super(ID);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>ICC_ProfileRGB</code> from a
      * ProfileDeferralInfo object.
      *
@@ -129,7 +129,7 @@ extends ICC_Profile {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array that contains the components of the profile's
      * <CODE>mediaWhitePointTag</CODE>.
      *
@@ -141,7 +141,7 @@ extends ICC_Profile {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a 3x3 <CODE>float</CODE> matrix constructed from the
      * X, Y, and Z components of the profile's <CODE>redColorantTag</CODE>,
      * <CODE>greenColorantTag</CODE>, and <CODE>blueColorantTag</CODE>.
@@ -173,7 +173,7 @@ extends ICC_Profile {
         return theMatrix;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a gamma value representing the tone reproduction curve
      * (TRC) for a particular component.  The component parameter
      * must be one of REDCOMPONENT, GREENCOMPONENT, or BLUECOMPONENT.
@@ -223,7 +223,7 @@ extends ICC_Profile {
         return theGamma;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the TRC for a particular component as an array.
      * Component must be <code>REDCOMPONENT</code>,
      * <code>GREENCOMPONENT</code>, or <code>BLUECOMPONENT</code>.

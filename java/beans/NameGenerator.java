@@ -30,7 +30,7 @@ import java.util.Map;
 
 import static java.util.Locale.ENGLISH;
 
-/**
+/** {@collect.stats}
  * A utility class which generates unique names for object instances.
  * The name will be a concatenation of the unqualified class name
  * and an instance number.
@@ -51,7 +51,7 @@ class NameGenerator {
         nameToCount = new HashMap();
     }
 
-    /**
+    /** {@collect.stats}
      * Clears the name cache. Should be called to near the end of
      * the encoding cycle.
      */
@@ -60,7 +60,7 @@ class NameGenerator {
         nameToCount.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root name of the class.
      */
     public static String unqualifiedClassName(Class type) {
@@ -71,7 +71,7 @@ class NameGenerator {
         return name.substring(name.lastIndexOf('.')+1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String which capitalizes the first letter of the string.
      */
     public static String capitalize(String name) {
@@ -81,7 +81,7 @@ class NameGenerator {
         return name.substring(0, 1).toUpperCase(ENGLISH) + name.substring(1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a unique string which identifies the object instance.
      * Invocations are cached so that if an object has been previously
      * passed into this method then the same identifier is returned.

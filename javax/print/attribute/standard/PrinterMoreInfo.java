@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.URISyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterMoreInfo is a printing attribute class, a URI, that is used to
  * obtain more information about this specific printer. For example, this
  * could be an HTTP type URI referencing an HTML page accessible to a web
@@ -58,7 +58,7 @@ public final class PrinterMoreInfo extends URISyntax
 
     private static final long serialVersionUID = 4555850007675338574L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer more info attribute with the specified URI.
      *
      * @param  uri  URI.
@@ -70,7 +70,7 @@ public final class PrinterMoreInfo extends URISyntax
         super (uri);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer more info attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -94,7 +94,7 @@ public final class PrinterMoreInfo extends URISyntax
                 object instanceof PrinterMoreInfo);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -107,7 +107,7 @@ public final class PrinterMoreInfo extends URISyntax
         return PrinterMoreInfo.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

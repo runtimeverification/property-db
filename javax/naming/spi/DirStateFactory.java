@@ -28,7 +28,7 @@ import javax.naming.*;
 import javax.naming.directory.Attributes;
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
   * This interface represents a factory for obtaining the state of an
   * object and corresponding attributes for binding.
   *<p>
@@ -81,7 +81,7 @@ import java.util.Hashtable;
   * @since 1.3
   */
 public interface DirStateFactory extends StateFactory {
-/**
+/** {@collect.stats}
  * Retrieves the state of an object for binding given the object and attributes
  * to be transformed.
  *<p>
@@ -145,23 +145,23 @@ public interface DirStateFactory extends StateFactory {
         throws NamingException;
 
 
-        /**
+        /** {@collect.stats}
          * An object/attributes pair for returning the result of
          * DirStateFactory.getStateToBind().
          */
     public static class Result {
-        /**
+        /** {@collect.stats}
          * The possibly null object to be bound.
          */
         private Object obj;
 
 
-        /**
+        /** {@collect.stats}
          * The possibly null attributes to be bound.
          */
         private Attributes attrs;
 
-        /**
+        /** {@collect.stats}
           * Constructs an instance of Result.
           *
           * @param obj The possibly null object to be bound.
@@ -172,13 +172,13 @@ public interface DirStateFactory extends StateFactory {
             this.attrs = outAttrs;
         }
 
-        /**
+        /** {@collect.stats}
          * Retrieves the object to be bound.
          * @return The possibly null object to be bound.
          */
         public Object getObject() { return obj; };
 
-        /**
+        /** {@collect.stats}
          * Retrieves the attributes to be bound.
          * @return The possibly null attributes to be bound.
          */

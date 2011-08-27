@@ -30,7 +30,7 @@ import java.awt.*;
 import java.lang.ref.SoftReference;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * View of plain text (text with only one font and color)
  * that does line-wrapping.  This view expects that its
  * associated element has child elements that represent
@@ -54,7 +54,7 @@ import javax.swing.event.*;
  */
 public class WrappedPlainView extends BoxView implements TabExpander {
 
-    /**
+    /** {@collect.stats}
      * Creates a new WrappedPlainView.  Lines will be wrapped
      * on character boundaries.
      *
@@ -64,7 +64,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         this(elem, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new WrappedPlainView.  Lines can be wrapped on
      * either character or word boundaries depending upon the
      * setting of the wordWrap parameter.
@@ -77,7 +77,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         this.wordWrap = wordWrap;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab size set for the document, defaulting to 8.
      *
      * @return the tab size
@@ -88,7 +88,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders a line of text, suppressing whitespace at the end
      * and expanding any tabs.  This is implemented to make calls
      * to the methods <code>drawUnselectedText</code> and
@@ -162,7 +162,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as normal unselected
      * text.
      *
@@ -185,7 +185,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as selected text.  This
      * is implemented to render the text in the color specified in
      * the hosting component.  It assumes the highlighter will render
@@ -210,7 +210,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives access to a buffer that can be used to fetch
      * text from the associated document.
      *
@@ -223,7 +223,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return lineBuffer;
     }
 
-    /**
+    /** {@collect.stats}
      * This is called by the nested wrapped line
      * views to determine the break location.  This can
      * be reimplemented to alter the breaking behavior.
@@ -252,7 +252,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Loads all of the children to initialize the view.
      * This is called by the <code>setParent</code> method.
      * Subclasses can reimplement this to initialize their
@@ -274,7 +274,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the child views in response to a
      * document event.
      */
@@ -302,7 +302,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         updateMetrics();
     }
 
-    /**
+    /** {@collect.stats}
      * Load the text buffer with the given range
      * of text.  This is used by the fragments
      * broken off of this view as well as this
@@ -324,7 +324,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         tabSize = getTabSize() * metrics.charWidth('m');
     }
 
-    /**
+    /** {@collect.stats}
      * Return reasonable default values for the view dimensions.  The standard
      * text terminal size 80x24 is pretty suitable for the wrapped plain view.
      *
@@ -373,7 +373,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
 
     // --- TabExpander methods ------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the next tab stop position after a given reference position.
      * This implementation does not support things like centering so it
      * ignores the tabOffset argument.
@@ -393,7 +393,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
 
     // --- View methods -------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area
      * on that surface.  This is implemented to stash the
      * selection positions, selection colors, and font
@@ -421,7 +421,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         super.paint(g, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view along the given axis, if it
      * has any layout duties.
@@ -441,7 +441,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         widthChanging = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.  This is implemented to provide the superclass
      * behavior after first making sure that the current font
@@ -461,7 +461,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return super.getPreferredSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.  This is implemented to provide the superclass
      * behavior after first making sure that the current font
@@ -481,7 +481,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return super.getMinimumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.  This is implemented to provide the superclass
      * behavior after first making sure that the current font
@@ -501,7 +501,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         return super.getMaximumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the
      * document in a location that this view is responsible for.
      * This is implemented to simply update the children.
@@ -523,7 +523,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the
      * document in a location that this view is responsible for.
      * This is implemented to simply update the children.
@@ -545,7 +545,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -573,7 +573,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
     Color selected;
 
 
-    /**
+    /** {@collect.stats}
      * Simple view of a line that wraps if it doesn't
      * fit withing the horizontal space allocated.
      * This class tries to be lightweight by carrying little
@@ -587,7 +587,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             lineCount = -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the preferred span for this view along an
          * axis.
          *
@@ -622,7 +622,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Renders using the given rendering surface and area on that
          * surface.  The view may need to do layout and create child
          * views to enable itself to render into the given allocation.
@@ -661,7 +661,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -705,7 +705,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             return alloc;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.
          *
@@ -797,7 +797,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns line cache. If the cache was GC'ed, recreates it.
          * If there's no cache, returns null
          */
@@ -815,7 +815,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates line cache if text breaks into more than one physical line.
          * @param startPos position to start breaking from
          * @return the cache created, ot null if text breaks into one line
@@ -876,7 +876,7 @@ public class WrappedPlainView extends BoxView implements TabExpander {
             return lineEnds;
         }
 
-        /**
+        /** {@collect.stats}
          * Binary search in the cache for line containing specified offset
          * (which is relative to the beginning of the view). This method
          * assumes that cache exists.

@@ -28,7 +28,7 @@ package javax.swing.undo;
 import java.io.Serializable;
 import javax.swing.UIManager;
 
-/**
+/** {@collect.stats}
  * An abstract implementation of <code>UndoableEdit</code>,
  * implementing simple responses to all boolean methods in
  * that interface.
@@ -37,7 +37,7 @@ import javax.swing.UIManager;
  */
 public class AbstractUndoableEdit implements UndoableEdit, Serializable {
 
-    /**
+    /** {@collect.stats}
      * String returned by <code>getUndoPresentationName</code>;
      * as of Java 2 platform v1.3.1 this field is no longer used. This value
      * is now localized and comes from the defaults table with key
@@ -47,7 +47,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
      */
     protected static final String UndoName = "Undo";
 
-    /**
+    /** {@collect.stats}
      * String returned by <code>getRedoPresentationName</code>;
      * as of Java 2 platform v1.3.1 this field is no longer used. This value
      * is now localized and comes from the defaults table with key
@@ -57,19 +57,19 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
      */
     protected static final String RedoName = "Redo";
 
-    /**
+    /** {@collect.stats}
      * Defaults to true; becomes false if this edit is undone, true
      * again if it is redone.
      */
     boolean hasBeenDone;
 
-    /**
+    /** {@collect.stats}
      * True if this edit has not received <code>die</code>; defaults
      * to <code>true</code>.
      */
     boolean alive;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>AbstractUndoableEdit</code> which defaults
      * <code>hasBeenDone</code> and <code>alive</code> to <code>true</code>.
      */
@@ -80,7 +80,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         alive = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets <code>alive</code> to false. Note that this
      * is a one way operation; dead edits cannot be resurrected.
      * Sending <code>undo</code> or <code>redo</code> to
@@ -94,7 +94,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         alive = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Throws <code>CannotUndoException</code> if <code>canUndo</code>
      * returns <code>false</code>. Sets <code>hasBeenDone</code>
      * to <code>false</code>. Subclasses should override to undo the
@@ -112,7 +112,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         hasBeenDone = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this edit is <code>alive</code>
      * and <code>hasBeenDone</code> is <code>true</code>.
      *
@@ -127,7 +127,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return alive && hasBeenDone;
     }
 
-    /**
+    /** {@collect.stats}
      * Throws <code>CannotRedoException</code> if <code>canRedo</code>
      * returns false. Sets <code>hasBeenDone</code> to <code>true</code>.
      * Subclasses should override to redo the operation represented by
@@ -144,7 +144,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         hasBeenDone = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this edit is <code>alive</code>
      * and <code>hasBeenDone</code> is <code>false</code>.
      *
@@ -158,7 +158,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return alive && !hasBeenDone;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns false.
      *
      * @param anEdit the edit to be added
@@ -170,7 +170,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns false.
      *
      * @param anEdit the edit to replace
@@ -182,7 +182,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns true.
      *
      * @return true
@@ -192,7 +192,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns "". Used by
      * <code>getUndoPresentationName</code> and
      * <code>getRedoPresentationName</code> to
@@ -209,7 +209,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return "";
     }
 
-    /**
+    /** {@collect.stats}
      * Retreives the value from the defaults table with key
      * <code>AbstractUndoableEdit.undoText</code> and returns
      * that value followed by a space, followed by
@@ -236,7 +236,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Retreives the value from the defaults table with key
      * <code>AbstractUndoableEdit.redoText</code> and returns
      * that value followed by a space, followed by
@@ -263,7 +263,7 @@ public class AbstractUndoableEdit implements UndoableEdit, Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

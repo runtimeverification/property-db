@@ -58,7 +58,7 @@ import javax.management.RuntimeOperationsException;
 
 import sun.reflect.misc.ReflectUtil;
 
-/**
+/** {@collect.stats}
  * This class represents the metadata set for a ModelMBean element.  A
  * descriptor is part of the ModelMBeanInfo,
  * ModelMBeanNotificationInfo, ModelMBeanAttributeInfo,
@@ -111,7 +111,7 @@ public class DescriptorSupport
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField descriptor HashMap The collection of fields representing this descriptor
      */
     private static final ObjectStreamField[] serialPersistentFields;
@@ -155,7 +155,7 @@ public class DescriptorSupport
     private static final String currClass = "DescriptorSupport";
 
 
-    /**
+    /** {@collect.stats}
      * Descriptor default constructor.
      * Default initial descriptor size is 20.  It will grow as needed.<br>
      * Note that the created empty descriptor is not a valid descriptor
@@ -170,7 +170,7 @@ public class DescriptorSupport
         init(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Descriptor constructor.  Takes as parameter the initial
      * capacity of the Map that stores the descriptor fields.
      * Capacity will grow as needed.<br> Note that the created empty
@@ -207,7 +207,7 @@ public class DescriptorSupport
         init(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Descriptor constructor taking a Descriptor as parameter.
      * Creates a new descriptor initialized to the values of the
      * descriptor passed in parameter.
@@ -229,7 +229,7 @@ public class DescriptorSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * <p>Descriptor constructor taking an XML String.</p>
      *
      * <p>The format of the XML string is not defined, but an
@@ -355,7 +355,7 @@ public class DescriptorSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor taking field names and field values.  Neither array
      * can be null.
      *
@@ -413,7 +413,7 @@ public class DescriptorSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor taking fields in the <i>fieldName=fieldValue</i>
      * format.
      *
@@ -768,7 +768,7 @@ public class DescriptorSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new Descriptor which is a duplicate of the Descriptor.
      *
      * @exception RuntimeOperationsException for illegal value for
@@ -793,7 +793,7 @@ public class DescriptorSupport
         descriptorMap.remove(fieldName);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this descriptor to the given object.  The objects are equal if
      * the given object is also a Descriptor, and if the two Descriptors have
      * the same field names (possibly differing in case) and the same
@@ -826,7 +826,7 @@ public class DescriptorSupport
         return new ImmutableDescriptor(descriptorMap).equals(o);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this descriptor.  The hash
      * code is computed as the sum of the hash codes for each field in
      * the descriptor.  The hash code of a field with name {@code n}
@@ -853,7 +853,7 @@ public class DescriptorSupport
         return new ImmutableDescriptor(descriptorMap).hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if all of the fields have legal values given their
      * names.
      * <P>
@@ -1046,7 +1046,7 @@ public class DescriptorSupport
 
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an XML String representing the descriptor.</p>
      *
      * <p>The format is not defined, but an implementation must
@@ -1184,7 +1184,7 @@ public class DescriptorSupport
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Make the string that will go inside "..." for a value that is not
      * a plain String.
      * @throws RuntimeOperationsException if the value cannot be encoded.
@@ -1264,7 +1264,7 @@ public class DescriptorSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <pv>a human readable string representing the
      * descriptor</pv>.  The string will be in the format of
      * "fieldName=fieldValue,fieldName2=fieldValue2,..."<br>
@@ -1335,7 +1335,7 @@ public class DescriptorSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link DescriptorSupport} from an {@link
      * ObjectInputStream}.
      */
@@ -1350,7 +1350,7 @@ public class DescriptorSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link DescriptorSupport} to an {@link ObjectOutputStream}.
      */
     /* If you set jmx.serial.form to "1.2.0" or "1.2.1", then we are

@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
+/** {@collect.stats}
  * Parameters for the <a href="http://www.w3.org/TR/xmldsig-core/#sec-XPath">
  * XPath Filtering Transform Algorithm</a>.
  * The parameters include the XPath expression and an optional <code>Map</code>
@@ -54,7 +54,7 @@ public final class XPathFilterParameterSpec implements TransformParameterSpec {
     private String xPath;
     private Map nsMap;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XPathFilterParameterSpec</code> with the specified
      * XPath expression.
      *
@@ -69,7 +69,7 @@ public final class XPathFilterParameterSpec implements TransformParameterSpec {
         this.nsMap = Collections.EMPTY_MAP;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XPathFilterParameterSpec</code> with the specified
      * XPath expression and namespace map. The map is copied to protect against
      * subsequent modification.
@@ -100,7 +100,7 @@ public final class XPathFilterParameterSpec implements TransformParameterSpec {
         nsMap = Collections.unmodifiableMap(nsMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the XPath expression to be evaluated.
      *
      * @return the XPath expression to be evaluated
@@ -109,7 +109,7 @@ public final class XPathFilterParameterSpec implements TransformParameterSpec {
         return xPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a map of namespace prefixes. Each key is a namespace prefix
      * <code>String</code> that maps to a corresponding namespace URI
      * <code>String</code>.

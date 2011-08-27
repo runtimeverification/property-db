@@ -27,7 +27,7 @@ package javax.naming;
 
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
   * This exception is thrown to indicate that the operation reached
   * a point in the name where the operation cannot proceed any further.
   * When performing an operation on a composite name, a naming service
@@ -61,7 +61,7 @@ import java.util.Hashtable;
 
 
 public class CannotProceedException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Contains the remaining unresolved part of the second
      * "name" argument to Context.rename().
      * This information necessary for
@@ -77,7 +77,7 @@ public class CannotProceedException extends NamingException {
      */
     protected Name remainingNewName = null;
 
-    /**
+    /** {@collect.stats}
      * Contains the environment
      * relevant for the Context or DirContext method that cannot proceed.
      * <p>
@@ -91,7 +91,7 @@ public class CannotProceedException extends NamingException {
      */
     protected Hashtable<?,?> environment = null;
 
-    /**
+    /** {@collect.stats}
      * Contains the name of the resolved object, relative
      * to the context <code>altNameCtx</code>.  It is a composite name.
      * If null, then no name is specified.
@@ -110,7 +110,7 @@ public class CannotProceedException extends NamingException {
      */
     protected Name altName = null;
 
-    /**
+    /** {@collect.stats}
      * Contains the context relative to which
      * <code>altName</code> is specified.  If null, then the default initial
      * context is implied.
@@ -129,7 +129,7 @@ public class CannotProceedException extends NamingException {
      */
     protected Context altNameCtx = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of CannotProceedException using an
      * explanation. All unspecified fields default to null.
      *
@@ -142,7 +142,7 @@ public class CannotProceedException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of CannotProceedException.
       * All fields default to null.
       */
@@ -150,7 +150,7 @@ public class CannotProceedException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the environment that was in effect when this exception
      * was created.
      * @return Possibly null environment property set.
@@ -161,7 +161,7 @@ public class CannotProceedException extends NamingException {
         return environment;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the environment that will be returned when getEnvironment()
      * is called.
      * @param environment A possibly null environment property set.
@@ -173,7 +173,7 @@ public class CannotProceedException extends NamingException {
         this.environment = environment; // %%% clone it??
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the "remaining new name" field of this exception, which is
      * used when this exception is thrown during a rename() operation.
      *
@@ -187,7 +187,7 @@ public class CannotProceedException extends NamingException {
         return remainingNewName;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the "remaining new name" field of this exception.
      * This is the value returned by <code>getRemainingNewName()</code>.
      *<p>
@@ -213,7 +213,7 @@ public class CannotProceedException extends NamingException {
             this.remainingNewName = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>altName</code> field of this exception.
      * This is the name of the resolved object, relative to the context
      * <code>altNameCtx</code>. It will be used during a subsequent call to the
@@ -231,7 +231,7 @@ public class CannotProceedException extends NamingException {
         return altName;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>altName</code> field of this exception.
      *
      * @param altName   The name of the resolved object, relative to
@@ -246,7 +246,7 @@ public class CannotProceedException extends NamingException {
         this.altName = altName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>altNameCtx</code> field of this exception.
      * This is the context relative to which <code>altName</code> is named.
      * It will be used during a subsequent call to the
@@ -263,7 +263,7 @@ public class CannotProceedException extends NamingException {
         return altNameCtx;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>altNameCtx</code> field of this exception.
      *
      * @param altNameCtx
@@ -279,7 +279,7 @@ public class CannotProceedException extends NamingException {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 1219724816191576813L;

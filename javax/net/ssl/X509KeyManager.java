@@ -31,7 +31,7 @@ import java.security.Principal;
 import java.security.cert.X509Certificate;
 import java.net.Socket;
 
-/**
+/** {@collect.stats}
  * Instances of this interface manage which X509 certificate-based
  * key pairs are used to authenticate the local side of a secure
  * socket.
@@ -52,7 +52,7 @@ import java.net.Socket;
  * @since 1.4
  */
 public interface X509KeyManager extends KeyManager {
-    /**
+    /** {@collect.stats}
      * Get the matching aliases for authenticating the client side of a secure
      * socket given the public key type and the list of
      * certificate issuer authorities recognized by the peer (if any).
@@ -65,7 +65,7 @@ public interface X509KeyManager extends KeyManager {
      */
     public String[] getClientAliases(String keyType, Principal[] issuers);
 
-    /**
+    /** {@collect.stats}
      * Choose an alias to authenticate the client side of a secure
      * socket given the public key type and the list of
      * certificate issuer authorities recognized by the peer (if any).
@@ -84,7 +84,7 @@ public interface X509KeyManager extends KeyManager {
     public String chooseClientAlias(String[] keyType, Principal[] issuers,
         Socket socket);
 
-    /**
+    /** {@collect.stats}
      * Get the matching aliases for authenticating the server side of a secure
      * socket given the public key type and the list of
      * certificate issuer authorities recognized by the peer (if any).
@@ -97,7 +97,7 @@ public interface X509KeyManager extends KeyManager {
      */
     public String[] getServerAliases(String keyType, Principal[] issuers);
 
-    /**
+    /** {@collect.stats}
      * Choose an alias to authenticate the server side of a secure
      * socket given the public key type and the list of
      * certificate issuer authorities recognized by the peer (if any).
@@ -115,7 +115,7 @@ public interface X509KeyManager extends KeyManager {
     public String chooseServerAlias(String keyType, Principal[] issuers,
         Socket socket);
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate chain associated with the given alias.
      *
      * @param alias the alias name
@@ -125,7 +125,7 @@ public interface X509KeyManager extends KeyManager {
      */
     public X509Certificate[] getCertificateChain(String alias);
 
-    /**
+    /** {@collect.stats}
      * Returns the key associated with the given alias.
      *
      * @param alias the alias name

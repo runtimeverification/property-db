@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * This class specifies a DSA public key with its associated parameters.
  *
  * @author Jan Luehe
@@ -49,7 +49,7 @@ public class DSAPublicKeySpec implements KeySpec {
     private BigInteger q;
     private BigInteger g;
 
-    /**
+    /** {@collect.stats}
      * Creates a new DSAPublicKeySpec with the specified parameter values.
      *
      * @param y the public key.
@@ -68,7 +68,7 @@ public class DSAPublicKeySpec implements KeySpec {
         this.g = g;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the public key <code>y</code>.
      *
      * @return the public key <code>y</code>.
@@ -77,7 +77,7 @@ public class DSAPublicKeySpec implements KeySpec {
         return this.y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the prime <code>p</code>.
      *
      * @return the prime <code>p</code>.
@@ -86,7 +86,7 @@ public class DSAPublicKeySpec implements KeySpec {
         return this.p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sub-prime <code>q</code>.
      *
      * @return the sub-prime <code>q</code>.
@@ -95,7 +95,7 @@ public class DSAPublicKeySpec implements KeySpec {
         return this.q;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base <code>g</code>.
      *
      * @return the base <code>g</code>.

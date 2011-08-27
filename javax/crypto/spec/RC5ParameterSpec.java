@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the parameters used with the
  * <a href="http://www.ietf.org/rfc/rfc2040.txt"><i>RC5</i></a>
  * algorithm.
@@ -51,7 +51,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
     private int rounds;
     private int wordSize; // the word size in bits
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC5 from the given version, number of
      * rounds and word size (in bits).
      *
@@ -65,7 +65,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         this.wordSize = wordSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC5 from the given version, number of
      * rounds, word size (in bits), and IV.
      *
@@ -86,7 +86,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         this(version, rounds, wordSize, iv, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC5 from the given version, number of
      * rounds, word size (in bits), and IV.
      *
@@ -123,7 +123,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         System.arraycopy(iv, offset, this.iv, 0, blockSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the version.
      *
      * @return the version.
@@ -132,7 +132,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         return this.version;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rounds.
      *
      * @return the number of rounds.
@@ -141,7 +141,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         return this.rounds;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the word size in bits.
      *
      * @return the word size in bits.
@@ -150,7 +150,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         return this.wordSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the IV or null if this parameter set does not contain an IV.
      *
      * @return the IV or null if this parameter set does not contain an IV.
@@ -160,7 +160,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
         return (iv == null? null:(byte[])iv.clone());
     }
 
-   /**
+   /** {@collect.stats}
      * Tests for equality between the specified object and this
      * object. Two RC5ParameterSpec objects are considered equal if their
      * version numbers, number of rounds, word sizes, and IVs are equal.
@@ -186,7 +186,7 @@ public class RC5ParameterSpec implements AlgorithmParameterSpec {
                 java.util.Arrays.equals(iv, other.iv));
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates a hash code value for the object.
      * Objects that are equal will also have the same hashcode.
      */

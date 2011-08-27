@@ -31,7 +31,7 @@ import java.util.*;
 import java.awt.FocusTraversalPolicy;
 import java.util.logging.*;
 
-/**
+/** {@collect.stats}
  * A FocusTraversalPolicy that determines traversal order by sorting the
  * Components of a focus traversal cycle based on a given Comparator. Portions
  * of the Component hierarchy that are not visible and displayable will not be
@@ -66,7 +66,7 @@ public class SortingFocusTraversalPolicy
 
     private Logger log = Logger.getLogger("javax.swing.SortingFocusTraversalPolicy");
 
-    /**
+    /** {@collect.stats}
      * Used by getComponentAfter and getComponentBefore for efficiency. In
      * order to maintain compliance with the specification of
      * FocusTraversalPolicy, if traversal wraps, we should invoke
@@ -86,7 +86,7 @@ public class SortingFocusTraversalPolicy
     private static final SwingContainerOrderFocusTraversalPolicy
         fitnessTestPolicy = new SwingContainerOrderFocusTraversalPolicy();
 
-    /**
+    /** {@collect.stats}
      * Constructs a SortingFocusTraversalPolicy without a Comparator.
      * Subclasses must set the Comparator using <code>setComparator</code>
      * before installing this FocusTraversalPolicy on a focus cycle root or
@@ -95,7 +95,7 @@ public class SortingFocusTraversalPolicy
     protected SortingFocusTraversalPolicy() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SortingFocusTraversalPolicy with the specified Comparator.
      */
     public SortingFocusTraversalPolicy(Comparator<? super Component> comparator) {
@@ -203,7 +203,7 @@ public class SortingFocusTraversalPolicy
         return ftp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus after aComponent.
      * aContainer must be a focus cycle root of aComponent or a focus traversal policy provider.
      * <p>
@@ -318,7 +318,7 @@ public class SortingFocusTraversalPolicy
         } while (true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus before aComponent.
      * aContainer must be a focus cycle root of aComponent or a focus traversal policy provider.
      * <p>
@@ -425,7 +425,7 @@ public class SortingFocusTraversalPolicy
         } while (true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * forward direction.
@@ -467,7 +467,7 @@ public class SortingFocusTraversalPolicy
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * reverse direction.
@@ -511,7 +511,7 @@ public class SortingFocusTraversalPolicy
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default Component to focus. This Component will be the first
      * to receive focus when traversing down into a new focus traversal cycle
      * rooted at aContainer. The default implementation of this method
@@ -528,7 +528,7 @@ public class SortingFocusTraversalPolicy
         return getFirstComponent(aContainer);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether this SortingFocusTraversalPolicy transfers focus down-cycle
      * implicitly. If <code>true</code>, during normal focus traversal,
      * the Component traversed after a focus cycle root will be the focus-
@@ -547,7 +547,7 @@ public class SortingFocusTraversalPolicy
         this.implicitDownCycleTraversal = implicitDownCycleTraversal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this SortingFocusTraversalPolicy transfers focus down-
      * cycle implicitly. If <code>true</code>, during normal focus
      * traversal, the Component traversed after a focus cycle root will be the
@@ -564,7 +564,7 @@ public class SortingFocusTraversalPolicy
         return implicitDownCycleTraversal;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the Comparator which will be used to sort the Components in a
      * focus traversal cycle.
      *
@@ -574,7 +574,7 @@ public class SortingFocusTraversalPolicy
         this.comparator = comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Comparator which will be used to sort the Components in a
      * focus traversal cycle.
      *
@@ -584,7 +584,7 @@ public class SortingFocusTraversalPolicy
         return comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether a Component is an acceptable choice as the new
      * focus owner. By default, this method will accept a Component if and
      * only if it is visible, displayable, enabled, and focusable.

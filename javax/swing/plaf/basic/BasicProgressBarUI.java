@@ -37,7 +37,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 import sun.swing.DefaultLookup;
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of ProgressBarUI.
  *
  * @author Michael C. Albers
@@ -57,7 +57,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     protected ChangeListener changeListener;
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * The current state of the indeterminate animation's cycle.
      * 0, the initial value, means paint the first frame.
      * When the progress bar is indeterminate and showing,
@@ -67,7 +67,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
      */
     private int animationIndex = 0;
 
-    /**
+    /** {@collect.stats}
      * The number of frames per cycle. Under the default implementation,
      * this depends on the cycleTime and repaintInterval.  It
      * must be an even number for the default painting algorithm.  This
@@ -75,7 +75,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
      */
     private int numFrames;   //0 1|numFrames-1 ... numFrames/2
 
-    /**
+    /** {@collect.stats}
      * Interval (in ms) between repaints of the indeterminate progress bar.
      * The value of this method is set
      * (every time the progress bar changes to indeterminate mode)
@@ -84,7 +84,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
      */
     private int repaintInterval;
 
-    /**
+    /** {@collect.stats}
      * The number of milliseconds until the animation cycle repeats.
      * The value of this method is set
      * (every time the progress bar changes to indeterminate mode)
@@ -98,7 +98,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
                                                //make this false for
                                                //performance tests
 
-    /**
+    /** {@collect.stats}
      * Used to hold the location and size of the bouncing box (returned
      * by getBox) to be painted.
      *
@@ -106,7 +106,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
      */
     protected Rectangle boxRect;
 
-    /**
+    /** {@collect.stats}
      * The rectangle to be updated the next time the
      * animation thread calls repaint.  For bouncing-box
      * animation this rect should include the union of
@@ -118,11 +118,11 @@ public class BasicProgressBarUI extends ProgressBarUI {
     private Rectangle nextPaintRect;
 
     //cache
-    /** The component's painting area, not including the border. */
+    /** {@collect.stats} The component's painting area, not including the border. */
     private Rectangle componentInnards;    //the current painting area
     private Rectangle oldComponentInnards; //used to see if the size changed
 
-    /** For bouncing-box animation, the change in position per frame. */
+    /** {@collect.stats} For bouncing-box animation, the change in position per frame. */
     private double delta = 0.0;
 
     private int maxPosition = 0; //maximum X (horiz) or Y box location
@@ -184,7 +184,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return handler;
     }
 
-    /**
+    /** {@collect.stats}
      * Starts the animation thread, creating and initializing
      * it if necessary. This method is invoked when an
      * indeterminate progress bar should start animating.
@@ -209,7 +209,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         animator.start(getRepaintInterval());
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the animation thread.
      * This method is invoked when the indeterminate
      * animation should be stopped. Reasons for this may include:
@@ -230,7 +230,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all listeners installed by this object.
      */
     protected void uninstallListeners() {
@@ -240,7 +240,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -264,7 +264,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -309,7 +309,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return vertDim;
     }
 
-    /**
+    /** {@collect.stats}
      * The "selectionForeground" is the color of the text when it is painted
      * over a filled area of the progress bar.
      */
@@ -317,7 +317,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return selectionForeground;
     }
 
-    /**
+    /** {@collect.stats}
      * The "selectionBackground" is the color of the text when it is painted
      * over an unfilled area of the progress bar.
      */
@@ -333,7 +333,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         this.cachedPercent = cachedPercent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width (if HORIZONTAL) or height (if VERTICAL)
      * of each of the indivdual cells/units to be rendered in the
      * progress bar. However, for text rendering simplification and
@@ -356,7 +356,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         this.cellLength = cellLen;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the spacing between each of the cells/units in the
      * progress bar. However, for text rendering simplification and
      * aesthetic considerations, this function will return 0 when
@@ -378,7 +378,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         this.cellSpacing = cellSpace;
     }
 
-    /**
+    /** {@collect.stats}
      * This determines the amount of the progress bar that should be filled
      * based on the percent done gathered from the model. This is a common
      * operation so it was abstracted out. It assumes that your progress bar
@@ -401,7 +401,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return amountFull;
     }
 
-    /**
+    /** {@collect.stats}
      * Delegates painting to one of two methods:
      * paintDeterminate or paintIndeterminate.
      */
@@ -413,7 +413,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the position and size of
      * the bouncing box that would be painted for the current animation index
      * in <code>r</code> and returns <code>r</code>.
@@ -477,7 +477,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates delta, max position.
      * Assumes componentInnards is correct (e.g. call after sizeChanged()).
      */
@@ -501,7 +501,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         delta = 2.0 * (double)maxPosition/(double)numFrames;
     }
 
-    /**
+    /** {@collect.stats}
      * Assumes that the component innards, max position, etc. are up-to-date.
      */
     private Rectangle getGenericBox(Rectangle r) {
@@ -534,7 +534,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length
      * of the "bouncing box" to be painted.
      * This method is invoked by the
@@ -571,7 +571,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return (int)Math.round(availableLength/6.0);
     }
 
-    /**
+    /** {@collect.stats}
      * All purpose paint method that should do the right thing for all
      * linear bouncing-box progress bars.
      * Override this if you are making another kind of
@@ -620,7 +620,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * All purpose paint method that should do the right thing for almost
      * all linear, determinate progress bars. By setting a few values in
      * the defaults
@@ -734,7 +734,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the progress string.
      *
      * @param g Graphics used for drawing.
@@ -787,7 +787,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Designate the place where the progress string will be painted.
      * This implementation places it at the center of the progress
      * bar (in both x and y). Override this if you want to right,
@@ -867,7 +867,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * The Minimum size for this component is 10. The rationale here
      * is that there should be at least one pixel per 10 percent.
      */
@@ -891,7 +891,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return pref;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the index of the current animation frame.
      *
      * @since 1.4
@@ -900,7 +900,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return animationIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of frames for the complete animation loop
      * used by an indeterminate JProgessBar. The progress chunk will go
      * from one end to the other and back during the entire loop. This
@@ -913,7 +913,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return numFrames;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the index of the current animation frame
      * to the specified value and requests that the
      * progress bar be repainted.
@@ -973,7 +973,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return !oldComponentInnards.equals(componentInnards);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the index of the current animation frame,
      * to the next valid value,
      * which results in the progress bar being repainted.
@@ -1003,7 +1003,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the desired number of milliseconds between repaints.
      * This value is meaningful
      * only if the progress bar is in indeterminate mode.
@@ -1027,7 +1027,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         return repaintInterval;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of milliseconds per animation cycle.
      * This value is meaningful
      * only if the progress bar is in indeterminate mode.
@@ -1052,7 +1052,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     }
 
 
-    /** Initialize cycleTime, repaintInterval, numFrames, animationIndex. */
+    /** {@collect.stats} Initialize cycleTime, repaintInterval, numFrames, animationIndex. */
     private void initIndeterminateDefaults() {
         initRepaintInterval(); //initialize repaint interval
         initCycleTime();       //initialize cycle length
@@ -1074,7 +1074,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked by PropertyChangeHandler.
      *
      *  NOTE: This might not be invoked until after the first
@@ -1101,7 +1101,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         }
     }
 
-    /** Invoked by PropertyChangeHandler. */
+    /** {@collect.stats} Invoked by PropertyChangeHandler. */
     private void cleanUpIndeterminateValues() {
         // stop the animation thread if necessary
         if (progressBar.isDisplayable()) {
@@ -1136,7 +1136,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     //
     // Animation Thread
     //
-    /**
+    /** {@collect.stats}
      * Implements an animation thread that invokes repaint
      * at a fixed rate.  If ADJUSTTIMER is true, this thread
      * will continuously adjust the repaint interval to
@@ -1150,7 +1150,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
         private long lastCall; //the last time actionPerformed was called
         private int MINIMUM_DELAY = 5;
 
-        /**
+        /** {@collect.stats}
          * Creates a timer if one doesn't already exist,
          * then starts the timer thread.
          */
@@ -1172,14 +1172,14 @@ public class BasicProgressBarUI extends ProgressBarUI {
             timer.start();
         }
 
-        /**
+        /** {@collect.stats}
          * Stops the timer thread.
          */
         private void stop() {
             timer.stop();
         }
 
-        /**
+        /** {@collect.stats}
          * Reacts to the timer's action events.
          */
         public void actionPerformed(ActionEvent e) {
@@ -1210,7 +1210,7 @@ public class BasicProgressBarUI extends ProgressBarUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicProgressBarUI.

@@ -75,7 +75,7 @@ public class BasicGraphicsUtils
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space taken up by a border drawn by
      * <code>drawEtchedRect()</code>
      *
@@ -106,7 +106,7 @@ public class BasicGraphicsUtils
         g.setColor(oldColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space taken up by a border drawn by
      * <code>drawGroove()</code>
      *
@@ -194,7 +194,7 @@ public class BasicGraphicsUtils
      }
 
 
-    /** Draw a string with the graphics <code>g</code> at location (x,y)
+    /** {@collect.stats} Draw a string with the graphics <code>g</code> at location (x,y)
      *  just like <code>g.drawString</code> would.
      *  The first occurrence of <code>underlineChar</code>
      *  in text will be underlined. The matching algorithm is
@@ -222,7 +222,7 @@ public class BasicGraphicsUtils
         drawStringUnderlineCharAt(g, text, index, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Draw a string with the graphics <code>g</code> at location
      * (<code>x</code>, <code>y</code>)
      * just like <code>g.drawString</code> would.

@@ -37,7 +37,7 @@ import java.lang.Comparable; // to be substituted for jdk1.1.x
 //
 
 
-/**
+/** {@collect.stats}
  * <p>Describes a parameter used in one or more operations or
  * constructors of an open MBean.</p>
  *
@@ -55,7 +55,7 @@ public interface OpenMBeanParameterInfo {
     // Re-declares methods that are in class MBeanParameterInfo of JMX 1.0
     // (these will be removed when MBeanParameterInfo is made a parent interface of this interface)
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the parameter
      * described by this <tt>OpenMBeanParameterInfo</tt> instance.
      *
@@ -63,7 +63,7 @@ public interface OpenMBeanParameterInfo {
      */
     public String getDescription() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the parameter
      * described by this <tt>OpenMBeanParameterInfo</tt> instance.
      *
@@ -75,7 +75,7 @@ public interface OpenMBeanParameterInfo {
     // Now declares methods that are specific to open MBeans
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>open type</i> of the values of the parameter
      * described by this <tt>OpenMBeanParameterInfo</tt> instance.
      *
@@ -83,7 +83,7 @@ public interface OpenMBeanParameterInfo {
      */
     public OpenType<?> getOpenType() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the default value for this parameter, if it has one, or
      * <tt>null</tt> otherwise.
      *
@@ -91,7 +91,7 @@ public interface OpenMBeanParameterInfo {
      */
     public Object getDefaultValue() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the set of legal values for this parameter, if it has
      * one, or <tt>null</tt> otherwise.
      *
@@ -99,7 +99,7 @@ public interface OpenMBeanParameterInfo {
      */
     public Set<?> getLegalValues() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the minimal value for this parameter, if it has one, or
      * <tt>null</tt> otherwise.
      *
@@ -107,7 +107,7 @@ public interface OpenMBeanParameterInfo {
      */
     public Comparable<?> getMinValue() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the maximal value for this parameter, if it has one, or
      * <tt>null</tt> otherwise.
      *
@@ -115,7 +115,7 @@ public interface OpenMBeanParameterInfo {
      */
     public Comparable<?> getMaxValue() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this parameter has a specified default
      * value, or <tt>false</tt> otherwise.
      *
@@ -123,7 +123,7 @@ public interface OpenMBeanParameterInfo {
      */
     public boolean hasDefaultValue() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this parameter has a specified set of
      * legal values, or <tt>false</tt> otherwise.
      *
@@ -131,7 +131,7 @@ public interface OpenMBeanParameterInfo {
      */
     public boolean hasLegalValues() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this parameter has a specified minimal
      * value, or <tt>false</tt> otherwise.
      *
@@ -139,7 +139,7 @@ public interface OpenMBeanParameterInfo {
      */
     public boolean hasMinValue() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this parameter has a specified maximal
      * value, or <tt>false</tt> otherwise.
      *
@@ -147,7 +147,7 @@ public interface OpenMBeanParameterInfo {
      */
     public boolean hasMaxValue() ;
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a valid value for the parameter
      * described by this <code>OpenMBeanParameterInfo</code> instance.
      *
@@ -161,7 +161,7 @@ public interface OpenMBeanParameterInfo {
     public boolean isValue(Object obj) ;
 
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>OpenMBeanParameterInfo</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -181,7 +181,7 @@ public interface OpenMBeanParameterInfo {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>OpenMBeanParameterInfo</code> instance.
      * <p>
      * The hash code of an <code>OpenMBeanParameterInfo</code> instance is the sum of the hash codes
@@ -198,7 +198,7 @@ public interface OpenMBeanParameterInfo {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>OpenMBeanParameterInfo</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.OpenMBeanParameterInfo</code>),

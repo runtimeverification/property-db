@@ -35,7 +35,7 @@ import java.beans.*;
 import javax.swing.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * A Java L&F implementation of SliderUI.
  * <p>
  * <strong>Warning:</strong>
@@ -61,14 +61,14 @@ public class MetalSliderUI extends BasicSliderUI {
     protected static int tickLength;
     private int safeLength;
 
-   /**
+   /** {@collect.stats}
     * A default horizontal thumb <code>Icon</code>. This field might not be
     * used. To change the <code>Icon</code> used by this delgate directly set it
     * using the <code>Slider.horizontalThumbIcon</code> UIManager property.
     */
     protected static Icon horizThumbIcon;
 
-   /**
+   /** {@collect.stats}
     * A default vertical thumb <code>Icon</code>. This field might not be
     * used. To change the <code>Icon</code> used by this delgate directly set it
     * using the <code>Slider.verticalThumbIcon</code> UIManager property.
@@ -162,7 +162,7 @@ public class MetalSliderUI extends BasicSliderUI {
         g.translate( -knobBounds.x, -knobBounds.y );
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>chooseFirst</code>is true, <code>c1</code> is returned,
      * otherwise <code>c2</code>.
      */
@@ -173,7 +173,7 @@ public class MetalSliderUI extends BasicSliderUI {
         return c1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle enclosing the track that will be painted.
      */
     private Rectangle getPaintTrackRect() {
@@ -449,7 +449,7 @@ public class MetalSliderUI extends BasicSliderUI {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the height of the tick area for horizontal sliders and the width of the
      * tick area for vertical sliders.  BasicSliderUI uses the returned value to
      * determine the tick area rectangle.
@@ -459,7 +459,7 @@ public class MetalSliderUI extends BasicSliderUI {
         safeLength + TICK_BUFFER + 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shorter dimension of the track.
      */
     protected int getTrackWidth() {
@@ -477,7 +477,7 @@ public class MetalSliderUI extends BasicSliderUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the longer dimension of the slide bar.  (The slide bar is only the
      * part that runs directly under the thumb)
      */
@@ -488,7 +488,7 @@ public class MetalSliderUI extends BasicSliderUI {
         return trackRect.height;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount that the thumb goes past the slide bar.
      */
     protected int getThumbOverhang() {

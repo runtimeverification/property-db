@@ -27,7 +27,7 @@ package javax.naming.ldap;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This interface represents an LDAPv3 extended operation request as defined in
   * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
   * <pre>
@@ -86,7 +86,7 @@ import javax.naming.NamingException;
   */
 public interface ExtendedRequest extends java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
       * Retrieves the object identifier of the request.
       *
       * @return The non-null object identifier string representing the LDAP
@@ -94,7 +94,7 @@ public interface ExtendedRequest extends java.io.Serializable {
       */
     public String getID();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the ASN.1 BER encoded value of the LDAP extended operation
       * request. Null is returned if the value is absent.
       *
@@ -111,7 +111,7 @@ public interface ExtendedRequest extends java.io.Serializable {
       */
     public byte[] getEncodedValue();
 
-    /**
+    /** {@collect.stats}
       * Creates the response object that corresponds to this request.
       *<p>
       * After the service provider has sent the extended operation request

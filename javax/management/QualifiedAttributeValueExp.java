@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class represents indexed attributes used as arguments to relational
  * constraints. An QualifiedAttributeValueExp may be used anywhere a
  * ValueExp is required.
@@ -40,19 +40,19 @@ class QualifiedAttributeValueExp extends AttributeValueExp   {
     /* Serial version */
     private static final long serialVersionUID = 8832517277410933254L;
 
-    /**
+    /** {@collect.stats}
      * @serial The attribute class name
      */
     private String className;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public QualifiedAttributeValueExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new QualifiedAttributeValueExp representing the specified object
      * attribute, named attr with class name className.
      */
@@ -62,14 +62,14 @@ class QualifiedAttributeValueExp extends AttributeValueExp   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the class name of the attribute.
      */
     public String getAttrClassName()  {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the QualifiedAttributeValueExp to an MBean.
      *
      * @param name The name of the MBean on which the QualifiedAttributeValueExp will be applied.
@@ -102,7 +102,7 @@ class QualifiedAttributeValueExp extends AttributeValueExp   {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing its value
      */
     public String toString()  {

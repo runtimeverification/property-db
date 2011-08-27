@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * The <code>Line</code> interface represents a mono or multi-channel
  * audio feed. A line is an element of the digital audio
  * "pipeline," such as a mixer, an input or output port,
@@ -72,14 +72,14 @@ package javax.sound.sampled;
  */
 public interface Line {
 
-    /**
+    /** {@collect.stats}
      * Obtains the <code>Line.Info</code> object describing this
      * line.
      * @return description of the line
      */
     public Line.Info getLineInfo();
 
-    /**
+    /** {@collect.stats}
      * Opens the line, indicating that it should acquire any required
      * system resources and become operational.
      * If this operation
@@ -126,7 +126,7 @@ public interface Line {
     public void open() throws LineUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Closes the line, indicating that any system resources
      * in use by the line can be released.  If this operation
      * succeeds, the line is marked closed and a <code>CLOSE</code> event is dispatched
@@ -142,7 +142,7 @@ public interface Line {
 
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the line is open, meaning that it has reserved
      * system resources and is operational, although it might not currently be
      * playing or capturing sound.
@@ -154,7 +154,7 @@ public interface Line {
     public boolean isOpen();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of controls associated with this line.
      * Some controls may only be available when the line is open.
      * If there are no controls, this method returns an array of length 0.
@@ -163,7 +163,7 @@ public interface Line {
      */
     public Control[] getControls();
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the line supports a control of the specified type.
      * Some controls may only be available when the line is open.
      * @param control the type of the control for which support is queried
@@ -173,7 +173,7 @@ public interface Line {
     public boolean isControlSupported(Control.Type control);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a control of the specified type,
      * if there is any.
      * Some controls may only be available when the line is open.
@@ -187,7 +187,7 @@ public interface Line {
     public Control getControl(Control.Type control);
 
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to this line.  Whenever the line's status changes, the
      * listener's <code>update()</code> method is called with a <code>LineEvent</code> object
      * that describes the change.
@@ -199,7 +199,7 @@ public interface Line {
     public void addLineListener(LineListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified listener from this line's list of listeners.
      * @param listener listener to remove
      * @see #addLineListener
@@ -207,7 +207,7 @@ public interface Line {
     public void removeLineListener(LineListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * A <code>Line.Info</code> object contains information about a line.
      * The only information provided by <code>Line.Info</code> itself
      * is the Java class of the line.
@@ -239,13 +239,13 @@ public interface Line {
      */
     public static class Info {
 
-        /**
+        /** {@collect.stats}
          * The class of the line described by the info object.
          */
         private final Class lineClass;
 
 
-        /**
+        /** {@collect.stats}
          * Constructs an info object that describes a line of the specified class.
          * This constructor is typically used by an application to
          * describe a desired line.
@@ -262,7 +262,7 @@ public interface Line {
 
 
 
-        /**
+        /** {@collect.stats}
          * Obtains the class of the line that this Line.Info object describes.
          * @return the described line's class
          */
@@ -271,7 +271,7 @@ public interface Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Indicates whether the specified info object matches this one.
          * To match, the specified object must be identical to or
          * a special case of this one.  The specified info object
@@ -333,7 +333,7 @@ public interface Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Obtains a textual description of the line info.
          * @return a string description
          */

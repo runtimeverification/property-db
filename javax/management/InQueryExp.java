@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent binary
  * operations.
  * @serial include
@@ -38,24 +38,24 @@ class InQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -5801329450358952434L;
 
-    /**
+    /** {@collect.stats}
      * @serial The {@link ValueExp} to be found
      */
     private ValueExp val;
 
-    /**
+    /** {@collect.stats}
      * @serial The array of {@link ValueExp} to be searched
      */
     private ValueExp[]  valueList;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public InQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new InQueryExp with the specified ValueExp to be found in
      * a specified array of ValueExp.
      */
@@ -65,21 +65,21 @@ class InQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the checked value of the query.
      */
     public ValueExp getCheckedValue()  {
         return val;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the array of values of the query.
      */
     public ValueExp[] getExplicitValues()  {
         return valueList;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the InQueryExp on a MBean.
      *
      * @param name The name of the MBean on which the InQueryExp will be applied.
@@ -114,7 +114,7 @@ class InQueryExp extends QueryEval implements QueryExp {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

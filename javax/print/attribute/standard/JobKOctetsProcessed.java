@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobKOctetsProcessed is an integer valued printing attribute class that
  * specifies the total number of print data octets processed so far in K octets,
  * i.e., in units of 1024 octets. The value must be rounded up, so that a job
@@ -73,7 +73,7 @@ public final class JobKOctetsProcessed extends IntegerSyntax
 
     private static final long serialVersionUID = -6265238509657881806L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job K octets processed attribute with the given integer
      * value.
      *
@@ -86,7 +86,7 @@ public final class JobKOctetsProcessed extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job K octets processed attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -110,7 +110,7 @@ public final class JobKOctetsProcessed extends IntegerSyntax
                object instanceof JobKOctetsProcessed);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -124,7 +124,7 @@ public final class JobKOctetsProcessed extends IntegerSyntax
         return JobKOctetsProcessed.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

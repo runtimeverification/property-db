@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A response APDU as defined in ISO/IEC 7816-4. It consists of a conditional
  * body and a two byte trailer.
  * This class does not attempt to verify that the APDU encodes a semantically
@@ -47,10 +47,10 @@ public final class ResponseAPDU implements java.io.Serializable {
 
     private static final long serialVersionUID = 6962744978375594225L;
 
-    /** @serial */
+    /** {@collect.stats} @serial */
     private byte[] apdu;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ResponseAPDU from a byte array containing the complete
      * APDU contents (conditional body and trailed).
      *
@@ -74,7 +74,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of data bytes in the response body (Nr) or 0 if this
      * APDU has no body. This call is equivalent to
      * <code>getData().length</code>.
@@ -86,7 +86,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return apdu.length - 2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the data bytes in the response body. If this APDU as
      * no body, this method returns a byte array with a length of zero.
      *
@@ -99,7 +99,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the status byte SW1 as a value between 0 and 255.
      *
      * @return the value of the status byte SW1 as a value between 0 and 255.
@@ -108,7 +108,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return apdu[apdu.length - 2] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the status byte SW2 as a value between 0 and 255.
      *
      * @return the value of the status byte SW2 as a value between 0 and 255.
@@ -117,7 +117,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return apdu[apdu.length - 1] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the status bytes SW1 and SW2 as a single
      * status word SW.
      * It is defined as
@@ -129,7 +129,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return (getSW1() << 8) | getSW2();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the bytes in this APDU.
      *
      * @return a copy of the bytes in this APDU.
@@ -138,7 +138,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return apdu.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this response APDU.
      *
      * @return a String representation of this response APDU.
@@ -148,7 +148,7 @@ public final class ResponseAPDU implements java.io.Serializable {
             + Integer.toHexString(getSW());
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this response APDU for equality.
      * Returns true if the given object is also a ResponseAPDU and its bytes are
      * identical to the bytes in this ResponseAPDU.
@@ -167,7 +167,7 @@ public final class ResponseAPDU implements java.io.Serializable {
         return Arrays.equals(this.apdu, other.apdu);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this response APDU.
      *
      * @return the hash code value for this response APDU.

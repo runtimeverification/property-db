@@ -24,7 +24,7 @@
  */
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
   * Class AccessibleExtendedTable provides extended information about
   * a user-interface component that presents data in a two-dimensional
   * table format.
@@ -40,7 +40,7 @@ package javax.accessibility;
   */
 public interface AccessibleExtendedTable extends AccessibleTable {
 
-     /**
+     /** {@collect.stats}
       * Returns the row number of an index in the table.
       *
       * @param index the zero-based index in the table.  The index is
@@ -50,7 +50,7 @@ public interface AccessibleExtendedTable extends AccessibleTable {
       */
      public int getAccessibleRow(int index);
 
-     /**
+     /** {@collect.stats}
       * Returns the column number of an index in the table.
       *
       * @param index the zero-based index in the table.  The index is

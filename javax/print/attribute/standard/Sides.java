@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Sides is a printing attribute class, an enumeration, that specifies
  * how print-stream pages are to be imposed upon the sides of an instance of a
  * selected medium, i.e., an impression.
@@ -123,13 +123,13 @@ public final class Sides extends EnumSyntax
 
     private static final long serialVersionUID = -6890309414893262822L;
 
-    /**
+    /** {@collect.stats}
      * Imposes each consecutive print-stream page upon the same side of
      * consecutive media sheets.
      */
     public static final Sides ONE_SIDED = new Sides(0);
 
-    /**
+    /** {@collect.stats}
      * Imposes each consecutive pair of print-stream pages upon front and back
      * sides of consecutive media sheets, such that the orientation of each
      * pair of print-stream pages on the medium would be correct for the
@@ -138,7 +138,7 @@ public final class Sides extends EnumSyntax
      */
     public static final Sides TWO_SIDED_LONG_EDGE = new Sides(1);
 
-    /**
+    /** {@collect.stats}
      * Imposes each consecutive pair of print-stream pages upon front and back
      * sides of consecutive media sheets, such that the orientation of each
      * pair of print-stream pages on the medium would be correct for the
@@ -147,19 +147,19 @@ public final class Sides extends EnumSyntax
      */
     public static final Sides TWO_SIDED_SHORT_EDGE = new Sides(2);
 
-    /**
+    /** {@collect.stats}
      * An alias for "two sided long edge" (see {@link #TWO_SIDED_LONG_EDGE
      * <CODE>TWO_SIDED_LONG_EDGE</CODE>}).
      */
     public static final Sides DUPLEX = TWO_SIDED_LONG_EDGE;
 
-    /**
+    /** {@collect.stats}
      * An alias for "two sided short edge" (see {@link #TWO_SIDED_SHORT_EDGE
      * <CODE>TWO_SIDED_SHORT_EDGE</CODE>}).
      */
     public static final Sides TUMBLE = TWO_SIDED_SHORT_EDGE;
 
-    /**
+    /** {@collect.stats}
      * Construct a new sides enumeration value with the given integer value.
      *
      * @param  value  Integer value.
@@ -180,21 +180,21 @@ public final class Sides extends EnumSyntax
         TWO_SIDED_SHORT_EDGE
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class Sides.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class Sides.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -207,7 +207,7 @@ public final class Sides extends EnumSyntax
         return Sides.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

@@ -36,7 +36,7 @@ import javax.xml.crypto.XMLCryptoContext;
 import javax.xml.crypto.XMLStructure;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>Transform</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -65,38 +65,38 @@ import javax.xml.crypto.dsig.spec.TransformParameterSpec;
  */
 public interface Transform extends XMLStructure, AlgorithmMethod {
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/2000/09/xmldsig#base64">Base64</a>
      * transform algorithm URI.
      */
     final static String BASE64 = "http://www.w3.org/2000/09/xmldsig#base64";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/2000/09/xmldsig#enveloped-signature">
      * Enveloped Signature</a> transform algorithm URI.
      */
     final static String ENVELOPED =
         "http://www.w3.org/2000/09/xmldsig#enveloped-signature";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/TR/1999/REC-xpath-19991116">XPath</a>
      * transform algorithm URI.
      */
     final static String XPATH = "http://www.w3.org/TR/1999/REC-xpath-19991116";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/2002/06/xmldsig-filter2">
      * XPath Filter 2</a> transform algorithm URI.
      */
     final static String XPATH2 = "http://www.w3.org/2002/06/xmldsig-filter2";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/TR/1999/REC-xslt-19991116">XSLT</a>
      * transform algorithm URI.
      */
     final static String XSLT = "http://www.w3.org/TR/1999/REC-xslt-19991116";
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm-specific input parameters associated with this
      * <code>Transform</code>.
      * <p>
@@ -108,7 +108,7 @@ public interface Transform extends XMLStructure, AlgorithmMethod {
      */
     AlgorithmParameterSpec getParameterSpec();
 
-    /**
+    /** {@collect.stats}
      * Transforms the specified data using the underlying transform algorithm.
      *
      * @param data the data to be transformed
@@ -122,7 +122,7 @@ public interface Transform extends XMLStructure, AlgorithmMethod {
     public abstract Data transform(Data data, XMLCryptoContext context)
         throws TransformException;
 
-    /**
+    /** {@collect.stats}
      * Transforms the specified data using the underlying transform algorithm.
      * If the output of this transform is an <code>OctetStreamData</code>, then
      * this method returns <code>null</code> and the bytes are written to the

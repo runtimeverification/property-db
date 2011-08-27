@@ -48,7 +48,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 
-/**
+/** {@collect.stats}
  * <code>JToolBar</code> provides a component that is useful for
  * displaying commonly used <code>Action</code>s or controls.
  * For examples and information on using tool bars see
@@ -88,7 +88,7 @@ import java.util.Hashtable;
  */
 public class JToolBar extends JComponent implements SwingConstants, Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -99,7 +99,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     private    boolean   floatable                = true;
     private    int       orientation              = HORIZONTAL;
 
-    /**
+    /** {@collect.stats}
      * Creates a new tool bar; orientation defaults to <code>HORIZONTAL</code>.
      */
     public JToolBar()
@@ -107,7 +107,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         this( HORIZONTAL );
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new tool bar with the specified <code>orientation</code>.
      * The <code>orientation</code> must be either <code>HORIZONTAL</code>
      * or <code>VERTICAL</code>.
@@ -119,7 +119,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         this(null, orientation);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new tool bar with the specified <code>name</code>.  The
      * name is used as the title of the undocked tool bar.  The default
      * orientation is <code>HORIZONTAL</code>.
@@ -131,7 +131,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         this(name, HORIZONTAL);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new tool bar with a specified <code>name</code> and
      * <code>orientation</code>.
      * All other constructors call this constructor.
@@ -158,7 +158,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tool bar's current UI.
      * @see #setUI
      */
@@ -166,7 +166,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return (ToolBarUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the <code>ToolBarUI</code> L&F object
@@ -181,7 +181,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIFactory</code> that the L&F has changed.
      * Called to replace the UI with the latest version from the
      * <code>UIFactory</code>.
@@ -201,7 +201,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "ToolBarUI"
@@ -213,7 +213,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the specified component.
      * (Note: Separators occupy index positions.)
      *
@@ -232,7 +232,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at the specified index.
      *
      * @param i  the component's position, where 0 is first
@@ -249,7 +249,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return null;
     }
 
-     /**
+     /** {@collect.stats}
       * Sets the margin between the tool bar's border and
       * its buttons. Setting to <code>null</code> causes the tool bar to
       * use the default margins. The tool bar's default <code>Border</code>
@@ -276,7 +276,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
          repaint();
      }
 
-     /**
+     /** {@collect.stats}
       * Returns the margin between the tool bar's border and
       * its buttons.
       *
@@ -292,7 +292,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
          }
      }
 
-     /**
+     /** {@collect.stats}
       * Gets the <code>borderPainted</code> property.
       *
       * @return the value of the <code>borderPainted</code> property
@@ -304,7 +304,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
      }
 
 
-     /**
+     /** {@collect.stats}
       * Sets the <code>borderPainted</code> property, which is
       * <code>true</code> if the border should be painted.
       * The default value for this property is <code>true</code>.
@@ -330,7 +330,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
          }
      }
 
-     /**
+     /** {@collect.stats}
       * Paints the tool bar's border if the <code>borderPainted</code> property
       * is <code>true</code>.
       *
@@ -347,7 +347,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
          }
      }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>floatable</code> property.
      *
      * @return the value of the <code>floatable</code> property
@@ -359,7 +359,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return floatable;
     }
 
-     /**
+     /** {@collect.stats}
       * Sets the <code>floatable</code> property,
       * which must be <code>true</code> for the user to move the tool bar.
       * Typically, a floatable tool bar can be
@@ -390,7 +390,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current orientation of the tool bar.  The value is either
      * <code>HORIZONTAL</code> or <code>VERTICAL</code>.
      *
@@ -403,7 +403,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return this.orientation;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the orientation of the tool bar.  The orientation must have
      * either the value <code>HORIZONTAL</code> or <code>VERTICAL</code>.
      * If <code>orientation</code> is
@@ -436,7 +436,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the rollover state of this toolbar. If the rollover state is true
      * then the border of the toolbar buttons will be drawn only when the
      * mouse pointer hovers over them. The default value of this property
@@ -458,7 +458,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
                           rollover ? Boolean.TRUE : Boolean.FALSE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rollover state.
      *
      * @return true if rollover toolbar buttons are to be drawn; otherwise false
@@ -485,7 +485,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a separator of default size to the end of the tool bar.
      * The default size is determined by the current look and feel.
      */
@@ -494,7 +494,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         addSeparator(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a separator of a specified size to the end
      * of the tool bar.
      *
@@ -506,7 +506,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         add(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new <code>JButton</code> which dispatches the action.
      *
      * @param a the <code>Action</code> object to add as a new menu item
@@ -519,7 +519,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Factory method which creates the <code>JButton</code> for
      * <code>Action</code>s added to the <code>JToolBar</code>.
      * The default name is empty if a <code>null</code> action is passed.
@@ -548,7 +548,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a properly configured <code>PropertyChangeListener</code>
      * which updates the control as changes to the <code>Action</code> occur,
      * or <code>null</code> if the default
@@ -560,7 +560,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * If a <code>JButton</code> is being added, it is initially
      * set to be disabled.
      *
@@ -584,7 +584,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * A toolbar-specific separator. An object with dimension but
      * no contents used to divide buttons on a tool bar into groups.
      */
@@ -592,7 +592,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     {
         private Dimension separatorSize;
 
-        /**
+        /** {@collect.stats}
          * Creates a new toolbar separator with the default size
          * as defined by the current look and feel.
          */
@@ -601,7 +601,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             this( null );  // let the UI define the default size
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new toolbar separator with the specified size.
          *
          * @param size the <code>Dimension</code> of the separator
@@ -612,7 +612,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             setSeparatorSize(size);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the name of the L&F class that renders this component.
          *
          * @return the string "ToolBarSeparatorUI"
@@ -624,7 +624,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             return "ToolBarSeparatorUI";
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the size of the separator.
          *
          * @param size the new <code>Dimension</code> of the separator
@@ -639,7 +639,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             this.invalidate();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the size of the separator
          *
          * @return the <code>Dimension</code> object containing the separator's
@@ -650,7 +650,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             return separatorSize;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum size for the separator.
          *
          * @return the <code>Dimension</code> object containing the separator's
@@ -665,7 +665,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum size for the separator.
          *
          * @return the <code>Dimension</code> object containing the separator's
@@ -680,7 +680,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred size for the separator.
          *
          * @return the <code>Dimension</code> object containing the separator's
@@ -697,7 +697,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -714,7 +714,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JToolBar</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -822,7 +822,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JToolBar.
      * For tool bars, the AccessibleContext takes the form of an
      * AccessibleJToolBar.
@@ -838,14 +838,14 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JToolBar</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to toolbar user-interface elements.
      */
     protected class AccessibleJToolBar extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current
@@ -859,7 +859,7 @@ public class JToolBar extends JComponent implements SwingConstants, Accessible
             return states;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the object

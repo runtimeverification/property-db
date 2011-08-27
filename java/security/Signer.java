@@ -27,7 +27,7 @@ package java.security;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * This class is used to represent an Identity that can also digitally
  * sign data.
  *
@@ -49,14 +49,14 @@ public abstract class Signer extends Identity {
 
     private static final long serialVersionUID = -1763464102261361480L;
 
-    /**
+    /** {@collect.stats}
      * The signer's private key.
      *
      * @serial
      */
     private PrivateKey privateKey;
 
-    /**
+    /** {@collect.stats}
      * Creates a signer. This constructor should only be used for
      * serialization.
      */
@@ -65,7 +65,7 @@ public abstract class Signer extends Identity {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a signer with the specified identity name.
      *
      * @param name the identity name.
@@ -74,7 +74,7 @@ public abstract class Signer extends Identity {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a signer with the specified identity name and scope.
      *
      * @param name the identity name.
@@ -89,7 +89,7 @@ public abstract class Signer extends Identity {
         super(name, scope);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this signer's private key.
      *
      * <p>First, if there is a security manager, its <code>checkSecurityAccess</code>
@@ -110,7 +110,7 @@ public abstract class Signer extends Identity {
         return privateKey;
     }
 
-   /**
+   /** {@collect.stats}
      * Sets the key pair (public key and private key) for this signer.
      *
      * <p>First, if there is a security manager, its <code>checkSecurityAccess</code>
@@ -164,7 +164,7 @@ public abstract class Signer extends Identity {
         return keys;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string of information about the signer.
      *
      * @return a string of information about the signer.

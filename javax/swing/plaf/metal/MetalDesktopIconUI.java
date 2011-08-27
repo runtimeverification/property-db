@@ -35,7 +35,7 @@ import java.util.EventListener;
 import java.io.Serializable;
 import javax.swing.plaf.basic.BasicDesktopIconUI;
 
-/**
+/** {@collect.stats}
  * Metal desktop icon.
  *
  * @author Steve Wilson

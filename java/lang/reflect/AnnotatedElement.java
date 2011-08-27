@@ -27,7 +27,7 @@ package java.lang.reflect;
 
 import java.lang.annotation.Annotation;
 
-/**
+/** {@collect.stats}
  * Represents an annotated element of the program currently running in this
  * VM.  This interface allows annotations to be read reflectively.  All
  * annotations returned by methods in this interface are immutable and
@@ -54,7 +54,7 @@ import java.lang.annotation.Annotation;
  * @author Josh Bloch
  */
 public interface AnnotatedElement {
-    /**
+    /** {@collect.stats}
      * Returns true if an annotation for the specified type
      * is present on this element, else false.  This method
      * is designed primarily for convenient access to marker annotations.
@@ -68,7 +68,7 @@ public interface AnnotatedElement {
      */
      boolean isAnnotationPresent(Class<? extends Annotation> annotationClass);
 
-   /**
+   /** {@collect.stats}
      * Returns this element's annotation for the specified type if
      * such an annotation is present, else null.
      *
@@ -81,7 +81,7 @@ public interface AnnotatedElement {
      */
     <T extends Annotation> T getAnnotation(Class<T> annotationClass);
 
-    /**
+    /** {@collect.stats}
      * Returns all annotations present on this element.  (Returns an array
      * of length zero if this element has no annotations.)  The caller of
      * this method is free to modify the returned array; it will have no
@@ -92,7 +92,7 @@ public interface AnnotatedElement {
      */
     Annotation[] getAnnotations();
 
-    /**
+    /** {@collect.stats}
      * Returns all annotations that are directly present on this
      * element.  Unlike the other methods in this interface, this method
      * ignores inherited annotations.  (Returns an array of length zero if

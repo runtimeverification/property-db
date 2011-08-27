@@ -28,7 +28,7 @@ package javax.management.openmbean;
 import java.io.ObjectStreamException;
 import java.lang.reflect.Array;
 
-/**
+/** {@collect.stats}
  * The <code>ArrayType</code> class is the <i>open type</i> class whose instances describe
  * all <i>open data</i> values which are n-dimensional arrays of <i>open data</i> values.
  * <p>
@@ -116,19 +116,19 @@ public class ArrayType<T> extends OpenType<T> {
     /* Serial version */
     static final long serialVersionUID = 720504429830309770L;
 
-    /**
+    /** {@collect.stats}
      * @serial The dimension of arrays described by this {@link ArrayType}
      *         instance.
      */
     private int dimension;
 
-    /**
+    /** {@collect.stats}
      * @serial The <i>open type</i> of element values contained in the arrays
      *         described by this {@link ArrayType} instance.
      */
     private OpenType<?> elementType;
 
-    /**
+    /** {@collect.stats}
      * @serial This flag indicates whether this {@link ArrayType}
      *         describes a primitive array.
      *
@@ -165,7 +165,7 @@ public class ArrayType<T> extends OpenType<T> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the key used to identify the element type in
      * arrays - e.g. "Z" for boolean, "C" for char etc...
      * @param elementClassName the wrapper class name of the array
@@ -182,7 +182,7 @@ public class ArrayType<T> extends OpenType<T> {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the primitive type name corresponding to the given wrapper class.
      * e.g. "boolean" for "Boolean", "char" for "Character" etc...
      * @param elementClassName the type of the array element ("Boolean",
@@ -200,7 +200,7 @@ public class ArrayType<T> extends OpenType<T> {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the primitive open type corresponding to the given primitive type.
      * e.g. SimpleType.BOOLEAN for "boolean", SimpleType.CHARACTER for
      * "char", etc...
@@ -221,7 +221,7 @@ public class ArrayType<T> extends OpenType<T> {
 
     /* *** Constructor *** */
 
-    /**
+    /** {@collect.stats}
      * Constructs an <tt>ArrayType</tt> instance describing <i>open data</i> values which are
      * arrays with dimension <var>dimension</var> of elements whose <i>open type</i> is <var>elementType</var>.
      * <p>
@@ -307,7 +307,7 @@ public class ArrayType<T> extends OpenType<T> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a unidimensional {@code ArrayType} instance for the
      * supplied {@code SimpleType}.
      * <p>
@@ -482,7 +482,7 @@ public class ArrayType<T> extends OpenType<T> {
 
     /* *** ArrayType specific information methods *** */
 
-    /**
+    /** {@collect.stats}
      * Returns the dimension of arrays described by this <tt>ArrayType</tt> instance.
      *
      * @return the dimension.
@@ -492,7 +492,7 @@ public class ArrayType<T> extends OpenType<T> {
         return dimension;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>open type</i> of element values contained in the arrays described by this <tt>ArrayType</tt> instance.
      *
      * @return the element type.
@@ -502,7 +502,7 @@ public class ArrayType<T> extends OpenType<T> {
         return elementType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the open data values this open
      * type describes are primitive arrays, <code>false</code> otherwise.
      *
@@ -515,7 +515,7 @@ public class ArrayType<T> extends OpenType<T> {
         return primitiveArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a value for this <code>ArrayType</code>
      * instance.
      * <p>
@@ -606,7 +606,7 @@ public class ArrayType<T> extends OpenType<T> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if and only if all elements contained in the array argument x_dim_Array of dimension dim
      * are valid values (ie either null or of the right openType)
      * for the element open type specified by this ArrayType instance.
@@ -648,7 +648,7 @@ public class ArrayType<T> extends OpenType<T> {
 
     /* *** Methods overriden from class Object *** */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>obj</code> parameter with this
      * <code>ArrayType</code> instance for equality.
      * <p>
@@ -696,7 +696,7 @@ public class ArrayType<T> extends OpenType<T> {
         return this.primitiveArray == other.primitiveArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>ArrayType</code> instance.
      * <p>
      * The hash code of an <code>ArrayType</code> instance is the sum of the
@@ -734,7 +734,7 @@ public class ArrayType<T> extends OpenType<T> {
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>ArrayType</code> instance.
      * <p>
      * The string representation consists of the name of this class (i.e.
@@ -766,7 +766,7 @@ public class ArrayType<T> extends OpenType<T> {
         return myToString;
     }
 
-    /**
+    /** {@collect.stats}
      * Create an {@code ArrayType} instance in a type-safe manner.
      * <p>
      * Multidimensional arrays can be built up by calling this method as many
@@ -812,7 +812,7 @@ public class ArrayType<T> extends OpenType<T> {
         return new ArrayType<E[]>(1, elementType);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an {@code ArrayType} instance in a type-safe manner.
      * <p>
      * Calling this method twice with the same parameters may return the
@@ -888,7 +888,7 @@ public class ArrayType<T> extends OpenType<T> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replace/resolve the object read from the stream before it is returned
      * to the caller.
      *
@@ -956,7 +956,7 @@ public class ArrayType<T> extends OpenType<T> {
                              dimension, elementType, primitiveArray);
     }
 
-    /**
+    /** {@collect.stats}
      * Nominate a replacement for this object in the stream before the object
      * is written.
      *

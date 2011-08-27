@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * OptionComboBoxModel extends the capabilities of the DefaultComboBoxModel,
  * to store the Option that is initially marked as selected.
  * This is stored, in order to enable an accurate reset of the
@@ -45,7 +45,7 @@ class OptionComboBoxModel extends DefaultComboBoxModel implements Serializable {
 
     private Option selectedOption = null;
 
-    /**
+    /** {@collect.stats}
      * Stores the Option that has been marked its
      * selected attribute set.
      */
@@ -53,7 +53,7 @@ class OptionComboBoxModel extends DefaultComboBoxModel implements Serializable {
         selectedOption = option;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the Option item that represents that was
      * initially set to a selected state.
      */

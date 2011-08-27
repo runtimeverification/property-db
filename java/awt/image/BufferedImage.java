@@ -44,7 +44,7 @@ import sun.awt.image.ByteComponentRaster;
 import sun.awt.image.IntegerComponentRaster;
 import sun.awt.image.OffScreenImageSource;
 
-/**
+/** {@collect.stats}
  *
  * The <code>BufferedImage</code> subclass describes an {@link
  * java.awt.Image Image} with an accessible buffer of image data.
@@ -79,18 +79,18 @@ public class BufferedImage extends java.awt.Image
     boolean    isAlphaPremultiplied;// If true, alpha has been premultiplied in
     // color channels
 
-    /**
+    /** {@collect.stats}
      * Image Type Constants
      */
 
-    /**
+    /** {@collect.stats}
      * Image type is not recognized so it must be a customized
      * image.  This type is only used as a return value for the getType()
      * method.
      */
     public static final int TYPE_CUSTOM = 0;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGB color components packed into
      * integer pixels.  The image has a {@link DirectColorModel} without
      * alpha.
@@ -103,7 +103,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_INT_RGB = 1;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGBA color components packed into
      * integer pixels.  The image has a <code>DirectColorModel</code>
      * with alpha. The color data in this image is considered not to be
@@ -114,7 +114,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_INT_ARGB = 2;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGBA color components packed into
      * integer pixels.  The image has a <code>DirectColorModel</code>
      * with alpha.  The color data in this image is considered to be
@@ -122,7 +122,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_INT_ARGB_PRE = 3;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGB color components, corresponding
      * to a Windows- or Solaris- style BGR color model, with the colors
      * Blue, Green, and Red packed into integer pixels.  There is no alpha.
@@ -136,7 +136,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_INT_BGR = 4;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGB color components, corresponding
      * to a Windows-style BGR color model) with the colors Blue, Green,
      * and Red stored in 3 bytes.  There is no alpha.  The image has a
@@ -150,7 +150,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_3BYTE_BGR = 5;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGBA color components with the colors
      * Blue, Green, and Red stored in 3 bytes and 1 byte of alpha.  The
      * image has a <code>ComponentColorModel</code> with alpha.  The
@@ -161,7 +161,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_4BYTE_ABGR = 6;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 8-bit RGBA color components with the colors
      * Blue, Green, and Red stored in 3 bytes and 1 byte of alpha.  The
      * image has a <code>ComponentColorModel</code> with alpha. The color
@@ -171,7 +171,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_4BYTE_ABGR_PRE = 7;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 5-6-5 RGB color components (5-bits red,
      * 6-bits green, 5-bits blue) with no alpha.  This image has
      * a <code>DirectColorModel</code>.
@@ -184,7 +184,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_USHORT_565_RGB = 8;
 
-    /**
+    /** {@collect.stats}
      * Represents an image with 5-5-5 RGB color components (5-bits red,
      * 5-bits green, 5-bits blue) with no alpha.  This image has
      * a <code>DirectColorModel</code>.
@@ -197,7 +197,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_USHORT_555_RGB = 9;
 
-    /**
+    /** {@collect.stats}
      * Represents a unsigned byte grayscale image, non-indexed.  This
      * image has a <code>ComponentColorModel</code> with a CS_GRAY
      * {@link ColorSpace}.
@@ -210,7 +210,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_BYTE_GRAY = 10;
 
-    /**
+    /** {@collect.stats}
      * Represents an unsigned short grayscale image, non-indexed).  This
      * image has a <code>ComponentColorModel</code> with a CS_GRAY
      * <code>ColorSpace</code>.
@@ -223,7 +223,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_USHORT_GRAY = 11;
 
-    /**
+    /** {@collect.stats}
      * Represents an opaque byte-packed 1, 2, or 4 bit image.  The
      * image has an {@link IndexColorModel} without alpha.  When this
      * type is used as the <code>imageType</code> argument to the
@@ -252,7 +252,7 @@ public class BufferedImage extends java.awt.Image
      */
     public static final int TYPE_BYTE_BINARY = 12;
 
-    /**
+    /** {@collect.stats}
      * Represents an indexed byte image.  When this type is used as the
      * <code>imageType</code> argument to the <code>BufferedImage</code>
      * constructor that takes an <code>imageType</code> argument
@@ -292,7 +292,7 @@ public class BufferedImage extends java.awt.Image
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>BufferedImage</code> of one of the predefined
      * image types.  The <code>ColorSpace</code> for the image is the
      * default sRGB space.
@@ -511,7 +511,7 @@ public class BufferedImage extends java.awt.Image
         this.imageType = imageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>BufferedImage</code> of one of the predefined
      * image types:
      * TYPE_BYTE_BINARY or TYPE_BYTE_INDEXED.
@@ -581,7 +581,7 @@ public class BufferedImage extends java.awt.Image
         this.imageType = imageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>BufferedImage</code> with a specified
      * <code>ColorModel</code> and <code>Raster</code>.  If the number and
      * types of bands in the <code>SampleModel</code> of the
@@ -792,7 +792,7 @@ public class BufferedImage extends java.awt.Image
         }   // else if ((raster instanceof ByteComponentRaster) &&
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the image type.  If it is not one of the known types,
      * TYPE_CUSTOM is returned.
      * @return the image type of this <code>BufferedImage</code>.
@@ -815,7 +815,7 @@ public class BufferedImage extends java.awt.Image
         return imageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ColorModel</code>.
      * @return the <code>ColorModel</code> of this
      *  <code>BufferedImage</code>.
@@ -824,7 +824,7 @@ public class BufferedImage extends java.awt.Image
         return colorModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@link WritableRaster}.
      * @return the <code>WriteableRaster</code> of this
      *  <code>BufferedImage</code>.
@@ -834,7 +834,7 @@ public class BufferedImage extends java.awt.Image
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>WritableRaster</code> representing the alpha
      * channel for <code>BufferedImage</code> objects
      * with <code>ColorModel</code> objects that support a separate
@@ -859,7 +859,7 @@ public class BufferedImage extends java.awt.Image
         return colorModel.getAlphaRaster(raster);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an integer pixel in the default RGB color model
      * (TYPE_INT_ARGB) and default sRGB colorspace.  Color
      * conversion takes place if this default model does not match
@@ -888,7 +888,7 @@ public class BufferedImage extends java.awt.Image
         return colorModel.getRGB(raster.getDataElements(x, y, null));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of integer pixels in the default RGB color model
      * (TYPE_INT_ARGB) and default sRGB color space,
      * from a portion of the image data.  Color conversion takes
@@ -965,7 +965,7 @@ public class BufferedImage extends java.awt.Image
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in this <code>BufferedImage</code> to the specified
      * RGB value. The pixel is assumed to be in the default RGB color
      * model, TYPE_INT_ARGB, and default sRGB color space.  For images
@@ -988,7 +988,7 @@ public class BufferedImage extends java.awt.Image
         raster.setDataElements(x, y, colorModel.getDataElements(rgb, null));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets an array of integer pixels in the default RGB color model
      * (TYPE_INT_ARGB) and default sRGB color space,
      * into a portion of the image data.  Color conversion takes place
@@ -1034,7 +1034,7 @@ public class BufferedImage extends java.awt.Image
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the width of the <code>BufferedImage</code>.
      * @return the width of this <code>BufferedImage</code>
      */
@@ -1042,7 +1042,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getWidth();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the <code>BufferedImage</code>.
      * @return the height of this <code>BufferedImage</code>
      */
@@ -1050,7 +1050,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getHeight();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of the <code>BufferedImage</code>.
      * @param observer ignored
      * @return the width of this <code>BufferedImage</code>
@@ -1059,7 +1059,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getWidth();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the <code>BufferedImage</code>.
      * @param observer ignored
      * @return the height of this <code>BufferedImage</code>
@@ -1068,7 +1068,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getHeight();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object that produces the pixels for the image.
      * @return the {@link ImageProducer} that is used to produce the
      * pixels for this image.
@@ -1085,7 +1085,7 @@ public class BufferedImage extends java.awt.Image
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a property of the image by name.  Individual property names
      * are defined by the various image formats.  If a property is not
      * defined for a particular image, this method returns the
@@ -1109,7 +1109,7 @@ public class BufferedImage extends java.awt.Image
         return getProperty(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a property of the image by name.
      * @param name the property name
      * @return an <code>Object</code> that is the property referred to by
@@ -1130,7 +1130,7 @@ public class BufferedImage extends java.awt.Image
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a {@link Graphics2D}, but is here
      * for backwards compatibility.  {@link #createGraphics() createGraphics} is more
      * convenient, since it is declared to return a
@@ -1142,7 +1142,7 @@ public class BufferedImage extends java.awt.Image
         return createGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Graphics2D</code>, which can be used to draw into
      * this <code>BufferedImage</code>.
      * @return a <code>Graphics2D</code>, used for drawing into this
@@ -1154,7 +1154,7 @@ public class BufferedImage extends java.awt.Image
         return env.createGraphics(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a subimage defined by a specified rectangular region.
      * The returned <code>BufferedImage</code> shares the same
      * data array as the original image.
@@ -1177,7 +1177,7 @@ public class BufferedImage extends java.awt.Image
                                   properties);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the alpha has been premultiplied.  It
      * returns <code>false</code> if there is no alpha.
      * @return <code>true</code> if the alpha has been premultiplied;
@@ -1187,7 +1187,7 @@ public class BufferedImage extends java.awt.Image
         return colorModel.isAlphaPremultiplied();
     }
 
-    /**
+    /** {@collect.stats}
      * Forces the data to match the state specified in the
      * <code>isAlphaPremultiplied</code> variable.  It may multiply or
      * divide the color raster data by alpha, or do nothing if the data is
@@ -1203,7 +1203,7 @@ public class BufferedImage extends java.awt.Image
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> representation of this
      * <code>BufferedImage</code> object and its values.
      * @return a <code>String</code> representing this
@@ -1215,7 +1215,7 @@ public class BufferedImage extends java.awt.Image
                           +" "+colorModel+" "+raster);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Vector} of {@link RenderedImage} objects that are
      * the immediate sources, not the sources of these immediate sources,
      * of image data for this <code>BufferedImage</code>.  This
@@ -1234,7 +1234,7 @@ public class BufferedImage extends java.awt.Image
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of names recognized by
      * {@link #getProperty(String) getProperty(String)}
      * or <code>null</code>, if no property names are recognized.
@@ -1246,7 +1246,7 @@ public class BufferedImage extends java.awt.Image
          return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum x coordinate of this
      * <code>BufferedImage</code>.  This is always zero.
      * @return the minimum x coordinate of this
@@ -1256,7 +1256,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getMinX();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum y coordinate of this
      * <code>BufferedImage</code>.  This is always zero.
      * @return the minimum y coordinate of this
@@ -1266,7 +1266,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getMinY();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SampleModel</code> associated with this
      * <code>BufferedImage</code>.
      * @return the <code>SampleModel</code> of this
@@ -1276,7 +1276,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getSampleModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of tiles in the x direction.
      * This is always one.
      * @return the number of tiles in the x direction.
@@ -1285,7 +1285,7 @@ public class BufferedImage extends java.awt.Image
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of tiles in the y direction.
      * This is always one.
      * @return the number of tiles in the y direction.
@@ -1294,7 +1294,7 @@ public class BufferedImage extends java.awt.Image
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum tile index in the x direction.
      * This is always zero.
      * @return the minimum tile index in the x direction.
@@ -1303,7 +1303,7 @@ public class BufferedImage extends java.awt.Image
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum tile index in the y direction.
      * This is always zero.
      * @return the mininum tile index in the y direction.
@@ -1312,7 +1312,7 @@ public class BufferedImage extends java.awt.Image
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tile width in pixels.
      * @return the tile width in pixels.
      */
@@ -1320,7 +1320,7 @@ public class BufferedImage extends java.awt.Image
        return raster.getWidth();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tile height in pixels.
      * @return the tile height in pixels.
      */
@@ -1328,7 +1328,7 @@ public class BufferedImage extends java.awt.Image
        return raster.getHeight();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the x offset of the tile grid relative to the origin,
      * For example, the x coordinate of the location of tile
      * (0,&nbsp;0).  This is always zero.
@@ -1338,7 +1338,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getSampleModelTranslateX();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the y offset of the tile grid relative to the origin,
      * For example, the y coordinate of the location of tile
      * (0,&nbsp;0).  This is always zero.
@@ -1348,7 +1348,7 @@ public class BufferedImage extends java.awt.Image
         return raster.getSampleModelTranslateY();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns tile (<code>tileX</code>,&nbsp;<code>tileY</code>).  Note
      * that <code>tileX</code> and <code>tileY</code> are indices
      * into the tile array, not pixel locations.  The <code>Raster</code>
@@ -1370,7 +1370,7 @@ public class BufferedImage extends java.awt.Image
              " one tile with index 0,0");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the image as one large tile.  The <code>Raster</code>
      * returned is a copy of the image data is not updated if the
      * image is changed.
@@ -1400,7 +1400,7 @@ public class BufferedImage extends java.awt.Image
         return wr;
     }
 
-    /**
+    /** {@collect.stats}
      * Computes and returns an arbitrary region of the
      * <code>BufferedImage</code>.  The <code>Raster</code> returned is a
      * copy of the image data and is not updated if the image is
@@ -1431,7 +1431,7 @@ public class BufferedImage extends java.awt.Image
         return wr;
     }
 
-    /**
+    /** {@collect.stats}
      * Computes an arbitrary rectangular region of the
      * <code>BufferedImage</code> and copies it into a specified
      * <code>WritableRaster</code>.  The region to be computed is
@@ -1465,7 +1465,7 @@ public class BufferedImage extends java.awt.Image
         return outRaster;
     }
 
-  /**
+  /** {@collect.stats}
      * Sets a rectangular region of the image to the contents of the
      * specified <code>Raster</code> <code>r</code>, which is
      * assumed to be in the same coordinate space as the
@@ -1504,7 +1504,7 @@ public class BufferedImage extends java.awt.Image
     }
 
 
-  /**
+  /** {@collect.stats}
    * Adds a tile observer.  If the observer is already present,
    * it receives multiple notifications.
    * @param to the specified {@link TileObserver}
@@ -1512,7 +1512,7 @@ public class BufferedImage extends java.awt.Image
     public void addTileObserver (TileObserver to) {
     }
 
-  /**
+  /** {@collect.stats}
    * Removes a tile observer.  If the observer was not registered,
    * nothing happens.  If the observer was registered for multiple
    * notifications, it is now registered for one fewer notification.
@@ -1521,7 +1521,7 @@ public class BufferedImage extends java.awt.Image
     public void removeTileObserver (TileObserver to) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not a tile is currently checked out for writing.
      * @param tileX the x index of the tile.
      * @param tileY the y index of the tile.
@@ -1539,7 +1539,7 @@ public class BufferedImage extends java.awt.Image
         throw new IllegalArgumentException("Only 1 tile in image");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@link Point} objects indicating which tiles
      * are checked out for writing.  Returns <code>null</code> if none are
      * checked out.
@@ -1554,7 +1554,7 @@ public class BufferedImage extends java.awt.Image
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not any tile is checked out for writing.
      * Semantically equivalent to
      * <pre>
@@ -1567,7 +1567,7 @@ public class BufferedImage extends java.awt.Image
         return true;
     }
 
-  /**
+  /** {@collect.stats}
    * Checks out a tile for writing.  All registered
    * <code>TileObservers</code> are notified when a tile goes from having
    * no writers to having one writer.
@@ -1580,7 +1580,7 @@ public class BufferedImage extends java.awt.Image
         return raster;
     }
 
-  /**
+  /** {@collect.stats}
    * Relinquishes permission to write to a tile.  If the caller
    * continues to write to the tile, the results are undefined.
    * Calls to this method should only appear in matching pairs
@@ -1594,7 +1594,7 @@ public class BufferedImage extends java.awt.Image
     public void releaseWritableTile (int tileX, int tileY) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the transparency.  Returns either OPAQUE, BITMASK,
      * or TRANSLUCENT.
      * @return the transparency of this <code>BufferedImage</code>.

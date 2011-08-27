@@ -28,7 +28,7 @@ import javax.swing.SortOrder;
 import javax.swing.event.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * <code>RowSorter</code> provides the basis for sorting and filtering.
  * Beyond creating and installing a <code>RowSorter</code>, you very rarely
  * need to interact with one directly.  Refer to
@@ -95,20 +95,20 @@ import java.util.*;
 public abstract class RowSorter<M> {
     private EventListenerList listenerList = new EventListenerList();
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>RowSorter</code>.
      */
     public RowSorter() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the underlying model.
      *
      * @return the underlying model
      */
     public abstract M getModel();
 
-    /**
+    /** {@collect.stats}
      * Reverses the sort order of the specified column.  It is up to
      * subclasses to provide the exact behavior when invoked.  Typically
      * this will reverse the sort order from ascending to descending (or
@@ -129,7 +129,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void toggleSortOrder(int column);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of <code>index</code> in terms of the
      * underlying model.  That is, for the row <code>index</code> in
      * the coordinates of the view this returns the row index in terms
@@ -142,7 +142,7 @@ public abstract class RowSorter<M> {
      */
     public abstract int convertRowIndexToModel(int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of <code>index</code> in terms of the
      * view.  That is, for the row <code>index</code> in the
      * coordinates of the underlying model this returns the row index
@@ -156,7 +156,7 @@ public abstract class RowSorter<M> {
      */
     public abstract int convertRowIndexToView(int index);
 
-    /**
+    /** {@collect.stats}
      * Sets the current sort keys.
      *
      * @param keys the new <code>SortKeys</code>; <code>null</code>
@@ -165,7 +165,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void setSortKeys(List<? extends SortKey> keys);
 
-    /**
+    /** {@collect.stats}
      * Returns the current sort keys.  This must return a {@code
      * non-null List} and may return an unmodifiable {@code List}. If
      * you need to change the sort keys, make a copy of the returned
@@ -176,7 +176,7 @@ public abstract class RowSorter<M> {
      */
     public abstract List<? extends SortKey> getSortKeys();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the view.  If the contents have
      * been filtered this might differ from the row count of the
      * underlying model.
@@ -186,7 +186,7 @@ public abstract class RowSorter<M> {
      */
     public abstract int getViewRowCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the underlying model.
      *
      * @return number of rows in the underlying model
@@ -194,7 +194,7 @@ public abstract class RowSorter<M> {
      */
     public abstract int getModelRowCount();
 
-    /**
+    /** {@collect.stats}
      * Invoked when the underlying model structure has completely
      * changed.  For example, if the number of columns in a
      * <code>TableModel</code> changed, this method would be invoked.
@@ -204,7 +204,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void modelStructureChanged();
 
-    /**
+    /** {@collect.stats}
      * Invoked when the contents of the underlying model have
      * completely changed. The structure of the table is the same,
      * only the contents have changed. This is typically sent when it
@@ -216,7 +216,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void allRowsChanged();
 
-    /**
+    /** {@collect.stats}
      * Invoked when rows have been inserted into the underlying model
      * in the specified range (inclusive).
      * <p>
@@ -238,7 +238,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void rowsInserted(int firstRow, int endRow);
 
-    /**
+    /** {@collect.stats}
      * Invoked when rows have been deleted from the underlying model
      * in the specified range (inclusive).
      * <p>
@@ -258,7 +258,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void rowsDeleted(int firstRow, int endRow);
 
-    /**
+    /** {@collect.stats}
      * Invoked when rows have been changed in the underlying model
      * between the specified range (inclusive).
      * <p>
@@ -273,7 +273,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void rowsUpdated(int firstRow, int endRow);
 
-    /**
+    /** {@collect.stats}
      * Invoked when the column in the rows have been updated in
      * the underlying model between the specified range.
      * <p>
@@ -292,7 +292,7 @@ public abstract class RowSorter<M> {
      */
     public abstract void rowsUpdated(int firstRow, int endRow, int column);
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>RowSorterListener</code> to receive notification
      * about this <code>RowSorter</code>.  If the same
      * listener is added more than once it will receive multiple
@@ -305,7 +305,7 @@ public abstract class RowSorter<M> {
         listenerList.add(RowSorterListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>RowSorterListener</code>.  If
      * <code>l</code> is <code>null</code> nothing is done.
      *
@@ -315,14 +315,14 @@ public abstract class RowSorter<M> {
         listenerList.remove(RowSorterListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies listener that the sort order has changed.
      */
     protected void fireSortOrderChanged() {
         fireRowSorterChanged(new RowSorterEvent(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies listener that the mapping has changed.
      *
      * @param lastRowIndexToModel the mapping from model indices to
@@ -343,7 +343,7 @@ public abstract class RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * SortKey describes the sort order for a particular column.  The
      * column index is in terms of the underlying model, which may differ
      * from that of the view.
@@ -354,7 +354,7 @@ public abstract class RowSorter<M> {
         private int column;
         private SortOrder sortOrder;
 
-        /**
+        /** {@collect.stats}
          * Creates a <code>SortKey</code> for the specified column with
          * the specified sort order.
          *
@@ -372,7 +372,7 @@ public abstract class RowSorter<M> {
             this.sortOrder = sortOrder;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the column.
          *
          * @return index of column
@@ -381,7 +381,7 @@ public abstract class RowSorter<M> {
             return column;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the sort order of the column.
          *
          * @return the sort order of the column
@@ -390,7 +390,7 @@ public abstract class RowSorter<M> {
             return sortOrder;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the hash code for this <code>SortKey</code>.
          *
          * @return hash code
@@ -402,7 +402,7 @@ public abstract class RowSorter<M> {
             return result;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this object equals the specified object.
          * If the specified object is a <code>SortKey</code> and
          * references the same column and sort order, the two objects

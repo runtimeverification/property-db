@@ -27,7 +27,7 @@ package javax.print.attribute.standard;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Class JobStateReason is a printing attribute class, an enumeration, that
  * provides additional information about the job's current state, i.e.,
  * information that augments the value of the job's {@link JobState JobState}
@@ -59,14 +59,14 @@ public class JobStateReason extends EnumSyntax implements Attribute {
 
     private static final long serialVersionUID = -8765894420449009168L;
 
-    /**
+    /** {@collect.stats}
      * The printer has created the Print Job, but the printer has not finished
      * accessing or accepting all the print data yet.
      */
     public static final JobStateReason
         JOB_INCOMING = new JobStateReason(0);
 
-    /**
+    /** {@collect.stats}
      * The printer has created the Print Job, but the printer is expecting
      * additional print data before it can move the job into the PROCESSING
      * state. If a printer starts processing before it has received all data,
@@ -78,7 +78,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_DATA_INSUFFICIENT = new JobStateReason(1);
 
-    /**
+    /** {@collect.stats}
      * The Printer could not access one or more documents passed by reference
      * (i.e., the print data representation object is a URL). This reason is
      * intended to cover any file access problem,including file does not exist
@@ -94,7 +94,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         DOCUMENT_ACCESS_ERROR = new JobStateReason(2);
 
-    /**
+    /** {@collect.stats}
      * The job was not completely submitted for some unforeseen reason.
      * Possibilities include (1) the printer has crashed before the job was
      * fully submitted by the client, (2) the printer or the document transfer
@@ -105,13 +105,13 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         SUBMISSION_INTERRUPTED = new JobStateReason(3);
 
-    /**
+    /** {@collect.stats}
      * The printer is transmitting the job to the output device.
      */
     public static final JobStateReason
         JOB_OUTGOING = new JobStateReason(4);
 
-    /**
+    /** {@collect.stats}
      * The value of the job's {@link JobHoldUntil JobHoldUntil} attribute was
      * specified with a date-time that is still in the future. The job must
      * not be a candidate for processing until this reason is removed and
@@ -122,7 +122,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_HOLD_UNTIL_SPECIFIED = new JobStateReason(5);
 
-    /**
+    /** {@collect.stats}
      * At least one of the resources needed by the job, such as media, fonts,
      * resource objects, etc., is not ready on any of the physical printers
      * for which the job is a candidate. This condition may be detected
@@ -135,7 +135,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         RESOURCES_ARE_NOT_READY = new JobStateReason(6);
 
-    /**
+    /** {@collect.stats}
      * The value of the printer's {@link PrinterStateReasons
      * PrinterStateReasons} attribute contains a {@link PrinterStateReason
      * PrinterStateReason} value of STOPPED_PARTLY.
@@ -143,27 +143,27 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         PRINTER_STOPPED_PARTLY = new JobStateReason(7);
 
-    /**
+    /** {@collect.stats}
      * The value of the printer's {@link PrinterState PrinterState} attribute
      * ia STOPPED.
      */
     public static final JobStateReason
         PRINTER_STOPPED = new JobStateReason(8);
 
-    /**
+    /** {@collect.stats}
      * The job is in the PROCESSING state, but more specifically, the printer
      * ia interpreting the document data.
      */
     public static final JobStateReason
         JOB_INTERPRETING = new JobStateReason(9);
 
-    /**
+    /** {@collect.stats}
      * The job is in the PROCESSING state, but more specifically, the printer
      * has queued the document data.
      */
     public static final JobStateReason JOB_QUEUED = new JobStateReason(10);
 
-    /**
+    /** {@collect.stats}
      * The job is in the PROCESSING state, but more specifically, the printer
      * is interpreting document data and producing another electronic
      * representation.
@@ -171,7 +171,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_TRANSFORMING = new JobStateReason(11);
 
-    /**
+    /** {@collect.stats}
      * The job is in the PENDING_HELD, PENDING, or PROCESSING state, but more
      * specifically, the printer has completed enough processing of the document
      * to be able to start marking and the job is waiting for the marker.
@@ -185,7 +185,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_QUEUED_FOR_MARKER = new JobStateReason(12);
 
-    /**
+    /** {@collect.stats}
      * The output device is marking media. This value is useful for printers
      * which spend a great deal of time processing (1) when no marking is
      * happening and then want to show that marking is now happening or (2) when
@@ -196,7 +196,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_PRINTING = new JobStateReason(13);
 
-    /**
+    /** {@collect.stats}
      * The job was canceled by the owner of the job, i.e., by a user whose
      * authenticated identity is the same as the value of the originating user
      * that created the Print Job, or by some other authorized end-user, such as
@@ -206,7 +206,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_CANCELED_BY_USER = new JobStateReason(14);
 
-    /**
+    /** {@collect.stats}
      * The job was canceled by the operator, i.e., by a user who has been
      * authenticated as having operator privileges (whether local or remote). If
      * the security policy is to allow anyone to cancel anyone's job, then this
@@ -219,7 +219,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_CANCELED_BY_OPERATOR = new JobStateReason(15);
 
-    /**
+    /** {@collect.stats}
      * The job was canceled by an unidentified local user, i.e., a user at a
      * console at the device. This value should be supported if the
      * implementation supports canceling jobs at the console.
@@ -227,7 +227,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_CANCELED_AT_DEVICE = new JobStateReason(16);
 
-    /**
+    /** {@collect.stats}
      * The job was aborted by the system. Either the job (1) is in the process
      * of being aborted, (2) has been aborted by the system and placed in the
      * ABORTED state, or (3) has been aborted by the system and placed in the
@@ -237,7 +237,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         ABORTED_BY_SYSTEM = new JobStateReason(17);
 
-    /**
+    /** {@collect.stats}
      * The job was aborted by the system because the printer determined while
      * attempting to decompress the document's data that the compression is
      * actually not among those supported by the printer. This value must be
@@ -247,7 +247,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         UNSUPPORTED_COMPRESSION = new JobStateReason(18);
 
-    /**
+    /** {@collect.stats}
      * The job was aborted by the system because the printer encountered an
      * error in the document data while decompressing it. If the printer posts
      * this reason, the document data has already passed any tests that would
@@ -256,7 +256,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         COMPRESSION_ERROR = new JobStateReason(19);
 
-    /**
+    /** {@collect.stats}
      * The job was aborted by the system because the document data's document
      * format (doc flavor) is not among those supported by the printer. If the
      * client specifies a doc flavor with a MIME type of
@@ -269,7 +269,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         UNSUPPORTED_DOCUMENT_FORMAT = new JobStateReason(20);
 
-    /**
+    /** {@collect.stats}
      * The job was aborted by the system because the printer encountered an
      * error in the document data while processing it. If the printer posts this
      * reason, the document data has already passed any tests that would have
@@ -278,7 +278,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         DOCUMENT_FORMAT_ERROR = new JobStateReason(21);
 
-    /**
+    /** {@collect.stats}
      * The requester has canceled the job or the printer has aborted the job,
      * but the printer is still performing some actions on the job until a
      * specified stop point occurs or job termination/cleanup is completed.
@@ -294,7 +294,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         PROCESSING_TO_STOP_POINT = new JobStateReason(22);
 
-    /**
+    /** {@collect.stats}
      * The printer is off-line and accepting no jobs. All PENDING jobs are put
      * into the PENDING_HELD state. This situation could be true if the
      * service's or document transform's input is impaired or broken.
@@ -302,27 +302,27 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         SERVICE_OFF_LINE = new JobStateReason(23);
 
-    /**
+    /** {@collect.stats}
      * The job completed successfully. This value should be supported.
      */
     public static final JobStateReason
         JOB_COMPLETED_SUCCESSFULLY = new JobStateReason(24);
 
-    /**
+    /** {@collect.stats}
      * The job completed with warnings. This value should be supported if the
      * implementation detects warnings.
      */
     public static final JobStateReason
         JOB_COMPLETED_WITH_WARNINGS = new JobStateReason(25);
 
-    /**
+    /** {@collect.stats}
      * The job completed with errors (and possibly warnings too). This value
      * should be supported if the implementation detects errors.
      */
     public static final JobStateReason
         JOB_COMPLETED_WITH_ERRORS = new JobStateReason(26);
 
-    /**
+    /** {@collect.stats}
      * This job is retained and is currently able to be restarted. If
      * JOB_RESTARTABLE is contained in the job's {@link JobStateReasons
      * JobStateReasons} attribute, then the printer must accept a request to
@@ -333,7 +333,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         JOB_RESTARTABLE = new JobStateReason(27);
 
-    /**
+    /** {@collect.stats}
      * The job has been forwarded to a device or print system that is unable to
      * send back status. The printer sets the job's {@link JobState JobState}
      * attribute to COMPLETED and adds the QUEUED_IN_DEVICE reason to the job's
@@ -344,7 +344,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     public static final JobStateReason
         QUEUED_IN_DEVICE = new JobStateReason(28);
 
-    /**
+    /** {@collect.stats}
      * Construct a new job state reason enumeration value with the given
      * integer  value.
      *
@@ -416,14 +416,14 @@ public class JobStateReason extends EnumSyntax implements Attribute {
         JOB_RESTARTABLE,
         QUEUED_IN_DEVICE};
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class JobStateReason.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class JobStateReason.
      */
     protected EnumSyntax[] getEnumValueTable() {
@@ -431,7 +431,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -445,7 +445,7 @@ public class JobStateReason extends EnumSyntax implements Attribute {
         return JobStateReason.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

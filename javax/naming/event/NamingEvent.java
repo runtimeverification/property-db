@@ -27,7 +27,7 @@ package javax.naming.event;
 
 import javax.naming.Binding;
 
-/**
+/** {@collect.stats}
   * This class represents an event fired by a naming/directory service.
   *<p>
   * The <tt>NamingEvent</tt>'s state consists of
@@ -71,19 +71,19 @@ import javax.naming.Binding;
   * @since 1.3
   */
 public class NamingEvent extends java.util.EventObject {
-    /**
+    /** {@collect.stats}
      * Naming event type for indicating that a new object has been added.
      * The value of this constant is <tt>0</tt>.
      */
     public static final int OBJECT_ADDED = 0;
 
-    /**
+    /** {@collect.stats}
      * Naming event type for indicating that an object has been removed.
      * The value of this constant is <tt>1</tt>.
      */
     public static final int OBJECT_REMOVED = 1;
 
-    /**
+    /** {@collect.stats}
      * Naming event type for indicating that an object has been renamed.
      * Note that some services might fire multiple events for a single
      * logical rename operation. For example, the rename operation might
@@ -106,7 +106,7 @@ public class NamingEvent extends java.util.EventObject {
      */
     public static final int OBJECT_RENAMED = 2;
 
-    /**
+    /** {@collect.stats}
      * Naming event type for indicating that an object has been changed.
      * The changes might include the object's attributes, or the object itself.
      * Note that some services might fire multiple events for a single
@@ -118,13 +118,13 @@ public class NamingEvent extends java.util.EventObject {
      */
     public static final int OBJECT_CHANGED = 3;
 
-    /**
+    /** {@collect.stats}
      * Contains information about the change that generated this event.
      * @serial
      */
     protected Object changeInfo;
 
-    /**
+    /** {@collect.stats}
      * Contains the type of this event.
      * @see #OBJECT_ADDED
      * @see #OBJECT_REMOVED
@@ -134,19 +134,19 @@ public class NamingEvent extends java.util.EventObject {
      */
     protected int type;
 
-    /**
+    /** {@collect.stats}
      * Contains information about the object before the change.
      * @serial
      */
     protected Binding oldBinding;
 
-    /**
+    /** {@collect.stats}
      * Contains information about the object after the change.
      * @serial
      */
     protected Binding newBinding;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of <tt>NamingEvent</tt>.
      *<p>
      * The names in <tt>newBd</tt> and <tt>oldBd</tt> are to be resolved relative
@@ -178,7 +178,7 @@ public class NamingEvent extends java.util.EventObject {
         this.changeInfo = changeInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this event.
      * @return The type of this event.
      * @see #OBJECT_ADDED
@@ -190,7 +190,7 @@ public class NamingEvent extends java.util.EventObject {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the event source that fired this event.
      * This returns the same object as <tt>EventObject.getSource()</tt>.
      *<p>
@@ -209,7 +209,7 @@ public class NamingEvent extends java.util.EventObject {
         return (EventContext)getSource();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the binding of the object before the change.
      *<p>
      * The binding must be nonnull if the object existed before the change
@@ -231,7 +231,7 @@ public class NamingEvent extends java.util.EventObject {
         return oldBinding;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the binding of the object after the change.
      *<p>
      * The binding must be nonnull if the object existed after the change
@@ -253,7 +253,7 @@ public class NamingEvent extends java.util.EventObject {
         return newBinding;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the change information for this event.
      * The value of the change information is service-specific. For example,
      * it could be an ID that identifies the change in a change log on the server.
@@ -264,7 +264,7 @@ public class NamingEvent extends java.util.EventObject {
         return changeInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the appropriate listener method on this event.
      * The default implementation of
      * this method handles the following event types:

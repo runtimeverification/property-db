@@ -32,7 +32,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 
-/**
+/** {@collect.stats}
  * This class extends <code>Socket</code>s and provides secure
  * socket using protocols such as the "Secure
  * Sockets Layer" (SSL) or IETF "Transport Layer Security" (TLS) protocols.
@@ -140,7 +140,7 @@ import java.util.Vector;
  */
 public abstract class SSLSocket extends Socket
 {
-    /**
+    /** {@collect.stats}
      * Used only by subclasses.
      * Constructs an uninitialized, unconnected TCP socket.
      */
@@ -148,7 +148,7 @@ public abstract class SSLSocket extends Socket
         { super(); }
 
 
-    /**
+    /** {@collect.stats}
      * Used only by subclasses.
      * Constructs a TCP connection to a named host at a specified port.
      * This acts as the SSL client.
@@ -163,7 +163,7 @@ public abstract class SSLSocket extends Socket
         { super(host, port); }
 
 
-    /**
+    /** {@collect.stats}
      * Used only by subclasses.
      * Constructs a TCP connection to a server at a specified address
      * and port.  This acts as the SSL client.
@@ -177,7 +177,7 @@ public abstract class SSLSocket extends Socket
         { super(address, port); }
 
 
-    /**
+    /** {@collect.stats}
      * Used only by subclasses.
      * Constructs an SSL connection to a named host at a specified port,
      * binding the client side of the connection a given address and port.
@@ -196,7 +196,7 @@ public abstract class SSLSocket extends Socket
         { super(host, port, clientAddress, clientPort); }
 
 
-    /**
+    /** {@collect.stats}
      * Used only by subclasses.
      * Constructs an SSL connection to a server at a specified address
      * and TCP port, binding the client side of the connection a given
@@ -214,7 +214,7 @@ public abstract class SSLSocket extends Socket
         { super(address, port, clientAddress, clientPort); }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the cipher suites which could be enabled for use
      * on this connection.  Normally, only a subset of these will actually
      * be enabled by default, since this list may include cipher suites which
@@ -228,7 +228,7 @@ public abstract class SSLSocket extends Socket
     public abstract String [] getSupportedCipherSuites();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the SSL cipher suites which are currently
      * enabled for use on this connection.  When an SSLSocket is first
      * created, all enabled cipher suites support a minimum quality of
@@ -246,7 +246,7 @@ public abstract class SSLSocket extends Socket
     public abstract String [] getEnabledCipherSuites();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the cipher suites enabled for use on this connection.
      * <P>
      * Each cipher suite in the <code>suites</code> parameter must have
@@ -267,7 +267,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setEnabledCipherSuites(String suites []);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the protocols which could be enabled for use
      * on an SSL connection.
      *
@@ -276,7 +276,7 @@ public abstract class SSLSocket extends Socket
     public abstract String [] getSupportedProtocols();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the protocol versions which are currently
      * enabled for use on this connection.
      * @see #setEnabledProtocols(String [])
@@ -285,7 +285,7 @@ public abstract class SSLSocket extends Socket
     public abstract String [] getEnabledProtocols();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the protocol versions enabled for use on this connection.
      * <P>
      * The protocols must have been listed by
@@ -302,7 +302,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setEnabledProtocols(String protocols[]);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the SSL Session in use by this connection.  These can
      * be long lived, and frequently correspond to an entire login session
      * for some user.  The session specifies a particular cipher suite
@@ -322,7 +322,7 @@ public abstract class SSLSocket extends Socket
     public abstract SSLSession getSession();
 
 
-    /**
+    /** {@collect.stats}
      * Registers an event listener to receive notifications that an
      * SSL handshake has completed on this connection.
      *
@@ -335,7 +335,7 @@ public abstract class SSLSocket extends Socket
         HandshakeCompletedListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * Removes a previously registered handshake completion listener.
      *
      * @param listener the HandShake Completed event listener
@@ -347,7 +347,7 @@ public abstract class SSLSocket extends Socket
         HandshakeCompletedListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * Starts an SSL handshake on this connection.  Common reasons include
      * a need to use new encryption keys, to change cipher suites, or to
      * initiate a new session.  To force complete reauthentication, the
@@ -368,7 +368,7 @@ public abstract class SSLSocket extends Socket
     public abstract void startHandshake() throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Configures the socket to use client (or server) mode when
      * handshaking.
      * <P>
@@ -388,7 +388,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setUseClientMode(boolean mode);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the socket is set to use client mode when
      * handshaking.
      *
@@ -399,7 +399,7 @@ public abstract class SSLSocket extends Socket
     public abstract boolean getUseClientMode();
 
 
-    /**
+    /** {@collect.stats}
      * Configures the socket to <i>require</i> client authentication.  This
      * option is only useful for sockets in the server mode.
      * <P>
@@ -428,7 +428,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setNeedClientAuth(boolean need);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the socket will <i>require</i> client authentication.
      * This option is only useful to sockets in the server mode.
      *
@@ -442,7 +442,7 @@ public abstract class SSLSocket extends Socket
     public abstract boolean getNeedClientAuth();
 
 
-    /**
+    /** {@collect.stats}
      * Configures the socket to <i>request</i> client authentication.
      * This option is only useful for sockets in the server mode.
      * <P>
@@ -470,7 +470,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setWantClientAuth(boolean want);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the socket will <i>request</i> client authentication.
      * This option is only useful for sockets in the server mode.
      *
@@ -484,7 +484,7 @@ public abstract class SSLSocket extends Socket
     public abstract boolean getWantClientAuth();
 
 
-    /**
+    /** {@collect.stats}
      * Controls whether new SSL sessions may be established by this socket.
      * If session creations are not allowed, and there are no
      * existing sessions to resume, there will be no successful
@@ -498,7 +498,7 @@ public abstract class SSLSocket extends Socket
     public abstract void setEnableSessionCreation(boolean flag);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if new SSL sessions may be established by this socket.
      *
      * @return true indicates that sessions may be created; this
@@ -508,7 +508,7 @@ public abstract class SSLSocket extends Socket
      */
     public abstract boolean getEnableSessionCreation();
 
-    /**
+    /** {@collect.stats}
      * Returns the SSLParameters in effect for this SSLSocket.
      * The ciphersuites and protocols of the returned SSLParameters
      * are always non-null.
@@ -528,7 +528,7 @@ public abstract class SSLSocket extends Socket
         return params;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies SSLParameters to this socket.
      *
      * <p>This means:

@@ -25,7 +25,7 @@
 
 package java.beans.beancontext;
 
-/**
+/** {@collect.stats}
  * <p>
  * This interface is implemented by a JavaBean that does
  * not directly have a BeanContext(Child) associated with
@@ -75,7 +75,7 @@ package java.beans.beancontext;
 
 public interface BeanContextProxy {
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>BeanContextChild</code> (or subinterface)
      * associated with this object.
      * @return the <code>BeanContextChild</code> (or subinterface)

@@ -36,7 +36,7 @@ import java.io.ObjectInputStream;
 import java.io.Reader;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Responsible for starting up a new DocumentParser
  * each time its parse method is invoked. Stores a
  * reference to the dtd.
@@ -95,7 +95,7 @@ public class ParserDelegator extends HTMLEditorKit.Parser implements Serializabl
         new DocumentParser((DTD) AppContext.getAppContext().get(DTD_KEY)).parse(r, cb, ignoreCharSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a resource relative to the ParserDelegator classfile.
      * If this is called on 1.2 the loading will occur under the
      * protection of a doPrivileged call to allow the ParserDelegator

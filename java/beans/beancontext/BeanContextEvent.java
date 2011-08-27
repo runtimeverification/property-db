@@ -29,7 +29,7 @@ import java.util.EventObject;
 
 import java.beans.beancontext.BeanContext;
 
-/**
+/** {@collect.stats}
  * <p>
  * <code>BeanContextEvent</code> is the abstract root event class
  * for all events emitted
@@ -49,7 +49,7 @@ import java.beans.beancontext.BeanContext;
 
 public abstract class BeanContextEvent extends EventObject {
 
-    /**
+    /** {@collect.stats}
      * Contruct a BeanContextEvent
      *
      * @param bc        The BeanContext source
@@ -58,13 +58,13 @@ public abstract class BeanContextEvent extends EventObject {
         super(bc);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>BeanContext</code> associated with this event.
      * @return the <code>BeanContext</code> associated with this event.
      */
     public BeanContext getBeanContext() { return (BeanContext)getSource(); }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>BeanContext</code> from which this event was propagated.
      * @param bc the <code>BeanContext</code> from which this event
      * was propagated
@@ -73,7 +73,7 @@ public abstract class BeanContextEvent extends EventObject {
         propagatedFrom = bc;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>BeanContext</code> from which this event was propagated.
      * @return the <code>BeanContext</code> from which this
      * event was propagated
@@ -82,7 +82,7 @@ public abstract class BeanContextEvent extends EventObject {
         return propagatedFrom;
     }
 
-    /**
+    /** {@collect.stats}
      * Reports whether or not this event is
      * propagated from some other <code>BeanContext</code>.
      * @return <code>true</code> if propagated, <code>false</code>
@@ -96,7 +96,7 @@ public abstract class BeanContextEvent extends EventObject {
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * The <code>BeanContext</code> from which this event was propagated
      */
     protected BeanContext propagatedFrom;

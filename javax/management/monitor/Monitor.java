@@ -68,7 +68,7 @@ import javax.management.ReflectionException;
 import static javax.management.monitor.MonitorNotification.*;
 import javax.management.openmbean.CompositeData;
 
-/**
+/** {@collect.stats}
  * Defines the part common to all monitor MBeans.
  * A monitor MBean monitors values of an attribute common to a set of observed
  * MBeans. The observed attribute is monitored at intervals specified by the
@@ -129,47 +129,47 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Attribute to observe.
      */
     private String observedAttribute;
 
-    /**
+    /** {@collect.stats}
      * Monitor granularity period (in milliseconds).
      * The default value is set to 10 seconds.
      */
     private long granularityPeriod = 10000;
 
-    /**
+    /** {@collect.stats}
      * Monitor state.
      * The default value is set to <CODE>false</CODE>.
      */
     private boolean isActive = false;
 
-    /**
+    /** {@collect.stats}
      * Monitor sequence number.
      * The default value is set to 0.
      */
     private final AtomicLong sequenceNumber = new AtomicLong();
 
-    /**
+    /** {@collect.stats}
      * Complex type attribute flag.
      * The default value is set to <CODE>false</CODE>.
      */
     private boolean isComplexTypeAttribute = false;
 
-    /**
+    /** {@collect.stats}
      * First attribute name extracted from complex type attribute name.
      */
     private String firstAttribute;
 
-    /**
+    /** {@collect.stats}
      * Remaining attribute names extracted from complex type attribute name.
      */
     private final List<String> remainingAttributes =
         new CopyOnWriteArrayList<String>();
 
-    /**
+    /** {@collect.stats}
      * AccessControlContext of the Monitor.start() caller.
      */
     private static final AccessControlContext noPermissionsACC =
@@ -177,25 +177,25 @@ public abstract class Monitor
             new ProtectionDomain[] {new ProtectionDomain(null, null)});
     private volatile AccessControlContext acc = noPermissionsACC;
 
-    /**
+    /** {@collect.stats}
      * Scheduler Service.
      */
     private static final ScheduledExecutorService scheduler =
         Executors.newSingleThreadScheduledExecutor(
             new DaemonThreadFactory("Scheduler"));
 
-    /**
+    /** {@collect.stats}
      * Map containing the thread pool executor per thread group.
      */
     private static final Map<ThreadPoolExecutor, Void> executors =
             new WeakHashMap<ThreadPoolExecutor, Void>();
 
-    /**
+    /** {@collect.stats}
      * Lock for executors map.
      */
     private static final Object executorsLock = new Object();
 
-    /**
+    /** {@collect.stats}
      * Maximum Pool Size
      */
     private static final int maximumPoolSize;
@@ -230,17 +230,17 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Future associated to the current monitor task.
      */
     private Future<?> monitorFuture;
 
-    /**
+    /** {@collect.stats}
      * Scheduler task to be executed by the Scheduler Service.
      */
     private final SchedulerTask schedulerTask = new SchedulerTask();
 
-    /**
+    /** {@collect.stats}
      * ScheduledFuture associated to the current scheduler task.
      */
     private ScheduledFuture<?> schedulerFuture;
@@ -251,27 +251,27 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * The amount by which the capacity of the monitor arrays are
      * automatically incremented when their size becomes greater than
      * their capacity.
      */
     protected final static int capacityIncrement = 16;
 
-    /**
+    /** {@collect.stats}
      * The number of valid components in the vector of observed objects.
      *
      */
     protected int elementCount = 0;
 
-    /**
+    /** {@collect.stats}
      * Monitor errors that have already been notified.
      * @deprecated equivalent to {@link #alreadyNotifieds}[0].
      */
     @Deprecated
     protected int alreadyNotified = 0;
 
-    /**
+    /** {@collect.stats}
      * <p>Selected monitor errors that have already been notified.</p>
      *
      * <p>Each element in this array corresponds to an observed object
@@ -283,7 +283,7 @@ public abstract class Monitor
      */
     protected int alreadyNotifieds[] = new int[capacityIncrement];
 
-    /**
+    /** {@collect.stats}
      * Reference to the MBean server.  This reference is null when the
      * monitor MBean is not registered in an MBean server.  This
      * reference is initialized before the monitor MBean is registered
@@ -295,13 +295,13 @@ public abstract class Monitor
     // Flags defining possible monitor errors.
     //
 
-    /**
+    /** {@collect.stats}
      * This flag is used to reset the {@link #alreadyNotifieds
      * alreadyNotifieds} monitor attribute.
      */
     protected static final int RESET_FLAGS_ALREADY_NOTIFIED             = 0;
 
-    /**
+    /** {@collect.stats}
      * Flag denoting that a notification has occurred after changing
      * the observed object.  This flag is used to check that the new
      * observed object is registered in the MBean server at the time
@@ -309,7 +309,7 @@ public abstract class Monitor
      */
     protected static final int OBSERVED_OBJECT_ERROR_NOTIFIED           = 1;
 
-    /**
+    /** {@collect.stats}
      * Flag denoting that a notification has occurred after changing
      * the observed attribute.  This flag is used to check that the
      * new observed attribute belongs to the observed object at the
@@ -317,7 +317,7 @@ public abstract class Monitor
      */
     protected static final int OBSERVED_ATTRIBUTE_ERROR_NOTIFIED        = 2;
 
-    /**
+    /** {@collect.stats}
      * Flag denoting that a notification has occurred after changing
      * the observed object or the observed attribute.  This flag is
      * used to check that the observed attribute type is correct
@@ -326,7 +326,7 @@ public abstract class Monitor
      */
     protected static final int OBSERVED_ATTRIBUTE_TYPE_ERROR_NOTIFIED   = 4;
 
-    /**
+    /** {@collect.stats}
      * Flag denoting that a notification has occurred after changing
      * the observed object or the observed attribute.  This flag is
      * used to notify any exception (except the cases described above)
@@ -335,7 +335,7 @@ public abstract class Monitor
      */
     protected static final int RUNTIME_ERROR_NOTIFIED                   = 8;
 
-    /**
+    /** {@collect.stats}
      * This field is retained for compatibility but should not be referenced.
      *
      * @deprecated No replacement.
@@ -349,26 +349,26 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * List of ObservedObjects to which the attribute to observe belongs.
      */
     final List<ObservedObject> observedObjects =
         new CopyOnWriteArrayList<ObservedObject>();
 
-    /**
+    /** {@collect.stats}
      * Flag denoting that a notification has occurred after changing
      * the threshold. This flag is used to notify any exception
      * related to invalid thresholds settings.
      */
     static final int THRESHOLD_ERROR_NOTIFIED                           = 16;
 
-    /**
+    /** {@collect.stats}
      * Enumeration used to keep trace of the derived gauge type
      * in counter and gauge monitors.
      */
     enum NumericalType { BYTE, SHORT, INTEGER, LONG, FLOAT, DOUBLE };
 
-    /**
+    /** {@collect.stats}
      * Constant used to initialize all the numeric values.
      */
     static final Integer INTEGER_ZERO = 0;
@@ -380,7 +380,7 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Allows the monitor MBean to perform any operations it needs
      * before being registered in the MBean server.
      * <P>
@@ -405,7 +405,7 @@ public abstract class Monitor
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the monitor MBean to perform any operations needed after
      * having been registered in the MBean server or after the
      * registration has failed.
@@ -415,7 +415,7 @@ public abstract class Monitor
     public void postRegister(Boolean registrationDone) {
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the monitor MBean to perform any operations it needs
      * before being unregistered by the MBean server.
      * <P>
@@ -433,7 +433,7 @@ public abstract class Monitor
         stop();
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the monitor MBean to perform any operations needed after
      * having been unregistered by the MBean server.
      * <P>
@@ -442,12 +442,12 @@ public abstract class Monitor
     public void postDeregister() {
     }
 
-    /**
+    /** {@collect.stats}
      * Starts the monitor.
      */
     public abstract void start();
 
-    /**
+    /** {@collect.stats}
      * Stops the monitor.
      */
     public abstract void stop();
@@ -455,7 +455,7 @@ public abstract class Monitor
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the object name of the first object in the set of observed
      * MBeans, or <code>null</code> if there is no such object.
      *
@@ -474,7 +474,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all objects from the set of observed objects, and then adds the
      * specified object.
      *
@@ -497,7 +497,7 @@ public abstract class Monitor
         addObservedObject(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified object in the set of observed MBeans, if this object
      * is not already present.
      *
@@ -530,7 +530,7 @@ public abstract class Monitor
         createAlreadyNotified();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified object from the set of observed MBeans.
      *
      * @param object The object to remove.
@@ -553,7 +553,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the specified object is in the set of observed MBeans.
      *
      * @param object The object to check.
@@ -565,7 +565,7 @@ public abstract class Monitor
         return getObservedObject(object) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing the objects being observed.
      *
      * @return The objects being observed.
@@ -578,7 +578,7 @@ public abstract class Monitor
         return names;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the attribute being observed.
      * <BR>The observed attribute is not initialized by default (set to null).
      *
@@ -590,7 +590,7 @@ public abstract class Monitor
         return observedAttribute;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the attribute to observe.
      * <BR>The observed attribute is not initialized by default (set to null).
      *
@@ -629,7 +629,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the granularity period (in milliseconds).
      * <BR>The default value of the granularity period is 10 seconds.
      *
@@ -641,7 +641,7 @@ public abstract class Monitor
         return granularityPeriod;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the granularity period (in milliseconds).
      * <BR>The default value of the granularity period is 10 seconds.
      *
@@ -673,7 +673,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the monitor MBean is active.  A monitor MBean is
      * marked active when the {@link #start start} method is called.
      * It becomes inactive when the {@link #stop stop} method is
@@ -695,7 +695,7 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Starts the monitor.
      */
     void doStart() {
@@ -731,7 +731,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the monitor.
      */
     void doStop() {
@@ -763,7 +763,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge of the specified object, if this object is
      * contained in the set of observed MBeans, or <code>null</code> otherwise.
      *
@@ -779,7 +779,7 @@ public abstract class Monitor
         return o == null ? null : o.getDerivedGauge();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the specified object, if
      * this object is contained in the set of observed MBeans, or
      * <code>0</code> otherwise.
@@ -970,7 +970,7 @@ public abstract class Monitor
         return ((value == INTEGER_ZERO) || c.isInstance(value));
     }
 
-    /**
+    /** {@collect.stats}
      * Get the specified {@code ObservedObject} if this object is
      * contained in the set of observed MBeans, or {@code null}
      * otherwise.
@@ -989,7 +989,7 @@ public abstract class Monitor
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Factory method for ObservedObject creation.
      *
      * @since 1.6
@@ -998,7 +998,7 @@ public abstract class Monitor
         return new ObservedObject(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Create the {@link #alreadyNotified} array from
      * the {@code ObservedObject} array list.
      */
@@ -1016,7 +1016,7 @@ public abstract class Monitor
         updateDeprecatedAlreadyNotified();
     }
 
-    /**
+    /** {@collect.stats}
      * Update the deprecated {@link #alreadyNotified} field.
      */
     synchronized void updateDeprecatedAlreadyNotified() {
@@ -1026,7 +1026,7 @@ public abstract class Monitor
             alreadyNotified = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Update the {@link #alreadyNotifieds} array element at the given index
      * with the already notified flag in the given {@code ObservedObject}.
      * Ensure the deprecated {@link #alreadyNotified} field is updated
@@ -1038,7 +1038,7 @@ public abstract class Monitor
             updateDeprecatedAlreadyNotified();
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the given bits in the given element of {@link #alreadyNotifieds}
      * are set.
      */
@@ -1046,7 +1046,7 @@ public abstract class Monitor
         return ((o.getAlreadyNotified() & mask) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Set the given bits in the given element of {@link #alreadyNotifieds}.
      * Ensure the deprecated {@link #alreadyNotified} field is updated
      * if appropriate.
@@ -1060,7 +1060,7 @@ public abstract class Monitor
         updateAlreadyNotified(o, i);
     }
 
-    /**
+    /** {@collect.stats}
      * Reset the given bits in the given element of {@link #alreadyNotifieds}.
      * Ensure the deprecated {@link #alreadyNotified} field is updated
      * if appropriate.
@@ -1071,7 +1071,7 @@ public abstract class Monitor
         updateAlreadyNotified(o, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Reset all bits in the given element of {@link #alreadyNotifieds}.
      * Ensure the deprecated {@link #alreadyNotified} field is updated
      * if appropriate.
@@ -1085,7 +1085,7 @@ public abstract class Monitor
         updateAlreadyNotified(o, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the {@link #alreadyNotifieds} array has been modified.
      * If true recompute the index for the given observed object.
      */
@@ -1104,7 +1104,7 @@ public abstract class Monitor
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * This method is used by the monitor MBean to create and send a
      * monitor notification to all the listeners registered for this
      * kind of notification.
@@ -1151,7 +1151,7 @@ public abstract class Monitor
         sendNotification(mn);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called by the monitor each time
      * the granularity period has been exceeded.
      * @param o The observed object.
@@ -1473,7 +1473,7 @@ public abstract class Monitor
                              false);
     }
 
-    /**
+    /** {@collect.stats}
      * Cleanup the scheduler and monitor tasks futures.
      */
     private synchronized void cleanupFutures() {
@@ -1487,7 +1487,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Cleanup the "is complex type attribute" info.
      */
     private synchronized void cleanupIsComplexTypeAttribute() {
@@ -1496,7 +1496,7 @@ public abstract class Monitor
         isComplexTypeAttribute = false;
     }
 
-    /**
+    /** {@collect.stats}
      * SchedulerTask nested class: This class implements the Runnable interface.
      *
      * The SchedulerTask is executed periodically with a given fixed delay by
@@ -1538,7 +1538,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * MonitorTask nested class: This class implements the Runnable interface.
      *
      * The MonitorTask is executed periodically with a given fixed delay by the
@@ -1637,7 +1637,7 @@ public abstract class Monitor
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Daemon thread factory used by the monitor executors.
      * <P>
      * This factory creates all new threads used by an Executor in

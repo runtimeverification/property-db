@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * The mapping in the Java programming language of an SQL <code>REF</code>
  * value, which is a reference to an SQL structured type value in the database.
  * <P>
@@ -53,7 +53,7 @@ package java.sql;
  */
 public interface Ref {
 
-    /**
+    /** {@collect.stats}
      * Retrieves the fully-qualified SQL name of the SQL structured type that
      * this <code>Ref</code> object references.
      *
@@ -65,7 +65,7 @@ public interface Ref {
      */
     String getBaseTypeName() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the referenced object and maps it to a Java type
      * using the given type map.
      *
@@ -86,7 +86,7 @@ public interface Ref {
     Object getObject(java.util.Map<String,Class<?>> map) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the SQL structured type instance referenced by
      * this <code>Ref</code> object.  If the connection's type map has an entry
      * for the structured type, the instance will be custom mapped to
@@ -104,7 +104,7 @@ public interface Ref {
      */
     Object getObject() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the structured type value that this <code>Ref</code>
      * object references to the given instance of <code>Object</code>.
      * The driver converts this to an SQL structured type when it

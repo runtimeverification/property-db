@@ -33,7 +33,7 @@ import java.awt.RenderingHints;
 import static java.awt.RenderingHints.*;
 import java.awt.geom.AffineTransform;
 
-/**
+/** {@collect.stats}
 *   The <code>FontRenderContext</code> class is a container for the
 *   information needed to correctly measure text.  The measurement of text
 *   can vary because of rules that map outlines to pixels, and rendering
@@ -70,7 +70,7 @@ public class FontRenderContext {
     private transient Object fmHintValue;
     private transient boolean defaulting;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>FontRenderContext</code>
      * object.
      *
@@ -81,7 +81,7 @@ public class FontRenderContext {
         defaulting = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FontRenderContext</code> object from an
      * optional {@link AffineTransform} and two <code>boolean</code>
      * values that determine if the newly constructed object has
@@ -119,7 +119,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FontRenderContext</code> object from an
      * optional {@link AffineTransform} and two <code>Object</code>
      * values that determine if the newly constructed object has
@@ -167,7 +167,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not this <code>FontRenderContext</code> object
      * measures text in a transformed render context.
      * @return  <code>true</code> if this <code>FontRenderContext</code>
@@ -184,7 +184,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the integer type of the affine transform for this
      * <code>FontRenderContext</code> as specified by
      * {@link java.awt.geom.AffineTransform#getType()}
@@ -204,7 +204,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
     *   Gets the transform that is used to scale typographical points
     *   to pixels in this <code>FontRenderContext</code>.
     *   @return the <code>AffineTransform</code> of this
@@ -215,7 +215,7 @@ public class FontRenderContext {
         return (tx == null) ? new AffineTransform() : new AffineTransform(tx);
     }
 
-    /**
+    /** {@collect.stats}
     * Returns a boolean which indicates whether or not some form of
     * antialiasing is specified by this <code>FontRenderContext</code>.
     * Call {@link #getAntiAliasingHint() getAntiAliasingHint()}
@@ -231,7 +231,7 @@ public class FontRenderContext {
                  aaHintValue == VALUE_TEXT_ANTIALIAS_DEFAULT);
     }
 
-    /**
+    /** {@collect.stats}
     * Returns a boolean which whether text fractional metrics mode
     * is used in this <code>FontRenderContext</code>.
     * Call {@link #getFractionalMetricsHint() getFractionalMetricsHint()}
@@ -248,7 +248,7 @@ public class FontRenderContext {
                  fmHintValue == VALUE_FRACTIONALMETRICS_DEFAULT);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the text anti-aliasing rendering mode hint used in this
      * <code>FontRenderContext</code>.
      * This will be one of the text antialiasing rendering hint values
@@ -268,7 +268,7 @@ public class FontRenderContext {
         return aaHintValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the text fractional metrics rendering mode hint used in this
      * <code>FontRenderContext</code>.
      * This will be one of the text fractional metrics rendering hint values
@@ -288,7 +288,7 @@ public class FontRenderContext {
         return fmHintValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if obj is an instance of FontRenderContext and has the same
      * transform, antialiasing, and fractional metrics values as this.
      * @param obj the object to test for equality
@@ -305,7 +305,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if rhs has the same transform, antialiasing,
      * and fractional metrics values as this.
      * @param rhs the <code>FontRenderContext</code> to test for equality
@@ -338,7 +338,7 @@ public class FontRenderContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return a hashcode for this FontRenderContext.
      */
     public int hashCode() {

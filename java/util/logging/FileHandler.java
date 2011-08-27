@@ -30,7 +30,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * Simple file logging <tt>Handler</tt>.
  * <p>
  * The <tt>FileHandler</tt> can either write to a specified file,
@@ -210,7 +210,7 @@ public class FileHandler extends StreamHandler {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Construct a default <tt>FileHandler</tt>.  This will be configured
      * entirely from <tt>LogManager</tt> properties (or their default values).
      * <p>
@@ -225,7 +225,7 @@ public class FileHandler extends StreamHandler {
         openFiles();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize a <tt>FileHandler</tt> to write to the given filename.
      * <p>
      * The <tt>FileHandler</tt> is configured based on <tt>LogManager</tt>
@@ -254,7 +254,7 @@ public class FileHandler extends StreamHandler {
         openFiles();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize a <tt>FileHandler</tt> to write to the given filename,
      * with optional append.
      * <p>
@@ -287,7 +287,7 @@ public class FileHandler extends StreamHandler {
         openFiles();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize a <tt>FileHandler</tt> to write to a set of files.  When
      * (approximately) the given limit has been written to one file,
      * another file will be opened.  The output will cycle through a set
@@ -323,7 +323,7 @@ public class FileHandler extends StreamHandler {
         openFiles();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize a <tt>FileHandler</tt> to write to a set of files
      * with optional append.  When (approximately) the given limit has
      * been written to one file, another file will be opened.  The
@@ -559,7 +559,7 @@ public class FileHandler extends StreamHandler {
         setLevel(oldLevel);
     }
 
-    /**
+    /** {@collect.stats}
      * Format and publish a <tt>LogRecord</tt>.
      *
      * @param  record  description of the log event. A null record is
@@ -586,7 +586,7 @@ public class FileHandler extends StreamHandler {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Close all the files.
      *
      * @exception  SecurityException  if a security manager exists and if

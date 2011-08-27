@@ -30,7 +30,7 @@ import java.awt.font.TextHitInfo;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedCharacterIterator.Attribute;
 
-/**
+/** {@collect.stats}
  * InputMethodRequests defines the requests that a text editing component
  * has to handle in order to work with input methods. The component
  * can implement this interface itself or use a separate object that
@@ -63,7 +63,7 @@ import java.text.AttributedCharacterIterator.Attribute;
 
 public interface InputMethodRequests {
 
-    /**
+    /** {@collect.stats}
      * Gets the location of a specified offset in the current composed text,
      * or of the selection in committed text.
      * This information is, for example, used to position the candidate window
@@ -99,7 +99,7 @@ public interface InputMethodRequests {
      */
     Rectangle getTextLocation(TextHitInfo offset);
 
-    /**
+    /** {@collect.stats}
      * Gets the offset within the composed text for the specified absolute x
      * and y coordinates on the screen. This information is used, for example
      * to handle mouse clicks and the mouse cursor. The offset is relative to
@@ -116,7 +116,7 @@ public interface InputMethodRequests {
      */
     TextHitInfo getLocationOffset(int x, int y);
 
-    /**
+    /** {@collect.stats}
      * Gets the offset of the insert position in the committed text contained
      * in the text editing component. This is the offset at which characters
      * entered through an input method are inserted. This information is used
@@ -127,7 +127,7 @@ public interface InputMethodRequests {
      */
     int getInsertPositionOffset();
 
-    /**
+    /** {@collect.stats}
      * Gets an iterator providing access to the entire text and attributes
      * contained in the text editing component except for uncommitted
      * text. Uncommitted (composed) text should be ignored for index
@@ -149,7 +149,7 @@ public interface InputMethodRequests {
     AttributedCharacterIterator getCommittedText(int beginIndex, int endIndex,
                                                  Attribute[] attributes);
 
-    /**
+    /** {@collect.stats}
      * Gets the length of the entire text contained in the text
      * editing component except for uncommitted (composed) text.
      *
@@ -157,7 +157,7 @@ public interface InputMethodRequests {
      */
     int getCommittedTextLength();
 
-    /**
+    /** {@collect.stats}
      * Gets the latest committed text from the text editing component and
      * removes it from the component's text body.
      * This is used for the "Undo Commit" feature in some input methods, where
@@ -183,7 +183,7 @@ public interface InputMethodRequests {
      */
     AttributedCharacterIterator cancelLatestCommittedText(Attribute[] attributes);
 
-    /**
+    /** {@collect.stats}
      * Gets the currently selected text from the text editing component.
      * This may be used for a variety of purposes.
      * One of them is the "Reconvert" feature in some input methods.

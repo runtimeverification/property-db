@@ -33,7 +33,7 @@ import java.net.SocketException;
 import javax.net.ServerSocketFactory;
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * <code>SSLServerSocketFactory</code>s create
  * <code>SSLServerSocket</code>s.
  *
@@ -54,12 +54,12 @@ public abstract class SSLServerSocketFactory extends ServerSocketFactory
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor is used only by subclasses.
      */
     protected SSLServerSocketFactory() { /* NOTHING */ }
 
-    /**
+    /** {@collect.stats}
      * Returns the default SSL server socket factory.
      *
      * <p>The first time this method is called, the security property
@@ -116,7 +116,7 @@ public abstract class SSLServerSocketFactory extends ServerSocketFactory
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of cipher suites which are enabled by default.
      * Unless a different list is enabled, handshaking on an SSL connection
      * will use one of these cipher suites.  The minimum quality of service
@@ -129,7 +129,7 @@ public abstract class SSLServerSocketFactory extends ServerSocketFactory
     public abstract String [] getDefaultCipherSuites();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the cipher suites which could be enabled for use
      * on an SSL connection created by this factory.
      * Normally, only a subset of these will actually

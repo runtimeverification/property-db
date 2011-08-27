@@ -25,7 +25,7 @@
 
 package java.security.spec;
 
-/**
+/** {@collect.stats}
  * This class represents the ASN.1 encoding of a private key,
  * encoded according to the ASN.1 type <code>PrivateKeyInfo</code>.
  * The <code>PrivateKeyInfo</code> syntax is defined in the PKCS#8 standard
@@ -61,7 +61,7 @@ package java.security.spec;
 
 public class PKCS8EncodedKeySpec extends EncodedKeySpec {
 
-    /**
+    /** {@collect.stats}
      * Creates a new PKCS8EncodedKeySpec with the given encoded key.
      *
      * @param encodedKey the key, which is assumed to be
@@ -74,7 +74,7 @@ public class PKCS8EncodedKeySpec extends EncodedKeySpec {
         super(encodedKey);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key bytes, encoded according to the PKCS #8 standard.
      *
      * @return the PKCS #8 encoding of the key. Returns a new array
@@ -84,7 +84,7 @@ public class PKCS8EncodedKeySpec extends EncodedKeySpec {
         return super.getEncoded();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the encoding format associated with this
      * key specification.
      *

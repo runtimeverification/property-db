@@ -34,7 +34,7 @@ import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-/**
+/** {@collect.stats}
  * Provider for audio file reading services.  Classes providing concrete
  * implementations can parse the format information from one or more types of
  * audio file, and can produce audio input streams from files of these types.
@@ -44,7 +44,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public abstract class AudioFileReader {
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the input stream provided.  The stream must
      * point to valid audio file data.  In general, audio file readers may
      * need to read some data from the stream before determining whether they
@@ -64,7 +64,7 @@ public abstract class AudioFileReader {
      */
     public abstract AudioFileFormat getAudioFileFormat(InputStream stream) throws UnsupportedAudioFileException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the URL provided.  The URL must
      * point to valid audio file data.
      * @param url the URL from which file format information should be
@@ -76,7 +76,7 @@ public abstract class AudioFileReader {
      */
     public abstract AudioFileFormat getAudioFileFormat(URL url) throws UnsupportedAudioFileException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains the audio file format of the <code>File</code> provided.  The <code>File</code> must
      * point to valid audio file data.
      * @param file the <code>File</code> from which file format information should be
@@ -88,7 +88,7 @@ public abstract class AudioFileReader {
      */
     public abstract AudioFileFormat getAudioFileFormat(File file) throws UnsupportedAudioFileException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the input stream provided.  The stream must
      * point to valid audio file data.  In general, audio file readers may
      * need to read some data from the stream before determining whether they
@@ -109,7 +109,7 @@ public abstract class AudioFileReader {
      */
     public abstract AudioInputStream getAudioInputStream(InputStream stream) throws UnsupportedAudioFileException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the URL provided.  The URL must
      * point to valid audio file data.
      * @param url the URL for which the <code>AudioInputStream</code> should be
@@ -122,7 +122,7 @@ public abstract class AudioFileReader {
      */
     public abstract AudioInputStream getAudioInputStream(URL url) throws UnsupportedAudioFileException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream from the <code>File</code> provided.  The <code>File</code> must
      * point to valid audio file data.
      * @param file the <code>File</code> for which the <code>AudioInputStream</code> should be

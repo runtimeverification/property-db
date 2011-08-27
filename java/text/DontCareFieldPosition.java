@@ -25,7 +25,7 @@
 
 package java.text;
 
-/**
+/** {@collect.stats}
  * DontCareFieldPosition defines no-op FieldDelegate. Its
  * singleton is used for the format methods that don't take a
  * FieldPosition.

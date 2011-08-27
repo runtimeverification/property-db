@@ -35,7 +35,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.ServiceLoader;
 
-/**
+/** {@collect.stats}
  * A registry for service provider instances.
  *
  * <p> A <i>service</i> is a well-known set of interfaces and (usually
@@ -101,7 +101,7 @@ public class ServiceRegistry {
     // Class -> Registry
     private Map categoryMap = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ServiceRegistry</code> instance with a
      * set of categories taken from the <code>categories</code>
      * argument.
@@ -132,7 +132,7 @@ public class ServiceRegistry {
     // <code>Error</code>' below should be changed to 'a
     // <code>ServiceConfigurationError</code>'.
 
-    /**
+    /** {@collect.stats}
      * Searches for implementations of a particular service class
      * using the given class loader.
      *
@@ -175,7 +175,7 @@ public class ServiceRegistry {
         return ServiceLoader.load(providerClass, loader).iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Locates and incrementally instantiates the available providers
      * of a given service using the context class loader.  This
      * convenience method is equivalent to:
@@ -204,7 +204,7 @@ public class ServiceRegistry {
         return ServiceLoader.load(providerClass).iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> of <code>Class</code> objects
      * indicating the current set of categories.  The iterator will be
      * empty if no categories exist.
@@ -217,7 +217,7 @@ public class ServiceRegistry {
         return keySet.iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an Iterator containing the subregistries to which the
      * provider belongs.
      */
@@ -233,7 +233,7 @@ public class ServiceRegistry {
         return l.iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a service provider object to the registry.  The provider
      * is associated with the given category.
      *
@@ -274,7 +274,7 @@ public class ServiceRegistry {
         return reg.registerServiceProvider(provider);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a service provider object to the registry.  The provider
      * is associated within each category present in the registry
      * whose <code>Class</code> it implements.
@@ -303,7 +303,7 @@ public class ServiceRegistry {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of service provider objects, taken from an
      * <code>Iterator</code> to the registry.  Each provider is
      * associated within each category present in the registry whose
@@ -332,7 +332,7 @@ public class ServiceRegistry {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a service provider object from the given category.  If
      * the provider was not previously registered, nothing happens and
      * <code>false</code> is returned.  Otherwise, <code>true</code>
@@ -375,7 +375,7 @@ public class ServiceRegistry {
         return reg.deregisterServiceProvider(provider);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a service provider object from all categories that
      * contain it.
      *
@@ -395,7 +395,7 @@ public class ServiceRegistry {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if <code>provider</code> is currently
      * registered.
      *
@@ -422,7 +422,7 @@ public class ServiceRegistry {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all registered
      * service providers in the given category.  If
      * <code>useOrdering</code> is <code>false</code>, the iterator
@@ -451,7 +451,7 @@ public class ServiceRegistry {
         return reg.getServiceProviders(useOrdering);
     }
 
-    /**
+    /** {@collect.stats}
      * A simple filter interface used by
      * <code>ServiceRegistry.getServiceProviders</code> to select
      * providers matching an arbitrary criterion.  Classes that
@@ -463,7 +463,7 @@ public class ServiceRegistry {
      */
     public interface Filter {
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if the given
          * <code>provider</code> object matches the criterion defined
          * by this <code>Filter</code>.
@@ -475,7 +475,7 @@ public class ServiceRegistry {
         boolean filter(Object provider);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing service provider
      * objects within a given category that satisfy a criterion
      * imposed by the supplied <code>ServiceRegistry.Filter</code>
@@ -508,7 +508,7 @@ public class ServiceRegistry {
         return new FilterIterator(iter, filter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently registered service provider object that
      * is of the given class type.  At most one object of a given
      * class is allowed to be registered at any given time.  If no
@@ -543,7 +543,7 @@ public class ServiceRegistry {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pairwise ordering between two service provider objects
      * within a given category.  If one or both objects are not
      * currently registered within the given category, or if the
@@ -590,7 +590,7 @@ public class ServiceRegistry {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pairwise ordering between two service provider objects
      * within a given category.  If one or both objects are not
      * currently registered within the given category, or if no
@@ -635,7 +635,7 @@ public class ServiceRegistry {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Deregisters all service provider object currently registered
      * under the given category.
      *
@@ -652,7 +652,7 @@ public class ServiceRegistry {
         reg.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Deregisters all currently registered service providers from all
      * categories.
      */
@@ -664,7 +664,7 @@ public class ServiceRegistry {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Finalizes this object prior to garbage collection.  The
      * <code>deregisterAll</code> method is called to deregister all
      * currently registered service providers.  This method should not
@@ -680,7 +680,7 @@ public class ServiceRegistry {
 }
 
 
-/**
+/** {@collect.stats}
  * A portion of a registry dealing with a single superclass or
  * interface.
  */
@@ -718,7 +718,7 @@ class SubRegistry {
         return !present;
     }
 
-    /**
+    /** {@collect.stats}
      * If the provider was not previously registered, do nothing.
      *
      * @return true if the provider was previously registered.
@@ -786,7 +786,7 @@ class SubRegistry {
 }
 
 
-/**
+/** {@collect.stats}
  * A class for wrapping <code>Iterators</code> with a filter function.
  * This provides an iterator for a subset without duplication.
  */

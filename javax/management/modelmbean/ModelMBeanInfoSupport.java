@@ -49,7 +49,7 @@ import javax.management.MBeanNotificationInfo;
 import javax.management.MBeanOperationInfo;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * This class represents the meta data for ModelMBeans.  Descriptors have been
  * added on the meta data objects.
  * <P>
@@ -119,7 +119,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField modelMBeanDescriptor Descriptor The descriptor containing
      *              MBean wide policy
      * @serialField modelMBeanAttributes ModelMBeanAttributeInfo[] The array of
@@ -156,7 +156,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     //
     // END Serialization compatibility stuff
 
-    /**
+    /** {@collect.stats}
      * @serial The descriptor containing MBean wide policy
      */
     private Descriptor modelMBeanDescriptor = null;
@@ -169,25 +169,25 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
        These fields can't be final because they are assigned to by
        readObject().  */
 
-    /**
+    /** {@collect.stats}
      * @serial The array of {@link ModelMBeanAttributeInfo} objects which
      *         have descriptors
      */
     private MBeanAttributeInfo[] modelMBeanAttributes;
 
-    /**
+    /** {@collect.stats}
      * @serial The array of {@link ModelMBeanConstructorInfo} objects which
      *         have descriptors
      */
     private MBeanConstructorInfo[] modelMBeanConstructors;
 
-    /**
+    /** {@collect.stats}
      * @serial The array of {@link ModelMBeanNotificationInfo} objects which
      *         have descriptors
      */
     private MBeanNotificationInfo[] modelMBeanNotifications;
 
-    /**
+    /** {@collect.stats}
      * @serial The array of {@link ModelMBeanOperationInfo} objects which
      *         have descriptors
      */
@@ -201,7 +201,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     private static final String ALL = "all";
     private static final String currClass = "ModelMBeanInfoSupport";
 
-    /**
+    /** {@collect.stats}
      * Constructs a ModelMBeanInfoSupport which is a duplicate of the given
      * ModelMBeanInfo.  The returned object is a shallow copy of the given
      * object.  Neither the Descriptor nor the contained arrays
@@ -267,7 +267,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a ModelMBeanInfoSupport with the provided information,
      * but the descriptor is a default.
      * The default descriptor is: name=mbeanName, descriptorType=mbean,
@@ -295,7 +295,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
                 operations, notifications, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a ModelMBeanInfoSupport with the provided information
      * and the descriptor given in parameter.
      *
@@ -393,7 +393,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
 
     // Java doc inherited from MOdelMBeanInfo interface
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow clone of this instance.  Neither the Descriptor nor
      * the contained arrays ({@code ModelMBeanAttributeInfo[]} etc) are
      * cloned.  This method is chiefly of interest to modify the Descriptor
@@ -555,7 +555,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a Descriptor requested by name.
      *
      * @param inDescriptorName The name of the descriptor.
@@ -847,7 +847,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
         return retInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ModelMBeanConstructorInfo requested by name.
      * If no ModelMBeanConstructorInfo exists for this name null is returned.
      *
@@ -928,7 +928,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
 
 
     /* We override MBeanInfo.getDescriptor() to return our descriptor. */
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     @Override
@@ -1071,7 +1071,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link ModelMBeanInfoSupport} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -1113,7 +1113,7 @@ public class ModelMBeanInfoSupport extends MBeanInfo implements ModelMBeanInfo {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link ModelMBeanInfoSupport} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

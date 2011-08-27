@@ -27,7 +27,7 @@ package java.beans.beancontext;
 
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * <p>
  * This interface is implemented by
  * <code>BeanContextChildren</code> that have an AWT <code>Component</code>
@@ -43,7 +43,7 @@ import java.awt.Component;
 
 public interface BeanContextChildComponentProxy {
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>java.awt.Component</code> associated with
      * this <code>BeanContextChild</code>.
      * @return the AWT <code>Component</code> associated with

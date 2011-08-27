@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * A PropertyEditor class provides support for GUIs that want to
  * allow users to edit a property value of a given type.
  * <p>
@@ -55,7 +55,7 @@ package java.beans;
 
 public interface PropertyEditor {
 
-    /**
+    /** {@collect.stats}
      * Set (or change) the object that is to be edited.  Primitive types such
      * as "int" must be wrapped as the corresponding object type such as
      * "java.lang.Integer".
@@ -67,7 +67,7 @@ public interface PropertyEditor {
      */
     void setValue(Object value);
 
-    /**
+    /** {@collect.stats}
      * Gets the property value.
      *
      * @return The value of the property.  Primitive types such as "int" will
@@ -78,7 +78,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Determines whether this property editor is paintable.
      *
      * @return  True if the class will honor the paintValue method.
@@ -86,7 +86,7 @@ public interface PropertyEditor {
 
     boolean isPaintable();
 
-    /**
+    /** {@collect.stats}
      * Paint a representation of the value into a given area of screen
      * real estate.  Note that the propertyEditor is responsible for doing
      * its own clipping so that it fits into the given rectangle.
@@ -105,7 +105,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns a fragment of Java code that can be used to set a property
      * to match the editors current state. This method is intended
      * for use when generating Java code to reflect changes made through the
@@ -140,7 +140,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the property value as text.
      *
      * @return The property value as a human editable string.
@@ -150,7 +150,7 @@ public interface PropertyEditor {
      */
     String getAsText();
 
-    /**
+    /** {@collect.stats}
      * Set the property value by parsing a given String.  May raise
      * java.lang.IllegalArgumentException if either the String is
      * badly formatted or if this kind of property can't be expressed
@@ -161,7 +161,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * If the property value must be one of a set of known tagged values,
      * then this method should return an array of the tags.  This can
      * be used to represent (for example) enum values.  If a PropertyEditor
@@ -177,7 +177,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * A PropertyEditor may choose to make available a full custom Component
      * that edits its property value.  It is the responsibility of the
      * PropertyEditor to hook itself up to its editor Component itself and
@@ -194,7 +194,7 @@ public interface PropertyEditor {
 
     java.awt.Component getCustomEditor();
 
-    /**
+    /** {@collect.stats}
      * Determines whether this property editor supports a custom editor.
      *
      * @return  True if the propertyEditor can provide a custom editor.
@@ -203,7 +203,7 @@ public interface PropertyEditor {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Register a listener for the PropertyChange event.  When a
      * PropertyEditor changes its value it should fire a PropertyChange
      * event on all registered PropertyChangeListeners, specifying the
@@ -214,7 +214,7 @@ public interface PropertyEditor {
      */
     void addPropertyChangeListener(PropertyChangeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Remove a listener for the PropertyChange event.
      *
      * @param listener  The PropertyChange listener to be removed.

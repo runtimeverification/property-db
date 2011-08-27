@@ -30,7 +30,7 @@ import java.nio.charset.CharsetEncoder;
 import sun.nio.cs.StreamEncoder;
 
 
-/**
+/** {@collect.stats}
  * An OutputStreamWriter is a bridge from character streams to byte streams:
  * Characters written to it are encoded into bytes using a specified {@link
  * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
@@ -78,7 +78,7 @@ public class OutputStreamWriter extends Writer {
 
     private final StreamEncoder se;
 
-    /**
+    /** {@collect.stats}
      * Creates an OutputStreamWriter that uses the named charset.
      *
      * @param  out
@@ -100,7 +100,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an OutputStreamWriter that uses the default character encoding.
      *
      * @param  out  An OutputStream
@@ -114,7 +114,7 @@ public class OutputStreamWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an OutputStreamWriter that uses the given charset. </p>
      *
      * @param  out
@@ -133,7 +133,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, cs);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an OutputStreamWriter that uses the given charset encoder.  </p>
      *
      * @param  out
@@ -152,7 +152,7 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, enc);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the character encoding being used by this stream.
      *
      * <p> If the encoding has an historical name then that name is returned;
@@ -176,7 +176,7 @@ public class OutputStreamWriter extends Writer {
         return se.getEncoding();
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the output buffer to the underlying byte stream, without flushing
      * the byte stream itself.  This method is non-private only so that it may
      * be invoked by PrintStream.
@@ -185,7 +185,7 @@ public class OutputStreamWriter extends Writer {
         se.flushBuffer();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a single character.
      *
      * @exception  IOException  If an I/O error occurs
@@ -194,7 +194,7 @@ public class OutputStreamWriter extends Writer {
         se.write(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of an array of characters.
      *
      * @param  cbuf  Buffer of characters
@@ -207,7 +207,7 @@ public class OutputStreamWriter extends Writer {
         se.write(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of a string.
      *
      * @param  str  A String
@@ -220,7 +220,7 @@ public class OutputStreamWriter extends Writer {
         se.write(str, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream.
      *
      * @exception  IOException  If an I/O error occurs

@@ -33,20 +33,20 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/**
+/** {@collect.stats}
  * An immutable descriptor.
  * @since 1.6
  */
 public class ImmutableDescriptor implements Descriptor {
     private static final long serialVersionUID = 8853308591080540165L;
 
-    /**
+    /** {@collect.stats}
      * The names of the fields in this ImmutableDescriptor with their
      * original case.  The names must be in alphabetical order as determined
      * by {@link String#CASE_INSENSITIVE_ORDER}.
      */
     private final String[] names;
-    /**
+    /** {@collect.stats}
      * The values of the fields in this ImmutableDescriptor.  The
      * elements in this array match the corresponding elements in the
      * {@code names} array.
@@ -55,13 +55,13 @@ public class ImmutableDescriptor implements Descriptor {
 
     private transient int hashCode = -1;
 
-    /**
+    /** {@collect.stats}
      * An empty descriptor.
      */
     public static final ImmutableDescriptor EMPTY_DESCRIPTOR =
             new ImmutableDescriptor();
 
-    /**
+    /** {@collect.stats}
      * Construct a descriptor containing the given fields and values.
      *
      * @throws IllegalArgumentException if either array is null, or
@@ -73,7 +73,7 @@ public class ImmutableDescriptor implements Descriptor {
         this(makeMap(fieldNames, fieldValues));
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a descriptor containing the given fields.  Each String
      * must be of the form {@code fieldName=fieldValue}.  The field name
      * ends at the first {@code =} character; for example if the String
@@ -89,7 +89,7 @@ public class ImmutableDescriptor implements Descriptor {
         this(makeMap(fields));
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Construct a descriptor where the names and values of the fields
      * are the keys and values of the given Map.</p>
      *
@@ -116,7 +116,7 @@ public class ImmutableDescriptor implements Descriptor {
         this.values = map.values().toArray(new Object[size]);
     }
 
-    /**
+    /** {@collect.stats}
      * This method can replace a deserialized instance of this
      * class with another instance.  For example, it might replace
      * a deserialized empty ImmutableDescriptor with
@@ -191,7 +191,7 @@ public class ImmutableDescriptor implements Descriptor {
         return makeMap(fieldNames, fieldValues);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return an {@code ImmutableDescriptor} whose contents are the union of
      * the given descriptors.  Every field name that appears in any of
      * the descriptors will appear in the result with the
@@ -338,7 +338,7 @@ public class ImmutableDescriptor implements Descriptor {
         return names.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this descriptor to the given object.  The objects are equal if
      * the given object is also a Descriptor, and if the two Descriptors have
      * the same field names (possibly differing in case) and the same
@@ -388,7 +388,7 @@ public class ImmutableDescriptor implements Descriptor {
         return Arrays.deepEquals(values, ovalues);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this descriptor.  The hash
      * code is computed as the sum of the hash codes for each field in
      * the descriptor.  The hash code of a field with name {@code n}
@@ -450,7 +450,7 @@ public class ImmutableDescriptor implements Descriptor {
         return sb.append("}").toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if all of the fields have legal values given their
      * names.  This method always returns true, but a subclass can
      * override it to return false when appropriate.
@@ -465,7 +465,7 @@ public class ImmutableDescriptor implements Descriptor {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a descriptor which is equal to this descriptor.
      * Changes to the returned descriptor will have no effect on this
      * descriptor, and vice versa.</p>
@@ -483,7 +483,7 @@ public class ImmutableDescriptor implements Descriptor {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * This operation is unsupported since this class is immutable.  If
      * this call would change a mutable descriptor with the same contents,
      * then a {@link RuntimeOperationsException} wrapping an
@@ -504,7 +504,7 @@ public class ImmutableDescriptor implements Descriptor {
             setField(fieldNames[i], fieldValues[i]);
     }
 
-    /**
+    /** {@collect.stats}
      * This operation is unsupported since this class is immutable.  If
      * this call would change a mutable descriptor with the same contents,
      * then a {@link RuntimeOperationsException} wrapping an
@@ -526,7 +526,7 @@ public class ImmutableDescriptor implements Descriptor {
             unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a field from the descriptor.
      *
      * @param fieldName String name of the field to be removed.

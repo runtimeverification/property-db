@@ -49,7 +49,7 @@ import java.awt.FontMetrics;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-/**
+/** {@collect.stats}
  * A Windows L&F implementation of LabelUI.  This implementation
  * is completely static, i.e. there's only one UIView implementation
  * that's shared by all JLabel objects.
@@ -58,7 +58,7 @@ import java.beans.PropertyChangeListener;
  */
 public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
 {
-   /**
+   /** {@collect.stats}
     * The default <code>BasicLabelUI</code> instance. This field might
     * not be used. To change the default instance use a subclass which
     * overrides the <code>createUI</code> method, and place that class
@@ -75,7 +75,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
         map.put(new Actions(Actions.RELEASE));
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the call to SwingUtilities.layoutCompoundLabel().
      * This method is here so that a subclass could do Label specific
      * layout and to shorten the method name a little.
@@ -106,7 +106,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
             label.getIconTextGap());
     }
 
-    /**
+    /** {@collect.stats}
      * Paint clippedText at textX, textY with the labels foreground color.
      *
      * @see #paint
@@ -121,7 +121,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
     }
 
 
-    /**
+    /** {@collect.stats}
      * Paint clippedText at textX, textY with background.lighter() and then
      * shifted down and to the right by one pixel with background.darker().
      *
@@ -140,7 +140,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
                                                    textX, textY);
     }
 
-    /**
+    /** {@collect.stats}
      * Paint the label text in the foreground color, if the label
      * is opaque then paint the entire background with the background
      * color.  The Label text is drawn by paintEnabledText() or
@@ -250,7 +250,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
     }
 
 
-    /**
+    /** {@collect.stats}
      * @return getPreferredSize(c)
      */
     public Dimension getMinimumSize(JComponent c) {
@@ -262,7 +262,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * @return getPreferredSize(c)
      */
     public Dimension getMaximumSize(JComponent c) {
@@ -274,7 +274,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -295,7 +295,7 @@ public class BasicLabelUI extends LabelUI implements  PropertyChangeListener
                                      paintTextR.width, paintTextR.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *

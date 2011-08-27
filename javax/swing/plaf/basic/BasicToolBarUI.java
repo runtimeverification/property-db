@@ -41,7 +41,7 @@ import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of ToolBarUI.  This implementation
  * is a "combined" view/controller.
  * <p>
@@ -87,7 +87,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
     private Hashtable rolloverTable = new Hashtable();
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -97,7 +97,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
      */
     @Deprecated
     protected KeyStroke upKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -107,7 +107,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
      */
     @Deprecated
     protected KeyStroke downKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -117,7 +117,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
      */
     @Deprecated
     protected KeyStroke leftKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -407,7 +407,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a rollover border for toolbar components. The
      * rollover border will be installed if rollover borders are
      * enabled.
@@ -430,7 +430,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
                                   new BasicBorders.RolloverMarginBorder());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the non rollover border for toolbar components. This
      * border will be installed as the border for components added
      * to the toolbar if rollover borders are not enabled.
@@ -453,7 +453,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
                                   new BasicBorders.RolloverMarginBorder());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a non rollover border for Toggle buttons in the toolbar.
      */
     private Border createNonRolloverToggleBorder() {
@@ -466,7 +466,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
                                   new BasicBorders.RolloverMarginBorder());
     }
 
-    /**
+    /** {@collect.stats}
      * No longer used, use BasicToolBarUI.createFloatingWindow(JToolBar)
      * @see #createFloatingWindow
      */
@@ -500,7 +500,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         return frame;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a window which contains the toolbar after it has been
      * dragged out from its container
      * @return a <code>RootPaneContainer</code> object, containing the toolbar.
@@ -571,7 +571,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         return dragWindow;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a flag to determine whether rollover button borders
      * are enabled.
      *
@@ -583,7 +583,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         return rolloverBorders;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the flag for enabling rollover borders on the toolbar and it will
      * also install the apropriate border depending on the state of the flag.
      *
@@ -602,7 +602,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs rollover borders on all the child components of the JComponent.
      * <p>
      * This is a convenience method to call <code>setBorderToRollover</code>
@@ -624,7 +624,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs non-rollover borders on all the child components of the JComponent.
      * A non-rollover border is the border that is installed on the child component
      * while it is in the toolbar.
@@ -648,7 +648,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs normal borders on all the child components of the JComponent.
      * A normal border is the original border that was installed on the child
      * component before it was added to the toolbar.
@@ -669,7 +669,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the border of the component to have a rollover border which
      * was created by <code>createRolloverBorder</code>.
      *
@@ -697,7 +697,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rollover border for the button.
      *
      * @param b the button to calculate the rollover border for
@@ -709,7 +709,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         return rolloverBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the border of the component to have a non-rollover border which
      * was created by <code>createNonRolloverBorder</code>.
      *
@@ -736,7 +736,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a non-rollover border for the button.
      *
      * @param b the button to calculate the non-rollover border for
@@ -752,7 +752,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the border of the component to have a normal border.
      * A normal border is the original border that was installed on the child
      * component before it was added to the toolbar.
@@ -870,28 +870,28 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
             dragWindow.setOrientation(orientation);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the color displayed when over a docking area
      */
     public Color getDockingColor() {
         return dockingColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the color displayed when over a docking area
      */
    public void setDockingColor(Color c) {
         this.dockingColor = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the color displayed when over a floating area
      */
     public Color getFloatingColor() {
         return floatingColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the color displayed when over a floating area
      */
     public void setFloatingColor(Color c) {
@@ -1067,7 +1067,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
         return new FrameListener();
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the contents of the window used for dragging.
      *
      * @param g Graphics to paint to.
@@ -1314,7 +1314,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
             }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicToolBarUI.
      */
@@ -1382,7 +1382,7 @@ public class BasicToolBarUI extends ToolBarUI implements SwingConstants
             super(w);
         }
 
-    /**
+    /** {@collect.stats}
      * Returns the orientation of the toolbar window when the toolbar is
      * floating. The orientation is either one of <code>JToolBar.HORIZONTAL</code>
      * or <code>JToolBar.VERTICAL</code>.

@@ -27,7 +27,7 @@ package javax.imageio.plugins.jpeg;
 
 import javax.imageio.ImageReadParam;
 
-/**
+/** {@collect.stats}
  * This class adds the ability to set JPEG quantization and Huffman
  * tables when using the built-in JPEG reader plug-in.  An instance of
  * this class will be returned from the
@@ -84,14 +84,14 @@ public class JPEGImageReadParam extends ImageReadParam {
     private JPEGHuffmanTable[] DCHuffmanTables = null;
     private JPEGHuffmanTable[] ACHuffmanTables = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JPEGImageReadParam</code>.
      */
     public JPEGImageReadParam() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if tables are currently set.
      *
      * @return <code>true</code> if tables are present.
@@ -100,7 +100,7 @@ public class JPEGImageReadParam extends ImageReadParam {
         return (qTables != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the quantization and Huffman tables to use in decoding
      * abbreviated streams.  There may be a maximum of 4 tables of
      * each type.  These tables are ignored once tables are
@@ -139,7 +139,7 @@ public class JPEGImageReadParam extends ImageReadParam {
         this.ACHuffmanTables = (JPEGHuffmanTable[])ACHuffmanTables.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any quantization and Huffman tables that are currently
      * set.
      *
@@ -151,7 +151,7 @@ public class JPEGImageReadParam extends ImageReadParam {
         this.ACHuffmanTables = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of quantization tables set on the
      * most recent call to <code>setDecodeTables</code>, or
      * <code>null</code> if tables are not currently set.
@@ -165,7 +165,7 @@ public class JPEGImageReadParam extends ImageReadParam {
         return (qTables != null) ? (JPEGQTable[])qTables.clone() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of DC Huffman tables set on the
      * most recent call to <code>setDecodeTables</code>, or
      * <code>null</code> if tables are not currently set.
@@ -181,7 +181,7 @@ public class JPEGImageReadParam extends ImageReadParam {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of AC Huffman tables set on the
      * most recent call to <code>setDecodeTables</code>, or
      * <code>null</code> if tables are not currently set.

@@ -31,7 +31,7 @@ import javax.swing.border.*;
 import javax.swing.plaf.UIResource;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * SynthBorder is a border that delegates to a Painter. The Insets
  * are determined at construction time.
  *
@@ -64,7 +64,7 @@ class SynthBorder extends AbstractBorder implements UIResource {
         context.dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns a new <code>Insets</code>
      * instance where the <code>top</code>, <code>left</code>,
      * <code>bottom</code>, and
@@ -76,7 +76,7 @@ class SynthBorder extends AbstractBorder implements UIResource {
         return getBorderInsets(c, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitializes the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -139,7 +139,7 @@ class SynthBorder extends AbstractBorder implements UIResource {
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns false.
      * @return false
      */

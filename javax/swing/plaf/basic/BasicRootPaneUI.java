@@ -37,7 +37,7 @@ import javax.swing.plaf.*;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * Basic implementation of RootPaneUI, there is one shared between all
  * JRootPane instances.
  *
@@ -130,7 +130,7 @@ public class BasicRootPaneUI extends RootPaneUI implements
         map.put(new Actions(Actions.POST_POPUP));
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the default button property has changed. This reloads
      * the bindings from the defaults table with name
      * <code>RootPane.defaultButtonWindowKeyBindings</code>.
@@ -153,7 +153,7 @@ public class BasicRootPaneUI extends RootPaneUI implements
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a property changes on the root pane. If the event
      * indicates the <code>defaultButton</code> has changed, this will
      * reinstall the keyboard actions.

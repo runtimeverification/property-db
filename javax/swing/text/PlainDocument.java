@@ -27,7 +27,7 @@ package javax.swing.text;
 import java.util.Vector;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * A plain document that maintains no character attributes.  The
  * default element structure for this document is a map of the lines in
  * the text.  The Element returned by getDefaultRootElement is
@@ -59,21 +59,21 @@ import javax.swing.event.*;
  */
 public class PlainDocument extends AbstractDocument {
 
-    /**
+    /** {@collect.stats}
      * Name of the attribute that specifies the tab
      * size for tabs contained in the content.  The
      * type for the value is Integer.
      */
     public static final String tabSizeAttribute = "tabSize";
 
-    /**
+    /** {@collect.stats}
      * Name of the attribute that specifies the maximum
      * length of a line, if there is a maximum length.
      * The type for the value is Integer.
      */
     public static final String lineLimitAttribute = "lineLimit";
 
-    /**
+    /** {@collect.stats}
      * Constructs a plain text document.  A default model using
      * <code>GapContent</code> is constructed and set.
      */
@@ -81,7 +81,7 @@ public class PlainDocument extends AbstractDocument {
         this(new GapContent());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a plain text document.  A default root element is created,
      * and the tab size set to 8.
      *
@@ -93,7 +93,7 @@ public class PlainDocument extends AbstractDocument {
         defaultRoot = createDefaultRoot();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts some content into the document.
      * Inserting content causes a write lock to be held while the
      * actual changes are taking place, followed by notification
@@ -131,7 +131,7 @@ public class PlainDocument extends AbstractDocument {
         super.insertString(offs, str, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the default root element for the document model.
      *
      * @return the root
@@ -141,7 +141,7 @@ public class PlainDocument extends AbstractDocument {
         return defaultRoot;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the root element to be used to represent the
      * default document structure.
      *
@@ -156,7 +156,7 @@ public class PlainDocument extends AbstractDocument {
         return map;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the paragraph element containing the given position.  Since this
      * document only models lines, it returns the line instead.
      */
@@ -165,7 +165,7 @@ public class PlainDocument extends AbstractDocument {
         return lineMap.getElement( lineMap.getElementIndex( pos ) );
     }
 
-    /**
+    /** {@collect.stats}
      * Updates document structure as a result of text insertion.  This
      * will happen within a write lock.  Since this document simply
      * maps out lines, we refresh the line map.
@@ -234,7 +234,7 @@ public class PlainDocument extends AbstractDocument {
         super.insertUpdate(chng, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates any document structure as a result of text removal.
      * This will happen within a write lock. Since the structure
      * represents a line map, this just checks to see if the

@@ -28,7 +28,7 @@ package javax.swing.event;
 import java.util.EventListener;
 import javax.swing.tree.ExpandVetoException;
 
-/**
+/** {@collect.stats}
   * The listener that's notified when a tree expands or collapses
   * a node.
   * For further information and examples see
@@ -39,12 +39,12 @@ import javax.swing.tree.ExpandVetoException;
   */
 
 public interface TreeWillExpandListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked whenever a node in the tree is about to be expanded.
      */
     public void treeWillExpand(TreeExpansionEvent event) throws ExpandVetoException;
 
-    /**
+    /** {@collect.stats}
      * Invoked whenever a node in the tree is about to be collapsed.
      */
     public void treeWillCollapse(TreeExpansionEvent event) throws ExpandVetoException;

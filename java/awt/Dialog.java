@@ -40,7 +40,7 @@ import sun.awt.util.IdentityArrayList;
 import sun.awt.util.IdentityLinkedList;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * A Dialog is a top-level window with a title and a border
  * that is typically used to take some form of input from the user.
  *
@@ -103,7 +103,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A dialog's resizable property. Will be true
      * if the Dialog is to be resizable, otherwise
      * it will be false.
@@ -114,7 +114,7 @@ public class Dialog extends Window {
     boolean resizable = true;
 
 
-    /**
+    /** {@collect.stats}
      * This field indicates whether the dialog is undecorated.
      * This property can only be changed while the dialog is not displayable.
      * <code>undecorated</code> will be true if the dialog is
@@ -128,7 +128,7 @@ public class Dialog extends Window {
      */
     boolean undecorated = false;
 
-    /**
+    /** {@collect.stats}
      * Modal dialogs block all input to some top-level windows.
      * Whether a particular window is blocked depends on dialog's type
      * of modality; this is called the "scope of blocking". The
@@ -142,11 +142,11 @@ public class Dialog extends Window {
      * @since 1.6
      */
     public static enum ModalityType {
-        /**
+        /** {@collect.stats}
          * <code>MODELESS</code> dialog doesn't block any top-level windows.
          */
         MODELESS,
-        /**
+        /** {@collect.stats}
          * A <code>DOCUMENT_MODAL</code> dialog blocks input to all top-level windows
          * from the same document except those from its own child hierarchy.
          * A document is a top-level window without an owner. It may contain child
@@ -155,7 +155,7 @@ public class Dialog extends Window {
          * document, its root can be found as the top-nearest window without an owner.
          */
         DOCUMENT_MODAL,
-        /**
+        /** {@collect.stats}
          * An <code>APPLICATION_MODAL</code> dialog blocks all top-level windows
          * from the same Java application except those from its own child hierarchy.
          * If there are several applets launched in a browser, they can be
@@ -163,7 +163,7 @@ public class Dialog extends Window {
          * is implementation-dependent.
          */
         APPLICATION_MODAL,
-        /**
+        /** {@collect.stats}
          * A <code>TOOLKIT_MODAL</code> dialog blocks all top-level windows run
          * from the same toolkit except those from its own child hierarchy. If there
          * are several applets launched in a browser, all of them run with the same
@@ -181,7 +181,7 @@ public class Dialog extends Window {
         TOOLKIT_MODAL
     };
 
-    /**
+    /** {@collect.stats}
      * Default modality type for modal dialogs. The default modality type is
      * <code>APPLICATION_MODAL</code>. Calling the oldstyle <code>setModal(true)</code>
      * is equal to <code>setModalityType(DEFAULT_MODALITY_TYPE)</code>.
@@ -193,7 +193,7 @@ public class Dialog extends Window {
      */
     public final static ModalityType DEFAULT_MODALITY_TYPE = ModalityType.APPLICATION_MODAL;
 
-    /**
+    /** {@collect.stats}
      * True if this dialog is modal, false is the dialog is modeless.
      * A modal dialog blocks user input to some application top-level
      * windows. This field is kept only for backwards compatibility. Use the
@@ -211,7 +211,7 @@ public class Dialog extends Window {
      */
     boolean modal;
 
-    /**
+    /** {@collect.stats}
      * Modality type of this dialog. If the dialog's modality type is not
      * {@link Dialog.ModalityType#MODELESS ModalityType.MODELESS}, it blocks all
      * user input to some application top-level windows.
@@ -226,7 +226,7 @@ public class Dialog extends Window {
      */
     ModalityType modalityType;
 
-    /**
+    /** {@collect.stats}
      * Any top-level window can be marked not to be blocked by modal
      * dialogs. This is called "modal exclusion". This enum specifies
      * the possible modal exclusion types.
@@ -238,17 +238,17 @@ public class Dialog extends Window {
      * @since 1.6
      */
     public static enum ModalExclusionType {
-        /**
+        /** {@collect.stats}
          * No modal exclusion.
          */
         NO_EXCLUDE,
-        /**
+        /** {@collect.stats}
          * <code>APPLICATION_EXCLUDE</code> indicates that a top-level window
          * won't be blocked by any application-modal dialogs. Also, it isn't
          * blocked by document-modal dialogs from outside of its child hierarchy.
          */
         APPLICATION_EXCLUDE,
-        /**
+        /** {@collect.stats}
          * <code>TOOLKIT_EXCLUDE</code> indicates that a top-level window
          * won't be blocked by  application-modal or toolkit-modal dialogs. Also,
          * it isn't blocked by document-modal dialogs from outside of its
@@ -262,7 +262,7 @@ public class Dialog extends Window {
         TOOLKIT_EXCLUDE
     };
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     private final static ModalExclusionType DEFAULT_MODAL_EXCLUSION_TYPE =
@@ -273,7 +273,7 @@ public class Dialog extends Window {
 
     transient IdentityArrayList<Window> blockedWindows = new IdentityArrayList<Window>();
 
-    /**
+    /** {@collect.stats}
      * Specifies the title of the Dialog.
      * This field can be null.
      *
@@ -318,7 +318,7 @@ public class Dialog extends Window {
      */
     private static final long serialVersionUID = 5920926903803293709L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code> with
      * the specified owner <code>Frame</code> and an empty title.
      *
@@ -337,7 +337,7 @@ public class Dialog extends Window {
          this(owner, "", false);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the specified
      * owner <code>Frame</code> and modality and an empty title.
      *
@@ -363,7 +363,7 @@ public class Dialog extends Window {
          this(owner, "", modal);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code> with
      * the specified owner <code>Frame</code> and title.
      *
@@ -384,7 +384,7 @@ public class Dialog extends Window {
          this(owner, title, false);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Frame</code>, title and modality.
      *
@@ -414,7 +414,7 @@ public class Dialog extends Window {
          this(owner, title, modal ? DEFAULT_MODALITY_TYPE : ModalityType.MODELESS);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the specified owner
      * <code>Frame</code>, title, modality, and <code>GraphicsConfiguration</code>.
      * @param owner the owner of the dialog or <code>null</code> if this dialog
@@ -448,7 +448,7 @@ public class Dialog extends Window {
          this(owner, title, modal ? DEFAULT_MODALITY_TYPE : ModalityType.MODELESS, gc);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code> with
      * the specified owner <code>Dialog</code> and an empty title.
      *
@@ -465,7 +465,7 @@ public class Dialog extends Window {
          this(owner, "", false);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code>
      * with the specified owner <code>Dialog</code> and title.
      *
@@ -485,7 +485,7 @@ public class Dialog extends Window {
          this(owner, title, false);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Dialog</code>, title, and modality.
      *
@@ -515,7 +515,7 @@ public class Dialog extends Window {
          this(owner, title, modal ? DEFAULT_MODALITY_TYPE : ModalityType.MODELESS);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Dialog</code>, title, modality and
      * <code>GraphicsConfiguration</code>.
@@ -552,7 +552,7 @@ public class Dialog extends Window {
          this(owner, title, modal ? DEFAULT_MODALITY_TYPE : ModalityType.MODELESS, gc);
      }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code> with the
      * specified owner <code>Window</code> and an empty title.
      *
@@ -576,7 +576,7 @@ public class Dialog extends Window {
         this(owner, null, ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible, modeless <code>Dialog</code> with
      * the specified owner <code>Window</code> and title.
      *
@@ -602,7 +602,7 @@ public class Dialog extends Window {
         this(owner, title, ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Window</code> and modality and an empty title.
      *
@@ -635,7 +635,7 @@ public class Dialog extends Window {
         this(owner, null, modalityType);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Window</code>, title and modality.
      *
@@ -681,7 +681,7 @@ public class Dialog extends Window {
         SunToolkit.checkAndSetPolicy(this, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initially invisible <code>Dialog</code> with the
      * specified owner <code>Window</code>, title, modality and
      * <code>GraphicsConfiguration</code>.
@@ -732,7 +732,7 @@ public class Dialog extends Window {
         SunToolkit.checkAndSetPolicy(this, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -742,7 +742,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes this Dialog displayable by connecting it to
      * a native screen resource.  Making a dialog displayable will
      * cause any of its children to be made displayable.
@@ -764,7 +764,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the dialog is modal.
      * <p>
      * This method is obsolete and is kept for backwards compatiblity only.
@@ -786,7 +786,7 @@ public class Dialog extends Window {
         return modalityType != ModalityType.MODELESS;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies whether this dialog should be modal.
      * <p>
      * This method is obsolete and is kept for backwards compatibility only.
@@ -814,7 +814,7 @@ public class Dialog extends Window {
         setModalityType(modal ? DEFAULT_MODALITY_TYPE : ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the modality type of this dialog.
      *
      * @return modality type of this dialog
@@ -827,7 +827,7 @@ public class Dialog extends Window {
         return modalityType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the modality type for this dialog. See {@link
      * java.awt.Dialog.ModalityType ModalityType} for possible modality types.
      * <p>
@@ -869,7 +869,7 @@ public class Dialog extends Window {
         modal = (modalityType != ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the title of the dialog. The title is displayed in the
      * dialog's border.
      * @return    the title of this dialog window. The title may be
@@ -880,7 +880,7 @@ public class Dialog extends Window {
         return title;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the title of the Dialog.
      * @param title the title displayed in the dialog's border;
          * a null value results in an empty title
@@ -899,7 +899,7 @@ public class Dialog extends Window {
         firePropertyChange("title", oldTitle, title);
     }
 
-    /**
+    /** {@collect.stats}
      * @return true if we actually showed, false if we just called toFront()
      */
     private boolean conditionalShow(Component toFocus, AtomicLong time) {
@@ -978,7 +978,7 @@ public class Dialog extends Window {
         return retval;
     }
 
-    /**
+    /** {@collect.stats}
      * Shows or hides this {@code Dialog} depending on the value of parameter
      * {@code b}.
      * @param b if {@code true}, makes the {@code Dialog} visible,
@@ -1011,13 +1011,13 @@ public class Dialog extends Window {
         super.setVisible(b);
     }
 
-    /**
+    /** {@collect.stats}
     * Stores the app context on which event dispatch thread the dialog
     * is being shown. Initialized in show(), used in hideAndDisposeHandler()
     */
     transient private AppContext showAppContext;
 
-   /**
+   /** {@collect.stats}
      * Makes the {@code Dialog} visible. If the dialog and/or its owner
      * are not yet displayable, both are made displayable.  The
      * dialog will be validated prior to being made visible.
@@ -1241,7 +1241,7 @@ public class Dialog extends Window {
         isInHide = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Hides the Dialog and then causes {@code show} to return if it is currently
      * blocked.
      * @see Window#show
@@ -1262,7 +1262,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Disposes the Dialog and then causes show() to return if it is currently
      * blocked.
      */
@@ -1275,7 +1275,7 @@ public class Dialog extends Window {
         isInDispose = false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * <p>
      * If this dialog is modal and blocks some windows, then all of them are
@@ -1294,7 +1294,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this dialog is resizable by the user.
      * By default, all dialogs are initially resizable.
      * @return    <code>true</code> if the user can resize the dialog;
@@ -1305,7 +1305,7 @@ public class Dialog extends Window {
         return resizable;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether this dialog is resizable by the user.
      * @param     resizable <code>true</code> if the user can
      *                 resize this dialog; <code>false</code> otherwise.
@@ -1333,7 +1333,7 @@ public class Dialog extends Window {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Disables or enables decorations for this dialog.
      * This method can only be called while the dialog is not displayable.
      * @param  undecorated <code>true</code> if no dialog decorations are
@@ -1355,7 +1355,7 @@ public class Dialog extends Window {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this dialog is undecorated.
      * By default, all dialogs are initially decorated.
      * @return    <code>true</code> if dialog is undecorated;
@@ -1367,7 +1367,7 @@ public class Dialog extends Window {
         return undecorated;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this dialog. This
      * method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -1384,7 +1384,7 @@ public class Dialog extends Window {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -1633,7 +1633,7 @@ public class Dialog extends Window {
      *
      */
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this Dialog.
      * For dialogs, the AccessibleContext takes the form of an
      * AccessibleAWTDialog.
@@ -1650,7 +1650,7 @@ public class Dialog extends Window {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Dialog</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to dialog user-interface elements.
@@ -1663,7 +1663,7 @@ public class Dialog extends Window {
          */
         private static final long serialVersionUID = 4837230331833941201L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1674,7 +1674,7 @@ public class Dialog extends Window {
             return AccessibleRole.DIALOG;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current

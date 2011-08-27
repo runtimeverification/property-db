@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This class represents the address of a communications end-point.
   * It consists of a type that describes the communication mechanism
   * and an address contents determined by an RefAddr subclass.
@@ -56,13 +56,13 @@ package javax.naming;
   */
 
 public abstract class RefAddr implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Contains the type of this address.
      * @serial
      */
     protected String addrType;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of RefAddr using its address type.
       *
       * @param addrType A non-null string describing the type of the address.
@@ -71,7 +71,7 @@ public abstract class RefAddr implements java.io.Serializable {
         this.addrType = addrType;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the address type of this address.
       *
       * @return The non-null address type of this address.
@@ -80,14 +80,14 @@ public abstract class RefAddr implements java.io.Serializable {
         return addrType;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the contents of this address.
       *
       * @return The possibly null address contents.
       */
     public abstract Object getContent();
 
-    /**
+    /** {@collect.stats}
       * Determines whether obj is equal to this RefAddr.
       *<p>
       * obj is equal to this RefAddr all of these conditions are true
@@ -117,7 +117,7 @@ public abstract class RefAddr implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
       * Computes the hash code of this address using its address type and contents.
       * The hash code is the sum of the hash code of the address type and
       * the hash code of the address contents.
@@ -131,7 +131,7 @@ public abstract class RefAddr implements java.io.Serializable {
                 : addrType.hashCode() + getContent().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this address.
       * The string consists of the address's type and contents with labels.
       * This representation is intended for display only and not to be parsed.
@@ -144,7 +144,7 @@ public abstract class RefAddr implements java.io.Serializable {
         return (str.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -1468165120479154358L;

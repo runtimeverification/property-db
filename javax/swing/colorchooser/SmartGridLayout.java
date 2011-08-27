@@ -33,7 +33,7 @@ import javax.swing.text.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
   * A better GridLayout class
   *
   * @author Steve Wilson

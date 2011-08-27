@@ -26,14 +26,14 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Should be implemented by an object that wants to receive notifications.
  *
  * @since 1.5
  */
 public interface NotificationListener extends java.util.EventListener   {
 
-    /**
+    /** {@collect.stats}
     * Invoked when a JMX notification occurs.
     * The implementation of this method should return as soon as possible, to avoid
     * blocking its notification broadcaster.

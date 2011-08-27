@@ -35,7 +35,7 @@ import javax.xml.crypto.XMLStructure;
 import javax.xml.crypto.dsig.Transform;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>RetrievalMethod</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -73,7 +73,7 @@ import java.util.List;
  */
 public interface RetrievalMethod extends URIReference, XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of {@link Transform}s of this <code>RetrievalMethod</code>.
      *
@@ -82,7 +82,7 @@ public interface RetrievalMethod extends URIReference, XMLStructure {
      */
     List getTransforms();
 
-    /**
+    /** {@collect.stats}
      * Returns the URI of the referenced <code>KeyInfo</code> information.
      *
      * @return the URI of the referenced <code>KeyInfo</code> information in
@@ -90,7 +90,7 @@ public interface RetrievalMethod extends URIReference, XMLStructure {
      */
     String getURI();
 
-   /**
+   /** {@collect.stats}
     * Dereferences the <code>KeyInfo</code> information referenced by this
     * <code>RetrievalMethod</code> and applies the specified
     * <code>Transform</code>s.

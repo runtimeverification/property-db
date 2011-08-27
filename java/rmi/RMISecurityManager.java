@@ -27,7 +27,7 @@ package java.rmi;
 
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * A subclass of {@link SecurityManager} used by RMI applications that use
  * downloaded code.  RMI's class loader will not download any classes from
  * remote locations if no security manager has been set.
@@ -55,7 +55,7 @@ import java.security.*;
  **/
 public class RMISecurityManager extends SecurityManager {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>RMISecurityManager</code>.
      * @since JDK1.1
      */

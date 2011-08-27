@@ -36,7 +36,7 @@ import javax.swing.plaf.basic.*;
 import java.awt.*;
 
 
-/**
+/** {@collect.stats}
  * A Windows L&F implementation of LabelUI.  This implementation
  * is completely static, i.e. there's only one UIView implementation
  * that's shared by all JLabel objects.
@@ -46,7 +46,7 @@ import java.awt.*;
 
 public class MetalLabelUI extends BasicLabelUI
 {
-   /**
+   /** {@collect.stats}
     * The default <code>MetalLabelUI</code> instance. This field might
     * not be used. To change the default instance use a subclass which
     * overrides the <code>createUI</code> method, and place that class
@@ -70,7 +70,7 @@ public class MetalLabelUI extends BasicLabelUI
         return metalLabelUI;
     }
 
-    /**
+    /** {@collect.stats}
      * Just paint the text gray (Label.disabledForeground) rather than
      * in the labels foreground color.
      *

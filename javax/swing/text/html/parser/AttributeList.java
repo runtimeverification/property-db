@@ -30,7 +30,7 @@ import java.util.Hashtable;
 import java.util.Enumeration;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * This class defines the attributes of an SGML element
  * as described in a DTD using the ATTLIST construct.
  * An AttributeList can be obtained from the Element
@@ -56,14 +56,14 @@ class AttributeList implements DTDConstants, Serializable {
     AttributeList() {
     }
 
-    /**
+    /** {@collect.stats}
      * Create an attribute list element.
      */
     public AttributeList(String name) {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Create an attribute list element.
      */
     public AttributeList(String name, int type, int modifier, String value, Vector<?> values, AttributeList next) {
@@ -75,14 +75,14 @@ class AttributeList implements DTDConstants, Serializable {
         this.next = next;
     }
 
-    /**
+    /** {@collect.stats}
      * @return attribute name
      */
     public String getName() {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * @return attribute type
      * @see DTDConstants
      */
@@ -90,7 +90,7 @@ class AttributeList implements DTDConstants, Serializable {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * @return attribute modifier
      * @see DTDConstants
      */
@@ -98,35 +98,35 @@ class AttributeList implements DTDConstants, Serializable {
         return modifier;
     }
 
-    /**
+    /** {@collect.stats}
      * @return possible attribute values
      */
     public Enumeration<?> getValues() {
         return (values != null) ? values.elements() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * @return default attribute value
      */
     public String getValue() {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * @return the next attribute in the list
      */
     public AttributeList getNext() {
         return next;
     }
 
-    /**
+    /** {@collect.stats}
      * @return string representation
      */
     public String toString() {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a hashtable of attribute types.
      */
     static Hashtable attributeTypes = new Hashtable();

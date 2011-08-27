@@ -38,7 +38,7 @@
 
 package java.text;
 
-/**
+/** {@collect.stats}
  * <code>FieldPosition</code> is a simple class used by <code>Format</code>
  * and its subclasses to identify fields in formatted output. Fields can
  * be identified in two ways:
@@ -72,30 +72,30 @@ package java.text;
  */
 public class FieldPosition {
 
-    /**
+    /** {@collect.stats}
      * Input: Desired field to determine start and end offsets for.
      * The meaning depends on the subclass of Format.
      */
     int field = 0;
 
-    /**
+    /** {@collect.stats}
      * Output: End offset of field in text.
      * If the field does not occur in the text, 0 is returned.
      */
     int endIndex = 0;
 
-    /**
+    /** {@collect.stats}
      * Output: Start offset of field in text.
      * If the field does not occur in the text, 0 is returned.
      */
     int beginIndex = 0;
 
-    /**
+    /** {@collect.stats}
      * Desired field this FieldPosition is for.
      */
     private Format.Field attribute;
 
-    /**
+    /** {@collect.stats}
      * Creates a FieldPosition object for the given field.  Fields are
      * identified by constants, whose names typically end with _FIELD,
      * in the various subclasses of Format.
@@ -109,7 +109,7 @@ public class FieldPosition {
         this.field = field;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a FieldPosition object for the given field constant. Fields are
      * identified by constants defined in the various <code>Format</code>
      * subclasses. This is equivalent to calling
@@ -122,7 +122,7 @@ public class FieldPosition {
         this(attribute, -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>FieldPosition</code> object for the given field.
      * The field is identified by an attribute constant from one of the
      * <code>Field</code> subclasses as well as an integer field ID
@@ -143,7 +143,7 @@ public class FieldPosition {
         this.field = fieldID;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the field identifier as an attribute constant
      * from one of the <code>Field</code> subclasses. May return null if
      * the field is specified only by an integer field ID.
@@ -155,21 +155,21 @@ public class FieldPosition {
         return attribute;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the field identifier.
      */
     public int getField() {
         return field;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the index of the first character in the requested field.
      */
     public int getBeginIndex() {
         return beginIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the index of the character following the last character in the
      * requested field.
      */
@@ -177,7 +177,7 @@ public class FieldPosition {
         return endIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the begin index.  For use by subclasses of Format.
      * @since 1.2
      */
@@ -185,7 +185,7 @@ public class FieldPosition {
         beginIndex = bi;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the end index.  For use by subclasses of Format.
      * @since 1.2
      */
@@ -193,7 +193,7 @@ public class FieldPosition {
         endIndex = ei;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Format.FieldDelegate</code> instance that is associated
      * with the FieldPosition. When the delegate is notified of the same
      * field the FieldPosition is associated with, the begin/end will be
@@ -203,7 +203,7 @@ public class FieldPosition {
         return new Delegate();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides equals
      */
     public boolean equals(Object obj)
@@ -225,7 +225,7 @@ public class FieldPosition {
             && field == other.field);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this FieldPosition.
      * @return a hash code value for this object
      */
@@ -233,7 +233,7 @@ public class FieldPosition {
         return (field << 24) | (beginIndex << 16) | endIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a string representation of this FieldPosition.
      * @return  a string representation of this object
      */
@@ -245,7 +245,7 @@ public class FieldPosition {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return true if the receiver wants a <code>Format.Field</code> value and
      * <code>attribute</code> is equal to it.
      */
@@ -256,7 +256,7 @@ public class FieldPosition {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the receiver wants a <code>Format.Field</code> value and
      * <code>attribute</code> is equal to it, or true if the receiver
      * represents an inteter constant and <code>field</code> equals it.
@@ -269,13 +269,13 @@ public class FieldPosition {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An implementation of FieldDelegate that will adjust the begin/end
      * of the FieldPosition if the arguments match the field of
      * the FieldPosition.
      */
     private class Delegate implements Format.FieldDelegate {
-        /**
+        /** {@collect.stats}
          * Indicates whether the field has been  encountered before. If this
          * is true, and <code>formatted</code> is invoked, the begin/end
          * are not updated.

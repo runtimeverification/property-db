@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * The specified MBean does not exist in the repository.
  *
  * @since 1.5
@@ -36,14 +36,14 @@ public class InstanceNotFoundException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = -882579438394773049L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public InstanceNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

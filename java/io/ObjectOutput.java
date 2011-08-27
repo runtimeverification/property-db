@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * ObjectOutput extends the DataOutput interface to include writing of objects.
  * DataOutput includes methods for output of primitive types, ObjectOutput
  * extends that interface to include objects, arrays, and Strings.
@@ -37,7 +37,7 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectOutput extends DataOutput {
-    /**
+    /** {@collect.stats}
      * Write an object to the underlying storage or stream.  The
      * class that implements this interface defines how the object is
      * written.
@@ -48,7 +48,7 @@ public interface ObjectOutput extends DataOutput {
     public void writeObject(Object obj)
       throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a byte. This method will block until the byte is actually
      * written.
      * @param b the byte
@@ -56,7 +56,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes an array of bytes. This method will block until the bytes
      * are actually written.
      * @param b the data to be written
@@ -64,7 +64,7 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sub array of bytes.
      * @param b the data to be written
      * @param off       the start offset in the data
@@ -73,14 +73,14 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream. This will write any buffered
      * output bytes.
      * @exception IOException If an I/O error has occurred.
      */
     public void flush() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Closes the stream. This method must be called
      * to release any resources associated with the
      * stream.

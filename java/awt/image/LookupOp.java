@@ -33,7 +33,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.Point2D;
 import sun.awt.image.ImagingLib;
 
-/**
+/** {@collect.stats}
  * This class implements a lookup operation from the source
  * to the destination.  The LookupTable object may contain a single array
  * or multiple arrays, subject to the restrictions below.
@@ -79,7 +79,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
     private int numComponents;
     RenderingHints hints;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>LookupOp</code> object given the lookup
      * table and a <code>RenderingHints</code> object, which might
      * be <code>null</code>.
@@ -93,7 +93,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         numComponents = ltable.getNumComponents();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>LookupTable</code>.
      * @return the <code>LookupTable</code> of this
      *         <code>LookupOp</code>.
@@ -102,7 +102,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return ltable;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a lookup operation on a <code>BufferedImage</code>.
      * If the color model in the source image is not the same as that
      * in the destination image, the pixels will be converted
@@ -230,7 +230,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return origDst;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a lookup operation on a <code>Raster</code>.
      * If the destination <code>Raster</code> is <code>null</code>,
      * a new <code>Raster</code> will be created.
@@ -325,7 +325,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return dst;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination image.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -336,7 +336,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return getBounds2D(src.getRaster());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination Raster.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -348,7 +348,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination image with the correct size and number of
      * bands.  If destCM is <code>null</code>, an appropriate
      * <code>ColorModel</code> will be used.
@@ -431,7 +431,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed-destination <code>Raster</code> with the
      * correct size and number of bands, given this source.
      * @param src the <code>Raster</code> to be transformed
@@ -441,7 +441,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return src.createCompatibleWritableRaster();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the destination point given a
      * point in the source.  If <code>dstPt</code> is not
      * <code>null</code>, it will be used to hold the return value.
@@ -463,7 +463,7 @@ public class LookupOp implements BufferedImageOp, RasterOp {
         return dstPt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints for this op.
      * @return the <code>RenderingHints</code> object associated
      *         with this op.

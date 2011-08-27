@@ -32,7 +32,7 @@ import javax.swing.border.*;
 import javax.swing.plaf.*;
 import javax.swing.text.View;
 
-/**
+/** {@collect.stats}
  * Synth's RadioButtonUI.
  *
  * @author Jeff Dinkins
@@ -50,7 +50,7 @@ class SynthRadioButtonUI extends SynthToggleButtonUI {
         return "RadioButton.";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Icon used in calculating the pref/min/max size.
      */
     protected Icon getSizingIcon(AbstractButton b) {

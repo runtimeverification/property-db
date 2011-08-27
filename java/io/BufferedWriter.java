@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Writes text to a character-output stream, buffering characters so as to
  * provide for the efficient writing of single characters, arrays, and strings.
  *
@@ -71,13 +71,13 @@ public class BufferedWriter extends Writer {
 
     private static int defaultCharBufferSize = 8192;
 
-    /**
+    /** {@collect.stats}
      * Line separator string.  This is the value of the line.separator
      * property at the moment that the stream was created.
      */
     private String lineSeparator;
 
-    /**
+    /** {@collect.stats}
      * Creates a buffered character-output stream that uses a default-sized
      * output buffer.
      *
@@ -87,7 +87,7 @@ public class BufferedWriter extends Writer {
         this(out, defaultCharBufferSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new buffered character-output stream that uses an output
      * buffer of the given size.
      *
@@ -109,13 +109,13 @@ public class BufferedWriter extends Writer {
             new sun.security.action.GetPropertyAction("line.separator"));
     }
 
-    /** Checks to make sure that the stream has not been closed */
+    /** {@collect.stats} Checks to make sure that the stream has not been closed */
     private void ensureOpen() throws IOException {
         if (out == null)
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the output buffer to the underlying character stream, without
      * flushing the stream itself.  This method is non-private only so that it
      * may be invoked by PrintStream.
@@ -130,7 +130,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a single character.
      *
      * @exception  IOException  If an I/O error occurs
@@ -144,7 +144,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Our own little min method, to avoid loading java.lang.Math if we've run
      * out of file descriptors and we're trying to print a stack trace.
      */
@@ -153,7 +153,7 @@ public class BufferedWriter extends Writer {
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of an array of characters.
      *
      * <p> Ordinarily this method stores characters from the given array into
@@ -200,7 +200,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of a String.
      *
      * <p> If the value of the <tt>len</tt> parameter is negative then no
@@ -231,7 +231,7 @@ public class BufferedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a line separator.  The line separator string is defined by the
      * system property <tt>line.separator</tt>, and is not necessarily a single
      * newline ('\n') character.
@@ -242,7 +242,7 @@ public class BufferedWriter extends Writer {
         write(lineSeparator);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream.
      *
      * @exception  IOException  If an I/O error occurs

@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * Signals that an error occurred while attempting to connect a
  * socket to a remote address and port.  Typically, the remote
  * host cannot be reached because of an intervening firewall, or
@@ -34,7 +34,7 @@ package java.net;
  * @since   JDK1.1
  */
 public class NoRouteToHostException extends SocketException {
-    /**
+    /** {@collect.stats}
      * Constructs a new NoRouteToHostException with the specified detail
      * message as to why the remote host cannot be reached.
      * A detail message is a String that gives a specific
@@ -45,7 +45,7 @@ public class NoRouteToHostException extends SocketException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new NoRouteToHostException with no detailed message.
      */
     public NoRouteToHostException() {}

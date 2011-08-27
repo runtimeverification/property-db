@@ -33,7 +33,7 @@ import java.security.*;
 
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * <code>SSLSocketFactory</code>s create <code>SSLSocket</code>s.
  *
  * @since 1.4
@@ -60,13 +60,13 @@ public abstract class SSLSocketFactory extends SocketFactory
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor is used only by subclasses.
      */
     public SSLSocketFactory() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default SSL socket factory.
      *
      * <p>The first time this method is called, the security property
@@ -137,7 +137,7 @@ public abstract class SSLSocketFactory extends SocketFactory
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of cipher suites which are enabled by default.
      * Unless a different list is enabled, handshaking on an SSL connection
      * will use one of these cipher suites.  The minimum quality of service
@@ -149,7 +149,7 @@ public abstract class SSLSocketFactory extends SocketFactory
      */
     public abstract String [] getDefaultCipherSuites();
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the cipher suites which could be enabled for use
      * on an SSL connection.  Normally, only a subset of these will actually
      * be enabled by default, since this list may include cipher suites which
@@ -161,7 +161,7 @@ public abstract class SSLSocketFactory extends SocketFactory
      */
     public abstract String [] getSupportedCipherSuites();
 
-    /**
+    /** {@collect.stats}
      * Returns a socket layered over an existing socket connected to the named
      * host, at the given port.  This constructor can be used when tunneling SSL
      * through a proxy or when negotiating the use of SSL over an existing

@@ -29,7 +29,7 @@ import java.io.IOException;
 import com.sun.jndi.ldap.Ber;
 import com.sun.jndi.ldap.BerEncoder;
 
-/**
+/** {@collect.stats}
  * Requests that the results of a search operation be returned by the LDAP
  * server in batches of a specified size.
  * The requestor controls the rate at which batches are returned by the rate
@@ -112,7 +112,7 @@ import com.sun.jndi.ldap.BerEncoder;
  */
 final public class PagedResultsControl extends BasicControl {
 
-    /**
+    /** {@collect.stats}
      * The paged-results control's assigned object identifier
      * is 1.2.840.113556.1.4.319.
      */
@@ -122,7 +122,7 @@ final public class PagedResultsControl extends BasicControl {
 
     private static final long serialVersionUID = 6684806685736844298L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to set the number of entries to be returned per
      * page of results.
      *
@@ -142,7 +142,7 @@ final public class PagedResultsControl extends BasicControl {
         value = setEncodedValue(pageSize, EMPTY_COOKIE);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to set the number of entries to be returned per
      * page of results. The cookie is provided by the server and may be
      * obtained from the paged-results response control.

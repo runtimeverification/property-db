@@ -29,7 +29,7 @@ package javax.xml.crypto;
 
 import java.util.Iterator;
 
-/**
+/** {@collect.stats}
  * An abstract representation of a <code>Data</code> type containing a
  * node-set. The type (class) and ordering of the nodes contained in the set
  * are not defined by this class; instead that behavior should be
@@ -41,7 +41,7 @@ import java.util.Iterator;
  */
 public interface NodeSetData extends Data {
 
-    /**
+    /** {@collect.stats}
      * Returns a read-only iterator over the nodes contained in this
      * <code>NodeSetData</code> in
      * <a href="http://www.w3.org/TR/1999/REC-xpath-19991116#dt-document-order">

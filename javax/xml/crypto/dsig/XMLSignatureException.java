@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-/**
+/** {@collect.stats}
  * Indicates an exceptional condition that occured during the XML
  * signature generation or validation process.
  *
@@ -43,7 +43,7 @@ public class XMLSignatureException extends Exception {
 
     private static final long serialVersionUID = -3438102491013869995L;
 
-    /**
+    /** {@collect.stats}
      * The throwable that caused this exception to get thrown, or null if this
      * exception was not caused by another throwable or if the causative
      * throwable is unknown.
@@ -52,7 +52,7 @@ public class XMLSignatureException extends Exception {
      */
     private Throwable cause;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>XMLSignatureException</code> with
      * <code>null</code> as its detail message.
      */
@@ -60,7 +60,7 @@ public class XMLSignatureException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>XMLSignatureException</code> with the specified
      * detail message.
      *
@@ -70,7 +70,7 @@ public class XMLSignatureException extends Exception {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>XMLSignatureException</code> with the
      * specified detail message and cause.
      * <p>Note that the detail message associated with
@@ -86,7 +86,7 @@ public class XMLSignatureException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>XMLSignatureException</code> with the specified
      * cause and a detail message of
      * <code>(cause==null ? null : cause.toString())</code>
@@ -101,7 +101,7 @@ public class XMLSignatureException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this <code>XMLSignatureException</code> or
      * <code>null</code> if the cause is nonexistent or unknown.  (The
      * cause is the throwable that caused this
@@ -114,7 +114,7 @@ public class XMLSignatureException extends Exception {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>XMLSignatureException</code>, its backtrace and
      * the cause's backtrace to the standard error stream.
      */
@@ -125,7 +125,7 @@ public class XMLSignatureException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>XMLSignatureException</code>, its backtrace and
      * the cause's backtrace to the specified print stream.
      *
@@ -138,7 +138,7 @@ public class XMLSignatureException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>XMLSignatureException</code>, its backtrace and
      * the cause's backtrace to the specified print writer.
      *

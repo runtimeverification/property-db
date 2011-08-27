@@ -41,7 +41,7 @@ import javax.swing.border.*;
 
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * The default model for combo boxes.
  *
  * @author Arnaud Weber
@@ -52,14 +52,14 @@ public class DefaultComboBoxModel extends AbstractListModel implements MutableCo
     Vector objects;
     Object selectedObject;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty DefaultComboBoxModel object.
      */
     public DefaultComboBoxModel() {
         objects = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a DefaultComboBoxModel object initialized with
      * an array of objects.
      *
@@ -78,7 +78,7 @@ public class DefaultComboBoxModel extends AbstractListModel implements MutableCo
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a DefaultComboBoxModel object initialized with
      * a vector.
      *
@@ -93,7 +93,7 @@ public class DefaultComboBoxModel extends AbstractListModel implements MutableCo
     }
 
     // implements javax.swing.ComboBoxModel
-    /**
+    /** {@collect.stats}
      * Set the value of the selected item. The selected item may be null.
      * <p>
      * @param anObject The combo box value or null for no selection.
@@ -124,7 +124,7 @@ public class DefaultComboBoxModel extends AbstractListModel implements MutableCo
             return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index-position of the specified object in the list.
      *
      * @param anObject
@@ -174,7 +174,7 @@ public class DefaultComboBoxModel extends AbstractListModel implements MutableCo
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Empties the list.
      */
     public void removeAllElements() {

@@ -29,7 +29,7 @@ package javax.management.remote;
 import java.io.IOException;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * <p>MBean interface for connector servers.  A JMX API connector server
  * is attached to an MBean server, and establishes connections to that
  * MBean server for remote clients.</p>
@@ -41,7 +41,7 @@ import java.util.Map;
  * @since 1.5
  */
 public interface JMXConnectorServerMBean {
-    /**
+    /** {@collect.stats}
      * <p>Activates the connector server, that is, starts listening for
      * client connections.  Calling this method when the connector
      * server is already active has no effect.  Calling this method
@@ -56,7 +56,7 @@ public interface JMXConnectorServerMBean {
      */
     public void start() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Deactivates the connector server, that is, stops listening for
      * client connections.  Calling this method will also close all
      * client connections that were made by this server.  After this
@@ -93,7 +93,7 @@ public interface JMXConnectorServerMBean {
      */
     public void stop() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Determines whether the connector server is active.  A connector
      * server starts being active when its {@link #start start} method
      * returns successfully and remains active until either its
@@ -104,7 +104,7 @@ public interface JMXConnectorServerMBean {
      */
     public boolean isActive();
 
-    /**
+    /** {@collect.stats}
      * <p>Adds an object that intercepts requests for the MBean server
      * that arrive through this connector server.  This object will be
      * supplied as the <code>MBeanServer</code> for any new connection
@@ -132,7 +132,7 @@ public interface JMXConnectorServerMBean {
      */
     public void setMBeanServerForwarder(MBeanServerForwarder mbsf);
 
-    /**
+    /** {@collect.stats}
      * <p>The list of IDs for currently-open connections to this
      * connector server.</p>
      *
@@ -142,7 +142,7 @@ public interface JMXConnectorServerMBean {
      */
     public String[] getConnectionIds();
 
-    /**
+    /** {@collect.stats}
      * <p>The address of this connector server.</p>
      * <p>
      * The address returned may not be the exact original {@link JMXServiceURL}
@@ -162,7 +162,7 @@ public interface JMXConnectorServerMBean {
      */
     public JMXServiceURL getAddress();
 
-    /**
+    /** {@collect.stats}
      * <p>The attributes for this connector server.</p>
      *
      * @return a read-only map containing the attributes for this
@@ -172,7 +172,7 @@ public interface JMXConnectorServerMBean {
      */
     public Map<String,?> getAttributes();
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a client stub for this connector server.  A client
      * stub is a serializable object whose {@link
      * JMXConnector#connect(Map) connect} method can be used to make

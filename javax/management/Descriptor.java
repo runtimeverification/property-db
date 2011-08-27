@@ -43,7 +43,7 @@ import javax.management.openmbean.OpenMBeanOperationInfoSupport;
 import javax.management.openmbean.OpenMBeanParameterInfoSupport;
 import javax.management.openmbean.OpenType;
 
-/**
+/** {@collect.stats}
  * <p>Additional metadata for a JMX element.  A {@code Descriptor}
  * is associated with a {@link MBeanInfo}, {@link MBeanAttributeInfo}, etc.
  * It consists of a collection of fields.  A field is a name and an
@@ -286,7 +286,7 @@ import javax.management.openmbean.OpenType;
 public interface Descriptor extends Serializable, Cloneable
 {
 
-    /**
+    /** {@collect.stats}
      * Returns the value for a specific field name, or null if no value
      * is present for that name.
      *
@@ -299,7 +299,7 @@ public interface Descriptor extends Serializable, Cloneable
     public Object getFieldValue(String fieldName)
             throws RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * <p>Sets the value for a specific field name. This will
      * modify an existing field or add a new field.</p>
      *
@@ -321,7 +321,7 @@ public interface Descriptor extends Serializable, Cloneable
         throws RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns all of the fields contained in this descriptor as a string array.
      *
      * @return String array of fields in the format <i>fieldName=fieldValue</i>
@@ -337,7 +337,7 @@ public interface Descriptor extends Serializable, Cloneable
     public String[] getFields();
 
 
-    /**
+    /** {@collect.stats}
      * Returns all the field names in the descriptor.
      *
      * @return String array of field names. If the descriptor is empty,
@@ -345,7 +345,7 @@ public interface Descriptor extends Serializable, Cloneable
      */
     public String[] getFieldNames();
 
-    /**
+    /** {@collect.stats}
      * Returns all the field values in the descriptor as an array of Objects. The
      * returned values are in the same order as the {@code fieldNames} String array parameter.
      *
@@ -363,7 +363,7 @@ public interface Descriptor extends Serializable, Cloneable
      */
     public Object[] getFieldValues(String... fieldNames);
 
-    /**
+    /** {@collect.stats}
      * Removes a field from the descriptor.
      *
      * @param fieldName String name of the field to be removed.
@@ -376,7 +376,7 @@ public interface Descriptor extends Serializable, Cloneable
      */
     public void removeField(String fieldName);
 
-    /**
+    /** {@collect.stats}
      * <p>Sets all fields in the field names array to the new value with
      * the same index in the field values array. Array sizes must match.</p>
      *
@@ -404,7 +404,7 @@ public interface Descriptor extends Serializable, Cloneable
         throws RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a descriptor which is equal to this descriptor.
      * Changes to the returned descriptor will have no effect on this
      * descriptor, and vice versa.  If this descriptor is immutable,
@@ -418,7 +418,7 @@ public interface Descriptor extends Serializable, Cloneable
     public Object clone() throws RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if all of the fields have legal values given their
      * names.
      *
@@ -431,7 +431,7 @@ public interface Descriptor extends Serializable, Cloneable
      */
     public boolean isValid() throws RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Compares this descriptor to the given object.  The objects are equal if
      * the given object is also a Descriptor, and if the two Descriptors have
      * the same field names (possibly differing in case) and the same
@@ -456,7 +456,7 @@ public interface Descriptor extends Serializable, Cloneable
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this descriptor.  The hash
      * code is computed as the sum of the hash codes for each field in
      * the descriptor.  The hash code of a field with name {@code n}

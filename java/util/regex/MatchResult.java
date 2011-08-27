@@ -25,7 +25,7 @@
 
 package java.util.regex;
 
-/**
+/** {@collect.stats}
  * The result of a match operation.
  *
  * <p>This interface contains query methods used to determine the
@@ -39,7 +39,7 @@ package java.util.regex;
  */
 public interface MatchResult {
 
-    /**
+    /** {@collect.stats}
      * Returns the start index of the match.
      *
      * @return  The index of the first character matched
@@ -50,7 +50,7 @@ public interface MatchResult {
      */
     public int start();
 
-    /**
+    /** {@collect.stats}
      * Returns the start index of the subsequence captured by the given group
      * during this match.
      *
@@ -76,7 +76,7 @@ public interface MatchResult {
      */
     public int start(int group);
 
-    /**
+    /** {@collect.stats}
      * Returns the offset after the last character matched.  </p>
      *
      * @return  @return  The offset after the last character matched
@@ -87,7 +87,7 @@ public interface MatchResult {
      */
     public int end();
 
-    /**
+    /** {@collect.stats}
      * Returns the offset after the last character of the subsequence
      * captured by the given group during this match.
      *
@@ -113,7 +113,7 @@ public interface MatchResult {
      */
     public int end(int group);
 
-    /**
+    /** {@collect.stats}
      * Returns the input subsequence matched by the previous match.
      *
      * <p> For a matcher <i>m</i> with input sequence <i>s</i>,
@@ -134,7 +134,7 @@ public interface MatchResult {
      */
     public String group();
 
-    /**
+    /** {@collect.stats}
      * Returns the input subsequence captured by the given group during the
      * previous match operation.
      *
@@ -171,7 +171,7 @@ public interface MatchResult {
      */
     public String group(int group);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of capturing groups in this match result's pattern.
      *
      * <p> Group zero denotes the entire pattern by convention. It is not

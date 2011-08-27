@@ -27,7 +27,7 @@ package javax.swing;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * The purpose of this class is to help clients support smooth focus
  * navigation through GUIs with text fields. Such GUIs often need
  * to ensure that the text entered by the user is valid (for example,
@@ -97,7 +97,7 @@ import java.util.*;
 
 public abstract class InputVerifier {
 
-  /**
+  /** {@collect.stats}
    * Checks whether the JComponent's input is valid. This method should
    * have no side effects. It returns a boolean indicating the status
    * of the argument's input.
@@ -112,7 +112,7 @@ public abstract class InputVerifier {
   public abstract boolean verify(JComponent input);
 
 
-  /**
+  /** {@collect.stats}
    * Calls <code>verify(input)</code> to ensure that the input is valid.
    * This method can have side effects. In particular, this method
    * is called when the user attempts to advance focus out of the

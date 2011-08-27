@@ -33,7 +33,7 @@
  * http://creativecommons.org/licenses/publicdomain
  */
 
-/**
+/** {@collect.stats}
  * Utility classes commonly useful in concurrent programming.  This
  * package includes a few small standardized extensible frameworks, as
  * well as some classes that provide useful functionality and are

@@ -109,7 +109,7 @@ import org.omg.CORBA.ORB;
 import sun.rmi.server.UnicastRef2;
 import sun.rmi.transport.LiveRef;
 
-/**
+/** {@collect.stats}
  * <p>A connection to a remote RMI connector.  Usually, such
  * connections are made using {@link
  * javax.management.remote.JMXConnectorFactory JMXConnectorFactory}.
@@ -143,7 +143,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an <code>RMIConnector</code> that will connect
      * the RMI connector server with the given address.</p>
      *
@@ -188,7 +188,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         this(null, url, environment);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an <code>RMIConnector</code> using the given RMI stub.
      *
      * @param rmiServer an RMI stub representing the RMI connector server.
@@ -203,7 +203,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         this(rmiServer, null, environment);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of this object.  In general,
      * the <code>toString</code> method returns a string that
      * "textually represents" this object. The result should be a
@@ -225,7 +225,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         return b.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The address of this connector.</p>
      *
      * @return the address of this connector, or null if it
@@ -1640,7 +1640,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
     //--------------------------------------------------------------------
     // Private stuff - Serialization
     //--------------------------------------------------------------------
-    /**
+    /** {@collect.stats}
      * <p>In order to be usable, an IIOP stub must be connected to an ORB.
      * The stub is automatically connected to the ORB if:
      * <ul>
@@ -1697,7 +1697,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         return rmiServer;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the ORB specified by <var>environment</var>, or create a
      * new one.
      * <p>This method looks in the provided <var>environment</var> for
@@ -1737,7 +1737,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         return newOrb;
     }
 
-    /**
+    /** {@collect.stats}
      * Read RMIConnector fields from an {@link java.io.ObjectInputStream
      * ObjectInputStream}.
      * Calls <code>s.defaultReadObject()</code> and then initializes
@@ -1758,7 +1758,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         initTransients();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the RMIConnector fields to an {@link java.io.ObjectOutputStream
      * ObjectOutputStream}.
      * <p>Connects the underlying RMIServer stub to an ORB, if needed,
@@ -1880,7 +1880,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Lookup the RMIServer stub in a directory.
      * @param jndiURL A JNDI URL indicating the location of the Stub
      *                (see {@link javax.management.remote.rmi}), e.g.:
@@ -2409,7 +2409,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates the specified character, which is assumed to be in the
      * "Base 64 Alphabet" into its equivalent 6-bit positive integer.
      *
@@ -2429,7 +2429,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * This array is a lookup table that translates unicode characters
      * drawn from the "Base64 Alphabet" (as specified in Table 1 of RFC 2045)
      * into their 6-bit positive integer equivalents.  Characters that
@@ -2474,7 +2474,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
     //--------------------------------------------------------------------
     // Private variables
     //--------------------------------------------------------------------
-    /**
+    /** {@collect.stats}
      * @serial The RMIServer stub of the RMI JMX Connector server to
      * which this client connector is (or will be) connected. This
      * field can be null when <var>jmxServiceURL</var> is not
@@ -2487,7 +2487,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
      **/
     private final RMIServer rmiServer;
 
-    /**
+    /** {@collect.stats}
      * @serial The JMXServiceURL of the RMI JMX Connector server to
      * which this client connector will be connected. This field can
      * be null when <var>rmiServer</var> is not null. If both
@@ -2528,7 +2528,7 @@ public class RMIConnector implements JMXConnector, Serializable, JMXAddressable 
 
     private transient ClientCommunicatorAdmin communicatorAdmin;
 
-    /**
+    /** {@collect.stats}
      * A static WeakReference to an {@link org.omg.CORBA.ORB ORB} to
      * connect unconnected stubs.
      **/

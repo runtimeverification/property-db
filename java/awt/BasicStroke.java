@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/**
+/** {@collect.stats}
  * The <code>BasicStroke</code> class defines a basic set of rendering
  * attributes for the outlines of graphics primitives, which are rendered
  * with a {@link Graphics2D} object that has its Stroke attribute set to
@@ -109,38 +109,38 @@ package java.awt;
  */
 public class BasicStroke implements Stroke {
 
-    /**
+    /** {@collect.stats}
      * Joins path segments by extending their outside edges until
      * they meet.
      */
     public final static int JOIN_MITER = 0;
 
-    /**
+    /** {@collect.stats}
      * Joins path segments by rounding off the corner at a radius
      * of half the line width.
      */
     public final static int JOIN_ROUND = 1;
 
-    /**
+    /** {@collect.stats}
      * Joins path segments by connecting the outer corners of their
      * wide outlines with a straight segment.
      */
     public final static int JOIN_BEVEL = 2;
 
-    /**
+    /** {@collect.stats}
      * Ends unclosed subpaths and dash segments with no added
      * decoration.
      */
     public final static int CAP_BUTT = 0;
 
-    /**
+    /** {@collect.stats}
      * Ends unclosed subpaths and dash segments with a round
      * decoration that has a radius equal to half of the width
      * of the pen.
      */
     public final static int CAP_ROUND = 1;
 
-    /**
+    /** {@collect.stats}
      * Ends unclosed subpaths and dash segments with a square
      * projection that extends beyond the end of the segment
      * to a distance equal to half of the line width.
@@ -156,7 +156,7 @@ public class BasicStroke implements Stroke {
     float dash[];
     float dash_phase;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>BasicStroke</code> with the specified
      * attributes.
      * @param width the width of this <code>BasicStroke</code>.  The
@@ -225,7 +225,7 @@ public class BasicStroke implements Stroke {
         this.dash_phase = dash_phase;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a solid <code>BasicStroke</code> with the specified
      * attributes.
      * @param width the width of the <code>BasicStroke</code>
@@ -244,7 +244,7 @@ public class BasicStroke implements Stroke {
         this(width, cap, join, miterlimit, null, 0.0f);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a solid <code>BasicStroke</code> with the specified
      * attributes.  The <code>miterlimit</code> parameter is
      * unnecessary in cases where the default is allowable or the
@@ -262,7 +262,7 @@ public class BasicStroke implements Stroke {
         this(width, cap, join, 10.0f, null, 0.0f);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a solid <code>BasicStroke</code> with the specified
      * line width and with default values for the cap and join
      * styles.
@@ -273,7 +273,7 @@ public class BasicStroke implements Stroke {
         this(width, CAP_SQUARE, JOIN_MITER, 10.0f, null, 0.0f);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>BasicStroke</code> with defaults for all
      * attributes.
      * The default attributes are a solid line of width 1.0, CAP_SQUARE,
@@ -284,7 +284,7 @@ public class BasicStroke implements Stroke {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Shape</code> whose interior defines the
      * stroked outline of a specified <code>Shape</code>.
      * @param s the <code>Shape</code> boundary be stroked
@@ -297,7 +297,7 @@ public class BasicStroke implements Stroke {
                                      dash, dash_phase);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the line width.  Line width is represented in user space,
      * which is the default-coordinate space used by Java 2D.  See the
      * <code>Graphics2D</code> class comments for more information on
@@ -309,7 +309,7 @@ public class BasicStroke implements Stroke {
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the end cap style.
      * @return the end cap style of this <code>BasicStroke</code> as one
      * of the static <code>int</code> values that define possible end cap
@@ -319,7 +319,7 @@ public class BasicStroke implements Stroke {
         return cap;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the line join style.
      * @return the line join style of the <code>BasicStroke</code> as one
      * of the static <code>int</code> values that define possible line
@@ -329,7 +329,7 @@ public class BasicStroke implements Stroke {
         return join;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the limit of miter joins.
      * @return the limit of miter joins of the <code>BasicStroke</code>.
      */
@@ -337,7 +337,7 @@ public class BasicStroke implements Stroke {
         return miterlimit;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the array representing the lengths of the dash segments.
      * Alternate entries in the array represent the user space lengths
      * of the opaque and transparent segments of the dashes.
@@ -357,7 +357,7 @@ public class BasicStroke implements Stroke {
         return (float[]) dash.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current dash phase.
      * The dash phase is a distance specified in user coordinates that
      * represents an offset into the dashing pattern. In other words, the dash
@@ -369,7 +369,7 @@ public class BasicStroke implements Stroke {
         return dash_phase;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hashcode for this stroke.
      * @return      a hash code for this stroke.
      */
@@ -387,11 +387,11 @@ public class BasicStroke implements Stroke {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this BasicStroke represents the same
      * stroking operation as the given argument.
      */
-   /**
+   /** {@collect.stats}
     * Tests if a specified object is equal to this <code>BasicStroke</code>
     * by first testing if it is a <code>BasicStroke</code> and then comparing
     * its width, join, cap, miter limit, dash, and dash phase attributes with

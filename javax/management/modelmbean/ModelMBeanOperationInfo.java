@@ -48,7 +48,7 @@ import javax.management.MBeanOperationInfo;
 import javax.management.MBeanParameterInfo;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * The ModelMBeanOperationInfo object describes a management operation of the ModelMBean.
  * It is a subclass of MBeanOperationInfo with the addition of an associated Descriptor
  * and an implementation of the DescriptorAccess interface.
@@ -113,7 +113,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField operationDescriptor Descriptor The descriptor containing the appropriate metadata for this instance
      */
     private static final ObjectStreamField[] serialPersistentFields;
@@ -137,14 +137,14 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
     //
     // END Serialization compatibility stuff
 
-        /**
+        /** {@collect.stats}
          * @serial The descriptor containing the appropriate metadata for this instance
          */
         private Descriptor operationDescriptor = createDefaultDescriptor();
 
         private static final String currClass = "ModelMBeanOperationInfo";
 
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanOperationInfo object with a default
          * descriptor. The {@link Descriptor} of the constructed
          * object will include fields contributed by any annotations
@@ -170,7 +170,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 operationDescriptor = createDefaultDescriptor();
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanOperationInfo object. The {@link
          * Descriptor} of the constructed object will include fields
          * contributed by any annotations on the {@code Method} object
@@ -232,7 +232,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanOperationInfo object with a default descriptor.
         *
         * @param name The name of the method.
@@ -262,7 +262,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
 
         }
 
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanOperationInfo object.
         *
         * @param name The name of the method.
@@ -322,7 +322,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a new ModelMBeanOperationInfo object from this ModelMBeanOperation Object.
          *
          * @param inInfo the ModelMBeanOperationInfo to be duplicated
@@ -360,7 +360,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Creates and returns a new ModelMBeanOperationInfo which is a duplicate of this ModelMBeanOperationInfo.
         *
         */
@@ -375,7 +375,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 return(new ModelMBeanOperationInfo(this)) ;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a copy of the associated Descriptor of the
          * ModelMBeanOperationInfo.
          *
@@ -400,7 +400,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 return((Descriptor) operationDescriptor.clone());
         }
 
-        /**
+        /** {@collect.stats}
          * Sets associated Descriptor (full replace) for the
          * ModelMBeanOperationInfo If the new Descriptor is null, then
          * the associated Descriptor reverts to a default descriptor.
@@ -446,7 +446,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Returns a string containing the entire contents of the ModelMBeanOperationInfo in human readable form.
         */
         public String toString()
@@ -469,7 +469,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 }
                 return retStr;
         }
-        /**
+        /** {@collect.stats}
         * Creates default descriptor for operation as follows:
         * descriptorType=operation,role=operation, name=this.getName(),displayname=this.getName().
         */
@@ -487,7 +487,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
         }
 
 
-        /**
+        /** {@collect.stats}
         * Tests that the descriptor is valid and adds appropriate
         * default fields not already specified.  Field values must be
         * correct for field names.  descriptorType field must be
@@ -560,7 +560,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
                 return results;
         }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link ModelMBeanOperationInfo} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -570,7 +570,7 @@ public class ModelMBeanOperationInfo extends MBeanOperationInfo
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link ModelMBeanOperationInfo} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

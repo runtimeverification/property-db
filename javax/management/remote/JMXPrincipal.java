@@ -29,7 +29,7 @@ package javax.management.remote;
 import java.io.Serializable;
 import java.security.Principal;
 
-/**
+/** {@collect.stats}
  * <p>The identity of a remote client of the JMX Remote API.</p>
  *
  * <p>Principals such as this <code>JMXPrincipal</code>
@@ -48,14 +48,14 @@ public class JMXPrincipal implements Principal, Serializable {
 
     private static final long serialVersionUID = -4184480100214577411L;
 
-    /**
+    /** {@collect.stats}
      * @serial The JMX Remote API name for the identity represented by
      * this <code>JMXPrincipal</code> object.
      * @see #getName()
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a JMXPrincipal for a given identity.</p>
      *
      * @param name the JMX Remote API name for this identity.
@@ -70,7 +70,7 @@ public class JMXPrincipal implements Principal, Serializable {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this principal.
      *
      * <p>
@@ -81,7 +81,7 @@ public class JMXPrincipal implements Principal, Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JMXPrincipal</code>.
      *
      * <p>
@@ -92,7 +92,7 @@ public class JMXPrincipal implements Principal, Serializable {
         return("JMXPrincipal:  " + name);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Object with this <code>JMXPrincipal</code>
      * for equality.  Returns true if the given object is also a
      * <code>JMXPrincipal</code> and the two JMXPrincipals
@@ -120,7 +120,7 @@ public class JMXPrincipal implements Principal, Serializable {
         return (this.getName().equals(that.getName()));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this <code>JMXPrincipal</code>.
      *
      * <p>

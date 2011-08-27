@@ -32,7 +32,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.Point2D;
 import sun.awt.image.ImagingLib;
 
-/**
+/** {@collect.stats}
  * This class implements a convolution from the source
  * to the destination.
  * Convolution using a convolution kernel is a spatial operation that
@@ -69,24 +69,24 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
     Kernel kernel;
     int edgeHint;
     RenderingHints hints;
-    /**
+    /** {@collect.stats}
      * Edge condition constants.
      */
 
-    /**
+    /** {@collect.stats}
      * Pixels at the edge of the destination image are set to zero.  This
      * is the default.
      */
 
     public static final int EDGE_ZERO_FILL = 0;
 
-    /**
+    /** {@collect.stats}
      * Pixels at the edge of the source image are copied to
      * the corresponding pixels in the destination without modification.
      */
     public static final int EDGE_NO_OP     = 1;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ConvolveOp given a Kernel, an edge condition, and a
      * RenderingHints object (which may be null).
      * @param kernel the specified <code>Kernel</code>
@@ -103,7 +103,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         this.hints    = hints;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ConvolveOp given a Kernel.  The edge condition
      * will be EDGE_ZERO_FILL.
      * @param kernel the specified <code>Kernel</code>
@@ -115,7 +115,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         this.edgeHint = EDGE_ZERO_FILL;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the edge condition.
      * @return the edge condition of this <code>ConvolveOp</code>.
      * @see #EDGE_NO_OP
@@ -125,7 +125,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return edgeHint;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Kernel.
      * @return the <code>Kernel</code> of this <code>ConvolveOp</code>.
      */
@@ -133,7 +133,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return (Kernel) kernel.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a convolution on BufferedImages.  Each component of the
      * source image will be convolved (including the alpha component, if
      * present).
@@ -213,7 +213,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return origDst;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a convolution on Rasters.  Each band of the source Raster
      * will be convolved.
      * The source and destination must have the same number of bands.
@@ -251,7 +251,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return dst;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination image with the correct size and number
      * of bands.  If destCM is null, an appropriate ColorModel will be used.
      * @param src       Source image for the filter operation.
@@ -297,7 +297,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination Raster with the correct size and number
      * of bands, given this source.
      */
@@ -305,7 +305,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return src.createCompatibleWritableRaster();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination image.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -314,7 +314,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return getBounds2D(src.getRaster());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination Raster.  Since
      * this is not a geometric operation, the bounding box does not
      * change.
@@ -323,7 +323,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return src.getBounds();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the destination point given a
      * point in the source.  If dstPt is non-null, it will
      * be used to hold the return value.  Since this is not a geometric
@@ -338,7 +338,7 @@ public class ConvolveOp implements BufferedImageOp, RasterOp {
         return dstPt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints for this op.
      */
     public final RenderingHints getRenderingHints() {

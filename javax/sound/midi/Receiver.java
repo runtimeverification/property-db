@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>Receiver</code> receives <code>{@link MidiEvent}</code> objects and
  * typically does something useful in response, such as interpreting them to
  * generate sound or raw MIDI output.  Common MIDI receivers include
@@ -42,7 +42,7 @@ public interface Receiver {
 
 
     //$$fb 2002-04-12: fix for 4662090: Contradiction in Receiver specification
-    /**
+    /** {@collect.stats}
      * Sends a MIDI message and time-stamp to this receiver.
      * If time-stamping is not supported by this receiver, the time-stamp
      * value should be -1.
@@ -52,7 +52,7 @@ public interface Receiver {
      */
     public void send(MidiMessage message, long timeStamp);
 
-    /**
+    /** {@collect.stats}
      * Indicates that the application has finished using the receiver, and
      * that limited resources it requires may be released or made available.
      *

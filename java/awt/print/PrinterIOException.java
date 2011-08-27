@@ -26,7 +26,7 @@
 package java.awt.print;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * The <code>PrinterIOException</code> class is a subclass of
  * {@link PrinterException} and is used to indicate that an IO error
  * of some sort has occurred while printing.
@@ -42,13 +42,13 @@ import java.io.IOException;
 public class PrinterIOException extends PrinterException {
     static final long serialVersionUID = 5850870712125932846L;
 
-    /**
+    /** {@collect.stats}
      * The IO error that terminated the print job.
      * @serial
      */
     private IOException mException;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>PrinterIOException</code>
      * with the string representation of the specified
      * {@link IOException}.
@@ -59,7 +59,7 @@ public class PrinterIOException extends PrinterException {
         mException = exception;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>IOException</code> that terminated
      * the print job.
      *
@@ -75,7 +75,7 @@ public class PrinterIOException extends PrinterException {
         return mException;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the the cause of this exception (the <code>IOException</code>
      * that terminated the print job).
      *

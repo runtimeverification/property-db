@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * Drop modes, used to determine the method by which a component
  * tracks and indicates a drop location during drag and drop.
  *
@@ -37,20 +37,20 @@ package javax.swing;
  */
 public enum DropMode {
 
-    /**
+    /** {@collect.stats}
      * A component's own internal selection mechanism (or caret for text
      * components) should be used to track the drop location.
      */
     USE_SELECTION,
 
-    /**
+    /** {@collect.stats}
      * The drop location should be tracked in terms of the index of
      * existing items. Useful for dropping on items in tables, lists,
      * and trees.
      */
     ON,
 
-    /**
+    /** {@collect.stats}
      * The drop location should be tracked in terms of the position
      * where new data should be inserted. For components that manage
      * a list of items (list and tree for example), the drop location
@@ -63,21 +63,21 @@ public enum DropMode {
      */
     INSERT,
 
-    /**
+    /** {@collect.stats}
      * The drop location should be tracked in terms of the row index
      * where new rows should be inserted to accommodate the dropped
      * data. This is useful for components that manage tabular data.
      */
     INSERT_ROWS,
 
-    /**
+    /** {@collect.stats}
      * The drop location should be tracked in terms of the column index
      * where new columns should be inserted to accommodate the dropped
      * data. This is useful for components that manage tabular data.
      */
     INSERT_COLS,
 
-    /**
+    /** {@collect.stats}
      * This mode is a combination of <code>ON</code>
      * and <code>INSERT</code>, specifying that data can be
      * dropped on existing items, or in insert locations
@@ -85,7 +85,7 @@ public enum DropMode {
      */
     ON_OR_INSERT,
 
-    /**
+    /** {@collect.stats}
      * This mode is a combination of <code>ON</code>
      * and <code>INSERT_ROWS</code>, specifying that data can be
      * dropped on existing items, or as insert rows
@@ -93,7 +93,7 @@ public enum DropMode {
      */
     ON_OR_INSERT_ROWS,
 
-    /**
+    /** {@collect.stats}
      * This mode is a combination of <code>ON</code>
      * and <code>INSERT_COLS</code>, specifying that data can be
      * dropped on existing items, or as insert columns

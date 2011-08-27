@@ -27,7 +27,7 @@ package javax.swing;
 
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * This interface represents the current state of the
  * selection for any of the components that display a
  * list of values with stable indices.  The selection is
@@ -45,7 +45,7 @@ import javax.swing.event.*;
 
 public interface ListSelectionModel
 {
-    /**
+    /** {@collect.stats}
      * A value for the selectionMode property: select one list index
      * at a time.
      *
@@ -53,7 +53,7 @@ public interface ListSelectionModel
      */
     int SINGLE_SELECTION = 0;
 
-    /**
+    /** {@collect.stats}
      * A value for the selectionMode property: select one contiguous
      * range of indices at a time.
      *
@@ -61,7 +61,7 @@ public interface ListSelectionModel
      */
     int SINGLE_INTERVAL_SELECTION = 1;
 
-    /**
+    /** {@collect.stats}
      * A value for the selectionMode property: select one or more
      * contiguous ranges of indices at a time.
      *
@@ -70,7 +70,7 @@ public interface ListSelectionModel
     int MULTIPLE_INTERVAL_SELECTION = 2;
 
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be between {@code index0} and {@code index1}
      * inclusive. {@code index0} doesn't have to be less than or equal to
      * {@code index1}.
@@ -88,7 +88,7 @@ public interface ListSelectionModel
     void setSelectionInterval(int index0, int index1);
 
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be the set union of the current selection
      * and the indices between {@code index0} and {@code index1} inclusive.
      * {@code index0} doesn't have to be less than or equal to {@code index1}.
@@ -111,7 +111,7 @@ public interface ListSelectionModel
     void addSelectionInterval(int index0, int index1);
 
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be the set difference of the current selection
      * and the indices between {@code index0} and {@code index1} inclusive.
      * {@code index0} doesn't have to be less than or equal to {@code index1}.
@@ -132,25 +132,25 @@ public interface ListSelectionModel
     void removeSelectionInterval(int index0, int index1);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the first selected index or -1 if the selection is empty.
      */
     int getMinSelectionIndex();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the last selected index or -1 if the selection is empty.
      */
     int getMaxSelectionIndex();
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified index is selected.
      */
     boolean isSelectedIndex(int index);
 
 
-    /**
+    /** {@collect.stats}
      * Return the first index argument from the most recent call to
      * setSelectionInterval(), addSelectionInterval() or removeSelectionInterval().
      * The most recent index0 is considered the "anchor" and the most recent
@@ -165,7 +165,7 @@ public interface ListSelectionModel
     int getAnchorSelectionIndex();
 
 
-    /**
+    /** {@collect.stats}
      * Set the anchor selection index.
      *
      * @see #getAnchorSelectionIndex
@@ -173,7 +173,7 @@ public interface ListSelectionModel
     void setAnchorSelectionIndex(int index);
 
 
-    /**
+    /** {@collect.stats}
      * Return the second index argument from the most recent call to
      * setSelectionInterval(), addSelectionInterval() or removeSelectionInterval().
      *
@@ -183,14 +183,14 @@ public interface ListSelectionModel
      */
     int getLeadSelectionIndex();
 
-    /**
+    /** {@collect.stats}
      * Set the lead selection index.
      *
      * @see #getLeadSelectionIndex
      */
     void setLeadSelectionIndex(int index);
 
-    /**
+    /** {@collect.stats}
      * Change the selection to the empty set.  If this represents
      * a change to the current selection then notify each ListSelectionListener.
      *
@@ -198,26 +198,26 @@ public interface ListSelectionModel
      */
     void clearSelection();
 
-    /**
+    /** {@collect.stats}
      * Returns true if no indices are selected.
      */
     boolean isSelectionEmpty();
 
-    /**
+    /** {@collect.stats}
      * Insert length indices beginning before/after index.  This is typically
      * called to sync the selection model with a corresponding change
      * in the data model.
      */
     void insertIndexInterval(int index, int length, boolean before);
 
-    /**
+    /** {@collect.stats}
      * Remove the indices in the interval index0,index1 (inclusive) from
      * the selection model.  This is typically called to sync the selection
      * model width a corresponding change in the data model.
      */
     void removeIndexInterval(int index0, int index1);
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code valueIsAdjusting} property, which indicates whether
      * or not upcoming selection changes should be considered part of a single
      * change. The value of this property is used to initialize the
@@ -245,7 +245,7 @@ public interface ListSelectionModel
      */
     void setValueIsAdjusting(boolean valueIsAdjusting);
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if the selection is undergoing a series of changes.
      *
      * @return true if the selection is undergoing a series of changes
@@ -253,7 +253,7 @@ public interface ListSelectionModel
      */
     boolean getValueIsAdjusting();
 
-    /**
+    /** {@collect.stats}
      * Sets the selection mode. The following list describes the accepted
      * selection modes:
      * <ul>
@@ -278,7 +278,7 @@ public interface ListSelectionModel
      */
     void setSelectionMode(int selectionMode);
 
-    /**
+    /** {@collect.stats}
      * Returns the current selection mode.
      *
      * @return the current selection mode
@@ -286,7 +286,7 @@ public interface ListSelectionModel
      */
     int getSelectionMode();
 
-    /**
+    /** {@collect.stats}
      * Add a listener to the list that's notified each time a change
      * to the selection occurs.
      *
@@ -301,7 +301,7 @@ public interface ListSelectionModel
      */
     void addListSelectionListener(ListSelectionListener x);
 
-    /**
+    /** {@collect.stats}
      * Remove a listener from the list that's notified each time a
      * change to the selection occurs.
      *

@@ -38,7 +38,7 @@ import javax.management.MBeanException;
 import javax.management.MBeanNotificationInfo;
 import javax.management.MBeanOperationInfo;
 
-/**
+/** {@collect.stats}
  * This interface is implemented by the ModelMBeanInfo for every ModelMBean. An implementation of this interface
  * must be shipped with every JMX Agent.
  * <P>
@@ -67,7 +67,7 @@ public interface ModelMBeanInfo
 {
 
 
-    /**
+    /** {@collect.stats}
      * Returns a Descriptor array consisting of all
      * Descriptors for the ModelMBeanInfo of type inDescriptorType.
      *
@@ -86,7 +86,7 @@ public interface ModelMBeanInfo
     public Descriptor[] getDescriptors(String inDescriptorType)
             throws MBeanException, RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Adds or replaces descriptors in the ModelMBeanInfo.
      *
      * @param inDescriptors The descriptors to be set in the ModelMBeanInfo. Null
@@ -100,7 +100,7 @@ public interface ModelMBeanInfo
     public void setDescriptors(Descriptor[] inDescriptors)
             throws MBeanException, RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Returns a Descriptor requested by name and descriptorType.
      *
      * @param inDescriptorName The name of the descriptor.
@@ -124,7 +124,7 @@ public interface ModelMBeanInfo
     public Descriptor getDescriptor(String inDescriptorName, String inDescriptorType)
             throws MBeanException, RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Sets descriptors in the info array of type inDescriptorType
      * for the ModelMBean.  The setDescriptor method of the
      * corresponding ModelMBean*Info will be called to set the
@@ -155,7 +155,7 @@ public interface ModelMBeanInfo
             throws MBeanException, RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the ModelMBean's descriptor which contains MBean wide policies.  This descriptor contains
      * metadata about the MBean and default policies for persistence and caching.
      * <P>
@@ -201,7 +201,7 @@ public interface ModelMBeanInfo
     public Descriptor getMBeanDescriptor()
             throws MBeanException, RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Sets the ModelMBean's descriptor.  This descriptor contains default, MBean wide
      * metadata about the MBean and default policies for persistence and caching. This operation
      * does a complete replacement of the descriptor, no merging is done. If the descriptor to
@@ -225,7 +225,7 @@ public interface ModelMBeanInfo
             throws MBeanException, RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a ModelMBeanAttributeInfo requested by name.
      *
      * @param inName The name of the ModelMBeanAttributeInfo to get.
@@ -245,7 +245,7 @@ public interface ModelMBeanInfo
             throws MBeanException, RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a ModelMBeanOperationInfo requested by name.
      *
      * @param inName The name of the ModelMBeanOperationInfo to get.
@@ -263,7 +263,7 @@ public interface ModelMBeanInfo
             throws MBeanException, RuntimeOperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a ModelMBeanNotificationInfo requested by name.
      *
      * @param inName The name of the ModelMBeanNotificationInfo to get.
@@ -279,12 +279,12 @@ public interface ModelMBeanInfo
     public ModelMBeanNotificationInfo getNotification(String inName)
             throws MBeanException, RuntimeOperationsException;
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a copy of this object.
      */
     public java.lang.Object clone();
 
-    /**
+    /** {@collect.stats}
      * Returns the list of attributes exposed for management.
      * Each attribute is described by an <CODE>MBeanAttributeInfo</CODE> object.
      *
@@ -292,7 +292,7 @@ public interface ModelMBeanInfo
      */
     public MBeanAttributeInfo[] getAttributes();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the Java class of the MBean described by
      * this <CODE>MBeanInfo</CODE>.
      *
@@ -300,7 +300,7 @@ public interface ModelMBeanInfo
      */
     public java.lang.String getClassName();
 
-    /**
+    /** {@collect.stats}
      * Returns the list of the public constructors  of the MBean.
      * Each constructor is described by an <CODE>MBeanConstructorInfo</CODE> object.
      *
@@ -308,14 +308,14 @@ public interface ModelMBeanInfo
      */
     public MBeanConstructorInfo[] getConstructors();
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the MBean.
      *
      * @return the description.
      */
     public java.lang.String getDescription();
 
-    /**
+    /** {@collect.stats}
      * Returns the list of the notifications emitted by the MBean.
      * Each notification is described by an <CODE>MBeanNotificationInfo</CODE> object.
      * <P>
@@ -333,7 +333,7 @@ public interface ModelMBeanInfo
      */
     public MBeanNotificationInfo[] getNotifications();
 
-    /**
+    /** {@collect.stats}
      * Returns the list of operations  of the MBean.
      * Each operation is described by an <CODE>MBeanOperationInfo</CODE> object.
      *

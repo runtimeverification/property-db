@@ -34,7 +34,7 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.WeakHashMap;
 
-/**
+/** {@collect.stats}
  * <p>{@link InvocationHandler} that forwards methods in an MBean's
  * management interface through the MBean server to the MBean.</p>
  *
@@ -87,7 +87,7 @@ import java.util.WeakHashMap;
  * @since 1.5
  */
 public class MBeanServerInvocationHandler implements InvocationHandler {
-    /**
+    /** {@collect.stats}
      * <p>Invocation handler that forwards methods through an MBean
      * server to a Standard MBean.  This constructor may be called
      * instead of relying on {@link
@@ -114,7 +114,7 @@ public class MBeanServerInvocationHandler implements InvocationHandler {
         this(connection, objectName, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Invocation handler that can forward methods through an MBean
      * server to a Standard MBean or MXBean.  This constructor may be called
      * instead of relying on {@link
@@ -149,7 +149,7 @@ public class MBeanServerInvocationHandler implements InvocationHandler {
         this.isMXBean = isMXBean;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The MBean server connection through which the methods of
      * a proxy using this handler are forwarded.</p>
      *
@@ -161,7 +161,7 @@ public class MBeanServerInvocationHandler implements InvocationHandler {
         return connection;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The name of the MBean within the MBean server to which methods
      * are forwarded.
      *
@@ -173,7 +173,7 @@ public class MBeanServerInvocationHandler implements InvocationHandler {
         return objectName;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>If true, the proxy is for an MXBean, and appropriate mappings
      * are applied to method parameters and return values.
      *
@@ -185,7 +185,7 @@ public class MBeanServerInvocationHandler implements InvocationHandler {
         return isMXBean;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a proxy that implements the given interface by
      * forwarding its methods through the given MBean server to the
      * named MBean.  As of 1.6, the methods {@link

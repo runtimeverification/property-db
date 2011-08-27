@@ -33,7 +33,7 @@ import java.util.Vector;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
-/**
+/** {@collect.stats}
  * This class is used to read entries from a zip file.
  *
  * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
@@ -52,12 +52,12 @@ class ZipFile implements ZipConstants {
     private static final int STORED = ZipEntry.STORED;
     private static final int DEFLATED = ZipEntry.DEFLATED;
 
-    /**
+    /** {@collect.stats}
      * Mode flag to open a zip file for reading.
      */
     public static final int OPEN_READ = 0x1;
 
-    /**
+    /** {@collect.stats}
      * Mode flag to open a zip file and mark it for deletion.  The file will be
      * deleted some time between the moment that it is opened and the moment
      * that it is closed, but its contents will remain accessible via the
@@ -73,7 +73,7 @@ class ZipFile implements ZipConstants {
 
     private static native void initIDs();
 
-    /**
+    /** {@collect.stats}
      * Opens a zip file for reading.
      *
      * <p>First, if there is a security
@@ -92,7 +92,7 @@ class ZipFile implements ZipConstants {
         this(new File(name), OPEN_READ);
     }
 
-    /**
+    /** {@collect.stats}
      * Opens a new <code>ZipFile</code> to read from the specified
      * <code>File</code> object in the specified mode.  The mode argument
      * must be either <tt>OPEN_READ</tt> or <tt>OPEN_READ | OPEN_DELETE</tt>.
@@ -138,7 +138,7 @@ class ZipFile implements ZipConstants {
     private static native int getTotal(long jzfile);
 
 
-    /**
+    /** {@collect.stats}
      * Opens a ZIP file for reading given the specified File object.
      * @param file the ZIP file to be opened for reading
      * @throws ZipException if a ZIP error has occurred
@@ -148,7 +148,7 @@ class ZipFile implements ZipConstants {
         this(file, OPEN_READ);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the zip file entry for the specified name, or null
      * if not found.
      *
@@ -179,7 +179,7 @@ class ZipFile implements ZipConstants {
     // freeEntry releases the C jzentry struct.
     private static native void freeEntry(long jzfile, long jzentry);
 
-    /**
+    /** {@collect.stats}
      * Returns an input stream for reading the contents of the specified
      * zip file entry.
      *
@@ -197,7 +197,7 @@ class ZipFile implements ZipConstants {
         return getInputStream(entry.name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an input stream for reading the contents of the specified
      * entry, or null if the entry was not found.
      */
@@ -298,7 +298,7 @@ class ZipFile implements ZipConstants {
     // List of available Inflater objects for decompression
     private Vector inflaters = new Vector();
 
-    /**
+    /** {@collect.stats}
      * Returns the path name of the ZIP file.
      * @return the path name of the ZIP file
      */
@@ -306,7 +306,7 @@ class ZipFile implements ZipConstants {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the ZIP file entries.
      * @return an enumeration of the ZIP file entries
      * @throws IllegalStateException if the zip file has been closed
@@ -353,7 +353,7 @@ class ZipFile implements ZipConstants {
 
     private static native long getNextEntry(long jzfile, int i);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of entries in the ZIP file.
      * @return the number of entries in the ZIP file
      * @throws IllegalStateException if the zip file has been closed
@@ -363,7 +363,7 @@ class ZipFile implements ZipConstants {
         return total;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the ZIP file.
      * <p> Closing this ZIP file will close all of the input streams
      * previously returned by invocations of the {@link #getInputStream
@@ -395,7 +395,7 @@ class ZipFile implements ZipConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Ensures that the <code>close</code> method of this ZIP file is
      * called when there are no more references to it.
      *

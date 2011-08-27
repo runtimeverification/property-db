@@ -25,7 +25,7 @@
 
 package java.util.zip;
 
-/**
+/** {@collect.stats}
  * A reference to the native zlib's z_stream structure.
  */
 

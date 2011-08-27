@@ -23,7 +23,7 @@
  * questions.
  */
 
-/**********************************************************************
+/** {@collect.stats}********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -38,7 +38,7 @@ package java.awt.color;
 import java.awt.image.LookupTable;
 import sun.java2d.cmm.ProfileDeferralInfo;
 
-/**
+/** {@collect.stats}
  *
  * A subclass of the ICC_Profile class which represents profiles
  * which meet the following criteria: the color space type of the
@@ -73,14 +73,14 @@ extends ICC_Profile {
 
     static final long serialVersionUID = -1124721290732002649L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ICC_ProfileGray from a CMM ID.
      */
     ICC_ProfileGray(long ID) {
         super(ID);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new ICC_ProfileGray from a ProfileDeferralInfo object.
      */
     ICC_ProfileGray(ProfileDeferralInfo pdi) {
@@ -88,7 +88,7 @@ extends ICC_Profile {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a float array of length 3 containing the X, Y, and Z
      * components of the mediaWhitePointTag in the ICC profile.
      * @return an array containing the components of the
@@ -99,7 +99,7 @@ extends ICC_Profile {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a gamma value representing the tone reproduction
      * curve (TRC).  If the profile represents the TRC as a table rather
      * than a single gamma value, then an exception is thrown.  In this
@@ -122,7 +122,7 @@ extends ICC_Profile {
         return theGamma;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the TRC as an array of shorts.  If the profile has
      * specified the TRC as linear (gamma = 1.0) or as a simple gamma
      * value, this method throws an exception, and the getGamma() method

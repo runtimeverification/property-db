@@ -31,7 +31,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * <code>ActionMap</code> provides mappings from
  * <code>Object</code>s
  * (called <em>keys</em> or <em><code>Action</code> names</em>)
@@ -56,19 +56,19 @@ import java.util.Set;
  * @since 1.3
  */
 public class ActionMap implements Serializable {
-    /** Handles the mapping between Action name and Action. */
+    /** {@collect.stats} Handles the mapping between Action name and Action. */
     private transient ArrayTable     arrayTable;
-    /** Parent that handles any bindings we don't contain. */
+    /** {@collect.stats} Parent that handles any bindings we don't contain. */
     private ActionMap                               parent;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>ActionMap</code> with no parent and no mappings.
      */
     public ActionMap() {
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this <code>ActionMap</code>'s parent.
      *
      * @param map  the <code>ActionMap</code> that is the parent of this one
@@ -77,7 +77,7 @@ public class ActionMap implements Serializable {
         this.parent = map;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this <code>ActionMap</code>'s parent.
      *
      * @return the <code>ActionMap</code> that is the parent of this one,
@@ -87,7 +87,7 @@ public class ActionMap implements Serializable {
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a binding for <code>key</code> to <code>action</code>.
      * If <code>action</code> is null, this removes the current binding
      * for <code>key</code>.
@@ -109,7 +109,7 @@ public class ActionMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the binding for <code>key</code>, messaging the
      * parent <code>ActionMap</code> if the binding is not locally defined.
      */
@@ -127,7 +127,7 @@ public class ActionMap implements Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the binding for <code>key</code> from this <code>ActionMap</code>.
      */
     public void remove(Object key) {
@@ -136,7 +136,7 @@ public class ActionMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the mappings from this <code>ActionMap</code>.
      */
     public void clear() {
@@ -145,7 +145,7 @@ public class ActionMap implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Action</code> names that are bound in this <code>ActionMap</code>.
      */
     public Object[] keys() {
@@ -155,7 +155,7 @@ public class ActionMap implements Serializable {
         return arrayTable.getKeys(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of bindings in this {@code ActionMap}.
      *
      * @return the number of bindings in this {@code ActionMap}
@@ -167,7 +167,7 @@ public class ActionMap implements Serializable {
         return arrayTable.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the keys defined in this <code>ActionMap</code> and
      * its parent. This method differs from <code>keys()</code> in that
      * this method includes the keys defined in the parent.

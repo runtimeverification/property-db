@@ -33,7 +33,7 @@ import java.math.*;
 import java.util.Map;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * The output stream for writing the attributes of a
  * custom-mapped user-defined type (UDT) back to the database.
  * The driver uses this interface internally, and its
@@ -56,13 +56,13 @@ import java.util.Vector;
  */
 public class SQLOutputImpl implements SQLOutput {
 
-    /**
+    /** {@collect.stats}
      * A reference to an existing vector that
      * contains the attributes of a <code>Struct</code> object.
      */
     private Vector attribs;
 
-    /**
+    /** {@collect.stats}
      * The type map the driver supplies to a newly created
      * <code>SQLOutputImpl</code> object.  This type map
      * indicates the <code>SQLData</code> class whose
@@ -72,7 +72,7 @@ public class SQLOutputImpl implements SQLOutput {
      */
     private Map map;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SQLOutputImpl</code> object
      * initialized with the given vector of attributes and
      * type map.  The driver will use the type map to determine
@@ -110,7 +110,7 @@ public class SQLOutputImpl implements SQLOutput {
     // java.sql.ResultSet.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>String</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>CHAR</code>, <code>VARCHAR</code>, or
@@ -126,7 +126,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>boolean</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>BIT</code> before returning it to the database.
@@ -140,7 +140,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Boolean(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>byte</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>BIT</code> before returning it to the database.
@@ -154,7 +154,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Byte(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>short</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>SMALLINT</code> before returning it to the database.
@@ -168,7 +168,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Short(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an <code>int</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>INTEGER</code> before returning it to the database.
@@ -182,7 +182,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Integer(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>long</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>BIGINT</code> before returning it to the database.
@@ -196,7 +196,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Long(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>float</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>REAL</code> before returning it to the database.
@@ -210,7 +210,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Float(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>double</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>DOUBLE</code> before returning it to the database.
@@ -224,7 +224,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new Double(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>java.math.BigDecimal</code> object in the Java programming
      * language to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>NUMERIC</code> before returning it to the database.
@@ -238,7 +238,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an array of <code>bytes</code> in the Java programming language
      * to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>VARBINARY</code> or <code>LONGVARBINARY</code>
@@ -253,7 +253,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>java.sql.Date</code> object in the Java programming
      * language to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>DATE</code> before returning it to the database.
@@ -267,7 +267,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>java.sql.Time</code> object in the Java programming
      * language to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>TIME</code> before returning it to the database.
@@ -281,7 +281,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>java.sql.Timestamp</code> object in the Java programming
      * language to this <code>SQLOutputImpl</code> object. The driver converts
      * it to an SQL <code>TIMESTAMP</code> before returning it to the database.
@@ -295,7 +295,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of Unicode characters to this
      * <code>SQLOutputImpl</code> object. The driver will do any necessary
      * conversion from Unicode to the database <code>CHAR</code> format.
@@ -324,7 +324,7 @@ public class SQLOutputImpl implements SQLOutput {
          }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of ASCII characters to this
      * <code>SQLOutputImpl</code> object. The driver will do any necessary
      * conversion from ASCII to the database <code>CHAR</code> format.
@@ -354,7 +354,7 @@ public class SQLOutputImpl implements SQLOutput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of uninterpreted bytes to this <code>SQLOutputImpl</code>
      * object.
      *
@@ -391,7 +391,7 @@ public class SQLOutputImpl implements SQLOutput {
     // items using the methods above.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Writes to the stream the data contained in the given
      * <code>SQLData</code> object.
      * When the <code>SQLData</code> object is <code>null</code>, this
@@ -437,7 +437,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new SerialStruct((SQLData)x, map));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>Ref</code> object in the Java programming language
      * to this <code>SQLOutputImpl</code> object.  The driver converts
      * it to a serializable <code>SerialRef</code> SQL <code>REF</code> value
@@ -456,7 +456,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new SerialRef(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>Blob</code> object in the Java programming language
      * to this <code>SQLOutputImpl</code> object.  The driver converts
      * it to a serializable <code>SerialBlob</code> SQL <code>BLOB</code> value
@@ -475,7 +475,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new SerialBlob(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>Clob</code> object in the Java programming language
      * to this <code>SQLOutputImpl</code> object.  The driver converts
      * it to a serializable <code>SerialClob</code> SQL <code>CLOB</code> value
@@ -494,7 +494,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new SerialClob(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>Struct</code> object in the Java
      * programming language to this <code>SQLOutputImpl</code>
      * object. The driver converts this value to an SQL structured type
@@ -516,7 +516,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an <code>Array</code> object in the Java
      * programming language to this <code>SQLOutputImpl</code>
      * object. The driver converts this value to a serializable
@@ -536,7 +536,7 @@ public class SQLOutputImpl implements SQLOutput {
         attribs.add(new SerialArray(x, map));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an <code>java.sql.Type.DATALINK</code> object in the Java
      * programming language to this <code>SQLOutputImpl</code> object. The
      * driver converts this value to a serializable <code>SerialDatalink</code>
@@ -557,7 +557,7 @@ public class SQLOutputImpl implements SQLOutput {
     }
 
 
-    /**
+    /** {@collect.stats}
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language. The driver converts this to a
    * SQL <code>NCHAR</code> or
@@ -574,7 +574,7 @@ public class SQLOutputImpl implements SQLOutput {
         throw new UnsupportedOperationException("Operation not supported");
     }
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>NCLOB</code> value to the stream.
    *
    * @param x a <code>NClob</code> object representing data of an SQL
@@ -588,7 +588,7 @@ public class SQLOutputImpl implements SQLOutput {
     }
 
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>ROWID</code> value to the stream.
    *
    * @param x a <code>RowId</code> object representing data of an SQL
@@ -602,7 +602,7 @@ public class SQLOutputImpl implements SQLOutput {
     }
 
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>XML</code> value to the stream.
    *
    * @param x a <code>SQLXML</code> object representing data of an SQL

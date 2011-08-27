@@ -36,7 +36,7 @@ import javax.swing.plaf.UIResource;
 import javax.swing.plaf.DimensionUIResource;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * A Synth L&F implementation of SeparatorUI.  This implementation
  * is a "combined" view/controller.
  *

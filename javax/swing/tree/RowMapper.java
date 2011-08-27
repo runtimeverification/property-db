@@ -27,7 +27,7 @@ package javax.swing.tree;
 
 import javax.swing.tree.TreePath;
 
-/**
+/** {@collect.stats}
  * Defines the requirements for an object that translates paths in
  * the tree into display rows.
  *
@@ -35,7 +35,7 @@ import javax.swing.tree.TreePath;
  */
 public interface RowMapper
 {
-    /**
+    /** {@collect.stats}
      * Returns the rows that the TreePath instances in <code>path</code>
      * are being displayed at. The receiver should return an array of
      * the same length as that passed in, and if one of the TreePaths

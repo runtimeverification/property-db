@@ -28,7 +28,7 @@ package javax.sound.midi;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * The <code>ControllerEventListener</code> interface should be implemented
  * by classes whose instances need to be notified when a <code>Sequencer</code>
  * has processed a requested type of MIDI control-change event.
@@ -45,7 +45,7 @@ import java.util.EventListener;
  */
 public interface ControllerEventListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Invoked when a <code>Sequencer</code> has encountered and processed
      * a control-change event of interest to this listener.  The event passed
      * in is a <code>ShortMessage</code> whose first data byte indicates

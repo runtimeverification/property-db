@@ -27,7 +27,7 @@ package javax.swing.text;
 import javax.swing.Action;
 import javax.swing.KeyStroke;
 
-/**
+/** {@collect.stats}
  * A collection of bindings of KeyStrokes to actions.  The
  * bindings are basically name-value pairs that potentially
  * resolve in a hierarchy.
@@ -36,14 +36,14 @@ import javax.swing.KeyStroke;
  */
 public interface Keymap {
 
-    /**
+    /** {@collect.stats}
      * Fetches the name of the set of key-bindings.
      *
      * @return the name
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Fetches the default action to fire if a
      * key is typed (i.e. a KEY_TYPED KeyEvent is received)
      * and there is no binding for it.  Typically this
@@ -55,14 +55,14 @@ public interface Keymap {
      */
     public Action getDefaultAction();
 
-    /**
+    /** {@collect.stats}
      * Set the default action to fire if a key is typed.
      *
      * @param a the action
      */
     public void setDefaultAction(Action a);
 
-    /**
+    /** {@collect.stats}
      * Fetches the action appropriate for the given symbolic
      * event sequence.  This is used by JTextController to
      * determine how to interpret key sequences.  If the
@@ -75,7 +75,7 @@ public interface Keymap {
      */
     public Action getAction(KeyStroke key);
 
-    /**
+    /** {@collect.stats}
      * Fetches all of the keystrokes in this map that
      * are bound to some action.
      *
@@ -83,14 +83,14 @@ public interface Keymap {
      */
     public KeyStroke[] getBoundKeyStrokes();
 
-    /**
+    /** {@collect.stats}
      * Fetches all of the actions defined in this keymap.
      *
      * @return the list of actions
      */
     public Action[] getBoundActions();
 
-    /**
+    /** {@collect.stats}
      * Fetches the keystrokes that will result in
      * the given action.
      *
@@ -99,7 +99,7 @@ public interface Keymap {
      */
     public KeyStroke[] getKeyStrokesForAction(Action a);
 
-    /**
+    /** {@collect.stats}
      * Determines if the given key sequence is locally defined.
      *
      * @param key the key sequence
@@ -107,7 +107,7 @@ public interface Keymap {
      */
     public boolean isLocallyDefined(KeyStroke key);
 
-    /**
+    /** {@collect.stats}
      * Adds a binding to the keymap.
      *
      * @param key the key sequence
@@ -115,26 +115,26 @@ public interface Keymap {
      */
     public void addActionForKeyStroke(KeyStroke key, Action a);
 
-    /**
+    /** {@collect.stats}
      * Removes a binding from the keymap.
      *
      * @param keys the key sequence
      */
     public void removeKeyStrokeBinding(KeyStroke keys);
 
-    /**
+    /** {@collect.stats}
      * Removes all bindings from the keymap.
      */
     public void removeBindings();
 
-    /**
+    /** {@collect.stats}
      * Fetches the parent keymap used to resolve key-bindings.
      *
      * @return the keymap
      */
     public Keymap getResolveParent();
 
-    /**
+    /** {@collect.stats}
      * Sets the parent keymap, which will be used to
      * resolve key-bindings.
      *

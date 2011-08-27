@@ -50,7 +50,7 @@ import javax.management.openmbean.OpenMBeanOperationInfoSupport;
 import javax.management.openmbean.OpenMBeanParameterInfo;
 import javax.management.openmbean.OpenMBeanParameterInfoSupport;
 
-/**
+/** {@collect.stats}
  * <p>An MBean whose management interface is determined by reflection
  * on a Java interface.</p>
  *
@@ -130,17 +130,17 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
     private final static DescriptorCache descriptors =
         DescriptorCache.getInstance(JMX.proof);
 
-    /**
+    /** {@collect.stats}
      * The DynamicMBean that wraps the MXBean or Standard MBean implementation.
      **/
     private volatile MBeanSupport<?> mbean;
 
-    /**
+    /** {@collect.stats}
      * The cached MBeanInfo.
      **/
     private volatile MBeanInfo cachedMBeanInfo;
 
-    /**
+    /** {@collect.stats}
      * Make a DynamicMBean out of <var>implementation</var>, using the
      * specified <var>mbeanInterface</var> class.
      * @param implementation The implementation of this MBean.
@@ -185,7 +185,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a DynamicMBean out of the object
      * <var>implementation</var>, using the specified
      * <var>mbeanInterface</var> class.</p>
@@ -214,7 +214,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         construct(implementation, mbeanInterface, false, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a DynamicMBean out of <var>this</var>, using the specified
      * <var>mbeanInterface</var> class.</p>
      *
@@ -234,7 +234,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         construct(null, mbeanInterface, true, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a DynamicMBean out of the object
      * <var>implementation</var>, using the specified
      * <var>mbeanInterface</var> class.  This constructor can be used
@@ -273,7 +273,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a DynamicMBean out of <var>this</var>, using the specified
      * <var>mbeanInterface</var> class.  This constructor can be used
      * to make either Standard MBeans or MXBeans.  Unlike the
@@ -303,7 +303,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Replace the implementation object wrapped in this object.</p>
      *
      * @param implementation The new implementation of this Standard MBean
@@ -336,7 +336,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the implementation of this Standard MBean (or MXBean).
      * @return The implementation of this Standard MBean (or MXBean).
      *
@@ -346,7 +346,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return mbean.getResource();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the Management Interface of this Standard MBean (or MXBean).
      * @return The management interface of this Standard MBean (or MXBean).
      **/
@@ -354,7 +354,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return mbean.getMBeanInterface();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the class of the implementation of this Standard MBean (or MXBean).
      * @return The class of the implementation of this Standard MBean (or MXBean).
      **/
@@ -405,7 +405,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return mbean.invoke(actionName, params, signature);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the {@link MBeanInfo} for this MBean.
      * <p>
      * This method implements
@@ -475,7 +475,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return nmbi;
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the className that will be used in the MBeanInfo returned by
      * this MBean.
@@ -491,7 +491,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return info.getClassName();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used in the MBeanInfo returned by
      * this MBean.
@@ -507,7 +507,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return info.getDescription();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Customization hook:
      * Get the description that will be used in the MBeanFeatureInfo
      * returned by this MBean.</p>
@@ -530,7 +530,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return info.getDescription();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used in the MBeanAttributeInfo
      * returned by this MBean.
@@ -546,7 +546,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return getDescription((MBeanFeatureInfo)info);
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used in the MBeanConstructorInfo
      * returned by this MBean.
@@ -563,7 +563,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return getDescription((MBeanFeatureInfo)info);
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used for the  <var>sequence</var>
      * MBeanParameterInfo of the MBeanConstructorInfo returned by this MBean.
@@ -586,7 +586,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return param.getDescription();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the name that will be used for the <var>sequence</var>
      * MBeanParameterInfo of the MBeanConstructorInfo returned by this MBean.
@@ -609,7 +609,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return param.getName();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used in the MBeanOperationInfo
      * returned by this MBean.
@@ -625,7 +625,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return getDescription((MBeanFeatureInfo)info);
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the <var>impact</var> flag of the operation that will be used in
      * the MBeanOperationInfo returned by this MBean.
@@ -641,7 +641,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return info.getImpact();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the name that will be used for the <var>sequence</var>
      * MBeanParameterInfo of the MBeanOperationInfo returned by this MBean.
@@ -664,7 +664,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return param.getName();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the description that will be used for the  <var>sequence</var>
      * MBeanParameterInfo of the MBeanOperationInfo returned by this MBean.
@@ -687,7 +687,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return param.getDescription();
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the MBeanConstructorInfo[] that will be used in the MBeanInfo
      * returned by this MBean.
@@ -715,7 +715,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
             return ctors;
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Get the MBeanNotificationInfo[] that will be used in the MBeanInfo
      * returned by this MBean.
@@ -729,7 +729,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Get the Descriptor that will be used in the MBeanInfo
      * returned by this MBean.</p>
      *
@@ -778,7 +778,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return desc;
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * Return the MBeanInfo cached for this object.
      *
@@ -794,7 +794,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return cachedMBeanInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Customization hook:
      * cache the MBeanInfo built for this object.
      *
@@ -1026,7 +1026,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return natts;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Allows the MBean to perform any operations it needs before
      * being registered in the MBean server.  If the name of the MBean
      * is not specified, the MBean can provide a name for its
@@ -1076,7 +1076,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Allows the MBean to perform any operations needed after having been
      * registered in the MBean server or after the registration has failed.</p>
      *
@@ -1100,7 +1100,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
             mbean.unregister();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Allows the MBean to perform any operations it needs before
      * being unregistered by the MBean server.</p>
      *
@@ -1118,7 +1118,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
     public void preDeregister() throws Exception {
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Allows the MBean to perform any operations needed after having been
      * unregistered in the MBean server.</p>
      *
@@ -1141,7 +1141,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
     // MBeanInfo immutability
     //
 
-    /**
+    /** {@collect.stats}
      * Cached results of previous calls to immutableInfo. This is
      * a WeakHashMap so that we don't prevent a class from being
      * garbage collected just because we know whether its MBeanInfo
@@ -1150,7 +1150,7 @@ public class StandardMBean implements DynamicMBean, MBeanRegistration {
     private static final Map<Class, Boolean> mbeanInfoSafeMap =
         new WeakHashMap<Class, Boolean>();
 
-    /**
+    /** {@collect.stats}
      * Return true if {@code subclass} is known to preserve the immutability
      * of the {@code MBeanInfo}. The {@code subclass} is considered to have
      * an immutable {@code MBeanInfo} if it does not override any of the

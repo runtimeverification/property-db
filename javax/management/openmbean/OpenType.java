@@ -38,7 +38,7 @@ import java.util.List;
 import javax.management.Descriptor;
 import javax.management.ImmutableDescriptor;
 
-/**
+/** {@collect.stats}
  * The <code>OpenType</code> class is the parent abstract class of all classes which describe the actual <i>open type</i>
  * of open data values.
  * <p>
@@ -66,7 +66,7 @@ public abstract class OpenType<T> implements Serializable {
     static final long serialVersionUID = -9195195325186646468L;
 
 
-    /**
+    /** {@collect.stats}
      * List of the fully qualified names of the Java classes allowed for open
      * data values. A multidimensional array of any one of these classes or
      * their corresponding primitive types is also an allowed class for open
@@ -113,7 +113,7 @@ public abstract class OpenType<T> implements Serializable {
           TabularData.class.getName()) );       // in case the package of these classes should change (who knows...)
 
 
-    /**
+    /** {@collect.stats}
      * @deprecated Use {@link #ALLOWED_CLASSNAMES_LIST ALLOWED_CLASSNAMES_LIST} instead.
      */
     @Deprecated
@@ -121,35 +121,35 @@ public abstract class OpenType<T> implements Serializable {
         ALLOWED_CLASSNAMES_LIST.toArray(new String[0]);
 
 
-    /**
+    /** {@collect.stats}
      * @serial The fully qualified Java class name of open data values this
      *         type describes.
      */
     private String className;
 
-    /**
+    /** {@collect.stats}
      * @serial The type description (should not be null or empty).
      */
     private String description;
 
-    /**
+    /** {@collect.stats}
      * @serial The name given to this type (should not be null or empty).
      */
     private String typeName;
 
-    /**
+    /** {@collect.stats}
      * Tells if this type describes an array (checked in constructor).
      */
     private transient boolean isArray = false;
 
-    /**
+    /** {@collect.stats}
      * Cached Descriptor for this OpenType, constructed on demand.
      */
     private transient Descriptor descriptor;
 
     /* *** Constructor *** */
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>OpenType</code> instance (actually a subclass instance as <code>OpenType</code> is abstract),
      * checking for the validity of the given parameters.
      * The validity constraints are described below for each parameter.
@@ -285,7 +285,7 @@ public abstract class OpenType<T> implements Serializable {
 
     /* *** Open type information methods *** */
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified Java class name of the open data values
      * this open type describes.
      * The only possible Java class names for open data values are listed in
@@ -313,7 +313,7 @@ public abstract class OpenType<T> implements Serializable {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this <code>OpenType</code> instance.
      *
      * @return the type name.
@@ -323,7 +323,7 @@ public abstract class OpenType<T> implements Serializable {
         return typeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text description of this <code>OpenType</code> instance.
      *
      * @return the description.
@@ -333,7 +333,7 @@ public abstract class OpenType<T> implements Serializable {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the open data values this open
      * type describes are arrays, <code>false</code> otherwise.
      *
@@ -344,7 +344,7 @@ public abstract class OpenType<T> implements Serializable {
         return isArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a value for this open type.
      *
      * @param obj the object to be tested for validity.
@@ -354,7 +354,7 @@ public abstract class OpenType<T> implements Serializable {
      */
     public abstract boolean isValue(Object obj) ;
 
-    /**
+    /** {@collect.stats}
      * Tests whether values of the given type can be assigned to this open type.
      * The default implementation of this method returns true only if the
      * types are equal.
@@ -369,7 +369,7 @@ public abstract class OpenType<T> implements Serializable {
 
     /* *** Methods overriden from class Object *** */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>obj</code> parameter with this
      * open type instance for equality.
      *
@@ -381,14 +381,14 @@ public abstract class OpenType<T> implements Serializable {
 
     public abstract int hashCode() ;
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this open type instance.
      *
      * @return the string representation.
      */
     public abstract String toString() ;
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link OpenType} from an {@link java.io.ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)

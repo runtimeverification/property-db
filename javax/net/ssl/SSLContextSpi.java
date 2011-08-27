@@ -28,7 +28,7 @@ package javax.net.ssl;
 import java.util.*;
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>SSLContext</code> class.
  *
@@ -40,7 +40,7 @@ import java.security.*;
  * @see SSLContext
  */
 public abstract class SSLContextSpi {
-    /**
+    /** {@collect.stats}
      * Initializes this context.
      *
      * @param km the sources of authentication keys
@@ -52,7 +52,7 @@ public abstract class SSLContextSpi {
     protected abstract void engineInit(KeyManager[] km, TrustManager[] tm,
         SecureRandom sr) throws KeyManagementException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SocketFactory</code> object for this
      * context.
      *
@@ -64,7 +64,7 @@ public abstract class SSLContextSpi {
      */
     protected abstract SSLSocketFactory engineGetSocketFactory();
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>ServerSocketFactory</code> object for
      * this context.
      *
@@ -76,7 +76,7 @@ public abstract class SSLContextSpi {
      */
     protected abstract SSLServerSocketFactory engineGetServerSocketFactory();
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SSLEngine</code> using this context.
      * <P>
      * Applications using this factory method are providing no hints
@@ -98,7 +98,7 @@ public abstract class SSLContextSpi {
      */
     protected abstract SSLEngine engineCreateSSLEngine();
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SSLEngine</code> using this context.
      * <P>
      * Applications using this factory method are providing hints
@@ -120,7 +120,7 @@ public abstract class SSLContextSpi {
      */
     protected abstract SSLEngine engineCreateSSLEngine(String host, int port);
 
-    /**
+    /** {@collect.stats}
      * Returns a server <code>SSLSessionContext</code> object for
      * this context.
      *
@@ -129,7 +129,7 @@ public abstract class SSLContextSpi {
      */
     protected abstract SSLSessionContext engineGetServerSessionContext();
 
-    /**
+    /** {@collect.stats}
      * Returns a client <code>SSLSessionContext</code> object for
      * this context.
      *
@@ -147,7 +147,7 @@ public abstract class SSLContextSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the SSLParameters indicating the default
      * settings for this SSL context.
      *
@@ -170,7 +170,7 @@ public abstract class SSLContextSpi {
         return socket.getSSLParameters();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the SSLParameters indicating the maximum supported
      * settings for this SSL context.
      *

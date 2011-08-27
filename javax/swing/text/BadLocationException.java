@@ -24,7 +24,7 @@
  */
 package javax.swing.text;
 
-/**
+/** {@collect.stats}
  * This exception is to report bad locations within a document model
  * (that is, attempts to reference a location that doesn't exist).
  * <p>
@@ -41,7 +41,7 @@ package javax.swing.text;
  */
 public class BadLocationException extends Exception
 {
-    /**
+    /** {@collect.stats}
      * Creates a new BadLocationException object.
      *
      * @param s         a string indicating what was wrong with the arguments
@@ -52,7 +52,7 @@ public class BadLocationException extends Exception
         this.offs = offs;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset into the document that was not legal.
      *
      * @return the offset >= 0

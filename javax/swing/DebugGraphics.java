@@ -29,7 +29,7 @@ import java.awt.*;
 import java.awt.image.*;
 import java.text.AttributedCharacterIterator;
 
-/**
+/** {@collect.stats}
  * Graphics subclass supporting graphics debugging. Overrides most methods
  * from Graphics.  DebugGraphics objects are rarely created by hand.  They
  * are most frequently created automatically when a JComponent's
@@ -55,20 +55,20 @@ public class DebugGraphics extends Graphics {
     private static int          graphicsCount = 0;
     private static ImageIcon    imageLoadingIcon = new ImageIcon();
 
-    /** Log graphics operations. */
+    /** {@collect.stats} Log graphics operations. */
     public static final int     LOG_OPTION   = 1 << 0;
-    /** Flash graphics operations. */
+    /** {@collect.stats} Flash graphics operations. */
     public static final int     FLASH_OPTION = 1 << 1;
-    /** Show buffered operations in a separate <code>Frame</code>. */
+    /** {@collect.stats} Show buffered operations in a separate <code>Frame</code>. */
     public static final int     BUFFERED_OPTION = 1 << 2;
-    /** Don't debug graphics operations. */
+    /** {@collect.stats} Don't debug graphics operations. */
     public static final int     NONE_OPTION = -1;
 
     static {
         JComponent.DEBUG_GRAPHICS_LOADED = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new debug graphics context that supports slowed
      * down drawing.
      */
@@ -78,7 +78,7 @@ public class DebugGraphics extends Graphics {
         xOffset = yOffset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a debug graphics context from an existing graphics
      * context that slows down drawing for the specified component.
      *
@@ -90,7 +90,7 @@ public class DebugGraphics extends Graphics {
         setDebugOptions(component.shouldDebugGraphics());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a debug graphics context from an existing graphics
      * context that supports slowed down drawing.
      *
@@ -101,7 +101,7 @@ public class DebugGraphics extends Graphics {
         this.graphics = graphics;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.create</code> to return a DebugGraphics object.
      */
     public Graphics create() {
@@ -115,7 +115,7 @@ public class DebugGraphics extends Graphics {
         return debugGraphics;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.create</code> to return a DebugGraphics object.
      */
     public Graphics create(int x, int y, int width, int height) {
@@ -136,14 +136,14 @@ public class DebugGraphics extends Graphics {
     //  NEW METHODS
     //------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the Color used to flash drawing operations.
      */
     public static void setFlashColor(Color flashColor) {
         info().flashColor = flashColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Color used to flash drawing operations.
      * @see #setFlashColor
      */
@@ -151,14 +151,14 @@ public class DebugGraphics extends Graphics {
         return info().flashColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the time delay of drawing operation flashing.
      */
     public static void setFlashTime(int flashTime) {
         info().flashTime = flashTime;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the time delay of drawing operation flashing.
      * @see #setFlashTime
      */
@@ -166,34 +166,34 @@ public class DebugGraphics extends Graphics {
         return info().flashTime;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of times that drawing operations will flash.
      */
     public static void setFlashCount(int flashCount) {
         info().flashCount = flashCount;
     }
 
-    /** Returns the number of times that drawing operations will flash.
+    /** {@collect.stats} Returns the number of times that drawing operations will flash.
       * @see #setFlashCount
       */
     public static int flashCount() {
         return info().flashCount;
     }
 
-    /** Sets the stream to which the DebugGraphics logs drawing operations.
+    /** {@collect.stats} Sets the stream to which the DebugGraphics logs drawing operations.
       */
     public static void setLogStream(java.io.PrintStream stream) {
         info().stream = stream;
     }
 
-    /** Returns the stream to which the DebugGraphics logs drawing operations.
+    /** {@collect.stats} Returns the stream to which the DebugGraphics logs drawing operations.
       * @see #setLogStream
       */
     public static java.io.PrintStream logStream() {
         return info().stream;
     }
 
-    /** Sets the Font used for text drawing operations.
+    /** {@collect.stats} Sets the Font used for text drawing operations.
       */
     public void setFont(Font aFont) {
         if (debugLog()) {
@@ -202,14 +202,14 @@ public class DebugGraphics extends Graphics {
         graphics.setFont(aFont);
     }
 
-    /** Returns the Font used for text drawing operations.
+    /** {@collect.stats} Returns the Font used for text drawing operations.
       * @see #setFont
       */
     public Font getFont() {
         return graphics.getFont();
     }
 
-    /** Sets the color to be used for drawing and filling lines and shapes.
+    /** {@collect.stats} Sets the color to be used for drawing and filling lines and shapes.
       */
     public void setColor(Color aColor) {
         if (debugLog()) {
@@ -218,7 +218,7 @@ public class DebugGraphics extends Graphics {
         graphics.setColor(aColor);
     }
 
-    /** Returns the Color used for text drawing operations.
+    /** {@collect.stats} Returns the Color used for text drawing operations.
       * @see #setColor
       */
     public Color getColor() {
@@ -230,21 +230,21 @@ public class DebugGraphics extends Graphics {
     // OVERRIDDEN METHODS
     //------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.getFontMetrics</code>.
      */
     public FontMetrics getFontMetrics() {
         return graphics.getFontMetrics();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.getFontMetrics</code>.
      */
     public FontMetrics getFontMetrics(Font f) {
         return graphics.getFontMetrics(f);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.translate</code>.
      */
     public void translate(int x, int y) {
@@ -257,7 +257,7 @@ public class DebugGraphics extends Graphics {
         graphics.translate(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.setPaintMode</code>.
      */
     public void setPaintMode() {
@@ -267,7 +267,7 @@ public class DebugGraphics extends Graphics {
         graphics.setPaintMode();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.setXORMode</code>.
      */
     public void setXORMode(Color aColor) {
@@ -277,14 +277,14 @@ public class DebugGraphics extends Graphics {
         graphics.setXORMode(aColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.getClipBounds</code>.
      */
     public Rectangle getClipBounds() {
         return graphics.getClipBounds();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.clipRect</code>.
      */
     public void clipRect(int x, int y, int width, int height) {
@@ -296,7 +296,7 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.setClip</code>.
      */
     public void setClip(int x, int y, int width, int height) {
@@ -307,14 +307,14 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.getClip</code>.
      */
     public Shape getClip() {
         return graphics.getClip();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.setClip</code>.
      */
     public void setClip(Shape clip) {
@@ -325,7 +325,7 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawRect</code>.
      */
     public void drawRect(int x, int y, int width, int height) {
@@ -359,7 +359,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawRect(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fillRect</code>.
      */
     public void fillRect(int x, int y, int width, int height) {
@@ -393,7 +393,7 @@ public class DebugGraphics extends Graphics {
         graphics.fillRect(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.clearRect</code>.
      */
     public void clearRect(int x, int y, int width, int height) {
@@ -427,7 +427,7 @@ public class DebugGraphics extends Graphics {
         graphics.clearRect(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawRoundRect</code>.
      */
     public void drawRoundRect(int x, int y, int width, int height,
@@ -465,7 +465,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawRoundRect(x, y, width, height, arcWidth, arcHeight);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fillRoundRect</code>.
      */
     public void fillRoundRect(int x, int y, int width, int height,
@@ -503,7 +503,7 @@ public class DebugGraphics extends Graphics {
         graphics.fillRoundRect(x, y, width, height, arcWidth, arcHeight);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawLine</code>.
      */
     public void drawLine(int x1, int y1, int x2, int y2) {
@@ -537,7 +537,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawLine(x1, y1, x2, y2);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.draw3DRect</code>.
      */
     public void draw3DRect(int x, int y, int width, int height,
@@ -572,7 +572,7 @@ public class DebugGraphics extends Graphics {
         graphics.draw3DRect(x, y, width, height, raised);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fill3DRect</code>.
      */
     public void fill3DRect(int x, int y, int width, int height,
@@ -607,7 +607,7 @@ public class DebugGraphics extends Graphics {
         graphics.fill3DRect(x, y, width, height, raised);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawOval</code>.
      */
     public void drawOval(int x, int y, int width, int height) {
@@ -640,7 +640,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawOval(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fillOval</code>.
      */
     public void fillOval(int x, int y, int width, int height) {
@@ -673,7 +673,7 @@ public class DebugGraphics extends Graphics {
         graphics.fillOval(x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawArc</code>.
      */
     public void drawArc(int x, int y, int width, int height,
@@ -710,7 +710,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawArc(x, y, width, height, startAngle, arcAngle);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fillArc</code>.
      */
     public void fillArc(int x, int y, int width, int height,
@@ -747,7 +747,7 @@ public class DebugGraphics extends Graphics {
         graphics.fillArc(x, y, width, height, startAngle, arcAngle);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawPolyline</code>.
      */
     public void drawPolyline(int xPoints[], int yPoints[], int nPoints) {
@@ -782,7 +782,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawPolyline(xPoints, yPoints, nPoints);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawPolygon</code>.
      */
     public void drawPolygon(int xPoints[], int yPoints[], int nPoints) {
@@ -817,7 +817,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawPolygon(xPoints, yPoints, nPoints);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.fillPolygon</code>.
      */
     public void fillPolygon(int xPoints[], int yPoints[], int nPoints) {
@@ -852,7 +852,7 @@ public class DebugGraphics extends Graphics {
         graphics.fillPolygon(xPoints, yPoints, nPoints);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawString</code>.
      */
     public void drawString(String aString, int x, int y) {
@@ -887,7 +887,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawString(aString, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawString</code>.
      */
     public void drawString(AttributedCharacterIterator iterator, int x, int y) {
@@ -922,7 +922,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawString(iterator, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawBytes</code>.
      */
     public void drawBytes(byte data[], int offset, int length, int x, int y) {
@@ -958,7 +958,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawBytes(data, offset, length, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawChars</code>.
      */
     public void drawChars(char data[], int offset, int length, int x, int y) {
@@ -994,7 +994,7 @@ public class DebugGraphics extends Graphics {
         graphics.drawChars(data, offset, length, x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img, int x, int y,
@@ -1038,7 +1038,7 @@ public class DebugGraphics extends Graphics {
         return graphics.drawImage(img, x, y, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img, int x, int y, int width, int height,
@@ -1082,7 +1082,7 @@ public class DebugGraphics extends Graphics {
         return graphics.drawImage(img, x, y, width, height, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img, int x, int y,
@@ -1128,7 +1128,7 @@ public class DebugGraphics extends Graphics {
         return graphics.drawImage(img, x, y, bgcolor, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img, int x, int y,int width, int height,
@@ -1175,7 +1175,7 @@ public class DebugGraphics extends Graphics {
         return graphics.drawImage(img, x, y, width, height, bgcolor, observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img,
@@ -1225,7 +1225,7 @@ public class DebugGraphics extends Graphics {
                                   observer);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.drawImage</code>.
      */
     public boolean drawImage(Image img,
@@ -1282,7 +1282,7 @@ public class DebugGraphics extends Graphics {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.copyArea</code>.
      */
     public void copyArea(int x, int y, int width, int height,
@@ -1303,7 +1303,7 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>Graphics.dispose</code>.
      */
     public void dispose() {
@@ -1312,7 +1312,7 @@ public class DebugGraphics extends Graphics {
     }
 
     // ALERT!
-    /**
+    /** {@collect.stats}
      * Returns the drawingBuffer value.
      *
      * @return true if this object is drawing from a Buffer
@@ -1331,7 +1331,7 @@ public class DebugGraphics extends Graphics {
         return buffer.toString();
     }
 
-    /** Enables/disables diagnostic information about every graphics
+    /** {@collect.stats} Enables/disables diagnostic information about every graphics
       * operation. The value of <b>options</b> indicates how this information
       * should be displayed. LOG_OPTION causes a text message to be printed.
       * FLASH_OPTION causes the drawing to flash several times. BUFFERED_OPTION
@@ -1357,21 +1357,21 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /** Returns the current debugging options for this DebugGraphics.
+    /** {@collect.stats} Returns the current debugging options for this DebugGraphics.
       * @see #setDebugOptions
       */
     public int getDebugOptions() {
         return debugOptions;
     }
 
-    /** Static wrapper method for DebugGraphicsInfo.setDebugOptions(). Stores
+    /** {@collect.stats} Static wrapper method for DebugGraphicsInfo.setDebugOptions(). Stores
       * options on a per component basis.
       */
     static void setDebugOptions(JComponent component, int options) {
         info().setDebugOptions(component, options);
     }
 
-    /** Static wrapper method for DebugGraphicsInfo.getDebugOptions().
+    /** {@collect.stats} Static wrapper method for DebugGraphicsInfo.getDebugOptions().
       */
     static int getDebugOptions(JComponent component) {
         DebugGraphicsInfo debugGraphicsInfo = info();
@@ -1382,7 +1382,7 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /** Returns non-zero if <b>component</b> should display with DebugGraphics,
+    /** {@collect.stats} Returns non-zero if <b>component</b> should display with DebugGraphics,
       * zero otherwise. Walks the JComponent's parent tree to determine if
       * any debugging options have been set.
       */
@@ -1403,7 +1403,7 @@ public class DebugGraphics extends Graphics {
         }
     }
 
-    /** Returns the number of JComponents that have debugging options turned
+    /** {@collect.stats} Returns the number of JComponents that have debugging options turned
       * on.
       */
     static int debugComponentCount() {
@@ -1428,7 +1428,7 @@ public class DebugGraphics extends Graphics {
         return (debugOptions & BUFFERED_OPTION) == BUFFERED_OPTION;
     }
 
-    /** Returns a DebugGraphics for use in buffering window.
+    /** {@collect.stats} Returns a DebugGraphics for use in buffering window.
       */
     private Graphics debugGraphics() {
         DebugGraphics        debugGraphics;
@@ -1452,7 +1452,7 @@ public class DebugGraphics extends Graphics {
         return debugGraphics;
     }
 
-    /** Returns DebugGraphicsInfo, or creates one if none exists.
+    /** {@collect.stats} Returns DebugGraphicsInfo, or creates one if none exists.
       */
     static DebugGraphicsInfo info() {
         DebugGraphicsInfo debugGraphicsInfo = (DebugGraphicsInfo)

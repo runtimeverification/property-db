@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobOriginatingUserName is a printing attribute class, a text
  * attribute, that contains the name of the end user that submitted the
  * print job. If possible, the printer sets this attribute to the most
@@ -56,7 +56,7 @@ public final class JobOriginatingUserName extends TextSyntax
 
     private static final long serialVersionUID = -8052537926362933477L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new job originating user name attribute with the given
      * user name and locale.
      *
@@ -72,7 +72,7 @@ public final class JobOriginatingUserName extends TextSyntax
         super (userName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job originating user name attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -99,7 +99,7 @@ public final class JobOriginatingUserName extends TextSyntax
                 object instanceof JobOriginatingUserName);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -113,7 +113,7 @@ public final class JobOriginatingUserName extends TextSyntax
         return JobOriginatingUserName.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

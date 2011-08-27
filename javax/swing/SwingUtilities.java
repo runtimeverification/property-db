@@ -44,7 +44,7 @@ import sun.security.action.GetPropertyAction;
 
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * A collection of utility methods for Swing.
  *
  * @author unknown
@@ -55,20 +55,20 @@ public class SwingUtilities implements SwingConstants
     private static boolean canAccessEventQueue = false;
     private static boolean eventQueueTested = false;
 
-    /**
+    /** {@collect.stats}
      * Indicates if we should change the drop target when a
      * {@code TransferHandler} is set.
      */
     private static boolean suppressDropSupport;
 
-    /**
+    /** {@collect.stats}
      * Indiciates if we've checked the system property for suppressing
      * drop support.
      */
     private static boolean checkedSuppressDropSupport;
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>setTransferHandler</code> should change the
      * <code>DropTarget</code>.
      */
@@ -82,7 +82,7 @@ public class SwingUtilities implements SwingConstants
         return suppressDropSupport;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs a {@code DropTarget} on the component as necessary for a
      * {@code TransferHandler} change.
      */
@@ -101,7 +101,7 @@ public class SwingUtilities implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if <code>a</code> contains <code>b</code>
      */
     public static final boolean isRectangleContainingRectangle(Rectangle a,Rectangle b) {
@@ -112,7 +112,7 @@ public class SwingUtilities implements SwingConstants
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the rectangle (0,0,bounds.width,bounds.height) for the component <code>aComponent</code>
      */
     public static Rectangle getLocalBounds(Component aComponent) {
@@ -122,7 +122,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the first <code>Window </code> ancestor of <code>c</code>, or
      * {@code null} if <code>c</code> is not contained inside a <code>Window</code>.
      *
@@ -142,7 +142,7 @@ public class SwingUtilities implements SwingConstants
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the location <code>x</code> <code>y</code> to the
      * parents coordinate system, returning the location.
      */
@@ -158,7 +158,7 @@ public class SwingUtilities implements SwingConstants
         throw new Error("convertScreenLocationToParent: no window ancestor");
     }
 
-    /**
+    /** {@collect.stats}
      * Convert a <code>aPoint</code> in <code>source</code> coordinate system to
      * <code>destination</code> coordinate system.
      * If <code>source</code> is {@code null}, <code>aPoint</code> is assumed to be in <code>destination</code>'s
@@ -189,7 +189,7 @@ public class SwingUtilities implements SwingConstants
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert the point <code>(x,y)</code> in <code>source</code> coordinate system to
      * <code>destination</code> coordinate system.
      * If <code>source</code> is {@code null}, <code>(x,y)</code> is assumed to be in <code>destination</code>'s
@@ -204,7 +204,7 @@ public class SwingUtilities implements SwingConstants
         return convertPoint(source,point,destination);
     }
 
-    /**
+    /** {@collect.stats}
      * Convert the rectangle <code>aRectangle</code> in <code>source</code> coordinate system to
      * <code>destination</code> coordinate system.
      * If <code>source</code> is {@code null}, <code>aRectangle</code> is assumed to be in <code>destination</code>'s
@@ -220,7 +220,7 @@ public class SwingUtilities implements SwingConstants
         return new Rectangle(point.x,point.y,aRectangle.width,aRectangle.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method for searching above <code>comp</code> in the
      * component hierarchy and returns the first object of class <code>c</code> it
      * finds. Can return {@code null}, if a class <code>c</code> cannot be found.
@@ -236,7 +236,7 @@ public class SwingUtilities implements SwingConstants
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method for searching above <code>comp</code> in the
      * component hierarchy and returns the first object of <code>name</code> it
      * finds. Can return {@code null}, if <code>name</code> cannot be found.
@@ -251,7 +251,7 @@ public class SwingUtilities implements SwingConstants
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the deepest visible descendent Component of <code>parent</code>
      * that contains the location <code>x</code>, <code>y</code>.
      * If <code>parent</code> does not contain the specified location,
@@ -288,7 +288,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a MouseEvent similar to <code>sourceEvent</code> except that its x
      * and y members have been converted to <code>destination</code>'s coordinate
      * system.  If <code>source</code> is {@code null}, <code>sourceEvent</code> x and y members
@@ -360,7 +360,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convert a point from a component's coordinate system to
      * screen coordinates.
      *
@@ -399,7 +399,7 @@ public class SwingUtilities implements SwingConstants
             } while(c != null);
         }
 
-    /**
+    /** {@collect.stats}
      * Convert a point from a screen coordinates to a component's
      * coordinate system
      *
@@ -438,7 +438,7 @@ public class SwingUtilities implements SwingConstants
         } while(c != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first <code>Window </code> ancestor of <code>c</code>, or
      * {@code null} if <code>c</code> is not contained inside a <code>Window</code>.
      * <p>
@@ -455,7 +455,7 @@ public class SwingUtilities implements SwingConstants
         return getWindowAncestor(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Return <code>true</code> if a component <code>a</code> descends from a component <code>b</code>
      */
     public static boolean isDescendingFrom(Component a,Component b) {
@@ -468,7 +468,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience to calculate the intersection of two rectangles
      * without allocating a new rectangle.
      * If the two rectangles don't intersect,
@@ -502,7 +502,7 @@ public class SwingUtilities implements SwingConstants
         return dest;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method that calculates the union of two rectangles
      * without allocating a new rectangle.
      *
@@ -527,7 +527,7 @@ public class SwingUtilities implements SwingConstants
         return dest;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience returning an array of rect representing the regions within
      * <code>rectA</code> that do not overlap with <code>rectB</code>. If the
      * two Rects do not overlap, returns an empty array
@@ -786,7 +786,7 @@ public class SwingUtilities implements SwingConstants
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the mouse event specifies the left mouse button.
      *
      * @param anEvent  a MouseEvent object
@@ -796,7 +796,7 @@ public class SwingUtilities implements SwingConstants
          return ((anEvent.getModifiers() & InputEvent.BUTTON1_MASK) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the mouse event specifies the middle mouse button.
      *
      * @param anEvent  a MouseEvent object
@@ -806,7 +806,7 @@ public class SwingUtilities implements SwingConstants
         return ((anEvent.getModifiers() & InputEvent.BUTTON2_MASK) == InputEvent.BUTTON2_MASK);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the mouse event specifies the right mouse button.
      *
      * @param anEvent  a MouseEvent object
@@ -816,7 +816,7 @@ public class SwingUtilities implements SwingConstants
         return ((anEvent.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK);
     }
 
-    /**
+    /** {@collect.stats}
      * Compute the width of the string using a font with the specified
      * "metrics" (sizes).
      *
@@ -831,7 +831,7 @@ public class SwingUtilities implements SwingConstants
         return SwingUtilities2.stringWidth(null, fm, str);
     }
 
-    /**
+    /** {@collect.stats}
      * Compute and return the location of the icons origin, the
      * location of origin of the text baseline, and a possibly clipped
      * version of the compound labels string.  Locations are computed
@@ -898,7 +898,7 @@ public class SwingUtilities implements SwingConstants
                                        textIconGap);
     }
 
-    /**
+    /** {@collect.stats}
      * Compute and return the location of the icons origin, the
      * location of origin of the text baseline, and a possibly clipped
      * version of the compound labels string.  Locations are computed
@@ -929,7 +929,7 @@ public class SwingUtilities implements SwingConstants
                                        viewR, iconR, textR, textIconGap);
     }
 
-    /**
+    /** {@collect.stats}
      * Compute and return the location of the icons origin, the
      * location of origin of the text baseline, and a possibly clipped
      * version of the compound labels string.  Locations are computed
@@ -1127,7 +1127,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Paints a component to the specified <code>Graphics</code>.
      * This method is primarily useful to render
      * <code>Component</code>s that don't exist as part of the visible
@@ -1178,7 +1178,7 @@ public class SwingUtilities implements SwingConstants
         getCellRendererPane(c, p).paintComponent(g, c, p, x, y, w, h,false);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints a component to the specified <code>Graphics</code>.  This
      * is a cover method for
      * {@link #paintComponent(Graphics,Component,Container,int,int,int,int)}.
@@ -1216,7 +1216,7 @@ public class SwingUtilities implements SwingConstants
         return (CellRendererPane)shell;
     }
 
-    /**
+    /** {@collect.stats}
      * A simple minded look and feel change: ask each node in the tree
      * to <code>updateUI()</code> -- that is, to initialize its UI property
      * with the current look and feel.
@@ -1252,7 +1252,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Causes <i>doRun.run()</i> to be executed asynchronously on the
      * AWT event dispatching thread.  This will happen after all
      * pending AWT events have been processed.  This method should
@@ -1293,7 +1293,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Causes <code>doRun.run()</code> to be executed synchronously on the
      * AWT event dispatching thread.  This call blocks until
      * all pending AWT events have been processed and (then)
@@ -1351,7 +1351,7 @@ public class SwingUtilities implements SwingConstants
         EventQueue.invokeAndWait(doRun);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the current thread is an AWT event dispatching thread.
      * <p>
      * As of 1.3 this method is just a cover for
@@ -1370,7 +1370,7 @@ public class SwingUtilities implements SwingConstants
      *
      */
 
-    /**
+    /** {@collect.stats}
      * Get the index of this object in its accessible parent.<p>
      *
      * Note: as of the Java 2 platform v1.3, it is recommended that developers call
@@ -1384,7 +1384,7 @@ public class SwingUtilities implements SwingConstants
         return c.getAccessibleContext().getAccessibleIndexInParent();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Accessible</code> child contained at the
      * local coordinate <code>Point</code>, if one exists.
      * Otherwise returns <code>null</code>.
@@ -1427,7 +1427,7 @@ public class SwingUtilities implements SwingConstants
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the state of this object. <p>
      *
      * Note: as of the Java 2 platform v1.3, it is recommended that developers call
@@ -1442,7 +1442,7 @@ public class SwingUtilities implements SwingConstants
         return c.getAccessibleContext().getAccessibleStateSet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of accessible children in the object.  If all
      * of the children of this object implement Accessible, than this
      * method should return the number of children of this object. <p>
@@ -1457,7 +1457,7 @@ public class SwingUtilities implements SwingConstants
         return c.getAccessibleContext().getAccessibleChildrenCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the nth Accessible child of the object. <p>
      *
      * Note: as of the Java 2 platform v1.3, it is recommended that developers call
@@ -1471,7 +1471,7 @@ public class SwingUtilities implements SwingConstants
         return c.getAccessibleContext().getAccessibleChild(i);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the child <code>Component</code> of the specified
      * <code>Component</code> that is the focus owner, if any.
      *
@@ -1502,7 +1502,7 @@ public class SwingUtilities implements SwingConstants
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * If c is a JRootPane descendant return its JRootPane ancestor.
      * If c is a RootPaneContainer then return its JRootPane.
      * @return the JRootPane for Component c or {@code null}.
@@ -1520,7 +1520,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the root component for the current component tree.
      * @return the first ancestor of c that's a Window or the last Applet ancestor
      */
@@ -1537,7 +1537,7 @@ public class SwingUtilities implements SwingConstants
         return applet;
     }
 
-    /**
+    /** {@collect.stats}
      * Process the key bindings for the <code>Component</code> associated with
      * <code>event</code>. This method is only useful if
      * <code>event.getComponent()</code> does not descend from
@@ -1585,7 +1585,7 @@ public class SwingUtilities implements SwingConstants
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the <code>e</code> is a valid KeyEvent to use in
      * processing the key bindings associated with JComponents.
      */
@@ -1602,7 +1602,7 @@ public class SwingUtilities implements SwingConstants
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>actionPerformed</code> on <code>action</code> if
      * <code>action</code> is enabled (and non-{@code null}). The command for the
      * ActionEvent is determined by:
@@ -1668,7 +1668,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience method to change the UI InputMap for <code>component</code>
      * to <code>uiInputMap</code>. If <code>uiInputMap</code> is {@code null},
      * this removes any previously installed UI InputMap.
@@ -1690,7 +1690,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience method to change the UI ActionMap for <code>component</code>
      * to <code>uiActionMap</code>. If <code>uiActionMap</code> is {@code null},
      * this removes any previously installed UI ActionMap.
@@ -1712,7 +1712,7 @@ public class SwingUtilities implements SwingConstants
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the InputMap provided by the UI for condition
      * <code>condition</code> in component <code>component</code>.
      * <p>This will return {@code null} if the UI has not installed a InputMap
@@ -1732,7 +1732,7 @@ public class SwingUtilities implements SwingConstants
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ActionMap provided by the UI
      * in component <code>component</code>.
      * <p>This will return {@code null} if the UI has not installed an ActionMap.
@@ -1761,7 +1761,7 @@ public class SwingUtilities implements SwingConstants
             installListeners();
         }
 
-        /**
+        /** {@collect.stats}
          * Install window listeners on owned windows to watch for displayability changes
          */
         void installListeners() {
@@ -1775,7 +1775,7 @@ public class SwingUtilities implements SwingConstants
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Watches for displayability changes and disposes shared instance if there are no
          * displayable children left.
          */
@@ -1820,7 +1820,7 @@ public class SwingUtilities implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a toolkit-private, shared, invisible Frame
      * to be the owner for JDialogs and JWindows created with
      * {@code null} owners.
@@ -1839,7 +1839,7 @@ public class SwingUtilities implements SwingConstants
         return sharedOwnerFrame;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a SharedOwnerFrame's shutdown listener to dispose the SharedOwnerFrame
      * if it has no more displayable children.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -1888,7 +1888,7 @@ public class SwingUtilities implements SwingConstants
         throw new Error("SwingUtilities is just a container for static methods");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the Icon <code>icon</code> is an instance of
      * ImageIcon, and the image it contains is the same as <code>image</code>.
      */
@@ -1898,7 +1898,7 @@ public class SwingUtilities implements SwingConstants
         return (iconImage == image);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns index of the first occurrence of <code>mnemonic</code>
      * within string <code>text</code>. Matching algorithm is not
      * case-sensitive.
@@ -1927,7 +1927,7 @@ public class SwingUtilities implements SwingConstants
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the position and size of
      * the inner painting area of the specified component
      * in <code>r</code> and returns <code>r</code>.

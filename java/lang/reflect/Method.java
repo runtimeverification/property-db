@@ -38,7 +38,7 @@ import java.lang.annotation.AnnotationFormatError;
 import java.nio.ByteBuffer;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * A {@code Method} provides information about, and access to, a single method
  * on a class or interface.  The reflected method may be a class method
  * or an instance method (including an abstract method).
@@ -115,7 +115,7 @@ public final
         return genericInfo; //return cached repository
     }
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor used by ReflectAccess to enable
      * instantiation of these objects in Java code from the java.lang
      * package via sun.reflect.LangReflectAccess.
@@ -145,7 +145,7 @@ public final
         this.annotationDefault = annotationDefault;
     }
 
-    /**
+    /** {@collect.stats}
      * Package-private routine (exposed to java.lang.Class via
      * ReflectAccess) which returns a copy of this Method. The copy's
      * "root" field points to this Method.
@@ -167,7 +167,7 @@ public final
         return res;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Class} object representing the class or interface
      * that declares the method represented by this {@code Method} object.
      */
@@ -175,7 +175,7 @@ public final
         return clazz;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the method represented by this {@code Method}
      * object, as a {@code String}.
      */
@@ -183,7 +183,7 @@ public final
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Java language modifiers for the method represented
      * by this {@code Method} object, as an integer. The {@code Modifier} class should
      * be used to decode the modifiers.
@@ -194,7 +194,7 @@ public final
         return modifiers;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code TypeVariable} objects that represent the
      * type variables declared by the generic declaration represented by this
      * {@code GenericDeclaration} object, in declaration order.  Returns an
@@ -216,7 +216,7 @@ public final
             return (TypeVariable<Method>[])new TypeVariable[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Class} object that represents the formal return type
      * of the method represented by this {@code Method} object.
      *
@@ -226,7 +226,7 @@ public final
         return returnType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Type} object that represents the formal return
      * type of the method represented by this {@code Method} object.
      *
@@ -256,7 +256,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Class} objects that represent the formal
      * parameter types, in declaration order, of the method
      * represented by this {@code Method} object.  Returns an array of length
@@ -269,7 +269,7 @@ public final
         return (Class<?>[]) parameterTypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects that represent the formal
      * parameter types, in declaration order, of the method represented by
      * this {@code Method} object. Returns an array of length 0 if the
@@ -303,7 +303,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Class} objects that represent
      * the types of the exceptions declared to be thrown
      * by the underlying method
@@ -317,7 +317,7 @@ public final
         return (Class<?>[]) exceptionTypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects that represent the
      * exceptions declared to be thrown by this {@code Method} object.
      * Returns an array of length 0 if the underlying method declares
@@ -351,7 +351,7 @@ public final
               return getExceptionTypes();
       }
 
-    /**
+    /** {@collect.stats}
      * Compares this {@code Method} against the specified object.  Returns
      * true if the objects are the same.  Two {@code Methods} are the same if
      * they were declared by the same class and have the same name
@@ -379,7 +379,7 @@ public final
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this {@code Method}.  The hashcode is computed
      * as the exclusive-or of the hashcodes for the underlying
      * method's declaring class name and the method's name.
@@ -388,7 +388,7 @@ public final
         return getDeclaringClass().getName().hashCode() ^ getName().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this {@code Method}.  The string is
      * formatted as the method access modifiers, if any, followed by
      * the method return type, followed by a space, followed by the
@@ -442,7 +442,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this {@code Method}, including
      * type parameters.  The string is formatted as the method access
      * modifiers, if any, followed by an angle-bracketed
@@ -530,7 +530,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the underlying method represented by this {@code Method}
      * object, on the specified object with the specified parameters.
      * Individual parameters are automatically unwrapped to match
@@ -616,7 +616,7 @@ public final
         return methodAccessor.invoke(obj, args);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this method is a bridge
      * method; returns {@code false} otherwise.
      *
@@ -628,7 +628,7 @@ public final
         return (getModifiers() & Modifier.BRIDGE) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this method was declared to take
      * a variable number of arguments; returns {@code false}
      * otherwise.
@@ -641,7 +641,7 @@ public final
         return (getModifiers() & Modifier.VARARGS) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this method is a synthetic
      * method; returns {@code false} otherwise.
      *
@@ -687,7 +687,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -700,7 +700,7 @@ public final
 
     private static final Annotation[] EMPTY_ANNOTATION_ARRAY=new Annotation[0];
 
-    /**
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {
@@ -719,7 +719,7 @@ public final
         return declaredAnnotations;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default value for the annotation member represented by
      * this {@code Method} instance.  If the member is of a primitive type,
      * an instance of the corresponding wrapper type is returned. Returns
@@ -748,7 +748,7 @@ public final
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of arrays that represent the annotations on the formal
      * parameters, in declaration order, of the method represented by
      * this {@code Method} object. (Returns an array of length zero if the

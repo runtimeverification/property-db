@@ -31,7 +31,7 @@ import java.util.Map;
 import java.lang.reflect.*;
 import javax.sql.rowset.RowSetWarning;
 
-/**
+/** {@collect.stats}
  * A serializable mapping in the Java programming language of an SQL
  * <code>JAVA_OBJECT</code> value. Assuming the Java object
  * implements the <code>Serializable</code> interface, this class simply wraps the
@@ -48,18 +48,18 @@ import javax.sql.rowset.RowSetWarning;
  */
 public class SerialJavaObject implements Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Placeholder for object to be serialized.
      */
     private Object obj;
 
 
-   /**
+   /** {@collect.stats}
     * Placeholder for all fields in the <code>JavaObject</code> being serialized.
     */
     private transient Field[] fields;
 
-    /**
+    /** {@collect.stats}
      * Constructor for <code>SerialJavaObject</code> helper class.
      * <p>
      *
@@ -117,7 +117,7 @@ public class SerialJavaObject implements Serializable, Cloneable {
         this.obj = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Object</code> that is a copy of this <code>SerialJavaObject</code>
      * object.
      *
@@ -129,7 +129,7 @@ public class SerialJavaObject implements Serializable, Cloneable {
         return this.obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Field</code> objects that contains each
      * field of the object that this helper class is serializing.
      *
@@ -150,20 +150,20 @@ public class SerialJavaObject implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this
      * <code>SerialJavaObject</code> object.
      */
     static final long serialVersionUID = -1465795139032831023L;
 
-    /**
+    /** {@collect.stats}
      * A container for the warnings issued on this <code>SerialJavaObject</code>
      * object. When there are multiple warnings, each warning is chained to the
      * previous warning.
      */
     java.util.Vector chain;
 
-    /**
+    /** {@collect.stats}
      * Registers the given warning.
      */
     private void setWarning(RowSetWarning e) {

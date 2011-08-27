@@ -29,7 +29,7 @@ import java.awt.Component;
 import javax.swing.CellEditor;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * This interface defines the method any object that would like to be
  * an editor of values for components such as <code>JListBox</code>,
  * <code>JComboBox</code>, <code>JTree</code>, or <code>JTable</code>
@@ -41,7 +41,7 @@ import javax.swing.*;
 
 public interface TableCellEditor extends CellEditor {
 
-    /**
+    /** {@collect.stats}
      *  Sets an initial <code>value</code> for the editor.  This will cause
      *  the editor to <code>stopEditing</code> and lose any partially
      *  edited value if the editor is editing when this method is called. <p>

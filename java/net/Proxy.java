@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * This class represents a proxy setting, typically a type (http, socks) and
  * a socket address.
  * A <code>Proxy</code> is an immutable object.
@@ -37,21 +37,21 @@ package java.net;
  */
 public class Proxy {
 
-    /**
+    /** {@collect.stats}
      * Represents the proxy type.
      *
      * @since 1.5
      */
     public enum Type {
-        /**
+        /** {@collect.stats}
          * Represents a direct connection, or the absence of a proxy.
          */
         DIRECT,
-        /**
+        /** {@collect.stats}
          * Represents proxy for high level protocols such as HTTP or FTP.
          */
         HTTP,
-        /**
+        /** {@collect.stats}
          * Represents a SOCKS (V4 or V5) proxy.
          */
         SOCKS
@@ -60,7 +60,7 @@ public class Proxy {
     private Type type;
     private SocketAddress sa;
 
-    /**
+    /** {@collect.stats}
      * A proxy setting that represents a <code>DIRECT</code> connection,
      * basically telling the protocol handler not to use any proxying.
      * Used, for instance, to create sockets bypassing any other global
@@ -77,7 +77,7 @@ public class Proxy {
         sa = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an entry representing a PROXY connection.
      * Certain combinations are illegal. For instance, for types Http, and
      * Socks, a SocketAddress <b>must</b> be provided.
@@ -97,7 +97,7 @@ public class Proxy {
         this.sa = sa;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the proxy type.
      *
      * @return a Type representing the proxy type
@@ -106,7 +106,7 @@ public class Proxy {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the socket address of the proxy, or
      * <code>null</code> if its a direct connection.
      *
@@ -117,7 +117,7 @@ public class Proxy {
         return sa;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a string representation of this Proxy.
      * This String is constructed by calling toString() on its type
      * and concatenating " @ " and the toString() result from its address
@@ -131,7 +131,7 @@ public class Proxy {
         return type() + " @ " + address();
     }
 
-        /**
+        /** {@collect.stats}
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same proxy as
@@ -158,7 +158,7 @@ public class Proxy {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this Proxy.
      *
      * @return  a hash code value for this Proxy.

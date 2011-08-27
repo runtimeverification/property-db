@@ -28,7 +28,7 @@ package javax.sql.rowset.spi;
 import javax.sql.RowSet;
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * Defines a framework that allows applications to use a manual decision tree
  * to decide what should be done when a synchronization conflict occurs.
  * Although it is not mandatory for
@@ -232,7 +232,7 @@ import java.sql.SQLException;
  */
 
 public interface SyncResolver extends RowSet {
-    /**
+    /** {@collect.stats}
      * Indicates that a conflict occurred while the <code>RowSet</code> object was
      * attempting to update a row in the data source.
      * The values in the data source row to be updated differ from the
@@ -242,7 +242,7 @@ public interface SyncResolver extends RowSet {
      */
      public static int UPDATE_ROW_CONFLICT = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a conflict occurred while the <code>RowSet</code> object was
      * attempting to delete a row in the data source.
      * The values in the data source row to be updated differ from the
@@ -252,7 +252,7 @@ public interface SyncResolver extends RowSet {
      */
     public static int DELETE_ROW_CONFLICT = 1;
 
-   /**
+   /** {@collect.stats}
     * Indicates that a conflict occurred while the <code>RowSet</code> object was
     * attempting to insert a row into the data source.  This means that a
     * row with the same primary key as the row to be inserted has been inserted
@@ -260,7 +260,7 @@ public interface SyncResolver extends RowSet {
     */
     public static int INSERT_ROW_CONFLICT = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <b>no</b> conflict occured while the <code>RowSet</code> object
      * was attempting to update, delete or insert a row in the data source. The values in
      * the <code>SyncResolver</code> will contain <code>null</code> values only as an indication
@@ -268,7 +268,7 @@ public interface SyncResolver extends RowSet {
      */
     public static int NO_ROW_CONFLICT = 3;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the conflict status of the current row of this <code>SyncResolver</code>,
      * which indicates the operation
      * the <code>RowSet</code> object was attempting when the conflict occurred.
@@ -281,7 +281,7 @@ public interface SyncResolver extends RowSet {
      */
     public int getStatus();
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value in the designated column in the current row of this
      * <code>SyncResolver</code> object, which is the value in the data source
      * that caused a conflict.
@@ -295,7 +295,7 @@ public interface SyncResolver extends RowSet {
      */
     public Object getConflictValue(int index) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value in the designated column in the current row of this
      * <code>SyncResolver</code> object, which is the value in the data source
      * that caused a conflict.
@@ -309,7 +309,7 @@ public interface SyncResolver extends RowSet {
      */
     public Object getConflictValue(String columnName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets <i>obj</i> as the value in column <i>index</i> in the current row of the
      * <code>RowSet</code> object that is being synchronized. <i>obj</i>
      * is set as the value in the data source internally.
@@ -322,7 +322,7 @@ public interface SyncResolver extends RowSet {
      */
     public void setResolvedValue(int index, Object obj) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets <i>obj</i> as the value in column <i>columnName</i> in the current row of the
      * <code>RowSet</code> object that is being synchronized. <i>obj</i>
      * is set as the value in the data source internally.
@@ -335,7 +335,7 @@ public interface SyncResolver extends RowSet {
      */
     public void setResolvedValue(String columnName, Object obj) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Moves the cursor down from its current position to the next row that contains
      * a conflict value. A <code>SyncResolver</code> object's
      * cursor is initially positioned before the first conflict row; the first call to the
@@ -354,7 +354,7 @@ public interface SyncResolver extends RowSet {
      */
     public boolean nextConflict() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Moves the cursor up from its current position to the previous conflict
      * row in this <code>SyncResolver</code> object.
      * <p>

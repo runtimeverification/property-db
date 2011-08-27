@@ -34,7 +34,7 @@ import java.util.*;
 
 import javax.sql.rowset.spi.*;
 
-/**
+/** {@collect.stats}
  * The interface that all standard implementations of
  * <code>CachedRowSet</code> must implement.
  * <P>
@@ -630,7 +630,7 @@ import javax.sql.rowset.spi.*;
 
 public interface CachedRowSet extends RowSet, Joinable {
 
-   /**
+   /** {@collect.stats}
     * Populates this <code>CachedRowSet</code> object with data from
     * the given <code>ResultSet</code> object.
     * <P>
@@ -654,7 +654,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void populate(ResultSet data) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Populates this <code>CachedRowSet</code> object with data, using the
     * given connection to produce the result set from which the data will be read.
     * This method should close any database connections that it creates to
@@ -683,7 +683,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void execute(Connection conn) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Propagates row update, insert and delete changes made to this
     * <code>CachedRowSet</code> object to the underlying data source.
     * <P>
@@ -747,7 +747,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void acceptChanges() throws SyncProviderException;
 
-   /**
+   /** {@collect.stats}
     * Propagates all row update, insert and delete changes to the
     * data source backing this <code>CachedRowSet</code> object
     * using the specified <code>Connection</code> object to establish a
@@ -818,7 +818,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void acceptChanges(Connection con) throws SyncProviderException;
 
-   /**
+   /** {@collect.stats}
     * Restores this <code>CachedRowSet</code> object to its original
     * value, that is, its value before the last set of changes. If there
     * have been no changes to the rowset or only one set of changes,
@@ -839,7 +839,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void restoreOriginal() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Releases the current contents of this <code>CachedRowSet</code>
     * object and sends a <code>rowSetChanged</code> event to all
     * registered listeners. Any outstanding updates are discarded and
@@ -873,7 +873,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void release() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Cancels the deletion of the current row and notifies listeners that
     * a row has changed. After this method is called, the current row is
     * no longer marked for deletion. This method can be called at any
@@ -896,7 +896,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void undoDelete() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Immediately removes the current row from this <code>CachedRowSet</code>
     * object if the row has been inserted, and also notifies listeners that a
     * row has changed. This method can be called at any time during the
@@ -922,7 +922,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     public void undoInsert() throws SQLException;
 
 
-   /**
+   /** {@collect.stats}
     * Immediately reverses the last update operation if the
     * row has been modified. This method can be
     * called to reverse updates on all columns until all updates in a row have
@@ -942,7 +942,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void undoUpdate() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Indicates whether the designated column in the current row of this
     * <code>CachedRowSet</code> object has been updated.
     *
@@ -956,7 +956,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     public boolean columnUpdated(int idx) throws SQLException;
 
 
-   /**
+   /** {@collect.stats}
     * Indicates whether the designated column in the current row of this
     * <code>CachedRowSet</code> object has been updated.
     *
@@ -970,7 +970,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public boolean columnUpdated(String columnName) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Converts this <code>CachedRowSet</code> object to a <code>Collection</code>
     * object that contains all of this <code>CachedRowSet</code> object's data.
     * Implementations have some latitude in
@@ -1010,7 +1010,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public Collection<?> toCollection() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Converts the designated column in this <code>CachedRowSet</code> object
     * to a <code>Collection</code> object. Implementations have some latitude in
     * how they can represent this <code>Collection</code> object because of the
@@ -1039,7 +1039,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public Collection<?> toCollection(int column) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Converts the designated column in this <code>CachedRowSet</code> object
     * to a <code>Collection</code> object. Implementations have some latitude in
     * how they can represent this <code>Collection</code> object because of the
@@ -1068,7 +1068,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public Collection<?> toCollection(String column) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Retrieves the <code>SyncProvider</code> implementation for this
     * <code>CachedRowSet</code> object. Internally, this method is used by a rowset
     * to trigger read or write actions between the rowset
@@ -1105,7 +1105,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public SyncProvider getSyncProvider() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Sets the <code>SyncProvider</code> objec for this <code>CachedRowSet</code>
     * object to the one specified.  This method
     * allows the <code>SyncProvider</code> object to be reset.
@@ -1132,7 +1132,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void setSyncProvider(String provider) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Returns the number of rows in this <code>CachedRowSet</code>
     * object.
     *
@@ -1140,7 +1140,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public int size();
 
-   /**
+   /** {@collect.stats}
     * Sets the metadata for this <code>CachedRowSet</code> object with
     * the given <code>RowSetMetaData</code> object. When a
     * <code>RowSetReader</code> object is reading the contents of a rowset,
@@ -1158,7 +1158,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void setMetaData(RowSetMetaData md) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Returns a <code>ResultSet</code> object containing the original value of this
     * <code>CachedRowSet</code> object.
     * <P>
@@ -1187,7 +1187,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
    public ResultSet getOriginal() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Returns a <code>ResultSet</code> object containing the original value for the
     * current row only of this <code>CachedRowSet</code> object.
     * <P>
@@ -1206,7 +1206,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public ResultSet getOriginalRow() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Sets the current row in this <code>CachedRowSet</code> object as the original
     * row.
     * <P>
@@ -1222,7 +1222,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void setOriginalRow() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Returns an identifier for the object (table) that was used to
     * create this <code>CachedRowSet</code> object. This name may be set on multiple occasions,
     * and the specification imposes no limits on how many times this
@@ -1237,7 +1237,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public String getTableName() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Sets the identifier for the table from which this <code>CachedRowSet</code>
     * object was derived to the given table name. The writer uses this name to
     * determine which table to use when comparing the values in the data source with the
@@ -1259,7 +1259,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
    public void setTableName(String tabName) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Returns an array containing one or more column numbers indicating the columns
     * that form a key that uniquely
     * identifies a row in this <code>CachedRowSet</code> object.
@@ -1275,7 +1275,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public int[] getKeyColumns() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Sets this <code>CachedRowSet</code> object's <code>keyCols</code>
     * field with the given array of column numbers, which forms a key
     * for uniquely identifying a row in this <code>CachedRowSet</code> object.
@@ -1299,7 +1299,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     public void setKeyColumns(int[] keys) throws SQLException;
 
 
-   /**
+   /** {@collect.stats}
     * Returns a new <code>RowSet</code> object backed by the same data as
     * that of this <code>CachedRowSet</code> object. In effect, both
     * <code>CachedRowSet</code> objects have a cursor over the same data.
@@ -1332,7 +1332,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public RowSet createShared() throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Creates a <code>RowSet</code> object that is a deep copy of the data in
     * this <code>CachedRowSet</code> object. In contrast to
     * the <code>RowSet</code> object generated from a <code>createShared</code>
@@ -1356,7 +1356,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public CachedRowSet createCopy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CachedRowSet</code> object that is an empty copy of this
      * <code>CachedRowSet</code> object.  The copy
      * must not contain any contents but only represent the table
@@ -1382,7 +1382,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public CachedRowSet createCopySchema() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CachedRowSet</code> object that is a deep copy of
      * this <code>CachedRowSet</code> object's data but is independent of it.
      * In contrast to
@@ -1408,7 +1408,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public CachedRowSet createCopyNoConstraints() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the first warning reported by calls on this <code>RowSet</code> object.
      * Subsequent warnings on this <code>RowSet</code> object will be chained to the
      * <code>RowSetWarning</code> object that this method returns.
@@ -1424,7 +1424,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public RowSetWarning getRowSetWarnings() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a <code>boolean</code> indicating whether rows marked
      * for deletion appear in the set of current rows. If <code>true</code> is
      * returned, deleted rows are visible with the current rows. If
@@ -1450,7 +1450,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public boolean getShowDeleted() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the property <code>showDeleted</code> to the given
      * <code>boolean</code> value, which determines whether
      * rows marked for deletion appear in the set of current rows.
@@ -1472,7 +1472,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void setShowDeleted(boolean b) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Each <code>CachedRowSet</code> object's <code>SyncProvider</code> contains
      * a <code>Connection</code> object from the <code>ResultSet</code> or JDBC
      * properties passed to it's constructors. This method wraps the
@@ -1489,7 +1489,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void commit() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Each <code>CachedRowSet</code> object's <code>SyncProvider</code> contains
      * a <code>Connection</code> object from the original <code>ResultSet</code>
      * or JDBC properties passed to it.
@@ -1502,7 +1502,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void rollback() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Each <code>CachedRowSet</code> object's <code>SyncProvider</code> contains
      * a <code>Connection</code> object from the original <code>ResultSet</code>
      * or JDBC properties passed to it.
@@ -1517,7 +1517,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void rollback(Savepoint s) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Causes the <code>CachedRowSet</code> object's <code>SyncProvider</code>
      * to commit the changes when <code>acceptChanges()</code> is called. If
      * set to false, the changes will <b>not</b> be committed until one of the
@@ -1528,7 +1528,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public static final boolean COMMIT_ON_ACCEPT_CHANGES = true;
 
-    /**
+    /** {@collect.stats}
      * Notifies registered listeners that a RowSet object in the given RowSetEvent
      * object has populated a number of additional rows. The <code>numRows</code> parameter
      * ensures that this event will only be fired every <code>numRow</code>.
@@ -1543,7 +1543,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void rowSetPopulated(RowSetEvent event, int numRows) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Populates this <code>CachedRowSet</code> object with data from
      * the given <code>ResultSet</code> object. While related to the <code>populate(ResultSet)</code>
      * method, an additional parameter is provided to allow starting position within
@@ -1573,7 +1573,7 @@ public interface CachedRowSet extends RowSet, Joinable {
     */
     public void populate(ResultSet rs, int startRow) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>CachedRowSet</code> object's page-size. A <code>CachedRowSet</code>
      * may be configured to populate itself in page-size sized batches of rows. When
      * either <code>populate()</code> or <code>execute()</code> are called, the
@@ -1586,14 +1586,14 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public void setPageSize(int size) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns the page-size for the <code>CachedRowSet</code> object
      *
      * @return an <code>int</code> page size
      */
     public int getPageSize();
 
-    /**
+    /** {@collect.stats}
      * Increments the current page of the <code>CachedRowSet</code>. This causes
      * the <code>CachedRowSet</code> implementation to fetch the next page-size
      * rows and populate the RowSet, if remaining rows remain within scope of the
@@ -1605,7 +1605,7 @@ public interface CachedRowSet extends RowSet, Joinable {
      */
     public boolean nextPage() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Decrements the current page of the <code>CachedRowSet</code>. This causes
      * the <code>CachedRowSet</code> implementation to fetch the previous page-size
      * rows and populate the RowSet. The amount of rows returned in the previous

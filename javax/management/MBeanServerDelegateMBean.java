@@ -26,21 +26,21 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Defines the management interface  of an object of class MBeanServerDelegate.
  *
  * @since 1.5
  */
 public interface MBeanServerDelegateMBean   {
 
-    /**
+    /** {@collect.stats}
      * Returns the MBean server agent identity.
      *
      * @return the agent identity.
      */
     public String getMBeanServerId();
 
-    /**
+    /** {@collect.stats}
      * Returns the full name of the JMX specification implemented
      * by this product.
      *
@@ -48,7 +48,7 @@ public interface MBeanServerDelegateMBean   {
      */
     public String getSpecificationName();
 
-    /**
+    /** {@collect.stats}
      * Returns the version of the JMX specification implemented
      * by this product.
      *
@@ -56,7 +56,7 @@ public interface MBeanServerDelegateMBean   {
      */
     public String getSpecificationVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the vendor of the JMX specification implemented
      * by this product.
      *
@@ -64,21 +64,21 @@ public interface MBeanServerDelegateMBean   {
      */
     public String getSpecificationVendor();
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation name (the name of this product).
      *
      * @return the implementation name.
      */
     public String getImplementationName();
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation version (the version of this product).
      *
      * @return the implementation version.
      */
     public String getImplementationVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation vendor (the vendor of this product).
      *
      * @return the implementation vendor.

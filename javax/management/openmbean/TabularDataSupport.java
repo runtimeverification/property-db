@@ -46,7 +46,7 @@ import java.util.Set;
 //
 
 
-/**
+/** {@collect.stats}
  * The <tt>TabularDataSupport</tt> class is the <i>open data</i> class which implements the <tt>TabularData</tt>
  * and the <tt>Map</tt> interfaces, and which is internally based on a hash map data structure.
  *
@@ -76,17 +76,17 @@ public class TabularDataSupport
     static final long serialVersionUID = 5720150593236309827L;
 
 
-    /**
+    /** {@collect.stats}
      * @serial This tabular data instance's contents: a {@link HashMap}
      */
     private Map<Object,CompositeData> dataMap;
 
-    /**
+    /** {@collect.stats}
      * @serial This tabular data instance's tabular type
      */
     private TabularType tabularType;
 
-    /**
+    /** {@collect.stats}
      * The array of item names that define the index used for rows (convenience field)
      */
     private transient String[] indexNamesArray;
@@ -96,7 +96,7 @@ public class TabularDataSupport
     /* *** Constructors *** */
 
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <tt>TabularDataSupport</tt> instance whose open-type is <var>tabularType</var>,
      * and whose underlying <tt>HashMap</tt> has a default initial capacity (101) and default load factor (0.75).
      * <p>
@@ -112,7 +112,7 @@ public class TabularDataSupport
         this(tabularType, 101, 0.75f);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <tt>TabularDataSupport</tt> instance whose open-type is <var>tabularType</var>,
      * and whose underlying <tt>HashMap</tt> has the specified initial capacity and load factor.
      *
@@ -153,7 +153,7 @@ public class TabularDataSupport
     /* *** TabularData specific information methods *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>tabular type</i> describing this <tt>TabularData</tt> instance.
      */
     public TabularType getTabularType() {
@@ -161,7 +161,7 @@ public class TabularDataSupport
         return tabularType;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the index that would be used in this <tt>TabularData</tt> instance to refer to the specified
      * composite data <var>value</var> parameter if it were added to this instance.
      * This method checks for the type validity of the specified <var>value</var>,
@@ -196,7 +196,7 @@ public class TabularDataSupport
     /* *** Content information query methods *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains a <tt>CompositeData</tt> value
      * (ie a row) whose index is the specified <var>key</var>. If <var>key</var> cannot be cast to a one dimension array
      * of Object instances, this method simply returns <tt>false</tt>; otherwise it returns the the result of the call to
@@ -220,7 +220,7 @@ public class TabularDataSupport
         return  this.containsKey(k);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains a <tt>CompositeData</tt> value
      * (ie a row) whose index is the specified <var>key</var>. If <var>key</var> is <tt>null</tt> or does not conform to
      * this <tt>TabularData</tt> instance's <tt>TabularType</tt> definition, this method simply returns <tt>false</tt>.
@@ -234,7 +234,7 @@ public class TabularDataSupport
         return  ( key == null ? false : dataMap.containsKey(Arrays.asList(key)));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains the specified
      * <tt>CompositeData</tt> value. If <var>value</var> is <tt>null</tt> or does not conform to
      * this <tt>TabularData</tt> instance's row type definition, this method simply returns <tt>false</tt>.
@@ -248,7 +248,7 @@ public class TabularDataSupport
         return dataMap.containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains the specified
      * value.
      *
@@ -261,7 +261,7 @@ public class TabularDataSupport
         return dataMap.containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * This method simply calls <tt>get((Object[]) key)</tt>.
      *
      * @throws NullPointerException  if the <var>key</var> is <tt>null</tt>
@@ -274,7 +274,7 @@ public class TabularDataSupport
         return get((Object[]) key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <tt>CompositeData</tt> value whose index is
      * <var>key</var>, or <tt>null</tt> if there is no value mapping
      * to <var>key</var>, in this <tt>TabularData</tt> instance.
@@ -308,7 +308,7 @@ public class TabularDataSupport
     /* *** Content modification operations (one element at a time) *** */
 
 
-    /**
+    /** {@collect.stats}
      * This method simply calls <tt>put((CompositeData) value)</tt> and
      * therefore ignores its <var>key</var> parameter which can be <tt>null</tt>.
      *
@@ -349,7 +349,7 @@ public class TabularDataSupport
         return dataMap.put(index, value);
     }
 
-    /**
+    /** {@collect.stats}
      * This method simply calls <tt>remove((Object[]) key)</tt>.
      *
      * @param key an <tt>Object[]</tt> representing the key to remove.
@@ -367,7 +367,7 @@ public class TabularDataSupport
         return remove((Object[]) key);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the <tt>CompositeData</tt> value whose index is <var>key</var> from this <tt>TabularData</tt> instance,
      * and returns the removed value, or returns <tt>null</tt> if there is no value whose index is <var>key</var>.
      *
@@ -399,7 +399,7 @@ public class TabularDataSupport
     /* ***   Content modification bulk operations   *** */
 
 
-    /**
+    /** {@collect.stats}
      * Add all the values contained in the specified map <var>t</var>
      * to this <tt>TabularData</tt> instance.  This method converts
      * the collection of values contained in this map into an array of
@@ -451,7 +451,7 @@ public class TabularDataSupport
         putAll(values);
     }
 
-    /**
+    /** {@collect.stats}
      * Add all the elements in <var>values</var> to this
      * <tt>TabularData</tt> instance.  If any element in
      * <var>values</var> does not satisfy the constraints defined in
@@ -515,7 +515,7 @@ public class TabularDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all rows from this <code>TabularDataSupport</code> instance.
      */
     public void clear() {
@@ -527,7 +527,7 @@ public class TabularDataSupport
 
     /* ***  Informational methods from java.util.Map  *** */
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in this <code>TabularDataSupport</code> instance.
      *
      * @return the number of rows in this <code>TabularDataSupport</code> instance.
@@ -537,7 +537,7 @@ public class TabularDataSupport
         return dataMap.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this <code>TabularDataSupport</code> instance contains no rows.
      *
      * @return <tt>true</tt> if this <code>TabularDataSupport</code> instance contains no rows.
@@ -551,7 +551,7 @@ public class TabularDataSupport
 
     /* ***  Collection views from java.util.Map  *** */
 
-    /**
+    /** {@collect.stats}
      * Returns a set view of the keys contained in the underlying map of this
      * {@code TabularDataSupport} instance used to index the rows.
      * Each key contained in this {@code Set} is an unmodifiable {@code List<?>}
@@ -576,7 +576,7 @@ public class TabularDataSupport
         return dataMap.keySet() ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a collection view of the rows contained in this
      * {@code TabularDataSupport} instance. The returned {@code Collection}
      * is a {@code Collection<CompositeData>} but is declared as a
@@ -603,7 +603,7 @@ public class TabularDataSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a collection view of the index to row mappings
      * contained in this {@code TabularDataSupport} instance.
      * Each element in the returned collection is
@@ -642,7 +642,7 @@ public class TabularDataSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this <code>TabularDataSupport</code> instance:
      * the clone is obtained by calling <tt>super.clone()</tt>, and then cloning the underlying map.
      * Only a shallow clone of the underlying map is made, i.e. no cloning of the indexes and row values is made as they are immutable.
@@ -663,7 +663,7 @@ public class TabularDataSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>TabularDataSupport</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -725,7 +725,7 @@ public class TabularDataSupport
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>TabularDataSupport</code> instance.
      * <p>
      * The hash code of a <code>TabularDataSupport</code> instance is the sum of the hash codes
@@ -756,7 +756,7 @@ public class TabularDataSupport
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>TabularDataSupport</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.TabularDataSupport</code>),
@@ -784,7 +784,7 @@ public class TabularDataSupport
     /* *** TabularDataSupport internal utility methods *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns the index for value, assuming value is valid for this <tt>TabularData</tt> instance
      * (ie value is not null, and its composite type is equal to row type).
      *
@@ -799,7 +799,7 @@ public class TabularDataSupport
         return Collections.unmodifiableList(Arrays.asList(value.getAll(this.indexNamesArray)));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified key is valid for this <tt>TabularData</tt> instance.
      *
      * @throws  NullPointerException
@@ -836,7 +836,7 @@ public class TabularDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the specified value's type is valid for this <tt>TabularData</tt> instance
      * (ie value is not null, and its composite type is equal to row type).
      *
@@ -860,7 +860,7 @@ public class TabularDataSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified value can be put (ie added) in this <tt>TabularData</tt> instance
      * (ie value is not null, its composite type is equal to row type, and its index is not already used),
      * and returns the index calculated for this value.
@@ -893,7 +893,7 @@ public class TabularDataSupport
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link TabularDataSupport} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)

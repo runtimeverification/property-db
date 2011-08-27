@@ -29,7 +29,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Wrapper;
 
-/**
+/** {@collect.stats}
  * <p>A factory for connections to the physical data source that this
  * <code>DataSource</code> object represents.  An alternative to the
  * <code>DriverManager</code> facility, a <code>DataSource</code> object
@@ -73,7 +73,7 @@ import java.sql.Wrapper;
 
 public interface DataSource  extends CommonDataSource,Wrapper {
 
-  /**
+  /** {@collect.stats}
    * <p>Attempts to establish a connection with the data source that
    * this <code>DataSource</code> object represents.
    *
@@ -82,7 +82,7 @@ public interface DataSource  extends CommonDataSource,Wrapper {
    */
   Connection getConnection() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * <p>Attempts to establish a connection with the data source that
    * this <code>DataSource</code> object represents.
    *

@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when a stack overflow occurs because an application
  * recurses too deeply.
  *
@@ -34,14 +34,14 @@ package java.lang;
  */
 public
 class StackOverflowError extends VirtualMachineError {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>StackOverflowError</code> with no detail message.
      */
     public StackOverflowError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>StackOverflowError</code> with the specified
      * detail message.
      *

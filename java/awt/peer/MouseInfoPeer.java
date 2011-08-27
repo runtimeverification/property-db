@@ -28,7 +28,7 @@ package java.awt.peer;
 import java.awt.Window;
 import java.awt.Point;
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -37,7 +37,7 @@ import java.awt.Point;
  */
 public interface MouseInfoPeer {
 
-    /**
+    /** {@collect.stats}
      * This method does two things: it fills the point fields with
      * the current coordinates of the mouse cursor and returns the
      * number of the screen device where the pointer is located.
@@ -55,7 +55,7 @@ public interface MouseInfoPeer {
      */
     int fillPointWithCoords(Point point);
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the window is located under the mouse
      * pointer. The window is considered to be under the mouse pointer
      * if it is showing on the screen, and the mouse pointer is above

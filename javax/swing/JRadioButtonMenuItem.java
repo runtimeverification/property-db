@@ -37,7 +37,7 @@ import java.io.IOException;
 import javax.swing.plaf.*;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * An implementation of a radio button menu item.
  * A <code>JRadioButtonMenuItem</code> is
  * a menu item that is part of a group of menu items in which only one
@@ -84,20 +84,20 @@ import javax.accessibility.*;
  * @see ButtonGroup
  */
 public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "RadioButtonMenuItemUI";
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JRadioButtonMenuItem</code> with no set text or icon.
      */
     public JRadioButtonMenuItem() {
         this(null, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JRadioButtonMenuItem</code> with an icon.
      *
      * @param icon the <code>Icon</code> to display on the
@@ -107,7 +107,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         this(null, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JRadioButtonMenuItem</code> with text.
      *
      * @param text the text of the <code>JRadioButtonMenuItem</code>
@@ -116,7 +116,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         this(text, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a radio button menu item whose properties are taken from the
      * <code>Action</code> supplied.
      *
@@ -130,7 +130,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         setAction(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a radio button menu item with the specified text
      * and <code>Icon</code>.
      *
@@ -141,7 +141,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         this(text, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a radio button menu item with the specified text
      * and selection state.
      *
@@ -153,7 +153,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         setSelected(selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a radio button menu item with the specified image
      * and selection state, but no text.
      *
@@ -165,7 +165,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         this(null, icon, selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a radio button menu item that has the specified
      * text, image, and selection state.  All other constructors
      * defer to this one.
@@ -180,7 +180,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         setFocusable(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "RadioButtonMenuItemUI"
@@ -191,7 +191,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -208,7 +208,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this
      * <code>JRadioButtonMenuItem</code>.  This method
      * is intended to be used only for debugging purposes, and the
@@ -223,7 +223,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         return super.paramString();
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to return true, JRadioButtonMenuItem supports
      * the selected state.
      */
@@ -235,7 +235,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JRadioButtonMenuItem.
      * For JRadioButtonMenuItems, the AccessibleContext takes the form of an
      * AccessibleJRadioButtonMenuItem.
@@ -251,7 +251,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JRadioButtonMenuItem</code> class.  It provides an
      * implementation of the Java Accessibility API appropriate to
@@ -267,7 +267,7 @@ public class JRadioButtonMenuItem extends JMenuItem implements Accessible {
      * Please see {@link java.beans.XMLEncoder}.
      */
     protected class AccessibleJRadioButtonMenuItem extends AccessibleJMenuItem {
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

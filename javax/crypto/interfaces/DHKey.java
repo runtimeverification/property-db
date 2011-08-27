@@ -27,7 +27,7 @@ package javax.crypto.interfaces;
 
 import javax.crypto.spec.DHParameterSpec;
 
-/**
+/** {@collect.stats}
  * The interface to a Diffie-Hellman key.
  *
  * @author Jan Luehe
@@ -39,7 +39,7 @@ import javax.crypto.spec.DHParameterSpec;
  */
 public interface DHKey {
 
-    /**
+    /** {@collect.stats}
      * Returns the key parameters.
      *
      * @return the key parameters

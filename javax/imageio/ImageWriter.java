@@ -42,7 +42,7 @@ import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.stream.ImageOutputStream;
 import javax.imageio.spi.ImageWriterSpi;
 
-/**
+/** {@collect.stats}
  * An abstract superclass for encoding and writing images.  This class
  * must be subclassed by classes that write out images in the context
  * of the Java Image I/O framework.
@@ -63,14 +63,14 @@ import javax.imageio.spi.ImageWriterSpi;
  */
 public abstract class ImageWriter implements ImageTranscoder {
 
-    /**
+    /** {@collect.stats}
      * The <code>ImageWriterSpi</code> that instantiated this object,
      * or <code>null</code> if its identity is not known or none
      * exists.  By default it is initialized to <code>null</code>.
      */
     protected ImageWriterSpi originatingProvider = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>ImageOutputStream</code> or other <code>Object</code>
      * set by <code>setOutput</code> and retrieved by
      * <code>getOutput</code>.  By default it is initialized to
@@ -78,7 +78,7 @@ public abstract class ImageWriter implements ImageTranscoder {
      */
     protected Object output = null;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>Locale</code>s that may be used to localize
      * warning messages and compression setting values, or
      * <code>null</code> if localization is not supported.  By default
@@ -86,14 +86,14 @@ public abstract class ImageWriter implements ImageTranscoder {
      */
     protected Locale[] availableLocales = null;
 
-    /**
+    /** {@collect.stats}
      * The current <code>Locale</code> to be used for localization, or
      * <code>null</code> if none has been set.  By default it is
      * initialized to <code>null</code>.
      */
     protected Locale locale = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>List</code> of currently registered
      * <code>IIOWriteWarningListener</code>s, initialized by default to
      * <code>null</code>, which is synonymous with an empty
@@ -101,7 +101,7 @@ public abstract class ImageWriter implements ImageTranscoder {
      */
     protected List<IIOWriteWarningListener> warningListeners = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>List</code> of <code>Locale</code>s, one for each
      * element of <code>warningListeners</code>, initialized by default
      * <code>null</code>, which is synonymous with an empty
@@ -109,7 +109,7 @@ public abstract class ImageWriter implements ImageTranscoder {
      */
     protected List<Locale> warningLocales = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>List</code> of currently registered
      * <code>IIOWriteProgressListener</code>s, initialized by default
      * <code>null</code>, which is synonymous with an empty
@@ -117,13 +117,13 @@ public abstract class ImageWriter implements ImageTranscoder {
      */
     protected List<IIOWriteProgressListener> progressListeners = null;
 
-    /**
+    /** {@collect.stats}
      * If <code>true</code>, the current write operation should be
      * aborted.
      */
     private boolean abortFlag = false;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageWriter</code> and sets its
      * <code>originatingProvider</code> instance variable to the
      * supplied value.
@@ -141,7 +141,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.originatingProvider = originatingProvider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ImageWriterSpi</code> object that created
      * this <code>ImageWriter</code>, or <code>null</code> if this
      * object was not created through the <code>IIORegistry</code>.
@@ -157,7 +157,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return originatingProvider;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the destination to the given
      * <code>ImageOutputStream</code> or other <code>Object</code>.
      * The destination is assumed to be ready to accept data, and will
@@ -224,7 +224,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.output = output;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ImageOutputStream</code> or other
      * <code>Object</code> set by the most recent call to the
      * <code>setOutput</code> method.  If no destination has been
@@ -244,7 +244,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Localization
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Locale</code>s that may be used to
      * localize warning listeners and compression settings.  A return
      * value of <code>null</code> indicates that localization is not
@@ -262,7 +262,7 @@ public abstract class ImageWriter implements ImageTranscoder {
             null : (Locale[])availableLocales.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>Locale</code> of this
      * <code>ImageWriter</code> to the given value.  A value of
      * <code>null</code> removes any previous setting, and indicates
@@ -303,7 +303,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.locale = locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set <code>Locale</code>, or
      * <code>null</code> if none has been set.
      *
@@ -320,7 +320,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Write params
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>ImageWriteParam</code> object of the
      * appropriate type for this file format containing default
      * values, that is, those values that would be used
@@ -349,7 +349,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Metadata
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadata</code> object containing default
      * values for encoding a stream of images.  The contents of the
      * object may be manipulated using either the XML tree structure
@@ -380,7 +380,7 @@ public abstract class ImageWriter implements ImageTranscoder {
     public abstract IIOMetadata
         getDefaultStreamMetadata(ImageWriteParam param);
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadata</code> object containing default
      * values for encoding an image of the given type.  The contents
      * of the object may be manipulated using either the XML tree
@@ -422,7 +422,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Thumbnails
 
-    /**
+    /** {@collect.stats}
      * Returns the number of thumbnails suported by the format being
      * written, given the image type and any additional write
      * parameters and metadata objects that will be used during
@@ -459,7 +459,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Dimension</code>s indicating the
      * legal size ranges for thumbnail images as they will be encoded
      * in the output file or stream.  This information is merely
@@ -503,7 +503,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the methods that take an
      * <code>IIOImage</code> parameter are capable of dealing with a
      * <code>Raster</code> (as opposed to <code>RenderedImage</code>)
@@ -521,7 +521,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a complete image stream containing a single image and
      * associated stream and image metadata and thumbnails to the
      * output.  Any necessary header information is included.  If the
@@ -576,7 +576,7 @@ public abstract class ImageWriter implements ImageTranscoder {
                                IIOImage image,
                                ImageWriteParam param) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Appends a complete image stream containing a single image with
      * default metadata and thumbnails to the output.  This method is
      * a shorthand for <code>write(null, image, null)</code>.
@@ -597,7 +597,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         write(null, image, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a complete image stream consisting of a single image
      * with default metadata and thumbnails to the output.  This
      * method is a shorthand for <code>write(null, new IIOImage(image,
@@ -626,7 +626,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Sequence writes
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer is able to append an
      * image to an image stream that already contains header
      * information and possibly prior images.
@@ -643,7 +643,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Prepares a stream to accept a series of subsequent
      * <code>writeToSequence</code> calls, using the provided stream
      * metadata object.  The metadata will be written to the stream if
@@ -685,7 +685,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a single image and possibly associated metadata and
      * thumbnails, to the output.  If the output is an
      * <code>ImageOutputStream</code>, the existing contents of the
@@ -750,7 +750,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Completes the writing of a sequence of images begun with
      * <code>prepareWriteSequence</code>.  Any stream metadata that
      * should come at the end of the sequence of images is written out,
@@ -781,7 +781,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Metadata replacement
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if it is possible to replace the
      * stream metadata already present in the output.
      *
@@ -803,7 +803,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the stream metadata in the output with new
      * information.  If the output is an
      * <code>ImageOutputStream</code>, the prior contents of the
@@ -835,7 +835,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if it is possible to replace the
      * image metadata associated with an existing image with index
      * <code>imageIndex</code>.  If this method returns
@@ -874,7 +874,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the image metadata associated with an existing image.
      *
      * <p> If <code>canReplaceImageMetadata(imageIndex)</code> returns
@@ -908,7 +908,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Image insertion
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer supports the insertion
      * of a new image at the given index.  Existing images with
      * indices greater than or equal to the insertion index will have
@@ -945,7 +945,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a new image into an existing image stream.  Existing
      * images with an index greater than <code>imageIndex</code> are
      * preserved, and their indices are each increased by 1.  A value
@@ -1001,7 +1001,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Image removal
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer supports the removal
      * of an existing image at the given index.  Existing images with
      * indices greater than the insertion index will have
@@ -1036,7 +1036,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an image from the stream.
      *
      * <p> If <code>canRemoveImage(imageIndex)</code> returns false,
@@ -1067,7 +1067,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Empty images
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer supports the writing of
      * a complete image stream consisting of a single image with
      * undefined pixel values and associated metadata and thumbnails
@@ -1096,7 +1096,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Begins the writing of a complete image stream, consisting of a
      * single image with undefined pixel values and associated
      * metadata and thumbnails, to the output.  The pixel values will
@@ -1173,7 +1173,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Completes the writing of a new image that was begun with a
      * prior call to <code>prepareWriteEmpty</code>.
      *
@@ -1208,7 +1208,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         throw new IllegalStateException("No call to prepareWriteEmpty!");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer supports the insertion
      * of a new, empty image at the given index.  The pixel values of
      * the image are undefined, and may be specified in pieces using
@@ -1248,7 +1248,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Begins the insertion of a new image with undefined pixel values
      * into an existing image stream.  Existing images with an index
      * greater than <code>imageIndex</code> are preserved, and their
@@ -1333,7 +1333,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Completes the insertion of a new image that was begun with a
      * prior call to <code>prepareInsertEmpty</code>.
      *
@@ -1364,7 +1364,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Pixel replacement
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the writer allows pixels of the
      * given image to be replaced using the <code>replacePixels</code>
      * methods.
@@ -1398,7 +1398,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Prepares the writer to handle a series of calls to the
      * <code>replacePixels</code> methods.  The affected pixel area
      * will be clipped against the supplied
@@ -1438,7 +1438,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces a portion of an image already present in the output
      * with a portion of the given image.  The image data must match,
      * or be convertible to, the image layout of the existing image.
@@ -1496,7 +1496,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces a portion of an image already present in the output
      * with a portion of the given <code>Raster</code>.  The image
      * data must match, or be convertible to, the image layout of the
@@ -1557,7 +1557,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         unsupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Terminates a sequence of calls to <code>replacePixels</code>.
      *
      * <p> If <code>canReplacePixels</code> returns
@@ -1585,7 +1585,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Abort
 
-    /**
+    /** {@collect.stats}
      * Requests that any current write operation be aborted.  The
      * contents of the output following the abort will be undefined.
      *
@@ -1597,7 +1597,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.abortFlag = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if a request to abort the current
      * write operation has been made since the writer was instantiated or
      * <code>clearAbortRequest</code> was called.
@@ -1612,7 +1612,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         return this.abortFlag;
     }
 
-    /**
+    /** {@collect.stats}
      * Clears any previous abort request.  After this method has been
      * called, <code>abortRequested</code> will return
      * <code>false</code>.
@@ -1626,7 +1626,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // Listeners
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>IIOWriteWarningListener</code> to the list of
      * registered warning listeners.  If <code>listener</code> is
      * <code>null</code>, no exception will be thrown and no action
@@ -1648,7 +1648,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         warningLocales = ImageReader.addToList(warningLocales, getLocale());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>IIOWriteWarningListener</code> from the list
      * of registered warning listeners.  If the listener was not
      * previously registered, or if <code>listener</code> is
@@ -1676,7 +1676,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all currently registered
      * <code>IIOWriteWarningListener</code> objects.
      *
@@ -1689,7 +1689,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.warningLocales = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>IIOWriteProgressListener</code> to the list of
      * registered progress listeners.  If <code>listener</code> is
      * <code>null</code>, no exception will be thrown and no action
@@ -1708,7 +1708,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         progressListeners = ImageReader.addToList(progressListeners, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>IIOWriteProgressListener</code> from the list
      * of registered progress listeners.  If the listener was not
      * previously registered, or if <code>listener</code> is
@@ -1729,7 +1729,7 @@ public abstract class ImageWriter implements ImageTranscoder {
             ImageReader.removeFromList(progressListeners, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all currently registered
      * <code>IIOWriteProgressListener</code> objects.
      *
@@ -1741,7 +1741,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         this.progressListeners = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the start of an image write to all registered
      * <code>IIOWriteProgressListener</code>s by calling their
      * <code>imageStarted</code> method.  Subclasses may use this
@@ -1761,7 +1761,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the current percentage of image completion to all
      * registered <code>IIOWriteProgressListener</code>s by calling
      * their <code>imageProgress</code> method.  Subclasses may use
@@ -1782,7 +1782,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the completion of an image write to all registered
      * <code>IIOWriteProgressListener</code>s by calling their
      * <code>imageComplete</code> method.  Subclasses may use this
@@ -1800,7 +1800,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the start of a thumbnail write to all registered
      * <code>IIOWriteProgressListener</code>s by calling their
      * <code>thumbnailStarted</code> method.  Subclasses may use this
@@ -1823,7 +1823,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the current percentage of thumbnail completion to
      * all registered <code>IIOWriteProgressListener</code>s by calling
      * their <code>thumbnailProgress</code> method.  Subclasses may
@@ -1844,7 +1844,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts the completion of a thumbnail write to all registered
      * <code>IIOWriteProgressListener</code>s by calling their
      * <code>thumbnailComplete</code> method.  Subclasses may use this
@@ -1862,7 +1862,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts that the write has been aborted to all registered
      * <code>IIOWriteProgressListener</code>s by calling their
      * <code>writeAborted</code> method.  Subclasses may use this
@@ -1880,7 +1880,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts a warning message to all registered
      * <code>IIOWriteWarningListener</code>s by calling their
      * <code>warningOccurred</code> method.  Subclasses may use this
@@ -1910,7 +1910,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Broadcasts a localized warning message to all registered
      * <code>IIOWriteWarningListener</code>s by calling their
      * <code>warningOccurred</code> method with a string taken
@@ -1958,7 +1958,7 @@ public abstract class ImageWriter implements ImageTranscoder {
                 locale = Locale.getDefault();
             }
 
-            /**
+            /** {@collect.stats}
              * If an applet supplies an implementation of ImageWriter and
              * resource bundles, then the resource bundle will need to be
              * accessed via the applet class loader. So first try the context
@@ -2000,7 +2000,7 @@ public abstract class ImageWriter implements ImageTranscoder {
 
     // State management
 
-    /**
+    /** {@collect.stats}
      * Restores the <code>ImageWriter</code> to its initial state.
      *
      * <p> The default implementation calls
@@ -2017,7 +2017,7 @@ public abstract class ImageWriter implements ImageTranscoder {
         clearAbortRequest();
     }
 
-    /**
+    /** {@collect.stats}
      * Allows any resources held by this object to be released.  The
      * result of calling any other method (other than
      * <code>finalize</code>) subsequent to a call to this method

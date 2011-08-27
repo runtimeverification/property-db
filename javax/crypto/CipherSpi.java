@@ -40,7 +40,7 @@ import java.security.spec.AlgorithmParameterSpec;
 
 import java.nio.ByteBuffer;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Cipher</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -229,7 +229,7 @@ import java.nio.ByteBuffer;
 
 public abstract class CipherSpi {
 
-    /**
+    /** {@collect.stats}
      * Sets the mode of this cipher.
      *
      * @param mode the cipher mode
@@ -240,7 +240,7 @@ public abstract class CipherSpi {
     protected abstract void engineSetMode(String mode)
         throws NoSuchAlgorithmException;
 
-    /**
+    /** {@collect.stats}
      * Sets the padding mechanism of this cipher.
      *
      * @param padding the padding mechanism
@@ -251,7 +251,7 @@ public abstract class CipherSpi {
     protected abstract void engineSetPadding(String padding)
         throws NoSuchPaddingException;
 
-    /**
+    /** {@collect.stats}
      * Returns the block size (in bytes).
      *
      * @return the block size (in bytes), or 0 if the underlying algorithm is
@@ -259,7 +259,7 @@ public abstract class CipherSpi {
      */
     protected abstract int engineGetBlockSize();
 
-    /**
+    /** {@collect.stats}
      * Returns the length in bytes that an output buffer would
      * need to be in order to hold the result of the next <code>update</code>
      * or <code>doFinal</code> operation, given the input length
@@ -278,7 +278,7 @@ public abstract class CipherSpi {
      */
     protected abstract int engineGetOutputSize(int inputLen);
 
-    /**
+    /** {@collect.stats}
      * Returns the initialization vector (IV) in a new buffer.
      *
      * <p> This is useful in the context of password-based encryption or
@@ -290,7 +290,7 @@ public abstract class CipherSpi {
      */
     protected abstract byte[] engineGetIV();
 
-    /**
+    /** {@collect.stats}
      * Returns the parameters used with this cipher.
      *
      * <p>The returned parameters may be the same that were used to initialize
@@ -303,7 +303,7 @@ public abstract class CipherSpi {
      */
     protected abstract AlgorithmParameters engineGetParameters();
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key and a source
      * of randomness.
      *
@@ -347,7 +347,7 @@ public abstract class CipherSpi {
                                        SecureRandom random)
         throws InvalidKeyException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key, a set of
      * algorithm parameters, and a source of randomness.
      *
@@ -395,7 +395,7 @@ public abstract class CipherSpi {
                                        SecureRandom random)
         throws InvalidKeyException, InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key, a set of
      * algorithm parameters, and a source of randomness.
      *
@@ -443,7 +443,7 @@ public abstract class CipherSpi {
                                        SecureRandom random)
         throws InvalidKeyException, InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -464,7 +464,7 @@ public abstract class CipherSpi {
     protected abstract byte[] engineUpdate(byte[] input, int inputOffset,
                                            int inputLen);
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -495,7 +495,7 @@ public abstract class CipherSpi {
                                         int outputOffset)
         throws ShortBufferException;
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -538,7 +538,7 @@ public abstract class CipherSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation,
      * or finishes a multiple-part operation.
      * The data is encrypted or decrypted, depending on how this cipher was
@@ -580,7 +580,7 @@ public abstract class CipherSpi {
                                             int inputLen)
         throws IllegalBlockSizeException, BadPaddingException;
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation,
      * or finishes a multiple-part operation.
      * The data is encrypted or decrypted, depending on how this cipher was
@@ -633,7 +633,7 @@ public abstract class CipherSpi {
         throws ShortBufferException, IllegalBlockSizeException,
                BadPaddingException;
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation,
      * or finishes a multiple-part operation.
      * The data is encrypted or decrypted, depending on how this cipher was
@@ -695,7 +695,7 @@ public abstract class CipherSpi {
         return Math.min(4096, totalSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation for encryption using ByteBuffers. Used for both
      * engineUpdate() and engineDoFinal().
      */
@@ -807,7 +807,7 @@ public abstract class CipherSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Wrap a key.
      *
      * <p>This concrete method has been added to this previously-defined
@@ -837,7 +837,7 @@ public abstract class CipherSpi {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Unwrap a previously wrapped key.
      *
      * <p>This concrete method has been added to this previously-defined
@@ -875,7 +875,7 @@ public abstract class CipherSpi {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key size of the given key object in bits.
      * <p>This concrete method has been added to this previously-defined
      * abstract class. It throws an <code>UnsupportedOperationException</code>

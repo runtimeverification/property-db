@@ -28,7 +28,7 @@ package javax.script;
 import java.util.Map;
 import java.io.Reader;
 
-/**
+/** {@collect.stats}
  * The optional interface implemented by ScriptEngines whose methods compile scripts
  * to a form that can be executed repeatedly without recompilation.
  *
@@ -36,7 +36,7 @@ import java.io.Reader;
  * @since 1.6
  */
 public interface Compilable {
-    /**
+    /** {@collect.stats}
      * Compiles the script (source represented as a <code>String</code>) for
      * later execution.
      *
@@ -53,7 +53,7 @@ public interface Compilable {
     public CompiledScript compile(String script) throws
             ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Compiles the script (source read from <code>Reader</code>) for
      * later execution.  Functionality is identical to
      * <code>compile(String)</code> other than the way in which the source is

@@ -28,7 +28,7 @@ package javax.swing.text;
 import java.util.Stack;
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * <p>
  * ElementIterator, as the name suggests, iteratates over the Element
  * tree.  The constructor can be invoked with either Document or an Element
@@ -74,7 +74,7 @@ public class ElementIterator implements Cloneable {
     private Element root;
     private Stack elementStack = null;
 
-    /**
+    /** {@collect.stats}
      * The StackItem class stores the element
      * as well as a child index.  If the
      * index is -1, then the element represented
@@ -90,7 +90,7 @@ public class ElementIterator implements Cloneable {
         int childIndex;
 
         private StackItem(Element elem) {
-            /**
+            /** {@collect.stats}
              * -1 index implies a self reference,
              * as opposed to an index into its
              * list of children.
@@ -116,7 +116,7 @@ public class ElementIterator implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new ElementIterator. The
      * root element is taken to get the
      * default root element of the document.
@@ -128,7 +128,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new ElementIterator.
      *
      * @param root the root Element.
@@ -138,7 +138,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Clones the ElementIterator.
      *
      * @return a cloned ElementIterator Object.
@@ -162,7 +162,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the first element.
      *
      * @return an Element.
@@ -180,7 +180,7 @@ public class ElementIterator implements Cloneable {
         return root;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current depth of element tree.
      *
      * @return the depth.
@@ -193,7 +193,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the current Element.
      *
      * @return element on top of the stack or
@@ -223,7 +223,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the next Element. The strategy
      * used to locate the next element is
      * a depth-first search.
@@ -283,7 +283,7 @@ public class ElementIterator implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the previous Element. If howver the current
      * element is the last element, or the current element
      * is null, then null is returned.
@@ -334,7 +334,7 @@ public class ElementIterator implements Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last child of <code>parent</code> that is a leaf. If the
      * last child is a not a leaf, this method is called with the last child.
      */

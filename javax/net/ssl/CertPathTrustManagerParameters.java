@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.security.cert.CertPathParameters;
 
-/**
+/** {@collect.stats}
  * A wrapper for CertPathParameters. This class is used to pass validation
  * settings to CertPath based {@link TrustManager}s using the
  * {@link TrustManagerFactory#init(ManagerFactoryParameters)
@@ -46,7 +46,7 @@ public class CertPathTrustManagerParameters implements ManagerFactoryParameters 
 
     private final CertPathParameters parameters;
 
-    /**
+    /** {@collect.stats}
      * Construct new CertPathTrustManagerParameters from the specified
      * parameters. The parameters are cloned to protect against subsequent
      * modification.
@@ -59,7 +59,7 @@ public class CertPathTrustManagerParameters implements ManagerFactoryParameters 
         this.parameters = (CertPathParameters)parameters.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Return a clone of the CertPathParameters encapsulated by this class.
      *
      * @return a clone of the CertPathParameters encapsulated by this class.

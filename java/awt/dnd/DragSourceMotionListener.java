@@ -27,7 +27,7 @@ package java.awt.dnd;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * A listener interface for receiving mouse motion events during a drag
  * operation.
  * <p>
@@ -52,7 +52,7 @@ import java.util.EventListener;
 
 public interface DragSourceMotionListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Called whenever the mouse is moved during a drag operation.
      *
      * @param dsde the <code>DragSourceDragEvent</code>

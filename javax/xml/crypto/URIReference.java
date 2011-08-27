@@ -27,7 +27,7 @@
  */
 package javax.xml.crypto;
 
-/**
+/** {@collect.stats}
  * Identifies a data object via a URI-Reference, as specified by
  * <a href="http://www.ietf.org/rfc/rfc2396.txt">RFC 2396</a>.
  *
@@ -42,7 +42,7 @@ package javax.xml.crypto;
  */
 public interface URIReference {
 
-    /**
+    /** {@collect.stats}
      * Returns the URI of the referenced data object.
      *
      * @return the URI of the data object in RFC 2396 format (may be
@@ -50,7 +50,7 @@ public interface URIReference {
      */
     String getURI();
 
-    /**
+    /** {@collect.stats}
      * Returns the type of data referenced by this URI.
      *
      * @return the type (a URI) of the data object (may be <code>null</code>

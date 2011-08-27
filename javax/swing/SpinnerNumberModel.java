@@ -29,7 +29,7 @@ import java.util.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * A <code>SpinnerModel</code> for sequences of numbers.
  * The upper and lower bounds of the sequence are defined
  * by properties called <code>minimum</code> and
@@ -86,7 +86,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     private Comparable minimum, maximum;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SpinnerModel</code> that represents
      * a closed sequence of
      * numbers from <code>minimum</code> to <code>maximum</code>.  The
@@ -131,7 +131,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SpinnerNumberModel</code> with the specified
      * <code>value</code>, <code>minimum</code>/<code>maximum</code> bounds,
      * and <code>stepSize</code>.
@@ -148,7 +148,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SpinnerNumberModel</code> with the specified
      * <code>value</code>, <code>minimum</code>/<code>maximum</code> bounds,
      * and <code>stepSize</code>.
@@ -165,7 +165,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SpinnerNumberModel</code> with no
      * <code>minimum</code> or <code>maximum</code> value,
      * <code>stepSize</code> equal to one, and an initial value of zero.
@@ -175,7 +175,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the lower bound for numbers in this sequence.
      * If <code>minimum</code> is <code>null</code>,
      * then there is no lower bound.  No bounds checking is done here;
@@ -219,7 +219,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the first number in this sequence.
      *
      * @return the value of the <code>minimum</code> property
@@ -230,7 +230,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the upper bound for numbers in this sequence.
      * If <code>maximum</code> is <code>null</code>, then there
      * is no upper bound.  No bounds checking is done here; the new
@@ -266,7 +266,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the last number in the sequence.
      *
      * @return the value of the <code>maximum</code> property
@@ -277,7 +277,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the size of the value change computed by the
      * <code>getNextValue</code> and <code>getPreviousValue</code>
      * methods.  An <code>IllegalArgumentException</code>
@@ -304,7 +304,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the value change computed by the
      * <code>getNextValue</code>
      * and <code>getPreviousValue</code> methods.
@@ -358,7 +358,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the next number in the sequence.
      *
      * @return <code>value + stepSize</code> or <code>null</code> if the sum
@@ -373,7 +373,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the previous number in the sequence.
      *
      * @return <code>value - stepSize</code>, or
@@ -389,7 +389,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the current element of the sequence.
      *
      * @return the value property
@@ -400,7 +400,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the current element of the sequence.
      *
      * @return the value property
@@ -412,7 +412,7 @@ public class SpinnerNumberModel extends AbstractSpinnerModel implements Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current value for this sequence.  If <code>value</code> is
      * <code>null</code>, or not a <code>Number</code>, an
      * <code>IllegalArgumentException</code> is thrown.  No

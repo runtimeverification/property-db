@@ -35,7 +35,7 @@ import javax.swing.table.*;
 
 import sun.swing.*;
 
-/**
+/** {@collect.stats}
  * BasicTableHeaderUI implementation
  *
  * @author Alan Chung
@@ -49,7 +49,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
 // Instance Variables
 //
 
-    /** The JTableHeader that is delegating the painting to this UI. */
+    /** {@collect.stats} The JTableHeader that is delegating the painting to this UI. */
     protected JTableHeader header;
     protected CellRendererPane rendererPane;
 
@@ -87,7 +87,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         }
     };
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTableUI.
@@ -277,7 +277,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
 //  Factory methods for the Listeners
 //
 
-    /**
+    /** {@collect.stats}
      * Creates the mouse listener for the JTableHeader.
      */
     protected MouseInputListener createMouseInputListener() {
@@ -305,7 +305,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         installKeyboardActions();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JTableHeader properties, e.g. font, foreground, and background.
      * The font, foreground, and background properties are only set if their
      * current value is either null or a UIResource, other properties are set
@@ -319,7 +319,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         LookAndFeel.installProperty(header, "opaque", Boolean.TRUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Attaches listeners to the JTableHeader.
      */
     protected void installListeners() {
@@ -330,7 +330,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         header.addFocusListener(focusListener);
     }
 
-    /**
+    /** {@collect.stats}
      * Register all keyboard actions on the JTableHeader.
      */
     protected void installKeyboardActions() {
@@ -363,7 +363,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         mouseInputListener = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Unregisters default key actions.
      */
     protected void uninstallKeyboardActions() {
@@ -371,7 +371,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         SwingUtilities.replaceUIActionMap(header, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Populates TableHeader's actions.
      */
     static void loadActionMap(LazyActionMap map) {
@@ -389,7 +389,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
 // Support for mouse rollover
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the column header over which the mouse
      * currently is. When the mouse is not over the table header,
      * -1 is returned.
@@ -402,7 +402,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         return rolloverColumn;
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called every time the rollover column in the table
      * header is updated. Every look and feel supporting rollover effect
      * in table header should override this method and repaint the header.
@@ -456,7 +456,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         return newIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the specified column in the table header. Repaints the
      * affected header cells and makes sure the newly selected one is visible.
      */
@@ -475,7 +475,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         }
         return;
     }
-    /**
+    /** {@collect.stats}
      * Used by selectColumn to scroll horizontally, if necessary,
      * to ensure that the newly selected column is visible.
      */
@@ -560,7 +560,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
 // Baseline
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -745,7 +745,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the minimum size of the header. The minimum width is the sum
      * of the minimum widths of each column (plus inter-cell spacing).
      */
@@ -759,7 +759,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         return createHeaderSize(width);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the preferred size of the header. The preferred height is the
      * maximum of the preferred heights of all of the components provided
      * by the header renderers. The preferred width is the sum of the
@@ -775,7 +775,7 @@ public class BasicTableHeaderUI extends TableHeaderUI {
         return createHeaderSize(width);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the maximum size of the header. The maximum width is the sum
      * of the maximum widths of each column (plus inter-cell spacing).
      */

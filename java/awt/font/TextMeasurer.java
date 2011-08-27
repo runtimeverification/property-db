@@ -59,7 +59,7 @@ import sun.font.TextLineComponent;
 import sun.font.TextLabelFactory;
 import sun.font.FontResolver;
 
-/**
+/** {@collect.stats}
  * The <code>TextMeasurer</code> class provides the primitive operations
  * needed for line break: measuring up to a given advance, determining the
  * advance of a range of characters, and generating a
@@ -154,7 +154,7 @@ public final class TextMeasurer implements Cloneable {
     private float[] fBaselineOffsets;
     private float fJustifyRatio = 1;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>TextMeasurer</code> from the source text.
      * The source text should be a single entire paragraph.
      * @param text the source paragraph.  Cannot be null.
@@ -187,7 +187,7 @@ public final class TextMeasurer implements Cloneable {
         haveLayoutWindow = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize state, including fChars array, direction, and
      * fBidi.
      */
@@ -253,7 +253,7 @@ public final class TextMeasurer implements Cloneable {
         invalidateComponents();
     }
 
-    /**
+    /** {@collect.stats}
      * Generate components for the paragraph.  fChars, fBidi should have been
      * initialized already.
      */
@@ -346,7 +346,7 @@ public final class TextMeasurer implements Cloneable {
         return fChars.length;
     }
 
-    /**
+    /** {@collect.stats}
      * According to the Unicode Bidirectional Behavior specification
      * (Unicode Standard 2.0, section 3.11), whitespace at the ends
      * of lines which would naturally flow against the base direction
@@ -533,7 +533,7 @@ public final class TextMeasurer implements Cloneable {
         haveLayoutWindow = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first character which will not fit on
      * on a line beginning at <code>start</code> and possible
      * measuring up to <code>maxAdvance</code> in graphical width.
@@ -561,7 +561,7 @@ public final class TextMeasurer implements Cloneable {
         return calcLineBreak(localStart, maxAdvance) + fStart;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the graphical width of a line beginning at <code>start</code>
      * and including characters up to <code>limit</code>.
      * <code>start</code> and <code>limit</code> are absolute indices,
@@ -588,7 +588,7 @@ public final class TextMeasurer implements Cloneable {
         // could cache line in case getLayout is called with same start, limit
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TextLayout</code> on the given character range.
      *
      * @param start the index of the first character
@@ -631,7 +631,7 @@ public final class TextMeasurer implements Cloneable {
         collectStats = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the <code>TextMeasurer</code> after a single character has
      * been inserted
      * into the paragraph currently represented by this
@@ -697,7 +697,7 @@ public final class TextMeasurer implements Cloneable {
         invalidateComponents();
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the <code>TextMeasurer</code> after a single character has
      * been deleted
      * from the paragraph currently represented by this
@@ -748,7 +748,7 @@ public final class TextMeasurer implements Cloneable {
         invalidateComponents();
     }
 
-    /**
+    /** {@collect.stats}
      * NOTE:  This method is only for LineBreakMeasurer's use.  It is package-
      * private because it returns internal data.
      */

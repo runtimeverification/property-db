@@ -30,7 +30,7 @@ import java.io.*;
 import java.lang.ref.WeakReference;
 import java.lang.ref.ReferenceQueue;
 
-/**
+/** {@collect.stats}
  * A package-private PropertyChangeListener which listens for
  * property changes on an Action and updates the properties
  * of an ActionEvent source.
@@ -75,7 +75,7 @@ abstract class ActionPropertyChangeListener<T extends JComponent>
         this.action = a;
     }
 
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener method.  If the target has been gc'ed this
      * will remove the <code>PropertyChangeListener</code> from the Action,
      * otherwise this will invoke actionPropertyChanged.
@@ -89,7 +89,7 @@ abstract class ActionPropertyChangeListener<T extends JComponent>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a property changes on the Action and the target
      * still exists.
      */

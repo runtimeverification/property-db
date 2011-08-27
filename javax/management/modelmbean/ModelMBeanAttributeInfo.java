@@ -48,7 +48,7 @@ import javax.management.DescriptorAccess;
 import javax.management.MBeanAttributeInfo;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * The ModelMBeanAttributeInfo object describes an attribute of the ModelMBean.
  * It is a subclass of MBeanAttributeInfo with the addition of an associated Descriptor
  * and an implementation of the DescriptorAccess interface.
@@ -117,7 +117,7 @@ public class ModelMBeanAttributeInfo
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField attrDescriptor Descriptor The {@link Descriptor} containing the metadata corresponding to
      *              this attribute
      */
@@ -142,7 +142,7 @@ public class ModelMBeanAttributeInfo
     //
     // END Serialization compatibility stuff
 
-        /**
+        /** {@collect.stats}
          * @serial The {@link Descriptor} containing the metadata corresponding to
          * this attribute
          */
@@ -150,7 +150,7 @@ public class ModelMBeanAttributeInfo
 
         private final static String currClass = "ModelMBeanAttributeInfo";
 
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanAttributeInfo object with a default
          * descriptor. The {@link Descriptor} of the constructed
          * object will include fields contributed by any annotations
@@ -188,7 +188,7 @@ public class ModelMBeanAttributeInfo
 
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanAttributeInfo object.  The {@link
          * Descriptor} of the constructed object will include fields
          * contributed by any annotations on the {@code Method}
@@ -242,7 +242,7 @@ public class ModelMBeanAttributeInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanAttributeInfo object with a default descriptor.
          *
          * @param name The name of the attribute
@@ -273,7 +273,7 @@ public class ModelMBeanAttributeInfo
                 attrDescriptor = createDefaultDescriptor();
 
         }
-        /**
+        /** {@collect.stats}
          * Constructs a ModelMBeanAttributeInfo object with a default descriptor.
          *
          * @param name The name of the attribute
@@ -323,7 +323,7 @@ public class ModelMBeanAttributeInfo
 
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a new ModelMBeanAttributeInfo object from this ModelMBeanAttributeInfo Object.
          * A default descriptor will be created.
          *
@@ -356,7 +356,7 @@ public class ModelMBeanAttributeInfo
                         attrDescriptor = createDefaultDescriptor();
                 }
         }
-        /**
+        /** {@collect.stats}
          * Gets a copy of the associated Descriptor for the
          * ModelMBeanAttributeInfo.
          *
@@ -381,7 +381,7 @@ public class ModelMBeanAttributeInfo
         }
 
 
-        /**
+        /** {@collect.stats}
         * Sets associated Descriptor (full replace) for the
         * ModelMBeanAttributeDescriptor.  If the new Descriptor is
         * null, then the associated Descriptor reverts to a default
@@ -425,7 +425,7 @@ public class ModelMBeanAttributeInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Creates and returns a new ModelMBeanAttributeInfo which is a duplicate of this ModelMBeanAttributeInfo.
         *
         * @exception RuntimeOperationsException for illegal value for field Names or field Values.
@@ -442,7 +442,7 @@ public class ModelMBeanAttributeInfo
                 return(new ModelMBeanAttributeInfo(this));
         }
 
-        /**
+        /** {@collect.stats}
         * Returns a human-readable version of the
         * ModelMBeanAttributeInfo instance.
         */
@@ -457,7 +457,7 @@ public class ModelMBeanAttributeInfo
                 " ; Descriptor: " + this.getDescriptor();
         }
 
-        /**
+        /** {@collect.stats}
         * Creates and returns a Descriptor with default values set:
         *  descriptorType=attribute,name=this.getName(),displayName=this.getName(),
         *               persistPolicy=never,visibility=1
@@ -476,7 +476,7 @@ public class ModelMBeanAttributeInfo
                                        ("displayName=" + this.getName())
                          });
         }
-        /**
+        /** {@collect.stats}
         * Tests that the descriptor is valid and adds appropriate default fields not already
         * specified. Field values must be correct for field names.
         * Descriptor must have the same name as the attribute,the descriptorType field must be "attribute",
@@ -528,7 +528,7 @@ public class ModelMBeanAttributeInfo
         }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link ModelMBeanAttributeInfo} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -538,7 +538,7 @@ public class ModelMBeanAttributeInfo
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link ModelMBeanAttributeInfo} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

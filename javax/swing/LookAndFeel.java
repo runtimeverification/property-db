@@ -45,7 +45,7 @@ import sun.swing.ImageIconUIResource;
 import java.util.StringTokenizer;
 
 
-/**
+/** {@collect.stats}
  * {@code LookAndFeel}, as the name implies, encapsulates a look and
  * feel. Beyond installing a look and feel most developers never need to
  * interact directly with {@code LookAndFeel}. In general only developers
@@ -150,7 +150,7 @@ import java.util.StringTokenizer;
 public abstract class LookAndFeel
 {
 
-    /**
+    /** {@collect.stats}
      * Convenience method for setting a component's foreground
      * and background color properties with values from the
      * defaults.  The properties are only set if the current
@@ -181,7 +181,7 @@ public abstract class LookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience method for setting a component's foreground,
      * background and font properties with values from the
      * defaults.  The properties are only set if the current
@@ -211,7 +211,7 @@ public abstract class LookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience method for setting a component's border property with
      * a value from the defaults. The border is only set if the border is
      * {@code null} or an instance of {@code UIResource}.
@@ -229,7 +229,7 @@ public abstract class LookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convenience method for uninstalling a border. If the border of
      * the component is a {@code UIResource}, it is set to {@code
      * null}.
@@ -243,7 +243,7 @@ public abstract class LookAndFeel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method for installing a property with the specified name
      * and value on a component if that property has not already been set
      * by the developer.  This method is intended to be used by
@@ -280,7 +280,7 @@ public abstract class LookAndFeel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method for building an array of {@code
      * KeyBindings}. While this method is not deprecated, developers
      * should instead use {@code ActionMap} and {@code InputMap} for
@@ -342,7 +342,7 @@ public abstract class LookAndFeel
         return rv;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code InputMapUIResource} from <code>keys</code>. This is
      * a convenience method for creating a new {@code InputMapUIResource},
      * invoking {@code loadKeyBindings(map, keys)}, and returning the
@@ -361,7 +361,7 @@ public abstract class LookAndFeel
         return retMap;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code ComponentInputMapUIResource} from
      * <code>keys</code>. This is a convenience method for creating a
      * new {@code ComponentInputMapUIResource}, invoking {@code
@@ -388,7 +388,7 @@ public abstract class LookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Populates an {@code InputMap} with the specified bindings.
      * The bindings are supplied as a list of alternating
      * {@code keystroke-action key} pairs. The {@code keystroke} is either
@@ -439,7 +439,7 @@ public abstract class LookAndFeel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code UIDefault.LazyValue} that loads an
      * image. The returned value is an implementation of {@code
      * UIDefaults.LazyValue}. When {@code createValue} is invoked on
@@ -465,7 +465,7 @@ public abstract class LookAndFeel
         return SwingUtilities2.makeIcon(baseClass, baseClass, gifFile);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>LayoutStyle</code> for this look
      * and feel.  This never returns {@code null}.
      * <p>
@@ -481,7 +481,7 @@ public abstract class LookAndFeel
         return DefaultLayoutStyle.getInstance();
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the user attempts an invalid operation,
      * such as pasting into an uneditable <code>JTextField</code>
      * that has focus. The default implementation beeps. Subclasses
@@ -504,7 +504,7 @@ public abstract class LookAndFeel
         toolkit.beep();
     } // provideErrorFeedback()
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the specified system desktop property by
      * invoking <code>Toolkit.getDefaultToolkit().getDesktopProperty()</code>.
      * If the value of the specified property is {@code null},
@@ -530,7 +530,7 @@ public abstract class LookAndFeel
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> with a disabled appearance.
      * This method is used to generate a disabled <code>Icon</code> when
      * one has not been specified.  For example, if you create a
@@ -557,7 +557,7 @@ public abstract class LookAndFeel
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Icon</code> for use by disabled
      * components that are also selected. This method is used to generate an
      * <code>Icon</code> for components that are in both the disabled and
@@ -582,7 +582,7 @@ public abstract class LookAndFeel
         return getDisabledIcon(component, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a short string that identifies this look and feel, e.g.
      * "CDE/Motif".  This string should be appropriate for a menu item.
      * Distinct look and feels should have different names, e.g.
@@ -596,7 +596,7 @@ public abstract class LookAndFeel
     public abstract String getName();
 
 
-    /**
+    /** {@collect.stats}
      * Return a string that identifies this look and feel.  This string
      * will be used by applications/services that want to recognize
      * well known look and feel implementations.  Presently
@@ -610,7 +610,7 @@ public abstract class LookAndFeel
     public abstract String getID();
 
 
-    /**
+    /** {@collect.stats}
      * Return a one line description of this look and feel implementation,
      * e.g. "The CDE/Motif Look and Feel".   This string is intended for
      * the user, e.g. in the title of a window or in a ToolTip message.
@@ -620,7 +620,7 @@ public abstract class LookAndFeel
     public abstract String getDescription();
 
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if the <code>LookAndFeel</code> returned
      * <code>RootPaneUI</code> instances support providing {@code Window}
      * decorations in a <code>JRootPane</code>.
@@ -640,7 +640,7 @@ public abstract class LookAndFeel
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * If the underlying platform has a "native" look and feel, and
      * this is an implementation of it, return {@code true}.  For
      * example, when the underlying platform is Solaris running CDE
@@ -653,7 +653,7 @@ public abstract class LookAndFeel
     public abstract boolean isNativeLookAndFeel();
 
 
-    /**
+    /** {@collect.stats}
      * Return {@code true} if the underlying platform supports and or permits
      * this look and feel.  This method returns {@code false} if the look
      * and feel depends on special resources or legal agreements that
@@ -666,7 +666,7 @@ public abstract class LookAndFeel
     public abstract boolean isSupportedLookAndFeel();
 
 
-    /**
+    /** {@collect.stats}
      * Initializes the look and feel. While this method is public,
      * it should only be invoked by the {@code UIManager} when a
      * look and feel is installed as the current look and feel. This
@@ -685,7 +685,7 @@ public abstract class LookAndFeel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninitializes the look and feel. While this method is public,
      * it should only be invoked by the {@code UIManager} when
      * the look and feel is uninstalled. For example,
@@ -700,7 +700,7 @@ public abstract class LookAndFeel
     public void uninitialize() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the look and feel defaults. While this method is public,
      * it should only be invoked by the {@code UIManager} when the
      * look and feel is set as the current look and feel and after
@@ -715,7 +715,7 @@ public abstract class LookAndFeel
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

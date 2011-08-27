@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterResolution is a printing attribute class that specifies an
  * exact resolution supported by a printer or to be used for a print job.
  * This attribute assumes that printers have a small set of device resolutions
@@ -75,7 +75,7 @@ public final class PrinterResolution    extends ResolutionSyntax
 
     private static final long serialVersionUID = 13090306561090558L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new printer resolution attribute from the given items.
      *
      * @param  crossFeedResolution
@@ -95,7 +95,7 @@ public final class PrinterResolution    extends ResolutionSyntax
         super (crossFeedResolution, feedResolution, units);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer resolution attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -122,7 +122,7 @@ public final class PrinterResolution    extends ResolutionSyntax
                 object instanceof PrinterResolution);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -135,7 +135,7 @@ public final class PrinterResolution    extends ResolutionSyntax
         return PrinterResolution.class;
                 }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

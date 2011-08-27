@@ -42,7 +42,7 @@ package java.awt.font;
 
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * The <code>GlyphMetrics</code> class represents infomation for a
  * single glyph.   A glyph is the visual representation of one or more
  * characters.  Many different glyphs can be used to represent a single
@@ -107,38 +107,38 @@ import java.awt.geom.Rectangle2D;
  */
 
 public final class GlyphMetrics {
-    /**
+    /** {@collect.stats}
      * Indicates whether the metrics are for a horizontal or vertical baseline.
      */
     private boolean horizontal;
 
-    /**
+    /** {@collect.stats}
      * The x-component of the advance.
      */
     private float advanceX;
 
-    /**
+    /** {@collect.stats}
      * The y-component of the advance.
      */
     private float advanceY;
 
-    /**
+    /** {@collect.stats}
      * The bounds of the associated glyph.
      */
     private Rectangle2D.Float bounds;
 
-    /**
+    /** {@collect.stats}
      * Additional information about the glyph encoded as a byte.
      */
     private byte glyphType;
 
-    /**
+    /** {@collect.stats}
      * Indicates a glyph that represents a single standard
      * character.
      */
     public static final byte STANDARD = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates a glyph that represents multiple characters
      * as a ligature, for example 'fi' or 'ffi'.  It is followed by
      * filler glyphs for the remaining characters. Filler and combining
@@ -147,14 +147,14 @@ public final class GlyphMetrics {
      */
     public static final byte LIGATURE = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates a glyph that represents a combining character,
      * such as an umlaut.  There is no caret position between this glyph
      * and the preceeding glyph.
      */
     public static final byte COMBINING = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates a glyph with no corresponding character in the
      * backing store.  The glyph is associated with the character
      * represented by the logicaly preceeding non-component glyph.  This
@@ -164,13 +164,13 @@ public final class GlyphMetrics {
      */
     public static final byte COMPONENT = 3;
 
-    /**
+    /** {@collect.stats}
      * Indicates a glyph with no visual representation. It can
      * be added to the other code values to indicate an invisible glyph.
      */
     public static final byte WHITESPACE = 4;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>GlyphMetrics</code> object.
      * @param advance the advance width of the glyph
      * @param bounds the black box bounds of the glyph
@@ -185,7 +185,7 @@ public final class GlyphMetrics {
         this.glyphType = glyphType;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>GlyphMetrics</code> object.
      * @param horizontal if true, metrics are for a horizontal baseline,
      *   otherwise they are for a vertical baseline
@@ -206,7 +206,7 @@ public final class GlyphMetrics {
         this.glyphType = glyphType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the advance of the glyph along the baseline (either
      * horizontal or vertical).
      * @return the advance of the glyph
@@ -215,7 +215,7 @@ public final class GlyphMetrics {
         return horizontal ? advanceX : advanceY;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the x-component of the advance of the glyph.
      * @return the x-component of the advance of the glyph
      * @since 1.4
@@ -224,7 +224,7 @@ public final class GlyphMetrics {
         return advanceX;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the y-component of the advance of the glyph.
      * @return the y-component of the advance of the glyph
      * @since 1.4
@@ -233,7 +233,7 @@ public final class GlyphMetrics {
         return advanceY;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds of the glyph. This is the bounding box of the glyph outline.
      * Because of rasterization and pixel alignment effects, it does not necessarily
      * enclose the pixels that are affected when rendering the glyph.
@@ -243,7 +243,7 @@ public final class GlyphMetrics {
         return new Rectangle2D.Float(bounds.x, bounds.y, bounds.width, bounds.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the left (top) side bearing of the glyph.
      * <p>
      * This is the distance from 0,&nbsp;0 to the left (top) of the glyph
@@ -255,7 +255,7 @@ public final class GlyphMetrics {
         return horizontal ? bounds.x : bounds.y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the right (bottom) side bearing of the glyph.
      * <p>
      * This is the distance from the right (bottom) of the glyph bounds to
@@ -269,7 +269,7 @@ public final class GlyphMetrics {
             advanceY - bounds.y - bounds.height;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the raw glyph type code.
      * @return the raw glyph type code.
      */
@@ -277,7 +277,7 @@ public final class GlyphMetrics {
         return glyphType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this is a standard glyph.
      * @return <code>true</code> if this is a standard glyph;
      *          <code>false</code> otherwise.
@@ -286,7 +286,7 @@ public final class GlyphMetrics {
         return (glyphType & 0x3) == STANDARD;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this is a ligature glyph.
      * @return <code>true</code> if this is a ligature glyph;
      *          <code>false</code> otherwise.
@@ -295,7 +295,7 @@ public final class GlyphMetrics {
         return (glyphType & 0x3) == LIGATURE;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this is a combining glyph.
      * @return <code>true</code> if this is a combining glyph;
      *          <code>false</code> otherwise.
@@ -304,7 +304,7 @@ public final class GlyphMetrics {
         return (glyphType & 0x3) == COMBINING;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this is a component glyph.
      * @return <code>true</code> if this is a component glyph;
      *          <code>false</code> otherwise.
@@ -313,7 +313,7 @@ public final class GlyphMetrics {
         return (glyphType & 0x3) == COMPONENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this is a whitespace glyph.
      * @return <code>true</code> if this is a whitespace glyph;
      *          <code>false</code> otherwise.

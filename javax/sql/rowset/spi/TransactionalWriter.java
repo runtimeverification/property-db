@@ -32,7 +32,7 @@ import javax.sql.RowSetWriter;
 import javax.sql.rowset.*;
 import java.sql.Savepoint;
 
-/**
+/** {@collect.stats}
  * A specialized interface that facilitates an extension of the standard
  * <code>SyncProvider</code> abstract class so that it has finer grained
  * transaction control.
@@ -47,7 +47,7 @@ import java.sql.Savepoint;
  */
 public interface TransactionalWriter extends RowSetWriter {
 
-    /**
+    /** {@collect.stats}
      * Makes permanent all changes that have been performed by the
      * <code>acceptChanges</code> method since the last call to either the
      * <code>commit</code> or <code>rollback</code> methods.
@@ -59,7 +59,7 @@ public interface TransactionalWriter extends RowSetWriter {
      */
     public void commit() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Undoes all changes made in the current transaction. This method should be
      * used only when auto-commit mode has been disabled.
      *
@@ -68,7 +68,7 @@ public interface TransactionalWriter extends RowSetWriter {
      */
     public void rollback() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Undoes all changes made in the current transaction made prior to the given
      * <code>Savepoint</code> object.  This method should be used only when auto-commit
      * mode has been disabled.

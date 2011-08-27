@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>Patch</code> object represents a location, on a MIDI
  * synthesizer, into which a single instrument is stored (loaded).
  * Every <code>Instrument</code> object has its own <code>Patch</code>
@@ -59,19 +59,19 @@ package javax.sound.midi;
 public class Patch {
 
 
-    /**
+    /** {@collect.stats}
      * Bank index
      */
     private final int bank;
 
 
-    /**
+    /** {@collect.stats}
      * Program change number
      */
     private final int program;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new patch object from the specified bank and program
      * numbers.
      * @param bank the bank index (in the range from 0 to 16383)
@@ -84,7 +84,7 @@ public class Patch {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of the bank that contains the instrument
      * whose location this <code>Patch</code> specifies.
      * @return the bank number, whose range is from 0 to 16383
@@ -96,7 +96,7 @@ public class Patch {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the index, within
      * a bank, of the instrument whose location this <code>Patch</code> specifies.
      * @return the instrument's program number, whose range is from 0 to 127

@@ -28,7 +28,7 @@ import java.io.*;
 import java.util.*;
 import java.lang.reflect.Array;
 
-/**
+/** {@collect.stats}
  * A class that holds a list of EventListeners.  A single instance
  * can be used to hold all listeners (of all types) for the instance
  * using the list.  It is the responsiblity of the class using the
@@ -102,7 +102,7 @@ public class EventListenerList implements Serializable {
     /* The list of ListenerType - Listener pairs */
     protected transient Object[] listenerList = NULL_ARRAY;
 
-    /**
+    /** {@collect.stats}
      * Passes back the event listener list as an array
      * of ListenerType-listener pairs.  Note that for
      * performance reasons, this implementation passes back
@@ -123,7 +123,7 @@ public class EventListenerList implements Serializable {
         return listenerList;
     }
 
-    /**
+    /** {@collect.stats}
      * Return an array of all the listeners of the given type.
      * @return all of the listeners of the specified type.
      * @exception  ClassCastException if the supplied class
@@ -144,14 +144,14 @@ public class EventListenerList implements Serializable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of listeners for this listener list.
      */
     public int getListenerCount() {
         return listenerList.length/2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of listeners of the supplied type
      * for this listener list.
      */
@@ -169,7 +169,7 @@ public class EventListenerList implements Serializable {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the listener as a listener of the specified type.
      * @param t the type of the listener to be added
      * @param l the listener to be added
@@ -202,7 +202,7 @@ public class EventListenerList implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the listener as a listener of the specified type.
      * @param t the type of the listener to be removed
      * @param l the listener to be removed
@@ -274,7 +274,7 @@ public class EventListenerList implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the EventListenerList.
      */
     public String toString() {

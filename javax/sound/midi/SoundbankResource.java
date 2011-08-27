@@ -25,7 +25,7 @@
 
 package javax.sound.midi;
 
-/**
+/** {@collect.stats}
  * A <code>SoundbankResource</code> represents any audio resource stored
  * in a <code>{@link Soundbank}</code>.  Common soundbank resources include:
  * <ul>
@@ -68,31 +68,31 @@ package javax.sound.midi;
 public abstract class SoundbankResource {
 
 
-    /**
+    /** {@collect.stats}
      * The sound bank that contains the <code>SoundbankResources</code>
      */
     private final Soundbank soundBank;
 
 
-    /**
+    /** {@collect.stats}
      * The name of the <code>SoundbankResource</code>
      */
     private final String name;
 
 
-    /**
+    /** {@collect.stats}
      * The class used to represent the sample's data.
      */
     private final Class dataClass;
 
 
-    /**
+    /** {@collect.stats}
      * The wavetable index.
      */
     //private final int index;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SoundbankResource</code> from the given sound bank
      * and wavetable index.  (Setting the <code>SoundbankResource's</code> name,
      * sampled audio data, and instruments is a subclass responsibility.)
@@ -113,7 +113,7 @@ public abstract class SoundbankResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the sound bank that contains this <code>SoundbankResource</code>.
      * @return the sound bank in which this <code>SoundbankResource</code> is stored
      */
@@ -122,7 +122,7 @@ public abstract class SoundbankResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the name of the resource.  This should generally be a string
      * descriptive of the resource.
      * @return the instrument's name
@@ -132,7 +132,7 @@ public abstract class SoundbankResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the class used by this sample to represent its data.
      * The object returned by <code>getData</code> will be of this
      * class.  If this <code>SoundbankResource</code> object does not support
@@ -145,7 +145,7 @@ public abstract class SoundbankResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the sampled audio that is stored in this <code>SoundbankResource</code>.
      * The type of object returned depends on the implementation of the
      * concrete class, and may be queried using <code>getDataClass</code>.
@@ -155,7 +155,7 @@ public abstract class SoundbankResource {
     public abstract Object getData();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the index of this <code>SoundbankResource</code> into the
      * <code>Soundbank's</code> set of <code>SoundbankResources</code>.
      * @return the wavetable index
@@ -165,7 +165,7 @@ public abstract class SoundbankResource {
     //}
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a list of the instruments in the sound bank that use the
      * <code>SoundbankResource</code> for sound synthesis.
      * @return an array of <code>Instruments</code> that reference this

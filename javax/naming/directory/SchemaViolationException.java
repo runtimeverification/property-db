@@ -28,7 +28,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a method
   * in some ways violates the schema. An example of schema violation
   * is modifying attributes of an object that violates the object's
@@ -52,7 +52,7 @@ import javax.naming.NamingException;
   * @since 1.3
   */
 public class SchemaViolationException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of SchemaViolationException.
      * All fields are set to null.
      */
@@ -60,7 +60,7 @@ public class SchemaViolationException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of SchemaViolationException
      * using the explanation supplied. All other fields are set to null.
      * @param explanation Detail about this exception. Can be null.
@@ -70,7 +70,7 @@ public class SchemaViolationException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3041762429525049663L;

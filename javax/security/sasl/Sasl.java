@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.security.Provider;
 import java.security.Security;
 
-/**
+/** {@collect.stats}
  * A static class for creating SASL clients and servers.
  *<p>
  * This class defines the policy of how to locate, load, and instantiate
@@ -66,7 +66,7 @@ public class Sasl {
     private Sasl() {
     }
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies the quality-of-protection to use.
      * The property contains a comma-separated, ordered list
      * of quality-of-protection values that the
@@ -84,7 +84,7 @@ public class Sasl {
      */
     public static final String QOP = "javax.security.sasl.qop";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies the cipher strength to use.
      * The property contains a comma-separated, ordered list
      * of cipher strength values that
@@ -106,7 +106,7 @@ public class Sasl {
      */
     public static final String STRENGTH = "javax.security.sasl.strength";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether the
      * server must authenticate to the client. The property contains
      * <tt>"true"</tt> if the server must
@@ -118,7 +118,7 @@ public class Sasl {
     public static final String SERVER_AUTH =
     "javax.security.sasl.server.authentication";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies the maximum size of the receive
      * buffer in bytes of <tt>SaslClient</tt>/<tt>SaslServer</tt>.
      * The property contains the string representation of an integer.
@@ -128,7 +128,7 @@ public class Sasl {
      */
     public static final String MAX_BUFFER = "javax.security.sasl.maxbuffer";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies the maximum size of the raw send
      * buffer in bytes of <tt>SaslClient</tt>/<tt>SaslServer</tt>.
      * The property contains the string representation of an integer.
@@ -138,7 +138,7 @@ public class Sasl {
      */
     public static final String RAW_SEND_SIZE = "javax.security.sasl.rawsendsize";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether to reuse previously
      * authenticated session information. The property contains "true" if the
      * mechanism implementation may attempt to reuse previously authenticated
@@ -165,7 +165,7 @@ public class Sasl {
      */
      public static final String REUSE = "javax.security.sasl.reuse";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies
      * whether mechanisms susceptible to simple plain passive attacks (e.g.,
      * "PLAIN") are not permitted. The property
@@ -178,7 +178,7 @@ public class Sasl {
     public static final String POLICY_NOPLAINTEXT =
     "javax.security.sasl.policy.noplaintext";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether
      * mechanisms susceptible to active (non-dictionary) attacks
      * are not permitted.
@@ -192,7 +192,7 @@ public class Sasl {
     public static final String POLICY_NOACTIVE =
     "javax.security.sasl.policy.noactive";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether
      * mechanisms susceptible to passive dictionary attacks are not permitted.
      * The property contains <tt>"true"</tt>
@@ -206,7 +206,7 @@ public class Sasl {
     public static final String POLICY_NODICTIONARY =
     "javax.security.sasl.policy.nodictionary";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether mechanisms that accept
      * anonymous login are not permitted. The property contains <tt>"true"</tt>
      * if mechanisms that accept anonymous login are not permitted;
@@ -219,7 +219,7 @@ public class Sasl {
     public static final String POLICY_NOANONYMOUS =
     "javax.security.sasl.policy.noanonymous";
 
-     /**
+     /** {@collect.stats}
       * The name of a property that specifies whether mechanisms that implement
       * forward secrecy between sessions are required. Forward secrecy
       * means that breaking into one session will not automatically
@@ -235,7 +235,7 @@ public class Sasl {
     public static final String POLICY_FORWARD_SECRECY =
     "javax.security.sasl.policy.forward";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies whether
      * mechanisms that pass client credentials are required. The property
      * contains <tt>"true"</tt> if mechanisms that pass
@@ -248,7 +248,7 @@ public class Sasl {
     public static final String POLICY_PASS_CREDENTIALS =
     "javax.security.sasl.policy.credentials";
 
-    /**
+    /** {@collect.stats}
      * The name of a property that specifies the credentials to use.
      * The property contains a mechanism-specific Java credential object.
      * Mechanism implementations may examine the value of this property
@@ -261,7 +261,7 @@ public class Sasl {
      */
     public static final String CREDENTIALS = "javax.security.sasl.credentials";
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>SaslClient</tt> using the parameters supplied.
      *
      * This method uses the
@@ -410,7 +410,7 @@ public class Sasl {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>SaslServer</tt> for the specified mechanism.
      *
      * This method uses the
@@ -517,7 +517,7 @@ public class Sasl {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an enumeration of known factories for producing <tt>SaslClient</tt>.
      * This method uses the same algorithm for locating factories as
      * <tt>createSaslClient()</tt>.
@@ -538,7 +538,7 @@ public class Sasl {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an enumeration of known factories for producing <tt>SaslServer</tt>.
      * This method uses the same algorithm for locating factories as
      * <tt>createSaslServer()</tt>.

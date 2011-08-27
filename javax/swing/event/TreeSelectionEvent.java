@@ -28,7 +28,7 @@ package javax.swing.event;
 import java.util.EventObject;
 import javax.swing.tree.TreePath;
 
-/**
+/** {@collect.stats}
  * An event that characterizes a change in the current
  * selection.  The change is based on any number of paths.
  * TreeSelectionListeners will generally query the source of
@@ -51,16 +51,16 @@ import javax.swing.tree.TreePath;
  */
 public class TreeSelectionEvent extends EventObject
 {
-    /** Paths this event represents. */
+    /** {@collect.stats} Paths this event represents. */
     protected TreePath[]     paths;
-    /** For each path identifies if that path is in fact new. */
+    /** {@collect.stats} For each path identifies if that path is in fact new. */
     protected boolean[]       areNew;
-    /** leadSelectionPath before the paths changed, may be null. */
+    /** {@collect.stats} leadSelectionPath before the paths changed, may be null. */
     protected TreePath        oldLeadSelectionPath;
-    /** leadSelectionPath after the paths changed, may be null. */
+    /** {@collect.stats} leadSelectionPath after the paths changed, may be null. */
     protected TreePath        newLeadSelectionPath;
 
-    /**
+    /** {@collect.stats}
       * Represents a change in the selection of a TreeSelectionModel.
       * paths identifies the paths that have been either added or
       * removed from the selection.
@@ -79,7 +79,7 @@ public class TreeSelectionEvent extends EventObject
         this.newLeadSelectionPath = newLeadSelectionPath;
     }
 
-    /**
+    /** {@collect.stats}
       * Represents a change in the selection of a TreeSelectionModel.
       * path identifies the path that have been either added or
       * removed from the selection.
@@ -102,7 +102,7 @@ public class TreeSelectionEvent extends EventObject
         this.newLeadSelectionPath = newLeadSelectionPath;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the paths that have been added or removed from the
       * selection.
       */
@@ -117,7 +117,7 @@ public class TreeSelectionEvent extends EventObject
         return retPaths;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the first path element.
       */
     public TreePath getPath()
@@ -125,7 +125,7 @@ public class TreeSelectionEvent extends EventObject
         return paths[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the first path element has been added to the
      * selection, a return value of false means the first path has been
      * removed from the selection.
@@ -134,7 +134,7 @@ public class TreeSelectionEvent extends EventObject
         return areNew[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the path identified by path was added to the
      * selection. A return value of false means the path was in the
      * selection but is no longer in the selection. This will raise if
@@ -147,7 +147,7 @@ public class TreeSelectionEvent extends EventObject
         throw new IllegalArgumentException("path is not a path identified by the TreeSelectionEvent");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the path identified by <code>index</code> was added to
      * the selection. A return value of false means the path was in the
      * selection but is no longer in the selection. This will raise if
@@ -162,21 +162,21 @@ public class TreeSelectionEvent extends EventObject
         return areNew[index];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path that was previously the lead path.
      */
     public TreePath getOldLeadSelectionPath() {
         return oldLeadSelectionPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current lead path.
      */
     public TreePath getNewLeadSelectionPath() {
         return newLeadSelectionPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the receiver, but with the source being newSource.
      */
     public Object cloneWithSource(Object newSource) {

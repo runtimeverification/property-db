@@ -25,7 +25,7 @@
 
 package java.util.zip;
 
-/**
+/** {@collect.stats}
  * This class provides support for general purpose compression using the
  * popular ZLIB compression library. The ZLIB compression library was
  * initially developed as part of the PNG graphics standard and is not
@@ -79,45 +79,45 @@ class Deflater {
     private boolean setParams;
     private boolean finish, finished;
 
-    /**
+    /** {@collect.stats}
      * Compression method for the deflate algorithm (the only one currently
      * supported).
      */
     public static final int DEFLATED = 8;
 
-    /**
+    /** {@collect.stats}
      * Compression level for no compression.
      */
     public static final int NO_COMPRESSION = 0;
 
-    /**
+    /** {@collect.stats}
      * Compression level for fastest compression.
      */
     public static final int BEST_SPEED = 1;
 
-    /**
+    /** {@collect.stats}
      * Compression level for best compression.
      */
     public static final int BEST_COMPRESSION = 9;
 
-    /**
+    /** {@collect.stats}
      * Default compression level.
      */
     public static final int DEFAULT_COMPRESSION = -1;
 
-    /**
+    /** {@collect.stats}
      * Compression strategy best used for data consisting mostly of small
      * values with a somewhat random distribution. Forces more Huffman coding
      * and less string matching.
      */
     public static final int FILTERED = 1;
 
-    /**
+    /** {@collect.stats}
      * Compression strategy for Huffman coding only.
      */
     public static final int HUFFMAN_ONLY = 2;
 
-    /**
+    /** {@collect.stats}
      * Default compression strategy.
      */
     public static final int DEFAULT_STRATEGY = 0;
@@ -127,7 +127,7 @@ class Deflater {
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new compressor using the specified compression level.
      * If 'nowrap' is true then the ZLIB header and checksum fields will
      * not be used in order to support the compression format used in
@@ -141,7 +141,7 @@ class Deflater {
         this.zsRef = new ZStreamRef(init(level, DEFAULT_STRATEGY, nowrap));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new compressor using the specified compression level.
      * Compressed data will be generated in ZLIB format.
      * @param level the compression level (0-9)
@@ -150,7 +150,7 @@ class Deflater {
         this(level, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new compressor with the default compression level.
      * Compressed data will be generated in ZLIB format.
      */
@@ -158,7 +158,7 @@ class Deflater {
         this(DEFAULT_COMPRESSION, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets input data for compression. This should be called whenever
      * needsInput() returns true indicating that more input data is required.
      * @param b the input data bytes
@@ -180,7 +180,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets input data for compression. This should be called whenever
      * needsInput() returns true indicating that more input data is required.
      * @param b the input data bytes
@@ -190,7 +190,7 @@ class Deflater {
         setInput(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets preset dictionary for compression. A preset dictionary is used
      * when the history buffer can be predetermined. When the data is later
      * uncompressed with Inflater.inflate(), Inflater.getAdler() can be called
@@ -215,7 +215,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets preset dictionary for compression. A preset dictionary is used
      * when the history buffer can be predetermined. When the data is later
      * uncompressed with Inflater.inflate(), Inflater.getAdler() can be called
@@ -229,7 +229,7 @@ class Deflater {
         setDictionary(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the compression strategy to the specified value.
      * @param strategy the new compression strategy
      * @exception IllegalArgumentException if the compression strategy is
@@ -252,7 +252,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current compression level to the specified value.
      * @param level the new compression level (0-9)
      * @exception IllegalArgumentException if the compression level is invalid
@@ -269,7 +269,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the input data buffer is empty and setInput()
      * should be called in order to provide more input.
      * @return true if the input data buffer is empty and setInput()
@@ -279,7 +279,7 @@ class Deflater {
         return len <= 0;
     }
 
-    /**
+    /** {@collect.stats}
      * When called, indicates that compression should end with the current
      * contents of the input buffer.
      */
@@ -289,7 +289,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the end of the compressed data output stream has
      * been reached.
      * @return true if the end of the compressed data output stream has
@@ -301,7 +301,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fills specified buffer with compressed data. Returns actual number
      * of bytes of compressed data. A return value of 0 indicates that
      * needsInput() should be called in order to determine if more input
@@ -323,7 +323,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fills specified buffer with compressed data. Returns actual number
      * of bytes of compressed data. A return value of 0 indicates that
      * needsInput() should be called in order to determine if more input
@@ -335,7 +335,7 @@ class Deflater {
         return deflate(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ADLER-32 value of the uncompressed data.
      * @return the ADLER-32 value of the uncompressed data
      */
@@ -346,7 +346,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of uncompressed bytes input so far.
      *
      * <p>Since the number of bytes may be greater than
@@ -359,7 +359,7 @@ class Deflater {
         return (int) getBytesRead();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of uncompressed bytes input so far.</p>
      *
      * @return the total (non-negative) number of uncompressed bytes input so far
@@ -372,7 +372,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of compressed bytes output so far.
      *
      * <p>Since the number of bytes may be greater than
@@ -385,7 +385,7 @@ class Deflater {
         return (int) getBytesWritten();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of compressed bytes output so far.</p>
      *
      * @return the total (non-negative) number of compressed bytes output so far
@@ -398,7 +398,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets deflater so that a new set of input data can be processed.
      * Keeps current compression level and strategy settings.
      */
@@ -412,7 +412,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the compressor and discards any unprocessed input.
      * This method should be called when the compressor is no longer
      * being used, but will also be called automatically by the
@@ -430,7 +430,7 @@ class Deflater {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the compressor when garbage is collected.
      */
     protected void finalize() {

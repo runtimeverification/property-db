@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * Role value is invalid.
  * This exception is raised when, in a role, the number of referenced MBeans
  * in given value is less than expected minimum degree, or the number of
@@ -41,14 +41,14 @@ public class InvalidRoleValueException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = -2066091747301983721L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public InvalidRoleValueException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

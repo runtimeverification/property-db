@@ -34,7 +34,7 @@ import com.sun.imageio.stream.StreamFinalizer;
 import sun.java2d.Disposer;
 import sun.java2d.DisposerRecord;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageInputStream</code> that gets its
  * input from a regular <code>InputStream</code>.  A file is used to
  * cache previously read data.
@@ -56,17 +56,17 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
 
     private boolean foundEOF = false;
 
-    /** The referent to be registered with the Disposer. */
+    /** {@collect.stats} The referent to be registered with the Disposer. */
     private final Object disposerReferent;
 
-    /** The DisposerRecord that closes the underlying cache. */
+    /** {@collect.stats} The DisposerRecord that closes the underlying cache. */
     private final DisposerRecord disposerRecord;
 
-    /** The CloseAction that closes the stream in
+    /** {@collect.stats} The CloseAction that closes the stream in
      *  the StreamCloser's shutdown hook                     */
     private final StreamCloser.CloseAction closeAction;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileCacheImageInputStream</code> that will read
      * from a given <code>InputStream</code>.
      *
@@ -113,7 +113,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that at least <code>pos</code> bytes are cached,
      * or the end of the source is reached.  The return value
      * is equal to the smaller of <code>pos</code> and the
@@ -194,7 +194,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageInputStream</code> caches data in order to allow
      * seeking backwards.
@@ -208,7 +208,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageInputStream</code> maintains a file cache.
      *
@@ -221,7 +221,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since this
      * <code>ImageInputStream</code> does not maintain a main memory
      * cache.
@@ -235,7 +235,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this <code>FileCacheImageInputStream</code>, closing
      * and removing the cache file.  The source <code>InputStream</code>
      * is not closed.
@@ -251,7 +251,7 @@ public class FileCacheImageInputStream extends ImageInputStreamImpl {
         StreamCloser.removeFromQueue(closeAction);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     protected void finalize() throws Throwable {

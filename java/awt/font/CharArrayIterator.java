@@ -43,7 +43,7 @@ class CharArrayIterator implements CharacterIterator {
         reset(chars, begin);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getBeginIndex() and returns the character at that
      * position.
      * @return the first character in the text, or DONE if the text is empty
@@ -55,7 +55,7 @@ class CharArrayIterator implements CharacterIterator {
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getEndIndex()-1 (getEndIndex() if the text is empty)
      * and returns the character at that position.
      * @return the last character in the text, or DONE if the text is empty
@@ -72,7 +72,7 @@ class CharArrayIterator implements CharacterIterator {
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the character at the current position (as returned by getIndex()).
      * @return the character at the current position or DONE if the current
      * position is off the end of the text.
@@ -88,7 +88,7 @@ class CharArrayIterator implements CharacterIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Increments the iterator's index by one and returns the character
      * at the new index.  If the resulting index is greater or equal
      * to getEndIndex(), the current index is reset to getEndIndex() and
@@ -108,7 +108,7 @@ class CharArrayIterator implements CharacterIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Decrements the iterator's index by one and returns the character
      * at the new index. If the current index is getBeginIndex(), the index
      * remains at getBeginIndex() and a value of DONE is returned.
@@ -127,7 +127,7 @@ class CharArrayIterator implements CharacterIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position to the specified position in the text and returns that
      * character.
      * @param position the position within the text.  Valid values range from
@@ -145,7 +145,7 @@ class CharArrayIterator implements CharacterIterator {
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the start index of the text.
      * @return the index at which the text begins.
      */
@@ -153,7 +153,7 @@ class CharArrayIterator implements CharacterIterator {
         return begin;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the end index of the text.  This index is the index of the first
      * character following the end of the text.
      * @return the index after the last character in the text
@@ -162,7 +162,7 @@ class CharArrayIterator implements CharacterIterator {
         return begin+chars.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current index.
      * @return the current index.
      */
@@ -170,7 +170,7 @@ class CharArrayIterator implements CharacterIterator {
         return begin+pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a copy of this iterator
      * @return A copy of this
      */

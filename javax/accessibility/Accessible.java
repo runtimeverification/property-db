@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * Interface Accessible is the main interface for the accessibility package.
  * All components that support
  * the accessibility package must implement this interface.
@@ -38,7 +38,7 @@ package javax.accessibility;
  */
 public interface Accessible {
 
-    /**
+    /** {@collect.stats}
      * Returns the AccessibleContext associated with this object.  In most
      * cases, the return value should not be null if the object implements
      * interface Accessible.  If a component developer creates a subclass

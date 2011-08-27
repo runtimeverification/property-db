@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * Interface of methods to get/set socket options.  This interface is
  * implemented by: <B>SocketImpl</B> and  <B>DatagramSocketImpl</B>.
  * Subclasses of these should override the methods
@@ -43,7 +43,7 @@ package java.net;
 
 public interface SocketOptions {
 
-    /**
+    /** {@collect.stats}
      * Enable/disable the option specified by <I>optID</I>.  If the option
      * is to be enabled, and it takes an option-specific "value",  this is
      * passed in <I>value</I>.  The actual type of value is option-specific,
@@ -87,7 +87,7 @@ public interface SocketOptions {
     public void
         setOption(int optID, Object value) throws SocketException;
 
-    /**
+    /** {@collect.stats}
      * Fetch the value of an option.
      * Binary options will return java.lang.Boolean(true)
      * if enabled, java.lang.Boolean(false) if disabled, e.g.:
@@ -122,11 +122,11 @@ public interface SocketOptions {
      */
     public Object getOption(int optID) throws SocketException;
 
-    /**
+    /** {@collect.stats}
      * The java-supported BSD-style options.
      */
 
-    /**
+    /** {@collect.stats}
      * Disable Nagle's algorithm for this connection.  Written data
      * to the network is not buffered pending acknowledgement of
      * previously written data.
@@ -139,7 +139,7 @@ public interface SocketOptions {
 
     public final static int TCP_NODELAY = 0x0001;
 
-    /**
+    /** {@collect.stats}
      * Fetch the local address binding of a socket (this option cannot
      * be "set" only "gotten", since sockets are bound at creation time,
      * and so the locally bound address cannot be changed).  The default local
@@ -160,7 +160,7 @@ public interface SocketOptions {
 
     public final static int SO_BINDADDR = 0x000F;
 
-    /** Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
+    /** {@collect.stats} Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
      * in java, and it is set by default for MulticastSockets.
      * <P>
      * Valid for: DatagramSocketImpl
@@ -168,7 +168,7 @@ public interface SocketOptions {
 
     public final static int SO_REUSEADDR = 0x04;
 
-    /**
+    /** {@collect.stats}
      * Sets SO_BROADCAST for a socket. This option enables and disables
      * the ability of the process to send broadcast messages. It is supported
      * for only datagram sockets and only on networks that support
@@ -179,7 +179,7 @@ public interface SocketOptions {
 
     public final static int SO_BROADCAST = 0x0020;
 
-    /** Set which outgoing interface on which to send multicast packets.
+    /** {@collect.stats} Set which outgoing interface on which to send multicast packets.
      * Useful on hosts with multiple network interfaces, where applications
      * want to use other than the system default.  Takes/returns an InetAddress.
      * <P>
@@ -191,7 +191,7 @@ public interface SocketOptions {
 
     public final static int IP_MULTICAST_IF = 0x10;
 
-    /** Same as above. This option is introduced so that the behaviour
+    /** {@collect.stats} Same as above. This option is introduced so that the behaviour
      *  with IP_MULTICAST_IF will be kept the same as before, while
      *  this new option can support setting outgoing interfaces with either
      *  IPv4 and IPv6 addresses.
@@ -203,7 +203,7 @@ public interface SocketOptions {
      */
     public final static int IP_MULTICAST_IF2 = 0x1f;
 
-    /**
+    /** {@collect.stats}
      * This option enables or disables local loopback of multicast datagrams.
      * This option is enabled by default for Multicast Sockets.
      * @since 1.4
@@ -211,7 +211,7 @@ public interface SocketOptions {
 
     public final static int IP_MULTICAST_LOOP = 0x12;
 
-    /**
+    /** {@collect.stats}
      * This option sets the type-of-service or traffic class field
      * in the IP header for a TCP or UDP socket.
      * @since 1.4
@@ -219,7 +219,7 @@ public interface SocketOptions {
 
     public final static int IP_TOS = 0x3;
 
-    /**
+    /** {@collect.stats}
      * Specify a linger-on-close timeout.  This option disables/enables
      * immediate return from a <B>close()</B> of a TCP Socket.  Enabling
      * this option with a non-zero Integer <I>timeout</I> means that a
@@ -237,7 +237,7 @@ public interface SocketOptions {
      */
     public final static int SO_LINGER = 0x0080;
 
-    /** Set a timeout on blocking Socket operations:
+    /** {@collect.stats} Set a timeout on blocking Socket operations:
      * <PRE>
      * ServerSocket.accept();
      * SocketInputStream.read();
@@ -258,7 +258,7 @@ public interface SocketOptions {
      */
     public final static int SO_TIMEOUT = 0x1006;
 
-    /**
+    /** {@collect.stats}
      * Set a hint the size of the underlying buffers used by the
      * platform for outgoing network I/O. When used in set, this is a
      * suggestion to the kernel from the application about the size of
@@ -275,7 +275,7 @@ public interface SocketOptions {
      */
     public final static int SO_SNDBUF = 0x1001;
 
-    /**
+    /** {@collect.stats}
      * Set a hint the size of the underlying buffers used by the
      * platform for incoming network I/O. When used in set, this is a
      * suggestion to the kernel from the application about the size of
@@ -293,7 +293,7 @@ public interface SocketOptions {
      */
     public final static int SO_RCVBUF = 0x1002;
 
-    /**
+    /** {@collect.stats}
      * When the keepalive option is set for a TCP socket and no data
      * has been exchanged across the socket in either direction for
      * 2 hours (NOTE: the actual value is implementation dependent),
@@ -316,7 +316,7 @@ public interface SocketOptions {
      */
     public final static int SO_KEEPALIVE = 0x0008;
 
-    /**
+    /** {@collect.stats}
      * When the OOBINLINE option is set, any TCP urgent data received on
      * the socket will be received through the socket input stream.
      * When the option is disabled (which is the default) urgent data

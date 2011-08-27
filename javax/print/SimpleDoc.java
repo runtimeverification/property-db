@@ -34,7 +34,7 @@ import java.io.Reader;
 import javax.print.attribute.AttributeSetUtilities;
 import javax.print.attribute.DocAttributeSet;
 
-/**
+/** {@collect.stats}
  * This class is an implementation of interface <code>Doc</code> that can
  * be used in many common printing requests.
  * It can handle all of the presently defined "pre-defined" doc flavors
@@ -68,7 +68,7 @@ public final class SimpleDoc implements Doc {
     private Reader reader;
     private InputStream inStream;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SimpleDoc</code> with the specified
      * print data, doc flavor and doc attribute set.
      * @param printData the print data object
@@ -107,7 +107,7 @@ public final class SimpleDoc implements Doc {
        this.printData = printData;
     }
 
-   /**
+   /** {@collect.stats}
      * Determines the doc flavor in which this doc object will supply its
      * piece of print data.
      *
@@ -117,7 +117,7 @@ public final class SimpleDoc implements Doc {
         return flavor;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of printing attributes for this doc object. If the
      * returned attribute set includes an instance of a particular attribute
      * <I>X,</I> the printer must use that attribute value for this doc,
@@ -156,7 +156,7 @@ public final class SimpleDoc implements Doc {
         return printData;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains a reader for extracting character print data from this doc.
      * The <code>Doc</code> implementation is required to support this
      * method if the <code>DocFlavor</code> has one of the following print
@@ -203,7 +203,7 @@ public final class SimpleDoc implements Doc {
         return reader;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains an input stream for extracting byte print data from
      * this doc.
      * The <code>Doc</code> implementation is required to support this

@@ -29,7 +29,7 @@ import java.security.AccessController;
 
 import com.sun.jmx.mbeanserver.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * This class represents the name of the Java implementation class of
  * the MBean. It is used for performing queries based on the class of
  * the MBean.
@@ -70,14 +70,14 @@ class ClassAttributeValueExp extends AttributeValueExp {
             serialVersionUID = newSerialVersionUID;
     }
 
-    /**
+    /** {@collect.stats}
      * @serial The name of the attribute
      *
      * <p>The <b>serialVersionUID</b> of this class is <code>-1081892073854801359L</code>.
      */
     private String attr;
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public ClassAttributeValueExp() {
@@ -88,7 +88,7 @@ class ClassAttributeValueExp extends AttributeValueExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Applies the ClassAttributeValueExp on an MBean. Returns the name of
      * the Java implementation class of the MBean.
      *
@@ -111,7 +111,7 @@ class ClassAttributeValueExp extends AttributeValueExp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string "Class" representing its value
      */
     public String toString()  {

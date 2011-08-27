@@ -34,7 +34,7 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * NOTE: This will become more open in a future release.
  * <p>
  * <strong>Warning:</strong>
@@ -52,36 +52,36 @@ import java.util.Vector;
  */
 
 public class VariableHeightLayoutCache extends AbstractLayoutCache {
-    /**
+    /** {@collect.stats}
      * The array of nodes that are currently visible, in the order they
      * are displayed.
      */
     private Vector            visibleNodes;
 
-    /**
+    /** {@collect.stats}
      * This is set to true if one of the entries has an invalid size.
      */
     private boolean           updateNodeSizes;
 
-    /**
+    /** {@collect.stats}
      * The root node of the internal cache of nodes that have been shown.
      * If the treeModel is vending a network rather than a true tree,
      * there may be one cached node for each path to a modeled node.
      */
     private TreeStateNode     root;
 
-    /**
+    /** {@collect.stats}
      * Used in getting sizes for nodes to avoid creating a new Rectangle
      * every time a size is needed.
      */
     private Rectangle         boundsBuffer;
 
-    /**
+    /** {@collect.stats}
      * Maps from <code>TreePath</code> to a <code>TreeStateNode</code>.
      */
     private Hashtable         treePathMapping;
 
-    /**
+    /** {@collect.stats}
      * A stack of stacks.
      */
     private Stack             tempStacks;
@@ -95,7 +95,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         treePathMapping = new Hashtable();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TreeModel</code> that will provide the data.
      *
      * @param newModel the <code>TreeModel</code> that is to provide the data
@@ -108,7 +108,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         rebuild(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the root node from
      * the <code>TreeModel</code> is visible.
      *
@@ -141,7 +141,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         super.setRootVisible(rootVisible);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the height of each cell.  If the specified value
      * is less than or equal to zero the current cell renderer is
      * queried for each row's height.
@@ -159,7 +159,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the renderer that is responsible for drawing nodes in the tree.
      * @param nd the renderer
      */
@@ -169,7 +169,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         visibleNodesChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the path <code>path</code> expanded state to
      * <code>isExpanded</code>.
      * @param path the <code>TreePath</code> of interest
@@ -190,7 +190,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the path is expanded, and visible.
      * @return true if the path is expanded and visible, otherwise false
      */
@@ -201,7 +201,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
                                  false;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the <code>Rectangle</code> enclosing the label portion
       * into which the item identified by <code>path</code> will be drawn.
       *
@@ -221,7 +221,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the path for <code>row</code>.  If <code>row</code>
       * is not visible, <code>null</code> is returned.
       *
@@ -236,7 +236,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the row where the last item identified in path is visible.
       * Will return -1 if any of the elements in path are not
       * currently visible.
@@ -255,7 +255,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of visible rows.
      * @return the number of visible rows
      */
@@ -263,7 +263,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return visibleNodes.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Instructs the <code>LayoutCache</code> that the bounds for
      * <code>path</code> are invalid, and need to be updated.
      *
@@ -279,7 +279,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred height.
      * @return the preferred height
      */
@@ -295,7 +295,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred width and height for the region in
      * <code>visibleRegion</code>.
      *
@@ -308,7 +308,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return getMaxNodeWidth();
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the path to the node that is closest to x,y.  If
       * there is nothing currently visible this will return <code>null</code>,
       * otherwise it will always return a valid path.
@@ -332,7 +332,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return getNode(row).getTreePath();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumerator</code> that increments over the visible paths
      * starting at the passed in location. The ordering of the enumeration
      * is based on how the paths are displayed.
@@ -350,7 +350,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of visible children for <code>path</code>.
      * @return the number of visible children for <code>path</code>
      */
@@ -360,7 +360,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return (node != null) ? node.getVisibleChildCount() : 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Informs the <code>TreeState</code> that it needs to recalculate
      * all the sizes it is referencing.
      */
@@ -372,7 +372,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the value identified by <code>path</code> is
       * currently expanded.
       * @return true if the value identified by <code>path</code> is
@@ -391,7 +391,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
     // TreeModelListener methods
     //
 
-    /**
+    /** {@collect.stats}
      * Invoked after a node (or a set of siblings) has changed in some
      * way. The node(s) have not changed locations in the tree or
      * altered their children arrays, but other attributes have
@@ -451,7 +451,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Invoked after nodes have been inserted into the tree.
      *
      * <p><code>e.path</code> returns the parent of the new nodes.
@@ -521,7 +521,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked after nodes have been removed from the tree.  Note that
      * if a subtree is removed from the tree, this method may only be
      * invoked once for the root of the removed subtree, not once for
@@ -613,7 +613,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked after the tree has drastically changed structure from a
      * given node down.  If the path returned by <code>e.getPath</code>
      * is of length one and the first element does not identify the
@@ -685,21 +685,21 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
     private void visibleNodesChanged() {
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a mapping for node.
      */
     private void addMapping(TreeStateNode node) {
         treePathMapping.put(node.getTreePath(), node);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for a previously added node.
      */
     private void removeMapping(TreeStateNode node) {
         treePathMapping.remove(node.getTreePath());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the node previously added for <code>path</code>. This may
      * return null, if you to create a node use getNodeForPath.
      */
@@ -707,7 +707,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return (TreeStateNode)treePathMapping.get(path);
     }
 
-    /**
+    /** {@collect.stats}
      * Retursn the bounds for row, <code>row</code> by reference in
      * <code>placeIn</code>. If <code>placeIn</code> is null a new
      * Rectangle will be created and returned.
@@ -722,7 +722,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Completely rebuild the tree, all expanded state, and node caches are
      * removed. All nodes are collapsed, except the root.
      */
@@ -759,7 +759,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         this.visibleNodesChanged();
     }
 
-    /**
+    /** {@collect.stats}
       * Creates a new node to represent the node at <I>childIndex</I> in
       * <I>parent</I>s children.  This should be called if the node doesn't
       * already exist and <I>parent</I> has been expanded at least once.
@@ -805,7 +805,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return newChildNode;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the TreeStateNode identified by path.  This mirrors
       * the behavior of getNodeForPath, but tries to take advantage of
       * path if it is an instance of AbstractTreePath.
@@ -875,7 +875,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Updates the y locations of all of the visible nodes after
       * location.
       */
@@ -896,7 +896,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Resets the y origin of all the visible nodes as well as messaging
       * all the visible nodes to updatePreferredSize().  You should not
       * normally have to call this.  Expanding and contracting the nodes
@@ -919,7 +919,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the index of the row containing location.  If there
       * are no rows, -1 is returned.  If location is beyond the last
       * row index, the last row index is returned.
@@ -960,7 +960,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return mid;
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that all the path components in path are expanded, accept
      * for the last component which will only be expanded if expandLast
      * is true.
@@ -986,14 +986,14 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the AbstractTreeUI.VisibleNode displayed at the given row
      */
     private TreeStateNode getNode(int row) {
         return (TreeStateNode)visibleNodes.elementAt(row);
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the maximum node width.
       */
     private int getMaxNodeWidth() {
@@ -1011,7 +1011,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         return maxWidth;
     }
 
-    /**
+    /** {@collect.stats}
       * Responsible for creating a TreeStateNode that will be used
       * to track display information about value.
       */
@@ -1020,29 +1020,29 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
     }
 
 
-    /**
+    /** {@collect.stats}
      * TreeStateNode is used to keep track of each of
      * the nodes that have been expanded. This will also cache the preferred
      * size of the value it represents.
      */
     private class TreeStateNode extends DefaultMutableTreeNode {
-        /** Preferred size needed to draw the user object. */
+        /** {@collect.stats} Preferred size needed to draw the user object. */
         protected int             preferredWidth;
         protected int             preferredHeight;
 
-        /** X location that the user object will be drawn at. */
+        /** {@collect.stats} X location that the user object will be drawn at. */
         protected int             xOrigin;
 
-        /** Y location that the user object will be drawn at. */
+        /** {@collect.stats} Y location that the user object will be drawn at. */
         protected int             yOrigin;
 
-        /** Is this node currently expanded? */
+        /** {@collect.stats} Is this node currently expanded? */
         protected boolean         expanded;
 
-        /** Has this node been expanded at least once? */
+        /** {@collect.stats} Has this node been expanded at least once? */
         protected boolean         hasBeenExpanded;
 
-        /** Path of this node. */
+        /** {@collect.stats} Path of this node. */
         protected TreePath        path;
 
 
@@ -1054,7 +1054,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         // Overriden DefaultMutableTreeNode methods
         //
 
-        /**
+        /** {@collect.stats}
          * Messaged when this node is added somewhere, resets the path
          * and adds a mapping from path to this node.
          */
@@ -1067,7 +1067,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged when this node is removed from its parent, this messages
          * <code>removedFromMapping</code> to remove all the children.
          */
@@ -1078,7 +1078,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             super.remove(childIndex);
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged to set the user object. This resets the path.
          */
         public void setUserObject(Object o) {
@@ -1093,7 +1093,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the children of the receiver.
          * If the receiver is not currently expanded, this will return an
          * empty enumeration.
@@ -1106,7 +1106,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver is a leaf.
          */
         public boolean isLeaf() {
@@ -1117,7 +1117,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         // VariableHeightLayoutCache
         //
 
-        /**
+        /** {@collect.stats}
          * Returns the location and size of this node.
          */
         public Rectangle getNodeBounds(Rectangle placeIn) {
@@ -1134,7 +1134,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return placeIn;
         }
 
-        /**
+        /** {@collect.stats}
          * @return x location to draw node at.
          */
         public int getXOrigin() {
@@ -1143,7 +1143,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return xOrigin;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the y origin the user object will be drawn at.
          */
         public int getYOrigin() {
@@ -1157,7 +1157,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return yOrigin;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred height of the receiver.
          */
         public int getPreferredHeight() {
@@ -1168,7 +1168,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return preferredHeight;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred width of the receiver.
          */
         public int getPreferredWidth() {
@@ -1177,35 +1177,35 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return preferredWidth;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node has a valid size.
          */
         public boolean hasValidSize() {
             return (preferredHeight != 0);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row of the receiver.
          */
         public int getRow() {
             return visibleNodes.indexOf(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node has been expanded at least once.
          */
         public boolean hasBeenExpanded() {
             return hasBeenExpanded;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver has been expanded.
          */
         public boolean isExpanded() {
             return expanded;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the last visible node that is a child of this
          * instance.
          */
@@ -1217,7 +1217,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return node;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver is currently visible.
          */
         public boolean isVisible() {
@@ -1230,7 +1230,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
                     parent.isVisible());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of children this will have. If the children
          * have not yet been loaded, this messages the model.
          */
@@ -1240,7 +1240,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return getModel().getChildCount(getValue());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of visible children, that is the number of
          * children that are expanded, or leafs.
          */
@@ -1258,7 +1258,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return childCount;
         }
 
-        /**
+        /** {@collect.stats}
          * Toggles the receiver between expanded and collapsed.
          */
         public void toggleExpanded() {
@@ -1269,7 +1269,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Makes the receiver visible, but invoking
          * <code>expandParentAndReceiver</code> on the superclass.
          */
@@ -1280,21 +1280,21 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
                 parent.expandParentAndReceiver();
         }
 
-        /**
+        /** {@collect.stats}
          * Expands the receiver.
          */
         public void expand() {
             expand(true);
         }
 
-        /**
+        /** {@collect.stats}
          * Collapses the receiver.
          */
         public void collapse() {
             collapse(true);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the value the receiver is representing. This is a cover
          * for getUserObject.
          */
@@ -1302,7 +1302,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return getUserObject();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a TreePath instance for this node.
          */
         public TreePath getTreePath() {
@@ -1313,7 +1313,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
         // Local methods
         //
 
-        /**
+        /** {@collect.stats}
          * Recreates the receivers path, and all its childrens paths.
          */
         protected void resetChildrenPaths(TreePath parentPath) {
@@ -1327,7 +1327,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
                 ((TreeStateNode)getChildAt(counter)).resetChildrenPaths(path);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets y origin the user object will be drawn at to
          * <I>newYOrigin</I>.
          */
@@ -1335,14 +1335,14 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             yOrigin = newYOrigin;
         }
 
-        /**
+        /** {@collect.stats}
          * Shifts the y origin by <code>offset</code>.
          */
         protected void shiftYOriginBy(int offset) {
             yOrigin += offset;
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the receivers preferredSize by invoking
          * <code>updatePreferredSize</code> with an argument of -1.
          */
@@ -1350,7 +1350,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             updatePreferredSize(getRow());
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the preferred size by asking the current renderer
          * for the Dimension needed to draw the user object this
          * instance represents.
@@ -1381,7 +1381,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Marks the receivers size as invalid. Next time the size, location
          * is asked for it will be obtained.
          */
@@ -1389,7 +1389,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             preferredHeight = 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Marks the receivers size, and all its descendants sizes, as invalid.
          */
         protected void deepMarkSizeInvalid() {
@@ -1398,7 +1398,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
                 ((TreeStateNode)getChildAt(counter)).deepMarkSizeInvalid();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the children of the receiver. If the children haven't
          * been loaded from the model and
          * <code>createIfNeeded</code> is true, the children are first
@@ -1437,14 +1437,14 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return super.children();
         }
 
-        /**
+        /** {@collect.stats}
          * Messaged from expand and collapse. This is meant for subclassers
          * that may wish to do something interesting with this.
          */
         protected void didAdjustTree() {
         }
 
-        /**
+        /** {@collect.stats}
          * Invokes <code>expandParentAndReceiver</code> on the parent,
          * and expands the receiver.
          */
@@ -1456,7 +1456,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             expand();
         }
 
-        /**
+        /** {@collect.stats}
          * Expands this node in the tree.  This will load the children
          * from the treeModel if this node has not previously been
          * expanded.  If <I>adjustTree</I> is true the tree and selection
@@ -1552,7 +1552,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Collapses this node in the tree.  If <I>adjustTree</I> is
          * true the tree and selection are updated accordingly.
          */
@@ -1632,7 +1632,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the receiver, and all its children, from the mapping
          * table.
          */
@@ -1646,17 +1646,17 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
     } // End of VariableHeightLayoutCache.TreeStateNode
 
 
-    /**
+    /** {@collect.stats}
      * An enumerator to iterate through visible nodes.
      */
     private class VisibleTreeStateNodeEnumeration implements
                      Enumeration<TreePath> {
-        /** Parent thats children are being enumerated. */
+        /** {@collect.stats} Parent thats children are being enumerated. */
         protected TreeStateNode       parent;
-        /** Index of next child. An index of -1 signifies parent should be
+        /** {@collect.stats} Index of next child. An index of -1 signifies parent should be
          * visibled next. */
         protected int                 nextIndex;
-        /** Number of children in parent. */
+        /** {@collect.stats} Number of children in parent. */
         protected int                 childCount;
 
         protected VisibleTreeStateNodeEnumeration(TreeStateNode node) {
@@ -1670,14 +1670,14 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             this.childCount = this.parent.getChildCount();
         }
 
-        /**
+        /** {@collect.stats}
          * @return true if more visible nodes.
          */
         public boolean hasMoreElements() {
             return (parent != null);
         }
 
-        /**
+        /** {@collect.stats}
          * @return next visible TreePath.
          */
         public TreePath nextElement() {
@@ -1699,7 +1699,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return retObject;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the next object by invoking <code>updateNextIndex</code>
          * and if not succesful <code>findNextValidParent</code>.
          */
@@ -1709,7 +1709,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Finds the next valid parent, this should be called when nextIndex
          * is beyond the number of children of the current parent.
          */
@@ -1736,7 +1736,7 @@ public class VariableHeightLayoutCache extends AbstractLayoutCache {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Updates <code>nextIndex</code> returning false if it is beyond
          * the number of children of parent.
          */

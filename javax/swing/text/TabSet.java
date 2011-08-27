@@ -27,7 +27,7 @@ package javax.swing.text;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A TabSet is comprised of many TabStops. It offers methods for locating the
  * closest TabStop to a given position and finding all the potential TabStops.
  * It is also immutable.
@@ -45,16 +45,16 @@ import java.io.Serializable;
  */
 public class TabSet implements Serializable
 {
-    /** TabStops this TabSet contains. */
+    /** {@collect.stats} TabStops this TabSet contains. */
     private TabStop[]              tabs;
-    /**
+    /** {@collect.stats}
      * Since this class is immutable the hash code could be
      * calculated once. MAX_VALUE means that it was not initialized
      * yet. Hash code shouldn't has MAX_VALUE value.
      */
     private int hashCode = Integer.MAX_VALUE;
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an instance of TabSet. The array of Tabs
      * passed in must be sorted in ascending order.
      */
@@ -70,14 +70,14 @@ public class TabSet implements Serializable
             this.tabs = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of Tab instances the receiver contains.
      */
     public int getTabCount() {
         return (tabs == null) ? 0 : tabs.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the TabStop at index <code>index</code>. This will throw an
      * IllegalArgumentException if <code>index</code> is outside the range
      * of tabs.
@@ -91,7 +91,7 @@ public class TabSet implements Serializable
         return tabs[index];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Tab instance after <code>location</code>. This will
      * return null if there are no tabs after <code>location</code>.
      */
@@ -101,7 +101,7 @@ public class TabSet implements Serializable
         return (index == -1) ? null : tabs[index];
     }
 
-    /**
+    /** {@collect.stats}
      * @return the index of the TabStop <code>tab</code>, or -1 if
      * <code>tab</code> is not contained in the receiver.
      */
@@ -113,7 +113,7 @@ public class TabSet implements Serializable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the Tab to be used after <code>location</code>.
      * This will return -1 if there are no tabs after <code>location</code>.
      */
@@ -140,7 +140,7 @@ public class TabSet implements Serializable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this <code>TabSet</code> is equal to another one.
      * @param o the <code>TabSet</code> instance which this instance
      *  should be compared to.
@@ -173,7 +173,7 @@ public class TabSet implements Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this set of TabStops.
      * @return  a hashcode value for this set of TabStops.
      *
@@ -194,7 +194,7 @@ public class TabSet implements Serializable
         return hashCode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation of the set of tabs.
      */
     public String toString() {

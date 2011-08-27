@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Piped character-output streams.
  *
  * @author      Mark Reinhold
@@ -47,7 +47,7 @@ public class PipedWriter extends Writer {
      */
     private boolean closed = false;
 
-    /**
+    /** {@collect.stats}
      * Creates a piped writer connected to the specified piped
      * reader. Data characters written to this stream will then be
      * available as input from <code>snk</code>.
@@ -59,7 +59,7 @@ public class PipedWriter extends Writer {
         connect(snk);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a piped writer that is not yet connected to a
      * piped reader. It must be connected to a piped reader,
      * either by the receiver or the sender, before being used.
@@ -70,7 +70,7 @@ public class PipedWriter extends Writer {
     public PipedWriter() {
     }
 
-    /**
+    /** {@collect.stats}
      * Connects this piped writer to a receiver. If this object
      * is already connected to some other piped reader, an
      * <code>IOException</code> is thrown.
@@ -103,7 +103,7 @@ public class PipedWriter extends Writer {
         snk.connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the specified <code>char</code> to the piped output stream.
      * If a thread was reading data characters from the connected piped input
      * stream, but the thread is no longer alive, then an
@@ -124,7 +124,7 @@ public class PipedWriter extends Writer {
         sink.receive(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> characters from the specified character array
      * starting at offset <code>off</code> to this piped output stream.
      * This method blocks until all the characters are written to the output
@@ -150,7 +150,7 @@ public class PipedWriter extends Writer {
         sink.receive(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes this output stream and forces any buffered output characters
      * to be written out.
      * This will notify any readers that characters are waiting in the pipe.
@@ -168,7 +168,7 @@ public class PipedWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this piped output stream and releases any system resources
      * associated with this stream. This stream may no longer be used for
      * writing characters.

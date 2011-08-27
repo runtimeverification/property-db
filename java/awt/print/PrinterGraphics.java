@@ -25,7 +25,7 @@
 
 package java.awt.print;
 
-/**
+/** {@collect.stats}
  * The <code>PrinterGraphics</code> interface is implemented by
  * {@link java.awt.Graphics} objects that are passed to
  * {@link Printable} objects to render a page. It allows an
@@ -35,7 +35,7 @@ package java.awt.print;
 
 public interface PrinterGraphics {
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>PrinterJob</code> that is controlling the
      * current rendering request.
      * @return the <code>PrinterJob</code> controlling the current

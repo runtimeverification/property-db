@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * The <code>Stack</code> class represents a last-in-first-out
  * (LIFO) stack of objects. It extends class <tt>Vector</tt> with five
  * operations that allow a vector to be treated as a stack. The usual
@@ -47,13 +47,13 @@ package java.util;
  */
 public
 class Stack<E> extends Vector<E> {
-    /**
+    /** {@collect.stats}
      * Creates an empty Stack.
      */
     public Stack() {
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes an item onto the top of this stack. This has exactly
      * the same effect as:
      * <blockquote><pre>
@@ -69,7 +69,7 @@ class Stack<E> extends Vector<E> {
         return item;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the object at the top of this stack and returns that
      * object as the value of this function.
      *
@@ -87,7 +87,7 @@ class Stack<E> extends Vector<E> {
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Looks at the object at the top of this stack without removing it
      * from the stack.
      *
@@ -103,7 +103,7 @@ class Stack<E> extends Vector<E> {
         return elementAt(len - 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if this stack is empty.
      *
      * @return  <code>true</code> if and only if this stack contains
@@ -113,7 +113,7 @@ class Stack<E> extends Vector<E> {
         return size() == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the 1-based position where an object is on this stack.
      * If the object <tt>o</tt> occurs as an item in this stack, this
      * method returns the distance from the top of the stack of the
@@ -136,6 +136,6 @@ class Stack<E> extends Vector<E> {
         return -1;
     }
 
-    /** use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = 1224463164541339165L;
 }

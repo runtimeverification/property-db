@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
+/** {@collect.stats}
  * Class AccessibleRelationSet determines a component's relation set.  The
  * relation set of a component is a set of AccessibleRelation objects that
  * describe the component's relationships with other components.
@@ -42,7 +42,7 @@ import java.util.ResourceBundle;
  */
 public class AccessibleRelationSet {
 
-    /**
+    /** {@collect.stats}
      * Each entry in the Vector represents an AccessibleRelation.
      * @see #add
      * @see #addAll
@@ -55,14 +55,14 @@ public class AccessibleRelationSet {
      */
     protected Vector<AccessibleRelation> relations = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new empty relation set.
      */
     public AccessibleRelationSet() {
         relations = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new relation with the initial set of relations contained in
      * the array of relations passed in.  Duplicate entries are ignored.
      *
@@ -78,7 +78,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new relation to the current relation set.  If the relation
      * is already in the relation set, the target(s) of the specified
      * relation is merged with the target(s) of the existing relation.
@@ -116,7 +116,7 @@ public class AccessibleRelationSet {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the relations to the existing relation set.  Duplicate
      * entries are ignored.
      *
@@ -133,7 +133,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a relation from the current relation set.  If the relation
      * is not in the set, the relation set will be unchanged and the
      * return value will be false.  If the relation is in the relation
@@ -152,7 +152,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the relations from the current relation set.
      */
     public void clear() {
@@ -161,7 +161,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of relations in the relation set.
      */
     public int size() {
@@ -172,7 +172,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the relation set contains a relation
      * that matches the specified key.
      * @param key the AccessibleRelation key
@@ -182,7 +182,7 @@ public class AccessibleRelationSet {
         return get(key) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the relation that matches the specified key.
      * @param key the AccessibleRelation key
      * @return the relation, if one exists, that matches the specified key.
@@ -204,7 +204,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current relation set as an array of AccessibleRelation
      * @return AccessibleRelation array contacting the current relation.
      */
@@ -221,7 +221,7 @@ public class AccessibleRelationSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a localized String representing all the relations in the set
      * using the default locale.
      *

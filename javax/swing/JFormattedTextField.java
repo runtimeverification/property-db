@@ -35,7 +35,7 @@ import javax.swing.event.*;
 import javax.swing.plaf.UIResource;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <code>JFormattedTextField</code> extends <code>JTextField</code> adding
  * support for formatting arbitrary values, as well as retrieving a particular
  * object once the user has edited the text. The following illustrates
@@ -182,7 +182,7 @@ public class JFormattedTextField extends JTextField {
     private static final Action[] defaultActions =
             { new CommitAction(), new CancelAction() };
 
-    /**
+    /** {@collect.stats}
      * Constant identifying that when focus is lost,
      * <code>commitEdit</code> should be invoked. If in commiting the
      * new value a <code>ParseException</code> is thrown, the invalid
@@ -192,7 +192,7 @@ public class JFormattedTextField extends JTextField {
      */
     public static final int COMMIT = 0;
 
-    /**
+    /** {@collect.stats}
      * Constant identifying that when focus is lost,
      * <code>commitEdit</code> should be invoked. If in commiting the new
      * value a <code>ParseException</code> is thrown, the value will be
@@ -202,7 +202,7 @@ public class JFormattedTextField extends JTextField {
      */
     public static final int COMMIT_OR_REVERT = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant identifying that when focus is lost, editing value should
      * be reverted to current value set on the
      * <code>JFormattedTextField</code>.
@@ -211,7 +211,7 @@ public class JFormattedTextField extends JTextField {
      */
     public static final int REVERT = 2;
 
-    /**
+    /** {@collect.stats}
      * Constant identifying that when focus is lost, the edited value
      * should be left.
      *
@@ -220,53 +220,53 @@ public class JFormattedTextField extends JTextField {
     public static final int PERSIST = 3;
 
 
-    /**
+    /** {@collect.stats}
      * Factory used to obtain an instance of AbstractFormatter.
      */
     private AbstractFormatterFactory factory;
-    /**
+    /** {@collect.stats}
      * Object responsible for formatting the current value.
      */
     private AbstractFormatter format;
-    /**
+    /** {@collect.stats}
      * Last valid value.
      */
     private Object value;
-    /**
+    /** {@collect.stats}
      * True while the value being edited is valid.
      */
     private boolean editValid;
-    /**
+    /** {@collect.stats}
      * Behavior when focus is lost.
      */
     private int focusLostBehavior;
-    /**
+    /** {@collect.stats}
      * Indicates the current value has been edited.
      */
     private boolean edited;
-    /**
+    /** {@collect.stats}
      * Used to set the dirty state.
      */
     private DocumentListener documentListener;
-    /**
+    /** {@collect.stats}
      * Masked used to set the AbstractFormatterFactory.
      */
     private Object mask;
-    /**
+    /** {@collect.stats}
      * ActionMap that the TextFormatter Actions are added to.
      */
     private ActionMap textFormatterActionMap;
-    /**
+    /** {@collect.stats}
      * Indicates the input method composed text is in the document
      */
     private boolean composedTextExists = false;
-    /**
+    /** {@collect.stats}
      * A handler for FOCUS_LOST event
      */
     private FocusLostHandler focusLostHandler;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFormattedTextField</code> with no
      * <code>AbstractFormatterFactory</code>. Use <code>setMask</code> or
      * <code>setFormatterFactory</code> to configure the
@@ -279,7 +279,7 @@ public class JFormattedTextField extends JTextField {
         setFocusLostBehavior(COMMIT_OR_REVERT);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a JFormattedTextField with the specified value. This will
      * create an <code>AbstractFormatterFactory</code> based on the
      * type of <code>value</code>.
@@ -291,7 +291,7 @@ public class JFormattedTextField extends JTextField {
         setValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFormattedTextField</code>. <code>format</code> is
      * wrapped in an appropriate <code>AbstractFormatter</code> which is
      * then wrapped in an <code>AbstractFormatterFactory</code>.
@@ -303,7 +303,7 @@ public class JFormattedTextField extends JTextField {
         setFormatterFactory(getDefaultFormatterFactory(format));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFormattedTextField</code> with the specified
      * <code>AbstractFormatter</code>. The <code>AbstractFormatter</code>
      * is placed in an <code>AbstractFormatterFactory</code>.
@@ -314,7 +314,7 @@ public class JFormattedTextField extends JTextField {
         this(new DefaultFormatterFactory(formatter));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFormattedTextField</code> with the specified
      * <code>AbstractFormatterFactory</code>.
      *
@@ -325,7 +325,7 @@ public class JFormattedTextField extends JTextField {
         setFormatterFactory(factory);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFormattedTextField</code> with the specified
      * <code>AbstractFormatterFactory</code> and initial value.
      *
@@ -339,7 +339,7 @@ public class JFormattedTextField extends JTextField {
         setFormatterFactory(factory);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the behavior when focus is lost. This will be one of
      * <code>JFormattedTextField.COMMIT_OR_REVERT</code>,
      * <code>JFormattedTextField.REVERT</code>,
@@ -372,7 +372,7 @@ public class JFormattedTextField extends JTextField {
         focusLostBehavior = behavior;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the behavior when focus is lost. This will be one of
      * <code>COMMIT_OR_REVERT</code>,
      * <code>COMMIT</code>,
@@ -387,7 +387,7 @@ public class JFormattedTextField extends JTextField {
         return focusLostBehavior;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>AbstractFormatterFactory</code>.
      * <code>AbstractFormatterFactory</code> is
      * able to return an instance of <code>AbstractFormatter</code> that is
@@ -421,7 +421,7 @@ public class JFormattedTextField extends JTextField {
         setValue(getValue(), true, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current <code>AbstractFormatterFactory</code>.
      *
      * @see #setFormatterFactory
@@ -432,7 +432,7 @@ public class JFormattedTextField extends JTextField {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>AbstractFormatter</code>.
      * <p>
      * You should not normally invoke this, instead set the
@@ -468,7 +468,7 @@ public class JFormattedTextField extends JTextField {
         firePropertyChange("textFormatter", oldFormat, format);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AbstractFormatter</code> that is used to format and
      * parse the current value.
      *
@@ -478,7 +478,7 @@ public class JFormattedTextField extends JTextField {
         return format;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value that will be formatted by an
      * <code>AbstractFormatter</code> obtained from the current
      * <code>AbstractFormatterFactory</code>. If no
@@ -502,7 +502,7 @@ public class JFormattedTextField extends JTextField {
         setValue(value, true, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last valid value. Based on the editing policy of
      * the <code>AbstractFormatter</code> this may not return the current
      * value. The currently edited value can be obtained by invoking
@@ -514,7 +514,7 @@ public class JFormattedTextField extends JTextField {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Forces the current value to be taken from the
      * <code>AbstractFormatter</code> and set as the current value.
      * This has no effect if there is no current
@@ -531,7 +531,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the validity of the edit on the receiver. You should not normally
      * invoke this. This will be invoked by the
      * <code>AbstractFormatter</code> as the user edits the value.
@@ -557,7 +557,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the current value being edited is valid. The value of
      * this is managed by the current <code>AbstractFormatter</code>, as such
      * there is no public setter for it.
@@ -568,7 +568,7 @@ public class JFormattedTextField extends JTextField {
         return editValid;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the user inputs an invalid value. This gives the
      * component a chance to provide feedback. The default
      * implementation beeps.
@@ -577,7 +577,7 @@ public class JFormattedTextField extends JTextField {
         UIManager.getLookAndFeel().provideErrorFeedback(JFormattedTextField.this);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes any input method events, such as
      * <code>InputMethodEvent.INPUT_METHOD_TEXT_CHANGED</code> or
      * <code>InputMethodEvent.CARET_POSITION_CHANGED</code>.
@@ -601,7 +601,7 @@ public class JFormattedTextField extends JTextField {
         super.processInputMethodEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes any focus events, such as
      * <code>FocusEvent.FOCUS_GAINED</code> or
      * <code>FocusEvent.FOCUS_LOST</code>.
@@ -637,7 +637,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * FOCUS_LOST behavior implementation
      */
     private class FocusLostHandler implements Runnable, Serializable {
@@ -664,7 +664,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the command list for the editor.  This is
      * the list of commands supported by the plugged-in UI
      * augmented by the collection of commands that the
@@ -677,7 +677,7 @@ public class JFormattedTextField extends JTextField {
         return TextAction.augmentList(super.getActions(), defaultActions);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the class ID for a UI.
      *
      * @return the string "FormattedTextFieldUI"
@@ -687,7 +687,7 @@ public class JFormattedTextField extends JTextField {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the editor with a text document.
      * The currently registered factory is used to build a view for
      * the document, which gets displayed by the editor after revalidation.
@@ -728,7 +728,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the Actions that come from the TextFormatter to
      * <code>actions</code>.
      */
@@ -765,7 +765,7 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Does the setting of the value. If <code>createFormat</code> is true,
      * this will also obtain a new <code>AbstractFormatter</code> from the
      * current factory. The property change event will be fired if
@@ -800,21 +800,21 @@ public class JFormattedTextField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the edited state of the receiver.
      */
     private void setEdited(boolean edited) {
         this.edited = edited;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the receiver has been edited.
      */
     private boolean isEdited() {
         return edited;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an AbstractFormatterFactory suitable for the passed in
      * Object type.
      */
@@ -848,7 +848,7 @@ public class JFormattedTextField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Instances of <code>AbstractFormatterFactory</code> are used by
      * <code>JFormattedTextField</code> to obtain instances of
      * <code>AbstractFormatter</code> which in turn are used to format values.
@@ -861,7 +861,7 @@ public class JFormattedTextField extends JTextField {
      * @since 1.4
      */
     public static abstract class AbstractFormatterFactory {
-        /**
+        /** {@collect.stats}
          * Returns an <code>AbstractFormatter</code> that can handle formatting
          * of the passed in <code>JFormattedTextField</code>.
          *
@@ -874,7 +874,7 @@ public class JFormattedTextField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Instances of <code>AbstractFormatter</code> are used by
      * <code>JFormattedTextField</code> to handle the conversion both
      * from an Object to a String, and back from a String to an Object.
@@ -906,7 +906,7 @@ public class JFormattedTextField extends JTextField {
     public static abstract class AbstractFormatter implements Serializable {
         private JFormattedTextField ftf;
 
-        /**
+        /** {@collect.stats}
          * Installs the <code>AbstractFormatter</code> onto a particular
          * <code>JFormattedTextField</code>.
          * This will invoke <code>valueToString</code> to convert the
@@ -957,7 +957,7 @@ public class JFormattedTextField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Uninstalls any state the <code>AbstractFormatter</code> may have
          * installed on the <code>JFormattedTextField</code>. This resets the
          * <code>DocumentFilter</code>, <code>NavigationFilter</code>
@@ -972,7 +972,7 @@ public class JFormattedTextField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Parses <code>text</code> returning an arbitrary Object. Some
          * formatters may return null.
          *
@@ -983,7 +983,7 @@ public class JFormattedTextField extends JTextField {
         public abstract Object stringToValue(String text) throws
                                      ParseException;
 
-        /**
+        /** {@collect.stats}
          * Returns the string value to display for <code>value</code>.
          *
          * @throws ParseException if there is an error in the conversion
@@ -993,7 +993,7 @@ public class JFormattedTextField extends JTextField {
         public abstract String valueToString(Object value) throws
                         ParseException;
 
-        /**
+        /** {@collect.stats}
          * Returns the current <code>JFormattedTextField</code> the
          * <code>AbstractFormatter</code> is installed on.
          *
@@ -1003,7 +1003,7 @@ public class JFormattedTextField extends JTextField {
             return ftf;
         }
 
-        /**
+        /** {@collect.stats}
          * This should be invoked when the user types an invalid character.
          * This forwards the call to the current JFormattedTextField.
          */
@@ -1015,7 +1015,7 @@ public class JFormattedTextField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoke this to update the <code>editValid</code> property of the
          * <code>JFormattedTextField</code>. If you an enforce a policy
          * such that the <code>JFormattedTextField</code> is always in a
@@ -1031,7 +1031,7 @@ public class JFormattedTextField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Subclass and override if you wish to provide a custom set of
          * <code>Action</code>s. <code>install</code> will install these
          * on the <code>JFormattedTextField</code>'s <code>ActionMap</code>.
@@ -1042,7 +1042,7 @@ public class JFormattedTextField extends JTextField {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Subclass and override if you wish to provide a
          * <code>DocumentFilter</code> to restrict what can be input.
          * <code>install</code> will install the returned value onto
@@ -1054,7 +1054,7 @@ public class JFormattedTextField extends JTextField {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Subclass and override if you wish to provide a filter to restrict
          * where the user can navigate to.
          * <code>install</code> will install the returned value onto
@@ -1066,7 +1066,7 @@ public class JFormattedTextField extends JTextField {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Clones the <code>AbstractFormatter</code>. The returned instance
          * is not associated with a <code>JFormattedTextField</code>.
          *
@@ -1079,7 +1079,7 @@ public class JFormattedTextField extends JTextField {
             return formatter;
         }
 
-        /**
+        /** {@collect.stats}
          * Installs the <code>DocumentFilter</code> <code>filter</code>
          * onto the current <code>JFormattedTextField</code>.
          *
@@ -1100,7 +1100,7 @@ public class JFormattedTextField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to commit the edit. This extends JTextField.NotifyAction
      * so that <code>isEnabled</code> is true while a JFormattedTextField
      * has focus, and extends <code>actionPerformed</code> to invoke
@@ -1138,7 +1138,7 @@ public class JFormattedTextField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * CancelAction will reset the value in the JFormattedTextField when
      * <code>actionPerformed</code> is invoked. It will only be
      * enabled if the focused component is an instance of
@@ -1172,7 +1172,7 @@ public class JFormattedTextField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the dirty state as the document changes.
      */
     private class DocumentHandler implements DocumentListener, Serializable {

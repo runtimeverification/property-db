@@ -31,7 +31,7 @@ import java.awt.*;
 import javax.swing.text.*;
 
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleText interface should be implemented by all
  * classes that present textual information on the display.  This interface
  * provides the standard mechanism for an assistive technology to access
@@ -51,7 +51,7 @@ import javax.swing.text.*;
  */
 public interface AccessibleText {
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate that the part of the text that should be
      * retrieved is a character.
      *
@@ -61,7 +61,7 @@ public interface AccessibleText {
      */
     public static final int CHARACTER = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate that the part of the text that should be
      * retrieved is a word.
      *
@@ -71,7 +71,7 @@ public interface AccessibleText {
      */
     public static final int WORD = 2;
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate that the part of the text that should be
      * retrieved is a sentence.
      *
@@ -88,7 +88,7 @@ public interface AccessibleText {
      */
     public static final int SENTENCE = 3;
 
-    /**
+    /** {@collect.stats}
      * Given a point in local coordinates, return the zero-based index
      * of the character under that Point.  If the point is invalid,
      * this method returns -1.
@@ -99,7 +99,7 @@ public interface AccessibleText {
      */
     public int getIndexAtPoint(Point p);
 
-    /**
+    /** {@collect.stats}
      * Determines the bounding box of the character at the given
      * index into the string.  The bounds are returned in local
      * coordinates.  If the index is invalid an empty rectangle is returned.
@@ -110,14 +110,14 @@ public interface AccessibleText {
      */
     public Rectangle getCharacterBounds(int i);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of characters (valid indicies)
      *
      * @return the number of characters
      */
     public int getCharCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the zero-based offset of the caret.
      *
      * Note: That to the right of the caret will have the same index
@@ -126,7 +126,7 @@ public interface AccessibleText {
      */
     public int getCaretPosition();
 
-    /**
+    /** {@collect.stats}
      * Returns the String at a given index.
      *
      * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -135,7 +135,7 @@ public interface AccessibleText {
      */
     public String getAtIndex(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the String after a given index.
      *
      * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -144,7 +144,7 @@ public interface AccessibleText {
      */
     public String getAfterIndex(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the String before a given index.
      *
      * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -153,7 +153,7 @@ public interface AccessibleText {
      */
     public String getBeforeIndex(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the AttributeSet for a given character at a given index
      *
      * @param i the zero-based index into the text
@@ -161,7 +161,7 @@ public interface AccessibleText {
      */
     public AttributeSet getCharacterAttribute(int i);
 
-    /**
+    /** {@collect.stats}
      * Returns the start offset within the selected text.
      * If there is no selection, but there is
      * a caret, the start and end offsets will be the same.
@@ -170,7 +170,7 @@ public interface AccessibleText {
      */
     public int getSelectionStart();
 
-    /**
+    /** {@collect.stats}
      * Returns the end offset within the selected text.
      * If there is no selection, but there is
      * a caret, the start and end offsets will be the same.
@@ -179,7 +179,7 @@ public interface AccessibleText {
      */
     public int getSelectionEnd();
 
-    /**
+    /** {@collect.stats}
      * Returns the portion of the text that is selected.
      *
      * @return the String portion of the text that is selected

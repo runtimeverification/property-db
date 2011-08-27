@@ -31,7 +31,7 @@ import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobSheets is a printing attribute class, an enumeration, that
  * determines which job start and end sheets, if any, must be printed with a
  * job. Class JobSheets declares keywords for standard job sheets values.
@@ -58,19 +58,19 @@ public class JobSheets extends EnumSyntax
 
     private static final long serialVersionUID = -4735258056132519759L;
 
-    /**
+    /** {@collect.stats}
      * No job sheets are printed.
      */
     public static final JobSheets NONE = new JobSheets(0);
 
-    /**
+    /** {@collect.stats}
      * One or more site specific standard job sheets are printed. e.g. a
      * single start sheet is printed, or both start and end sheets are
      * printed.
      */
     public static final JobSheets STANDARD = new JobSheets(1);
 
-    /**
+    /** {@collect.stats}
      * Construct a new job sheets enumeration value with the given integer
      * value.
      *
@@ -90,21 +90,21 @@ public class JobSheets extends EnumSyntax
         STANDARD
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class JobSheets.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class JobSheets.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -118,7 +118,7 @@ public class JobSheets extends EnumSyntax
         return JobSheets.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

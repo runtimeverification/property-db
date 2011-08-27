@@ -33,7 +33,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-/**
+/** {@collect.stats}
  * This is the set of things needed by a text component
  * to be a reasonably functioning editor for some <em>type</em>
  * of text document.  This implementation provides a default
@@ -70,13 +70,13 @@ import javax.swing.UIManager;
  */
 public class DefaultEditorKit extends EditorKit {
 
-    /**
+    /** {@collect.stats}
      * default constructor for DefaultEditorKit
      */
     public DefaultEditorKit() {
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the MIME type of the data that this
      * kit represents support for.  The default
      * is <code>text/plain</code>.
@@ -87,7 +87,7 @@ public class DefaultEditorKit extends EditorKit {
         return "text/plain";
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a factory that is suitable for producing
      * views of any models that are produced by this
      * kit.  The default is to have the UI produce the
@@ -99,7 +99,7 @@ public class DefaultEditorKit extends EditorKit {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the set of commands that can be used
      * on a text component that is using a model and
      * view produced by this kit.
@@ -110,7 +110,7 @@ public class DefaultEditorKit extends EditorKit {
         return defaultActions;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a caret that can navigate through views
      * produced by the associated ViewFactory.
      *
@@ -120,7 +120,7 @@ public class DefaultEditorKit extends EditorKit {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an uninitialized text storage model (PlainDocument)
      * that is appropriate for this type of editor.
      *
@@ -130,7 +130,7 @@ public class DefaultEditorKit extends EditorKit {
         return new PlainDocument();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts content from the given stream which is expected
      * to be in a format appropriate for this kind of content
      * handler.
@@ -149,7 +149,7 @@ public class DefaultEditorKit extends EditorKit {
         read(new InputStreamReader(in), doc, pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes content from a document to the given stream
      * in a format appropriate for this kind of content handler.
      *
@@ -170,7 +170,7 @@ public class DefaultEditorKit extends EditorKit {
         osw.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input attributes for the pane. This method exists for
      * the benefit of StyledEditorKit so that the read method will
      * pick up the correct attributes to apply to inserted text.
@@ -182,7 +182,7 @@ public class DefaultEditorKit extends EditorKit {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts content from the given stream, which will be
      * treated as plain text.
      *
@@ -291,7 +291,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes content from a document to the given stream
      * as plain text.
      *
@@ -366,7 +366,7 @@ public class DefaultEditorKit extends EditorKit {
     }
 
 
-    /**
+    /** {@collect.stats}
      * When reading a document if a CRLF is encountered a property
      * with this name is added and the value will be "\r\n".
      */
@@ -374,7 +374,7 @@ public class DefaultEditorKit extends EditorKit {
 
     // --- names of well-known actions ---------------------------
 
-    /**
+    /** {@collect.stats}
      * Name of the action to place content into the associated
      * document.  If there is a selection, it is removed before
      * the new content is added.
@@ -382,7 +382,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String insertContentAction = "insert-content";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to place a line/paragraph break into
      * the document.  If there is a selection, it is removed before
      * the break is added.
@@ -390,7 +390,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String insertBreakAction = "insert-break";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to place a tab character into
      * the document.  If there is a selection, it is removed before
      * the tab is added.
@@ -398,21 +398,21 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String insertTabAction = "insert-tab";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to delete the character of content that
      * precedes the current caret position.
      * @see #getActions
      */
     public static final String deletePrevCharAction = "delete-previous";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to delete the character of content that
      * follows the current caret position.
      * @see #getActions
      */
     public static final String deleteNextCharAction = "delete-next";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to delete the word that
      * follows the beginning of the selection.
      * @see #getActions
@@ -421,7 +421,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String deleteNextWordAction = "delete-next-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to delete the word that
      * precedes the beginning of the selection.
      * @see #getActions
@@ -430,21 +430,21 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String deletePrevWordAction = "delete-previous-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to set the editor into read-only
      * mode.
      * @see #getActions
      */
     public static final String readOnlyAction = "set-read-only";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to set the editor into writeable
      * mode.
      * @see #getActions
      */
     public static final String writableAction = "set-writable";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to cut the selected region
      * and place the contents into the system clipboard.
      * @see JTextComponent#cut
@@ -452,7 +452,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String cutAction = "cut-to-clipboard";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to copy the selected region
      * and place the contents into the system clipboard.
      * @see JTextComponent#copy
@@ -460,7 +460,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String copyAction = "copy-to-clipboard";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to paste the contents of the
      * system clipboard into the selected region, or before the
      * caret if nothing is selected.
@@ -469,286 +469,286 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static final String pasteAction = "paste-from-clipboard";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to create a beep.
      * @see #getActions
      */
     public static final String beepAction = "beep";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page up vertically.
      * @see #getActions
      */
     public static final String pageUpAction = "page-up";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page down vertically.
      * @see #getActions
      */
     public static final String pageDownAction = "page-down";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page up vertically, and move the
      * selection.
      * @see #getActions
      */
     /*public*/ static final String selectionPageUpAction = "selection-page-up";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page down vertically, and move the
      * selection.
      * @see #getActions
      */
     /*public*/ static final String selectionPageDownAction = "selection-page-down";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page left horizontally, and move the
      * selection.
      * @see #getActions
      */
     /*public*/ static final String selectionPageLeftAction = "selection-page-left";
 
-    /**
+    /** {@collect.stats}
      * Name of the action to page right horizontally, and move the
      * selection.
      * @see #getActions
      */
     /*public*/ static final String selectionPageRightAction = "selection-page-right";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically forward one position.
      * @see #getActions
      */
     public static final String forwardAction = "caret-forward";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically backward one position.
      * @see #getActions
      */
     public static final String backwardAction = "caret-backward";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for extending the selection
      * by moving the caret logically forward one position.
      * @see #getActions
      */
     public static final String selectionForwardAction = "selection-forward";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for extending the selection
      * by moving the caret logically backward one position.
      * @see #getActions
      */
     public static final String selectionBackwardAction = "selection-backward";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically upward one position.
      * @see #getActions
      */
     public static final String upAction = "caret-up";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically downward one position.
      * @see #getActions
      */
     public static final String downAction = "caret-down";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically upward one position, extending the selection.
      * @see #getActions
      */
     public static final String selectionUpAction = "selection-up";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * logically downward one position, extending the selection.
      * @see #getActions
      */
     public static final String selectionDownAction = "selection-down";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a word.
      * @see #getActions
      */
     public static final String beginWordAction = "caret-begin-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * to the end of a word.
      * @see #getActions
      */
     public static final String endWordAction = "caret-end-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a word, extending the selection.
      * @see #getActions
      */
     public static final String selectionBeginWordAction = "selection-begin-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * to the end of a word, extending the selection.
      * @see #getActions
      */
     public static final String selectionEndWordAction = "selection-end-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret to the
      * beginning of the previous word.
      * @see #getActions
      */
     public static final String previousWordAction = "caret-previous-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret to the
      * beginning of the next word.
      * @see #getActions
      */
     public static final String nextWordAction = "caret-next-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the selection to the
      * beginning of the previous word, extending the selection.
      * @see #getActions
      */
     public static final String selectionPreviousWordAction = "selection-previous-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the selection to the
      * beginning of the next word, extending the selection.
      * @see #getActions
      */
     public static final String selectionNextWordAction = "selection-next-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a line.
      * @see #getActions
      */
     public static final String beginLineAction = "caret-begin-line";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the end of a line.
      * @see #getActions
      */
     public static final String endLineAction = "caret-end-line";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a line, extending the selection.
      * @see #getActions
      */
     public static final String selectionBeginLineAction = "selection-begin-line";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the end of a line, extending the selection.
      * @see #getActions
      */
     public static final String selectionEndLineAction = "selection-end-line";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a paragraph.
      * @see #getActions
      */
     public static final String beginParagraphAction = "caret-begin-paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the end of a paragraph.
      * @see #getActions
      */
     public static final String endParagraphAction = "caret-end-paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of a paragraph, extending the selection.
      * @see #getActions
      */
     public static final String selectionBeginParagraphAction = "selection-begin-paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the end of a paragraph, extending the selection.
      * @see #getActions
      */
     public static final String selectionEndParagraphAction = "selection-end-paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of the document.
      * @see #getActions
      */
     public static final String beginAction = "caret-begin";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the end of the document.
      * @see #getActions
      */
     public static final String endAction = "caret-end";
 
-    /**
+    /** {@collect.stats}
      * Name of the <code>Action</code> for moving the caret
      * to the beginning of the document.
      * @see #getActions
      */
     public static final String selectionBeginAction = "selection-begin";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for moving the caret
      * to the end of the document.
      * @see #getActions
      */
     public static final String selectionEndAction = "selection-end";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for selecting a word around the caret.
      * @see #getActions
      */
     public static final String selectWordAction = "select-word";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for selecting a line around the caret.
      * @see #getActions
      */
     public static final String selectLineAction = "select-line";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for selecting a paragraph around the caret.
      * @see #getActions
      */
     public static final String selectParagraphAction = "select-paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for selecting the entire document
      * @see #getActions
      */
     public static final String selectAllAction = "select-all";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for removing selection
      * @see #getActions
      */
     /*public*/ static final String unselectAction = "unselect";
 
-    /**
+    /** {@collect.stats}
      * Name of the Action for toggling the component's orientation.
      * @see #getActions
      */
     /*public*/ static final String toggleComponentOrientationAction
         = "toggle-componentOrientation";
 
-    /**
+    /** {@collect.stats}
      * Name of the action that is executed by default if
      * a <em>key typed event</em> is received and there
      * is no keymap entry.
@@ -815,7 +815,7 @@ public class DefaultEditorKit extends EditorKit {
         new DumpModelAction()
     };
 
-    /**
+    /** {@collect.stats}
      * The action that is executed by default if
      * a <em>key typed event</em> is received and there
      * is no keymap entry.  There is a variation across
@@ -849,14 +849,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class DefaultKeyTypedAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates this object with the appropriate identifier.
          */
         public DefaultKeyTypedAction() {
             super(defaultKeyTypedAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -880,7 +880,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Places content into the associated document.
      * If there is a selection, it is removed before
      * the new content is added.
@@ -899,14 +899,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class InsertContentAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates this object with the appropriate identifier.
          */
         public InsertContentAction() {
             super(insertContentAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -928,7 +928,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Places a line/paragraph break into the document.
      * If there is a selection, it is removed before
      * the break is added.
@@ -947,14 +947,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class InsertBreakAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates this object with the appropriate identifier.
          */
         public InsertBreakAction() {
             super(insertBreakAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -971,7 +971,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Places a tab character into the document. If there
      * is a selection, it is removed before the tab is added.
      * <p>
@@ -989,14 +989,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class InsertTabAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates this object with the appropriate identifier.
          */
         public InsertTabAction() {
             super(insertTabAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1021,14 +1021,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class DeletePrevCharAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates this object with the appropriate identifier.
          */
         DeletePrevCharAction() {
             super(deletePrevCharAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1084,7 +1084,7 @@ public class DefaultEditorKit extends EditorKit {
             super(deleteNextCharAction);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             boolean beep = true;
@@ -1134,7 +1134,7 @@ public class DefaultEditorKit extends EditorKit {
             assert (name == deletePrevWordAction)
                 || (name == deleteNextWordAction);
         }
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1209,7 +1209,7 @@ public class DefaultEditorKit extends EditorKit {
             super(readOnlyAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1234,7 +1234,7 @@ public class DefaultEditorKit extends EditorKit {
             super(writableAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1247,7 +1247,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Cuts the selected region and place its contents
      * into the system clipboard.
      * <p>
@@ -1265,12 +1265,12 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class CutAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public CutAction() {
             super(cutAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1283,7 +1283,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the selected region and place its contents
      * into the system clipboard.
      * <p>
@@ -1301,12 +1301,12 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class CopyAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public CopyAction() {
             super(copyAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1319,7 +1319,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Pastes the contents of the system clipboard into the
      * selected region, or before the caret if nothing is
      * selected.
@@ -1338,12 +1338,12 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class PasteAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public PasteAction() {
             super(pasteAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1356,7 +1356,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a beep.
      * <p>
      * <strong>Warning:</strong>
@@ -1373,12 +1373,12 @@ public class DefaultEditorKit extends EditorKit {
      */
     public static class BeepAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public BeepAction() {
             super(beepAction);
         }
 
-        /**
+        /** {@collect.stats}
          * The operation to perform when this action is triggered.
          *
          * @param e the action event
@@ -1389,7 +1389,7 @@ public class DefaultEditorKit extends EditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Scrolls up/down vertically.  The select version of this action extends
      * the selection, instead of simply moving the caret.
      *
@@ -1399,14 +1399,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class VerticalPageAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public VerticalPageAction(String nm, int direction, boolean select) {
             super(nm);
             this.select = select;
             this.direction = direction;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1482,7 +1482,7 @@ public class DefaultEditorKit extends EditorKit {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Makes sure <code>y</code> is a valid location in
          * <code>target</code>.
          */
@@ -1496,7 +1496,7 @@ public class DefaultEditorKit extends EditorKit {
             return y;
         }
 
-        /**
+        /** {@collect.stats}
          * Ensures that <code>offset</code> is a valid offset into the
          * model for <code>text</code>.
          */
@@ -1512,7 +1512,7 @@ public class DefaultEditorKit extends EditorKit {
             return offset;
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the rectangle that indicates the location to scroll to
          * after selecting <code>index</code>.
          */
@@ -1543,32 +1543,32 @@ public class DefaultEditorKit extends EditorKit {
             } catch (BadLocationException ble) {}
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the Rectangle to contain the bounds of the character at
          * <code>index</code> in response to a page up.
          */
         private boolean select;
 
-        /**
+        /** {@collect.stats}
          * Direction to scroll, 1 is down, -1 is up.
          */
         private int direction;
     }
 
 
-    /**
+    /** {@collect.stats}
      * Pages one view to the left or right.
      */
     static class PageAction extends TextAction {
 
-        /** Create this object with the appropriate identifier. */
+        /** {@collect.stats} Create this object with the appropriate identifier. */
         public PageAction(String nm, boolean left, boolean select) {
             super(nm);
             this.select = select;
             this.left = left;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1637,7 +1637,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class NextVisualPositionAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1649,7 +1649,7 @@ public class DefaultEditorKit extends EditorKit {
             this.direction = direction;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1724,7 +1724,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class BeginWordAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1735,7 +1735,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1764,7 +1764,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class EndWordAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1775,7 +1775,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1804,7 +1804,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class PreviousWordAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1815,7 +1815,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1863,7 +1863,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class NextWordAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1874,7 +1874,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1928,7 +1928,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class BeginLineAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1939,7 +1939,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -1968,7 +1968,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class EndLineAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -1979,7 +1979,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2008,7 +2008,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class BeginParagraphAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2019,7 +2019,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2045,7 +2045,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class EndParagraphAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2056,7 +2056,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2088,7 +2088,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2116,7 +2116,7 @@ public class DefaultEditorKit extends EditorKit {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2140,7 +2140,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class SelectWordAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2152,7 +2152,7 @@ public class DefaultEditorKit extends EditorKit {
             end = new EndWordAction("pigdog", true);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             start.actionPerformed(e);
             end.actionPerformed(e);
@@ -2169,7 +2169,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class SelectLineAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2181,7 +2181,7 @@ public class DefaultEditorKit extends EditorKit {
             end = new EndLineAction("pigdog", true);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             start.actionPerformed(e);
             end.actionPerformed(e);
@@ -2198,7 +2198,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class SelectParagraphAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2210,7 +2210,7 @@ public class DefaultEditorKit extends EditorKit {
             end = new EndParagraphAction("pigdog", true);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             start.actionPerformed(e);
             end.actionPerformed(e);
@@ -2227,7 +2227,7 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class SelectAllAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          * @param nm  the name of the action, Action.NAME.
          * @param select whether to extend the selection when
@@ -2237,7 +2237,7 @@ public class DefaultEditorKit extends EditorKit {
             super(selectAllAction);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2256,14 +2256,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class UnselectAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          */
         UnselectAction() {
             super(unselectAction);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {
@@ -2280,14 +2280,14 @@ public class DefaultEditorKit extends EditorKit {
      */
     static class ToggleComponentOrientationAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          */
         ToggleComponentOrientationAction() {
             super(toggleComponentOrientationAction);
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             if (target != null) {

@@ -39,7 +39,7 @@ import java.security.PrivilegedAction;
 
 import static javax.management.ImmutableDescriptor.nonNullDescriptor;
 
-/**
+/** {@collect.stats}
  * <p>Describes the management interface exposed by an MBean; that is,
  * the set of attributes and operations which are available for
  * management operations.  Instances of this class are immutable.
@@ -98,45 +98,45 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
     /* Serial version */
     static final long serialVersionUID = -6451021435135161911L;
 
-    /**
+    /** {@collect.stats}
      * @serial The Descriptor for the MBean.  This field
      * can be null, which is equivalent to an empty Descriptor.
      */
     private transient Descriptor descriptor;
 
-    /**
+    /** {@collect.stats}
      * @serial The human readable description of the class.
      */
     private final String description;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean qualified name.
      */
     private final String className;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean attribute descriptors.
      */
     private final MBeanAttributeInfo[] attributes;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean operation descriptors.
      */
     private final MBeanOperationInfo[] operations;
 
-     /**
+     /** {@collect.stats}
      * @serial The MBean constructor descriptors.
      */
     private final MBeanConstructorInfo[] constructors;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean notification descriptors.
      */
     private final MBeanNotificationInfo[] notifications;
 
     private transient int hashCode;
 
-    /**
+    /** {@collect.stats}
      * <p>True if this class is known not to override the array-valued
      * getters of MBeanInfo.  Obviously true for MBeanInfo itself, and true
      * for a subclass where we succeed in reflecting on the methods
@@ -149,7 +149,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
      */
     private final transient boolean arrayGettersSafe;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanInfo</CODE>.
      *
      * @param className The name of the Java class of the MBean described
@@ -183,7 +183,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
              notifications, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanInfo</CODE>.
      *
      * @param className The name of the Java class of the MBean described
@@ -247,7 +247,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
                 arrayGettersSafe(this.getClass(), MBeanInfo.class);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a shallow clone of this instance.
      * The clone is obtained by simply calling <tt>super.clone()</tt>,
      * thus calling the default native shallow cloning mechanism
@@ -267,7 +267,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
      }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the Java class of the MBean described by
      * this <CODE>MBeanInfo</CODE>.
      *
@@ -277,7 +277,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the MBean.
      *
      * @return the description.
@@ -286,7 +286,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of attributes exposed for management.
      * Each attribute is described by an <CODE>MBeanAttributeInfo</CODE> object.
      *
@@ -312,7 +312,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             return getAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the value of the attributes field, or an empty array if
      * the field is null.  This can't happen with a
      * normally-constructed instance of this class, but can if the
@@ -328,7 +328,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             MBeanAttributeInfo.NO_ATTRIBUTES : attributes;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of operations  of the MBean.
      * Each operation is described by an <CODE>MBeanOperationInfo</CODE> object.
      *
@@ -359,7 +359,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             MBeanOperationInfo.NO_OPERATIONS : operations;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the list of the public constructors of the MBean.
      * Each constructor is described by an
      * <CODE>MBeanConstructorInfo</CODE> object.</p>
@@ -398,7 +398,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             MBeanConstructorInfo.NO_CONSTRUCTORS : constructors;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of the notifications emitted by the MBean.
      * Each notification is described by an <CODE>MBeanNotificationInfo</CODE> object.
      *
@@ -429,7 +429,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             MBeanNotificationInfo.NO_NOTIFICATIONS : notifications;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the descriptor of this MBeanInfo.  Changing the returned value
      * will have no affect on the original descriptor.
      *
@@ -453,7 +453,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
             "]";
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Compare this MBeanInfo to another.  Two MBeanInfo objects
      * are equal if and only if they return equal values for {@link
      * #getClassName()}, for {@link #getDescription()}, and for
@@ -519,7 +519,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Cached results of previous calls to arrayGettersSafe.  This is
      * a WeakHashMap so that we don't prevent a class from being
      * garbage collected just because we know whether it's immutable.
@@ -527,7 +527,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
     private static final Map<Class, Boolean> arrayGettersSafeMap =
         new WeakHashMap<Class, Boolean>();
 
-    /**
+    /** {@collect.stats}
      * Return true if <code>subclass</code> is known to preserve the
      * immutability of <code>immutableClass</code>.  The class
      * <code>immutableClass</code> is a reference class that is known
@@ -609,7 +609,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link MBeanInfo} to an {@link ObjectOutputStream}.
      * @serialData
      * For compatibility reasons, an object of this class is serialized as follows.
@@ -651,7 +651,7 @@ public class MBeanInfo implements Cloneable, Serializable, DescriptorRead {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link MBeanInfo} from an {@link ObjectInputStream}.
      * @serialData
      * For compatibility reasons, an object of this class is deserialized as follows.

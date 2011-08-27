@@ -29,7 +29,7 @@ import java.util.Arrays;
 
 import java.nio.ByteBuffer;
 
-/**
+/** {@collect.stats}
  * A command APDU following the structure defined in ISO/IEC 7816-4.
  * It consists of a four byte header and a conditional body of variable length.
  * This class does not attempt to verify that the APDU encodes a semantically
@@ -68,7 +68,7 @@ public final class CommandAPDU implements java.io.Serializable {
 
     private static final int MAX_APDU_SIZE = 65544;
 
-    /** @serial */
+    /** {@collect.stats} @serial */
     private byte[] apdu;
 
     // value of nc
@@ -80,7 +80,7 @@ public final class CommandAPDU implements java.io.Serializable {
     // index of start of data within the apdu array
     private transient int dataOffset;
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from a byte array containing the complete
      * APDU contents (header and body).
      *
@@ -98,7 +98,7 @@ public final class CommandAPDU implements java.io.Serializable {
         parse();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from a byte array containing the complete
      * APDU contents (header and body). The APDU starts at the index
      * <code>apduOffset</code> in the byte array and is <code>apduLength</code>
@@ -142,7 +142,7 @@ public final class CommandAPDU implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a CommandAPDU from the ByteBuffer containing the complete APDU
      * contents (header and body).
      * The buffer's <code>position</code> must be set to the start of the APDU,
@@ -164,7 +164,7 @@ public final class CommandAPDU implements java.io.Serializable {
         parse();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes. This is case 1
      * in ISO 7816, no command body.
      *
@@ -177,7 +177,7 @@ public final class CommandAPDU implements java.io.Serializable {
         this(cla, ins, p1, p2, null, 0, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes and the expected
      * response data length. This is case 2 in ISO 7816, empty command data
      * field with Ne specified. If Ne is 0, the APDU is encoded as ISO 7816
@@ -196,7 +196,7 @@ public final class CommandAPDU implements java.io.Serializable {
         this(cla, ins, p1, p2, null, 0, 0, ne);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes and command data.
      * This is case 3 in ISO 7816, command data present and Ne absent. The
      * value Nc is taken as data.length. If <code>data</code> is null or
@@ -217,7 +217,7 @@ public final class CommandAPDU implements java.io.Serializable {
         this(cla, ins, p1, p2, data, 0, arrayLength(data), 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes and command data.
      * This is case 3 in ISO 7816, command data present and Ne absent. The
      * value Nc is taken as dataLength. If <code>dataLength</code>
@@ -245,7 +245,7 @@ public final class CommandAPDU implements java.io.Serializable {
         this(cla, ins, p1, p2, data, dataOffset, dataLength, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes, command data,
      * and expected response data length. This is case 4 in ISO 7816,
      * command data and Ne present. The value Nc is taken as data.length
@@ -273,7 +273,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return (b != null) ? b.length : 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Command APDU encoding options:
      *
      * case 1:  |CLA|INS|P1 |P2 |                                 len = 4
@@ -351,7 +351,7 @@ public final class CommandAPDU implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CommandAPDU from the four header bytes, command data,
      * and expected response data length. This is case 4 in ISO 7816,
      * command data and Le present. The value Nc is taken as
@@ -479,7 +479,7 @@ public final class CommandAPDU implements java.io.Serializable {
         apdu[3] = (byte)p2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the class byte CLA.
      *
      * @return the value of the class byte CLA.
@@ -488,7 +488,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return apdu[0] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the instruction byte INS.
      *
      * @return the value of the instruction byte INS.
@@ -497,7 +497,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return apdu[1] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the parameter byte P1.
      *
      * @return the value of the parameter byte P1.
@@ -506,7 +506,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return apdu[2] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the parameter byte P2.
      *
      * @return the value of the parameter byte P2.
@@ -515,7 +515,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return apdu[3] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of data bytes in the command body (Nc) or 0 if this
      * APDU has no body. This call is equivalent to
      * <code>getData().length</code>.
@@ -527,7 +527,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return nc;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the data bytes in the command body. If this APDU as
      * no body, this method returns a byte array with length zero.
      *
@@ -540,7 +540,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of expected data bytes in a response
      * APDU (Ne).
      *
@@ -550,7 +550,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return ne;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the bytes in this APDU.
      *
      * @return a copy of the bytes in this APDU.
@@ -559,7 +559,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return apdu.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this command APDU.
      *
      * @return a String representation of this command APDU.
@@ -568,7 +568,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return "CommmandAPDU: " + apdu.length + " bytes, nc=" + nc + ", ne=" + ne;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this command APDU for equality.
      * Returns true if the given object is also a CommandAPDU and its bytes are
      * identical to the bytes in this CommandAPDU.
@@ -587,7 +587,7 @@ public final class CommandAPDU implements java.io.Serializable {
         return Arrays.equals(this.apdu, other.apdu);
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this command APDU.
      *
      * @return the hash code value for this command APDU.

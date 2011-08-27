@@ -36,7 +36,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * <p>
  * The BeanContext acts a logical hierarchical container for JavaBeans.
  * </p>
@@ -55,7 +55,7 @@ import java.util.Locale;
 
 public interface BeanContext extends BeanContextChild, Collection, DesignMode, Visibility {
 
-    /**
+    /** {@collect.stats}
      * Instantiate the javaBean named as a
      * child of this <code>BeanContext</code>.
      * The implementation of the JavaBean is
@@ -71,7 +71,7 @@ public interface BeanContext extends BeanContextChild, Collection, DesignMode, V
      */
     Object instantiateChild(String beanName) throws IOException, ClassNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Analagous to <code>java.lang.ClassLoader.getResourceAsStream()</code>,
      * this method allows a <code>BeanContext</code> implementation
      * to interpose behavior between the child <code>Component</code>
@@ -87,7 +87,7 @@ public interface BeanContext extends BeanContextChild, Collection, DesignMode, V
      */
     InputStream getResourceAsStream(String name, BeanContextChild bcc) throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Analagous to <code>java.lang.ClassLoader.getResource()</code>, this
      * method allows a <code>BeanContext</code> implementation to interpose
      * behavior between the child <code>Component</code>
@@ -102,7 +102,7 @@ public interface BeanContext extends BeanContextChild, Collection, DesignMode, V
      */
     URL getResource(String name, BeanContextChild bcc) throws IllegalArgumentException;
 
-     /**
+     /** {@collect.stats}
       * Adds the specified <code>BeanContextMembershipListener</code>
       * to receive <code>BeanContextMembershipEvents</code> from
       * this <code>BeanContext</code> whenever it adds
@@ -112,7 +112,7 @@ public interface BeanContext extends BeanContextChild, Collection, DesignMode, V
       */
     void addBeanContextMembershipListener(BeanContextMembershipListener bcml);
 
-     /**
+     /** {@collect.stats}
       * Removes the specified <code>BeanContextMembershipListener</code>
       * so that it no longer receives <code>BeanContextMembershipEvent</code>s
       * when the child <code>Component</code>(s) are added or removed.
@@ -122,7 +122,7 @@ public interface BeanContext extends BeanContextChild, Collection, DesignMode, V
       */
     void removeBeanContextMembershipListener(BeanContextMembershipListener bcml);
 
-    /**
+    /** {@collect.stats}
      * This global lock is used by both <code>BeanContext</code>
      * and <code>BeanContextServices</code> implementors
      * to serialize changes in a <code>BeanContext</code>

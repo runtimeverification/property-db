@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent binary
  * operations.
  * @serial include
@@ -38,29 +38,29 @@ class BinaryOpValueExp extends QueryEval implements ValueExp {
     /* Serial version */
     private static final long serialVersionUID = 1216286847881456786L;
 
-    /**
+    /** {@collect.stats}
      * @serial The operator
      */
     private int op;
 
-    /**
+    /** {@collect.stats}
      * @serial The first value
      */
     private ValueExp exp1;
 
-    /**
+    /** {@collect.stats}
      * @serial The second value
      */
     private ValueExp exp2;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public BinaryOpValueExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BinaryOpValueExp using operator o applied on v1 and
      * v2 values.
      */
@@ -71,28 +71,28 @@ class BinaryOpValueExp extends QueryEval implements ValueExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the operator of the value expression.
      */
     public int getOperator()  {
         return op;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the left value of the value expression.
      */
     public ValueExp getLeftValue()  {
         return exp1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the right value of the value expression.
      */
     public ValueExp getRightValue()  {
         return exp2;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the BinaryOpValueExp on a MBean.
      *
      * @param name The name of the MBean on which the BinaryOpValueExp will be applied.
@@ -162,7 +162,7 @@ class BinaryOpValueExp extends QueryEval implements ValueExp {
         throw new BadBinaryOpValueExpException(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object
      */
     public String toString()  {

@@ -41,7 +41,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
+/** {@collect.stats}
  * A hash table supporting full concurrency of retrievals and
  * adjustable expected concurrency for updates. This class obeys the
  * same functional specification as {@link java.util.Hashtable}, and
@@ -110,25 +110,25 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Constants -------------- */
 
-    /**
+    /** {@collect.stats}
      * The default initial capacity for this table,
      * used when not otherwise specified in a constructor.
      */
     static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    /**
+    /** {@collect.stats}
      * The default load factor for this table, used when not
      * otherwise specified in a constructor.
      */
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    /**
+    /** {@collect.stats}
      * The default concurrency level for this table, used when not
      * otherwise specified in a constructor.
      */
     static final int DEFAULT_CONCURRENCY_LEVEL = 16;
 
-    /**
+    /** {@collect.stats}
      * The maximum capacity, used if a higher value is implicitly
      * specified by either of the constructors with arguments.  MUST
      * be a power of two <= 1<<30 to ensure that entries are indexable
@@ -136,13 +136,13 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
      */
     static final int MAXIMUM_CAPACITY = 1 << 30;
 
-    /**
+    /** {@collect.stats}
      * The maximum number of segments to allow; used to bound
      * constructor arguments.
      */
     static final int MAX_SEGMENTS = 1 << 16; // slightly conservative
 
-    /**
+    /** {@collect.stats}
      * Number of unsynchronized retries in size and containsValue
      * methods before resorting to locking. This is used to avoid
      * unbounded retries if tables undergo continuous modification
@@ -152,18 +152,18 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Fields -------------- */
 
-    /**
+    /** {@collect.stats}
      * Mask value for indexing into segments. The upper bits of a
      * key's hash code are used to choose the segment.
      */
     final int segmentMask;
 
-    /**
+    /** {@collect.stats}
      * Shift value for indexing within segments.
      */
     final int segmentShift;
 
-    /**
+    /** {@collect.stats}
      * The segments, each of which is a specialized hash table
      */
     final Segment<K,V>[] segments;
@@ -174,7 +174,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Small Utilities -------------- */
 
-    /**
+    /** {@collect.stats}
      * Applies a supplemental hash function to a given hashCode, which
      * defends against poor quality hash functions.  This is critical
      * because ConcurrentHashMap uses power-of-two length hash tables,
@@ -192,7 +192,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return h ^ (h >>> 16);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the segment that should be used for key with given hash
      * @param hash the hash code for the key
      * @return the segment
@@ -203,7 +203,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Inner Classes -------------- */
 
-    /**
+    /** {@collect.stats}
      * ConcurrentHashMap list entry. Note that this is never exported
      * out as a user-visible Map.Entry.
      *
@@ -234,7 +234,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Segments are specialized versions of hash tables.  This
      * subclasses from ReentrantLock opportunistically, just to
      * simplify some locking and avoid separate construction.
@@ -279,12 +279,12 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
         private static final long serialVersionUID = 2249069246763182397L;
 
-        /**
+        /** {@collect.stats}
          * The number of elements in this segment's region.
          */
         transient volatile int count;
 
-        /**
+        /** {@collect.stats}
          * Number of updates that alter the size of the table. This is
          * used during bulk-read methods to make sure they see a
          * consistent snapshot: If modCounts change during a traversal
@@ -294,19 +294,19 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
          */
         transient int modCount;
 
-        /**
+        /** {@collect.stats}
          * The table is rehashed when its size exceeds this threshold.
          * (The value of this field is always <tt>(int)(capacity *
          * loadFactor)</tt>.)
          */
         transient int threshold;
 
-        /**
+        /** {@collect.stats}
          * The per-segment table.
          */
         transient volatile HashEntry<K,V>[] table;
 
-        /**
+        /** {@collect.stats}
          * The load factor for the hash table.  Even though this value
          * is same for all segments, it is replicated to avoid needing
          * links to outer object.
@@ -324,7 +324,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             return new Segment[i];
         }
 
-        /**
+        /** {@collect.stats}
          * Sets table to new HashEntry array.
          * Call only while holding lock or in constructor.
          */
@@ -333,7 +333,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             table = newTable;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns properly casted first entry of bin for given hash.
          */
         HashEntry<K,V> getFirst(int hash) {
@@ -341,7 +341,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             return tab[hash & (tab.length - 1)];
         }
 
-        /**
+        /** {@collect.stats}
          * Reads value field of an entry under lock. Called if value
          * field ever appears to be null. This is possible only if a
          * compiler happens to reorder a HashEntry initialization with
@@ -536,7 +536,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             table = newTable;
         }
 
-        /**
+        /** {@collect.stats}
          * Remove; match on key only if value null, else match both.
          */
         V remove(Object key, int hash, Object value) {
@@ -593,7 +593,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Public operations -------------- */
 
-    /**
+    /** {@collect.stats}
      * Creates a new, empty map with the specified initial
      * capacity, load factor and concurrency level.
      *
@@ -641,7 +641,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             this.segments[i] = new Segment<K,V>(cap, loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new, empty map with the specified initial capacity
      * and load factor and with the default concurrencyLevel (16).
      *
@@ -659,7 +659,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         this(initialCapacity, loadFactor, DEFAULT_CONCURRENCY_LEVEL);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new, empty map with the specified initial capacity,
      * and with default load factor (0.75) and concurrencyLevel (16).
      *
@@ -672,7 +672,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         this(initialCapacity, DEFAULT_LOAD_FACTOR, DEFAULT_CONCURRENCY_LEVEL);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new, empty map with a default initial capacity (16),
      * load factor (0.75) and concurrencyLevel (16).
      */
@@ -680,7 +680,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         this(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR, DEFAULT_CONCURRENCY_LEVEL);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new map with the same mappings as the given map.
      * The map is created with a capacity of 1.5 times the number
      * of mappings in the given map or 16 (whichever is greater),
@@ -695,7 +695,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         putAll(m);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains no key-value mappings.
      *
      * @return <tt>true</tt> if this map contains no key-value mappings
@@ -732,7 +732,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this map.  If the
      * map contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
@@ -781,7 +781,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             return (int)sum;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -797,7 +797,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).get(key, hash);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the specified object is a key in this table.
      *
      * @param  key   possible key
@@ -811,7 +811,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).containsKey(key, hash);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value. Note: This method requires a full internal
      * traversal of the hash table, and so is much slower than
@@ -872,7 +872,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return found;
     }
 
-    /**
+    /** {@collect.stats}
      * Legacy method testing if some key maps into the specified value
      * in this table.  This method is identical in functionality to
      * {@link #containsValue}, and exists solely to ensure
@@ -891,7 +891,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Maps the specified key to the specified value in this table.
      * Neither the key nor the value can be null.
      *
@@ -911,7 +911,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).put(key, hash, value, false);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @return the previous value associated with the specified key,
@@ -925,7 +925,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).put(key, hash, value, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified map to this one.
      * These mappings replace any mappings that this map had for any of the
      * keys currently in the specified map.
@@ -937,7 +937,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             put(e.getKey(), e.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the key (and its corresponding value) from this map.
      * This method does nothing if the key is not in the map.
      *
@@ -951,7 +951,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).remove(key, hash, null);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws NullPointerException if the specified key is null
@@ -963,7 +963,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).remove(key, hash, value) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws NullPointerException if any of the arguments are null
@@ -975,7 +975,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).replace(key, hash, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @return the previous value associated with the specified key,
@@ -989,7 +989,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return segmentFor(hash).replace(key, hash, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the mappings from this map.
      */
     public void clear() {
@@ -997,7 +997,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             segments[i].clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  The set supports element
@@ -1018,7 +1018,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return (ks != null) ? ks : (keySet = new KeySet());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  The collection
@@ -1039,7 +1039,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return (vs != null) ? vs : (values = new Values());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  The set supports element
@@ -1060,7 +1060,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return (es != null) ? es : (entrySet = new EntrySet());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the keys in this table.
      *
      * @return an enumeration of the keys in this table
@@ -1070,7 +1070,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         return new KeyIterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the values in this table.
      *
      * @return an enumeration of the values in this table
@@ -1154,7 +1154,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         public V nextElement() { return super.nextEntry().value; }
     }
 
-    /**
+    /** {@collect.stats}
      * Custom Entry class used by EntryIterator.next(), that relays
      * setValue changes to the underlying map.
      */
@@ -1165,7 +1165,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
             super(k,v);
         }
 
-        /**
+        /** {@collect.stats}
          * Set our entry's value and write through to the map. The
          * value to return is somewhat arbitrary here. Since a
          * WriteThroughEntry does not necessarily track asynchronous
@@ -1261,7 +1261,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
 
     /* ---------------- Serialization Support -------------- */
 
-    /**
+    /** {@collect.stats}
      * Save the state of the <tt>ConcurrentHashMap</tt> instance to a
      * stream (i.e., serialize it).
      * @param s the stream
@@ -1292,7 +1292,7 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V>
         s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the <tt>ConcurrentHashMap</tt> instance from a
      * stream (i.e., deserialize it).
      * @param s the stream

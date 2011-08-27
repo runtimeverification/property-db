@@ -30,7 +30,7 @@ import java.io.Serializable;
 
 import java.util.Date;
 
-/**
+/** {@collect.stats}
  * Class DateTimeSyntax is an abstract base class providing the common
  * implementation of all attributes whose value is a date and time.
  * <P>
@@ -64,7 +64,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
 
     // Hidden data members.
 
-    /**
+    /** {@collect.stats}
      * This date-time attribute's<code>java.util.Date</code> value.
      * @serial
      */
@@ -72,7 +72,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
 
     // Hidden constructors.
 
-    /**
+    /** {@collect.stats}
      * Construct a new date-time attribute with the given
      * <code>java.util.Date </code> value.
      *
@@ -90,7 +90,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
 
     // Exported operations.
 
-    /**
+    /** {@collect.stats}
      * Returns this date-time attribute's <code>java.util.Date</code>
      * value.
      * @return the Date.
@@ -101,7 +101,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
 
     // Exported operations inherited and overridden from class Object.
 
-    /**
+    /** {@collect.stats}
      * Returns whether this date-time attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -125,7 +125,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
                 value.equals(((DateTimeSyntax) object).value));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this date-time attribute. The hashcode is
      * that of this attribute's <code>java.util.Date</code> value.
      */
@@ -133,7 +133,7 @@ public abstract class DateTimeSyntax implements Serializable, Cloneable {
         return value.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string value corresponding to this date-time attribute.
      * The string value is just this attribute's
      * <code>java.util.Date</code>  value

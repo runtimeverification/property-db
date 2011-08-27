@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.concurrent.locks.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A bounded {@linkplain BlockingQueue blocking queue} backed by an
  * array.  This queue orders elements FIFO (first-in-first-out).  The
  * <em>head</em> of the queue is that element that has been on the
@@ -75,7 +75,7 @@ import java.util.*;
 public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         implements BlockingQueue<E>, java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * Serialization ID. This class relies on default serialization
      * even for the items array, which is default-serialized, even if
      * it is empty. Otherwise it could not be declared final, which is
@@ -83,13 +83,13 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      */
     private static final long serialVersionUID = -817911632652898426L;
 
-    /** The queued items  */
+    /** {@collect.stats} The queued items  */
     private final E[] items;
-    /** items index for next take, poll or remove */
+    /** {@collect.stats} items index for next take, poll or remove */
     private int takeIndex;
-    /** items index for next put, offer, or add. */
+    /** {@collect.stats} items index for next put, offer, or add. */
     private int putIndex;
-    /** Number of items in the queue */
+    /** {@collect.stats} Number of items in the queue */
     private int count;
 
     /*
@@ -97,23 +97,23 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * found in any textbook.
      */
 
-    /** Main lock guarding all access */
+    /** {@collect.stats} Main lock guarding all access */
     private final ReentrantLock lock;
-    /** Condition for waiting takes */
+    /** {@collect.stats} Condition for waiting takes */
     private final Condition notEmpty;
-    /** Condition for waiting puts */
+    /** {@collect.stats} Condition for waiting puts */
     private final Condition notFull;
 
     // Internal helper methods
 
-    /**
+    /** {@collect.stats}
      * Circularly increment i.
      */
     final int inc(int i) {
         return (++i == items.length)? 0 : i;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts element at current put position, advances, and signals.
      * Call only when holding lock.
      */
@@ -124,7 +124,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         notEmpty.signal();
     }
 
-    /**
+    /** {@collect.stats}
      * Extracts element at current take position, advances, and signals.
      * Call only when holding lock.
      */
@@ -138,7 +138,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility for remove and iterator.remove: Delete item at position i.
      * Call only when holding lock.
      */
@@ -166,7 +166,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         notFull.signal();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and default access policy.
      *
@@ -177,7 +177,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         this(capacity, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity and the specified access policy.
      *
@@ -196,7 +196,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         notFull =  lock.newCondition();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <tt>ArrayBlockingQueue</tt> with the given (fixed)
      * capacity, the specified access policy and initially containing the
      * elements of the given collection,
@@ -222,7 +222,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
             add(it.next());
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
      * returning <tt>true</tt> upon success and throwing an
@@ -237,7 +237,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         return super.add(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
      * returning <tt>true</tt> upon success and <tt>false</tt> if this queue
@@ -262,7 +262,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue, waiting
      * for space to become available if the queue is full.
      *
@@ -288,7 +288,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue, waiting
      * up to the specified wait time for space to become available if
      * the queue is full.
@@ -391,7 +391,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is overridden to remove the reference to collections
     // greater in size than Integer.MAX_VALUE
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this queue.
      *
      * @return the number of elements in this queue
@@ -408,7 +408,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is a modified copy of the inherited doc comment,
     // without the reference to unlimited queues.
-    /**
+    /** {@collect.stats}
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking. This is always equal to the initial capacity of this queue
@@ -429,7 +429,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element <tt>e</tt> such
      * that <tt>o.equals(e)</tt>, if this queue contains one or more such
@@ -463,7 +463,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this queue contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this queue contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
@@ -490,7 +490,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence.
      *
@@ -521,7 +521,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the queue fits in the specified array, it
@@ -592,7 +592,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically removes all of the elements from this queue.
      * The queue will be empty after this call returns.
      */
@@ -616,7 +616,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -652,7 +652,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -691,7 +691,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this queue in proper sequence.
      * The returned <tt>Iterator</tt> is a "weakly consistent" iterator that
      * will never throw {@link ConcurrentModificationException},
@@ -711,17 +711,17 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Iterator for ArrayBlockingQueue
      */
     private class Itr implements Iterator<E> {
-        /**
+        /** {@collect.stats}
          * Index of element to be returned by next,
          * or a negative number if no such.
          */
         private int nextIndex;
 
-        /**
+        /** {@collect.stats}
          * nextItem holds on to item fields because once we claim
          * that an element exists in hasNext(), we must return it in
          * the following next() call even if it was in the process of
@@ -729,7 +729,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
          */
         private E nextItem;
 
-        /**
+        /** {@collect.stats}
          * Index of element returned by most recent call to next.
          * Reset to -1 if this element is deleted by a call to remove.
          */
@@ -754,7 +754,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
             return nextIndex >= 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether nextIndex is valid; if so setting nextItem.
          * Stops iterator when either hits putIndex or sees null item.
          */

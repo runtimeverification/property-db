@@ -31,7 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>PGPData</code> element as defined in
  * the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>. A
@@ -74,7 +74,7 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface PGPData extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * URI identifying the PGPData KeyInfo type:
      * http://www.w3.org/2000/09/xmldsig#PGPData. This can be specified as the
      * value of the <code>type</code> parameter of the {@link RetrievalMethod}
@@ -82,7 +82,7 @@ public interface PGPData extends XMLStructure {
      */
     final static String TYPE = "http://www.w3.org/2000/09/xmldsig#PGPData";
 
-    /**
+    /** {@collect.stats}
      * Returns the PGP public key identifier of this <code>PGPData</code> as
      * defined in <a href="http://www.ietf.org/rfc/rfc2440.txt">RFC 2440</a>,
      * section 11.2.
@@ -93,7 +93,7 @@ public interface PGPData extends XMLStructure {
      */
     byte[] getKeyId();
 
-    /**
+    /** {@collect.stats}
      * Returns the PGP key material packet of this <code>PGPData</code> as
      * defined in <a href="http://www.ietf.org/rfc/rfc2440.txt">RFC 2440</a>,
      * section 5.5.
@@ -104,7 +104,7 @@ public interface PGPData extends XMLStructure {
      */
     byte[] getKeyPacket();
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link Collections#unmodifiableList unmodifiable list}
      * of {@link XMLStructure}s representing elements from an external
      * namespace.

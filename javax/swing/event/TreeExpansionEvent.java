@@ -28,7 +28,7 @@ package javax.swing.event;
 import java.util.EventObject;
 import javax.swing.tree.TreePath;
 
-/**
+/** {@collect.stats}
  * An event used to identify a single path in a tree.  The source
  * returned by <b>getSource</b> will be an instance of JTree.
  * <p>
@@ -50,12 +50,12 @@ import javax.swing.tree.TreePath;
  */
 public class TreeExpansionEvent extends EventObject
 {
-    /**
+    /** {@collect.stats}
       * Path to the value this event represents.
       */
     protected TreePath              path;
 
-    /**
+    /** {@collect.stats}
      * Constructs a TreeExpansionEvent object.
      *
      * @param source  the Object that originated the event
@@ -68,7 +68,7 @@ public class TreeExpansionEvent extends EventObject
         this.path = path;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the path to the value that has been expanded/collapsed.
       */
     public TreePath getPath() { return path; }

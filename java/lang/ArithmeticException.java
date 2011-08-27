@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when an exceptional arithmetic condition has occurred. For
  * example, an integer "divide by zero" throws an
  * instance of this class.
@@ -35,7 +35,7 @@ package java.lang;
  */
 public
 class ArithmeticException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ArithmeticException</code> with no detail
      * message.
      */
@@ -43,7 +43,7 @@ class ArithmeticException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ArithmeticException</code> with the specified
      * detail message.
      *

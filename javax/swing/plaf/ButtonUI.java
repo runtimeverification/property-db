@@ -30,7 +30,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Insets;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JButton.
  *
  * @author Jeff Dinkins

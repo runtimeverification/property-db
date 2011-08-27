@@ -29,7 +29,7 @@ import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintJobAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 
-/**
+/** {@collect.stats}
  * Class Fidelity is a printing attribute class, an enumeration,
  * that indicates whether total fidelity to client supplied print request
  * attributes is required.
@@ -54,20 +54,20 @@ public final class Fidelity extends EnumSyntax
 
     private static final long serialVersionUID = 6320827847329172308L;
 
-    /**
+    /** {@collect.stats}
      * The job must be printed exactly as specified. or else rejected.
      */
     public static final Fidelity
         FIDELITY_TRUE = new Fidelity(0);
 
-    /**
+    /** {@collect.stats}
      * The printer should make reasonable attempts to print the job,
      * even if it cannot print it exactly as specified.
      */
     public static final Fidelity
         FIDELITY_FALSE = new Fidelity(1);
 
-    /**
+    /** {@collect.stats}
      * Construct a new fidelity enumeration value with the
      * given integer value.
      *
@@ -88,19 +88,19 @@ public final class Fidelity extends EnumSyntax
         FIDELITY_FALSE
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class Fidelity.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class Fidelity.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
-    }   /**
+    }   /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -113,7 +113,7 @@ public final class Fidelity extends EnumSyntax
         return Fidelity.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

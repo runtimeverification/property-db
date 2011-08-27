@@ -38,7 +38,7 @@ import sun.awt.AppContext;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * Basic UI implementation for JComboBox.
  * <p>
  * The combo box is a compound component which means that it is an agregate of
@@ -63,7 +63,7 @@ import sun.swing.UIAction;
  */
 public class BasicComboBoxUI extends ComboBoxUI {
     protected JComboBox comboBox;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override.
      */
@@ -91,21 +91,21 @@ public class BasicComboBoxUI extends ComboBoxUI {
     protected JButton   arrowButton;
 
     // Listeners that are attached to the JComboBox
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Override the listener construction method instead.
      *
      * @see #createKeyListener
      */
     protected KeyListener keyListener;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Override the listener construction method instead.
      *
      * @see #createFocusListener
      */
     protected FocusListener focusListener;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Override the listener construction method instead.
      *
@@ -113,7 +113,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
      */
     protected PropertyChangeListener propertyChangeListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Override the listener construction method instead.
      *
@@ -129,7 +129,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // This is used for knowing when to cache the minimum preferred size.
     // If the data in the list changes, the cached value get marked for recalc.
     // Added to the current JComboBox model
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Override the listener construction method instead.
      *
@@ -137,26 +137,26 @@ public class BasicComboBoxUI extends ComboBoxUI {
      */
     protected ListDataListener listDataListener;
 
-    /**
+    /** {@collect.stats}
      * Implements all the Listeners needed by this class, all existing
      * listeners redirect to it.
      */
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * The time factor to treate the series of typed alphanumeric key
      * as prefix for first letter navigation.
      */
     private long timeFactor = 1000L;
 
-    /**
+    /** {@collect.stats}
      * This is tricky, this variables is needed for DefaultKeySelectionManager
      * to take into account time factor.
      */
     private long lastTime = 0L;
     private long time = 0L;
 
-    /**
+    /** {@collect.stats}
      * The default key selection manager
      */
     JComboBox.KeySelectionManager keySelectionManager;
@@ -178,19 +178,19 @@ public class BasicComboBoxUI extends ComboBoxUI {
 
     static final Object HIDE_POPUP_KEY = new Object(); // HidePopupKey
 
-    /**
+    /** {@collect.stats}
      * Whether or not all cells have the same baseline.
      */
     private boolean sameBaseline;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not the combo box button should be square.
      * If square, then the width and height are equal, and are both set to
      * the height of the combo (minus appropriate insets).
      */
     private boolean squareButton = true;
 
-    /**
+    /** {@collect.stats}
      * Optional: if specified, these insets act as padding around the cell
      * renderer when laying out and painting the "selected" item in the
      * combo box. BasicComboBoxUI uses a single combo box renderer for rendering
@@ -213,7 +213,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return renderer;
     }
 
-    /**
+    /** {@collect.stats}
      * Populates ComboBox's actions.
      */
     static void loadActionMap(LazyActionMap map) {
@@ -319,7 +319,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         comboBox = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the default colors, default font, default renderer, and default
      * editor into the JComboBox.
      */
@@ -341,7 +341,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         padding = UIManager.getInsets("ComboBox.padding");
     }
 
-    /**
+    /** {@collect.stats}
      * Create and install the listeners for the combo box and its model.
      * This method is called when the UI is installed.
      */
@@ -375,7 +375,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the default colors, default font, default renderer, and default
      * editor into the JComboBox.
      */
@@ -387,7 +387,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         LookAndFeel.uninstallBorder( comboBox );
     }
 
-    /**
+    /** {@collect.stats}
      * Remove the installed listeners from the combo box and its model.
      * The number and types of listeners removed and in this method should be
      * the same that was added in <code>installListeners</code>
@@ -421,7 +421,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the popup portion of the combo box.
      *
      * @return an instance of <code>ComboPopup</code>
@@ -431,7 +431,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return new BasicComboPopup( comboBox );
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>KeyListener</code> which will be added to the
      * combo box. If this method returns null then it will not be added
      * to the combo box.
@@ -442,7 +442,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>FocusListener</code> which will be added to the combo box.
      * If this method returns null then it will not be added to the combo box.
      *
@@ -452,7 +452,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a list data listener which will be added to the
      * <code>ComboBoxModel</code>. If this method returns null then
      * it will not be added to the combo box model.
@@ -463,7 +463,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>ItemListener</code> which will be added to the
      * combo box. If this method returns null then it will not
      * be added to the combo box.
@@ -477,7 +477,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PropertyChangeListener</code> which will be added to
      * the combo box. If this method returns null then it will not
      * be added to the combo box.
@@ -488,7 +488,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a layout manager for managing the components which make up the
      * combo box.
      *
@@ -498,7 +498,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the default renderer that will be used in a non-editiable combo
      * box. A default renderer will used only if a renderer has not been
      * explicitly set with <code>setRenderer</code>.
@@ -510,7 +510,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return new BasicComboBoxRenderer.UIResource();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the default editor that will be used in editable combo boxes.
      * A default editor will be used only if an editor has not been
      * explicitly set with <code>setEditor</code>.
@@ -522,7 +522,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return new BasicComboBoxEditor.UIResource();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shared listener.
      */
     private Handler getHandler() {
@@ -541,7 +541,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Inner classes
     //
 
-    /**
+    /** {@collect.stats}
      * This listener checks to see if the key event isn't a navigation key.  If
      * it finds a key event that wasn't a navigation key it dispatches it to
      * JComboBox.selectWithKeyChar() so that it can do type-ahead.
@@ -557,7 +557,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener hides the popup when the focus is lost.  It also repaints
      * when focus is gained or lost.
      *
@@ -575,7 +575,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for changes in the
      * <code>ComboBoxModel</code>.
      * <p>
@@ -599,7 +599,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for changes to the selection in the
      * combo box.
      * <p>
@@ -614,7 +614,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         public void itemStateChanged(ItemEvent e) {}
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for bound properties that have changed in the
      * combo box.
      * <p>
@@ -646,7 +646,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This layout manager handles the 'standard' layout of combo boxes.  It puts
      * the arrow button to the right and the editor to the left.  If there is no
      * editor it still keeps the arrow button to the right.
@@ -682,7 +682,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Sub-Component Management
     //
 
-    /**
+    /** {@collect.stats}
      * Creates and initializes the components which make up the
      * aggregate combo box. This method is called as part of the UI
      * installation process.
@@ -702,7 +702,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         comboBox.add( currentValuePane );
     }
 
-    /**
+    /** {@collect.stats}
      * The aggregate components which compise the combo box are
      * unregistered and uninitialized. This method is called as part of the
      * UI uninstallation process.
@@ -718,7 +718,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         arrowButton = null;
     }
 
-    /**
+    /** {@collect.stats}
      * This public method is implementation specific and should be private.
      * do not call or override. To implement a specific editor create a
      * custom <code>ComboBoxEditor</code>
@@ -740,7 +740,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This public method is implementation specific and should be private.
      * do not call or override.
      *
@@ -754,7 +754,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * do not call or override.
      *
@@ -787,7 +787,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         editor.addPropertyChangeListener(propertyChangeListener);
     }
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * Do not call or override.
      *
@@ -803,7 +803,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         comboBox.getEditor().removeActionListener(getHandler());
     }
 
-    /**
+    /** {@collect.stats}
      * This public method is implementation specific and should be private. Do
      * not call or override.
      *
@@ -822,7 +822,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This public method is implementation specific and should be private. Do
      * not call or override.
      *
@@ -835,7 +835,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an button which will be used as the control to show or hide
      * the popup portion of the combo box.
      *
@@ -860,14 +860,14 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin ComboBoxUI Implementation
     //
 
-    /**
+    /** {@collect.stats}
      * Tells if the popup is visible or not.
      */
     public boolean isPopupVisible( JComboBox c ) {
         return popup.isVisible();
     }
 
-    /**
+    /** {@collect.stats}
      * Hides the popup.
      */
     public void setPopupVisible( JComboBox c, boolean v ) {
@@ -878,7 +878,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the JComboBox is focus traversable.  If the JComboBox is editable
      * this returns false, otherwise it returns true.
      */
@@ -908,7 +908,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return getMinimumSize(c);
     }
 
-    /**
+    /** {@collect.stats}
      * The minumum size is the size of the display area plus insets plus the button.
      */
     @Override
@@ -936,7 +936,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return new Dimension(Short.MAX_VALUE, Short.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -991,7 +991,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return baseline;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -1078,7 +1078,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Utility Methods
     //
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the supplied keyCode maps to a key that is used for
      * navigation.  This is used for optimizing key input by only passing non-
      * navigation keys to the type-ahead mechanism.  Subclasses should override this
@@ -1099,7 +1099,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the next item in the list.  It won't change the selection if the
      * currently selected item is already the last item.
      */
@@ -1123,7 +1123,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the previous item in the list.  It won't change the selection if the
      * currently selected item is already the first item.
      */
@@ -1147,14 +1147,14 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Hides the popup if it is showing and shows the popup if it is hidden.
      */
     protected void toggleOpenClose() {
         setPopupVisible(comboBox, !isPopupVisible(comboBox));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the area that is reserved for drawing the currently selected item.
      */
     protected Rectangle rectangleForCurrentValue() {
@@ -1177,7 +1177,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the insets from the JComboBox.
      */
     protected Insets getInsets() {
@@ -1193,7 +1193,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Painting Utility Methods
     //
 
-    /**
+    /** {@collect.stats}
      * Paints the currently selected item.
      */
     public void paintCurrentValue(Graphics g,Rectangle bounds,boolean hasFocus) {
@@ -1250,7 +1250,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         currentValuePane.paintComponent(g,c,comboBox,x,y,w,h,shouldValidate);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the background of the currently selected item.
      */
     public void paintCurrentValueBackground(Graphics g,Rectangle bounds,boolean hasFocus) {
@@ -1265,7 +1265,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         g.setColor(t);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaint the currently selected item.
      */
     void repaintCurrentValue() {
@@ -1282,7 +1282,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Size Utility Methods
     //
 
-    /**
+    /** {@collect.stats}
      * Return the default size of an empty display area of the combo box using
      * the current renderer and font.
      *
@@ -1296,7 +1296,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return new Dimension(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the calculated size of the display area. The display area is the
      * portion of the combo box in which the selected item is displayed. This
      * method will use the prototype display value if it has been set.
@@ -1388,7 +1388,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * This has been refactored out in hopes that it may be investigated and
      * simplified for the next major release. adding/removing
      * the component to the currentValuePane and changing the font may be
@@ -1412,7 +1412,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
     // begin Keyboard Action Management
     //
 
-    /**
+    /** {@collect.stats}
      * Adds keyboard actions to the JComboBox.  Actions on enter and esc are already
      * supplied.  Add more actions as you need them.
      */
@@ -1438,7 +1438,7 @@ public class BasicComboBoxUI extends ComboBoxUI {
         return isTableCellEditor;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the focus InputMap and ActionMap.
      */
     protected void uninstallKeyboardActions() {

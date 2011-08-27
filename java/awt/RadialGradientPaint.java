@@ -30,7 +30,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ColorModel;
 
-/**
+/** {@collect.stats}
  * The {@code RadialGradientPaint} class provides a way to fill a shape with
  * a circular radial color gradient pattern. The user may specify 2 or more
  * gradient colors, and this paint will provide an interpolation between
@@ -132,16 +132,16 @@ import java.awt.image.ColorModel;
  */
 public final class RadialGradientPaint extends MultipleGradientPaint {
 
-    /** Focus point which defines the 0% gradient stop X coordinate. */
+    /** {@collect.stats} Focus point which defines the 0% gradient stop X coordinate. */
     private final Point2D focus;
 
-    /** Center of the circle defining the 100% gradient stop X coordinate. */
+    /** {@collect.stats} Center of the circle defining the 100% gradient stop X coordinate. */
     private final Point2D center;
 
-    /** Radius of the outermost circle defining the 100% gradient stop. */
+    /** {@collect.stats} Radius of the outermost circle defining the 100% gradient stop. */
     private final float radius;
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code NO_CYCLE} repeating method and {@code SRGB} color space,
      * using the center as the focus point.
@@ -181,7 +181,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              CycleMethod.NO_CYCLE);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code NO_CYCLE} repeating method and {@code SRGB} color space,
      * using the center as the focus point.
@@ -218,7 +218,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              CycleMethod.NO_CYCLE);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code SRGB} color space, using the center as the focus point.
      *
@@ -261,7 +261,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              cycleMethod);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code SRGB} color space, using the center as the focus point.
      *
@@ -301,7 +301,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              cycleMethod);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code SRGB} color space.
      *
@@ -349,7 +349,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              cycleMethod);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code SRGB} color space.
      *
@@ -394,7 +394,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
              new AffineTransform());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint}.
      *
      * @param center the center point in user space of the circle defining the
@@ -458,7 +458,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
         this.radius = radius;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RadialGradientPaint} with a default
      * {@code SRGB} color space.
      * The gradient circle of the {@code RadialGradientPaint} is defined
@@ -542,7 +542,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
         return xform;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@link PaintContext} used to 
      * generate a circular radial color gradient pattern.
      * See the description of the {@link Paint#createContext createContext} method 
@@ -592,7 +592,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
                                               cycleMethod, colorSpace);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the center point of the radial gradient.
      *
      * @return a {@code Point2D} object that is a copy of the center point
@@ -601,7 +601,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
         return new Point2D.Double(center.getX(), center.getY());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the end point of the gradient axis.
      *
      * @return a {@code Point2D} object that is a copy of the focus point
@@ -610,7 +610,7 @@ public final class RadialGradientPaint extends MultipleGradientPaint {
         return new Point2D.Double(focus.getX(), focus.getY());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the radius of the circle defining the radial gradient.
      *
      * @return the radius of the circle defining the radial gradient

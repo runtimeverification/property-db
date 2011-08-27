@@ -39,7 +39,7 @@ import java.awt.geom.*;
 import java.awt.*;
 import java.awt.image.*;
 
-/**
+/** {@collect.stats}
  * A RenderContext encapsulates the information needed to produce a
  * specific rendering from a RenderableImage.  It contains the area to
  * be rendered specified in rendering-independent terms, the
@@ -60,20 +60,20 @@ import java.awt.image.*;
  */
 public class RenderContext implements Cloneable {
 
-    /** Table of hints. May be null. */
+    /** {@collect.stats} Table of hints. May be null. */
     RenderingHints hints;
 
-    /** Transform to convert user coordinates to device coordinates.  */
+    /** {@collect.stats} Transform to convert user coordinates to device coordinates.  */
     AffineTransform usr2dev;
 
-    /** The area of interest.  May be null. */
+    /** {@collect.stats} The area of interest.  May be null. */
     Shape aoi;
 
     // Various constructors that allow different levels of
     // specificity. If the Shape is missing the whole renderable area
     // is assumed. If hints is missing no hints are assumed.
 
-    /**
+    /** {@collect.stats}
      * Constructs a RenderContext with a given transform.
      * The area of interest is supplied as a Shape,
      * and the rendering hints are supplied as a RenderingHints object.
@@ -90,7 +90,7 @@ public class RenderContext implements Cloneable {
         this.usr2dev = (AffineTransform)usr2dev.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a RenderContext with a given transform.
      * The area of interest is taken to be the entire renderable area.
      * No rendering hints are used.
@@ -101,7 +101,7 @@ public class RenderContext implements Cloneable {
         this(usr2dev, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a RenderContext with a given transform and rendering hints.
      * The area of interest is taken to be the entire renderable area.
      *
@@ -112,7 +112,7 @@ public class RenderContext implements Cloneable {
         this(usr2dev, null, hints);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a RenderContext with a given transform and area of interest.
      * The area of interest is supplied as a Shape.
      * No rendering hints are used.
@@ -124,7 +124,7 @@ public class RenderContext implements Cloneable {
         this(usr2dev, aoi, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the rendering hints of this <code>RenderContext</code>.
      * @return a <code>RenderingHints</code> object that represents
      * the rendering hints of this <code>RenderContext</code>.
@@ -134,7 +134,7 @@ public class RenderContext implements Cloneable {
         return hints;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the rendering hints of this <code>RenderContext</code>.
      * @param hints a <code>RenderingHints</code> object that represents
      * the rendering hints to assign to this <code>RenderContext</code>.
@@ -144,7 +144,7 @@ public class RenderContext implements Cloneable {
         this.hints = hints;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current user-to-device AffineTransform contained
      * in the RenderContext to a given transform.
      *
@@ -155,7 +155,7 @@ public class RenderContext implements Cloneable {
         usr2dev = (AffineTransform)newTransform.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Modifies the current user-to-device transform by prepending another
      * transform.  In matrix notation the operation is:
      * <pre>
@@ -170,7 +170,7 @@ public class RenderContext implements Cloneable {
         this.preConcetenateTransform(modTransform);
     }
 
-    /**
+    /** {@collect.stats}
      * Modifies the current user-to-device transform by prepending another
      * transform.  In matrix notation the operation is:
      * <pre>
@@ -190,7 +190,7 @@ public class RenderContext implements Cloneable {
         usr2dev.preConcatenate(modTransform);
     }
 
-    /**
+    /** {@collect.stats}
      * Modifies the current user-to-device transform by appending another
      * transform.  In matrix notation the operation is:
      * <pre>
@@ -205,7 +205,7 @@ public class RenderContext implements Cloneable {
         this.concetenateTransform(modTransform);
     }
 
-    /**
+    /** {@collect.stats}
      * Modifies the current user-to-device transform by appending another
      * transform.  In matrix notation the operation is:
      * <pre>
@@ -225,7 +225,7 @@ public class RenderContext implements Cloneable {
         usr2dev.concatenate(modTransform);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current user-to-device AffineTransform.
      *
      * @return a reference to the current AffineTransform.
@@ -235,7 +235,7 @@ public class RenderContext implements Cloneable {
         return (AffineTransform)usr2dev.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current area of interest.  The old area is discarded.
      *
      * @param newAoi The new area of interest.
@@ -245,7 +245,7 @@ public class RenderContext implements Cloneable {
         aoi = newAoi;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the ares of interest currently contained in the
      * RenderContext.
      *
@@ -257,7 +257,7 @@ public class RenderContext implements Cloneable {
         return aoi;
     }
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of a RenderContext. The area of interest is copied
      * by reference.  The usr2dev AffineTransform and hints are cloned,
      * while the area of interest is copied by reference.

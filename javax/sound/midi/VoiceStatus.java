@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>VoiceStatus</code> object contains information about the current
  * status of one of the voices produced by a {@link Synthesizer}.
  * <p>
@@ -87,7 +87,7 @@ package javax.sound.midi;
 public class VoiceStatus {
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the voice is currently processing a MIDI note.
      * See the explanation of
      * <A HREF="#description_of_active">active and inactive voices</A>.
@@ -95,7 +95,7 @@ public class VoiceStatus {
     public boolean active = false;
 
 
-    /**
+    /** {@collect.stats}
      * The MIDI channel on which this voice is playing.  The value is a
      * zero-based channel number if the voice is active, or
      * unspecified if the voice is inactive.
@@ -106,7 +106,7 @@ public class VoiceStatus {
     public int channel = 0;
 
 
-    /**
+    /** {@collect.stats}
      * The bank number of the instrument that this voice is currently using.
      * This is a number dictated by the MIDI bank-select message; it does not
      * refer to a <code>SoundBank</code> object.
@@ -120,7 +120,7 @@ public class VoiceStatus {
     public int bank = 0;
 
 
-    /**
+    /** {@collect.stats}
      * The program number of the instrument that this voice is currently using.
      * The value ranges from 0 to 127 if the voice is active, and is
      * unspecified if the voice is inactive.
@@ -132,7 +132,7 @@ public class VoiceStatus {
     public int program = 0;
 
 
-    /**
+    /** {@collect.stats}
      * The MIDI note that this voice is playing.  The range for an active voice
      * is from 0 to 127 in semitones, with 60 referring to Middle C.
      * The value is unspecified if the voice is inactive.
@@ -143,7 +143,7 @@ public class VoiceStatus {
     public int note = 0;
 
 
-    /**
+    /** {@collect.stats}
      * The current MIDI volume level for the voice.
      * The value ranges from 0 to 127 if the voice is active, and is
      * unspecified if the voice is inactive.

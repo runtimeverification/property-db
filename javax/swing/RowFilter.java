@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/** {@collect.stats}
  * <code>RowFilter</code> is used to filter out entries from the
  * model so that they are not shown in the view.  For example, a
  * <code>RowFilter</code> associated with a <code>JTable</code> might
@@ -94,7 +94,7 @@ import java.util.regex.Pattern;
  * @since 1.6
  */
 public abstract class RowFilter<M,I> {
-    /**
+    /** {@collect.stats}
      * Enumeration of the possible comparison values supported by
      * some of the default <code>RowFilter</code>s.
      *
@@ -102,32 +102,32 @@ public abstract class RowFilter<M,I> {
      * @since 1.6
      */
     public enum ComparisonType {
-        /**
+        /** {@collect.stats}
          * Indicates that entries with a value before the supplied
          * value should be included.
          */
         BEFORE,
 
-        /**
+        /** {@collect.stats}
          * Indicates that entries with a value after the supplied
          * value should be included.
          */
         AFTER,
 
-        /**
+        /** {@collect.stats}
          * Indicates that entries with a value equal to the supplied
          * value should be included.
          */
         EQUAL,
 
-        /**
+        /** {@collect.stats}
          * Indicates that entries with a value not equal to the supplied
          * value should be included.
          */
         NOT_EQUAL
     }
 
-    /**
+    /** {@collect.stats}
      * Throws an IllegalArgumentException if any of the values in
      * columns are < 0.
      */
@@ -139,7 +139,7 @@ public abstract class RowFilter<M,I> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that uses a regular
      * expression to determine which entries to include.  Only entries
      * with at least one matching value are included.  For
@@ -176,7 +176,7 @@ public abstract class RowFilter<M,I> {
                                                indices);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that includes entries that
      * have at least one <code>Date</code> value meeting the specified
      * criteria.  For example, the following <code>RowFilter</code> includes
@@ -203,7 +203,7 @@ public abstract class RowFilter<M,I> {
         return (RowFilter<M,I>)new DateFilter(type, date.getTime(), indices);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that includes entries that
      * have at least one <code>Number</code> value meeting the
      * specified criteria.  For example, the following
@@ -226,7 +226,7 @@ public abstract class RowFilter<M,I> {
         return (RowFilter<M,I>)new NumberFilter(type, number, indices);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that includes entries if any
      * of the supplied filters includes the entry.
      * <p>
@@ -252,7 +252,7 @@ public abstract class RowFilter<M,I> {
         return new OrFilter<M,I>(filters);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that includes entries if all
      * of the supplied filters include the entry.
      * <p>
@@ -278,7 +278,7 @@ public abstract class RowFilter<M,I> {
         return new AndFilter<M,I>(filters);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>RowFilter</code> that includes entries if the
      * supplied filter does not include the entry.
      *
@@ -291,7 +291,7 @@ public abstract class RowFilter<M,I> {
         return new NotFilter<M,I>(filter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified entry should be shown;
      * returns false if the entry should be hidden.
      * <p>
@@ -313,7 +313,7 @@ public abstract class RowFilter<M,I> {
     // usage.
     //
 
-    /**
+    /** {@collect.stats}
      * An <code>Entry</code> object is passed to instances of
      * <code>RowFilter</code>, allowing the filter to get the value of the
      * entry's data, and thus to determine whether the entry should be shown.
@@ -328,20 +328,20 @@ public abstract class RowFilter<M,I> {
      * @since 1.6
      */
     public static abstract class Entry<M, I> {
-        /**
+        /** {@collect.stats}
          * Creates an <code>Entry</code>.
          */
         public Entry() {
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the underlying model.
          *
          * @return the model containing the data that this entry represents
          */
         public abstract M getModel();
 
-        /**
+        /** {@collect.stats}
          * Returns the number of values in the entry.  For
          * example, when used with a table this corresponds to the
          * number of columns.
@@ -350,7 +350,7 @@ public abstract class RowFilter<M,I> {
          */
         public abstract int getValueCount();
 
-        /**
+        /** {@collect.stats}
          * Returns the value at the specified index.  This may return
          * <code>null</code>.  When used with a table, index
          * corresponds to the column number in the model.
@@ -362,7 +362,7 @@ public abstract class RowFilter<M,I> {
          */
         public abstract Object getValue(int index);
 
-        /**
+        /** {@collect.stats}
          * Returns the string value at the specified index.  If
          * filtering is being done based on <code>String</code> values
          * this method is preferred to that of <code>getValue</code>
@@ -384,7 +384,7 @@ public abstract class RowFilter<M,I> {
             return (value == null) ? "" : value.toString();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the identifer (in the model) of the entry.
          * For a table this corresponds to the index of the row in the model,
          * expressed as an <code>Integer</code>.

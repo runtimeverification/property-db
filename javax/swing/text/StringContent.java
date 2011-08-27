@@ -29,7 +29,7 @@ import java.io.Serializable;
 import javax.swing.undo.*;
 import javax.swing.SwingUtilities;
 
-/**
+/** {@collect.stats}
  * An implementation of the AbstractDocument.Content interface that is
  * a brute force implementation that is useful for relatively small
  * documents and/or debugging.  It manages the character content
@@ -52,14 +52,14 @@ import javax.swing.SwingUtilities;
  */
 public final class StringContent implements AbstractDocument.Content, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Creates a new StringContent object.  Initial size defaults to 10.
      */
     public StringContent() {
         this(10);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new StringContent object, with the initial
      * size specified.  If the length is < 1, a size of 1 is used.
      *
@@ -74,7 +74,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         count = 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the content.
      *
      * @return the length >= 1
@@ -84,7 +84,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a string into the content.
      *
      * @param where the starting position >= 0 && < length()
@@ -105,7 +105,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         return new InsertUndo(where, str.length());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes part of the content.  where + nitems must be < length().
      *
      * @param where the starting position >= 0
@@ -128,7 +128,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
 
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a portion of the content.  where + len must be <= length().
      *
      * @param where the starting position >= 0
@@ -144,7 +144,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         return new String(data, where, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a portion of the content.  where + len must be <= length()
      *
      * @param where the starting position >= 0
@@ -162,7 +162,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         chars.count = len;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a position within the content that will
      * track change as the content is mutated.
      *
@@ -181,7 +181,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
 
     // --- local methods ---------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Replaces some of the characters in the array
      * @param offset  offset into the array to start the replace
      * @param length  number of characters to remove
@@ -255,7 +255,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Vector containing instances of UndoPosRef for the
      * Positions in the range
      * <code>offset</code> to <code>offset</code> + <code>length</code>.
@@ -288,7 +288,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         return placeIn;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the location for all the UndoPosRef instances
      * in <code>positions</code>.
      * <p>
@@ -314,7 +314,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
     private int count;
     transient Vector marks;
 
-    /**
+    /** {@collect.stats}
      * holds the data for a mark... separately from
      * the real mark so that the real mark can be
      * collected if there are no more references to
@@ -331,7 +331,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         boolean unused;
     }
 
-    /**
+    /** {@collect.stats}
      * This really wants to be a weak reference but
      * in 1.1 we don't have a 100% pure solution for
      * this... so this class trys to hack a solution
@@ -361,7 +361,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
         PosRec rec;
     }
 
-    /**
+    /** {@collect.stats}
      * Used to hold a reference to a Position that is being reset as the
      * result of removing from the content.
      */
@@ -371,7 +371,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
             this.undoLocation = rec.offset;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the location of the Position to the offset when the
          * receiver was instantiated.
          */
@@ -379,13 +379,13 @@ public final class StringContent implements AbstractDocument.Content, Serializab
             rec.offset = undoLocation;
         }
 
-        /** Location to reset to when resetLocatino is invoked. */
+        /** {@collect.stats} Location to reset to when resetLocatino is invoked. */
         protected int undoLocation;
-        /** Position to reset offset. */
+        /** {@collect.stats} Position to reset offset. */
         protected PosRec rec;
     }
 
-    /**
+    /** {@collect.stats}
      * UnoableEdit created for inserts.
      */
     class InsertUndo extends AbstractUndoableEdit {
@@ -440,7 +440,7 @@ public final class StringContent implements AbstractDocument.Content, Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * UndoableEdit created for removes.
      */
     class RemoveUndo extends AbstractUndoableEdit {

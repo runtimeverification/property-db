@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.io.*;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * <code>JPasswordField</code> is a lightweight component that allows
  * the editing of a single line of text where the view indicates
  * something was typed, but does not show the original characters.
@@ -76,7 +76,7 @@ import java.util.Arrays;
  */
 public class JPasswordField extends JTextField {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JPasswordField</code>,
      * with a default document, <code>null</code> starting
      * text string, and 0 column width.
@@ -85,7 +85,7 @@ public class JPasswordField extends JTextField {
         this(null,null,0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JPasswordField</code> initialized
      * with the specified text.  The document model is set to the
      * default, and the number of columns to 0.
@@ -96,7 +96,7 @@ public class JPasswordField extends JTextField {
         this(null, text, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new empty <code>JPasswordField</code> with the specified
      * number of columns.  A default model is created, and the initial string
      * is set to <code>null</code>.
@@ -107,7 +107,7 @@ public class JPasswordField extends JTextField {
         this(null, null, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JPasswordField</code> initialized with
      * the specified text and columns.  The document model is set to
      * the default.
@@ -119,7 +119,7 @@ public class JPasswordField extends JTextField {
         this(null, text, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JPasswordField</code> that uses the
      * given text storage model and the given number of columns.
      * This is the constructor through which the other constructors feed.
@@ -142,7 +142,7 @@ public class JPasswordField extends JTextField {
         enableInputMethods(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "PasswordFieldUI"
@@ -154,7 +154,7 @@ public class JPasswordField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -165,7 +165,7 @@ public class JPasswordField extends JTextField {
         super.updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character to be used for echoing.  The default is '*'.
      * The default may be different depending on the currently running Look
      * and Feel. For example, Metal/Ocean's default is a bullet character.
@@ -178,7 +178,7 @@ public class JPasswordField extends JTextField {
         return echoChar;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the echo character for this <code>JPasswordField</code>.
      * Note that this is largely a suggestion, since the
      * view that gets installed can use whatever graphic techniques
@@ -200,7 +200,7 @@ public class JPasswordField extends JTextField {
         revalidate();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this <code>JPasswordField</code> has a character
      * set for echoing.  A character is considered to be set if the echo
      * character is not 0.
@@ -215,7 +215,7 @@ public class JPasswordField extends JTextField {
 
     // --- JTextComponent methods ----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>provideErrorFeedback</code> on the current
      * look and feel, which typically initiates an error beep.
      * The normal behavior of transferring the
@@ -231,7 +231,7 @@ public class JPasswordField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>provideErrorFeedback</code> on the current
      * look and feel, which typically initiates an error beep.
      * The normal behavior of transferring the
@@ -247,7 +247,7 @@ public class JPasswordField extends JTextField {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text contained in this <code>TextComponent</code>.
      * If the underlying document is <code>null</code>, will give a
      * <code>NullPointerException</code>.
@@ -263,7 +263,7 @@ public class JPasswordField extends JTextField {
         return super.getText();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a portion of the text represented by the
      * component.  Returns an empty string if length is 0.
      * <p>
@@ -281,7 +281,7 @@ public class JPasswordField extends JTextField {
         return super.getText(offs, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text contained in this <code>TextComponent</code>.
      * If the underlying document is <code>null</code>, will give a
      * <code>NullPointerException</code>.  For stronger
@@ -303,7 +303,7 @@ public class JPasswordField extends JTextField {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -320,7 +320,7 @@ public class JPasswordField extends JTextField {
 
     // --- variables -----------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -331,7 +331,7 @@ public class JPasswordField extends JTextField {
     private boolean echoCharSet = false;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JPasswordField</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -346,7 +346,7 @@ public class JPasswordField extends JTextField {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is a hack to get around the fact that we cannot
      * directly override setUIProperty because part of the inheritance heirarchy
      * goes outside of the javax.swing package, and therefore calling a package
@@ -369,7 +369,7 @@ public class JPasswordField extends JTextField {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleContext</code> associated with this
      * <code>JPasswordField</code>. For password fields, the
      * <code>AccessibleContext</code> takes the form of an
@@ -388,7 +388,7 @@ public class JPasswordField extends JTextField {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JPasswordField</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to password field user-interface
@@ -405,7 +405,7 @@ public class JPasswordField extends JTextField {
      */
     protected class AccessibleJPasswordField extends AccessibleJTextField {
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -416,7 +416,7 @@ public class JPasswordField extends JTextField {
             return AccessibleRole.PASSWORD_TEXT;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>AccessibleText</code> for the <code>JPasswordField</code>.
          * The returned object also implements the
          * <code>AccessibleExtendedText</code> interface.
@@ -447,7 +447,7 @@ public class JPasswordField extends JTextField {
             return new String(buffer);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>String</code> at a given <code>index</code>.
          *
          * @param part the <code>CHARACTER</code>, <code>WORD</code> or
@@ -480,7 +480,7 @@ public class JPasswordField extends JTextField {
             return getEchoString(str);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>String</code> after a given <code>index</code>.
          *
          * @param part the <code>CHARACTER</code>, <code>WORD</code> or
@@ -507,7 +507,7 @@ public class JPasswordField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>String</code> before a given <code>index</code>.
          *
          * @param part the <code>CHARACTER</code>, <code>WORD</code> or
@@ -534,7 +534,7 @@ public class JPasswordField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the text between two <code>indices</code>.
          *
          * @param startIndex the start index in the text
@@ -550,7 +550,7 @@ public class JPasswordField extends JTextField {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> at a given
          * <code>index</code>.
          *
@@ -592,7 +592,7 @@ public class JPasswordField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> after a given
          * <code>index</code>.
          *
@@ -627,7 +627,7 @@ public class JPasswordField extends JTextField {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> before a given
          * <code>index</code>.
          *

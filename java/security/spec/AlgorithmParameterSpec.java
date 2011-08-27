@@ -25,7 +25,7 @@
 
 package java.security.spec;
 
-/**
+/** {@collect.stats}
  * A (transparent) specification of cryptographic parameters.
  *
  * <P> This interface contains no methods or constants. Its only purpose

@@ -28,7 +28,7 @@ import java.util.Locale;
 import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 
-/**
+/** {@collect.stats}
  * Class MediaName is a subclass of Media, a printing attribute class (an
  * enumeration) that specifies the media for a print job as a name.
  * <P>
@@ -47,29 +47,29 @@ public class MediaName extends Media implements Attribute {
 
     private static final long serialVersionUID = 4653117714524155448L;
 
-    /**
+    /** {@collect.stats}
      *  white letter paper.
      */
     public static final MediaName NA_LETTER_WHITE = new MediaName(0);
 
-    /**
+    /** {@collect.stats}
      *  letter transparency.
      */
     public static final MediaName NA_LETTER_TRANSPARENT = new MediaName(1);
 
-    /**
+    /** {@collect.stats}
      * white A4 paper.
      */
     public static final MediaName ISO_A4_WHITE = new MediaName(2);
 
 
-    /**
+    /** {@collect.stats}
      *  A4 transparency.
      */
     public static final MediaName ISO_A4_TRANSPARENT= new MediaName(3);
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new media name enumeration value with the given integer
      * value.
      *
@@ -93,7 +93,7 @@ public class MediaName extends Media implements Attribute {
         ISO_A4_TRANSPARENT
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class MediaTray.
      * @return the String table.
      */
@@ -102,7 +102,7 @@ public class MediaName extends Media implements Attribute {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class MediaTray.
      * @return the enumeration value table.
      */

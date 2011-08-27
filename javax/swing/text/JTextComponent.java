@@ -73,7 +73,7 @@ import sun.swing.PrintingStatus;
 import sun.swing.SwingUtilities2;
 import sun.swing.text.TextComponentPrintable;
 
-/**
+/** {@collect.stats}
  * <code>JTextComponent</code> is the base class for swing text
  * components.  It tries to be compatible with the
  * <code>java.awt.TextComponent</code> class
@@ -300,7 +300,7 @@ import sun.swing.text.TextComponentPrintable;
  */
 public abstract class JTextComponent extends JComponent implements Scrollable, Accessible
 {
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JTextComponent</code>.
      * Listeners for caret events are established, and the pluggable
      * UI installed.  The component is marked as editable.  No layout manager
@@ -320,14 +320,14 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the user-interface factory for this text-oriented editor.
      *
      * @return the factory
      */
     public TextUI getUI() { return (TextUI)ui; }
 
-    /**
+    /** {@collect.stats}
      * Sets the user-interface factory for this text-oriented editor.
      *
      * @param ui the factory
@@ -336,7 +336,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Reloads the pluggable UI.  The key used to fetch the
      * new interface is <code>getUIClassID()</code>.  The type of
      * the UI is <code>TextUI</code>.  <code>invalidate</code>
@@ -347,7 +347,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         invalidate();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a caret listener for notification of any changes
      * to the caret.
      *
@@ -358,7 +358,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         listenerList.add(CaretListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a caret listener.
      *
      * @param listener the listener to be removed
@@ -368,7 +368,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         listenerList.remove(CaretListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the caret listeners
      * registered on this text component.
      *
@@ -385,7 +385,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return (CaretListener[])listenerList.getListeners(CaretListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -407,7 +407,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the editor with a text document.
      * The currently registered factory is used to build a view for
      * the document, which gets displayed by the editor after revalidation.
@@ -466,7 +466,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the model associated with the editor.  This is
      * primarily for the UI to get at the minimal amount of
      * state required to be a text editor.  Subclasses will
@@ -493,7 +493,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         super.setComponentOrientation( o );
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the command list for the editor.  This is
      * the list of commands supported by the plugged-in UI
      * augmented by the collection of commands that the
@@ -506,7 +506,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return getUI().getEditorKit(this).getActions();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets margin space between the text component's border
      * and its text.  The text component's default <code>Border</code>
      * object will use this value to create the proper margin.
@@ -528,7 +528,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         invalidate();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the margin between the text component's border and
      * its text.
      *
@@ -538,7 +538,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return margin;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>NavigationFilter</code>. <code>NavigationFilter</code>
      * is used by <code>DefaultCaret</code> and the default cursor movement
      * actions as a way to restrict the cursor movement.
@@ -549,7 +549,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         navigationFilter = filter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>NavigationFilter</code>. <code>NavigationFilter</code>
      * is used by <code>DefaultCaret</code> and the default cursor movement
      * actions as a way to restrict the cursor movement. A null return value
@@ -562,7 +562,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return navigationFilter;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the caret that allows text-oriented navigation over
      * the view.
      *
@@ -572,7 +572,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return caret;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret to be used.  By default this will be set
      * by the UI that gets installed.  This can be changed to
      * a custom caret if desired.  Setting the caret results in a
@@ -599,7 +599,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("caret", old, caret);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the object responsible for making highlights.
      *
      * @return the highlighter
@@ -608,7 +608,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return highlighter;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the highlighter to be used.  By default this will be set
      * by the UI that gets installed.  This can be changed to
      * a custom highlighter if desired.  The highlighter can be set to
@@ -635,7 +635,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("highlighter", old, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the keymap to use for binding events to
      * actions.  Setting to <code>null</code> effectively disables
      * keyboard input.
@@ -655,7 +655,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         updateInputMap(old, map);
     }
 
-    /**
+    /** {@collect.stats}
      * Turns on or off automatic drag handling. In order to enable automatic
      * drag handling, this property should be set to {@code true}, and the
      * component's {@code TransferHandler} needs to be {@code non-null}.
@@ -695,7 +695,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         dragEnabled = b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not automatic drag handling is enabled.
      *
      * @return the value of the {@code dragEnabled} property
@@ -706,7 +706,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return dragEnabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the drop mode for this component. For backward compatibility,
      * the default for this property is <code>DropMode.USE_SELECTION</code>.
      * Usage of <code>DropMode.INSERT</code> is recommended, however,
@@ -745,7 +745,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         throw new IllegalArgumentException(dropMode + ": Unsupported drop mode for text");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the drop mode for this component.
      *
      * @return the drop mode for this component
@@ -757,7 +757,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calculates a drop location in this component, representing where a
      * drop at the given point should insert data.
      * <p>
@@ -783,7 +783,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return new DropLocation(p, index, bias[0]);
     }
 
-    /**
+    /** {@collect.stats}
      * Called to set or clear the drop location during a DnD operation.
      * In some cases, the component may need to use it's internal selection
      * temporarily to indicate the drop location. To help facilitate this,
@@ -916,7 +916,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return retVal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location that this component should visually indicate
      * as the drop location during a DnD operation over the component,
      * or {@code null} if no location is to currently be shown.
@@ -939,7 +939,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Updates the <code>InputMap</code>s in response to a
      * <code>Keymap</code> change.
      * @param oldKm  the old <code>Keymap</code>
@@ -1021,7 +1021,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the keymap currently active in this text
      * component.
      *
@@ -1031,7 +1031,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return keymap;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new keymap into the keymap hierarchy.  Keymap bindings
      * resolve from bottom up so an attribute specified in a child
      * will override an attribute specified in the parent.
@@ -1055,7 +1055,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return map;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a named keymap previously added to the document.  Keymaps
      * with <code>null</code> names may not be removed in this way.
      *
@@ -1066,7 +1066,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return getKeymapTable().remove(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a named keymap previously added to the document.
      * This does not work with <code>null</code>-named keymaps.
      *
@@ -1094,7 +1094,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Binding record for creating key bindings.
      * <p>
      * <strong>Warning:</strong>
@@ -1108,17 +1108,17 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
      */
     public static class KeyBinding {
 
-        /**
+        /** {@collect.stats}
          * The key.
          */
         public KeyStroke key;
 
-        /**
+        /** {@collect.stats}
          * The name of the action for the key.
          */
         public String actionName;
 
-        /**
+        /** {@collect.stats}
          * Creates a new key binding.
          *
          * @param key the key
@@ -1130,7 +1130,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Loads a keymap with a bunch of
      * bindings.  This can be used to take a static table of
@@ -1180,7 +1180,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>klass</code> is NOT a JTextComponent and it or
      * one of its superclasses (stoping at JTextComponent) overrides
      * <code>processInputMethodEvent</code>. It is assumed this will be
@@ -1221,7 +1221,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current color used to render the
      * caret.
      *
@@ -1231,7 +1231,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return caretColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color used to render the caret.
      * Setting to <code>null</code> effectively restores the default color.
      * Setting the color results in a PropertyChange event ("caretColor")
@@ -1250,7 +1250,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("caretColor", old, caretColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current color used to render the
      * selection.
      *
@@ -1260,7 +1260,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return selectionColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color used to render the selection.
      * Setting the color to <code>null</code> is the same as setting
      * <code>Color.white</code>.  Setting the color results in a
@@ -1279,7 +1279,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("selectionColor", old, selectionColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current color used to render the
      * selected text.
      *
@@ -1289,7 +1289,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return selectedTextColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color used to render the selected text.
      * Setting the color to <code>null</code> is the same as
      * <code>Color.black</code>. Setting the color results in a
@@ -1308,7 +1308,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("selectedTextColor", old, selectedTextColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current color used to render the
      * disabled text.
      *
@@ -1318,7 +1318,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return disabledTextColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current color used to render the
      * disabled text.  Setting the color fires off a
      * PropertyChange event ("disabledTextColor").
@@ -1336,7 +1336,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("disabledTextColor", old, disabledTextColor);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the currently selected content with new content
      * represented by the given string.  If there is no selection
      * this amounts to an insert of the given text.  If there
@@ -1381,7 +1381,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a portion of the text represented by the
      * component.  Returns an empty string if length is 0.
      *
@@ -1394,7 +1394,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return getDocument().getText(offs, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given location in the model to a place in
      * the view coordinate system.
      * The component must have a positive size for
@@ -1414,7 +1414,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return getUI().modelToView(this, pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the given place in the view coordinate system
      * to the nearest representative location in the model.
      * The component must have a positive size for
@@ -1432,7 +1432,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return getUI().viewToModel(this, pt);
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the currently selected range in the associated
      * text model to the system clipboard, removing the contents
      * from the model.  The current selection is reset.  Does nothing
@@ -1447,7 +1447,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the currently selected range in the associated
      * text model to the system clipboard, leaving the contents
      * in the text model.  The current selection remains intact.
@@ -1460,7 +1460,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         invokeAction("copy", TransferHandler.getCopyAction());
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers the contents of the system clipboard into the
      * associated text model.  If there is a selection in the
      * associated view, it is replaced with the contents of the
@@ -1478,7 +1478,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is a conveniance method that is only useful for
      * <code>cut</code>, <code>copy</code> and <code>paste</code>.  If
      * an <code>Action</code> with the name <code>name</code> does not
@@ -1503,7 +1503,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
                                getCurrentEventModifiers()));
     }
 
-    /**
+    /** {@collect.stats}
      * If the current <code>TransferHandler</code> is null, this will
      * install a new one.
      */
@@ -1516,7 +1516,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the caret to a new position, leaving behind a mark
      * defined by the last time <code>setCaretPosition</code> was
      * called.  This forms a selection.
@@ -1540,12 +1540,12 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The bound property name for the focus accelerator.
      */
     public static final String FOCUS_ACCELERATOR_KEY = "focusAcceleratorKey";
 
-    /**
+    /** {@collect.stats}
      * Sets the key accelerator that will cause the receiving text
      * component to get the focus.  The accelerator will be the
      * key combination of the <em>alt</em> key and the character
@@ -1572,7 +1572,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         firePropertyChange("focusAccelerator", old, focusAccelerator);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key accelerator that will cause the receiving
      * text component to get the focus.  Return '\0' if no focus
      * accelerator has been set.
@@ -1583,7 +1583,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return focusAccelerator;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes from a stream.  This creates a
      * model of the type appropriate for the component
      * and initializes the model from the stream.
@@ -1616,7 +1616,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the contents of the model into the given
      * stream.  By default this will store the model as plain
      * text.
@@ -1642,7 +1642,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
     // --- java.awt.TextComponent methods ------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the position of the text insertion caret for the
      * <code>TextComponent</code>.  Note that the caret tracks change,
      * so this may move if the underlying text of the component is changed.
@@ -1667,7 +1667,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position of the text insertion caret for the
      * text component.
      *
@@ -1678,7 +1678,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return caret.getDot();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the text of this <code>TextComponent</code>
      * to the specified text.  If the text is <code>null</code>
      * or empty, has the effect of simply deleting the old text.
@@ -1715,7 +1715,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text contained in this <code>TextComponent</code>.
      * If the underlying document is <code>null</code>,
      * will give a <code>NullPointerException</code>.
@@ -1739,7 +1739,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return txt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selected text contained in this
      * <code>TextComponent</code>.  If the selection is
      * <code>null</code> or the document empty, returns <code>null</code>.
@@ -1764,7 +1764,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return txt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the boolean indicating whether this
      * <code>TextComponent</code> is editable or not.
      *
@@ -1775,7 +1775,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return editable;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified boolean to indicate whether or not this
      * <code>TextComponent</code> should be editable.
      * A PropertyChange event ("editable") is fired when the
@@ -1797,7 +1797,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selected text's start position.  Return 0 for an
      * empty document, or the value of dot if no selection.
      *
@@ -1808,7 +1808,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return start;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection start to the specified position.  The new
      * starting point is constrained to be before or at the current
      * selection end.
@@ -1829,7 +1829,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         select(selectionStart, getSelectionEnd());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selected text's end position.  Return 0 if the document
      * is empty, or the value of dot if there is no selection.
      *
@@ -1840,7 +1840,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return end;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection end to the specified position.  The new
      * end point is constrained to be at or after the current
      * selection start.
@@ -1861,7 +1861,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         select(getSelectionStart(), selectionEnd);
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the text between the specified start and end positions.
      * <p>
      * This method sets the start and end positions of the
@@ -1910,7 +1910,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         moveCaretPosition(selectionEnd);
     }
 
-    /**
+    /** {@collect.stats}
      * Selects all the text in the <code>TextComponent</code>.
      * Does nothing on a <code>null</code> or empty document.
      */
@@ -1924,7 +1924,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
     // --- Tooltip Methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the string to be used as the tooltip for <code>event</code>.
      * This will return one of:
      * <ol>
@@ -1961,7 +1961,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
     // --- Scrollable methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the viewport for a view component.
      * This is implemented to do the default behavior of returning
      * the preferred size of the component.
@@ -1974,7 +1974,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Components that display logical rows or columns should compute
      * the scroll increment that will completely expose one new row
      * or column, depending on the value of orientation.  Ideally,
@@ -2006,7 +2006,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Components that display logical rows or columns should compute
      * the scroll increment that will completely expose one block
      * of rows or columns, depending on the value of orientation.
@@ -2036,7 +2036,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if a viewport should always force the width of this
      * <code>Scrollable</code> to match the width of the viewport.
      * For example a normal text view that supported line wrapping
@@ -2059,7 +2059,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if a viewport should always force the height of this
      * <code>Scrollable</code> to match the height of the viewport.
      * For example a columnar text view that flowed text in left to
@@ -2084,7 +2084,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 // Printing Support
 //////////////////
 
-    /**
+    /** {@collect.stats}
      * A convenience print method that displays a print dialog, and then
      * prints this {@code JTextComponent} in <i>interactive</i> mode with no
      * header or footer text. Note: this method
@@ -2110,7 +2110,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return print(null, null, true, null, null, true);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience print method that displays a print dialog, and then
      * prints this {@code JTextComponent} in <i>interactive</i> mode with
      * the specified header and footer text. Note: this method
@@ -2140,7 +2140,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return print(headerFormat, footerFormat, true, null, null, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints the content of this {@code JTextComponent}. Note: this method
      * blocks until printing is done.
      *
@@ -2423,7 +2423,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Printable} to use for printing the content of this
      * {@code JTextComponent}. The returned {@code Printable} prints
      * the document as it looks on the screen except being reformatted
@@ -2493,7 +2493,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>JTextComponent</code>. For text components,
      * the <code>AccessibleContext</code> takes the form of an
@@ -2512,7 +2512,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JTextComponent</code> class.  It provides an implementation of
      * the Java Accessibility API appropriate to menu user-interface elements.
@@ -2534,7 +2534,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         int caretPos;
         Point oldLocationOnScreen;
 
-        /**
+        /** {@collect.stats}
          * Constructs an AccessibleJTextComponent.  Adds a listener to track
          * caret change.
          */
@@ -2571,7 +2571,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             });
         }
 
-        /**
+        /** {@collect.stats}
          * Handles caret updates (fire appropriate property change event,
          * which are AccessibleContext.ACCESSIBLE_CARET_PROPERTY and
          * AccessibleContext.ACCESSIBLE_SELECTION_PROPERTY).
@@ -2603,7 +2603,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
         // DocumentListener methods
 
-        /**
+        /** {@collect.stats}
          * Handles document insert (fire appropriate property change event
          * which is AccessibleContext.ACCESSIBLE_TEXT_PROPERTY).
          * This tracks the changed offset via the event.
@@ -2625,7 +2625,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Handles document remove (fire appropriate property change event,
          * which is AccessibleContext.ACCESSIBLE_TEXT_PROPERTY).
          * This tracks the changed offset via the event.
@@ -2647,7 +2647,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Handles document remove (fire appropriate property change event,
          * which is AccessibleContext.ACCESSIBLE_TEXT_PROPERTY).
          * This tracks the changed offset via the event.
@@ -2669,7 +2669,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of the JTextComponent.
          * The AccessibleStateSet of an object is composed of a set of
          * unique AccessibleState's.  A change in the AccessibleStateSet
@@ -2691,7 +2691,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -2702,7 +2702,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return AccessibleRole.TEXT;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleText associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -2717,12 +2717,12 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
         // --- interface AccessibleText methods ------------------------
 
-        /**
+        /** {@collect.stats}
          * Many of these methods are just convenience methods; they
          * just call the equivalent on the parent
          */
 
-        /**
+        /** {@collect.stats}
          * Given a point in local coordinates, return the zero-based index
          * of the character under that Point.  If the point is invalid,
          * this method returns -1.
@@ -2737,7 +2737,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return JTextComponent.this.viewToModel(p);
         }
 
-            /**
+            /** {@collect.stats}
              * Gets the editor's drawing rectangle.  Stolen
              * from the unfortunately named
              * BasicTextUI.getVisibleEditorRect()
@@ -2758,7 +2758,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
                 return null;
             }
 
-        /**
+        /** {@collect.stats}
          * Determines the bounding box of the character at the given
          * index into the string.  The bounds are returned in local
          * coordinates.  If the index is invalid a null rectangle
@@ -2824,7 +2824,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return rect;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of characters (valid indices)
          *
          * @return the number of characters >= 0
@@ -2833,7 +2833,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return model.getLength();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the zero-based offset of the caret.
          *
          * Note: The character to the right of the caret will have the
@@ -2846,7 +2846,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return JTextComponent.this.getCaretPosition();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet for a given character (at a given index).
          *
          * @param i the zero-based index into the text
@@ -2871,7 +2871,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the start offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -2884,7 +2884,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return JTextComponent.this.getSelectionStart();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -2897,7 +2897,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return JTextComponent.this.getSelectionEnd();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the portion of the text that is selected.
          *
          * @return the text, null if no selection
@@ -2906,12 +2906,12 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return JTextComponent.this.getSelectedText();
         }
 
-       /**
+       /** {@collect.stats}
          * IndexedSegment extends Segment adding the offset into the
          * the model the <code>Segment</code> was asked for.
          */
         private class IndexedSegment extends Segment {
-            /**
+            /** {@collect.stats}
              * Offset into the model that the position represents.
              */
             public int modelOffset;
@@ -2919,7 +2919,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
 
         // TIGER - 4170173
-        /**
+        /** {@collect.stats}
          * Returns the String at a given index. Whitespace
          * between words is treated as a word.
          *
@@ -2933,7 +2933,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the String after a given index. Whitespace
          * between words is treated as a word.
          *
@@ -2946,7 +2946,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the String before a given index. Whitespace
          * between words is treated a word.
          *
@@ -2959,7 +2959,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Gets the word, sentence, or character at <code>index</code>.
          * If <code>direction</code> is non-null this will find the
          * next/previous word/sentence/character.
@@ -3071,7 +3071,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the Segment at <code>index</code> representing either
          * the paragraph or sentence as identified by <code>part</code>, or
          * null if a valid paragraph/sentence can't be found. The offset
@@ -3118,7 +3118,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
         // begin AccessibleEditableText methods -----
 
-        /**
+        /** {@collect.stats}
          * Returns the AccessibleEditableText interface for
          * this text component.
          *
@@ -3129,7 +3129,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the text contents to the specified string.
          *
          * @param s the string to set the text contents
@@ -3139,7 +3139,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             JTextComponent.this.setText(s);
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts the specified string at the given index
          *
          * @param index the index in the text where the string will
@@ -3164,7 +3164,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the text string between two indices.
          *
          * @param startIndex the starting index in the text
@@ -3187,7 +3187,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return txt;
         }
 
-        /**
+        /** {@collect.stats}
          * Deletes the text between two indices
          *
          * @param startIndex the starting index in the text
@@ -3210,7 +3210,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Cuts the text between two indices into the system clipboard.
          *
          * @param startIndex the starting index in the text
@@ -3222,7 +3222,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             JTextComponent.this.cut();
         }
 
-        /**
+        /** {@collect.stats}
          * Pastes the text from the system clipboard into the text
          * starting at the specified index.
          *
@@ -3234,7 +3234,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             JTextComponent.this.paste();
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the text between two indices with the specified
          * string.
          *
@@ -3248,7 +3248,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             JTextComponent.this.replaceSelection(s);
         }
 
-        /**
+        /** {@collect.stats}
          * Selects the text between two indices.
          *
          * @param startIndex the starting index in the text
@@ -3259,7 +3259,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             JTextComponent.this.select(startIndex, endIndex);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets attributes for the text between two indices.
          *
          * @param startIndex the starting index in the text
@@ -3291,7 +3291,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 // and then make the AccessibleText methods get[At|After|Before]Point
 // call this new method instead and return only the string portion
 
-        /**
+        /** {@collect.stats}
          * Returns the AccessibleTextSequence at a given <code>index</code>.
          * If <code>direction</code> is non-null this will find the
          * next/previous word/sentence/character.
@@ -3522,7 +3522,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
 
 
-        /**
+        /** {@collect.stats}
          * Starting at text position <code>index</code>, and going in
          * <code>direction</code>, return the edge of run that shares the
          * same <code>AttributeSet</code> and parent element as those at
@@ -3585,7 +3585,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
         // getTextRange() not needed; defined in AccessibleEditableText
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> at a given
          * <code>index</code>.
          *
@@ -3609,7 +3609,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return getSequenceAtIndex(part, index, 0);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> after a given
          * <code>index</code>.
          *
@@ -3633,7 +3633,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return getSequenceAtIndex(part, index, 1);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>AccessibleTextSequence</code> before a given
          * <code>index</code>.
          *
@@ -3657,7 +3657,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return getSequenceAtIndex(part, index, -1);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>Rectangle</code> enclosing the text between
          * two indicies.
          *
@@ -3715,7 +3715,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible actions available in this object
          * If there are more than one, the first one is considered the
          * "default" action of the object.
@@ -3728,7 +3728,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return actions.length;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -3744,7 +3744,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return (String)actions[i].getValue(Action.NAME);
         }
 
-        /**
+        /** {@collect.stats}
          * Performs the specified Action on the object
          *
          * @param i zero-based index of actions
@@ -3785,12 +3785,12 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
     // --- member variables ----------------------------------
 
-    /**
+    /** {@collect.stats}
      * The document model.
      */
     private Document model;
 
-    /**
+    /** {@collect.stats}
      * The caret used to display the insert position
      * and navigate throughout the document.
      *
@@ -3800,12 +3800,12 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
      */
     private transient Caret caret;
 
-    /**
+    /** {@collect.stats}
      * Object responsible for restricting the cursor navigation.
      */
     private NavigationFilter navigationFilter;
 
-    /**
+    /** {@collect.stats}
      * The object responsible for managing highlights.
      *
      * PENDING(prinz)
@@ -3814,7 +3814,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
      */
     private transient Highlighter highlighter;
 
-    /**
+    /** {@collect.stats}
      * The current key bindings in effect.
      *
      * PENDING(prinz)
@@ -3833,17 +3833,17 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     private char focusAccelerator;
     private boolean dragEnabled;
 
-    /**
+    /** {@collect.stats}
      * The drop mode for this component.
      */
     private DropMode dropMode = DropMode.USE_SELECTION;
 
-    /**
+    /** {@collect.stats}
      * The drop location.
      */
     private transient DropLocation dropLocation;
 
-    /**
+    /** {@collect.stats}
      * Represents a drop location for <code>JTextComponent</code>s.
      *
      * @see #getDropLocation
@@ -3859,7 +3859,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             this.bias = bias;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index where dropped data should be inserted into the
          * associated component. This index represents a position between
          * characters, as would be interpreted by a caret.
@@ -3870,7 +3870,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return index;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the bias for the drop index.
          *
          * @return the drop bias
@@ -3879,7 +3879,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return bias;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this drop location.
          * This method is intended to be used for debugging purposes,
          * and the content and format of the returned string may vary
@@ -3895,18 +3895,18 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * TransferHandler used if one hasn't been supplied by the UI.
      */
     private static DefaultTransferHandler defaultTransferHandler;
 
-    /**
+    /** {@collect.stats}
      * Maps from class name to Boolean indicating if
      * <code>processInputMethodEvent</code> has been overriden.
      */
     private static Map overrideMap;
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JTextComponent</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -3942,7 +3942,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * A Simple TransferHandler that exports the data as a String, and
      * imports the data from the String clipboard.  This is only used
      * if the UI hasn't supplied one, which would only happen if someone
@@ -4018,7 +4018,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the JTextComponent that most recently had focus. The returned
      * value may currently have focus.
      */
@@ -4053,7 +4053,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     private Position latestCommittedTextEnd;
     private ComposedTextCaret composedTextCaret;
     private transient Caret originalCaret;
-    /**
+    /** {@collect.stats}
      * Set to true after the check for the override of processInputMethodEvent
      * has been checked.
      */
@@ -4068,7 +4068,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             bindings = new Hashtable();
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the default action to fire if a
          * key is typed (ie a KEY_TYPED KeyEvent is received)
          * and there is no binding for it.  Typically this
@@ -4083,7 +4083,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             return (parent != null) ? parent.getDefaultAction() : null;
         }
 
-        /**
+        /** {@collect.stats}
          * Set the default action to fire if a key is typed.
          */
         public void setDefaultAction(Action a) {
@@ -4208,7 +4208,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             this.parent = parent;
         }
 
-        /**
+        /** {@collect.stats}
          * String representation of the keymap... potentially
          * a very long string.
          */
@@ -4223,7 +4223,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * KeymapWrapper wraps a Keymap inside an InputMap. For KeymapWrapper
      * to be useful it must be used with a KeymapActionMap.
      * KeymapWrapper for the most part, is an InputMap with two parents.
@@ -4290,7 +4290,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
     }
 
 
-    /**
+    /** {@collect.stats}
      * Wraps a Keymap inside an ActionMap. This is used with
      * a KeymapWrapper. If <code>get</code> is passed in
      * <code>KeymapWrapper.DefaultActionKey</code>, the default action is
@@ -4374,14 +4374,14 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
     private static final Object FOCUSED_COMPONENT = new Object(); // JTextComponent_FocusedComponent
 
-    /**
+    /** {@collect.stats}
      * The default keymap that will be shared by all
      * <code>JTextComponent</code> instances unless they
      * have had a different keymap set.
      */
     public static final String DEFAULT_KEYMAP = "default";
 
-    /**
+    /** {@collect.stats}
      * Event to use when firing a notification of change to caret
      * position.  This is mutable so that the event can be reused
      * since caret events can be fairly high in bandwidth.
@@ -4435,7 +4435,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
 
         // --- MouseListener methods -----------------------------------
 
-        /**
+        /** {@collect.stats}
          * Requests focus on the associated
          * text component, and try to set the cursor position.
          *
@@ -4446,7 +4446,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
             dragActive = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Called when the mouse is released.
          *
          * @param e the mouse event
@@ -4903,7 +4903,7 @@ public abstract class JTextComponent extends JComponent implements Scrollable, A
         caret.setVisible(hasFocus());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if KeyEvents should be synthesized from an InputEvent.
      */
     private boolean shouldSynthensizeKeyEvents() {

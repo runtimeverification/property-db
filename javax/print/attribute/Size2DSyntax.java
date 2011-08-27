@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class Size2DSyntax is an abstract base class providing the common
  * implementation of all attributes denoting a size in two dimensions.
  * <P>
@@ -85,32 +85,32 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 5584439964938660530L;
 
-    /**
+    /** {@collect.stats}
      * X dimension in units of micrometers (&#181;m).
      * @serial
      */
     private int x;
 
-    /**
+    /** {@collect.stats}
      * Y dimension in units of micrometers (&#181;m).
      * @serial
      */
     private int y;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of inches (in). It is actually the conversion
      * factor by which to multiply inches to yield &#181;m (25400).
      */
     public static final int INCH = 25400;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of millimeters (mm). It is actually the
      * conversion factor by which to multiply mm to yield &#181;m (1000).
      */
     public static final int MM = 1000;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new two-dimensional size attribute from the given
      * floating-point values.
      *
@@ -138,7 +138,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         this.y = (int) (y * units + 0.5f);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new two-dimensional size attribute from the given integer
      * values.
      *
@@ -166,7 +166,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         this.y = y * units;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert a value from micrometers to some other units. The result is
      * returned as a floating-point number.
      *
@@ -188,7 +188,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return ((float)x) / ((float)units);
     }
 
-    /**
+    /** {@collect.stats}
      * Get this two-dimensional size attribute's dimensions in the given units
      * as floating-point values.
      *
@@ -206,7 +206,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return new float[] {getX(units), getY(units)};
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this two-dimensional size attribute's X dimension in the given
      * units as a floating-point value.
      *
@@ -223,7 +223,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return convertFromMicrometers(x, units);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this two-dimensional size attribute's Y dimension in the given
      * units as a floating-point value.
      *
@@ -240,7 +240,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return convertFromMicrometers(y, units);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this two-dimensional size attribute in the
      * given units. The string takes the form <CODE>"<I>X</I>x<I>Y</I>
      * <I>U</I>"</CODE>, where <I>X</I> is the X dimension, <I>Y</I> is the Y
@@ -271,7 +271,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this two-dimensional size attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions must
      * be true:
@@ -300,7 +300,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
                this.y == ((Size2DSyntax) object).y);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this two-dimensional size attribute.
      */
     public int hashCode() {
@@ -308,7 +308,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
                 ((y & 0x0000FFFF) << 16));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this two-dimensional size attribute. The
      * string takes the form <CODE>"<I>X</I>x<I>Y</I> um"</CODE>, where
      * <I>X</I> is the X dimension and <I>Y</I> is the Y dimension.
@@ -323,7 +323,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this two-dimensional size attribute's X dimension in units of
      * micrometers (&#181;m). (For use in a subclass.)
      *
@@ -333,7 +333,7 @@ public abstract class Size2DSyntax implements Serializable, Cloneable {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this two-dimensional size attribute's Y dimension in units of
      * micrometers (&#181;m). (For use in a subclass.)
      *

@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a context implementation does not support
   * the operation being invoked.
   * For example, if a server does not support the Context.bind() method
@@ -41,7 +41,7 @@ package javax.naming;
   */
 
 public class OperationNotSupportedException extends NamingException {
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of OperationNotSupportedException.
       * All fields default to null.
       */
@@ -49,7 +49,7 @@ public class OperationNotSupportedException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of OperationNotSupportedException using an
       * explanation. All other fields default to null.
       *
@@ -60,7 +60,7 @@ public class OperationNotSupportedException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 5493232822427682064L;

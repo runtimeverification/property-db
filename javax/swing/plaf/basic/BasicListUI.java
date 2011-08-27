@@ -44,7 +44,7 @@ import java.beans.PropertyChangeEvent;
 import sun.swing.SwingUtilities2;
 import javax.swing.plaf.basic.DragRecognitionSupport.BeforeDrag;
 
-/**
+/** {@collect.stats}
  * An extensible implementation of {@code ListUI}.
  * <p>
  * {@code BasicListUI} instances cannot be shared between multiple
@@ -73,52 +73,52 @@ public class BasicListUI extends ListUI
     protected int cellHeight = -1;
     protected int cellWidth = -1;
     protected int updateLayoutStateNeeded = modelChanged;
-    /**
+    /** {@collect.stats}
      * Height of the list. When asked to paint, if the current size of
      * the list differs, this will update the layout state.
      */
     private int listHeight;
 
-    /**
+    /** {@collect.stats}
      * Width of the list. When asked to paint, if the current size of
      * the list differs, this will update the layout state.
      */
     private int listWidth;
 
-    /**
+    /** {@collect.stats}
      * The layout orientation of the list.
      */
     private int layoutOrientation;
 
     // Following ivars are used if the list is laying out horizontally
 
-    /**
+    /** {@collect.stats}
      * Number of columns to create.
      */
     private int columnCount;
-    /**
+    /** {@collect.stats}
      * Preferred height to make the list, this is only used if the
      * the list is layed out horizontally.
      */
     private int preferredHeight;
-    /**
+    /** {@collect.stats}
      * Number of rows per column. This is only used if the row height is
      * fixed.
      */
     private int rowsPerColumn;
 
-    /**
+    /** {@collect.stats}
      * The time factor to treate the series of typed alphanumeric key
      * as prefix for first letter navigation.
      */
     private long timeFactor = 1000L;
 
-    /**
+    /** {@collect.stats}
      * Local cache of JList's client property "List.isFileList"
      */
     private boolean isFileList = false;
 
-    /**
+    /** {@collect.stats}
      * Local cache of JList's component orientation property
      */
     private boolean isLeftToRight = true;
@@ -184,7 +184,7 @@ public class BasicListUI extends ListUI
                 TransferHandler.getPasteAction());
     }
 
-    /**
+    /** {@collect.stats}
      * Paint one List cell: compute the relevant state, get the "rubber stamp"
      * cell renderer component, and then use the CellRendererPane to paint it.
      * Subclasses may want to override this method rather than paint().
@@ -227,7 +227,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Paint the rows that intersect the Graphics objects clipRect.  This
      * method calls paintCell as necessary.  Subclasses
      * may want to override these methods.
@@ -462,7 +462,7 @@ public class BasicListUI extends ListUI
         return rect;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -504,7 +504,7 @@ public class BasicListUI extends ListUI
                 list.getInsets().top;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -518,7 +518,7 @@ public class BasicListUI extends ListUI
         return Component.BaselineResizeBehavior.CONSTANT_ASCENT;
     }
 
-    /**
+    /** {@collect.stats}
      * The preferredSize of the list depends upon the layout orientation.
      * <table summary="Describes the preferred size for each layout orientation">
      * <tr><th>Layout Orientation</th><th>Preferred Size</th></tr>
@@ -602,7 +602,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Selected the previous row and force it to be visible.
      *
      * @see JList#ensureIndexIsVisible
@@ -617,7 +617,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Selected the previous row and force it to be visible.
      *
      * @see JList#ensureIndexIsVisible
@@ -633,7 +633,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Registers the keyboard bindings on the <code>JList</code> that the
      * <code>BasicListUI</code> is associated with. This method is called at
      * installUI() time.
@@ -668,7 +668,7 @@ public class BasicListUI extends ListUI
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Unregisters keyboard actions installed from
      * <code>installKeyboardActions</code>.
      * This method is called at uninstallUI() time - subclassess should
@@ -683,7 +683,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create and install the listeners for the JList, its model, and its
      * selectionModel.  This method is called at installUI() time.
      *
@@ -726,7 +726,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Remove the listeners for the JList, its model, and its
      * selectionModel.  All of the listener fields, are reset to
      * null here.  This method is called at uninstallUI() time,
@@ -762,7 +762,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initialize JList properties, e.g. font, foreground, and background,
      * and add the CellRendererPane.  The font, foreground, and background
      * properties are only set if their current value is either null
@@ -818,7 +818,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the JList properties that haven't been explicitly overridden to
      * null.  A property is considered overridden if its current value
      * is not a UIResource.
@@ -854,7 +854,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes <code>this.list</code> by calling <code>installDefaults()</code>,
      * <code>installListeners()</code>, and <code>installKeyboardActions()</code>
      * in order.
@@ -883,7 +883,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninitializes <code>this.list</code> by calling <code>uninstallListeners()</code>,
      * <code>uninstallKeyboardActions()</code>, and <code>uninstallDefaults()</code>
      * in order.  Sets this.list to null.
@@ -909,7 +909,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a new instance of BasicListUI.  BasicListUI delegates are
      * allocated one per JList.
      *
@@ -920,7 +920,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
@@ -930,7 +930,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public Point indexToLocation(JList list, int index) {
@@ -944,7 +944,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public Rectangle getCellBounds(JList list, int index1, int index2) {
@@ -987,7 +987,7 @@ public class BasicListUI extends ListUI
         return minBounds;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the bounds of the specified model index, returning the resulting
      * bounds, or null if <code>index</code> is not valid.
      */
@@ -1037,7 +1037,7 @@ public class BasicListUI extends ListUI
         return new Rectangle(x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the specified row based on the current layout.
      *
      * @return The specified row height or -1 if row isn't valid.
@@ -1051,7 +1051,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Convert the JList relative coordinate to the row that contains it,
      * based on the current layout.  If y0 doesn't fall within any row,
      * return -1.
@@ -1066,7 +1066,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the JList relative Y coordinate of the origin of the specified
      * row or -1 if row isn't valid.
      *
@@ -1083,7 +1083,7 @@ public class BasicListUI extends ListUI
         return bounds.y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the cell at the passed in location.
      */
     private int getHeight(int column, int row) {
@@ -1100,7 +1100,7 @@ public class BasicListUI extends ListUI
                            ((row < cellHeights.length) ? cellHeights[row] : -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the row at location x/y.
      *
      * @param closest If true and the location doesn't exactly match a
@@ -1148,7 +1148,7 @@ public class BasicListUI extends ListUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closest row that starts at the specified y-location
      * in the passed in column.
      */
@@ -1165,7 +1165,7 @@ public class BasicListUI extends ListUI
         return convertLocationToRow(x, y, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closest location to the model index of the passed in
      * location.
      */
@@ -1179,7 +1179,7 @@ public class BasicListUI extends ListUI
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the given column.
      */
     private int getRowCount(int column) {
@@ -1210,7 +1210,7 @@ public class BasicListUI extends ListUI
         return rowsPerColumn;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model index for the specified display location.
      * If <code>column</code>x<code>row</code> is beyond the length of the
      * model, this will return the model size - 1.
@@ -1228,7 +1228,7 @@ public class BasicListUI extends ListUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closest column to the passed in location.
      */
     private int convertLocationToColumn(int x, int y) {
@@ -1254,7 +1254,7 @@ public class BasicListUI extends ListUI
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the row that the model index <code>index</code> will be
      * displayed in..
      */
@@ -1275,7 +1275,7 @@ public class BasicListUI extends ListUI
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the column that the model index <code>index</code> will be
      * displayed in.
      */
@@ -1296,7 +1296,7 @@ public class BasicListUI extends ListUI
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * If updateLayoutStateNeeded is non zero, call updateLayoutState() and reset
      * updateLayoutStateNeeded.  This method should be called by methods
      * before doing any computation based on the geometry of the list.
@@ -1313,7 +1313,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Recompute the value of cellHeight or cellHeights based
      * and cellWidth, based on the current font and the current
      * values of fixedCellWidth, fixedCellHeight, and prototypeCellValue.
@@ -1387,7 +1387,7 @@ public class BasicListUI extends ListUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the list is layed out horizontally to determine how
      * many columns to create.
      * <p>
@@ -1476,7 +1476,7 @@ public class BasicListUI extends ListUI
         return handler;
     }
 
-    /**
+    /** {@collect.stats}
      * Mouse input, and focus handling for JList.  An instance of this
      * class is added to the appropriate java.awt.Component lists
      * at installUI() time.  Note keyboard input is handled with JComponent
@@ -1527,7 +1527,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a delegate that implements MouseInputListener.
      * The delegate is added to the corresponding java.awt.Component listener
      * lists at installUI() time. Subclasses can override this method to return
@@ -1553,7 +1553,7 @@ public class BasicListUI extends ListUI
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTableUI.
@@ -1582,7 +1582,7 @@ public class BasicListUI extends ListUI
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * The ListSelectionListener that's added to the JLists selection
      * model at installUI time, and whenever the JList.selectionModel property
      * changes.  When the selection changes we repaint the affected rows.
@@ -1609,7 +1609,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of ListSelectionHandler that's added to
      * the JLists by selectionModel as needed.  Subclasses can override
      * this method to return a custom ListSelectionListener, e.g.
@@ -1641,7 +1641,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * The ListDataListener that's added to the JLists model at
      * installUI time, and whenever the JList.model property changes.
      * <p>
@@ -1678,7 +1678,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of ListDataListener that's added to
      * the JLists by model as needed.  Subclasses can override
      * this method to return a custom ListDataListener, e.g.
@@ -1705,7 +1705,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * The PropertyChangeListener that's added to the JList at
      * installUI time.  When the value of a JList property that
      * affects layout changes, we set a bit in updateLayoutStateNeeded.
@@ -1734,7 +1734,7 @@ public class BasicListUI extends ListUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of PropertyChangeHandler that's added to
      * the JList by installUI().  Subclasses can override this method
      * to return a custom PropertyChangeListener, e.g.
@@ -1761,13 +1761,13 @@ public class BasicListUI extends ListUI
         return getHandler();
     }
 
-    /** Used by IncrementLeadSelectionAction. Indicates the action should
+    /** {@collect.stats} Used by IncrementLeadSelectionAction. Indicates the action should
      * change the lead, and not select it. */
     private static final int CHANGE_LEAD = 0;
-    /** Used by IncrementLeadSelectionAction. Indicates the action should
+    /** {@collect.stats} Used by IncrementLeadSelectionAction. Indicates the action should
      * change the selection and lead. */
     private static final int CHANGE_SELECTION = 1;
-    /** Used by IncrementLeadSelectionAction. Indicates the action should
+    /** {@collect.stats} Used by IncrementLeadSelectionAction. Indicates the action should
      * extend the selection from the anchor to the next index. */
     private static final int EXTEND_SELECTION = 2;
 
@@ -2189,7 +2189,7 @@ public class BasicListUI extends ListUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * When scroll down makes selected index the last completely visible
          * index. When scroll up makes selected index the first visible index.
          * Adjust visible rectangle respect to list's component orientation.
@@ -2352,7 +2352,7 @@ public class BasicListUI extends ListUI
         private String typedString = "";
         private long lastTime = 0L;
 
-        /**
+        /** {@collect.stats}
          * Invoked when a key has been typed.
          *
          * Moves the keyboard focus to the first element whose prefix matches the
@@ -2413,7 +2413,7 @@ public class BasicListUI extends ListUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a key has been pressed.
          *
          * Checks to see if the key event is a navigation key to prevent
@@ -2427,7 +2427,7 @@ public class BasicListUI extends ListUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a key has been released.
          * See the class description for {@link KeyEvent} for a definition of
          * a key released event.
@@ -2435,7 +2435,7 @@ public class BasicListUI extends ListUI
         public void keyReleased(KeyEvent e) {
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not the supplied key event maps to a key that is used for
          * navigation.  This is used for optimizing key input by only passing non-
          * navigation keys to the first letter navigation mechanism.
@@ -2828,7 +2828,7 @@ public class BasicListUI extends ListUI
 
     static class ListTransferHandler extends TransferHandler implements UIResource {
 
-        /**
+        /** {@collect.stats}
          * Create a Transferable to use as the source for a data transfer.
          *
          * @param c  The component holding the data to be transfered.  This

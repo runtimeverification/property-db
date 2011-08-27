@@ -29,7 +29,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/**
+/** {@collect.stats}
  * An abstract class for service providers that
  * provide instances of the
  * {@link java.text.DecimalFormatSymbols DecimalFormatSymbols} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class DecimalFormatSymbolsProvider extends LocaleServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected DecimalFormatSymbolsProvider() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>DecimalFormatSymbols</code> instance for the
      * specified locale.
      *

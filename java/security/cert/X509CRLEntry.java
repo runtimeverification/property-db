@@ -29,7 +29,7 @@ import java.math.BigInteger;
 import java.util.Date;
 import javax.security.auth.x500.X500Principal;
 
-/**
+/** {@collect.stats}
  * <p>Abstract class for a revoked certificate in a CRL (Certificate
  * Revocation List).
  *
@@ -64,7 +64,7 @@ import javax.security.auth.x500.X500Principal;
 
 public abstract class X509CRLEntry implements X509Extension {
 
-    /**
+    /** {@collect.stats}
      * Compares this CRL entry for equality with the given
      * object. If the <code>other</code> object is an
      * <code>instanceof</code> <code>X509CRLEntry</code>, then
@@ -95,7 +95,7 @@ public abstract class X509CRLEntry implements X509Extension {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode value for this CRL entry from its
      * encoded form.
      *
@@ -114,7 +114,7 @@ public abstract class X509CRLEntry implements X509Extension {
         return(retval);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ASN.1 DER-encoded form of this CRL Entry,
      * that is the inner SEQUENCE.
      *
@@ -123,7 +123,7 @@ public abstract class X509CRLEntry implements X509Extension {
      */
     public abstract byte[] getEncoded() throws CRLException;
 
-    /**
+    /** {@collect.stats}
      * Gets the serial number from this X509CRLEntry,
      * the <em>userCertificate</em>.
      *
@@ -131,7 +131,7 @@ public abstract class X509CRLEntry implements X509Extension {
      */
     public abstract BigInteger getSerialNumber();
 
-    /**
+    /** {@collect.stats}
      * Get the issuer of the X509Certificate described by this entry. If
      * the certificate issuer is also the CRL issuer, this method returns
      * null.
@@ -149,7 +149,7 @@ public abstract class X509CRLEntry implements X509Extension {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the revocation date from this X509CRLEntry,
      * the <em>revocationDate</em>.
      *
@@ -157,14 +157,14 @@ public abstract class X509CRLEntry implements X509Extension {
      */
     public abstract Date getRevocationDate();
 
-    /**
+    /** {@collect.stats}
      * Returns true if this CRL entry has extensions.
      *
      * @return true if this entry has extensions, false otherwise.
      */
     public abstract boolean hasExtensions();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this CRL entry.
      *
      * @return a string representation of this CRL entry.

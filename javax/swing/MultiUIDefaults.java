@@ -34,7 +34,7 @@ import java.util.Set;
 
 
 
-/**
+/** {@collect.stats}
  *
  * @author Hans Muller
  */

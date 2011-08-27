@@ -35,7 +35,7 @@ package javax.management.openmbean;
 //
 import javax.management.MBeanParameterInfo;
 
-/**
+/** {@collect.stats}
  * <p>Describes an operation of an Open MBean.</p>
  *
  * <p>This interface declares the same methods as the class {@link
@@ -56,7 +56,7 @@ public interface OpenMBeanOperationInfo  {
     // Re-declares fields and methods that are in class MBeanOperationInfo of JMX 1.0
     // (fields and methods will be removed when MBeanOperationInfo is made a parent interface of this interface)
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the operation
      * described by this <tt>OpenMBeanOperationInfo</tt> instance.
      *
@@ -64,7 +64,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public String getDescription() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the operation
      * described by this <tt>OpenMBeanOperationInfo</tt> instance.
      *
@@ -72,7 +72,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public String getName() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>OpenMBeanParameterInfo</tt> instances
      * describing each parameter in the signature of the operation
      * described by this <tt>OpenMBeanOperationInfo</tt> instance.
@@ -85,7 +85,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public MBeanParameterInfo[] getSignature() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an <tt>int</tt> constant qualifying the impact of the
      * operation described by this <tt>OpenMBeanOperationInfo</tt>
      * instance.
@@ -100,7 +100,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public int getImpact() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified Java class name of the values
      * returned by the operation described by this
      * <tt>OpenMBeanOperationInfo</tt> instance.  This method should
@@ -115,7 +115,7 @@ public interface OpenMBeanOperationInfo  {
     // Now declares methods that are specific to open MBeans
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>open type</i> of the values returned by the
      * operation described by this <tt>OpenMBeanOperationInfo</tt>
      * instance.
@@ -128,7 +128,7 @@ public interface OpenMBeanOperationInfo  {
     // commodity methods
     //
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>OpenMBeanOperationInfo</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -149,7 +149,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>OpenMBeanOperationInfo</code> instance.
      * <p>
      * The hash code of an <code>OpenMBeanOperationInfo</code> instance is the sum of the hash codes
@@ -167,7 +167,7 @@ public interface OpenMBeanOperationInfo  {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>OpenMBeanOperationInfo</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.OpenMBeanOperationInfo</code>),

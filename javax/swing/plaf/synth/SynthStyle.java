@@ -35,7 +35,7 @@ import java.util.Map;
 import javax.swing.text.JTextComponent;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * <code>SynthStyle</code> is a set of style properties.
  * Each <code>SynthUI</code> references at least one
  * <code>SynthStyle</code> that is obtained using a
@@ -51,18 +51,18 @@ import sun.swing.plaf.synth.SynthUI;
  * @author Scott Violet
  */
 public abstract class SynthStyle {
-    /**
+    /** {@collect.stats}
      * Contains the default values for certain properties.
      */
     private static Map DEFAULT_VALUES;
 
-    /**
+    /** {@collect.stats}
      * Shared SynthGraphics.
      */
     private static final SynthGraphicsUtils SYNTH_GRAPHICS =
                               new SynthGraphicsUtils();
 
-    /**
+    /** {@collect.stats}
      * Adds the default values that we know about to DEFAULT_VALUES.
      */
     private static void populateDefaultValues() {
@@ -709,7 +709,7 @@ public abstract class SynthStyle {
                }));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default value for the specified property, or null if there
      * is no default for the specified value.
      */
@@ -728,13 +728,13 @@ public abstract class SynthStyle {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SynthStyle.
      */
     public SynthStyle() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SynthGraphicUtils</code> for the specified context.
      *
      * @param context SynthContext identifying requester
@@ -744,7 +744,7 @@ public abstract class SynthStyle {
         return SYNTH_GRAPHICS;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color for the specified state. This gives precedence to
      * foreground and background of the <code>JComponent</code>. If the
      * <code>Color</code> from the <code>JComponent</code> is not appropriate,
@@ -815,7 +815,7 @@ public abstract class SynthStyle {
         return color;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color for the specified state. This should NOT call any
      * methods on the <code>JComponent</code>.
      *
@@ -826,7 +826,7 @@ public abstract class SynthStyle {
     protected abstract Color getColorForState(SynthContext context,
                                               ColorType type);
 
-    /**
+    /** {@collect.stats}
      * Returns the Font for the specified state. This redirects to the
      * <code>JComponent</code> from the <code>context</code> as necessary.
      * If this does not redirect
@@ -847,7 +847,7 @@ public abstract class SynthStyle {
         return getFontForState(context);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the font for the specified state. This should NOT call any
      * method on the <code>JComponent</code>.
      *
@@ -856,7 +856,7 @@ public abstract class SynthStyle {
      */
     protected abstract Font getFontForState(SynthContext context);
 
-    /**
+    /** {@collect.stats}
      * Returns the Insets that are used to calculate sizing information.
      *
      * @param context SynthContext identifying requester
@@ -871,7 +871,7 @@ public abstract class SynthStyle {
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SynthPainter</code> that will be used for painting.
      * This may return null.
      *
@@ -882,7 +882,7 @@ public abstract class SynthStyle {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the region is opaque.
      *
      * @param context SynthContext identifying requester
@@ -892,7 +892,7 @@ public abstract class SynthStyle {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Getter for a region specific style property.
      *
      * @param context SynthContext identifying requester
@@ -917,7 +917,7 @@ public abstract class SynthStyle {
         installDefaults(context);
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary state from this Style on the
      * <code>JComponent</code> from <code>context</code>.
      *
@@ -947,7 +947,7 @@ public abstract class SynthStyle {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls any state that this style installed on
      * the <code>JComponent</code> from <code>context</code>.
      * <p>
@@ -974,7 +974,7 @@ public abstract class SynthStyle {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get a specific style property whose value is
      * a <code>Number</code>. If the value is a <code>Number</code>,
      * <code>intValue</code> is returned, otherwise <code>defaultValue</code>
@@ -995,7 +995,7 @@ public abstract class SynthStyle {
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get a specific style property whose value is
      * an Boolean.
      *
@@ -1015,7 +1015,7 @@ public abstract class SynthStyle {
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get a specific style property whose value is
      * an Icon.
      *
@@ -1032,7 +1032,7 @@ public abstract class SynthStyle {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get a specific style property whose value is
      * a String.
      *

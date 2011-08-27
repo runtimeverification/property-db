@@ -29,7 +29,7 @@ import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * This interface represents a context in which you can perform
  * operations with LDAPv3-style controls and perform LDAPv3-style
  * extended operations.
@@ -177,7 +177,7 @@ import java.util.Hashtable;
  */
 
 public interface LdapContext extends DirContext {
-   /**
+   /** {@collect.stats}
     * Performs an extended operation.
     *
     * This method is used to support LDAPv3 extended operations.
@@ -190,7 +190,7 @@ public interface LdapContext extends DirContext {
     public ExtendedResponse extendedOperation(ExtendedRequest request)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of this context initialized using request controls.
      *
      * This method is a convenience method for creating a new instance
@@ -219,7 +219,7 @@ public interface LdapContext extends DirContext {
     public LdapContext newInstance(Control[] requestControls)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Reconnects to the LDAP server using the supplied controls and
      * this context's environment.
      *<p>
@@ -249,7 +249,7 @@ public interface LdapContext extends DirContext {
      */
     public void reconnect(Control[] connCtls) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the connection request controls in effect for this context.
      * The controls are owned by the JNDI implementation and are
      * immutable. Neither the array nor the controls may be modified by the
@@ -262,7 +262,7 @@ public interface LdapContext extends DirContext {
      */
     public Control[] getConnectControls() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Sets the request controls for methods subsequently
      * invoked on this context.
      * The request controls are owned by the JNDI implementation and are
@@ -290,7 +290,7 @@ public interface LdapContext extends DirContext {
     public void setRequestControls(Control[] requestControls)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the request controls in effect for this context.
      * The request controls are owned by the JNDI implementation and are
      * immutable. Neither the array nor the controls may be modified by the
@@ -304,7 +304,7 @@ public interface LdapContext extends DirContext {
      */
     public Control[] getRequestControls() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the response controls produced as a result of the last
      * method invoked on this context.
      * The response controls are owned by the JNDI implementation and are
@@ -331,7 +331,7 @@ public interface LdapContext extends DirContext {
      */
     public Control[] getResponseControls() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property
      * for specifying the list of control factories to use. The value
      * of the property should be a colon-separated list of the fully

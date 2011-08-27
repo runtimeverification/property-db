@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * An abstract wrapper class for an EventListener class which associates a set
  * of additional parameters with the listener. Subclasses must provide the
  * storage and accessor methods for the additional arguments or parameters.
@@ -55,14 +55,14 @@ package java.util;
 public abstract class EventListenerProxy implements EventListener {
     private final EventListener listener;
 
-    /**
+    /** {@collect.stats}
      * @param listener The listener object.
      */
     public EventListenerProxy(EventListener listener) {
         this.listener = listener;
     }
 
-    /**
+    /** {@collect.stats}
      * @return The listener associated with this proxy.
      */
     public EventListener getListener() {

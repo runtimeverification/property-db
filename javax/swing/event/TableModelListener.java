@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * TableModelListener defines the interface for an object that listens
  * to changes in a TableModel.
  *
@@ -37,7 +37,7 @@ import java.util.EventListener;
 
 public interface TableModelListener extends java.util.EventListener
 {
-    /**
+    /** {@collect.stats}
      * This fine grain notification tells listeners the exact range
      * of cells, rows, or columns that changed.
      */

@@ -25,7 +25,7 @@
 
 package javax.sound.midi;
 
-/**
+/** {@collect.stats}
  * <code>MidiMessage</code> is the base class for MIDI messages.  They include
  * not only the standard MIDI messages that a synthesizer can respond to, but also
  * "meta-events" that can be used by sequencer programs.  There are meta-events
@@ -76,7 +76,7 @@ public abstract class MidiMessage implements Cloneable {
 
     // Instance variables
 
-    /**
+    /** {@collect.stats}
      * The MIDI message data.  The first byte is the status
      * byte for the message; subsequent bytes up to the length
      * of the message are data bytes for this message.
@@ -85,7 +85,7 @@ public abstract class MidiMessage implements Cloneable {
     protected byte[] data;
 
 
-    /**
+    /** {@collect.stats}
      * The number of bytes in the MIDI message, including the
      * status byte and any data bytes.
      * @see #getLength
@@ -93,7 +93,7 @@ public abstract class MidiMessage implements Cloneable {
     protected int length = 0;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>MidiMessage</code>.  This protected
      * constructor is called by concrete subclasses, which should
      * ensure that the data array specifies a complete, valid MIDI
@@ -113,7 +113,7 @@ public abstract class MidiMessage implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the data for the MIDI message.   This protected
      * method is called by concrete subclasses, which should
      * ensure that the data array specifies a complete, valid MIDI
@@ -132,7 +132,7 @@ public abstract class MidiMessage implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI message data.  The first byte of the returned byte
      * array is the status byte of the message.  Any subsequent bytes up to
      * the length of the message are data bytes.  The byte array may have a
@@ -149,7 +149,7 @@ public abstract class MidiMessage implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the status byte for the MIDI message.  The status "byte" is
      * represented as an integer; see the
      * <a href="#integersVsBytes">discussion</a> in the
@@ -165,7 +165,7 @@ public abstract class MidiMessage implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the total length of the MIDI message in bytes.  A
      * MIDI message consists of one status byte and zero or more
      * data bytes.  The return value ranges from 1 for system real-time messages,
@@ -179,7 +179,7 @@ public abstract class MidiMessage implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object of the same class and with the same contents
      * as this object.
      * @return a clone of this instance.

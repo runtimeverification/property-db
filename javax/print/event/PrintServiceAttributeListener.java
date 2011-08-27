@@ -25,7 +25,7 @@
 
 package javax.print.event;
 
-/**
+/** {@collect.stats}
   * Implementations of this listener interface are attached to a
   * {@link javax.print.PrintService PrintService} to monitor
   * the status of the print service.
@@ -36,7 +36,7 @@ package javax.print.event;
 
 public interface PrintServiceAttributeListener {
 
-    /**
+    /** {@collect.stats}
      * Called to notify a listener of an event in the print service.
      * The service will call this method on an event notification thread.
      * The client should not perform lengthy processing in this callback

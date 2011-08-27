@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/**
+/** {@collect.stats}
  * <p>RMI object used to establish connections to an RMI connector.
  * There is one Remote object implementing this interface for each RMI
  * connector.</p>
@@ -41,7 +41,7 @@ import java.rmi.RemoteException;
  * @since 1.5
  */
 public interface RMIServer extends Remote {
-    /**
+    /** {@collect.stats}
      * <p>The version of the RMI Connector Protocol understood by this
      * connector server.  This is a string with the following format:</p>
      *
@@ -69,7 +69,7 @@ public interface RMIServer extends Remote {
      */
     public String getVersion() throws RemoteException;
 
-    /**
+    /** {@collect.stats}
      * <p>Makes a new connection through this RMI connector.  Each
      * remote client calls this method to obtain a new RMI object
      * representing its connection.</p>

@@ -27,7 +27,7 @@ package java.security;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * Abstract class representing a collection of Permission objects.
  *
  * <p>With a PermissionCollection, you can:
@@ -99,7 +99,7 @@ public abstract class PermissionCollection implements java.io.Serializable {
     // when set, add will throw an exception.
     private volatile boolean readOnly;
 
-    /**
+    /** {@collect.stats}
      * Adds a permission object to the current collection of permission objects.
      *
      * @param permission the Permission object to add.
@@ -109,7 +109,7 @@ public abstract class PermissionCollection implements java.io.Serializable {
      */
     public abstract void add(Permission permission);
 
-    /**
+    /** {@collect.stats}
      * Checks to see if the specified permission is implied by
      * the collection of Permission objects held in this PermissionCollection.
      *
@@ -120,14 +120,14 @@ public abstract class PermissionCollection implements java.io.Serializable {
      */
     public abstract boolean implies(Permission permission);
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the Permission objects in the collection.
      *
      * @return an enumeration of all the Permissions.
      */
     public abstract Enumeration<Permission> elements();
 
-    /**
+    /** {@collect.stats}
      * Marks this PermissionCollection object as "readonly". After
      * a PermissionCollection object
      * is marked as readonly, no new Permission objects can be added to it
@@ -137,7 +137,7 @@ public abstract class PermissionCollection implements java.io.Serializable {
         readOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this PermissionCollection object is marked as readonly.
      * If it is readonly, no new Permission objects can be added to it
      * using <code>add</code>.
@@ -152,7 +152,7 @@ public abstract class PermissionCollection implements java.io.Serializable {
         return readOnly;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this PermissionCollection object,
      * providing information about all the permissions it contains.
      * The format is:

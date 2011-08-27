@@ -29,7 +29,7 @@ import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Copies is an integer valued printing attribute class that specifies the
  * number of copies to be printed.
  * <P>
@@ -74,7 +74,7 @@ public final class Copies extends IntegerSyntax
 
     private static final long serialVersionUID = -6426631521680023833L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new copies attribute with the given integer value.
      *
      * @param  value  Integer value.
@@ -86,7 +86,7 @@ public final class Copies extends IntegerSyntax
         super (value, 1, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this copies attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -108,7 +108,7 @@ public final class Copies extends IntegerSyntax
         return super.equals (object) && object instanceof Copies;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -121,7 +121,7 @@ public final class Copies extends IntegerSyntax
         return Copies.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

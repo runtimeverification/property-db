@@ -30,7 +30,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.SocketException;
 
-/**
+/** {@collect.stats}
  * This class creates server sockets.  It may be subclassed by other
  * factories, which create particular types of server sockets.  This
  * provides a general framework for the addition of public socket-level
@@ -57,12 +57,12 @@ public abstract class ServerSocketFactory
     private static ServerSocketFactory          theFactory;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a server socket factory.
      */
     protected ServerSocketFactory() { /* NOTHING */ }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the environment's default socket factory.
      *
      * @return the <code>ServerSocketFactory</code>
@@ -85,7 +85,7 @@ public abstract class ServerSocketFactory
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an unbound server socket.  The socket is configured with
      * the socket options (such as accept timeout) given to this factory.
      *
@@ -99,7 +99,7 @@ public abstract class ServerSocketFactory
         throw new SocketException("Unbound server sockets not implemented");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a server socket bound to the specified port.
      * The socket is configured with the socket options
      * (such as accept timeout) given to this factory.
@@ -113,7 +113,7 @@ public abstract class ServerSocketFactory
         throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a server socket bound to the specified port, and uses the
      * specified connection backlog.  The socket is configured with
      * the socket options (such as accept timeout) given to this factory.
@@ -129,7 +129,7 @@ public abstract class ServerSocketFactory
     throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a server socket bound to the specified port,
      * with a specified listen backlog and local IP.
      * The <code>ifAddress</code> argument can be used on a multi-homed

@@ -35,7 +35,7 @@
 
 package java.awt.image;
 
-/**
+/** {@collect.stats}
  *  This abstract class defines an interface for extracting samples of pixels
  *  in an image.  All image data is expressed as a collection of pixels.
  *  Each pixel consists of a number of samples. A sample is a datum
@@ -81,20 +81,20 @@ package java.awt.image;
 public abstract class SampleModel
 {
 
-    /** Width in pixels of the region of image data that this SampleModel
+    /** {@collect.stats} Width in pixels of the region of image data that this SampleModel
      *  describes.
      */
     protected int width;
 
-    /** Height in pixels of the region of image data that this SampleModel
+    /** {@collect.stats} Height in pixels of the region of image data that this SampleModel
      *  describes.
      */
     protected int height;
 
-    /** Number of bands of the image data that this SampleModel describes. */
+    /** {@collect.stats} Number of bands of the image data that this SampleModel describes. */
     protected int numBands;
 
-    /** Data type of the DataBuffer storing the pixel data.
+    /** {@collect.stats} Data type of the DataBuffer storing the pixel data.
      *  @see java.awt.image.DataBuffer
      */
     protected int dataType;
@@ -105,7 +105,7 @@ public abstract class SampleModel
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SampleModel with the specified parameters.
      * @param dataType  The data type of the DataBuffer storing the pixel data.
      * @param w         The width (in pixels) of the region of image data.
@@ -149,7 +149,7 @@ public abstract class SampleModel
         this.numBands = numBands;
     }
 
-    /** Returns the width in pixels.
+    /** {@collect.stats} Returns the width in pixels.
      *  @return the width in pixels of the region of image data
      *          that this <code>SampleModel</code> describes.
      */
@@ -157,7 +157,7 @@ public abstract class SampleModel
          return width;
     }
 
-    /** Returns the height in pixels.
+    /** {@collect.stats} Returns the height in pixels.
      *  @return the height in pixels of the region of image data
      *          that this <code>SampleModel</code> describes.
      */
@@ -165,7 +165,7 @@ public abstract class SampleModel
          return height;
     }
 
-    /** Returns the total number of bands of image data.
+    /** {@collect.stats} Returns the total number of bands of image data.
      *  @return the number of bands of image data that this
      *          <code>SampleModel</code> describes.
      */
@@ -173,7 +173,7 @@ public abstract class SampleModel
          return numBands;
     }
 
-    /** Returns the number of data elements needed to transfer a pixel
+    /** {@collect.stats} Returns the number of data elements needed to transfer a pixel
      *  via the getDataElements and setDataElements methods.  When pixels
      *  are transferred via these methods, they may be transferred in a
      *  packed or unpacked format, depending on the implementation of the
@@ -190,14 +190,14 @@ public abstract class SampleModel
      */
     public abstract int getNumDataElements();
 
-    /** Returns the data type of the DataBuffer storing the pixel data.
+    /** {@collect.stats} Returns the data type of the DataBuffer storing the pixel data.
      *  @return the data type.
      */
     final public int getDataType() {
         return dataType;
     }
 
-    /** Returns the TransferType used to transfer pixels via the
+    /** {@collect.stats} Returns the TransferType used to transfer pixels via the
      *  getDataElements and setDataElements methods.  When pixels
      *  are transferred via these methods, they may be transferred in a
      *  packed or unpacked format, depending on the implementation of the
@@ -218,7 +218,7 @@ public abstract class SampleModel
         return dataType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for a specified pixel in an int array,
      * one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -250,7 +250,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns data for a single pixel in a primitive array of type
      * TransferType.  For image data supported by the Java 2D API, this
      * will be one of DataBuffer.TYPE_BYTE, DataBuffer.TYPE_USHORT,
@@ -299,7 +299,7 @@ public abstract class SampleModel
     public abstract Object getDataElements(int x, int y,
                                            Object obj, DataBuffer data);
 
-    /**
+    /** {@collect.stats}
      * Returns the pixel data for the specified rectangle of pixels in a
      * primitive array of type TransferType.
      * For image data supported by the Java 2D API, this
@@ -479,7 +479,7 @@ public abstract class SampleModel
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a single pixel in the specified DataBuffer from a
      * primitive array of type TransferType.  For image data supported by
      * the Java 2D API, this will be one of DataBuffer.TYPE_BYTE,
@@ -525,7 +525,7 @@ public abstract class SampleModel
     public abstract void setDataElements(int x, int y,
                                          Object obj, DataBuffer data);
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a rectangle of pixels in the specified DataBuffer
      * from a primitive array of type TransferType.  For image data supported
      * by the Java 2D API, this will be one of DataBuffer.TYPE_BYTE,
@@ -665,7 +665,7 @@ public abstract class SampleModel
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for the specified pixel in an array of float.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -696,7 +696,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for the specified pixel in an array of double.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -727,7 +727,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for a rectangle of pixels in an
      * int array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -767,7 +767,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for a rectangle of pixels in a float
      * array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -807,7 +807,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for a rectangle of pixels in a double
      * array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -848,7 +848,7 @@ public abstract class SampleModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band for the pixel located
      * at (x,y) as an int.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -867,7 +867,7 @@ public abstract class SampleModel
     public abstract int getSample(int x, int y, int b, DataBuffer data);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for the pixel located at (x,y) as a float.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -889,7 +889,7 @@ public abstract class SampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for a pixel located at (x,y) as a double.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -912,7 +912,7 @@ public abstract class SampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for a specified band for the specified rectangle
      * of pixels in an int array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -952,7 +952,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for a specified band for the specified rectangle
      * of pixels in a float array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -993,7 +993,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for a specified band for a specified rectangle
      * of pixels in a double array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1034,7 +1034,7 @@ public abstract class SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in  the DataBuffer using an int array of samples for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -1054,7 +1054,7 @@ public abstract class SampleModel
             setSample(x, y, i, iArray[i], data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the DataBuffer using a float array of samples for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -1074,7 +1074,7 @@ public abstract class SampleModel
             setSample(x, y, i, fArray[i], data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the DataBuffer using a double array of samples
      * for input.
      * @param x         The X coordinate of the pixel location.
@@ -1093,7 +1093,7 @@ public abstract class SampleModel
             setSample(x, y, i, dArray[i], data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from an int array containing
      * one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1123,7 +1123,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from a float array containing
      * one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1153,7 +1153,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from a double array
      * containing one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1183,7 +1183,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using an int for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1203,7 +1203,7 @@ public abstract class SampleModel
                                    int s,
                                    DataBuffer data);
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a float for input.
      * The default implementation of this method casts the input
@@ -1231,7 +1231,7 @@ public abstract class SampleModel
         setSample(x, y, b, sample, data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a double for input.
      * The default implementation of this method casts the input
@@ -1259,7 +1259,7 @@ public abstract class SampleModel
         setSample(x, y, b, sample, data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from an int array containing one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1290,7 +1290,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from a float array containing one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1320,7 +1320,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from a double array containing one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -1350,7 +1350,7 @@ public abstract class SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      *  Creates a SampleModel which describes data in this SampleModel's
      *  format, but with a different width and height.
      *  @param w the width of the image data
@@ -1361,7 +1361,7 @@ public abstract class SampleModel
      */
     public abstract SampleModel createCompatibleSampleModel(int w, int h);
 
-    /**
+    /** {@collect.stats}
      * Creates a new SampleModel
      * with a subset of the bands of this
      * SampleModel.
@@ -1371,7 +1371,7 @@ public abstract class SampleModel
      */
     public abstract SampleModel createSubsetSampleModel(int bands[]);
 
-    /**
+    /** {@collect.stats}
      * Creates a DataBuffer that corresponds to this SampleModel.
      * The DataBuffer's width and height will match this SampleModel's.
      * @return a <code>DataBuffer</code> corresponding to this
@@ -1379,12 +1379,12 @@ public abstract class SampleModel
      */
     public abstract DataBuffer createDataBuffer();
 
-    /** Returns the size in bits of samples for all bands.
+    /** {@collect.stats} Returns the size in bits of samples for all bands.
      *  @return the size of samples for all bands.
      */
     public abstract int[] getSampleSize();
 
-    /** Returns the size in bits of samples for the specified band.
+    /** {@collect.stats} Returns the size in bits of samples for the specified band.
      *  @param band the specified band
      *  @return the size of the samples of the specified band.
      */

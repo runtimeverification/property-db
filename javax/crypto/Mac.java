@@ -37,7 +37,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class provides the functionality of a "Message Authentication Code"
  * (MAC) algorithm.
  *
@@ -85,7 +85,7 @@ public class Mac implements Cloneable {
 
     private final Object lock;
 
-    /**
+    /** {@collect.stats}
      * Creates a MAC object.
      *
      * @param macSpi the delegate
@@ -107,7 +107,7 @@ public class Mac implements Cloneable {
         lock = new Object();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>Mac</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -120,7 +120,7 @@ public class Mac implements Cloneable {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Mac</code> object that implements the
      * specified MAC algorithm.
      *
@@ -163,7 +163,7 @@ public class Mac implements Cloneable {
                                 ("Algorithm " + algorithm + " not available");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Mac</code> object that implements the
      * specified MAC algorithm.
      *
@@ -204,7 +204,7 @@ public class Mac implements Cloneable {
         return new Mac((MacSpi)instance.impl, instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Mac</code> object that implements the
      * specified MAC algorithm.
      *
@@ -242,7 +242,7 @@ public class Mac implements Cloneable {
     // max number of debug warnings to print from chooseFirstProvider()
     private static int warnCount = 10;
 
-    /**
+    /** {@collect.stats}
      * Choose the Spi from the first provider available. Used if
      * delayed provider selection is not possible because init()
      * is not the first method called.
@@ -360,7 +360,7 @@ public class Mac implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>Mac</code> object.
      *
      * @return the provider of this <code>Mac</code> object.
@@ -370,7 +370,7 @@ public class Mac implements Cloneable {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the MAC in bytes.
      *
      * @return the MAC length in bytes.
@@ -380,7 +380,7 @@ public class Mac implements Cloneable {
         return spi.engineGetMacLength();
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this <code>Mac</code> object with the given key.
      *
      * @param key the key.
@@ -401,7 +401,7 @@ public class Mac implements Cloneable {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this <code>Mac</code> object with the given key and
      * algorithm parameters.
      *
@@ -423,7 +423,7 @@ public class Mac implements Cloneable {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes the given byte.
      *
      * @param input the input byte to be processed.
@@ -439,7 +439,7 @@ public class Mac implements Cloneable {
         spi.engineUpdate(input);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes the given array of bytes.
      *
      * @param input the array of bytes to be processed.
@@ -457,7 +457,7 @@ public class Mac implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes the first <code>len</code> bytes in <code>input</code>,
      * starting at <code>offset</code> inclusive.
      *
@@ -482,7 +482,7 @@ public class Mac implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Processes <code>input.remaining()</code> bytes in the ByteBuffer
      * <code>input</code>, starting at <code>input.position()</code>.
      * Upon return, the buffer's position will be equal to its limit;
@@ -505,7 +505,7 @@ public class Mac implements Cloneable {
         spi.engineUpdate(input);
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes the MAC operation.
      *
      * <p>A call to this method resets this <code>Mac</code> object to the
@@ -534,7 +534,7 @@ public class Mac implements Cloneable {
         return mac;
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes the MAC operation.
      *
      * <p>A call to this method resets this <code>Mac</code> object to the
@@ -577,7 +577,7 @@ public class Mac implements Cloneable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes the given array of bytes and finishes the MAC operation.
      *
      * <p>A call to this method resets this <code>Mac</code> object to the
@@ -607,7 +607,7 @@ public class Mac implements Cloneable {
         return doFinal();
     }
 
-    /**
+    /** {@collect.stats}
      * Resets this <code>Mac</code> object.
      *
      * <p>A call to this method resets this <code>Mac</code> object to the
@@ -626,7 +626,7 @@ public class Mac implements Cloneable {
         spi.engineReset();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone if the provider implementation is cloneable.
      *
      * @return a clone if the provider implementation is cloneable.

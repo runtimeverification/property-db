@@ -34,7 +34,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import sun.swing.CachedPainter;
 
-/**
+/** {@collect.stats}
  * Factory object that vends <code>Icon</code>s for
  * the Java<sup><font size="-2">TM</font></sup> look and feel (Metal).
  * These icons are used extensively in Metal via the defaults mechanism.
@@ -158,7 +158,7 @@ public class MetalIconFactory implements Serializable {
         return radioButtonIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a checkbox icon.
      * @since 1.3
      */
@@ -209,7 +209,7 @@ public class MetalIconFactory implements Serializable {
         return menuArrowIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an icon to be used by <code>JCheckBoxMenuItem</code>.
      *
      * @return the default icon for check box menu items,
@@ -506,7 +506,7 @@ public class MetalIconFactory implements Serializable {
     }  // End class FileChooserUpFolderIcon
 
 
-    /**
+    /** {@collect.stats}
      * Defines an icon for Palette close
      * @since 1.3
      */
@@ -1487,7 +1487,7 @@ public class MetalIconFactory implements Serializable {
 
     static private final Dimension folderIcon16Size = new Dimension( 16, 16 );
 
-    /**
+    /** {@collect.stats}
      * Utility class for caching icon images.  This is necessary because
      * we need a new image whenever we are rendering into a new
      * GraphicsConfiguration, but we do not want to keep recreating icon
@@ -1549,7 +1549,7 @@ public class MetalIconFactory implements Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * <p>
      * <strong>Warning:</strong>
      * Serialized objects of this class will not be compatible with
@@ -1631,7 +1631,7 @@ public class MetalIconFactory implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <p>
      * <strong>Warning:</strong>
      * Serialized objects of this class will not be compatible with
@@ -1650,7 +1650,7 @@ public class MetalIconFactory implements Serializable {
 
     static private final Dimension fileIcon16Size = new Dimension( 16, 16 );
 
-    /**
+    /** {@collect.stats}
      * <p>
      * <strong>Warning:</strong>
      * Serialized objects of this class will not be compatible with
@@ -1735,7 +1735,7 @@ public class MetalIconFactory implements Serializable {
 
     static private final Dimension treeControlSize = new Dimension( 18, 18 );
 
-    /**
+    /** {@collect.stats}
      * <p>
      * <strong>Warning:</strong>
      * Serialized objects of this class will not be compatible with

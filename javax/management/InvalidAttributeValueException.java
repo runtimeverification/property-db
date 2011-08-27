@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * The value specified is not valid for the attribute.
  *
  * @since 1.5
@@ -36,14 +36,14 @@ public class InvalidAttributeValueException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = 2164571879317142449L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public InvalidAttributeValueException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

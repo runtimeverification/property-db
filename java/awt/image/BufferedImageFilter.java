@@ -29,7 +29,7 @@ import java.util.Hashtable;
 import java.awt.image.ImageConsumer;
 import java.awt.image.ImageFilter;
 
-/**
+/** {@collect.stats}
  * The <code>BufferedImageFilter</code> class subclasses an
  * <code>ImageFilter</code> to provide a simple means of
  * using a single-source/single-destination image operator
@@ -51,7 +51,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
     byte[] bytePixels;
     int[] intPixels;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>BufferedImageFilter</code> with the
      * specified single-source/single-destination operator.
      * @param op the specified <code>BufferedImageOp</code> to
@@ -66,7 +66,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
         bufferedImageOp = op;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>BufferedImageOp</code>.
      * @return the operator of this <code>BufferedImageFilter</code>.
      */
@@ -74,7 +74,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
         return bufferedImageOp;
     }
 
-    /**
+    /** {@collect.stats}
      * Filters the information provided in the
      * {@link ImageConsumer#setDimensions(int, int) setDimensions } method
      * of the {@link ImageConsumer} interface.
@@ -101,7 +101,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
         this.height = height;
     }
 
-    /**
+    /** {@collect.stats}
      * Filters the information provided in the
      * {@link ImageConsumer#setColorModel(ColorModel) setColorModel} method
      * of the <code>ImageConsumer</code> interface.
@@ -142,7 +142,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
         this.model = ColorModel.getRGBdefault();
     }
 
-    /**
+    /** {@collect.stats}
      * Filters the information provided in the <code>setPixels</code>
      * method of the <code>ImageConsumer</code> interface which takes
      * an array of bytes.
@@ -229,7 +229,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
             }
         }
     }
-    /**
+    /** {@collect.stats}
      * Filters the information provided in the <code>setPixels</code>
      * method of the <code>ImageConsumer</code> interface which takes
      * an array of integers.
@@ -320,7 +320,7 @@ public class BufferedImageFilter extends ImageFilter implements Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Filters the information provided in the <code>imageComplete</code>
      * method of the <code>ImageConsumer</code> interface.
      * <p>

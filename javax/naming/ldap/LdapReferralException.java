@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * This abstract class is used to represent an LDAP referral exception.
  * It extends the base <tt>ReferralException</tt> by providing a
  * <tt>getReferralContext()</tt> method that accepts request controls.
@@ -50,7 +50,7 @@ import java.util.Hashtable;
  */
 
 public abstract class LdapReferralException extends ReferralException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of LdapReferralException using the
      * explanation supplied. All other fields are set to null.
      *
@@ -61,7 +61,7 @@ public abstract class LdapReferralException extends ReferralException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of LdapReferralException.
       * All fields are set to null.
       */
@@ -69,7 +69,7 @@ public abstract class LdapReferralException extends ReferralException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the context at which to continue the method using the
      * context's environment and no controls.
      * The referral context is created using the environment properties of
@@ -91,7 +91,7 @@ public abstract class LdapReferralException extends ReferralException {
      */
     public abstract Context getReferralContext() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the context at which to continue the method using
      * environment properties and no controls.
      * The referral context is created using <tt>env</tt> as its environment
@@ -117,7 +117,7 @@ public abstract class LdapReferralException extends ReferralException {
         getReferralContext(Hashtable<?,?> env)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the context at which to continue the method using
      * request controls and environment properties.
      * Regardless of whether a referral is encountered directly during a

@@ -32,7 +32,7 @@ import java.awt.Color;
 
 import javax.swing.Icon;
 
-/**
+/** {@collect.stats}
  * A class which provides a matte-like border of either a solid color
  * or a tiled icon.
  * <p>
@@ -52,7 +52,7 @@ public class MatteBorder extends EmptyBorder
     protected Color color;
     protected Icon tileIcon;
 
-    /**
+    /** {@collect.stats}
      * Creates a matte border with the specified insets and color.
      * @param top the top inset of the border
      * @param left the left inset of the border
@@ -65,7 +65,7 @@ public class MatteBorder extends EmptyBorder
         this.color = matteColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a matte border with the specified insets and color.
      * @param borderInsets the insets of the border
      * @param matteColor the color rendered for the border
@@ -76,7 +76,7 @@ public class MatteBorder extends EmptyBorder
         this.color = matteColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a matte border with the specified insets and tile icon.
      * @param top the top inset of the border
      * @param left the left inset of the border
@@ -89,7 +89,7 @@ public class MatteBorder extends EmptyBorder
         this.tileIcon = tileIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a matte border with the specified insets and tile icon.
      * @param borderInsets the insets of the border
      * @param tileIcon the icon to be used for tiling the border
@@ -100,7 +100,7 @@ public class MatteBorder extends EmptyBorder
         this.tileIcon = tileIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a matte border with the specified tile icon.  The
      * insets will be calculated dynamically based on the size of
      * the tile icon, where the top and bottom will be equal to the
@@ -112,7 +112,7 @@ public class MatteBorder extends EmptyBorder
         this(-1,-1,-1,-1, tileIcon);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the matte border.
      */
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
@@ -190,7 +190,7 @@ public class MatteBorder extends EmptyBorder
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      * @since 1.3
@@ -199,7 +199,7 @@ public class MatteBorder extends EmptyBorder
         return getBorderInsets();
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -209,7 +209,7 @@ public class MatteBorder extends EmptyBorder
         return computeInsets(insets);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @since 1.3
      */
@@ -236,7 +236,7 @@ public class MatteBorder extends EmptyBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color used for tiling the border or null
      * if a tile icon is being used.
      * @since 1.3
@@ -245,7 +245,7 @@ public class MatteBorder extends EmptyBorder
         return color;
     }
 
-   /**
+   /** {@collect.stats}
      * Returns the icon used for tiling the border or null
      * if a solid color is being used.
      * @since 1.3
@@ -254,7 +254,7 @@ public class MatteBorder extends EmptyBorder
         return tileIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() {

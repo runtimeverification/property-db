@@ -29,7 +29,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
+/** {@collect.stats}
  * Logging is the implementation class of LoggingMXBean.
  *
  * The <tt>LoggingMXBean</tt> interface provides a standard
@@ -48,7 +48,7 @@ class Logging implements LoggingMXBean {
 
     private static LogManager logManager = LogManager.getLogManager();
 
-    /** Constructor of Logging which is the implementation class
+    /** {@collect.stats} Constructor of Logging which is the implementation class
      *  of LoggingMXBean.
      */
     Logging() {

@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
   * This interface represents an LDAP extended operation response as defined in
   * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
   * <pre>
@@ -72,7 +72,7 @@ package javax.naming.ldap;
 
 public interface ExtendedResponse extends java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
       * Retrieves the object identifier of the response.
       * The LDAP protocol specifies that the response object identifier is optional.
       * If the server does not send it, the response will contain no ID (i.e. null).
@@ -82,7 +82,7 @@ public interface ExtendedResponse extends java.io.Serializable {
       */
     public String getID();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the ASN.1 BER encoded value of the LDAP extended operation
       * response. Null is returned if the value is absent from the response
       * sent by the LDAP server.

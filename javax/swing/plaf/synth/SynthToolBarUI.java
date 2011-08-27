@@ -44,7 +44,7 @@ import javax.swing.plaf.basic.BasicToolBarUI;
 import sun.swing.plaf.synth.SynthIcon;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * A Synth L&F implementation of ToolBarUI.  This implementation
  * is a "combined" view/controller.
  * <p>

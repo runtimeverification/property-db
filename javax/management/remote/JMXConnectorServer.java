@@ -38,7 +38,7 @@ import javax.management.Notification;
 import javax.management.NotificationBroadcasterSupport;
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * <p>Superclass of every connector server.  A connector server is
  * attached to an MBean server.  It listens for client connection
  * requests and creates a connection for each one.</p>
@@ -66,7 +66,7 @@ public abstract class JMXConnectorServer
         extends NotificationBroadcasterSupport
         implements JMXConnectorServerMBean, MBeanRegistration, JMXAddressable {
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the authenticator for a
      * connector server.  The value associated with this attribute, if
      * any, must be an object that implements the interface {@link
@@ -75,7 +75,7 @@ public abstract class JMXConnectorServer
     public static final String AUTHENTICATOR =
         "jmx.remote.authenticator";
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a connector server that will be registered as an
      * MBean in the MBean server it is attached to.  This constructor
      * is typically called by one of the <code>createMBean</code>
@@ -86,7 +86,7 @@ public abstract class JMXConnectorServer
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a connector server that is attached to the given
      * MBean server.  A connector server that is created in this way
      * can be registered in a different MBean server.</p>
@@ -99,7 +99,7 @@ public abstract class JMXConnectorServer
         this.mbeanServer = mbeanServer;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the MBean server that this connector server is
      * attached to.</p>
      *
@@ -125,7 +125,7 @@ public abstract class JMXConnectorServer
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a client stub for this connector server.  A client
      * stub is a serializable object whose {@link
      * JMXConnector#connect(Map) connect} method can be used to make
@@ -176,7 +176,7 @@ public abstract class JMXConnectorServer
         return JMXConnectorFactory.newJMXConnector(addr, env);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an array indicating the notifications that this MBean
      * sends. The implementation in <code>JMXConnectorServer</code>
      * returns an array with one element, indicating that it can emit
@@ -201,7 +201,7 @@ public abstract class JMXConnectorServer
         };
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by a subclass when a new client connection is opened.
      * Adds <code>connectionId</code> to the list returned by {@link
      * #getConnectionIds()}, then emits a {@link
@@ -238,7 +238,7 @@ public abstract class JMXConnectorServer
                          message, userData);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by a subclass when a client connection is closed
      * normally.  Removes <code>connectionId</code> from the list returned
      * by {@link #getConnectionIds()}, then emits a {@link
@@ -273,7 +273,7 @@ public abstract class JMXConnectorServer
                          message, userData);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by a subclass when a client connection fails.
      * Removes <code>connectionId</code> from the list returned by
      * {@link #getConnectionIds()}, then emits a {@link
@@ -334,7 +334,7 @@ public abstract class JMXConnectorServer
     }
 
     // implements MBeanRegistration
-    /**
+    /** {@collect.stats}
      * <p>Called by an MBean server when this connector server is
      * registered in that MBean server.  This connector server becomes
      * attached to the MBean server and its {@link #getMBeanServer()}
@@ -370,7 +370,7 @@ public abstract class JMXConnectorServer
         // do nothing
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by an MBean server when this connector server is
      * unregistered from that MBean server.  If this connector server
      * was attached to that MBean server by being registered in it,
@@ -394,12 +394,12 @@ public abstract class JMXConnectorServer
         myName = null;
     }
 
-    /**
+    /** {@collect.stats}
      * The MBeanServer used by this server to execute a client request.
      */
     private MBeanServer mbeanServer = null;
 
-    /**
+    /** {@collect.stats}
      * The name used to registered this server in an MBeanServer.
      * It is null if the this server is not registered or has been unregistered.
      */

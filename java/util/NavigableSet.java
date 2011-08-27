@@ -35,7 +35,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * A {@link SortedSet} extended with navigation methods reporting
  * closest matches for given search targets. Methods {@code lower},
  * {@code floor}, {@code ceiling}, and {@code higher} return elements
@@ -84,7 +84,7 @@ package java.util;
  * @since 1.6
  */
 public interface NavigableSet<E> extends SortedSet<E> {
-    /**
+    /** {@collect.stats}
      * Returns the greatest element in this set strictly less than the
      * given element, or {@code null} if there is no such element.
      *
@@ -98,7 +98,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E lower(E e);
 
-    /**
+    /** {@collect.stats}
      * Returns the greatest element in this set less than or equal to
      * the given element, or {@code null} if there is no such element.
      *
@@ -112,7 +112,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E floor(E e);
 
-    /**
+    /** {@collect.stats}
      * Returns the least element in this set greater than or equal to
      * the given element, or {@code null} if there is no such element.
      *
@@ -126,7 +126,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E ceiling(E e);
 
-    /**
+    /** {@collect.stats}
      * Returns the least element in this set strictly greater than the
      * given element, or {@code null} if there is no such element.
      *
@@ -140,7 +140,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E higher(E e);
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the first (lowest) element,
      * or returns {@code null} if this set is empty.
      *
@@ -148,7 +148,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E pollFirst();
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the last (highest) element,
      * or returns {@code null} if this set is empty.
      *
@@ -156,14 +156,14 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     E pollLast();
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set, in ascending order.
      *
      * @return an iterator over the elements in this set, in ascending order
      */
     Iterator<E> iterator();
 
-    /**
+    /** {@collect.stats}
      * Returns a reverse order view of the elements contained in this set.
      * The descending set is backed by this set, so changes to the set are
      * reflected in the descending set, and vice-versa.  If either set is
@@ -180,7 +180,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     NavigableSet<E> descendingSet();
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set, in descending order.
      * Equivalent in effect to {@code descendingSet().iterator()}.
      *
@@ -188,7 +188,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     Iterator<E> descendingIterator();
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements range from
      * {@code fromElement} to {@code toElement}.  If {@code fromElement} and
      * {@code toElement} are equal, the returned set is empty unless {@code
@@ -226,7 +226,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
     NavigableSet<E> subSet(E fromElement, boolean fromInclusive,
                            E toElement,   boolean toInclusive);
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements are less than
      * (or equal to, if {@code inclusive} is true) {@code toElement}.  The
      * returned set is backed by this set, so changes in the returned set are
@@ -255,7 +255,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     NavigableSet<E> headSet(E toElement, boolean inclusive);
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements are greater
      * than (or equal to, if {@code inclusive} is true) {@code fromElement}.
      * The returned set is backed by this set, so changes in the returned set
@@ -284,7 +284,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     NavigableSet<E> tailSet(E fromElement, boolean inclusive);
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code subSet(fromElement, true, toElement, false)}.
@@ -295,7 +295,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
      */
     SortedSet<E> subSet(E fromElement, E toElement);
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code headSet(toElement, false)}.
@@ -306,7 +306,7 @@ public interface NavigableSet<E> extends SortedSet<E> {
 na     */
     SortedSet<E> headSet(E toElement);
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>Equivalent to {@code tailSet(fromElement, true)}.

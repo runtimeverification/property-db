@@ -23,7 +23,7 @@
  * questions.
  */
 
-/**
+/** {@collect.stats}
  * Provides library support for the Java programming language
  * annotation facility.
  *

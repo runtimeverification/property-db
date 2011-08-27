@@ -26,7 +26,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * This immutable class specifies an elliptic curve private key with
  * its associated parameters.
  *
@@ -42,7 +42,7 @@ public class ECPrivateKeySpec implements KeySpec {
     private BigInteger s;
     private ECParameterSpec params;
 
-    /**
+    /** {@collect.stats}
      * Creates a new ECPrivateKeySpec with the specified
      * parameter values.
      * @param s the private value.
@@ -62,7 +62,7 @@ public class ECPrivateKeySpec implements KeySpec {
         this.params = params;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the private value S.
      * @return the private value S.
      */
@@ -70,7 +70,7 @@ public class ECPrivateKeySpec implements KeySpec {
         return s;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the associated elliptic curve domain
      * parameters.
      * @return the EC domain parameters.

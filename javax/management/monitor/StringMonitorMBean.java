@@ -29,7 +29,7 @@ package javax.management.monitor;
 //
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * Exposes the remote management interface of the string monitor MBean.
  *
  *
@@ -40,7 +40,7 @@ public interface StringMonitorMBean extends MonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge.
      *
      * @return The derived gauge.
@@ -49,7 +49,7 @@ public interface StringMonitorMBean extends MonitorMBean {
     @Deprecated
     public String getDerivedGauge();
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp.
      *
      * @return The derived gauge timestamp.
@@ -58,7 +58,7 @@ public interface StringMonitorMBean extends MonitorMBean {
     @Deprecated
     public long getDerivedGaugeTimeStamp();
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge for the specified MBean.
      *
      * @param object the MBean for which the derived gauge is to be returned
@@ -68,7 +68,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public String getDerivedGauge(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp for the specified MBean.
      *
      * @param object the MBean for which the derived gauge timestamp is to be returned
@@ -78,7 +78,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public long getDerivedGaugeTimeStamp(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the string to compare with the observed attribute.
      *
      * @return The string value.
@@ -87,7 +87,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public String getStringToCompare();
 
-    /**
+    /** {@collect.stats}
      * Sets the string to compare with the observed attribute.
      *
      * @param value The string value.
@@ -98,7 +98,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public void setStringToCompare(String value) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the matching notification's on/off switch value.
      *
      * @return <CODE>true</CODE> if the string monitor notifies when
@@ -108,7 +108,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public boolean getNotifyMatch();
 
-    /**
+    /** {@collect.stats}
      * Sets the matching notification's on/off switch value.
      *
      * @param value The matching notification's on/off switch value.
@@ -117,7 +117,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public void setNotifyMatch(boolean value);
 
-    /**
+    /** {@collect.stats}
      * Gets the differing notification's on/off switch value.
      *
      * @return <CODE>true</CODE> if the string monitor notifies when
@@ -127,7 +127,7 @@ public interface StringMonitorMBean extends MonitorMBean {
      */
     public boolean getNotifyDiffer();
 
-    /**
+    /** {@collect.stats}
      * Sets the differing notification's on/off switch value.
      *
      * @param value The differing notification's on/off switch value.

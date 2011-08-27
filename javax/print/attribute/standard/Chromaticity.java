@@ -31,7 +31,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Chromaticity is a printing attribute class, an enumeration, that
  * specifies monochrome or color printing. This is used by a print client
  * to specify how the print data should be generated or processed. It is not
@@ -90,18 +90,18 @@ public final class Chromaticity extends EnumSyntax
 
     private static final long serialVersionUID = 4660543931355214012L;
 
-    /**
+    /** {@collect.stats}
      * Monochrome printing.
      */
     public static final Chromaticity MONOCHROME = new Chromaticity(0);
 
-    /**
+    /** {@collect.stats}
      * Color printing.
      */
     public static final Chromaticity COLOR = new Chromaticity(1);
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new chromaticity enumeration value with the given integer
      * value.
      *
@@ -117,21 +117,21 @@ public final class Chromaticity extends EnumSyntax
     private static final Chromaticity[] myEnumValueTable = {MONOCHROME,
                                                             COLOR};
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class Chromaticity.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class Chromaticity.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -144,7 +144,7 @@ public final class Chromaticity extends EnumSyntax
         return Chromaticity.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

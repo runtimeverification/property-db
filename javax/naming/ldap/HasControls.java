@@ -27,7 +27,7 @@ package javax.naming.ldap;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This interface is for returning controls with objects returned
   * in NamingEnumerations.
   * For example, suppose a server sends back controls with the results
@@ -59,7 +59,7 @@ import javax.naming.NamingException;
 
 public interface HasControls {
 
-    /**
+    /** {@collect.stats}
       * Retrieves an array of <tt>Control</tt>s from the object that
       * implements this interface. It is null if there are no controls.
       *

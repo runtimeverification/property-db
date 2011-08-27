@@ -31,7 +31,7 @@ import java.math.BigInteger;
 import java.security.cert.X509Certificate;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>X509IssuerSerial</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -70,7 +70,7 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface X509IssuerSerial extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns the X.500 distinguished name of this
      * <code>X509IssuerSerial</code> in
      * <a href="http://www.ietf.org/rfc/rfc2253.txt">RFC 2253</a> String format.
@@ -80,7 +80,7 @@ public interface X509IssuerSerial extends XMLStructure {
      */
     String getIssuerName();
 
-    /**
+    /** {@collect.stats}
      * Returns the serial number of this <code>X509IssuerSerial</code>.
      *
      * @return the serial number (never <code>null</code>)

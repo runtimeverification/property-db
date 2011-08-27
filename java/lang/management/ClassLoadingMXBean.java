@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/**
+/** {@collect.stats}
  * The management interface for the class loading system of
  * the Java virtual machine.
  *
@@ -54,7 +54,7 @@ package java.lang.management;
  */
 public interface ClassLoadingMXBean {
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of classes that have been loaded since
      * the Java virtual machine has started execution.
      *
@@ -63,7 +63,7 @@ public interface ClassLoadingMXBean {
      */
     public long getTotalLoadedClassCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of classes that are currently loaded in the
      * Java virtual machine.
      *
@@ -71,7 +71,7 @@ public interface ClassLoadingMXBean {
      */
     public int getLoadedClassCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of classes unloaded since the Java virtual machine
      * has started execution.
      *
@@ -79,7 +79,7 @@ public interface ClassLoadingMXBean {
      */
     public long getUnloadedClassCount();
 
-    /**
+    /** {@collect.stats}
      * Tests if the verbose output for the class loading system is enabled.
      *
      * @return <tt>true</tt> if the verbose output for the class loading
@@ -87,7 +87,7 @@ public interface ClassLoadingMXBean {
      */
     public boolean isVerbose();
 
-    /**
+    /** {@collect.stats}
      * Enables or disables the verbose output for the class loading
      * system.  The verbose output information and the output stream
      * to which the verbose information is emitted are implementation

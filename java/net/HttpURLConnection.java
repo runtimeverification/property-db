@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.security.Permission;
 import java.util.Date;
 
-/**
+/** {@collect.stats}
  * A URLConnection with support for HTTP-specific features. See
  * <A HREF="http://www.w3.org/pub/WWW/Protocols/"> the spec </A> for
  * details.
@@ -51,19 +51,19 @@ import java.util.Date;
 abstract public class HttpURLConnection extends URLConnection {
     /* instance variables */
 
-    /**
+    /** {@collect.stats}
      * The HTTP method (GET,POST,PUT,etc.).
      */
     protected String method = "GET";
 
-    /**
+    /** {@collect.stats}
      * The chunk-length when using chunked encoding streaming mode for output.
      * A value of <code>-1</code> means chunked encoding is disabled for output.
      * @since 1.5
      */
     protected int chunkLength = -1;
 
-    /**
+    /** {@collect.stats}
      * The fixed content-length when using fixed-length streaming mode.
      * A value of <code>-1</code> means fixed-length streaming mode is disabled
      * for output.
@@ -71,7 +71,7 @@ abstract public class HttpURLConnection extends URLConnection {
      */
     protected int fixedContentLength = -1;
 
-    /**
+    /** {@collect.stats}
      * Returns the key for the <code>n</code><sup>th</sup> header field.
      * Some implementations may treat the <code>0</code><sup>th</sup>
      * header field as special, i.e. as the status line returned by the HTTP
@@ -86,7 +86,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used to enable streaming of a HTTP request body
      * without internal buffering, when the content length is known in
      * advance.
@@ -135,7 +135,7 @@ abstract public class HttpURLConnection extends URLConnection {
      */
     private static final int DEFAULT_CHUNK_SIZE = 4096;
 
-    /**
+    /** {@collect.stats}
      * This method is used to enable streaming of a HTTP request body
      * without internal buffering, when the content length is <b>not</b>
      * known in advance. In this mode, chunked transfer encoding
@@ -170,7 +170,7 @@ abstract public class HttpURLConnection extends URLConnection {
         chunkLength = chunklen <=0? DEFAULT_CHUNK_SIZE : chunklen;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value for the <code>n</code><sup>th</sup> header field.
      * Some implementations may treat the <code>0</code><sup>th</sup>
      * header field as special, i.e. as the status line returned by the HTTP
@@ -189,7 +189,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing the three digit HTTP Status-Code.
      * <ul>
      * <li> 1xx: Informational
@@ -201,7 +201,7 @@ abstract public class HttpURLConnection extends URLConnection {
      */
     protected int responseCode = -1;
 
-    /**
+    /** {@collect.stats}
      * The HTTP response message.
      */
     protected String responseMessage = null;
@@ -211,7 +211,7 @@ abstract public class HttpURLConnection extends URLConnection {
     /* do we automatically follow redirects? The default is true. */
     private static boolean followRedirects = true;
 
-    /**
+    /** {@collect.stats}
      * If <code>true</code>, the protocol will automatically follow redirects.
      * If <code>false</code>, the protocol will not automatically follow
      * redirects.
@@ -234,7 +234,7 @@ abstract public class HttpURLConnection extends URLConnection {
         "GET", "POST", "HEAD", "OPTIONS", "PUT", "DELETE", "TRACE"
     };
 
-    /**
+    /** {@collect.stats}
      * Constructor for the HttpURLConnection.
      * @param u the URL
      */
@@ -242,7 +242,7 @@ abstract public class HttpURLConnection extends URLConnection {
         super(u);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether HTTP redirects  (requests with response code 3xx) should
      * be automatically followed by this class.  True by default.  Applets
      * cannot change this variable.
@@ -269,7 +269,7 @@ abstract public class HttpURLConnection extends URLConnection {
         followRedirects = set;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>boolean</code> indicating
      * whether or not HTTP redirects (3xx) should
      * be automatically followed.
@@ -282,7 +282,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return followRedirects;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether HTTP redirects (requests with response code 3xx) should
      * be automatically followed by this <code>HttpURLConnection</code>
      * instance.
@@ -301,7 +301,7 @@ abstract public class HttpURLConnection extends URLConnection {
         instanceFollowRedirects = followRedirects;
      }
 
-     /**
+     /** {@collect.stats}
      * Returns the value of this <code>HttpURLConnection</code>'s
      * <code>instanceFollowRedirects</code> field.
      *
@@ -315,7 +315,7 @@ abstract public class HttpURLConnection extends URLConnection {
          return instanceFollowRedirects;
      }
 
-    /**
+    /** {@collect.stats}
      * Set the method for the URL request, one of:
      * <UL>
      *  <LI>GET
@@ -357,7 +357,7 @@ abstract public class HttpURLConnection extends URLConnection {
         throw new ProtocolException("Invalid HTTP method: " + method);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the request method.
      * @return the HTTP request method
      * @see #setRequestMethod(java.lang.String)
@@ -366,7 +366,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return method;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the status code from an HTTP response message.
      * For example, in the case of the following status lines:
      * <PRE>
@@ -446,7 +446,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the HTTP response message, if any, returned along with the
      * response code from a server.  From responses like:
      * <PRE>
@@ -477,7 +477,7 @@ abstract public class HttpURLConnection extends URLConnection {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates that other requests to the server
      * are unlikely in the near future. Calling disconnect()
      * should not imply that this HttpURLConnection
@@ -485,7 +485,7 @@ abstract public class HttpURLConnection extends URLConnection {
      */
     public abstract void disconnect();
 
-    /**
+    /** {@collect.stats}
      * Indicates if the connection is going through a proxy.
      * @return a boolean indicating if the connection is
      * using a proxy.
@@ -500,7 +500,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return permission;
     }
 
-   /**
+   /** {@collect.stats}
     * Returns the error stream if the connection failed
     * but the server sent useful data nonetheless. The
     * typical example is when an HTTP server responds
@@ -522,7 +522,7 @@ abstract public class HttpURLConnection extends URLConnection {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The response codes for HTTP, as of version 1.1.
      */
 
@@ -531,190 +531,190 @@ abstract public class HttpURLConnection extends URLConnection {
 
     /* 2XX: generally "OK" */
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 200: OK.
      */
     public static final int HTTP_OK = 200;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 201: Created.
      */
     public static final int HTTP_CREATED = 201;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 202: Accepted.
      */
     public static final int HTTP_ACCEPTED = 202;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 203: Non-Authoritative Information.
      */
     public static final int HTTP_NOT_AUTHORITATIVE = 203;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 204: No Content.
      */
     public static final int HTTP_NO_CONTENT = 204;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 205: Reset Content.
      */
     public static final int HTTP_RESET = 205;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 206: Partial Content.
      */
     public static final int HTTP_PARTIAL = 206;
 
     /* 3XX: relocation/redirect */
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 300: Multiple Choices.
      */
     public static final int HTTP_MULT_CHOICE = 300;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 301: Moved Permanently.
      */
     public static final int HTTP_MOVED_PERM = 301;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 302: Temporary Redirect.
      */
     public static final int HTTP_MOVED_TEMP = 302;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 303: See Other.
      */
     public static final int HTTP_SEE_OTHER = 303;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 304: Not Modified.
      */
     public static final int HTTP_NOT_MODIFIED = 304;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 305: Use Proxy.
      */
     public static final int HTTP_USE_PROXY = 305;
 
     /* 4XX: client error */
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 400: Bad Request.
      */
     public static final int HTTP_BAD_REQUEST = 400;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 401: Unauthorized.
      */
     public static final int HTTP_UNAUTHORIZED = 401;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 402: Payment Required.
      */
     public static final int HTTP_PAYMENT_REQUIRED = 402;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 403: Forbidden.
      */
     public static final int HTTP_FORBIDDEN = 403;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 404: Not Found.
      */
     public static final int HTTP_NOT_FOUND = 404;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 405: Method Not Allowed.
      */
     public static final int HTTP_BAD_METHOD = 405;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 406: Not Acceptable.
      */
     public static final int HTTP_NOT_ACCEPTABLE = 406;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 407: Proxy Authentication Required.
      */
     public static final int HTTP_PROXY_AUTH = 407;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 408: Request Time-Out.
      */
     public static final int HTTP_CLIENT_TIMEOUT = 408;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 409: Conflict.
      */
     public static final int HTTP_CONFLICT = 409;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 410: Gone.
      */
     public static final int HTTP_GONE = 410;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 411: Length Required.
      */
     public static final int HTTP_LENGTH_REQUIRED = 411;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 412: Precondition Failed.
      */
     public static final int HTTP_PRECON_FAILED = 412;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 413: Request Entity Too Large.
      */
     public static final int HTTP_ENTITY_TOO_LARGE = 413;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 414: Request-URI Too Large.
      */
     public static final int HTTP_REQ_TOO_LONG = 414;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 415: Unsupported Media Type.
      */
     public static final int HTTP_UNSUPPORTED_TYPE = 415;
 
     /* 5XX: server error */
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 500: Internal Server Error.
      * @deprecated   it is misplaced and shouldn't have existed.
      */
     @Deprecated
     public static final int HTTP_SERVER_ERROR = 500;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 500: Internal Server Error.
      */
     public static final int HTTP_INTERNAL_ERROR = 500;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 501: Not Implemented.
      */
     public static final int HTTP_NOT_IMPLEMENTED = 501;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 502: Bad Gateway.
      */
     public static final int HTTP_BAD_GATEWAY = 502;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 503: Service Unavailable.
      */
     public static final int HTTP_UNAVAILABLE = 503;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 504: Gateway Timeout.
      */
     public static final int HTTP_GATEWAY_TIMEOUT = 504;
 
-    /**
+    /** {@collect.stats}
      * HTTP Status-Code 505: HTTP Version Not Supported.
      */
     public static final int HTTP_VERSION = 505;

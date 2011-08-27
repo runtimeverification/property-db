@@ -32,7 +32,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ColorModel;
 
-/**
+/** {@collect.stats}
  * Provides the actual implementation for the LinearGradientPaint.
  * This is where the pixel processing is done.
  *
@@ -43,14 +43,14 @@ import java.awt.image.ColorModel;
  */
 final class LinearGradientPaintContext extends MultipleGradientPaintContext {
 
-    /**
+    /** {@collect.stats}
      * The following invariants are used to process the gradient value from
      * a device space coordinate, (X, Y):
      *     g(X, Y) = dgdX*X + dgdY*Y + gc
      */
     private float dgdX, dgdY, gc;
 
-    /**
+    /** {@collect.stats}
      * Constructor for LinearGradientPaintContext.
      *
      * @param paint the {@code LinearGradientPaint} from which this context
@@ -122,7 +122,7 @@ final class LinearGradientPaintContext extends MultipleGradientPaintContext {
         gc = (a02-startx)*constX + (a12-starty)*constY;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a Raster containing the colors generated for the graphics
      * operation.  This is where the area is filled with colors distributed
      * linearly.

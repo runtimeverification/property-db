@@ -33,7 +33,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Component decorator that implements the view interface
  * for form elements, &lt;input&gt;, &lt;textarea&gt;,
  * and &lt;select&gt;.  The model for the component is stored
@@ -106,7 +106,7 @@ import javax.swing.text.*;
  */
 public class FormView extends ComponentView implements ActionListener {
 
-    /**
+    /** {@collect.stats}
      * If a value attribute is not specified for a FORM input element
      * of type "submit", then this default string is used.
      *
@@ -115,7 +115,7 @@ public class FormView extends ComponentView implements ActionListener {
      */
     @Deprecated
     public static final String SUBMIT = new String("Submit Query");
-    /**
+    /** {@collect.stats}
      * If a value attribute is not specified for a FORM input element
      * of type "reset", then this default string is used.
      *
@@ -125,13 +125,13 @@ public class FormView extends ComponentView implements ActionListener {
     @Deprecated
     public static final String RESET = new String("Reset");
 
-    /**
+    /** {@collect.stats}
      * Document attribute name for storing POST data. JEditorPane.getPostData()
      * uses the same name, should be kept in sync.
      */
     final static String PostDataProperty = "javax.swing.JEditorPane.postdata";
 
-    /**
+    /** {@collect.stats}
      * Used to indicate if the maximum span should be the same as the
      * preferred span. This is used so that the Component's size doesn't
      * change if there is extra room on a line. The first bit is used for
@@ -139,7 +139,7 @@ public class FormView extends ComponentView implements ActionListener {
      */
     private short maxIsPreferred;
 
-    /**
+    /** {@collect.stats}
      * Creates a new FormView object.
      *
      * @param elem the element to decorate
@@ -148,7 +148,7 @@ public class FormView extends ComponentView implements ActionListener {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Create the component.  This is basically a
      * big switch statement based upon the tag type
      * and html attributes of the associated element.
@@ -199,7 +199,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a component for an &lt;INPUT&gt; element based on the
      * value of the "type" attribute.
      *
@@ -311,7 +311,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis. For certain components, the maximum and preferred span are the
      * same. For others this will return the value
@@ -346,7 +346,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Responsible for processeing the ActionEvent.
      * If the element associated with the FormView,
      * has a type of "submit", "reset", "text" or "password"
@@ -384,7 +384,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is responsible for submitting the form data.
      * A thread is forked to undertake the submission.
      */
@@ -484,7 +484,7 @@ public class FormView extends ComponentView implements ActionListener {
         propDoc.putProperty(propName, data);
     }
 
-    /**
+    /** {@collect.stats}
      * MouseEventListener class to handle form submissions when
      * an input with type equal to image is clicked on.
      * A MouseListener is necessary since along with the image
@@ -499,7 +499,7 @@ public class FormView extends ComponentView implements ActionListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called to submit a form in response
      * to a click on an image -- an &lt;INPUT&gt; form
      * element of type "image".
@@ -520,7 +520,7 @@ public class FormView extends ComponentView implements ActionListener {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Extracts the value of the name attribute
      * associated with the input element of type
      * image.  If name is defined it is encoded using
@@ -552,7 +552,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * The following methods provide functionality required to
      * iterate over a the elements of the form and in the case
      * of a form submission, extract the data from each model
@@ -562,7 +562,7 @@ public class FormView extends ComponentView implements ActionListener {
      */
 
 
-    /**
+    /** {@collect.stats}
      * Returns the Element representing the <code>FORM</code>.
      */
     private Element getFormElement() {
@@ -577,7 +577,7 @@ public class FormView extends ComponentView implements ActionListener {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Iterates over the
      * element hierarchy, extracting data from the
      * models associated with the relevant form elements.
@@ -615,7 +615,7 @@ public class FormView extends ComponentView implements ActionListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the data
      * associated with the element into the buffer.
      * The format in which data is appended depends
@@ -648,7 +648,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the data associated with an &lt;INPUT&gt; form
      * element.  The value of "type" attributes is
      * used to determine the type of the model associated
@@ -720,7 +720,7 @@ public class FormView extends ComponentView implements ActionListener {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data associated with the &lt;TEXTAREA&gt; form
      * element.  This is done by getting the text stored in the
      * Document model.
@@ -735,7 +735,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Loads the buffer with the data associated with the Select
      * form element.  Basically, only items that are selected
      * and have their name attribute set are added to the buffer.
@@ -765,7 +765,7 @@ public class FormView extends ComponentView implements ActionListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends name / value pairs into the
      * buffer.  Both names and values are encoded using the
      * URLEncoder.encode() method before being added to the
@@ -782,14 +782,14 @@ public class FormView extends ComponentView implements ActionListener {
         buffer.append(encodedValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the Element <code>elem</code> represents a control.
      */
     private boolean isControl(Element elem) {
         return elem.isLeaf();
     }
 
-    /**
+    /** {@collect.stats}
      * Iterates over the element hierarchy to determine if
      * the element parameter, which is assumed to be an
      * &lt;INPUT&gt; element of type password or text, is the last
@@ -826,7 +826,7 @@ public class FormView extends ComponentView implements ActionListener {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the form
      * to its initial state by reinitializing the models
      * associated with each form element to their initial
@@ -894,7 +894,7 @@ public class FormView extends ComponentView implements ActionListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * BrowseFileAction is used for input type == file. When the user
      * clicks the button a JFileChooser is brought up allowing the user
      * to select a file in the file system. The resulting path to the selected

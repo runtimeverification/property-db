@@ -41,7 +41,7 @@ import com.sun.jmx.remote.util.ClassLogger;
 import com.sun.jmx.remote.util.EnvHelp;
 
 
-/**
+/** {@collect.stats}
  * <p>Factory to create JMX API connector clients.  There
  * are no instances of this class.</p>
  *
@@ -162,7 +162,7 @@ import com.sun.jmx.remote.util.EnvHelp;
  */
 public class JMXConnectorFactory {
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the default class
      * loader. This class loader is used to deserialize return values and
      * exceptions from remote <code>MBeanServerConnection</code>
@@ -172,7 +172,7 @@ public class JMXConnectorFactory {
     public static final String DEFAULT_CLASS_LOADER =
         "jmx.remote.default.class.loader";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the provider packages
      * that are consulted when looking for the handler for a protocol.
      * The value associated with this attribute is a string with
@@ -181,7 +181,7 @@ public class JMXConnectorFactory {
     public static final String PROTOCOL_PROVIDER_PACKAGES =
         "jmx.remote.protocol.provider.pkgs";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the class
      * loader for loading protocol providers.
      * The value associated with this attribute is an instance
@@ -196,11 +196,11 @@ public class JMXConnectorFactory {
     private static final ClassLogger logger =
         new ClassLogger("javax.management.remote.misc", "JMXConnectorFactory");
 
-    /** There are no instances of this class.  */
+    /** {@collect.stats} There are no instances of this class.  */
     private JMXConnectorFactory() {
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a connection to the connector server at the given
      * address.</p>
      *
@@ -226,7 +226,7 @@ public class JMXConnectorFactory {
         return connect(serviceURL, null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a connection to the connector server at the given
      * address.</p>
      *
@@ -268,7 +268,7 @@ public class JMXConnectorFactory {
         return conn;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a connector client for the connector server at the
      * given address.  The resultant client is not connected until its
      * {@link JMXConnector#connect(Map) connect} method is called.</p>

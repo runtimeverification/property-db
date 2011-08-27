@@ -48,7 +48,7 @@ class ArrayTable implements Cloneable {
     private static final int ARRAY_BOUNDARY = 8;
 
 
-    /**
+    /** {@collect.stats}
      * Writes the passed in ArrayTable to the passed in ObjectOutputStream.
      * The data is saved as an integer indicating how many key/value
      * pairs are being archived, followed by the the key/value pairs. If
@@ -241,7 +241,7 @@ class ArrayTable implements Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the mappings.
      */
     public void clear() {
@@ -269,7 +269,7 @@ class ArrayTable implements Cloneable {
         return newArrayTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the keys of the table, or <code>null</code> if there
      * are currently no bindings.
      * @param keys  array of keys

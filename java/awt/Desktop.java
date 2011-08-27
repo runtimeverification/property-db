@@ -40,7 +40,7 @@ import sun.awt.HeadlessToolkit;
 import java.io.FilePermission;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * The {@code Desktop} class allows a Java application to launch
  * associated applications registered on the native desktop to handle
  * a {@link java.net.URI} or a file.
@@ -79,7 +79,7 @@ import sun.security.util.SecurityConstants;
  */
 public class Desktop {
 
-    /**
+    /** {@collect.stats}
      * Represents an action type.  Each platform supports a different
      * set of actions.  You may use the {@link Desktop#isSupported}
      * method to determine if the given action is supported by the
@@ -88,28 +88,28 @@ public class Desktop {
      * @since 1.6
      */
     public static enum Action {
-        /**
+        /** {@collect.stats}
          * Represents an "open" action.
          * @see Desktop#open(java.io.File)
          */
         OPEN,
-        /**
+        /** {@collect.stats}
          * Represents an "edit" action.
          * @see Desktop#edit(java.io.File)
          */
         EDIT,
-        /**
+        /** {@collect.stats}
          * Represents a "print" action.
          * @see Desktop#print(java.io.File)
          */
         PRINT,
-        /**
+        /** {@collect.stats}
          * Represents a "mail" action.
          * @see Desktop#mail()
          * @see Desktop#mail(java.net.URI)
          */
         MAIL,
-        /**
+        /** {@collect.stats}
          * Represents a "browse" action.
          * @see Desktop#browse(java.net.URI)
          */
@@ -118,14 +118,14 @@ public class Desktop {
 
     private DesktopPeer peer;
 
-    /**
+    /** {@collect.stats}
      * Suppresses default constructor for noninstantiability.
      */
     private Desktop() {
         peer = Toolkit.getDefaultToolkit().createDesktopPeer(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Desktop</code> instance of the current
      * browser context.  On some platforms the Desktop API may not be
      * supported; use the {@link #isDesktopSupported} method to
@@ -156,7 +156,7 @@ public class Desktop {
         return desktop;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether this class is supported on the current platform.
      * If it's supported, use {@link #getDesktop()} to retrieve an
      * instance.
@@ -173,7 +173,7 @@ public class Desktop {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether an action is supported on the current platform.
      *
      * <p>Even when the platform supports an action, a file or URI may
@@ -193,7 +193,7 @@ public class Desktop {
         return peer.isSupported(action);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the file is a valid file and readable.
      *
      * @throws SecurityException If a security manager exists and its
@@ -213,7 +213,7 @@ public class Desktop {
         file.canRead();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the action type is supported.
      *
      * @param actionType the action type in question
@@ -228,7 +228,7 @@ public class Desktop {
     }
 
 
-    /**
+    /** {@collect.stats}
      *  Calls to the security manager's <code>checkPermission</code> method with
      *  an <code>AWTPermission("showWindowWithoutWarningBanner")</code>
      *  permission.
@@ -241,7 +241,7 @@ public class Desktop {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Launches the associated application to open the file.
      *
      * <p> If the specified file is a directory, the file manager of
@@ -272,7 +272,7 @@ public class Desktop {
         peer.open(file);
     }
 
-    /**
+    /** {@collect.stats}
      * Launches the associated editor application and opens a file for
      * editing.
      *
@@ -304,7 +304,7 @@ public class Desktop {
         peer.edit(file);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints a file with the native desktop printing facility, using
      * the associated application's print command.
      *
@@ -336,7 +336,7 @@ public class Desktop {
         peer.print(file);
     }
 
-    /**
+    /** {@collect.stats}
      * Launches the default browser to display a {@code URI}.
      * If the default browser is not able to handle the specified
      * {@code URI}, the application registered for handling
@@ -404,7 +404,7 @@ public class Desktop {
         db.browse(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Launches the mail composing window of the user default mail
      * client.
      *
@@ -432,7 +432,7 @@ public class Desktop {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Launches the mail composing window of the user default mail
      * client, filling the message fields specified by a {@code
      * mailto:} URI.

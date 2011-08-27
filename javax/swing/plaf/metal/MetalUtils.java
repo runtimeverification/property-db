@@ -34,7 +34,7 @@ import java.util.*;
 import sun.swing.CachedPainter;
 import sun.swing.ImageIconUIResource;
 
-/**
+/** {@collect.stats}
  * This is a dumping ground for random stuff we want to use in several places.
  *
  * @author Steve Wilson
@@ -46,7 +46,7 @@ class MetalUtils {
         drawFlush3DBorder(g, r.x, r.y, r.width, r.height);
     }
 
-    /**
+    /** {@collect.stats}
       * This draws the "Flush 3D Border" which is used throughout the Metal L&F
       */
     static void drawFlush3DBorder(Graphics g, int x, int y, int w, int h) {
@@ -61,7 +61,7 @@ class MetalUtils {
         g.translate( -x, -y);
     }
 
-    /**
+    /** {@collect.stats}
       * This draws a variant "Flush 3D Border"
       * It is used for things like pressed buttons.
       */
@@ -76,7 +76,7 @@ class MetalUtils {
         g.translate(-x, -y);
     }
 
-    /**
+    /** {@collect.stats}
       * This draws a variant "Flush 3D Border"
       * It is used for things like pressed buttons.
       */
@@ -91,7 +91,7 @@ class MetalUtils {
         g.translate( -x, -y);
     }
 
-    /**
+    /** {@collect.stats}
       * This draws a variant "Flush 3D Border"
       * It is used for things like active toggle buttons.
       * This is used rarely.
@@ -100,7 +100,7 @@ class MetalUtils {
         drawDark3DBorder(g, r.x, r.y, r.width, r.height);
     }
 
-    /**
+    /** {@collect.stats}
       * This draws a variant "Flush 3D Border"
       * It is used for things like active toggle buttons.
       * This is used rarely.
@@ -185,7 +185,7 @@ class MetalUtils {
     //
     // Ocean specific stuff.
     //
-    /**
+    /** {@collect.stats}
      * Draws a radial type gradient. The gradient will be drawn vertically if
      * <code>vertical</code> is true, otherwise horizontally.
      * The UIManager key consists of five values:
@@ -226,7 +226,7 @@ class MetalUtils {
 
 
     private static class GradientPainter extends CachedPainter {
-        /**
+        /** {@collect.stats}
          * Instance used for painting.  This is the only instance that is
          * ever created.
          */
@@ -236,11 +236,11 @@ class MetalUtils {
         // otherwise it's the height.
         private static final int IMAGE_SIZE = 64;
 
-        /**
+        /** {@collect.stats}
          * This is the actual width we're painting in, or last painted to.
          */
         private int w;
-        /**
+        /** {@collect.stats}
          * This is the actual height we're painting in, or last painted to
          */
         private int h;
@@ -378,7 +378,7 @@ class MetalUtils {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified widget is in a toolbar.
      */
     static boolean isToolBarButton(JComponent c) {
@@ -407,7 +407,7 @@ class MetalUtils {
 
 
 
-    /**
+    /** {@collect.stats}
      * Used to create a disabled Icon with the ocean look.
      */
     private static class OceanDisabledButtonImageFilter extends RGBImageFilter{
@@ -432,7 +432,7 @@ class MetalUtils {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to create the rollover icons with the ocean look.
      */
     private static class OceanToolBarImageFilter extends RGBImageFilter {

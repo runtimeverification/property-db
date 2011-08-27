@@ -32,7 +32,7 @@ import java.io.Serializable;
 import javax.swing.event.*;
 
 
-/**
+/** {@collect.stats}
  * Default data model for list selections.
  * <p>
  * <strong>Warning:</strong>
@@ -70,19 +70,19 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
 
     protected boolean leadAnchorNotificationEnabled = true;
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int getMinSelectionIndex() { return isSelectionEmpty() ? -1 : minIndex; }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int getMaxSelectionIndex() { return maxIndex; }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public boolean getValueIsAdjusting() { return isAdjusting; }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int getSelectionMode() { return selectionMode; }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
@@ -98,27 +98,27 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         }
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public boolean isSelectedIndex(int index) {
         return ((index < minIndex) || (index > maxIndex)) ? false : value.get(index);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public boolean isSelectionEmpty() {
         return (minIndex > maxIndex);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void addListSelectionListener(ListSelectionListener l) {
         listenerList.add(ListSelectionListener.class, l);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void removeListSelectionListener(ListSelectionListener l) {
         listenerList.remove(ListSelectionListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the list selection listeners
      * registered on this <code>DefaultListSelectionModel</code>.
      *
@@ -136,7 +136,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
                 ListSelectionListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies listeners that we have ended a series of adjustments.
      */
     protected void fireValueChanged(boolean isAdjusting) {
@@ -155,7 +155,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Notifies <code>ListSelectionListeners</code> that the value
      * of the selection, in the closed interval <code>firstIndex</code>,
      * <code>lastIndex</code>, has changed.
@@ -164,7 +164,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         fireValueChanged(firstIndex, lastIndex, getValueIsAdjusting());
     }
 
-    /**
+    /** {@collect.stats}
      * @param firstIndex the first index in the interval
      * @param lastIndex the last index in the interval
      * @param isAdjusting true if this is the final change in a series of
@@ -211,7 +211,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         fireValueChanged(oldFirstAdjustedIndex, oldLastAdjustedIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this model.
@@ -325,7 +325,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the leadAnchorNotificationEnabled flag.
      * @see             #isLeadAnchorNotificationEnabled()
      */
@@ -333,7 +333,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         leadAnchorNotificationEnabled = flag;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>leadAnchorNotificationEnabled</code> flag.
      * When <code>leadAnchorNotificationEnabled</code> is true the model
      * generates notification events with bounds that cover all the changes to
@@ -405,7 +405,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         fireValueChanged();
     }
 
-   /**
+   /** {@collect.stats}
     * Change the selection with the effect of first clearing the values
     * in the inclusive range [clearMin, clearMax] then setting the values
     * in the inclusive range [setMin, setMax]. Do this in one pass so
@@ -415,12 +415,12 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         changeSelection(clearMin, clearMax, setMin, setMax, true);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void clearSelection() {
         removeSelectionIntervalImpl(minIndex, maxIndex, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be between {@code index0} and {@code index1}
      * inclusive. {@code index0} doesn't have to be less than or equal to
      * {@code index1}.
@@ -459,7 +459,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         changeSelection(clearMin, clearMax, setMin, setMax);
     }
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be the set union of the current selection
      * and the indices between {@code index0} and {@code index1} inclusive.
      * <p>
@@ -519,7 +519,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the selection to be the set difference of the current selection
      * and the indices between {@code index0} and {@code index1} inclusive.
      * {@code index0} doesn't have to be less than or equal to {@code index1}.
@@ -585,7 +585,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Insert length indices beginning before/after index. If the value
      * at index is itself selected and the selection mode is not
      * SINGLE_SELECTION, set all of the newly inserted items as selected.
@@ -633,7 +633,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Remove the indices in the interval index0,index1 (inclusive) from
      * the selection model.  This is typically called to sync the selection
      * model width a corresponding change in the data model.  Note
@@ -678,7 +678,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
     }
 
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void setValueIsAdjusting(boolean isAdjusting) {
         if (isAdjusting != this.isAdjusting) {
             this.isAdjusting = isAdjusting;
@@ -687,7 +687,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *
@@ -698,7 +698,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         return getClass().getName() + " " + Integer.toString(hashCode()) + " " + s;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this selection model with the same selection.
      * <code>listenerLists</code> are not duplicated.
      *
@@ -713,17 +713,17 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         return clone;
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int getAnchorSelectionIndex() {
         return anchorIndex;
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int getLeadSelectionIndex() {
         return leadIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the anchor selection index, leaving all selection values unchanged.
      * If leadAnchorNotificationEnabled is true, send a notification covering
      * the old and new anchor cells.
@@ -736,7 +736,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         fireValueChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Set the lead selection index, leaving all selection values unchanged.
      * If leadAnchorNotificationEnabled is true, send a notification covering
      * the old and new lead cells.
@@ -775,7 +775,7 @@ public class DefaultListSelectionModel implements ListSelectionModel, Cloneable,
         fireValueChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the lead selection index, ensuring that values between the
      * anchor and the new lead are either all selected or all deselected.
      * If the value at the anchor index is selected, first clear all the

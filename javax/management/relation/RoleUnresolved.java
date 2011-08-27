@@ -42,7 +42,7 @@ import java.util.List;
 
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * Represents an unresolved role: a role not retrieved from a relation due
  * to a problem. It provides the role name, value (if problem when trying to
  * set the role) and an integer defining the problem (constants defined in
@@ -85,7 +85,7 @@ public class RoleUnresolved implements Serializable {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /** @serialField roleName String Role name
+    /** {@collect.stats} @serialField roleName String Role name
      *  @serialField roleValue List Role value ({@link List} of {@link ObjectName} objects)
      *  @serialField problemType int Problem type
      */
@@ -114,17 +114,17 @@ public class RoleUnresolved implements Serializable {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial Role name
      */
     private String roleName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Role value ({@link List} of {@link ObjectName} objects)
      */
     private List<ObjectName> roleValue = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Problem type
      */
     private int problemType;
@@ -133,7 +133,7 @@ public class RoleUnresolved implements Serializable {
     // Constructor
     //
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param name  name of the role
@@ -166,7 +166,7 @@ public class RoleUnresolved implements Serializable {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Retrieves role name.
      *
      * @return the role name.
@@ -177,7 +177,7 @@ public class RoleUnresolved implements Serializable {
         return roleName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value.
      *
      * @return an ArrayList of ObjectName objects, the one provided to be set
@@ -190,7 +190,7 @@ public class RoleUnresolved implements Serializable {
         return roleValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves problem type.
      *
      * @return an integer corresponding to a problem, those being described as
@@ -202,7 +202,7 @@ public class RoleUnresolved implements Serializable {
         return problemType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets role name.
      *
      * @param name the new role name.
@@ -223,7 +223,7 @@ public class RoleUnresolved implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets role value.
      *
      * @param value  List of ObjectName objects for referenced
@@ -241,7 +241,7 @@ public class RoleUnresolved implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets problem type.
      *
      * @param pbType  integer corresponding to a problem. Must be one of
@@ -262,7 +262,7 @@ public class RoleUnresolved implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Clone this object.
      *
      * @return an independent clone.
@@ -275,7 +275,7 @@ public class RoleUnresolved implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return a string describing this object.
      *
      * @return a description of this RoleUnresolved object.
@@ -298,7 +298,7 @@ public class RoleUnresolved implements Serializable {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link RoleUnresolved} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -333,7 +333,7 @@ public class RoleUnresolved implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link RoleUnresolved} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

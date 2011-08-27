@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This class represents a name-to-object binding found in a context.
   *<p>
   * A context consists of name-to-object bindings.
@@ -46,7 +46,7 @@ package javax.naming;
   */
 
 public class Binding extends NameClassPair {
-    /**
+    /** {@collect.stats}
      * Contains this binding's object.
      * It is initialized by the constuctor and can be updated using
      * <tt>setObject</tt>.
@@ -56,7 +56,7 @@ public class Binding extends NameClassPair {
      */
     private Object boundObj;
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of a Binding given its name and object.
       *<p>
       * <tt>getClassName()</tt> will return
@@ -74,7 +74,7 @@ public class Binding extends NameClassPair {
         this.boundObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of a Binding given its name, object, and whether
       * the name is relative.
       *<p>
@@ -97,7 +97,7 @@ public class Binding extends NameClassPair {
         this.boundObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of a Binding given its name, class name, and object.
       *
       * @param  name    The non-null name of the object. It is relative
@@ -115,7 +115,7 @@ public class Binding extends NameClassPair {
         this.boundObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of a Binding given its
       * name, class name, object, and whether the name is relative.
       *
@@ -138,7 +138,7 @@ public class Binding extends NameClassPair {
         this.boundObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the class name of the object bound to the name of this binding.
       * If the class name has been set explicitly, return it.
       * Otherwise, if this binding contains a non-null object,
@@ -157,7 +157,7 @@ public class Binding extends NameClassPair {
             return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the object bound to the name of this binding.
       *
       * @return The object bound; null if this binding does not contain an object.
@@ -168,7 +168,7 @@ public class Binding extends NameClassPair {
         return boundObj;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the object associated with this binding.
      * @param obj The possibly null object to use.
      * @see #getObject
@@ -177,7 +177,7 @@ public class Binding extends NameClassPair {
         boundObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this binding.
       * The string representation consists of the string representation
       * of the name/class pair and the string representation of
@@ -192,7 +192,7 @@ public class Binding extends NameClassPair {
         return super.toString() + ":" + getObject();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 8839217842691845890L;

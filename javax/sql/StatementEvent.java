@@ -32,7 +32,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.EventObject;
 
-/**
+/** {@collect.stats}
  * A <code>StatementEvent</code> is sent to all <code>StatementEventListener</code>s which were
  * registered with a <code>PooledConnection</code>. This occurs when the driver determines that a
  * <code>PreparedStatement</code> that is associated with the <code>PooledConnection</code> has been closed or the driver determines
@@ -45,7 +45,7 @@ public class StatementEvent extends EventObject {
         private SQLException            exception;
         private PreparedStatement       statement;
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>StatementEvent</code> with the specified <code>PooledConnection</code> and
          * <code>PreparedStatement</code>.  The <code>SQLException</code> contained in the event defaults to
          * null.
@@ -67,7 +67,7 @@ public class StatementEvent extends EventObject {
                 this.exception = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>StatementEvent</code> with the specified <code>PooledConnection</code>,
          * <code>PreparedStatement</code> and <code>SQLException</code>
          * <p>
@@ -91,7 +91,7 @@ public class StatementEvent extends EventObject {
                 this.exception = exception;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>PreparedStatement</code> that is being closed or is invalid
          * <p>
          * @return      The <code>PreparedStatement</code> that is being closed or is invalid
@@ -103,7 +103,7 @@ public class StatementEvent extends EventObject {
                 return this.statement;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>SQLException</code> the driver is about to throw
          * <p>
          * @return      The <code>SQLException</code> the driver is about to throw

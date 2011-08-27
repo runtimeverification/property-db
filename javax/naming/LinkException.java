@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
  * This exception is used to describe problems encounter while resolving links.
  * Addition information is added to the base NamingException for pinpointing
  * the problem with the link.
@@ -64,7 +64,7 @@ package javax.naming;
 
 
 public class LinkException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Contains the part of the link that has been successfully resolved.
      * It is a composite name and can be null.
      * This field is initialized by the constructors.
@@ -76,7 +76,7 @@ public class LinkException extends NamingException {
      */
     protected Name linkResolvedName;
 
-    /**
+    /** {@collect.stats}
       * Contains the object to which resolution of the part of the link was successful.
       * Can be null. This field is initialized by the constructors.
       * You should access and manipulate this field
@@ -87,7 +87,7 @@ public class LinkException extends NamingException {
       */
     protected Object linkResolvedObj;
 
-    /**
+    /** {@collect.stats}
      * Contains the remaining link name that has not been resolved yet.
      * It is a composite name and can be null.
      * This field is initialized by the constructors.
@@ -99,7 +99,7 @@ public class LinkException extends NamingException {
      */
     protected Name linkRemainingName;
 
-    /**
+    /** {@collect.stats}
      * Contains the exception of why resolution of the link failed.
      * Can be null. This field is initialized by the constructors.
      * You should access and manipulate this field
@@ -110,7 +110,7 @@ public class LinkException extends NamingException {
      */
     protected String linkExplanation;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of LinkException with an explanation
       * All the other fields are initialized to null.
       * @param  explanation     A possibly null string containing additional
@@ -125,7 +125,7 @@ public class LinkException extends NamingException {
         linkExplanation = null;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of LinkException.
       * All the non-link-related and link-related fields are initialized to null.
       */
@@ -137,7 +137,7 @@ public class LinkException extends NamingException {
         linkExplanation = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the leading portion of the link name that was resolved
      * successfully.
      *
@@ -151,7 +151,7 @@ public class LinkException extends NamingException {
         return this.linkResolvedName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the remaining unresolved portion of the link name.
      * @return The part of the link name that has not been resolved.
      *          It is a composite name. It can be null, which means
@@ -162,7 +162,7 @@ public class LinkException extends NamingException {
         return this.linkRemainingName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the object to which resolution was successful.
      * This is the object to which the resolved link name is bound.
      *
@@ -175,7 +175,7 @@ public class LinkException extends NamingException {
         return this.linkResolvedObj;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the explanation associated with the problem encounter
       * when resolving a link.
       *
@@ -189,7 +189,7 @@ public class LinkException extends NamingException {
         return this.linkExplanation;
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the explanation associated with the problem encounter
       * when resolving a link.
       *
@@ -201,7 +201,7 @@ public class LinkException extends NamingException {
         this.linkExplanation = msg;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the resolved link name field of this exception.
      *<p>
      * <tt>name</tt> is a composite name. If the intent is to set
@@ -227,7 +227,7 @@ public class LinkException extends NamingException {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the remaining link name field of this exception.
      *<p>
      * <tt>name</tt> is a composite name. If the intent is to set
@@ -251,7 +251,7 @@ public class LinkException extends NamingException {
             this.linkRemainingName = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the link resolved object field of this exception.
      * This indicates the last successfully resolved object of link name.
      * @param obj The object to set link resolved object to. This can be null.
@@ -262,7 +262,7 @@ public class LinkException extends NamingException {
         this.linkResolvedObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the string representation of this exception.
      * This string consists of the NamingException information plus
      * the link's remaining name.
@@ -275,7 +275,7 @@ public class LinkException extends NamingException {
             this.linkRemainingName + "'";
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the string representation of this exception.
      * This string consists of the NamingException information plus
      * the additional information of resolving the link.
@@ -297,7 +297,7 @@ public class LinkException extends NamingException {
             this.linkResolvedObj;
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -7967662604076777712L;

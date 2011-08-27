@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Exceptions thrown by JMX implementations.
  * It does not include the runtime exceptions.
  *
@@ -37,14 +37,14 @@ public class JMException extends java.lang.Exception   {
     /* Serial version */
     private static final long serialVersionUID = 350520924977331825L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public JMException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param msg the detail message.

@@ -29,7 +29,7 @@ import java.util.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * A <code>SpinnerModel</code> for sequences of <code>Date</code>s.
  * The upper and lower bounds of the sequence are defined by properties called
  * <code>start</code> and <code>end</code> and the size
@@ -117,7 +117,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SpinnerDateModel</code> that represents a sequence of dates
      * between <code>start</code> and <code>end</code>.  The
      * <code>nextValue</code> and <code>previousValue</code> methods
@@ -192,7 +192,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SpinnerDateModel</code> whose initial
      * <code>value</code> is the current date, <code>calendarField</code>
      * is equal to <code>Calendar.DAY_OF_MONTH</code>, and for which
@@ -203,7 +203,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the lower limit for Dates in this sequence.
      * If <code>start</code> is <code>null</code>,
      * then there is no lower limit.  No bounds checking is done here:
@@ -248,7 +248,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the first <code>Date</code> in the sequence.
      *
      * @return the value of the <code>start</code> property
@@ -259,7 +259,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the upper limit for <code>Date</code>s in this sequence.
      * If <code>start</code> is <code>null</code>, then there is no upper
      * limit.  No bounds checking is done here: the new
@@ -289,7 +289,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the last <code>Date</code> in the sequence.
      *
      * @return the value of the <code>end</code> property
@@ -300,7 +300,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the size of the date value change computed
      * by the <code>nextValue</code> and <code>previousValue</code> methods.
      * The <code>calendarField</code> parameter must be one of the
@@ -353,7 +353,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Calendar</code> field that is added to or subtracted from
      * by the <code>nextValue</code> and <code>previousValue</code> methods.
      *
@@ -365,7 +365,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the next <code>Date</code> in the sequence, or <code>null</code> if
      * the next date is after <code>end</code>.
      *
@@ -385,7 +385,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the previous <code>Date</code> in the sequence, or <code>null</code>
      * if the previous date is before <code>start</code>.
      *
@@ -406,7 +406,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current element in this sequence of <code>Date</code>s.
      * This method is equivalent to <code>(Date)getValue</code>.
      *
@@ -418,7 +418,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current element in this sequence of <code>Date</code>s.
      *
      * @return the <code>value</code> property
@@ -430,7 +430,7 @@ public class SpinnerDateModel extends AbstractSpinnerModel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>Date</code> for this sequence.
      * If <code>value</code> is <code>null</code>,
      * an <code>IllegalArgumentException</code> is thrown.  No bounds

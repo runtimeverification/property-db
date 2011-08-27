@@ -33,7 +33,7 @@ import java.awt.event.*;
 
 import javax.swing.plaf.basic.BasicComboBoxEditor;
 
-/**
+/** {@collect.stats}
  * The default editor for Metal editable combo boxes
  * <p>
  * <strong>Warning:</strong>
@@ -79,7 +79,7 @@ public class MetalComboBoxEditor extends BasicComboBoxEditor {
         //editor.addFocusListener(this);
     }
 
-   /**
+   /** {@collect.stats}
     * The default editor border <code>Insets</code>. This field
     * might not be used.
     */
@@ -122,7 +122,7 @@ public class MetalComboBoxEditor extends BasicComboBoxEditor {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A subclass of BasicComboBoxEditor that implements UIResource.
      * BasicComboBoxEditor doesn't implement UIResource
      * directly so that applications can safely override the

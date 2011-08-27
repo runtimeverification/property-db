@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * A comparison function, which imposes a <i>total ordering</i> on some
  * collection of objects.  Comparators can be passed to a sort method (such
  * as {@link Collections#sort(List,Comparator) Collections.sort} or {@link
@@ -96,7 +96,7 @@ package java.util;
  */
 
 public interface Comparator<T> {
-    /**
+    /** {@collect.stats}
      * Compares its two arguments for order.  Returns a negative integer,
      * zero, or a positive integer as the first argument is less than, equal
      * to, or greater than the second.<p>
@@ -136,7 +136,7 @@ public interface Comparator<T> {
      */
     int compare(T o1, T o2);
 
-    /**
+    /** {@collect.stats}
      * Indicates whether some other object is &quot;equal to&quot; this
      * comparator.  This method must obey the general contract of
      * {@link Object#equals(Object)}.  Additionally, this method can return

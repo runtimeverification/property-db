@@ -27,7 +27,7 @@ package javax.script;
 
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * <code>ScriptEngineFactory</code> is used to describe and instantiate
  * <code>ScriptEngines</code>.
  * <br><br>
@@ -41,7 +41,7 @@ import java.util.List;
  * @since 1.6
  */
 public interface ScriptEngineFactory {
-    /**
+    /** {@collect.stats}
      * Returns the full  name of the <code>ScriptEngine</code>.  For
      * instance an implementation based on the Mozilla Rhino Javascript engine
      * might return <i>Rhino Mozilla Javascript Engine</i>.
@@ -49,14 +49,14 @@ public interface ScriptEngineFactory {
      */
     public String getEngineName();
 
-    /**
+    /** {@collect.stats}
      * Returns the version of the <code>ScriptEngine</code>.
      * @return The <code>ScriptEngine</code> implementation version.
      */
     public String getEngineVersion();
 
 
-    /**
+    /** {@collect.stats}
      * Returns an immutable list of filename extensions, which generally identify scripts
      * written in the language supported by this <code>ScriptEngine</code>.
      * The array is used by the <code>ScriptEngineManager</code> to implement its
@@ -66,7 +66,7 @@ public interface ScriptEngineFactory {
     public List<String> getExtensions();
 
 
-    /**
+    /** {@collect.stats}
      * Returns an immutable list of mimetypes, associated with scripts that
      * can be executed by the engine.  The list is used by the
      * <code>ScriptEngineManager</code> class to implement its
@@ -75,7 +75,7 @@ public interface ScriptEngineFactory {
      */
     public List<String> getMimeTypes();
 
-    /**
+    /** {@collect.stats}
      * Returns an immutable list of  short names for the <code>ScriptEngine</code>, which may be used to
      * identify the <code>ScriptEngine</code> by the <code>ScriptEngineManager</code>.
      * For instance, an implementation based on the Mozilla Rhino Javascript engine might
@@ -83,21 +83,21 @@ public interface ScriptEngineFactory {
      */
     public List<String> getNames();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the scripting langauge supported by this
      * <code>ScriptEngine</code>.
      * @return The name of the supported language.
      */
     public String getLanguageName();
 
-    /**
+    /** {@collect.stats}
      * Returns the version of the scripting language supported by this
      * <code>ScriptEngine</code>.
      * @return The version of the supported language.
      */
     public String getLanguageVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the value of an attribute whose meaning may be implementation-specific.
      * Keys for which the value is defined in all implementations are:
      * <ul>
@@ -140,7 +140,7 @@ public interface ScriptEngineFactory {
      */
     public Object getParameter(String key);
 
-    /**
+    /** {@collect.stats}
      * Returns a String which can be used to invoke a method of a  Java object using the syntax
      * of the supported scripting language.  For instance, an implementaton for a Javascript
      * engine might be;
@@ -177,7 +177,7 @@ public interface ScriptEngineFactory {
      */
     public String getMethodCallSyntax(String obj, String m, String... args);
 
-    /**
+    /** {@collect.stats}
      * Returns a String that can be used as a statement to display the specified String  using
      * the syntax of the supported scripting language.  For instance, the implementaton for a Perl
      * engine might be;
@@ -196,7 +196,7 @@ public interface ScriptEngineFactory {
     public String getOutputStatement(String toDisplay);
 
 
-    /**
+    /** {@collect.stats}
      * Returns A valid scripting language executable progam with given statements.
      * For instance an implementation for a PHP engine might be:
      * <p>
@@ -219,7 +219,7 @@ public interface ScriptEngineFactory {
 
     public String getProgram(String... statements);
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ScriptEngine</code> associated with this
      * <code>ScriptEngineFactory</code>. A new ScriptEngine is generally
      * returned, but implementations may pool, share or reuse engines.

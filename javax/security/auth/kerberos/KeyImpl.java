@@ -39,7 +39,7 @@ import sun.security.krb5.KrbException;
 import sun.security.krb5.KrbCryptoException;
 import sun.security.util.DerValue;
 
-/**
+/** {@collect.stats}
  * This class encapsulates a Kerberos encryption key. It is not associated
  * with a principal and may represent an ephemeral session key.
  *
@@ -57,7 +57,7 @@ class KeyImpl implements SecretKey, Destroyable, Serializable {
     private transient volatile boolean destroyed = false;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a KeyImpl from the given bytes.
      *
      * @param keyBytes the raw bytes for the secret key
@@ -70,7 +70,7 @@ class KeyImpl implements SecretKey, Destroyable, Serializable {
         this.keyType = keyType;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a KeyImpl from a password.
      *
      * @param principal the principal from which to derive the salt
@@ -95,7 +95,7 @@ class KeyImpl implements SecretKey, Destroyable, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the keyType for this key as defined in the Kerberos Spec.
      */
     public final int getKeyType() {
@@ -165,7 +165,7 @@ class KeyImpl implements SecretKey, Destroyable, Serializable {
         return destroyed;
     }
 
-    /**
+    /** {@collect.stats}
      * @serialData this <code>KeyImpl</code> is serialized by
      * writing out the ASN1 Encoded bytes of the encryption key.
      * The ASN1 encoding is defined in RFC4120 and as  follows:

@@ -27,7 +27,7 @@ package javax.security.sasl;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class represents an error that has occurred when using SASL.
  *
  * @since 1.5
@@ -37,14 +37,14 @@ import java.io.IOException;
  */
 
 public class SaslException extends IOException {
-    /**
+    /** {@collect.stats}
      * The possibly null root cause exception.
      * @serial
      */
     // Required for serialization interoperability with JSR 28
     private Throwable _exception;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>SaslException</tt>.
      * The root exception and the detailed message are null.
      */
@@ -52,7 +52,7 @@ public class SaslException extends IOException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>SaslException</tt> with a detailed message.
      * The root exception is null.
      * @param detail A possibly null string containing details of the exception.
@@ -63,7 +63,7 @@ public class SaslException extends IOException {
         super(detail);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>SaslException</tt> with a detailed message
      * and a root exception.
      * For example, a SaslException might result from a problem with
@@ -104,7 +104,7 @@ public class SaslException extends IOException {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation of this exception.
      * The string representation contains
      * this exception's class name, its detailed messsage, and if
@@ -124,6 +124,6 @@ public class SaslException extends IOException {
         return answer;
     }
 
-    /** Use serialVersionUID from JSR 28 RI for interoperability */
+    /** {@collect.stats} Use serialVersionUID from JSR 28 RI for interoperability */
     private static final long serialVersionUID = 4579784287983423626L;
 }

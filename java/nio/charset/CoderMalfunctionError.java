@@ -26,7 +26,7 @@
 package java.nio.charset;
 
 
-/**
+/** {@collect.stats}
  * Error thrown when the {@link CharsetDecoder#decodeLoop decodeLoop} method of
  * a {@link CharsetDecoder}, or the {@link CharsetEncoder#encodeLoop
  * encodeLoop} method of a {@link CharsetEncoder}, throws an unexpected
@@ -41,7 +41,7 @@ public class CoderMalfunctionError
 
     private static final long serialVersionUID = -1151412348057794301L;
 
-    /**
+    /** {@collect.stats}
      * Initializes an instance of this class.
      *
      * @param  cause

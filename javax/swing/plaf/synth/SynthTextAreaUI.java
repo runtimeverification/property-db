@@ -35,7 +35,7 @@ import java.awt.event.FocusEvent;
 import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a plain text editor in the
  * Synth look and feel. In this implementation the default UI
  * is extended to act as a simple view factory.
@@ -54,7 +54,7 @@ import sun.swing.plaf.synth.SynthUI;
 class SynthTextAreaUI extends BasicTextAreaUI implements SynthUI, FocusListener {
     private SynthStyle style;
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JTextArea.
      *
      * @param ta a text area
@@ -148,7 +148,7 @@ class SynthTextAreaUI extends BasicTextAreaUI implements SynthUI, FocusListener 
         context.getPainter().paintTextAreaBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the

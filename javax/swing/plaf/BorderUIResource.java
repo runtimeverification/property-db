@@ -95,7 +95,7 @@ public class BorderUIResource implements Border, UIResource, Serializable
 
     private Border delegate;
 
-    /**
+    /** {@collect.stats}
      * Creates a UIResource border object which wraps
      * an existing Border instance.
      * @param delegate the border being wrapped

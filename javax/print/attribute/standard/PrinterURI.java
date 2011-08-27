@@ -31,7 +31,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.URISyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterURI is a printing attribute class, a URI, that specifies the
  * globally unique name of a printer.  If it has such a name, an administrator
  * determines a printer's URI and sets this attribute to that name.
@@ -51,7 +51,7 @@ public final class PrinterURI extends URISyntax
 
     private static final long serialVersionUID = 7923912792485606497L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new PrinterURI attribute with the specified URI.
      *
      * @param  uri  URI of the printer
@@ -63,7 +63,7 @@ public final class PrinterURI extends URISyntax
         super (uri);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer name attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -86,7 +86,7 @@ public final class PrinterURI extends URISyntax
         return (super.equals(object) && object instanceof PrinterURI);
     }
 
-   /**
+   /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -100,7 +100,7 @@ public final class PrinterURI extends URISyntax
         return PrinterURI.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

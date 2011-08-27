@@ -24,7 +24,7 @@
  */
 package javax.swing.table;
 
-/**
+/** {@collect.stats}
  * TableStringConverter is used to convert objects from the model into
  * strings.  This is useful in filtering and searching when the model returns
  * objects that do not have meaningful <code>toString</code> implementations.
@@ -32,7 +32,7 @@ package javax.swing.table;
  * @since 1.6
  */
 public abstract class TableStringConverter {
-    /**
+    /** {@collect.stats}
      * Returns the string representation of the value at the specified
      * location.
      *

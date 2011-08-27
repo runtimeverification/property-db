@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * The AccessibleKeyBinding interface should be supported by any object
  * that has a keyboard bindings such as a keyboard mnemonic and/or keyboard
  * shortcut which can be used to select the object.  This interface provides
@@ -43,14 +43,14 @@ package javax.accessibility;
  */
 public interface AccessibleKeyBinding {
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key bindings for this object
      *
      * @return the zero-based number of key bindings for this object
      */
     public int getAccessibleKeyBindingCount();
 
-    /**
+    /** {@collect.stats}
      * Returns a key binding for this object.  The value returned is an
      * java.lang.Object which must be cast to appropriate type depending
      * on the underlying implementation of the key.

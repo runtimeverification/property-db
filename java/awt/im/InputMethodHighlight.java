@@ -28,7 +28,7 @@ package java.awt.im;
 import java.awt.font.TextAttribute;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
 * An InputMethodHighlight is used to describe the highlight
 * attributes of text being composed.
 * The description can be at two levels:
@@ -68,43 +68,43 @@ import java.util.Map;
 
 public class InputMethodHighlight {
 
-    /**
+    /** {@collect.stats}
      * Constant for the raw text state.
      */
     public final static int RAW_TEXT = 0;
 
-    /**
+    /** {@collect.stats}
      * Constant for the converted text state.
      */
     public final static int CONVERTED_TEXT = 1;
 
 
-    /**
+    /** {@collect.stats}
      * Constant for the default highlight for unselected raw text.
      */
     public final static InputMethodHighlight UNSELECTED_RAW_TEXT_HIGHLIGHT =
         new InputMethodHighlight(false, RAW_TEXT);
 
-    /**
+    /** {@collect.stats}
      * Constant for the default highlight for selected raw text.
      */
     public final static InputMethodHighlight SELECTED_RAW_TEXT_HIGHLIGHT =
         new InputMethodHighlight(true, RAW_TEXT);
 
-    /**
+    /** {@collect.stats}
      * Constant for the default highlight for unselected converted text.
      */
     public final static InputMethodHighlight UNSELECTED_CONVERTED_TEXT_HIGHLIGHT =
         new InputMethodHighlight(false, CONVERTED_TEXT);
 
-    /**
+    /** {@collect.stats}
      * Constant for the default highlight for selected converted text.
      */
     public final static InputMethodHighlight SELECTED_CONVERTED_TEXT_HIGHLIGHT =
         new InputMethodHighlight(true, CONVERTED_TEXT);
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an input method highlight record.
      * The variation is set to 0, the style to null.
      * @param selected Whether the text range is selected
@@ -117,7 +117,7 @@ public class InputMethodHighlight {
         this(selected, state, 0, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an input method highlight record.
      * The style is set to null.
      * @param selected Whether the text range is selected
@@ -131,7 +131,7 @@ public class InputMethodHighlight {
         this(selected, state, variation, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an input method highlight record.
      * The style attributes map provided must be unmodifiable.
      * @param selected whether the text range is selected
@@ -155,14 +155,14 @@ public class InputMethodHighlight {
         this.style = style;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the text range is selected.
      */
     public boolean isSelected() {
         return selected;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the conversion state of the text range.
      * @return The conversion state for the text range - RAW_TEXT or CONVERTED_TEXT.
      * @see InputMethodHighlight#RAW_TEXT
@@ -172,14 +172,14 @@ public class InputMethodHighlight {
         return state;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the variation of the text range.
      */
     public int getVariation() {
         return variation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering style attributes for the text range, or null.
      * @since 1.3
      */

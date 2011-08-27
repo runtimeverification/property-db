@@ -25,7 +25,7 @@
 
 package javax.management.timer;
 
-/**
+/** {@collect.stats}
  * This class provides definitions of the notifications sent by timer MBeans.
  * <BR>It defines a timer notification identifier which allows to retrieve a timer notification
  * from the list of notifications of a timer MBean.
@@ -46,7 +46,7 @@ public class TimerNotification extends javax.management.Notification {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * @serial Timer notification identifier.
      *         This identifier is used to retrieve a timer notification from the timer list of notifications.
      */
@@ -59,7 +59,7 @@ public class TimerNotification extends javax.management.Notification {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Creates a timer notification object.
      *
      * @param type The notification type.
@@ -85,7 +85,7 @@ public class TimerNotification extends javax.management.Notification {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the identifier of this timer notification.
      *
      * @return The identifier.
@@ -100,7 +100,7 @@ public class TimerNotification extends javax.management.Notification {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a copy of this object.
      *
      */

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This exception may be thrown by methods that have detected concurrent
  * modification of an object when such modification is not permissible.
  * <p>
@@ -67,14 +67,14 @@ package java.util;
  * @since   1.2
  */
 public class ConcurrentModificationException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs a ConcurrentModificationException with no
      * detail message.
      */
     public ConcurrentModificationException() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>ConcurrentModificationException</tt> with the
      * specified detail message.
      *

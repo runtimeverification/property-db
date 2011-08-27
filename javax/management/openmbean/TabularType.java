@@ -38,7 +38,7 @@ import java.util.List;
 //
 
 
-/**
+/** {@collect.stats}
  * The <code>TabularType</code> class is the <i> open type</i> class
  * whose instances describe the types of {@link TabularData <code>TabularData</code>} values.
  *
@@ -50,12 +50,12 @@ public class TabularType extends OpenType<TabularData> {
     static final long serialVersionUID = 6554071860220659261L;
 
 
-    /**
+    /** {@collect.stats}
      * @serial The composite type of rows
      */
     private CompositeType  rowType;
 
-    /**
+    /** {@collect.stats}
      * @serial The items used to index each row element, kept in the order the user gave
      *         This is an unmodifiable {@link ArrayList}
      */
@@ -68,7 +68,7 @@ public class TabularType extends OpenType<TabularData> {
 
     /* *** Constructor *** */
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>TabularType</code> instance, checking for the validity of the given parameters.
      * The validity constraints are described below for each parameter.
      * <p>
@@ -145,7 +145,7 @@ public class TabularType extends OpenType<TabularData> {
         this.indexNames = Collections.unmodifiableList(tmpList);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that Object[] arg is neither null nor empty (ie length==0)
      * and that it does not contain any null element.
      */
@@ -160,7 +160,7 @@ public class TabularType extends OpenType<TabularData> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that String[] does not contain any empty (or blank characters only) string.
      */
     private static void checkForEmptyString(String[] arg, String argName) {
@@ -174,7 +174,7 @@ public class TabularType extends OpenType<TabularData> {
 
     /* *** Tabular type specific information methods *** */
 
-    /**
+    /** {@collect.stats}
      * Returns the type of the row elements of tabular data values
      * described by this <code>TabularType</code> instance.
      *
@@ -185,7 +185,7 @@ public class TabularType extends OpenType<TabularData> {
         return rowType;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns, in the same order as was given to this instance's
      * constructor, an unmodifiable List of the names of the items the
      * values of which are used to uniquely index each row element of
@@ -201,7 +201,7 @@ public class TabularType extends OpenType<TabularData> {
         return indexNames;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a value which could be
      * described by this <code>TabularType</code> instance.
      *
@@ -250,7 +250,7 @@ public class TabularType extends OpenType<TabularData> {
 
     /* *** Methods overriden from class Object *** */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>obj</code> parameter with this <code>TabularType</code> instance for equality.
      * <p>
      * Two <code>TabularType</code> instances are equal if and only if all of the following statements are true:
@@ -305,7 +305,7 @@ public class TabularType extends OpenType<TabularData> {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>TabularType</code> instance.
      * <p>
      * The hash code of a <code>TabularType</code> instance is the sum of the hash codes
@@ -340,7 +340,7 @@ public class TabularType extends OpenType<TabularData> {
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>TabularType</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.TabularType</code>),

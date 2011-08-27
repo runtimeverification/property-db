@@ -39,7 +39,7 @@ import java.io.Serializable;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's InternalFrameUI.
  *
  * @author David Kloba

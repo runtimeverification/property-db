@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This is the superclass of all exceptions thrown by
   * operations in the Context and DirContext interfaces.
   * The nature of the failure is described by the name of the subclass.
@@ -58,7 +58,7 @@ package javax.naming;
 
 
 public class NamingException extends Exception {
-    /**
+    /** {@collect.stats}
      * Contains the part of the name that has been successfully resolved.
      * It is a composite name and can be null.
      * This field is initialized by the constructors.
@@ -69,7 +69,7 @@ public class NamingException extends Exception {
      * @see #setResolvedName
      */
     protected Name resolvedName;
-    /**
+    /** {@collect.stats}
       * Contains the object to which resolution of the part of the name was
       * successful. Can be null.
       * This field is initialized by the constructors.
@@ -80,7 +80,7 @@ public class NamingException extends Exception {
       * @see #setResolvedObj
       */
     protected Object resolvedObj;
-    /**
+    /** {@collect.stats}
      * Contains the remaining name that has not been resolved yet.
      * It is a composite name and can be null.
      * This field is initialized by the constructors.
@@ -94,7 +94,7 @@ public class NamingException extends Exception {
      */
     protected Name remainingName;
 
-    /**
+    /** {@collect.stats}
      * Contains the original exception that caused this NamingException to
      * be thrown. This field is set if there is additional
      * information that could be obtained from the original
@@ -114,7 +114,7 @@ public class NamingException extends Exception {
      */
     protected Throwable rootException = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new NamingException with an explanation.
      * All unspecified fields are set to null.
      *
@@ -128,7 +128,7 @@ public class NamingException extends Exception {
         resolvedObj = null;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new NamingException.
       * All fields are set to null.
       */
@@ -138,7 +138,7 @@ public class NamingException extends Exception {
         resolvedObj = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the leading portion of the name that was resolved
      * successfully.
      *
@@ -152,7 +152,7 @@ public class NamingException extends Exception {
         return resolvedName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the remaining unresolved portion of the name.
      * @return The part of the name that has not been resolved.
      *          It is a composite name. It can be null, which means
@@ -165,7 +165,7 @@ public class NamingException extends Exception {
         return remainingName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the object to which resolution was successful.
      * This is the object to which the resolved name is bound.
      *
@@ -178,7 +178,7 @@ public class NamingException extends Exception {
         return resolvedObj;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the explanation associated with this exception.
       *
       * @return The possibly null detail string explaining more
@@ -191,7 +191,7 @@ public class NamingException extends Exception {
         return getMessage();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the resolved name field of this exception.
      *<p>
      * <tt>name</tt> is a composite name. If the intent is to set
@@ -215,7 +215,7 @@ public class NamingException extends Exception {
             resolvedName = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the remaining name field of this exception.
      *<p>
      * <tt>name</tt> is a composite name. If the intent is to set
@@ -240,7 +240,7 @@ public class NamingException extends Exception {
             remainingName = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the resolved object field of this exception.
      * @param obj The possibly null object to set resolved object to.
      *            If null, the resolved object field is set to null.
@@ -250,7 +250,7 @@ public class NamingException extends Exception {
         resolvedObj = obj;
     }
 
-    /**
+    /** {@collect.stats}
       * Add name as the last component in remaining name.
       * @param name The component to add.
       *         If name is null, this method does not do anything.
@@ -271,7 +271,7 @@ public class NamingException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Add components from 'name' as the last components in
       * remaining name.
       *<p>
@@ -302,7 +302,7 @@ public class NamingException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the root cause of this NamingException, if any.
       * The root cause of a naming exception is used when the service provider
       * wants to indicate to the caller a non-naming related exception
@@ -324,7 +324,7 @@ public class NamingException extends Exception {
         return rootException;
     }
 
-    /**
+    /** {@collect.stats}
       * Records the root cause of this NamingException.
       * If <tt>e</tt> is <tt>this</tt>, this method does not do anything.
       *<p>
@@ -345,7 +345,7 @@ public class NamingException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the cause of this exception.  The cause is the
       * throwable that caused this naming exception to be thrown.
       * Returns <code>null</code> if the cause is nonexistent or
@@ -360,7 +360,7 @@ public class NamingException extends Exception {
         return getRootCause();
     }
 
-    /**
+    /** {@collect.stats}
       * Initializes the cause of this exception to the specified value.
       * The cause is the throwable that caused this naming exception to be
       * thrown.
@@ -384,7 +384,7 @@ public class NamingException extends Exception {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the string representation of this exception.
      * The string representation consists of this exception's class name,
      * its detailed message, and if it has a root cause, the string
@@ -408,7 +408,7 @@ public class NamingException extends Exception {
         return answer;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation in more detail.
       * This string representation consists of the information returned
       * by the toString() that takes no parameters, plus the string
@@ -428,7 +428,7 @@ public class NamingException extends Exception {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -1299181962103167177L;

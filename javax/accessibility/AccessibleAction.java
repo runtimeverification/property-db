@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * The AccessibleAction interface should be supported by any object
  * that can perform one or more actions.  This interface
  * provides the standard mechanism for an assistive technology to determine
@@ -48,7 +48,7 @@ package javax.accessibility;
  */
 public interface AccessibleAction {
 
-    /**
+    /** {@collect.stats}
      * An action which causes a tree node to
      * collapse if expanded and expand if collapsed.
      * @since 1.5
@@ -56,7 +56,7 @@ public interface AccessibleAction {
     public static final String TOGGLE_EXPAND =
         new String ("toggle expand");
 
-    /**
+    /** {@collect.stats}
      * An action which increments a value.
      * @since 1.5
      */
@@ -64,27 +64,27 @@ public interface AccessibleAction {
         new String ("increment");
 
 
-    /**
+    /** {@collect.stats}
      * An action which decrements a value.
      * @since 1.5
      */
     public static final String DECREMENT =
         new String ("decrement");
 
-    /**
+    /** {@collect.stats}
      * An action which causes a component to execute its default action.
      * @since 1.6
      */
     public static final String CLICK = new String("click");
 
-    /**
+    /** {@collect.stats}
      * An action which causes a popup to become visible if it is hidden and
      * hidden if it is visible.
      * @since 1.6
      */
     public static final String TOGGLE_POPUP = new String("toggle popup");
 
-    /**
+    /** {@collect.stats}
      * Returns the number of accessible actions available in this object
      * If there are more than one, the first one is considered the "default"
      * action of the object.
@@ -93,7 +93,7 @@ public interface AccessibleAction {
      */
     public int getAccessibleActionCount();
 
-    /**
+    /** {@collect.stats}
      * Returns a description of the specified action of the object.
      *
      * @param i zero-based index of the actions
@@ -102,7 +102,7 @@ public interface AccessibleAction {
      */
     public String getAccessibleActionDescription(int i);
 
-    /**
+    /** {@collect.stats}
      * Performs the specified Action on the object
      *
      * @param i zero-based index of actions

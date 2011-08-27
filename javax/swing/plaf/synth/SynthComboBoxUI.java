@@ -36,7 +36,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's ComboBoxUI.
  *
  * @author Scott Violet
@@ -46,7 +46,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
     private SynthStyle style;
     private boolean useListColors;
 
-    /**
+    /** {@collect.stats}
      * Used to adjust the location and size of the popup. Very useful for
      * situations such as we find in Nimbus where part of the border is used
      * to paint the focus. In such cases, the border is empty space, and not
@@ -56,20 +56,20 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
      */
     Insets popupInsets;
 
-    /**
+    /** {@collect.stats}
      * This flag may be set via UIDefaults. By default, it is false, to
      * preserve backwards compatibility. If true, then the combo will
      * "act as a button" when it is not editable.
      */
     private boolean buttonWhenNotEditable;
 
-    /**
+    /** {@collect.stats}
      * A flag to indicate that the combo box and combo box button should
      * remain in the PRESSED state while the combo popup is visible.
      */
     private boolean pressedWhenPopupVisible;
 
-    /**
+    /** {@collect.stats}
      * When buttonWhenNotEditable is true, this field is used to help make
      * the combo box appear and function as a button when the combo box is
      * not editable. In such a state, you can click anywhere on the button
@@ -80,19 +80,19 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
      */
     private ButtonHandler buttonHandler;
 
-    /**
+    /** {@collect.stats}
      * Handler for repainting combo when editor component gains/looses focus
      */
     private EditorFocusHandler editorFocusHandler;
 
-    /**
+    /** {@collect.stats}
      * If true, then the cell renderer will be forced to be non-opaque when
      * used for rendering the selected item in the combo box (not in the list),
      * and forced to opaque after rendering the selected value.
      */
     private boolean forceOpaque = false;
 
-    /**
+    /** {@collect.stats}
      * NOTE: This serves the same purpose as the same field in BasicComboBoxUI.
      * It is here because I could not give the padding field in
      * BasicComboBoxUI protected access in an update release.
@@ -103,7 +103,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         return new SynthComboBoxUI();
     }
 
-    /**
+    /** {@collect.stats}
      * @inheritDoc
      *
      * Overridden to ensure that ButtonHandler is created prior to any of
@@ -324,7 +324,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         context.getPainter().paintComboBoxBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the currently selected item.
      */
     @Override
@@ -365,7 +365,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @return true if this combo box should act as one big button. Typically
      * only happens when buttonWhenNotEditable is true, and comboBox.isEditable
      * is false.
@@ -374,7 +374,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         return buttonWhenNotEditable && !comboBox.isEditable();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the default size of an empty display area of the combo box using
      * the current renderer and font.
      *
@@ -393,7 +393,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         return new Dimension(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * This has been refactored out in hopes that it may be investigated and
      * simplified for the next major release. adding/removing
      * the component to the currentValuePane and changing the font may be
@@ -410,7 +410,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * From BasicComboBoxRenderer v 1.18.
      *
      * Be aware that SynthFileChooserUIImpl relies on the fact that the default
@@ -478,7 +478,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
     }
 
 
-    /**
+    /** {@collect.stats}
      * From BasicCombBoxEditor v 1.24.
      */
     private static class SynthComboBoxEditor implements
@@ -496,7 +496,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             return editor;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the item that should be edited.
          *
          * @param anObject the displayed value of the editor
@@ -557,7 +557,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles all the logic for treating the combo as a button when it is
      * not editable, and when shouldActLikeButton() is true. This class is a
      * special ButtonModel, and installed on the arrowButton when appropriate.
@@ -568,12 +568,12 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
      */
     private final class ButtonHandler extends DefaultButtonModel
             implements MouseListener, PopupMenuListener {
-        /**
+        /** {@collect.stats}
          * Indicates that the mouse is over the combo or the arrow button.
          * This field only has meaning if buttonWhenNotEnabled is true.
          */
         private boolean over;
-        /**
+        /** {@collect.stats}
          * Indicates that the combo or arrow button has been pressed. This
          * field only has meaning if buttonWhenNotEnabled is true.
          */
@@ -583,7 +583,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         // State Methods
         //------------------------------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * <p>Updates the internal "pressed" state. If shouldActLikeButton()
          * is true, and if this method call will change the internal state,
          * then the combo and button will be repainted.</p>
@@ -598,7 +598,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             }
         }
 
-        /**
+        /** {@collect.stats}
          * <p>Updates the internal "over" state. If shouldActLikeButton()
          * is true, and if this method call will change the internal state,
          * then the combo and button will be repainted.</p>
@@ -619,7 +619,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         // DefaultButtonModel Methods
         //------------------------------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          *
          * Ensures that isPressed() will return true if the combo is pressed,
@@ -633,7 +633,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             return b || (pressedWhenPopupVisible && comboBox.isPopupVisible());
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          *
          * Ensures that the armed state is in sync with the pressed state
@@ -648,7 +648,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             return b ? isPressed() : super.isArmed();
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          *
          * Ensures that isRollover() will return true if the combo is
@@ -659,7 +659,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             return shouldActLikeButton() ? over : super.isRollover();
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          *
          * Forwards pressed states to the internal "pressed" field
@@ -670,7 +670,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             updatePressed(b);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          *
          * Forwards rollover states to the internal "over" field
@@ -712,7 +712,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         // PopupMenuListener Methods
         //------------------------------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * @inheritDoc
          *
          * Ensures that the combo box is repainted when the popup is closed.
@@ -735,7 +735,7 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
         public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {}
     }
 
-    /**
+    /** {@collect.stats}
      * Handler for repainting combo when editor component gains/looses focus
      */
     private static class EditorFocusHandler implements FocusListener,
@@ -763,19 +763,19 @@ class SynthComboBoxUI extends BasicComboBoxUI implements
             }
         }
 
-        /** Invoked when a component gains the keyboard focus. */
+        /** {@collect.stats} Invoked when a component gains the keyboard focus. */
         public void focusGained(FocusEvent e) {
             // repaint whole combo on focus gain
             comboBox.repaint();
         }
 
-        /** Invoked when a component loses the keyboard focus. */
+        /** {@collect.stats} Invoked when a component loses the keyboard focus. */
         public void focusLost(FocusEvent e) {
             // repaint whole combo on focus loss
             comboBox.repaint();
         }
 
-        /**
+        /** {@collect.stats}
          * Called when the combos editor changes
          *
          * @param evt A PropertyChangeEvent object describing the event source and

@@ -24,7 +24,7 @@
  */
 package java.beans;
 
-/**
+/** {@collect.stats}
  * An ExceptionListener is notified of internal exceptions.
  *
  * @since 1.4
@@ -32,7 +32,7 @@ package java.beans;
  * @author Philip Milne
  */
 public interface ExceptionListener {
-    /**
+    /** {@collect.stats}
      * This method is called when a recoverable exception has
      * been caught.
      *

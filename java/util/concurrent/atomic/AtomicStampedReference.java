@@ -35,7 +35,7 @@
 
 package java.util.concurrent.atomic;
 
-/**
+/** {@collect.stats}
  * An {@code AtomicStampedReference} maintains an object reference
  * along with an integer "stamp", that can be updated atomically.
  *
@@ -59,7 +59,7 @@ public class AtomicStampedReference<V>  {
 
     private final AtomicReference<ReferenceIntegerPair<V>>  atomicRef;
 
-    /**
+    /** {@collect.stats}
      * Creates a new {@code AtomicStampedReference} with the given
      * initial values.
      *
@@ -71,7 +71,7 @@ public class AtomicStampedReference<V>  {
             (new ReferenceIntegerPair<V>(initialRef, initialStamp));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current value of the reference.
      *
      * @return the current value of the reference
@@ -80,7 +80,7 @@ public class AtomicStampedReference<V>  {
         return atomicRef.get().reference;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current value of the stamp.
      *
      * @return the current value of the stamp
@@ -89,7 +89,7 @@ public class AtomicStampedReference<V>  {
         return atomicRef.get().integer;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current values of both the reference and the stamp.
      * Typical usage is {@code int[1] holder; ref = v.get(holder); }.
      *
@@ -103,7 +103,7 @@ public class AtomicStampedReference<V>  {
         return p.reference;
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value of both the reference and stamp
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -133,7 +133,7 @@ public class AtomicStampedReference<V>  {
                                                               newStamp)));
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value of both the reference and stamp
      * to the given update values if the
      * current reference is {@code ==} to the expected reference
@@ -160,7 +160,7 @@ public class AtomicStampedReference<V>  {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Unconditionally sets the value of both the reference and stamp.
      *
      * @param newReference the new value for the reference
@@ -172,7 +172,7 @@ public class AtomicStampedReference<V>  {
             atomicRef.set(new ReferenceIntegerPair<V>(newReference, newStamp));
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value of the stamp to the given update value
      * if the current reference is {@code ==} to the expected
      * reference.  Any given invocation of this operation may fail

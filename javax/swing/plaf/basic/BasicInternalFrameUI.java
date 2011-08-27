@@ -40,7 +40,7 @@ import java.io.Serializable;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * A basic L&F implementation of JInternalFrame.
  *
  * @author David Kloba
@@ -74,7 +74,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
     private boolean dragging = false;
     private boolean resizing = false;
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -197,7 +197,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         setWestPane(createWestPane(frame));
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.3
      */
     protected void installListeners() {
@@ -284,7 +284,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         titlePane = null;
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.3
      */
     protected void uninstallListeners() {
@@ -356,7 +356,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
 
 
 
-    /**
+    /** {@collect.stats}
       * Installs necessary mouse handlers on <code>newPane</code>
       * and adds it to the frame.
       * Reverse process for the <code>currentPane</code>.
@@ -487,7 +487,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         // its functionality has been moved into Handler. If you need to add
         // new functionality add it to the Handler, but make sure this
         // class calls into the Handler.
-        /**
+        /** {@collect.stats}
          * Detects changes in state from the JInternalFrame and handles
          * actions.
          */
@@ -523,7 +523,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
   }
 
 /// DesktopManager methods
-    /** Returns the proper DesktopManager. Calls getDesktopPane() to
+    /** {@collect.stats} Returns the proper DesktopManager. Calls getDesktopPane() to
       * find the JDesktop component and returns the desktopManager from
       * it. If this fails, it will return a default DesktopManager that
       * should work in arbitrary parents.
@@ -541,7 +541,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
       return new DefaultDesktopManager();
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called when the user wants to close the frame.
      * The <code>playCloseSound</code> Action is fired.
      * This action is delegated to the desktopManager.
@@ -553,7 +553,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         getDesktopManager().closeFrame(f);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called when the user wants to maximize the frame.
      * The <code>playMaximizeSound</code> Action is fired.
      * This action is delegated to the desktopManager.
@@ -565,7 +565,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         getDesktopManager().maximizeFrame(f);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called when the user wants to minimize the frame.
      * The <code>playRestoreDownSound</code> Action is fired.
      * This action is delegated to the desktopManager.
@@ -581,7 +581,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         getDesktopManager().minimizeFrame(f);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called when the user wants to iconify the frame.
      * The <code>playMinimizeSound</code> Action is fired.
      * This action is delegated to the desktopManager.
@@ -593,7 +593,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         getDesktopManager().iconifyFrame(f);
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called when the user wants to deiconify the frame.
      * The <code>playRestoreUpSound</code> Action is fired.
      * This action is delegated to the desktopManager.
@@ -609,13 +609,13 @@ public class BasicInternalFrameUI extends InternalFrameUI
         getDesktopManager().deiconifyFrame(f);
     }
 
-    /** This method is called when the frame becomes selected.
+    /** {@collect.stats} This method is called when the frame becomes selected.
       * This action is delegated to the desktopManager.
       */
     protected void activateFrame(JInternalFrame f) {
         getDesktopManager().activateFrame(f);
     }
-    /** This method is called when the frame is no longer selected.
+    /** {@collect.stats} This method is called when the frame is no longer selected.
       * This action is delegated to the desktopManager.
       */
     protected void deactivateFrame(JInternalFrame f) {
@@ -625,7 +625,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
     /////////////////////////////////////////////////////////////////////////
     /// Border Listener Class
     /////////////////////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Listens for border adjustments.
      */
     protected class BorderListener extends MouseInputAdapter implements SwingConstants
@@ -1102,7 +1102,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
       // its functionality has been moved into Handler. If you need to add
       // new functionality add it to the Handler, but make sure this
       // class calls into the Handler.
-      /** Invoked when a JInternalFrame's parent's size changes. */
+      /** {@collect.stats} Invoked when a JInternalFrame's parent's size changes. */
       public void componentResized(ComponentEvent e) {
           getHandler().componentResized(e);
       }
@@ -1214,7 +1214,7 @@ public class BasicInternalFrameUI extends InternalFrameUI
         }
 
         // ComponentHandler methods
-        /** Invoked when a JInternalFrame's parent's size changes. */
+        /** {@collect.stats} Invoked when a JInternalFrame's parent's size changes. */
         public void componentResized(ComponentEvent e) {
             // Get the JInternalFrame's parent container size
             Rectangle parentNewBounds = ((Component) e.getSource()).getBounds();

@@ -25,7 +25,7 @@
 
 package javax.swing.text.html.parser;
 
-/**
+/** {@collect.stats}
  * SGML constants used in a DTD. The names of the
  * constants correspond the the equivalent SGML constructs
  * as described in "The SGML Handbook" by  Charles F. Goldfarb.

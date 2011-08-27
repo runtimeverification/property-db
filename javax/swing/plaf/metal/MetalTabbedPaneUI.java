@@ -33,7 +33,7 @@ import javax.swing.plaf.*;
 import java.io.Serializable;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
-/**
+/** {@collect.stats}
  * The Metal subclass of BasicTabbedPaneUI.
  * <p>
  * <strong>Warning:</strong>
@@ -775,7 +775,7 @@ public class MetalTabbedPaneUI extends BasicTabbedPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to do nothing for the Java L&F.
      */
     protected int getTabLabelShiftX( int tabPlacement, int tabIndex, boolean isSelected ) {
@@ -783,14 +783,14 @@ public class MetalTabbedPaneUI extends BasicTabbedPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overridden to do nothing for the Java L&F.
      */
     protected int getTabLabelShiftY( int tabPlacement, int tabIndex, boolean isSelected ) {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @since 1.6
@@ -1175,7 +1175,7 @@ public class MetalTabbedPaneUI extends BasicTabbedPaneUI {
         return tabIndex == lastIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color to use for the specified tab.
      */
     private Color getUnselectedBackgroundAt(int index) {
@@ -1188,14 +1188,14 @@ public class MetalTabbedPaneUI extends BasicTabbedPaneUI {
         return color;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab index of JTabbedPane the mouse is currently over
      */
     int getRolloverTabIndex() {
         return getRolloverTab();
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of MetalTabbedPaneUI.

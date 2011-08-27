@@ -25,7 +25,7 @@
 package javax.accessibility;
 
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleTextSequence provides information about
  * a contiguous sequence of text.
  *
@@ -38,7 +38,7 @@ package javax.accessibility;
  * @author       Lynn Monsanto
  */
 
-/**
+/** {@collect.stats}
  * This class collects together key details of a span of text.  It
  * is used by implementors of the class <code>AccessibleExtendedText</code> in
  * order to return the requested triplet of a <code>String</code>, and the
@@ -52,13 +52,13 @@ public class AccessibleTextSequence {
     /* The start index of the text sequence */
     public int startIndex;
 
-    /** The end index of the text sequence */
+    /** {@collect.stats} The end index of the text sequence */
     public int endIndex;
 
-    /** The text */
+    /** {@collect.stats} The text */
     public String text;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AccessibleTextSequence</code> with the given
      * parameters.
      *

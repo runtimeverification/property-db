@@ -28,7 +28,7 @@ package javax.swing.colorchooser;
 import java.awt.*;
 import java.awt.image.*;
 
-/** A helper class to make computing synthetic images a little easier.
+/** {@collect.stats} A helper class to make computing synthetic images a little easier.
  *  All you need to do is define a subclass that overrides computeRow
  *  to compute a row of the image.  It is passed the y coordinate of the
  *  row and an array into which to put the pixels in

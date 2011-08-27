@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * A generic interface for a mutable collection of unique attributes.
  *
  * Implementations will probably want to provide a constructor of the
@@ -36,7 +36,7 @@ import java.util.Enumeration;
  */
 public interface MutableAttributeSet extends AttributeSet {
 
-    /**
+    /** {@collect.stats}
      * Creates a new attribute set similar to this one except that it contains
      * an attribute with the given name and value.  The object must be
      * immutable, or not mutated by any client.
@@ -46,7 +46,7 @@ public interface MutableAttributeSet extends AttributeSet {
      */
     public void addAttribute(Object name, Object value);
 
-    /**
+    /** {@collect.stats}
      * Creates a new attribute set similar to this one except that it contains
      * the given attributes and values.
      *
@@ -54,28 +54,28 @@ public interface MutableAttributeSet extends AttributeSet {
      */
     public void addAttributes(AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute with the given <code>name</code>.
      *
      * @param name the attribute name
      */
     public void removeAttribute(Object name);
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute set with the given <code>names</code>.
      *
      * @param names the set of names
      */
     public void removeAttributes(Enumeration<?> names);
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes with the given <code>name</code>.
      *
      * @param attributes the set of attributes
      */
     public void removeAttributes(AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Sets the resolving parent.  This is the set
      * of attributes to resolve through if an attribute
      * isn't defined locally.

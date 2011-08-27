@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.CompositeName;
 import javax.naming.InvalidNameException;
 
-/**
+/** {@collect.stats}
   * This class represents the result of resolution of a name.
   * It contains the object to which name was resolved, and the portion
   * of the name that has not been resolved.
@@ -44,14 +44,14 @@ import javax.naming.InvalidNameException;
   * @since 1.3
   */
 public class ResolveResult implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Field containing the Object that was resolved to successfully.
      * It can be null only when constructed using a subclass.
      * Constructors should always initialize this.
      * @serial
      */
     protected Object resolvedObj;
-    /**
+    /** {@collect.stats}
      * Field containing the remaining name yet to be resolved.
      * It can be null only when constructed using a subclass.
      * Constructors should always initialize this.
@@ -59,7 +59,7 @@ public class ResolveResult implements java.io.Serializable {
      */
     protected Name remainingName;
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of ResolveResult with the
       * resolved object and remaining name both initialized to null.
       */
@@ -68,7 +68,7 @@ public class ResolveResult implements java.io.Serializable {
         remainingName = null;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ResolveResult consisting of
       * the resolved object and the remaining unresolved component.
       *
@@ -86,7 +86,7 @@ public class ResolveResult implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ResolveResult consisting of
       * the resolved Object and the remaining name.
       *
@@ -98,7 +98,7 @@ public class ResolveResult implements java.io.Serializable {
         setRemainingName(rname);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the remaining unresolved portion of the name.
      *
      * @return The remaining unresolved portion of the name.
@@ -111,7 +111,7 @@ public class ResolveResult implements java.io.Serializable {
         return this.remainingName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the Object to which resolution was successful.
      *
      * @return The Object to which resolution was successful. Cannot be null.
@@ -121,7 +121,7 @@ public class ResolveResult implements java.io.Serializable {
         return this.resolvedObj;
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the remaining name field of this result to name.
       * A copy of name is made so that modifying the copy within
       * this ResolveResult does not affect <code>name</code> and
@@ -141,7 +141,7 @@ public class ResolveResult implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds components to the end of remaining name.
       *
       * @param name The components to add. Can be null.
@@ -166,7 +166,7 @@ public class ResolveResult implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a single component to the end of remaining name.
       *
       * @param name The component to add. Can be null.
@@ -185,7 +185,7 @@ public class ResolveResult implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the resolved Object field of this result to obj.
       *
       * @param obj The object to use for setting the resolved obj field.

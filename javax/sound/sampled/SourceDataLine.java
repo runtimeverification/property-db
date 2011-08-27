@@ -26,7 +26,7 @@
 package javax.sound.sampled;
 
 
-/**
+/** {@collect.stats}
  * A source data line is a data line to which data may be written.  It acts as
  * a source to its mixer. An application writes audio bytes to a source data line,
  * which handles the buffering of the bytes and delivers them to the mixer.
@@ -65,7 +65,7 @@ package javax.sound.sampled;
 public interface SourceDataLine extends DataLine {
 
 
-    /**
+    /** {@collect.stats}
      * Opens the line with the specified format and suggested buffer size,
      * causing the line to acquire any required
      * system resources and become operational.
@@ -108,7 +108,7 @@ public interface SourceDataLine extends DataLine {
     public void open(AudioFormat format, int bufferSize) throws LineUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Opens the line with the specified format, causing the line to acquire any
      * required system resources and become operational.
      *
@@ -147,7 +147,7 @@ public interface SourceDataLine extends DataLine {
     public void open(AudioFormat format) throws LineUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Writes audio data to the mixer via this source data line.  The requested
      * number of bytes of data are read from the specified array,
      * starting at the given offset into the array, and written to the data
@@ -192,7 +192,7 @@ public interface SourceDataLine extends DataLine {
      */
     public int write(byte[] b, int off, int len);
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of sample frames of audio data that can be written to
      * the mixer, via this data line, without blocking.  Note that the return
      * value measures sample frames, not bytes.

@@ -26,7 +26,7 @@
 package java.awt.image;
 
 
-/**
+/** {@collect.stats}
  * This class defines a lookup table object.  The output of a
  * lookup operation using an object of this class is interpreted
  * as an unsigned short quantity.  The lookup table contains short
@@ -42,13 +42,13 @@ package java.awt.image;
  */
 public class ShortLookupTable extends LookupTable {
 
-    /**
+    /** {@collect.stats}
      * Constants
      */
 
     short data[][];
 
-    /**
+    /** {@collect.stats}
      * Constructs a ShortLookupTable object from an array of short
      * arrays representing a lookup table for each
      * band.  The offset will be subtracted from the input
@@ -71,7 +71,7 @@ public class ShortLookupTable extends LookupTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ShortLookupTable object from an array
      * of shorts representing a lookup table for each
      * band.  The offset will be subtracted from the input
@@ -89,7 +89,7 @@ public class ShortLookupTable extends LookupTable {
         this.data[0]  = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lookup table data by reference.  If this ShortLookupTable
      * was constructed using a single short array, the length of the returned
      * array is one.
@@ -99,7 +99,7 @@ public class ShortLookupTable extends LookupTable {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of samples of a pixel, translated with the lookup
      * table. The source and destination array can be the same array.
      * Array <code>dst</code> is returned.
@@ -150,7 +150,7 @@ public class ShortLookupTable extends LookupTable {
         return dst;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of samples of a pixel, translated with the lookup
      * table. The source and destination array can be the same array.
      * Array <code>dst</code> is returned.

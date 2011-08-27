@@ -29,7 +29,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.Point2D;
 import java.awt.RenderingHints;
 
-/**
+/** {@collect.stats}
  * This interface describes single-input/single-output
  * operations performed on <CODE>BufferedImage</CODE> objects.
  * It is implemented by <CODE>AffineTransformOp</CODE>,
@@ -59,7 +59,7 @@ import java.awt.RenderingHints;
  * @see RescaleOp
  */
 public interface BufferedImageOp {
-    /**
+    /** {@collect.stats}
      * Performs a single-input/single-output operation on a
      * <CODE>BufferedImage</CODE>.
      * If the color models for the two images do not match, a color
@@ -83,7 +83,7 @@ public interface BufferedImageOp {
      */
     public BufferedImage filter(BufferedImage src, BufferedImage dest);
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination image.
      * An <CODE>IllegalArgumentException</CODE> may be thrown if the source
      * image is incompatible with the types of images allowed
@@ -96,7 +96,7 @@ public interface BufferedImageOp {
      */
     public Rectangle2D getBounds2D (BufferedImage src);
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination image with the correct size and number of
      * bands.
      * An <CODE>IllegalArgumentException</CODE> may be thrown if the source
@@ -112,7 +112,7 @@ public interface BufferedImageOp {
     public BufferedImage createCompatibleDestImage (BufferedImage src,
                                                     ColorModel destCM);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the corresponding destination point given a
      * point in the source image.  If <CODE>dstPt</CODE> is specified, it
      * is used to hold the return value.
@@ -125,7 +125,7 @@ public interface BufferedImageOp {
      */
     public Point2D getPoint2D (Point2D srcPt, Point2D dstPt);
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints for this operation.
      *
      * @return The <CODE>RenderingHints</CODE> object for this

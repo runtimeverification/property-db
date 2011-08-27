@@ -30,7 +30,7 @@ import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Media is a printing attribute class that specifies the
  * medium on which to print.
  * <p>
@@ -61,7 +61,7 @@ public abstract class Media extends EnumSyntax
 
     private static final long serialVersionUID = -2823970704630722439L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new media attribute specified by name.
      *
      * @param value         a value
@@ -70,7 +70,7 @@ public abstract class Media extends EnumSyntax
            super (value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this media attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -93,7 +93,7 @@ public abstract class Media extends EnumSyntax
                ((Media)object).getValue() == this.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -107,7 +107,7 @@ public abstract class Media extends EnumSyntax
         return Media.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

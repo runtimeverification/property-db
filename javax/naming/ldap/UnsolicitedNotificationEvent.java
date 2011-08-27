@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
  * This class represents an event fired in response to an unsolicited
  * notification sent by the LDAP server.
  *
@@ -42,13 +42,13 @@ package javax.naming.ldap;
  */
 
 public class UnsolicitedNotificationEvent extends java.util.EventObject {
-    /**
+    /** {@collect.stats}
      * The notification that caused this event to be fired.
      * @serial
      */
     private UnsolicitedNotification notice;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>UnsolicitedNotificationEvent</tt>.
      *
      * @param src The non-null source that fired the event.
@@ -61,7 +61,7 @@ public class UnsolicitedNotificationEvent extends java.util.EventObject {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the unsolicited notification.
      * @return The non-null unsolicited notification that caused this
      * event to be fired.
@@ -70,7 +70,7 @@ public class UnsolicitedNotificationEvent extends java.util.EventObject {
         return notice;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the <tt>notificationReceived()</tt> method on
      * a listener using this event.
      * @param listener The non-null listener on which to invoke

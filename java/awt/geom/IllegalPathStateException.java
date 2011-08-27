@@ -25,7 +25,7 @@
 
 package java.awt.geom;
 
-/**
+/** {@collect.stats}
  * The <code>IllegalPathStateException</code> represents an
  * exception that is thrown if an operation is performed on a path
  * that is in an illegal state with respect to the particular
@@ -35,7 +35,7 @@ package java.awt.geom;
  */
 
 public class IllegalPathStateException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalPathStateException</code> with no
      * detail message.
      *
@@ -44,7 +44,7 @@ public class IllegalPathStateException extends RuntimeException {
     public IllegalPathStateException() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalPathStateException</code> with the
      * specified detail message.
      * @param   s   the detail message

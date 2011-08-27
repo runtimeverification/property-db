@@ -34,7 +34,7 @@ import java.util.*;
 
 import javax.sql.rowset.*;
 
-/**
+/** {@collect.stats}
  * The <code>JoinRowSet</code> interface provides a mechanism for combining related
  * data from different <code>RowSet</code> objects into one <code>JoinRowSet</code>
  * object, which represents an SQL <code>JOIN</code>.
@@ -222,7 +222,7 @@ import javax.sql.rowset.*;
 
 public interface JoinRowSet extends WebRowSet {
 
-    /**
+    /** {@collect.stats}
      * Adds the given <code>RowSet</code> object to this <code>JoinRowSet</code>
      * object. If the <code>RowSet</code> object
      * is the first to be added to this <code>JoinRowSet</code>
@@ -247,7 +247,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public void addRowSet(Joinable rowset) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Adds the given <code>RowSet</code> object to this <code>JoinRowSet</code>
      * object and sets the designated column as the match column for
      * the <code>RowSet</code> object. If the <code>RowSet</code> object
@@ -269,7 +269,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public void addRowSet(RowSet rowset, int columnIdx) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Adds <i>rowset</i> to this <code>JoinRowSet</code> object and
      * sets the designated column as the match column. If <i>rowset</i>
      * is the first to be added to this <code>JoinRowSet</code>
@@ -291,7 +291,7 @@ public interface JoinRowSet extends WebRowSet {
      public void addRowSet(RowSet rowset,
                            String columnName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Adds one or more <code>RowSet</code> objects contained in the given
      * array of <code>RowSet</code> objects to this <code>JoinRowSet</code>
      * object and sets the match column for
@@ -323,7 +323,7 @@ public interface JoinRowSet extends WebRowSet {
     public void addRowSet(RowSet[] rowset,
                           int[] columnIdx) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Adds one or more <code>RowSet</code> objects contained in the given
      * array of <code>RowSet</code> objects to this <code>JoinRowSet</code>
      * object and sets the match column for
@@ -355,7 +355,7 @@ public interface JoinRowSet extends WebRowSet {
     public void addRowSet(RowSet[] rowset,
                           String[] columnName) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Collection</code> object containing the
      * <code>RowSet</code> objects that have been added to this
      * <code>JoinRowSet</code> object.
@@ -371,7 +371,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public Collection<?> getRowSets() throws java.sql.SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> array containing the names of the
      *         <code>RowSet</code> objects added to this <code>JoinRowSet</code>
      *         object.
@@ -385,7 +385,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public String[] getRowSetNames() throws java.sql.SQLException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>CachedRowSet</code> object containing the
      * data in this <code>JoinRowSet</code> object, which can be saved
      * to a data source using the <code>SyncProvider</code> object for
@@ -415,7 +415,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public CachedRowSet toCachedRowSet() throws java.sql.SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates if CROSS_JOIN is supported by a JoinRowSet
      * implementation
      *
@@ -423,7 +423,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public boolean supportsCrossJoin();
 
-    /**
+    /** {@collect.stats}
      * Indicates if INNER_JOIN is supported by a JoinRowSet
      * implementation
      *
@@ -431,7 +431,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public boolean supportsInnerJoin();
 
-    /**
+    /** {@collect.stats}
      * Indicates if LEFT_OUTER_JOIN is supported by a JoinRowSet
      * implementation
      *
@@ -439,7 +439,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public boolean supportsLeftOuterJoin();
 
-    /**
+    /** {@collect.stats}
      * Indicates if RIGHT_OUTER_JOIN is supported by a JoinRowSet
      * implementation
      *
@@ -447,7 +447,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public boolean supportsRightOuterJoin();
 
-    /**
+    /** {@collect.stats}
      * Indicates if FULL_JOIN is supported by a JoinRowSet
      * implementation
      *
@@ -455,7 +455,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public boolean supportsFullJoin();
 
-    /**
+    /** {@collect.stats}
      * Allow the application to adjust the type of <code>JOIN</code> imposed
      * on tables contained within the JoinRowSet object instance.
      * Implementations should throw a SQLException if they do
@@ -469,7 +469,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public void setJoinType(int joinType) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Return a SQL-like description of the WHERE clause being used
      * in a JoinRowSet object. An implementation can describe
      * the WHERE clause of the SQL <code>JOIN</code> by supplying a SQL
@@ -483,7 +483,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public String getWhereClause() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>int</code> describing the set SQL <code>JOIN</code> type
      * governing this JoinRowSet instance. The returned type will be one of
      * standard JoinRowSet types: <code>CROSS_JOIN</code>, <code>INNER_JOIN</code>,
@@ -500,25 +500,25 @@ public interface JoinRowSet extends WebRowSet {
      */
     public int getJoinType() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * An ANSI-style <code>JOIN</code> providing a cross product of two tables
      */
     public static int CROSS_JOIN = 0;
 
-    /**
+    /** {@collect.stats}
      * An ANSI-style <code>JOIN</code> providing a inner join between two tables. Any
      * unmatched rows in either table of the join should be discarded.
      */
     public static int INNER_JOIN = 1;
 
-    /**
+    /** {@collect.stats}
      * An ANSI-style <code>JOIN</code> providing a left outer join between two
      * tables. In SQL, this is described where all records should be
      * returned from the left side of the JOIN statement.
      */
     public static int LEFT_OUTER_JOIN = 2;
 
-    /**
+    /** {@collect.stats}
      * An ANSI-style <code>JOIN</code> providing a right outer join between
      * two tables. In SQL, this is described where all records from the
      * table on the right side of the JOIN statement even if the table
@@ -526,7 +526,7 @@ public interface JoinRowSet extends WebRowSet {
      */
     public static int RIGHT_OUTER_JOIN = 3;
 
-    /**
+    /** {@collect.stats}
      * An ANSI-style <code>JOIN</code> providing a a full JOIN. Specifies that all
      * rows from either table be returned regardless of matching
      * records on the other table.

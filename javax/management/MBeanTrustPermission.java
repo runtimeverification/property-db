@@ -27,7 +27,7 @@ package javax.management;
 
 import java.security.BasicPermission;
 
-/**
+/** {@collect.stats}
  * This permission represents "trust" in a signer or codebase.
  * <p>
  * MBeanTrustPermission contains a target name but no actions list.
@@ -48,7 +48,7 @@ public class MBeanTrustPermission extends BasicPermission {
 
     private static final long serialVersionUID = -2952178077029018140L;
 
-    /** <p>Create a new MBeanTrustPermission with the given name.</p>
+    /** {@collect.stats} <p>Create a new MBeanTrustPermission with the given name.</p>
         <p>This constructor is equivalent to
         <code>MBeanTrustPermission(name,null)</code>.</p>
         @param name the name of the permission. It must be
@@ -62,7 +62,7 @@ public class MBeanTrustPermission extends BasicPermission {
         this(name, null);
     }
 
-    /** <p>Create a new MBeanTrustPermission with the given name.</p>
+    /** {@collect.stats} <p>Create a new MBeanTrustPermission with the given name.</p>
         @param name the name of the permission. It must be
         "register" or "*" for this permission.
         @param actions the actions for the permission.  It must be

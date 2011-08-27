@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * A <code>NoSuchObjectException</code> is thrown if an attempt is made to
  * invoke a method on an object that no longer exists in the remote virtual
  * machine.  If a <code>NoSuchObjectException</code> occurs attempting to
@@ -49,7 +49,7 @@ public class NoSuchObjectException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 6619395951570472985L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchObjectException</code> with the specified
      * detail message.
      *

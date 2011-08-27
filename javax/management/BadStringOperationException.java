@@ -25,7 +25,7 @@
 
 package javax.management;
 
-/**
+/** {@collect.stats}
  * Thrown when an invalid string operation is passed
  * to a method for constructing a query.
  *
@@ -37,12 +37,12 @@ public class BadStringOperationException extends Exception   {
     /* Serial version */
     private static final long serialVersionUID = 7802201238441662100L;
 
-    /**
+    /** {@collect.stats}
      * @serial The description of the operation that originated this exception
      */
     private String op;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <CODE>BadStringOperationException</CODE> with the specified detail
      * message.
      *
@@ -53,7 +53,7 @@ public class BadStringOperationException extends Exception   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the parameters used with the
  * <a href="http://www.ietf.org/rfc/rfc2268.txt"><i>RC2</i></a>
  * algorithm.
@@ -47,7 +47,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
     private byte[] iv = null;
     private int effectiveKeyBits;
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC2 from the given effective key size
      * (in bits).
      *
@@ -57,7 +57,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
         this.effectiveKeyBits = effectiveKeyBits;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC2 from the given effective key size
      * (in bits) and an 8-byte IV.
      *
@@ -73,7 +73,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
         this(effectiveKeyBits, iv, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for RC2 from the given effective key size
      * (in bits) and IV.
      *
@@ -101,7 +101,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
         System.arraycopy(iv, offset, this.iv, 0, blockSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the effective key size in bits.
      *
      * @return the effective key size in bits.
@@ -110,7 +110,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
         return this.effectiveKeyBits;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the IV or null if this parameter set does not contain an IV.
      *
      * @return the IV or null if this parameter set does not contain an IV.
@@ -120,7 +120,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
         return (iv == null? null:(byte[])iv.clone());
     }
 
-   /**
+   /** {@collect.stats}
      * Tests for equality between the specified object and this
      * object. Two RC2ParameterSpec objects are considered equal if their
      * effective key sizes and IVs are equal.
@@ -144,7 +144,7 @@ public class RC2ParameterSpec implements AlgorithmParameterSpec {
                 java.util.Arrays.equals(iv, other.iv));
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates a hash code value for the object.
      * Objects that are equal will also have the same hashcode.
      */

@@ -25,7 +25,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * Signals that user authentication failed.
  *
  * <p> This exception is thrown by LoginModules if authentication failed.
@@ -37,7 +37,7 @@ public class FailedLoginException extends LoginException {
 
     private static final long serialVersionUID = 802556922354616286L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a FailedLoginException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -45,7 +45,7 @@ public class FailedLoginException extends LoginException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a FailedLoginException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.

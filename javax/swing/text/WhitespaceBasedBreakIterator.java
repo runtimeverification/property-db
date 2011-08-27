@@ -30,7 +30,7 @@ import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A simple whitespace-based BreakIterator implementation.
  *
  * @author Sergey Groznyh
@@ -40,7 +40,7 @@ class WhitespaceBasedBreakIterator extends BreakIterator {
     private int[] breaks = new int[] { 0 } ;
     private int pos = 0;
 
-    /**
+    /** {@collect.stats}
      * Calculate break positions eagerly parallel to reading text.
      */
     public void setText(CharacterIterator ci) {

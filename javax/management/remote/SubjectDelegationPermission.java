@@ -27,7 +27,7 @@ package javax.management.remote;
 
 import java.security.BasicPermission;
 
-/**
+/** {@collect.stats}
  * <p>Permission required by an authentication identity to perform
  * operations on behalf of an authorization identity.</p>
  *
@@ -59,7 +59,7 @@ public final class SubjectDelegationPermission extends BasicPermission {
 
     private static final long serialVersionUID = 1481618113008682343L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new SubjectDelegationPermission with the specified name.
      * The name is the symbolic name of the SubjectDelegationPermission.
      *
@@ -73,7 +73,7 @@ public final class SubjectDelegationPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new SubjectDelegationPermission object with the
      * specified name.  The name is the symbolic name of the
      * SubjectDelegationPermission, and the actions String is

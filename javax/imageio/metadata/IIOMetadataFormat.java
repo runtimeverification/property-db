@@ -28,7 +28,7 @@ package javax.imageio.metadata;
 import java.util.Locale;
 import javax.imageio.ImageTypeSpecifier;
 
-/**
+/** {@collect.stats}
  * An object describing the structure of metadata documents returned
  * from <code>IIOMetadata.getAsTree</code> and passed to
  * <code>IIOMetadata.setFromTree</code> and <code>mergeTree</code>.
@@ -73,14 +73,14 @@ public interface IIOMetadataFormat {
 
     // Child policies
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element may not have any children.  In other words, it
      * is required to be a leaf node.
      */
     int CHILD_POLICY_EMPTY = 0;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element must have a single instance of each of its
      * legal child elements, in order.  In DTD terms, the contents of
@@ -88,7 +88,7 @@ public interface IIOMetadataFormat {
      */
     int CHILD_POLICY_ALL = 1;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element must have zero or one instance of each of its
      * legal child elements, in order.  In DTD terms, the contents of
@@ -97,7 +97,7 @@ public interface IIOMetadataFormat {
      */
     int CHILD_POLICY_SOME = 2;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element must have zero or one children, selected from
      * among its legal child elements.  In DTD terms, the contents of
@@ -106,7 +106,7 @@ public interface IIOMetadataFormat {
      */
     int CHILD_POLICY_CHOICE = 3;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element must have a sequence of instances of any of its
      * legal child elements.  In DTD terms, the contents of the
@@ -114,7 +114,7 @@ public interface IIOMetadataFormat {
      */
     int CHILD_POLICY_SEQUENCE = 4;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getChildPolicy</code> to indicate
      * that an element must have zero or more instances of its unique
      * legal child element.  In DTD terms, the contents of the element
@@ -122,26 +122,26 @@ public interface IIOMetadataFormat {
      */
     int CHILD_POLICY_REPEAT = 5;
 
-    /**
+    /** {@collect.stats}
      * The largest valid <code>CHILD_POLICY_*</code> constant,
      * to be used for range checks.
      */
     int CHILD_POLICY_MAX = CHILD_POLICY_REPEAT;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getObjectValueType</code> to
      * indicate the absence of a user object.
      */
     int VALUE_NONE = 0;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set a single, arbitrary value.
      */
     int VALUE_ARBITRARY = 1;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set a range of values.  Both the minimum
@@ -153,7 +153,7 @@ public interface IIOMetadataFormat {
      */
     int VALUE_RANGE = 2;
 
-    /**
+    /** {@collect.stats}
      * A value that may be or'ed with <code>VALUE_RANGE</code> to
      * obtain <code>VALUE_RANGE_MIN_INCLUSIVE</code>, and with
      * <code>VALUE_RANGE_MAX_INCLUSIVE</code> to obtain
@@ -166,7 +166,7 @@ public interface IIOMetadataFormat {
      */
     int VALUE_RANGE_MIN_INCLUSIVE_MASK = 4;
 
-    /**
+    /** {@collect.stats}
      * A value that may be or'ed with <code>VALUE_RANGE</code> to
      * obtain <code>VALUE_RANGE_MAX_INCLUSIVE</code>, and with
      * <code>VALUE_RANGE_MIN_INCLUSIVE</code> to obtain
@@ -179,7 +179,7 @@ public interface IIOMetadataFormat {
      */
     int VALUE_RANGE_MAX_INCLUSIVE_MASK = 8;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set to a range of values.  The minimum
@@ -188,7 +188,7 @@ public interface IIOMetadataFormat {
     int VALUE_RANGE_MIN_INCLUSIVE = VALUE_RANGE |
         VALUE_RANGE_MIN_INCLUSIVE_MASK;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set to a range of values.  The maximum
@@ -197,7 +197,7 @@ public interface IIOMetadataFormat {
     int VALUE_RANGE_MAX_INCLUSIVE = VALUE_RANGE |
         VALUE_RANGE_MAX_INCLUSIVE_MASK;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set a range of values.  Both the minimum
@@ -210,7 +210,7 @@ public interface IIOMetadataFormat {
         VALUE_RANGE_MIN_INCLUSIVE_MASK |
         VALUE_RANGE_MAX_INCLUSIVE_MASK;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set one of a number of enumerated values.
@@ -223,7 +223,7 @@ public interface IIOMetadataFormat {
      */
     int VALUE_ENUMERATION = 16;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeValueType</code> and
      * <code>getObjectValueType</code> to indicate that the attribute
      * or user object may be set to a list or array of values.  In the
@@ -233,35 +233,35 @@ public interface IIOMetadataFormat {
      */
     int VALUE_LIST = 32;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeDataType</code>
      * indicating that the value of an attribute is a general Unicode
      * string.
      */
     int DATATYPE_STRING = 0;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeDataType</code>
      * indicating that the value of an attribute is one of 'true' or
      * 'false'.
      */
     int DATATYPE_BOOLEAN = 1;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeDataType</code>
      * indicating that the value of an attribute is a string
      * representation of an integer.
      */
     int DATATYPE_INTEGER = 2;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeDataType</code>
      * indicating that the value of an attribute is a string
      * representation of a decimal floating-point number.
      */
     int DATATYPE_FLOAT = 3;
 
-    /**
+    /** {@collect.stats}
      * A constant returned by <code>getAttributeDataType</code>
      * indicating that the value of an attribute is a string
      * representation of a double-precision decimal floating-point
@@ -271,7 +271,7 @@ public interface IIOMetadataFormat {
 
     // Root
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the root element of the format.
      *
      * @return a <code>String</code>.
@@ -280,7 +280,7 @@ public interface IIOMetadataFormat {
 
     // Multiplicity
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the element (and the subtree below
      * it) is allowed to appear in a metadata document for an image of
      * the given type, defined by an <code>ImageTypeSpecifier</code>.
@@ -298,7 +298,7 @@ public interface IIOMetadataFormat {
      */
     boolean canNodeAppear(String elementName, ImageTypeSpecifier imageType);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum number of children of the named element
      * with child policy <code>CHILD_POLICY_REPEAT</code>.  For
      * example, an element representing color primary information
@@ -317,7 +317,7 @@ public interface IIOMetadataFormat {
      */
     int getElementMinChildren(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of children of the named element
      * with child policy <code>CHILD_POLICY_REPEAT</code>.  For
      * example, an element representing an entry in an 8-bit color
@@ -337,7 +337,7 @@ public interface IIOMetadataFormat {
      */
     int getElementMaxChildren(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> containing a description of the
      * named element, or <code>null</code>.  The desciption will be
      * localized for the supplied <code>Locale</code> if possible.
@@ -359,7 +359,7 @@ public interface IIOMetadataFormat {
 
     // Children
 
-    /**
+    /** {@collect.stats}
      * Returns one of the constants starting with
      * <code>CHILD_POLICY_</code>, indicating the legal pattern of
      * children for the named element.
@@ -374,7 +374,7 @@ public interface IIOMetadataFormat {
      */
     int getChildPolicy(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s indicating the names
      * of the element which are allowed to be children of the named
      * element, in the order in which they should appear.  If the
@@ -392,7 +392,7 @@ public interface IIOMetadataFormat {
 
     // Attributes
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing the names of
      * the attributes that may be associated with the named element.
      *
@@ -406,7 +406,7 @@ public interface IIOMetadataFormat {
      */
     String[] getAttributeNames(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns one of the constants starting with <code>VALUE_</code>,
      * indicating whether the values of the given attribute within the
      * named element are arbitrary, constrained to lie within a
@@ -427,7 +427,7 @@ public interface IIOMetadataFormat {
      */
     int getAttributeValueType(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns one of the constants starting with
      * <code>DATATYPE_</code>, indicating the format and
      * interpretation of the value of the given attribute within th
@@ -449,7 +449,7 @@ public interface IIOMetadataFormat {
      */
     int getAttributeDataType(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the named attribute must be
      * present within the named element.
      *
@@ -467,7 +467,7 @@ public interface IIOMetadataFormat {
      */
     boolean isAttributeRequired(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns the default value of the named attribute, if it is not
      * explictly present within the named element, as a
      * <code>String</code>, or <code>null</code> if no default value
@@ -488,7 +488,7 @@ public interface IIOMetadataFormat {
      */
     String getAttributeDefaultValue(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the legal
      * enumerated values for the given attribute within the named
      * element.  This method should only be called if
@@ -511,7 +511,7 @@ public interface IIOMetadataFormat {
      */
     String[] getAttributeEnumerations(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum legal value for the attribute.  Whether
      * this value is inclusive or exclusive may be determined by the
      * value of <code>getAttributeValueType</code>.  The value is
@@ -538,7 +538,7 @@ public interface IIOMetadataFormat {
      */
     String getAttributeMinValue(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum legal value for the attribute.  Whether
      * this value is inclusive or exclusive may be determined by the
      * value of <code>getAttributeValueType</code>.  The value is
@@ -566,7 +566,7 @@ public interface IIOMetadataFormat {
      */
     String getAttributeMaxValue(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum number of list items that may be used to
      * define this attribute.  The attribute itself is defined as a
      * <code>String</code> containing multiple whitespace-separated
@@ -591,7 +591,7 @@ public interface IIOMetadataFormat {
      */
     int getAttributeListMinLength(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of list items that may be used to
      * define this attribute.  A value of
      * <code>Integer.MAX_VALUE</code> may be used to specify that
@@ -618,7 +618,7 @@ public interface IIOMetadataFormat {
      */
     int getAttributeListMaxLength(String elementName, String attrName);
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> containing a description of the
      * named attribute, or <code>null</code>.  The desciption will be
      * localized for the supplied <code>Locale</code> if possible.
@@ -645,7 +645,7 @@ public interface IIOMetadataFormat {
 
     // Object value
 
-    /**
+    /** {@collect.stats}
      * Returns one of the enumerated values starting with
      * <code>VALUE_</code>, indicating the type of values
      * (enumeration, range, or array) that are allowed for the
@@ -669,7 +669,7 @@ public interface IIOMetadataFormat {
      */
     int getObjectValueType(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Class</code> type of the <code>Object</code>
      * reference stored within the element.  If this element may not
      * contain an <code>Object</code> reference, an
@@ -695,7 +695,7 @@ public interface IIOMetadataFormat {
      */
     Class<?> getObjectClass(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Object</code>s containing the default
      * value for the <code>Object</code> reference within
      * the named element.
@@ -713,7 +713,7 @@ public interface IIOMetadataFormat {
      */
     Object getObjectDefaultValue(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Object</code>s containing the legal
      * enumerated values for the <code>Object</code> reference within
      * the named element.  This method should only be called if
@@ -740,7 +740,7 @@ public interface IIOMetadataFormat {
      */
     Object[] getObjectEnumerations(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum legal value for the <code>Object</code>
      * reference within the named element.  Whether this value is
      * inclusive or exclusive may be determined by the value of
@@ -763,7 +763,7 @@ public interface IIOMetadataFormat {
      */
     Comparable<?> getObjectMinValue(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum legal value for the <code>Object</code>
      * reference within the named element.  Whether this value is
      * inclusive or exclusive may be determined by the value of
@@ -786,7 +786,7 @@ public interface IIOMetadataFormat {
      */
     Comparable<?> getObjectMaxValue(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum number of array elements that may be used
      * to define the <code>Object</code> reference within the named
      * element.  This method should only be called if
@@ -809,7 +809,7 @@ public interface IIOMetadataFormat {
      */
     int getObjectArrayMinLength(String elementName);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of array elements that may be used
      * to define the <code>Object</code> reference within the named
      * element.  A value of <code>Integer.MAX_VALUE</code> may be used

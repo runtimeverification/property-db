@@ -29,7 +29,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ChangeEvent;
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * TableColumnModelListener defines the interface for an object that listens
  * to changes in a TableColumnModel.
  *
@@ -39,19 +39,19 @@ import java.util.EventListener;
 
 public interface TableColumnModelListener extends java.util.EventListener
 {
-    /** Tells listeners that a column was added to the model. */
+    /** {@collect.stats} Tells listeners that a column was added to the model. */
     public void columnAdded(TableColumnModelEvent e);
 
-    /** Tells listeners that a column was removed from the model. */
+    /** {@collect.stats} Tells listeners that a column was removed from the model. */
     public void columnRemoved(TableColumnModelEvent e);
 
-    /** Tells listeners that a column was repositioned. */
+    /** {@collect.stats} Tells listeners that a column was repositioned. */
     public void columnMoved(TableColumnModelEvent e);
 
-    /** Tells listeners that a column was moved due to a margin change. */
+    /** {@collect.stats} Tells listeners that a column was moved due to a margin change. */
     public void columnMarginChanged(ChangeEvent e);
 
-    /**
+    /** {@collect.stats}
      * Tells listeners that the selection model of the
      * TableColumnModel changed.
      */

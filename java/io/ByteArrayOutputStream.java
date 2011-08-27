@@ -27,7 +27,7 @@ package java.io;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * This class implements an output stream in which the data is
  * written into a byte array. The buffer automatically grows as data
  * is written to it.
@@ -44,17 +44,17 @@ import java.util.Arrays;
 
 public class ByteArrayOutputStream extends OutputStream {
 
-    /**
+    /** {@collect.stats}
      * The buffer where data is stored.
      */
     protected byte buf[];
 
-    /**
+    /** {@collect.stats}
      * The number of valid bytes in the buffer.
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * Creates a new byte array output stream. The buffer capacity is
      * initially 32 bytes, though its size increases if necessary.
      */
@@ -62,7 +62,7 @@ public class ByteArrayOutputStream extends OutputStream {
         this(32);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new byte array output stream, with a buffer capacity of
      * the specified size, in bytes.
      *
@@ -77,7 +77,7 @@ public class ByteArrayOutputStream extends OutputStream {
         buf = new byte[size];
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the specified byte to this byte array output stream.
      *
      * @param   b   the byte to be written.
@@ -91,7 +91,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this byte array output stream.
      *
@@ -114,7 +114,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the complete contents of this byte array output stream to
      * the specified output stream argument, as if by calling the output
      * stream's write method using <code>out.write(buf, 0, count)</code>.
@@ -126,7 +126,7 @@ public class ByteArrayOutputStream extends OutputStream {
         out.write(buf, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the <code>count</code> field of this byte array output
      * stream to zero, so that all currently accumulated output in the
      * output stream is discarded. The output stream can be used again,
@@ -138,7 +138,7 @@ public class ByteArrayOutputStream extends OutputStream {
         count = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a newly allocated byte array. Its size is the current
      * size of this output stream and the valid contents of the buffer
      * have been copied into it.
@@ -150,7 +150,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return Arrays.copyOf(buf, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current size of the buffer.
      *
      * @return  the value of the <code>count</code> field, which is the number
@@ -161,7 +161,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the buffer's contents into a string decoding bytes using the
      * platform's default character set. The length of the new <tt>String</tt>
      * is a function of the character set, and hence may not be equal to the
@@ -180,7 +180,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the buffer's contents into a string by decoding the bytes using
      * the specified {@link java.nio.charset.Charset charsetName}. The length of
      * the new <tt>String</tt> is a function of the charset, and hence may not be
@@ -204,7 +204,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a newly allocated string. Its size is the current size of
      * the output stream and the valid contents of the buffer have been
      * copied into it. Each character <i>c</i> in the resulting string is
@@ -231,7 +231,7 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, hibyte, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.

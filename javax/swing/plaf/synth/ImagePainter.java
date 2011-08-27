@@ -31,7 +31,7 @@ import javax.swing.*;
 import sun.awt.AppContext;
 import sun.swing.plaf.synth.Paint9Painter;
 
-/**
+/** {@collect.stats}
  * ImagePainter fills in the specified region using an Image. The Image
  * is split into 9 segments: north, north east, east, south east, south,
  * south west, west, north west and the center. The corners are defined

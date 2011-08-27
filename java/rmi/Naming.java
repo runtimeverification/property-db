@@ -29,7 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-/**
+/** {@collect.stats}
  * The <code>Naming</code> class provides methods for storing and obtaining
  * references to remote objects in a remote object registry.  Each method of
  * the <code>Naming</code> class takes as one of its arguments a name that
@@ -70,12 +70,12 @@ import java.net.URISyntaxException;
  * @see     java.rmi.registry.LocateRegistry#createRegistry(int)
  */
 public final class Naming {
-    /**
+    /** {@collect.stats}
      * Disallow anyone from creating one of these
      */
     private Naming() {}
 
-    /**
+    /** {@collect.stats}
      * Returns a reference, a stub, for the remote object associated
      * with the specified <code>name</code>.
      *
@@ -101,7 +101,7 @@ public final class Naming {
         return registry.lookup(parsed.name);
     }
 
-    /**
+    /** {@collect.stats}
      * Binds the specified <code>name</code> to a remote object.
      *
      * @param name a name in URL format (without the scheme component)
@@ -128,7 +128,7 @@ public final class Naming {
         registry.bind(parsed.name, obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Destroys the binding for the specified name that is associated
      * with a remote object.
      *
@@ -152,7 +152,7 @@ public final class Naming {
         registry.unbind(parsed.name);
     }
 
-    /**
+    /** {@collect.stats}
      * Rebinds the specified name to a new remote object. Any existing
      * binding for the name is replaced.
      *
@@ -177,7 +177,7 @@ public final class Naming {
         registry.rebind(parsed.name, obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the names bound in the registry.  The names are
      * URL-formatted (without the scheme component) strings. The array contains
      * a snapshot of the names present in the registry at the time of the
@@ -212,7 +212,7 @@ public final class Naming {
         return names;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a registry reference obtained from information in the URL.
      */
     private static Registry getRegistry(ParsedNamingURL parsed)
@@ -221,7 +221,7 @@ public final class Naming {
         return LocateRegistry.getRegistry(parsed.host, parsed.port);
     }
 
-    /**
+    /** {@collect.stats}
      * Dissect Naming URL strings to obtain referenced host, port and
      * object name.
      *
@@ -339,7 +339,7 @@ public final class Naming {
         return new ParsedNamingURL(host, port, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Simple class to enable multiple URL return values.
      */
     private static class ParsedNamingURL {

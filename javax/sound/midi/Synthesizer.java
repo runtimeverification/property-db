@@ -28,7 +28,7 @@ package javax.sound.midi;
 import javax.sound.sampled.Control;
 
 
-/**
+/** {@collect.stats}
  * A <code>Synthesizer</code> generates sound.  This usually happens when one of
  * the <code>Synthesizer</code>'s {@link MidiChannel} objects receives a
  * {@link MidiChannel#noteOn(int, int) noteOn} message, either
@@ -81,7 +81,7 @@ public interface Synthesizer extends MidiDevice {
     // SYNTHESIZER METHODS
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the maximum number of notes that this synthesizer can sound simultaneously.
      * @return the maximum number of simultaneous notes
      * @see #getVoiceStatus
@@ -89,7 +89,7 @@ public interface Synthesizer extends MidiDevice {
     public int getMaxPolyphony();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the processing latency incurred by this synthesizer, expressed in
      * microseconds.  This latency measures the worst-case delay between the
      * time a MIDI message is delivered to the synthesizer and the time that the
@@ -104,7 +104,7 @@ public interface Synthesizer extends MidiDevice {
     public long getLatency();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of MIDI channels controlled by this synthesizer.  Each
      * non-null element in the returned array is a <code>MidiChannel</code> that
      * receives the MIDI messages sent on that channel number.
@@ -120,7 +120,7 @@ public interface Synthesizer extends MidiDevice {
     public MidiChannel[] getChannels();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current status of the voices produced by this synthesizer.
      * If this class of <code>Synthesizer</code> does not provide voice
      * information, the returned array will always be of length 0.  Otherwise,
@@ -136,7 +136,7 @@ public interface Synthesizer extends MidiDevice {
     public VoiceStatus[] getVoiceStatus();
 
 
-    /**
+    /** {@collect.stats}
      * Informs the caller whether this synthesizer is capable of loading
      * instruments from the specified soundbank.
      * If the soundbank is unsupported, any attempts to load instruments from
@@ -152,7 +152,7 @@ public interface Synthesizer extends MidiDevice {
     public boolean isSoundbankSupported(Soundbank soundbank);
 
 
-    /**
+    /** {@collect.stats}
      * Makes a particular instrument available for synthesis.  This instrument
      * is loaded into the patch location specified by its <code>Patch</code>
      * object, so that if a program-change message is
@@ -183,7 +183,7 @@ public interface Synthesizer extends MidiDevice {
     public boolean loadInstrument(Instrument instrument);
 
 
-    /**
+    /** {@collect.stats}
      * Unloads a particular instrument.
      * @param instrument instrument to unload
      * @throws <code>IllegalArgumentException</code> if this
@@ -198,7 +198,7 @@ public interface Synthesizer extends MidiDevice {
     public void unloadInstrument(Instrument instrument);
 
 
-    /**
+    /** {@collect.stats}
      * Remaps an instrument. Instrument <code>to</code> takes the
      * place of instrument <code>from</code>.<br>
      * For example, if <code>from</code> was located at bank number 2,
@@ -226,7 +226,7 @@ public interface Synthesizer extends MidiDevice {
     public boolean remapInstrument(Instrument from, Instrument to);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the default soundbank for the synthesizer, if one exists.
      * (Some synthesizers provide a default or built-in soundbank.)
      * If a synthesizer doesn't have a default soundbank, instruments must
@@ -237,7 +237,7 @@ public interface Synthesizer extends MidiDevice {
     public Soundbank getDefaultSoundbank();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a list of instruments that come with the synthesizer.  These
      * instruments might be built into the synthesizer, or they might be
      * part of a default soundbank provided with the synthesizer, etc.
@@ -260,7 +260,7 @@ public interface Synthesizer extends MidiDevice {
     public Instrument[] getAvailableInstruments();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a list of the instruments that are currently loaded onto this
      * <code>Synthesizer</code>.
      * @return a list of currently loaded instruments
@@ -271,7 +271,7 @@ public interface Synthesizer extends MidiDevice {
     public Instrument[] getLoadedInstruments();
 
 
-    /**
+    /** {@collect.stats}
      * Loads onto the <code>Synthesizer</code> all instruments contained
      * in the specified <code>Soundbank</code>.
      * @param soundbank the <code>Soundbank</code> whose are instruments are
@@ -289,7 +289,7 @@ public interface Synthesizer extends MidiDevice {
 
 
 
-    /**
+    /** {@collect.stats}
      * Unloads all instruments contained in the specified <code>Soundbank</code>.
      * @param soundbank soundbank containing instruments to unload
      * @throws IllegalArgumentException thrown if the soundbank is not supported.
@@ -300,7 +300,7 @@ public interface Synthesizer extends MidiDevice {
     public void unloadAllInstruments(Soundbank soundbank);
 
 
-    /**
+    /** {@collect.stats}
      * Loads the instruments referenced by the specified patches, from the
      * specified <code>Soundbank</code>.  Each of the <code>Patch</code> objects
      * indicates a bank and program number; the <code>Instrument</code> that
@@ -321,7 +321,7 @@ public interface Synthesizer extends MidiDevice {
      */
     public boolean loadInstruments(Soundbank soundbank, Patch[] patchList);
 
-    /**
+    /** {@collect.stats}
      * Unloads the instruments referenced by the specified patches, from the MIDI sound bank specified.
      * @param soundbank soundbank containing instruments to unload
      * @param patchList list of patches for which instruments should be unloaded
@@ -338,14 +338,14 @@ public interface Synthesizer extends MidiDevice {
 
     // RECEIVER METHODS
 
-    /**
+    /** {@collect.stats}
      * Obtains the name of the receiver.
      * @return receiver name
      */
     //  public abstract String getName();
 
 
-    /**
+    /** {@collect.stats}
      * Opens the receiver.
      * @throws MidiUnavailableException if the receiver is cannot be opened,
      * usually because the MIDI device is in use by another application.
@@ -355,13 +355,13 @@ public interface Synthesizer extends MidiDevice {
     //  public abstract void open() throws MidiUnavailableException, SecurityException;
 
 
-    /**
+    /** {@collect.stats}
      * Closes the receiver.
      */
     //  public abstract void close();
 
 
-    /**
+    /** {@collect.stats}
      * Sends a MIDI event to the receiver.
      * @param event event to send.
      * @throws IllegalStateException if the receiver is not open.
@@ -371,7 +371,7 @@ public interface Synthesizer extends MidiDevice {
     //  }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of controls supported by the
      * element.  If no controls are supported, returns an
      * array of length 0.
@@ -384,7 +384,7 @@ public interface Synthesizer extends MidiDevice {
     // looking....
     // public Control[] getControls();
 
-    /**
+    /** {@collect.stats}
      * Obtains the specified control.
      * @param controlClass class of the requested control
      * @return requested control object, or null if the

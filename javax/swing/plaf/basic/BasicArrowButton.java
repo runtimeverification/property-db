@@ -31,7 +31,7 @@ import java.awt.Color;
 import javax.swing.*;
 import javax.swing.plaf.UIResource;
 
-/**
+/** {@collect.stats}
  * JButton object that draws a scaled Arrow in one of the cardinal directions.
  * <p>
  * <strong>Warning:</strong>
@@ -47,7 +47,7 @@ import javax.swing.plaf.UIResource;
  */
 public class BasicArrowButton extends JButton implements SwingConstants
 {
-        /**
+        /** {@collect.stats}
          * The direction of the arrow. One of
          * {@code SwingConstants.NORTH}, {@code SwingConstants.SOUTH},
          * {@code SwingConstants.EAST} or {@code SwingConstants.WEST}.
@@ -58,7 +58,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
         private Color darkShadow;
         private Color highlight;
 
-        /**
+        /** {@collect.stats}
          * Creates a {@code BasicArrowButton} whose arrow
          * is drawn in the specified direction and with the specified
          * colors.
@@ -83,7 +83,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
             this.highlight = highlight;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a {@code BasicArrowButton} whose arrow
          * is drawn in the specified direction.
          *
@@ -96,14 +96,14 @@ public class BasicArrowButton extends JButton implements SwingConstants
                  UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the direction of the arrow.
          */
         public int getDirection() {
             return direction;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the direction of the arrow.
          *
          * @param direction the direction of the arrow; one of
@@ -177,7 +177,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
 
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred size of the {@code BasicArrowButton}.
          *
          * @return the preferred size
@@ -186,7 +186,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
             return new Dimension(16, 16);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum size of the {@code BasicArrowButton}.
          *
          * @return the minimum size
@@ -195,7 +195,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
             return new Dimension(5, 5);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum size of the {@code BasicArrowButton}.
          *
          * @return the maximum size
@@ -204,7 +204,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
             return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether the arrow button should get the focus.
          * {@code BasicArrowButton}s are used as a child component of
          * composite components such as {@code JScrollBar} and
@@ -217,7 +217,7 @@ public class BasicArrowButton extends JButton implements SwingConstants
           return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Paints a triangle.
          *
          * @param g the {@code Graphics} to draw to

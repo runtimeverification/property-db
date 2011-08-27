@@ -31,7 +31,7 @@ import java.awt.print.*;
 import java.awt.geom.*;
 import java.text.MessageFormat;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>Printable</code> for printing
  * <code>JTable</code>s.
  * <p>
@@ -96,61 +96,61 @@ import java.text.MessageFormat;
  */
 class TablePrintable implements Printable {
 
-    /** The table to print. */
+    /** {@collect.stats} The table to print. */
     private JTable table;
 
-    /** For quick reference to the table's header. */
+    /** {@collect.stats} For quick reference to the table's header. */
     private JTableHeader header;
 
-    /** For quick reference to the table's column model. */
+    /** {@collect.stats} For quick reference to the table's column model. */
     private TableColumnModel colModel;
 
-    /** To save multiple calculations of total column width. */
+    /** {@collect.stats} To save multiple calculations of total column width. */
     private int totalColWidth;
 
-    /** The printing mode of this printable. */
+    /** {@collect.stats} The printing mode of this printable. */
     private JTable.PrintMode printMode;
 
-    /** Provides the header text for the table. */
+    /** {@collect.stats} Provides the header text for the table. */
     private MessageFormat headerFormat;
 
-    /** Provides the footer text for the table. */
+    /** {@collect.stats} Provides the footer text for the table. */
     private MessageFormat footerFormat;
 
-    /** The most recent page index asked to print. */
+    /** {@collect.stats} The most recent page index asked to print. */
     private int last = -1;
 
-    /** The next row to print. */
+    /** {@collect.stats} The next row to print. */
     private int row = 0;
 
-    /** The next column to print. */
+    /** {@collect.stats} The next column to print. */
     private int col = 0;
 
-    /** Used to store an area of the table to be printed. */
+    /** {@collect.stats} Used to store an area of the table to be printed. */
     private final Rectangle clip = new Rectangle(0, 0, 0, 0);
 
-    /** Used to store an area of the table's header to be printed. */
+    /** {@collect.stats} Used to store an area of the table's header to be printed. */
     private final Rectangle hclip = new Rectangle(0, 0, 0, 0);
 
-    /** Saves the creation of multiple rectangles. */
+    /** {@collect.stats} Saves the creation of multiple rectangles. */
     private final Rectangle tempRect = new Rectangle(0, 0, 0, 0);
 
-    /** Vertical space to leave between table and header/footer text. */
+    /** {@collect.stats} Vertical space to leave between table and header/footer text. */
     private static final int H_F_SPACE = 8;
 
-    /** Font size for the header text. */
+    /** {@collect.stats} Font size for the header text. */
     private static final float HEADER_FONT_SIZE = 18.0f;
 
-    /** Font size for the footer text. */
+    /** {@collect.stats} Font size for the footer text. */
     private static final float FOOTER_FONT_SIZE = 12.0f;
 
-    /** The font to use in rendering header text. */
+    /** {@collect.stats} The font to use in rendering header text. */
     private Font headerFont;
 
-    /** The font to use in rendering footer text. */
+    /** {@collect.stats} The font to use in rendering footer text. */
     private Font footerFont;
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>TablePrintable</code> for the given
      * <code>JTable</code>. Header and footer text can be specified using the
      * two <code>MessageFormat</code> parameters. When called upon to provide
@@ -192,7 +192,7 @@ class TablePrintable implements Printable {
                                                 FOOTER_FONT_SIZE);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints the specified page of the table into the given {@link Graphics}
      * context, in the specified format.
      *
@@ -397,7 +397,7 @@ class TablePrintable implements Printable {
         return PAGE_EXISTS;
     }
 
-    /**
+    /** {@collect.stats}
      * A helper method that encapsulates common code for rendering the
      * header and footer text.
      *
@@ -436,7 +436,7 @@ class TablePrintable implements Printable {
             g2d.drawString(text, tx, ty);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the area of the table to be printed for
      * the next page. This should only be called if there
      * are rows and columns left to print.

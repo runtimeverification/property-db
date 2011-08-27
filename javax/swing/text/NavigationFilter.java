@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.awt.Shape;
 
-/**
+/** {@collect.stats}
  * <code>NavigationFilter</code> can be used to restrict where the cursor can
  * be positioned. When the default cursor positioning actions attempt to
  * reposition the cursor they will call into the
@@ -49,7 +49,7 @@ import java.awt.Shape;
  * @since 1.4
  */
 public class NavigationFilter {
-    /**
+    /** {@collect.stats}
      * Invoked prior to the Caret setting the dot. The default implementation
      * calls directly into the <code>FilterBypass</code> with the passed
      * in arguments. Subclasses may wish to conditionally
@@ -64,7 +64,7 @@ public class NavigationFilter {
         fb.setDot(dot, bias);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked prior to the Caret moving the dot. The default implementation
      * calls directly into the <code>FilterBypass</code> with the passed
      * in arguments. Subclasses may wish to conditionally
@@ -79,7 +79,7 @@ public class NavigationFilter {
         fb.moveDot(dot, bias);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next visual position to place the caret at from an
      * existing position. The default implementation simply forwards the
      * method to the root View. Subclasses may wish to further restrict the
@@ -113,7 +113,7 @@ public class NavigationFilter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used as a way to circumvent calling back into the caret to
      * position the cursor. Caret implementations that wish to support
      * a NavigationFilter must provide an implementation that will
@@ -121,14 +121,14 @@ public class NavigationFilter {
      * @since 1.4
      */
     public static abstract class FilterBypass {
-        /**
+        /** {@collect.stats}
          * Returns the Caret that is changing.
          *
          * @return Caret that is changing
          */
         public abstract Caret getCaret();
 
-        /**
+        /** {@collect.stats}
          * Sets the caret location, bypassing the NavigationFilter.
          *
          * @param dot the position >= 0
@@ -136,7 +136,7 @@ public class NavigationFilter {
          */
         public abstract void setDot(int dot, Position.Bias bias);
 
-        /**
+        /** {@collect.stats}
          * Moves the caret location, bypassing the NavigationFilter.
          *
          * @param dot the position >= 0

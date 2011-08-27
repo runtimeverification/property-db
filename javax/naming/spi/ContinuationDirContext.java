@@ -40,7 +40,7 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.ModificationItem;
 
-/**
+/** {@collect.stats}
   * This class is the continuation context for invoking DirContext methods.
   *
   * @author Rosanna Lee

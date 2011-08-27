@@ -35,7 +35,7 @@
 
 package java.awt.image;
 
-/**
+/** {@collect.stats}
  *  This class represents image data which is stored in a band interleaved
  *  fashion and for
  *  which each sample of a pixel occupies one data element of the DataBuffer.
@@ -67,7 +67,7 @@ package java.awt.image;
 public final class BandedSampleModel extends ComponentSampleModel
 {
 
-    /**
+    /** {@collect.stats}
      * Constructs a BandedSampleModel with the specified parameters.
      * The pixel stride will be one data element.  The scanline stride
      * will be the same as the width.  Each band will be stored in
@@ -87,7 +87,7 @@ public final class BandedSampleModel extends ComponentSampleModel
               BandedSampleModel.createOffsetArray(numBands));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a BandedSampleModel with the specified parameters.
      * The number of bands will be inferred from the lengths of the
      * bandOffsets bankIndices arrays, which must be equal.  The pixel
@@ -112,7 +112,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         super(dataType, w, h, 1,scanlineStride, bankIndices, bandOffsets);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BandedSampleModel with the specified
      * width and height.  The new BandedSampleModel will have the same
      * number of bands, storage data type, and bank indices
@@ -145,7 +145,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return sampleModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BandedSampleModel with a subset of the bands of this
      * BandedSampleModel.  The new BandedSampleModel can be
      * used with any DataBuffer that the existing BandedSampleModel
@@ -175,7 +175,7 @@ public final class BandedSampleModel extends ComponentSampleModel
                                      newBankIndices, newBandOffsets);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a DataBuffer that corresponds to this BandedSampleModel,
      * The DataBuffer's data type, number of banks, and size
      * will be consistent with this BandedSampleModel.
@@ -214,7 +214,7 @@ public final class BandedSampleModel extends ComponentSampleModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns data for a single pixel in a primitive array of type
      * TransferType.  For a BandedSampleModel, this will be the same
      * as the data type, and samples will be returned one per array
@@ -359,7 +359,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for the specified pixel in an int array.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -392,7 +392,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for the specified rectangle of pixels in
      * an int array, one sample per data array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -437,7 +437,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns as int the sample in a specified band for the pixel
      * located at (x,y).
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -461,7 +461,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for the pixel located at (x,y) as a float.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -485,7 +485,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for a pixel located at (x,y) as a double.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -509,7 +509,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples in a specified band for the specified rectangle
      * of pixels in an int array, one sample per data array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -553,7 +553,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         return samples;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a single pixel in the specified DataBuffer from a
      * primitive array of type TransferType.  For a BandedSampleModel,
      * this will be the same as the data type, and samples are transferred
@@ -653,7 +653,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the DataBuffer using an int array of samples for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -675,7 +675,7 @@ public final class BandedSampleModel extends ComponentSampleModel
        }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from an int array containing
      * one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -711,7 +711,7 @@ public final class BandedSampleModel extends ComponentSampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using an int for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -734,7 +734,7 @@ public final class BandedSampleModel extends ComponentSampleModel
                      y*scanlineStride + x + bandOffsets[b], s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a float for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -758,7 +758,7 @@ public final class BandedSampleModel extends ComponentSampleModel
                           y*scanlineStride + x + bandOffsets[b], s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using a double for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -782,7 +782,7 @@ public final class BandedSampleModel extends ComponentSampleModel
                           y*scanlineStride + x + bandOffsets[b], s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from an int array containing one sample per data array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are

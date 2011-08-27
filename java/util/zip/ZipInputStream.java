@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.EOFException;
 import java.io.PushbackInputStream;
 
-/**
+/** {@collect.stats}
  * This class implements an input stream filter for reading files in the
  * ZIP file format. Includes support for both compressed and uncompressed
  * entries.
@@ -53,7 +53,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
     // one entry
     private boolean entryEOF = false;
 
-    /**
+    /** {@collect.stats}
      * Check to make sure that this stream has not been closed
      */
     private void ensureOpen() throws IOException {
@@ -62,7 +62,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new ZIP input stream.
      * @param in the actual input stream
      */
@@ -74,7 +74,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next ZIP file entry and positions the stream at the
      * beginning of the entry data.
      * @return the next ZIP file entry, or null if there are no more entries
@@ -98,7 +98,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         return entry;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the current ZIP entry and positions the stream for reading the
      * next entry.
      * @exception ZipException if a ZIP file error has occurred
@@ -110,7 +110,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         entryEOF = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns 0 after EOF has reached for the current entry data,
      * otherwise always return 1.
      * <p>
@@ -130,7 +130,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads from the current ZIP entry into an array of bytes.
      * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
@@ -195,7 +195,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Skips specified number of bytes in the current ZIP entry.
      * @param n the number of bytes to skip
      * @return the actual number of bytes skipped
@@ -225,7 +225,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         return total;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and releases any system resources associated
      * with the stream.
      * @exception IOException if an I/O error has occurred
@@ -354,7 +354,7 @@ class ZipInputStream extends InflaterInputStream implements ZipConstants {
         return new String(cs, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>ZipEntry</code> object for the specified
      * entry name.
      *

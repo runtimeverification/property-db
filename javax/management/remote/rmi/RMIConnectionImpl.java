@@ -74,7 +74,7 @@ import javax.management.remote.NotificationResult;
 import javax.management.remote.TargetedNotification;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>Implementation of the {@link RMIConnection} interface.  User
  * code will not usually reference this class.</p>
  *
@@ -89,7 +89,7 @@ import javax.security.auth.Subject;
  */
 public class RMIConnectionImpl implements RMIConnection, Unreferenced {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new {@link RMIConnection}. This connection can be
      * used with either the JRMP or IIOP transport. This object does
      * not export itself: it is the responsibility of the caller to
@@ -1255,7 +1255,7 @@ public class RMIConnectionImpl implements RMIConnection, Unreferenced {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of this object.  In general,
      * the <code>toString</code> method returns a string that
      * "textually represents" this object. The result should be a
@@ -1594,7 +1594,7 @@ public class RMIConnectionImpl implements RMIConnection, Unreferenced {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new IOException with a nested exception.
      * The nested exception is set only if JDK >= 1.4
      */
@@ -1604,7 +1604,7 @@ public class RMIConnectionImpl implements RMIConnection, Unreferenced {
         return EnvHelp.initCause(x,cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Iterate until we extract the real exception
      * from a stack of PrivilegedActionExceptions.
      */

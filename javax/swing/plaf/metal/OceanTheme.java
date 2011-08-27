@@ -34,7 +34,7 @@ import sun.swing.SwingUtilities2;
 import sun.swing.PrintColorUIResource;
 import sun.swing.SwingLazyValue;
 
-/**
+/** {@collect.stats}
  * The default theme for the {@code MetalLookAndFeel}.
  * <p>
  * The designers
@@ -116,13 +116,13 @@ public class OceanTheme extends DefaultMetalTheme {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>OceanTheme</code>
      */
     public OceanTheme() {
     }
 
-    /**
+    /** {@collect.stats}
      * Add this theme's custom entries to the defaults table.
      *
      * @param table the defaults table, non-null
@@ -313,14 +313,14 @@ public class OceanTheme extends DefaultMetalTheme {
         table.putDefaults(defaults);
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to enable picking up the system fonts, if applicable.
      */
     boolean isSystemTheme() {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the name of this theme, "Ocean".
      *
      * @return "Ocean"
@@ -329,7 +329,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return "Ocean";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 1 color. This returns a color with an rgb hex value
      * of {@code 0x6382BF}.
      *
@@ -340,7 +340,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return PRIMARY1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 2 color. This returns a color with an rgb hex value
      * of {@code 0xA3B8CC}.
      *
@@ -351,7 +351,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return PRIMARY2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 3 color. This returns a color with an rgb hex value
      * of {@code 0xB8CFE5}.
      *
@@ -362,7 +362,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return PRIMARY3;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 1 color. This returns a color with an rgb hex
      * value of {@code 0x7A8A99}.
      *
@@ -373,7 +373,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return SECONDARY1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 2 color. This returns a color with an rgb hex
      * value of {@code 0xB8CFE5}.
      *
@@ -384,7 +384,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return SECONDARY2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 3 color. This returns a color with an rgb hex
      * value of {@code 0xEEEEEE}.
      *
@@ -395,7 +395,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return SECONDARY3;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the black color. This returns a color with an rgb hex
      * value of {@code 0x333333}.
      *
@@ -406,7 +406,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return OCEAN_BLACK;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the desktop color. This returns a color with an rgb hex
      * value of {@code 0xFFFFFF}.
      *
@@ -417,7 +417,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return MetalTheme.white;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inactive control text color. This returns a color with an
      * rgb hex value of {@code 0x999999}.
      *
@@ -427,7 +427,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return INACTIVE_CONTROL_TEXT_COLOR;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the control text color. This returns a color with an
      * rgb hex value of {@code 0x333333}.
      *
@@ -437,7 +437,7 @@ public class OceanTheme extends DefaultMetalTheme {
         return CONTROL_TEXT_COLOR;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu disabled foreground color. This returns a color with an
      * rgb hex value of {@code 0x999999}.
      *

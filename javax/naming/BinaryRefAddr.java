@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This class represents the binary form of the address of
   * a communications end-point.
   *<p>
@@ -61,7 +61,7 @@ package javax.naming;
   */
 
 public class BinaryRefAddr extends RefAddr {
-    /**
+    /** {@collect.stats}
      * Contains the bytes of the address.
      * This field is initialized by the constructor and returned
      * using getAddressBytes() and getAddressContents().
@@ -69,7 +69,7 @@ public class BinaryRefAddr extends RefAddr {
      */
     private byte[] buf = null;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of BinaryRefAddr using its address type and a byte
       * array for contents.
       *
@@ -81,7 +81,7 @@ public class BinaryRefAddr extends RefAddr {
         this(addrType, src, 0, src.length);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of BinaryRefAddr using its address type and
       * a region of a byte array for contents.
       *
@@ -99,7 +99,7 @@ public class BinaryRefAddr extends RefAddr {
         System.arraycopy(src, offset, buf, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the contents of this address as an Object.
       * The result is a byte array.
       * Changes to this array will affect this BinaryRefAddr's contents.
@@ -113,7 +113,7 @@ public class BinaryRefAddr extends RefAddr {
     }
 
 
-    /**
+    /** {@collect.stats}
       * Determines whether obj is equal to this address.  It is equal if
       * it contains the same address type and their contents are byte-wise
       * equivalent.
@@ -138,7 +138,7 @@ public class BinaryRefAddr extends RefAddr {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
       * Computes the hash code of this address using its address type and contents.
       * Two BinaryRefAddrs have the same hash code if they have
       * the same address type and the same contents.
@@ -155,7 +155,7 @@ public class BinaryRefAddr extends RefAddr {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this address.
       * The string consists of the address's type and contents with labels.
       * The first 32 bytes of contents are displayed (in hexadecimal).
@@ -176,7 +176,7 @@ public class BinaryRefAddr extends RefAddr {
         return (str.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3415254970957330361L;

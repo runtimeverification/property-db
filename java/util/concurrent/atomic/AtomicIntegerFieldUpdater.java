@@ -37,7 +37,7 @@ package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 import java.lang.reflect.*;
 
-/**
+/** {@collect.stats}
  * A reflection-based utility that enables atomic updates to
  * designated {@code volatile int} fields of designated classes.
  * This class is designed for use in atomic data structures in which
@@ -56,7 +56,7 @@ import java.lang.reflect.*;
  * @param <T> The type of the object holding the updatable field
  */
 public abstract class  AtomicIntegerFieldUpdater<T>  {
-    /**
+    /** {@collect.stats}
      * Creates and returns an updater for objects with the given field.
      * The Class argument is needed to check that reflective types and
      * generic types match.
@@ -73,13 +73,13 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         return new AtomicIntegerFieldUpdaterImpl<U>(tclass, fieldName);
     }
 
-    /**
+    /** {@collect.stats}
      * Protected do-nothing constructor for use by subclasses.
      */
     protected AtomicIntegerFieldUpdater() {
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
@@ -95,7 +95,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
      */
     public abstract boolean compareAndSet(T obj, int expect, int update);
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the field of the given object managed by this updater
      * to the given updated value if the current value {@code ==} the
      * expected value. This method is guaranteed to be atomic with respect to
@@ -115,7 +115,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
      */
     public abstract boolean weakCompareAndSet(T obj, int expect, int update);
 
-    /**
+    /** {@collect.stats}
      * Sets the field of the given object managed by this updater to the
      * given updated value. This operation is guaranteed to act as a volatile
      * store with respect to subsequent invocations of {@code compareAndSet}.
@@ -125,7 +125,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
      */
     public abstract void set(T obj, int newValue);
 
-    /**
+    /** {@collect.stats}
      * Eventually sets the field of the given object managed by this
      * updater to the given updated value.
      *
@@ -136,7 +136,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
     public abstract void lazySet(T obj, int newValue);
 
 
-    /**
+    /** {@collect.stats}
      * Gets the current value held in the field of the given object managed
      * by this updater.
      *
@@ -145,7 +145,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
      */
     public abstract int get(T obj);
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the field of the given object managed by this updater
      * to the given value and returns the old value.
      *
@@ -161,7 +161,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically increments by one the current value of the field of the
      * given object managed by this updater.
      *
@@ -177,7 +177,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically decrements by one the current value of the field of the
      * given object managed by this updater.
      *
@@ -193,7 +193,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically adds the given value to the current value of the field of
      * the given object managed by this updater.
      *
@@ -210,7 +210,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically increments by one the current value of the field of the
      * given object managed by this updater.
      *
@@ -226,7 +226,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically decrements by one the current value of the field of the
      * given object managed by this updater.
      *
@@ -242,7 +242,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically adds the given value to the current value of the field of
      * the given object managed by this updater.
      *
@@ -259,7 +259,7 @@ public abstract class  AtomicIntegerFieldUpdater<T>  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Standard hotspot implementation using intrinsics
      */
     private static class AtomicIntegerFieldUpdaterImpl<T> extends AtomicIntegerFieldUpdater<T> {

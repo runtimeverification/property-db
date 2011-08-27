@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import javax.management.loading.ClassLoaderRepository;
 
-/**
+/** {@collect.stats}
  * <p>Provides MBean server references.  There are no instances of
  * this class.</p>
  *
@@ -92,13 +92,13 @@ public class MBeanServerFactory {
 
     }
 
-    /**
+    /** {@collect.stats}
      * The builder that will be used to construct MBeanServers.
      *
      **/
     private static MBeanServerBuilder builder = null;
 
-    /**
+    /** {@collect.stats}
      * Provide a new {@link javax.management.MBeanServerBuilder}.
      * @param builder The new MBeanServerBuilder that will be used to
      *        create {@link javax.management.MBeanServer}s.
@@ -115,7 +115,7 @@ public class MBeanServerFactory {
     //    MBeanServerFactory.builder = builder;
     // }
 
-    /**
+    /** {@collect.stats}
      * Get the current {@link javax.management.MBeanServerBuilder}.
      *
      * @return the current {@link javax.management.MBeanServerBuilder}.
@@ -130,7 +130,7 @@ public class MBeanServerFactory {
     //     return builder;
     // }
 
-    /**
+    /** {@collect.stats}
      * Remove internal MBeanServerFactory references to a created
      * MBeanServer. This allows the garbage collector to remove the
      * MBeanServer object.
@@ -152,7 +152,7 @@ public class MBeanServerFactory {
         removeMBeanServer(mbeanServer);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a new object implementing the MBeanServer interface
      * with a standard default domain name.  The default domain name
      * is used as the domain part in the ObjectName of MBeans when the
@@ -190,7 +190,7 @@ public class MBeanServerFactory {
         return createMBeanServer(null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a new object implementing the {@link MBeanServer}
      * interface with the specified default domain name.  The given
      * domain name is used as the domain part in the ObjectName of
@@ -231,7 +231,7 @@ public class MBeanServerFactory {
         return mBeanServer;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a new object implementing the MBeanServer interface
      * with a standard default domain name, without keeping an
      * internal reference to this new object.  The default domain name
@@ -271,7 +271,7 @@ public class MBeanServerFactory {
         return newMBeanServer(null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a new object implementing the MBeanServer interface
      * with the specified default domain name, without keeping an
      * internal reference to this new object.  The given domain name
@@ -334,7 +334,7 @@ public class MBeanServerFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return a list of registered MBeanServer objects.  A
      * registered MBeanServer object is one that was created by one of
      * the <code>createMBeanServer</code> methods and not subsequently
@@ -370,7 +370,7 @@ public class MBeanServerFactory {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the ClassLoaderRepository used by the given MBeanServer.
      * This method is equivalent to {@link MBeanServer#getClassLoaderRepository() server.getClassLoaderRepository()}.
      * @param server The MBeanServer under examination. Since JMX 1.2,
@@ -427,7 +427,7 @@ public class MBeanServerFactory {
     private static final ArrayList<MBeanServer> mBeanServerList =
         new ArrayList<MBeanServer>();
 
-    /**
+    /** {@collect.stats}
      * Load the builder class through the context class loader.
      * @param builderClassName The name of the builder class.
      **/
@@ -445,7 +445,7 @@ public class MBeanServerFactory {
         return Class.forName(builderClassName);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the initial builder according to the
      * javax.management.builder.initial System property - if specified.
      * If any checked exception needs to be thrown, it is embedded in
@@ -465,7 +465,7 @@ public class MBeanServerFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiate a new builder according to the
      * javax.management.builder.initial System property - if needed.
      **/
@@ -512,7 +512,7 @@ public class MBeanServerFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the current {@link javax.management.MBeanServerBuilder},
      * as specified by the current value of the
      * javax.management.builder.initial property.

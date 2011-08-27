@@ -26,7 +26,7 @@
 package java.util;
 
 class LocaleISOData {
-    /**
+    /** {@collect.stats}
      * The 2- and 3-letter ISO 639 language codes.
      */
     static final String isoLanguageTable =
@@ -220,7 +220,7 @@ class LocaleISOData {
         + "zu" + "zul"  // Zulu
         ;
 
-    /**
+    /** {@collect.stats}
      * The 2- and 3-letter ISO 3166 country codes.
      */
     static final String isoCountryTable =

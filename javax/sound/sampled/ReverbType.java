@@ -26,7 +26,7 @@
 package javax.sound.sampled;
 
 
-/**
+/** {@collect.stats}
  * The <code>ReverbType</code> class provides methods for
  * accessing various reverberation settings to be applied to
  * an audio signal.
@@ -141,38 +141,38 @@ package javax.sound.sampled;
  */
 public class ReverbType {
 
-    /**
+    /** {@collect.stats}
      * Descriptive name of the reverb type..
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * Early reflection delay in microseconds.
      */
     private int earlyReflectionDelay;
 
-    /**
+    /** {@collect.stats}
      * Early reflection intensity.
      */
     private float earlyReflectionIntensity;
 
-    /**
+    /** {@collect.stats}
      * Late reflection delay in microseconds.
      */
     private int lateReflectionDelay;
 
-    /**
+    /** {@collect.stats}
      * Late reflection intensity.
      */
     private float lateReflectionIntensity;
 
-    /**
+    /** {@collect.stats}
      * Total decay time
      */
     private int decayTime;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new reverb type that has the specified reverberation
      * parameter values.
      * @param name the name of the new reverb type, or a zero-length <code>String</code>
@@ -193,7 +193,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the name of this reverb type.
      * @return the name of this reverb type
      * @since 1.5
@@ -203,7 +203,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the early reflection delay time in microseconds.
      * This is the amount of time between when the direct signal is
      * heard and when the first early reflections are heard.
@@ -214,7 +214,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the early reflection intensity in decibels.
      * This is the amplitude attenuation of the first early reflections
      * relative to the direct signal.
@@ -225,7 +225,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the late reflection delay time in microseconds.
      * This is the amount of time between when the first early reflections
      * are heard and when the first late reflections are heard.
@@ -236,7 +236,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the late reflection intensity in decibels.
      * This is the amplitude attenuation of the first late reflections
      * relative to the direct signal.
@@ -247,7 +247,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the decay time, which is the amount of time over which the
      * late reflections attenuate to effective zero.  The effective zero
      * value is implementation-dependent.
@@ -258,7 +258,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the specified object is equal to this reverb type,
      * returning <code>true</code> if the objects are identical.
      * @param obj the reference object with which to compare
@@ -270,7 +270,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Finalizes the hashcode method.
      */
     public final int hashCode() {
@@ -278,7 +278,7 @@ public class ReverbType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Provides a <code>String</code> representation of the reverb type,
      * including its name and its parameter settings.
      * The exact contents of the string may vary between implementations of

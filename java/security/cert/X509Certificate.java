@@ -35,7 +35,7 @@ import javax.security.auth.x500.X500Principal;
 
 import sun.security.x509.X509CertImpl;
 
-/**
+/** {@collect.stats}
  * <p>
  * Abstract class for X.509 certificates. This provides a standard
  * way to access all the attributes of an X.509 certificate.
@@ -116,14 +116,14 @@ implements X509Extension {
 
     private transient X500Principal subjectX500Principal, issuerX500Principal;
 
-    /**
+    /** {@collect.stats}
      * Constructor for X.509 certificates.
      */
     protected X509Certificate() {
         super("X.509");
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that the certificate is currently valid. It is if
      * the current date and time are within the validity period given in the
      * certificate.
@@ -149,7 +149,7 @@ implements X509Extension {
     public abstract void checkValidity()
         throws CertificateExpiredException, CertificateNotYetValidException;
 
-    /**
+    /** {@collect.stats}
      * Checks that the given date is within the certificate's
      * validity period. In other words, this determines whether the
      * certificate would be valid at the given date/time.
@@ -167,7 +167,7 @@ implements X509Extension {
     public abstract void checkValidity(Date date)
         throws CertificateExpiredException, CertificateNotYetValidException;
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>version</code> (version number) value from the
      * certificate.
      * The ASN.1 definition for this is:
@@ -179,7 +179,7 @@ implements X509Extension {
      */
     public abstract int getVersion();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>serialNumber</code> value from the certificate.
      * The serial number is an integer assigned by the certification
      * authority to each certificate. It must be unique for each
@@ -196,7 +196,7 @@ implements X509Extension {
      */
     public abstract BigInteger getSerialNumber();
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, replaced by {@linkplain
      * #getIssuerX500Principal()}. This method returns the <code>issuer</code>
      * as an implementation specific Principal object, which should not be
@@ -237,7 +237,7 @@ implements X509Extension {
      */
     public abstract Principal getIssuerDN();
 
-    /**
+    /** {@collect.stats}
      * Returns the issuer (issuer distinguished name) value from the
      * certificate as an <code>X500Principal</code>.
      * <p>
@@ -254,7 +254,7 @@ implements X509Extension {
         return issuerX500Principal;
     }
 
-    /**
+    /** {@collect.stats}
      * <strong>Denigrated</strong>, replaced by {@linkplain
      * #getSubjectX500Principal()}. This method returns the <code>subject</code>
      * as an implementation specific Principal object, which should not be
@@ -278,7 +278,7 @@ implements X509Extension {
      */
     public abstract Principal getSubjectDN();
 
-    /**
+    /** {@collect.stats}
      * Returns the subject (subject distinguished name) value from the
      * certificate as an <code>X500Principal</code>.  If the subject value
      * is empty, then the <code>getName()</code> method of the returned
@@ -297,7 +297,7 @@ implements X509Extension {
         return subjectX500Principal;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>notBefore</code> date from the validity period of
      * the certificate.
      * The relevant ASN.1 definitions are:
@@ -317,7 +317,7 @@ implements X509Extension {
      */
     public abstract Date getNotBefore();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>notAfter</code> date from the validity period of
      * the certificate. See {@link #getNotBefore() getNotBefore}
      * for relevant ASN.1 definitions.
@@ -327,7 +327,7 @@ implements X509Extension {
      */
     public abstract Date getNotAfter();
 
-    /**
+    /** {@collect.stats}
      * Gets the DER-encoded certificate information, the
      * <code>tbsCertificate</code> from this certificate.
      * This can be used to verify the signature independently.
@@ -338,7 +338,7 @@ implements X509Extension {
     public abstract byte[] getTBSCertificate()
         throws CertificateEncodingException;
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>signature</code> value (the raw signature bits) from
      * the certificate.
      * The ASN.1 definition for this is:
@@ -350,7 +350,7 @@ implements X509Extension {
      */
     public abstract byte[] getSignature();
 
-    /**
+    /** {@collect.stats}
      * Gets the signature algorithm name for the certificate
      * signature algorithm. An example is the string "SHA-1/DSA".
      * The ASN.1 definition for this is:
@@ -371,7 +371,7 @@ implements X509Extension {
      */
     public abstract String getSigAlgName();
 
-    /**
+    /** {@collect.stats}
      * Gets the signature algorithm OID string from the certificate.
      * An OID is represented by a set of nonnegative whole numbers separated
      * by periods.
@@ -388,7 +388,7 @@ implements X509Extension {
      */
     public abstract String getSigAlgOID();
 
-    /**
+    /** {@collect.stats}
      * Gets the DER-encoded signature algorithm parameters from this
      * certificate's signature algorithm. In most cases, the signature
      * algorithm parameters are null; the parameters are usually
@@ -406,7 +406,7 @@ implements X509Extension {
      */
     public abstract byte[] getSigAlgParams();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>issuerUniqueID</code> value from the certificate.
      * The issuer unique identifier is present in the certificate
      * to handle the possibility of reuse of issuer names over time.
@@ -426,7 +426,7 @@ implements X509Extension {
      */
     public abstract boolean[] getIssuerUniqueID();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>subjectUniqueID</code> value from the certificate.
      *
      * <p>The ASN.1 definition for this is:
@@ -440,7 +440,7 @@ implements X509Extension {
      */
     public abstract boolean[] getSubjectUniqueID();
 
-    /**
+    /** {@collect.stats}
      * Gets a boolean array representing bits of
      * the <code>KeyUsage</code> extension, (OID = 2.5.29.15).
      * The key usage extension defines the purpose (e.g., encipherment,
@@ -472,7 +472,7 @@ implements X509Extension {
      */
     public abstract boolean[] getKeyUsage();
 
-    /**
+    /** {@collect.stats}
      * Gets an unmodifiable list of Strings representing the OBJECT
      * IDENTIFIERs of the <code>ExtKeyUsageSyntax</code> field of the
      * extended key usage extension, (OID = 2.5.29.37).  It indicates
@@ -508,7 +508,7 @@ implements X509Extension {
         return X509CertImpl.getExtendedKeyUsage(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the certificate constraints path length from the
      * critical <code>BasicConstraints</code> extension, (OID = 2.5.29.19).
      * <p>
@@ -538,7 +538,7 @@ implements X509Extension {
      */
     public abstract int getBasicConstraints();
 
-    /**
+    /** {@collect.stats}
      * Gets an immutable collection of subject alternative names from the
      * <code>SubjectAltName</code> extension, (OID = 2.5.29.17).
      * <p>
@@ -605,7 +605,7 @@ implements X509Extension {
         return X509CertImpl.getSubjectAlternativeNames(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an immutable collection of issuer alternative names from the
      * <code>IssuerAltName</code> extension, (OID = 2.5.29.18).
      * <p>

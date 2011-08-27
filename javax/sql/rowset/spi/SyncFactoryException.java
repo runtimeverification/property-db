@@ -27,7 +27,7 @@ package javax.sql.rowset.spi;
 
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * Indicates an error with <code>SyncFactory</code> mechanism. A disconnected
  * RowSet implementation cannot be used  without a <code>SyncProvider</code>
  * being successfully instantiated
@@ -38,13 +38,13 @@ import java.sql.SQLException;
  */
 public class SyncFactoryException extends java.sql.SQLException {
 
-    /**
+    /** {@collect.stats}
      * Creates new <code>SyncFactoryException</code> without detail message.
      */
     public SyncFactoryException() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>SyncFactoryException</code> with the specified
      * detail message.
      *

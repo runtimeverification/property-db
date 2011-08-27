@@ -29,7 +29,7 @@ import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class MultipleDocumentHandling is a printing attribute class, an enumeration,
  * that controls finishing operations and the placement of one or more
  * print-stream pages into impressions and onto media sheets. When the value of
@@ -171,28 +171,28 @@ public class MultipleDocumentHandling extends EnumSyntax
     private static final long serialVersionUID = 8098326460746413466L;
 
 
-    /**
+    /** {@collect.stats}
      * Single document -- see above for <A HREF="#sdfi">further
      * information</A>.
      */
     public static final MultipleDocumentHandling
         SINGLE_DOCUMENT = new MultipleDocumentHandling (0);
 
-    /**
+    /** {@collect.stats}
      * Separate documents uncollated copies -- see above for
      * <A HREF="#sducfi">further information</A>.
      */
     public static final MultipleDocumentHandling
        SEPARATE_DOCUMENTS_UNCOLLATED_COPIES = new MultipleDocumentHandling (1);
 
-    /**
+    /** {@collect.stats}
      * Separate documents collated copies -- see above for
      * <A HREF="#sdccfi">further information</A>.
      */
     public static final MultipleDocumentHandling
         SEPARATE_DOCUMENTS_COLLATED_COPIES = new MultipleDocumentHandling (2);
 
-    /**
+    /** {@collect.stats}
      * Single document new sheet -- see above for
      * <A HREF="#sdnsfi">further information</A>.
      */
@@ -200,7 +200,7 @@ public class MultipleDocumentHandling extends EnumSyntax
         SINGLE_DOCUMENT_NEW_SHEET = new MultipleDocumentHandling (3);
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new multiple document handling enumeration value with the
      * given integer value.
      *
@@ -224,21 +224,21 @@ public class MultipleDocumentHandling extends EnumSyntax
         SINGLE_DOCUMENT_NEW_SHEET
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class MultipleDocumentHandling.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class MultipleDocumentHandling.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -252,7 +252,7 @@ public class MultipleDocumentHandling extends EnumSyntax
         return MultipleDocumentHandling.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

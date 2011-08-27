@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when an attempt is
   * made to add or modify an attribute set that has been specified
   * incompletely or incorrectly. This could happen, for example,
@@ -47,7 +47,7 @@ import javax.naming.NamingException;
   */
 
 public class InvalidAttributesException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidAttributesException using an
      * explanation. All other fields are set to null.
      * @param   explanation     Additional detail about this exception. Can be null.
@@ -57,7 +57,7 @@ public class InvalidAttributesException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of InvalidAttributesException.
       * All fields are set to null.
       */
@@ -65,7 +65,7 @@ public class InvalidAttributesException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 2607612850539889765L;

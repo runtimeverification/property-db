@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 
-/**
+/** {@collect.stats}
  * A simple service-provider loading facility.
  *
  * <p> A <i>service</i> is a well-known set of interfaces and (usually
@@ -196,7 +196,7 @@ public final class ServiceLoader<S>
     // The current lazy-lookup iterator
     private LazyIterator lookupIterator;
 
-    /**
+    /** {@collect.stats}
      * Clear this loader's provider cache so that all providers will be
      * reloaded.
      *
@@ -380,7 +380,7 @@ public final class ServiceLoader<S>
 
     }
 
-    /**
+    /** {@collect.stats}
      * Lazily loads the available providers of this loader's service.
      *
      * <p> The iterator returned by this method first yields all of the
@@ -445,7 +445,7 @@ public final class ServiceLoader<S>
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new service loader for the given service type and class
      * loader.
      *
@@ -466,7 +466,7 @@ public final class ServiceLoader<S>
         return new ServiceLoader<S>(service, loader);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new service loader for the given service type, using the
      * current thread's {@linkplain java.lang.Thread#getContextClassLoader
      * context class loader}.
@@ -492,7 +492,7 @@ public final class ServiceLoader<S>
         return ServiceLoader.load(service, cl);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new service loader for the given service type, using the
      * extension class loader.
      *
@@ -526,7 +526,7 @@ public final class ServiceLoader<S>
         return ServiceLoader.load(service, prev);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this service.
      *
      * @return  A descriptive string

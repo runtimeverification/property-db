@@ -31,7 +31,7 @@ import java.awt.*;
 import javax.swing.text.*;
 
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleExtendedText interface contains additional methods
  * not provided by the AccessibleText interface
  *
@@ -52,7 +52,7 @@ import javax.swing.text.*;
  */
 public interface AccessibleExtendedText {
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate that the part of the text that should be
      * retrieved is a line of text.
      *
@@ -62,7 +62,7 @@ public interface AccessibleExtendedText {
      */
     public static final int LINE = 4; // BugID: 4849720
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate that the part of the text that should be
      * retrieved is contiguous text with the same text attributes.
      *
@@ -72,7 +72,7 @@ public interface AccessibleExtendedText {
      */
     public static final int ATTRIBUTE_RUN = 5; // BugID: 4849720
 
-    /**
+    /** {@collect.stats}
      * Returns the text between two indices
      *
      * @param startIndex the start index in the text
@@ -82,7 +82,7 @@ public interface AccessibleExtendedText {
      */
     public String getTextRange(int startIndex, int endIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleTextSequence</code> at a given index.
      *
      * @param part the <code>CHARACTER</code>, <code>WORD</code>,
@@ -98,7 +98,7 @@ public interface AccessibleExtendedText {
      */
     public AccessibleTextSequence getTextSequenceAt(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleTextSequence</code> after a given index.
      *
      * @param part the <code>CHARACTER</code>, <code>WORD</code>,
@@ -114,7 +114,7 @@ public interface AccessibleExtendedText {
      */
     public AccessibleTextSequence getTextSequenceAfter(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleTextSequence</code> before a given index.
      *
      * @param part the <code>CHARACTER</code>, <code>WORD</code>,
@@ -130,7 +130,7 @@ public interface AccessibleExtendedText {
      */
     public AccessibleTextSequence getTextSequenceBefore(int part, int index);
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding rectangle of the text between two indices.
      *
      * @param startIndex the start index in the text

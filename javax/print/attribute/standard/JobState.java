@@ -29,7 +29,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * JobState is a printing attribute class, an enumeration, that identifies
  * the current state of a print job. Class JobState defines standard job state
  * values. A  Print Service implementation only needs to report those job
@@ -51,17 +51,17 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
 
     private static final long serialVersionUID = 400465010094018920L;
 
-    /**
+    /** {@collect.stats}
      * The job state is unknown.
      */
     public static final JobState UNKNOWN = new JobState(0);
 
-    /**
+    /** {@collect.stats}
      * The job is a candidate to start processing, but is not yet processing.
      */
     public static final JobState PENDING = new JobState(3);
 
-    /**
+    /** {@collect.stats}
      * The job is not a candidate for processing for any number of reasons but
      * will return to the PENDING state as soon as the reasons are no longer
      * present. The job's {@link JobStateReasons JobStateReasons} attribute must
@@ -69,7 +69,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      */
     public static final JobState PENDING_HELD = new JobState(4);
 
-    /**
+    /** {@collect.stats}
      * The job is processing. One or more of the following activities is
      * occurring:
      * <OL TYPE=1>
@@ -103,7 +103,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      */
     public static final JobState PROCESSING = new JobState (5);
 
-    /**
+    /** {@collect.stats}
      * The job has stopped while processing for any number of reasons and will
      * return to the PROCESSING state as soon as the reasons are no longer
      * present.
@@ -121,7 +121,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      */
     public static final JobState PROCESSING_STOPPED = new JobState (6);
 
-    /**
+    /** {@collect.stats}
      * The job has been canceled by some human agency, the printer has completed
      * canceling the job, and all job status attributes have reached their final
      * values for the job. While the printer is canceling the job, the job
@@ -134,7 +134,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      */
     public static final JobState CANCELED = new JobState (7);
 
-    /**
+    /** {@collect.stats}
      * The job has been aborted by the system (usually while the job was in the
      * PROCESSING or PROCESSING_STOPPED state), the printer has completed
      * aborting the job, and all job status attributes have reached their final
@@ -147,7 +147,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      */
     public static final JobState ABORTED = new JobState (8);
 
-    /**
+    /** {@collect.stats}
      * The job has completed successfully or with warnings or errors after
      * processing, all of the job media sheets have been successfully stacked in
      * the appropriate output bin(s), and all job status attributes have reached
@@ -160,7 +160,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
 
     // Hidden constructors.
 
-    /**
+    /** {@collect.stats}
      * Construct a new job state enumeration value with the given integer value.
      *
      * @param  value  Integer value.
@@ -193,21 +193,21 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
      ABORTED,
      COMPLETED};
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class JobState.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class JobState.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -221,7 +221,7 @@ public class JobState extends EnumSyntax implements PrintJobAttribute {
         return JobState.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

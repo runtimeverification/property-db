@@ -34,7 +34,7 @@ import java.security.spec.InvalidKeySpecException;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
+/** {@collect.stats}
  * Standardized representation for serialized Key objects.
  *
  * <p>
@@ -58,20 +58,20 @@ public class KeyRep implements Serializable {
 
     private static final long serialVersionUID = -4757683898830641853L;
 
-    /**
+    /** {@collect.stats}
      * Key type.
      *
      * @since 1.5
      */
     public static enum Type {
 
-        /** Type for secret keys. */
+        /** {@collect.stats} Type for secret keys. */
         SECRET,
 
-        /** Type for public keys. */
+        /** {@collect.stats} Type for public keys. */
         PUBLIC,
 
-        /** Type for private keys. */
+        /** {@collect.stats} Type for private keys. */
         PRIVATE,
 
     }
@@ -80,35 +80,35 @@ public class KeyRep implements Serializable {
     private static final String X509 = "X.509";
     private static final String RAW = "RAW";
 
-    /**
+    /** {@collect.stats}
      * Either one of Type.SECRET, Type.PUBLIC, or Type.PRIVATE
      *
      * @serial
      */
     private Type type;
 
-    /**
+    /** {@collect.stats}
      * The Key algorithm
      *
      * @serial
      */
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * The Key encoding format
      *
      * @serial
      */
     private String format;
 
-    /**
+    /** {@collect.stats}
      * The encoded Key bytes
      *
      * @serial
      */
     private byte[] encoded;
 
-    /**
+    /** {@collect.stats}
      * Construct the alternate Key class.
      *
      * <p>
@@ -141,7 +141,7 @@ public class KeyRep implements Serializable {
         this.encoded = encoded.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Resolve the Key object.
      *
      * <p> This method supports three Type/format combinations:

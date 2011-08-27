@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * A <code>PushbackInputStream</code> adds
  * functionality to another input stream, namely
  * the  ability to "push back" or "unread"
@@ -50,13 +50,13 @@ package java.io;
  */
 public
 class PushbackInputStream extends FilterInputStream {
-    /**
+    /** {@collect.stats}
      * The pushback buffer.
      * @since   JDK1.1
      */
     protected byte[] buf;
 
-    /**
+    /** {@collect.stats}
      * The position within the pushback buffer from which the next byte will
      * be read.  When the buffer is empty, <code>pos</code> is equal to
      * <code>buf.length</code>; when the buffer is full, <code>pos</code> is
@@ -66,7 +66,7 @@ class PushbackInputStream extends FilterInputStream {
      */
     protected int pos;
 
-    /**
+    /** {@collect.stats}
      * Check to make sure that this stream has not been closed
      */
     private void ensureOpen() throws IOException {
@@ -74,7 +74,7 @@ class PushbackInputStream extends FilterInputStream {
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PushbackInputStream</code>
      * with a pushback buffer of the specified <code>size</code>,
      * and saves its  argument, the input stream
@@ -97,7 +97,7 @@ class PushbackInputStream extends FilterInputStream {
         this.pos = size;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PushbackInputStream</code>
      * and saves its  argument, the input stream
      * <code>in</code>, for later use. Initially,
@@ -111,7 +111,7 @@ class PushbackInputStream extends FilterInputStream {
         this(in, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
@@ -139,7 +139,7 @@ class PushbackInputStream extends FilterInputStream {
         return super.read();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes of data from this input stream into
      * an array of bytes.  This method first reads any pushed-back bytes; after
      * that, if fewer than <code>len</code> bytes have been read then it
@@ -192,7 +192,7 @@ class PushbackInputStream extends FilterInputStream {
         return avail;
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes back a byte by copying it to the front of the pushback buffer.
      * After this method returns, the next byte to be read will have the value
      * <code>(byte)b</code>.
@@ -211,7 +211,7 @@ class PushbackInputStream extends FilterInputStream {
         buf[--pos] = (byte)b;
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes back a portion of an array of bytes by copying it to the front
      * of the pushback buffer.  After this method returns, the next byte to be
      * read will have the value <code>b[off]</code>, the byte after that will
@@ -235,7 +235,7 @@ class PushbackInputStream extends FilterInputStream {
         System.arraycopy(b, off, buf, pos, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes back an array of bytes by copying it to the front of the
      * pushback buffer.  After this method returns, the next byte to be read
      * will have the value <code>b[0]</code>, the byte after that will have the
@@ -252,7 +252,7 @@ class PushbackInputStream extends FilterInputStream {
         unread(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation might be
@@ -276,7 +276,7 @@ class PushbackInputStream extends FilterInputStream {
         return (buf.length - pos) + super.available();
     }
 
-    /**
+    /** {@collect.stats}
      * Skips over and discards <code>n</code> bytes of data from this
      * input stream. The <code>skip</code> method may, for a variety of
      * reasons, end up skipping over some smaller number of bytes,
@@ -318,7 +318,7 @@ class PushbackInputStream extends FilterInputStream {
         return pskip;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods, which it does not.
      *
@@ -331,7 +331,7 @@ class PushbackInputStream extends FilterInputStream {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the current position in this input stream.
      *
      * <p> The <code>mark</code> method of <code>PushbackInputStream</code>
@@ -344,7 +344,7 @@ class PushbackInputStream extends FilterInputStream {
     public synchronized void mark(int readlimit) {
     }
 
-    /**
+    /** {@collect.stats}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      *
@@ -360,7 +360,7 @@ class PushbackInputStream extends FilterInputStream {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * Once the stream has been closed, further read(), unread(),

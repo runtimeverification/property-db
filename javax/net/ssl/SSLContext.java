@@ -30,7 +30,7 @@ import java.util.*;
 
 import sun.security.jca.GetInstance;
 
-/**
+/** {@collect.stats}
  * Instances of this class represent a secure socket protocol
  * implementation which acts as a factory for secure socket
  * factories or <code>SSLEngine</code>s. This class is initialized
@@ -46,7 +46,7 @@ public class SSLContext {
 
     private final String protocol;
 
-    /**
+    /** {@collect.stats}
      * Creates an SSLContext object.
      *
      * @param contextSpi the delegate
@@ -62,7 +62,7 @@ public class SSLContext {
 
     private static SSLContext defaultContext;
 
-    /**
+    /** {@collect.stats}
      * Returns the default SSL context.
      *
      * <p>If a default context was set using the {@link #setDefault
@@ -87,7 +87,7 @@ public class SSLContext {
         return defaultContext;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the default SSL context. It will be returned by subsequent calls
      * to {@link #getDefault}. The default context must be immediately usable
      * and not require {@linkplain #init initialization}.
@@ -110,7 +110,7 @@ public class SSLContext {
         defaultContext = context;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SSLContext</code> object that implements the
      * specified secure socket protocol.
      *
@@ -145,7 +145,7 @@ public class SSLContext {
                 protocol);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SSLContext</code> object that implements the
      * specified secure socket protocol.
      *
@@ -186,7 +186,7 @@ public class SSLContext {
                 protocol);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SSLContext</code> object that implements the
      * specified secure socket protocol.
      *
@@ -221,7 +221,7 @@ public class SSLContext {
                 protocol);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the protocol name of this <code>SSLContext</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -234,7 +234,7 @@ public class SSLContext {
         return this.protocol;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>SSLContext</code> object.
      *
      * @return the provider of this <code>SSLContext</code> object
@@ -243,7 +243,7 @@ public class SSLContext {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this context. Either of the first two parameters
      * may be null in which case the installed security providers will
      * be searched for the highest priority implementation of the
@@ -265,7 +265,7 @@ public class SSLContext {
         contextSpi.engineInit(km, tm, random);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SocketFactory</code> object for this
      * context.
      *
@@ -277,7 +277,7 @@ public class SSLContext {
         return contextSpi.engineGetSocketFactory();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>ServerSocketFactory</code> object for
      * this context.
      *
@@ -289,7 +289,7 @@ public class SSLContext {
         return contextSpi.engineGetServerSocketFactory();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SSLEngine</code> using this context.
      * <P>
      * Applications using this factory method are providing no hints
@@ -320,7 +320,7 @@ public class SSLContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SSLEngine</code> using this context using
      * advisory peer information.
      * <P>
@@ -352,7 +352,7 @@ public class SSLContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the server session context, which represents the set of
      * SSL sessions available for use during the handshake phase of
      * server-side SSL sockets.
@@ -369,7 +369,7 @@ public class SSLContext {
         return contextSpi.engineGetServerSessionContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the client session context, which represents the set of
      * SSL sessions available for use during the handshake phase of
      * client-side SSL sockets.
@@ -386,7 +386,7 @@ public class SSLContext {
         return contextSpi.engineGetClientSessionContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the SSLParameters indicating the default
      * settings for this SSL context.
      *
@@ -402,7 +402,7 @@ public class SSLContext {
         return contextSpi.engineGetDefaultSSLParameters();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the SSLParameters indicating the supported
      * settings for this SSL context.
      *

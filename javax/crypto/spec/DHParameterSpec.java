@@ -28,7 +28,7 @@ package javax.crypto.spec;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used with the Diffie-Hellman
  * algorithm, as specified in PKCS #3: <i>Diffie-Hellman Key-Agreement
  * Standard</i>.
@@ -63,7 +63,7 @@ public class DHParameterSpec implements AlgorithmParameterSpec {
     // The size in bits of the random exponent (private value) (optional)
     private int l;
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for Diffie-Hellman, using a prime modulus
      * <code>p</code> and a base generator <code>g</code>.
      *
@@ -76,7 +76,7 @@ public class DHParameterSpec implements AlgorithmParameterSpec {
         this.l = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for Diffie-Hellman, using a prime modulus
      * <code>p</code>, a base generator <code>g</code>,
      * and the size in bits, <code>l</code>, of the random exponent
@@ -92,7 +92,7 @@ public class DHParameterSpec implements AlgorithmParameterSpec {
         this.l = l;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the prime modulus <code>p</code>.
      *
      * @return the prime modulus <code>p</code>
@@ -101,7 +101,7 @@ public class DHParameterSpec implements AlgorithmParameterSpec {
         return this.p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base generator <code>g</code>.
      *
      * @return the base generator <code>g</code>
@@ -110,7 +110,7 @@ public class DHParameterSpec implements AlgorithmParameterSpec {
         return this.g;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size in bits, <code>l</code>, of the random exponent
      * (private value).
      *

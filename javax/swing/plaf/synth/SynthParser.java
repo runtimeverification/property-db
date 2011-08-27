@@ -67,7 +67,7 @@ import org.xml.sax.SAXParseException;
 
 import com.sun.beans.ObjectHandler;
 
-/**
+/** {@collect.stats}
  */
 class SynthParser extends HandlerBase {
     //
@@ -117,81 +117,81 @@ class SynthParser extends HandlerBase {
     private static final String ATTRIBUTE_DIRECTION = "direction";
     private static final String ATTRIBUTE_CENTER = "center";
 
-    /**
+    /** {@collect.stats}
      * Lazily created, used for anything we don't understand.
      */
     private ObjectHandler _handler;
 
-    /**
+    /** {@collect.stats}
      * Indicates the depth of how many elements we've encountered but don't
      * understand. This is used when forwarding to beans persistance to know
      * when we hsould stop forwarding.
      */
     private int _depth;
 
-    /**
+    /** {@collect.stats}
      * Factory that new styles are added to.
      */
     private DefaultSynthStyleFactory _factory;
 
-    /**
+    /** {@collect.stats}
      * Array of state infos for the current style. These are pushed to the
      * style when </style> is received.
      */
     private java.util.List _stateInfos;
 
-    /**
+    /** {@collect.stats}
      * Current style.
      */
     private ParsedSynthStyle _style;
 
-    /**
+    /** {@collect.stats}
      * Current state info.
      */
     private ParsedSynthStyle.StateInfo _stateInfo;
 
-    /**
+    /** {@collect.stats}
      * Bindings for the current InputMap
      */
     private java.util.List _inputMapBindings;
 
-    /**
+    /** {@collect.stats}
      * ID for the input map. This is cached as
      * the InputMap is created AFTER the inputMapProperty has ended.
      */
     private String _inputMapID;
 
-    /**
+    /** {@collect.stats}
      * Object references outside the scope of persistance.
      */
     private Map<String,Object> _mapping;
 
-    /**
+    /** {@collect.stats}
      * Based URL used to resolve paths.
      */
     private URL _urlResourceBase;
 
-    /**
+    /** {@collect.stats}
      * Based class used to resolve paths.
      */
     private Class<?> _classResourceBase;
 
-    /**
+    /** {@collect.stats}
      * List of ColorTypes. This is populated in startColorType.
      */
     private java.util.List _colorTypes;
 
-    /**
+    /** {@collect.stats}
      * defaultsPropertys are placed here.
      */
     private Map _defaultsMap;
 
-    /**
+    /** {@collect.stats}
      * List of SynthStyle.Painters that will be applied to the current style.
      */
     private java.util.List _stylePainters;
 
-    /**
+    /** {@collect.stats}
      * List of SynthStyle.Painters that will be applied to the current state.
      */
     private java.util.List _statePainters;
@@ -205,7 +205,7 @@ class SynthParser extends HandlerBase {
         _statePainters = new ArrayList();
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a set of styles from <code>inputStream</code>, adding the
      * resulting styles to the passed in DefaultSynthStyleFactory.
      * Resources are resolved either from a URL or from a Class. When calling
@@ -255,7 +255,7 @@ class SynthParser extends HandlerBase {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path to a resource.
      */
     private URL getResource(String path) {
@@ -270,7 +270,7 @@ class SynthParser extends HandlerBase {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Clears our internal state.
      */
     private void reset() {
@@ -283,14 +283,14 @@ class SynthParser extends HandlerBase {
         _stylePainters.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if we are forwarding to persistance.
      */
     private boolean isForwarding() {
         return (_depth > 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Handles beans persistance.
      */
     private ObjectHandler getHandler() {
@@ -318,7 +318,7 @@ class SynthParser extends HandlerBase {
         return _handler;
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>value</code> is an instance of <code>type</code> it is
      * returned, otherwise a SAXException is thrown.
      */
@@ -330,7 +330,7 @@ class SynthParser extends HandlerBase {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object created with id=key. If the object is not of
      * type type, this will throw an exception.
      */
@@ -348,7 +348,7 @@ class SynthParser extends HandlerBase {
         return checkCast(value, type);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers an object by name. This will throw an exception if an
      * object has already been registered under the given name.
      */
@@ -367,7 +367,7 @@ class SynthParser extends HandlerBase {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to return the next int, or throw if there are no
      * more valid ints.
      */
@@ -383,7 +383,7 @@ class SynthParser extends HandlerBase {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to return an Insets object.
      */
     private Insets parseInsets(String insets, String errorMsg) throws
@@ -1300,7 +1300,7 @@ class SynthParser extends HandlerBase {
     }
 
 
-    /**
+    /** {@collect.stats}
      * ImageIcon that lazily loads the image until needed.
      */
     private static class LazyImageIcon extends ImageIcon implements UIResource {

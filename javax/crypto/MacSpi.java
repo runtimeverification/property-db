@@ -30,7 +30,7 @@ import java.security.spec.*;
 
 import java.nio.ByteBuffer;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Mac</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -46,14 +46,14 @@ import java.nio.ByteBuffer;
 
 public abstract class MacSpi {
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the MAC in bytes.
      *
      * @return the MAC length in bytes.
      */
     protected abstract int engineGetMacLength();
 
-    /**
+    /** {@collect.stats}
      * Initializes the MAC with the given (secret) key and algorithm
      * parameters.
      *
@@ -69,14 +69,14 @@ public abstract class MacSpi {
                                        AlgorithmParameterSpec params)
         throws InvalidKeyException, InvalidAlgorithmParameterException ;
 
-    /**
+    /** {@collect.stats}
      * Processes the given byte.
      *
      * @param input the input byte to be processed.
      */
     protected abstract void engineUpdate(byte input);
 
-    /**
+    /** {@collect.stats}
      * Processes the first <code>len</code> bytes in <code>input</code>,
      * starting at <code>offset</code> inclusive.
      *
@@ -86,7 +86,7 @@ public abstract class MacSpi {
      */
     protected abstract void engineUpdate(byte[] input, int offset, int len);
 
-    /**
+    /** {@collect.stats}
      * Processes <code>input.remaining()</code> bytes in the ByteBuffer
      * <code>input</code>, starting at <code>input.position()</code>.
      * Upon return, the buffer's position will be equal to its limit;
@@ -121,7 +121,7 @@ public abstract class MacSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Completes the MAC computation and resets the MAC for further use,
      * maintaining the secret key that the MAC was initialized with.
      *
@@ -129,13 +129,13 @@ public abstract class MacSpi {
      */
     protected abstract byte[] engineDoFinal();
 
-    /**
+    /** {@collect.stats}
      * Resets the MAC for further use, maintaining the secret key that the
      * MAC was initialized with.
      */
     protected abstract void engineReset();
 
-    /**
+    /** {@collect.stats}
      * Returns a clone if the implementation is cloneable.
      *
      * @return a clone if the implementation is cloneable.

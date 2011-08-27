@@ -29,7 +29,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintJobAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 
-/**
+/** {@collect.stats}
  * Class MediaPrintableArea is a printing attribute used to distinguish
  * the printable and non-printable areas of media.
  * <p>
@@ -86,19 +86,19 @@ public final class MediaPrintableArea
 
     private static final long serialVersionUID = -1597171464050795793L;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of inches (in). It is actually the conversion
      * factor by which to multiply inches to yield &#181;m (25400).
      */
     public static final int INCH = 25400;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of millimeters (mm). It is actually the
      * conversion factor by which to multiply mm to yield &#181;m (1000).
      */
     public static final int MM = 1000;
 
-    /**
+    /** {@collect.stats}
       * Constructs a MediaPrintableArea object from floating point values.
       * @param x      printable x
       * @param y      printable y
@@ -124,7 +124,7 @@ public final class MediaPrintableArea
 
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a MediaPrintableArea object from integer values.
       * @param x      printable x
       * @param y      printable y
@@ -149,7 +149,7 @@ public final class MediaPrintableArea
 
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printable area as an array of 4 values in the order
      * x, y, w, h. The values returned are in the given units.
      * @param  units
@@ -166,7 +166,7 @@ public final class MediaPrintableArea
                              getWidth(units), getHeight(units) };
     }
 
-    /**
+    /** {@collect.stats}
      * Get the x location of the origin of the printable area in the
      * specified units.
      * @param  units
@@ -183,7 +183,7 @@ public final class MediaPrintableArea
         return convertFromMicrometers(x, units);
      }
 
-    /**
+    /** {@collect.stats}
      * Get the y location of the origin of the printable area in the
      * specified units.
      * @param  units
@@ -200,7 +200,7 @@ public final class MediaPrintableArea
         return convertFromMicrometers(y, units);
      }
 
-    /**
+    /** {@collect.stats}
      * Get the width of the printable area in the specified units.
      * @param  units
      *     Unit conversion factor, e.g. {@link #INCH <CODE>INCH</CODE>} or
@@ -215,7 +215,7 @@ public final class MediaPrintableArea
         return convertFromMicrometers(w, units);
      }
 
-    /**
+    /** {@collect.stats}
      * Get the height of the printable area in the specified units.
      * @param  units
      *     Unit conversion factor, e.g. {@link #INCH <CODE>INCH</CODE>} or
@@ -230,7 +230,7 @@ public final class MediaPrintableArea
         return convertFromMicrometers(h, units);
      }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this media margins attribute is equivalent to the passed
      * in object.
      * To be equivalent, all of the following conditions must be true:
@@ -259,7 +259,7 @@ public final class MediaPrintableArea
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -273,7 +273,7 @@ public final class MediaPrintableArea
         return MediaPrintableArea.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>
@@ -287,7 +287,7 @@ public final class MediaPrintableArea
         return "media-printable-area";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this rectangular size attribute in the
      * given units.
      *
@@ -312,14 +312,14 @@ public final class MediaPrintableArea
         return str + unitsName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this rectangular size attribute in mm.
      */
     public String toString() {
         return(toString(MM, "mm"));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this attribute.
      */
     public int hashCode() {

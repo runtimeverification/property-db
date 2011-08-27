@@ -27,7 +27,7 @@ package javax.management.remote.rmi;
 
 import java.security.ProtectionDomain;
 
-/**
+/** {@collect.stats}
     <p>A class loader that only knows how to define a limited number
     of classes, and load a limited number of other classes through
     delegation to another loader.  It is used to get around a problem
@@ -76,7 +76,7 @@ import java.security.ProtectionDomain;
 */
 
 class NoCallStackClassLoader extends ClassLoader {
-    /** Simplified constructor when this loader only defines one class.  */
+    /** {@collect.stats} Simplified constructor when this loader only defines one class.  */
     public NoCallStackClassLoader(String className,
                                   byte[] byteCode,
                                   String[] referencedClassNames,
@@ -146,7 +146,7 @@ class NoCallStackClassLoader extends ClassLoader {
     private final ClassLoader referencedClassLoader;
     private final ProtectionDomain protectionDomain;
 
-    /**
+    /** {@collect.stats}
      * <p>Construct a <code>byte[]</code> using the characters of the
      * given <code>String</code>.  Only the low-order byte of each
      * character is used.  This method is useful to reduce the

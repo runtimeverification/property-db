@@ -29,7 +29,7 @@ import java.awt.Font;
 import javax.swing.plaf.UIResource;
 
 
-/**
+/** {@collect.stats}
  * A subclass of java.awt.Font that implements UIResource.
  * UI classes which set default font properties should use
  * this class.

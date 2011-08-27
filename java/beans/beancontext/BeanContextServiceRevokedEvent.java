@@ -29,7 +29,7 @@ import java.beans.beancontext.BeanContextEvent;
 
 import java.beans.beancontext.BeanContextServices;
 
-/**
+/** {@collect.stats}
  * <p>
  * This event type is used by the
  * <code>BeanContextServiceRevokedListener</code> in order to
@@ -38,7 +38,7 @@ import java.beans.beancontext.BeanContextServices;
  */
 public class BeanContextServiceRevokedEvent extends BeanContextEvent {
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>BeanContextServiceEvent</code>.
      * @param bcs the <code>BeanContextServices</code>
      * from which this service is being revoked
@@ -52,7 +52,7 @@ public class BeanContextServiceRevokedEvent extends BeanContextEvent {
         invalidateRefs  = invalidate;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the source as a reference of type <code>BeanContextServices</code>
      * @return the <code>BeanContextServices</code> from which
      * this service is being revoked
@@ -61,14 +61,14 @@ public class BeanContextServiceRevokedEvent extends BeanContextEvent {
         return (BeanContextServices)getBeanContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the service class that is the subject of this notification
      * @return A <code>Class</code> reference to the
      * service that is being revoked
      */
     public Class getServiceClass() { return serviceClass; }
 
-    /**
+    /** {@collect.stats}
      * Checks this event to determine whether or not
      * the service being revoked is of a particular class.
      * @param service the service of interest (should be non-null)
@@ -79,18 +79,18 @@ public class BeanContextServiceRevokedEvent extends BeanContextEvent {
         return serviceClass.equals(service);
     }
 
-    /**
+    /** {@collect.stats}
      * Reports if the current service is being forcibly revoked,
      * in which case the references are now invalidated and unusable.
      * @return <code>true</code> if current service is being forcibly revoked
      */
     public boolean isCurrentServiceInvalidNow() { return invalidateRefs; }
 
-    /**
+    /** {@collect.stats}
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * A <code>Class</code> reference to the service that is being revoked.
      */
     protected Class                      serviceClass;

@@ -25,7 +25,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that the requested operation cannot be performed
  * because the set is unmodifiable.
  *
@@ -33,13 +33,13 @@ package javax.print.attribute;
  * @since   1.4
  */
 public class UnmodifiableSetException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an UnsupportedOperationException with no detail message.
      */
     public UnmodifiableSetException() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an UnmodifiableSetException with the specified
      * detail message.
      *

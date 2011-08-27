@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * The <code>GeneralSecurityException</code> class is a generic
  * security exception class that provides type safety for all the
  * security-related exception classes that extend from it.
@@ -37,14 +37,14 @@ public class GeneralSecurityException extends Exception {
 
     private static final long serialVersionUID = 894798122053539237L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a GeneralSecurityException with no detail message.
      */
     public GeneralSecurityException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a GeneralSecurityException with the specified detail
      * message.
      * A detail message is a String that describes this particular
@@ -56,7 +56,7 @@ public class GeneralSecurityException extends Exception {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>GeneralSecurityException</code> with the specified
      * detail message and cause.
      *
@@ -71,7 +71,7 @@ public class GeneralSecurityException extends Exception {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>GeneralSecurityException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

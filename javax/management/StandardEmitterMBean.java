@@ -25,7 +25,7 @@
 
 package javax.management;
 
-/**
+/** {@collect.stats}
  * <p>An MBean whose management interface is determined by reflection
  * on a Java interface, and that emits notifications.</p>
  *
@@ -67,7 +67,7 @@ public class StandardEmitterMBean extends StandardMBean
     private final NotificationEmitter emitter;
     private final MBeanNotificationInfo[] notificationInfo;
 
-    /**
+    /** {@collect.stats}
      * <p>Make an MBean whose management interface is specified by
      * {@code mbeanInterface}, with the given implementation and
      * where notifications are handled by the given {@code NotificationEmitter}.
@@ -106,7 +106,7 @@ public class StandardEmitterMBean extends StandardMBean
         this.notificationInfo = emitter.getNotificationInfo();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make an MBean whose management interface is specified by
      * {@code mbeanInterface}, with the given implementation and where
      * notifications are handled by the given {@code
@@ -151,7 +151,7 @@ public class StandardEmitterMBean extends StandardMBean
         this.notificationInfo = emitter.getNotificationInfo();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make an MBean whose management interface is specified by
      * {@code mbeanInterface}, and
      * where notifications are handled by the given {@code NotificationEmitter}.
@@ -191,7 +191,7 @@ public class StandardEmitterMBean extends StandardMBean
         this.notificationInfo = emitter.getNotificationInfo();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make an MBean whose management interface is specified by
      * {@code mbeanInterface}, and where notifications are handled by
      * the given {@code NotificationEmitter}.  This constructor can be
@@ -256,7 +256,7 @@ public class StandardEmitterMBean extends StandardMBean
         return notificationInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Sends a notification.</p>
      *
      * <p>If the {@code emitter} parameter to the constructor was an
@@ -282,7 +282,7 @@ public class StandardEmitterMBean extends StandardMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Get the MBeanNotificationInfo[] that will be used in the
      * MBeanInfo returned by this MBean.</p>
      *

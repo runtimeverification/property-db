@@ -25,7 +25,7 @@
 
 package java.awt.peer;
 
-/**
+/** {@collect.stats}
  * The LightweightPeer interface marks a component as depending upon
  * a native container so window related events can be routed to the
  * component.  Since this only applies to components and their

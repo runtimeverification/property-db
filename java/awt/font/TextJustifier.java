@@ -54,7 +54,7 @@ class TextJustifier {
 
     static boolean DEBUG = false;
 
-    /**
+    /** {@collect.stats}
      * Initialize the justifier with an array of infos corresponding to each
      * glyph. Start and limit indicate the range of the array to examine.
      */
@@ -77,7 +77,7 @@ class TextJustifier {
 
     public static final int MAX_PRIORITY = 3;
 
-    /**
+    /** {@collect.stats}
      * Return an array of deltas twice as long as the original info array,
      * indicating the amount by which each side of each glyph should grow
      * or shrink.

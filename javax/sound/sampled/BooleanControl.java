@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A <code>BooleanControl</code> provides the ability to switch between
  * two possible settings that affect a line's audio.  The settings are boolean
  * values (<code>true</code> and <code>false</code>).  A graphical user interface
@@ -47,17 +47,17 @@ public abstract class BooleanControl extends Control {
 
     // INSTANCE VARIABLES
 
-    /**
+    /** {@collect.stats}
      * The <code>true</code> state label, such as "true" or "on."
      */
     private final String trueStateLabel;
 
-    /**
+    /** {@collect.stats}
      * The <code>false</code> state label, such as "false" or "off."
      */
     private final String falseStateLabel;
 
-    /**
+    /** {@collect.stats}
      * The current value.
      */
     private boolean value;
@@ -66,7 +66,7 @@ public abstract class BooleanControl extends Control {
     // CONSTRUCTORS
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new boolean control object with the given parameters.
      *
      * @param type the type of control represented this float control object
@@ -85,7 +85,7 @@ public abstract class BooleanControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new boolean control object with the given parameters.
      * The labels for the <code>true</code> and <code>false</code> states
      * default to "true" and "false."
@@ -101,7 +101,7 @@ public abstract class BooleanControl extends Control {
     // METHODS
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current value for the control.  The default
      * implementation simply sets the value as indicated.
      * Some controls require that their line be open before they can be affected
@@ -114,7 +114,7 @@ public abstract class BooleanControl extends Control {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains this control's current value.
      * @return current value.
      */
@@ -123,7 +123,7 @@ public abstract class BooleanControl extends Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the label for the specified state.
      * @return the label for the specified state, such as "true" or "on"
      * for <code>true</code>, or "false" or "off" for <code>false</code>.
@@ -137,7 +137,7 @@ public abstract class BooleanControl extends Control {
     // ABSTRACT METHOD IMPLEMENTATIONS: CONTROL
 
 
-    /**
+    /** {@collect.stats}
      * Provides a string representation of the control
      * @return a string description
      */
@@ -149,7 +149,7 @@ public abstract class BooleanControl extends Control {
     // INNER CLASSES
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>BooleanControl.Type</code> class identifies one kind of
      * boolean control.  Static instances are provided for the
      * common types.
@@ -163,13 +163,13 @@ public abstract class BooleanControl extends Control {
         // TYPE DEFINES
 
 
-        /**
+        /** {@collect.stats}
          * Represents a control for the mute status of a line.
          * Note that mute status does not affect gain.
          */
         public static final Type MUTE                           = new Type("Mute");
 
-        /**
+        /** {@collect.stats}
          * Represents a control for whether reverberation is applied
          * to a line.  Note that the status of this control not affect
          * the reverberation settings for a line, but does affect whether
@@ -181,7 +181,7 @@ public abstract class BooleanControl extends Control {
         // CONSTRUCTOR
 
 
-        /**
+        /** {@collect.stats}
          * Constructs a new boolean control type.
          * @param name  the name of the new boolean control type
          */

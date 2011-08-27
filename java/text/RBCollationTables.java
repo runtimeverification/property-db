@@ -42,7 +42,7 @@ import java.util.Vector;
 import sun.text.UCompactIntArray;
 import sun.text.IntHashtable;
 
-/**
+/** {@collect.stats}
  * This class contains the static state of a RuleBasedCollator: The various
  * tables that are used by the collation routines.  Several RuleBasedCollators
  * can share a single RBCollationTables object, easing memory requirements and
@@ -85,14 +85,14 @@ final class RBCollationTables {
     }
 
     final class BuildAPI {
-        /**
+        /** {@collect.stats}
          * Private constructor.  Prevents anyone else besides RBTableBuilder
          * from gaining direct access to the internals of this class.
          */
         private BuildAPI() {
         }
 
-        /**
+        /** {@collect.stats}
          * This function is used by RBTableBuilder to fill in all the members of this
          * object.  (Effectively, the builder class functions as a "friend" of this
          * class, but to avoid changing too much of the logic, it carries around "shadow"
@@ -128,7 +128,7 @@ final class RBCollationTables {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the table-based rules for the collation object.
      * @return returns the collation rules that the table collation object
      * was created from.
@@ -150,7 +150,7 @@ final class RBCollationTables {
     // internal (for use by CollationElementIterator)
     // ==============================================================
 
-    /**
+    /** {@collect.stats}
      *  Get the entry of hash table of the contracting string in the collation
      *  table.
      *  @param ch the starting character of the contracting string
@@ -174,7 +174,7 @@ final class RBCollationTables {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this character appears anywhere in a contracting
      * character sequence.  (Used by CollationElementIterator.setOffset().)
      */
@@ -182,7 +182,7 @@ final class RBCollationTables {
         return contractFlags.get(c) == 1;
     }
 
-    /**
+    /** {@collect.stats}
       * Return the maximum length of any expansion sequences that end
       * with the specified comparison order.
       *
@@ -214,7 +214,7 @@ final class RBCollationTables {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      *  Get the entry of hash table of the expanding string in the collation
      *  table.
      *  @param idx the index of the expanding string value list
@@ -223,7 +223,7 @@ final class RBCollationTables {
         return (int[])expandTable.elementAt(order - EXPANDCHARINDEX);
     }
 
-    /**
+    /** {@collect.stats}
      *  Get the comarison order of a character from the collation table.
      *  @return the comparison order of a character.
      */
@@ -240,7 +240,7 @@ final class RBCollationTables {
         return maxTerOrder;
     }
 
-    /**
+    /** {@collect.stats}
      * Reverse a string.
      */
     //shemran/Note: this is used for secondary order value reverse, no

@@ -26,7 +26,7 @@
 package java.lang.reflect;
 
 
-/**
+/** {@collect.stats}
  * ParameterizedType represents a parameterized type such as
  * Collection&lt;String&gt;.
  *
@@ -45,7 +45,7 @@ package java.lang.reflect;
  * @since 1.5
  */
 public interface ParameterizedType extends Type {
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects representing the actual type
      * arguments to this type.
      *
@@ -64,7 +64,7 @@ public interface ParameterizedType extends Type {
      */
     Type[] getActualTypeArguments();
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Type} object representing the class or interface
      * that declared this type.
      *
@@ -74,7 +74,7 @@ public interface ParameterizedType extends Type {
      */
     Type getRawType();
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Type} object representing the type that this type
      * is a member of.  For example, if this type is {@code O<T>.I<S>},
      * return a representation of {@code O<T>}.

@@ -25,7 +25,7 @@
 
 package javax.management.openmbean;
 
-/**
+/** {@collect.stats}
  * This runtime exception is thrown to indicate that the <i>open type</i> of an <i>open data</i> value
  * is not the one expected.
  *
@@ -36,12 +36,12 @@ public class InvalidOpenTypeException extends IllegalArgumentException {
 
     private static final long serialVersionUID = -2837312755412327534L;
 
-    /** An InvalidOpenTypeException with no detail message.  */
+    /** {@collect.stats} An InvalidOpenTypeException with no detail message.  */
     public InvalidOpenTypeException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * An InvalidOpenTypeException with a detail message.
      *
      * @param msg the detail message.

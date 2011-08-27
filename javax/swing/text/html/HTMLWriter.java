@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
 import java.util.NoSuchElementException;
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * This is a writer for HTMLDocuments.
  *
  * @author  Sunita Mani
@@ -49,7 +49,7 @@ public class HTMLWriter extends AbstractWriter {
     private Stack blockElementStack = new Stack();
     private boolean inContent = false;
     private boolean inPre = false;
-    /** When inPre is true, this will indicate the end offset of the pre
+    /** {@collect.stats} When inPre is true, this will indicate the end offset of the pre
      * element. */
     private int preEndOffset;
     private boolean inTextArea = false;
@@ -64,12 +64,12 @@ public class HTMLWriter extends AbstractWriter {
      */
     private Vector tags = new Vector(10);
 
-    /**
+    /** {@collect.stats}
      * Values for the tags.
      */
     private Vector tagValues = new Vector(10);
 
-    /**
+    /** {@collect.stats}
      * Used when writing out content.
      */
     private Segment segment;
@@ -79,23 +79,23 @@ public class HTMLWriter extends AbstractWriter {
      */
     private Vector tagsToRemove = new Vector(10);
 
-    /**
+    /** {@collect.stats}
      * Set to true after the head has been output.
      */
     private boolean wroteHead;
 
-    /**
+    /** {@collect.stats}
      * Set to true when entities (such as &lt;) should be replaced.
      */
     private boolean replaceEntities;
 
-    /**
+    /** {@collect.stats}
      * Temporary buffer.
      */
     private char[] tempChars;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new HTMLWriter.
      *
      * @param w   a Writer
@@ -106,7 +106,7 @@ public class HTMLWriter extends AbstractWriter {
         this(w, doc, 0, doc.getLength());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new HTMLWriter.
      *
      * @param w  a Writer
@@ -120,7 +120,7 @@ public class HTMLWriter extends AbstractWriter {
         setLineLength(80);
     }
 
-    /**
+    /** {@collect.stats}
      * Iterates over the
      * Element tree and controls the writing out of
      * all the tags and its attributes.
@@ -238,7 +238,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out the attribute set.  Ignores all
      * attributes with a key of type HTML.Tag,
      * attributes with a key of type StyleConstants,
@@ -266,7 +266,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out all empty elements (all tags that have no
      * corresponding end tag).
      *
@@ -340,7 +340,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the HTML.Tag associated with the
      * element is a block tag.
      *
@@ -357,7 +357,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out a start tag for the element.
      * Ignores all synthesized elements.
      *
@@ -444,7 +444,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out text that is contained in a TEXTAREA form
      * element.
      *
@@ -477,7 +477,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out text.  If a range is specified when the constructor
      * is invoked, then only the appropriate range of text is written
      * out.
@@ -517,7 +517,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out the content of the SELECT form element.
      *
      * @param attr the AttributeSet associated with the form element
@@ -545,7 +545,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out the content of the Option form element.
      * @param option  an Option
      * @exception IOException on any I/O error
@@ -572,7 +572,7 @@ public class HTMLWriter extends AbstractWriter {
         writeLineSeparator();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out an end tag for the element.
      *
      * @param elem    an Element
@@ -607,7 +607,7 @@ public class HTMLWriter extends AbstractWriter {
 
 
 
-    /**
+    /** {@collect.stats}
      * Writes out comments.
      *
      * @param elem    an Element
@@ -629,7 +629,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out comment string.
      *
      * @param string   the comment
@@ -648,7 +648,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out any additional comments (comments outside of the body)
      * stored under the property HTMLDocument.AdditionalComments.
      */
@@ -666,7 +666,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the element is a
      * synthesized element.  Currently we are only testing
      * for the p-implied tag.
@@ -679,7 +679,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the StyleConstants.NameAttribute is
      * equal to the tag that is passed in as a parameter.
      */
@@ -694,7 +694,7 @@ public class HTMLWriter extends AbstractWriter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Searches for embedded tags in the AttributeSet
      * and writes them out.  It also stores these tags in a vector
      * so that when appropriate the corresponding end tags can be
@@ -729,7 +729,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Searches the attribute set for a tag, both of which
      * are passed in as a parameter.  Returns true if no match is found
      * and false otherwise.
@@ -748,7 +748,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Searches the attribute set and for each tag
      * that is stored in the tag vector.  If the tag isnt found,
      * then the tag is removed from the vector and a corresponding
@@ -807,7 +807,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the element associated with the attributeset
      * is a TEXTAREA or SELECT.  If true, returns true else
      * false
@@ -821,7 +821,7 @@ public class HTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines whether a the indentation needs to be
      * incremented.  Basically, if next is a child of current, and
      * next is NOT a synthesized element, the indent level will be
@@ -847,7 +847,7 @@ public class HTMLWriter extends AbstractWriter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Outputs the maps as elements. Maps are not stored as elements in
      * the document, and as such this is used to output them.
      */
@@ -892,7 +892,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Outputs the styles as a single element. Styles are not stored as
      * elements, but part of the document. For the time being styles are
      * written out as a comment, inside a style tag.
@@ -917,7 +917,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Outputs the named style. <code>outputStyle</code> indicates
      * whether or not a style has been output yet. This will return
      * true if a style is written.
@@ -985,7 +985,7 @@ public class HTMLWriter extends AbstractWriter {
 
     // --- conversion support ---------------------------
 
-    /**
+    /** {@collect.stats}
      * Convert the give set of attributes to be html for
      * the purpose of writing them out.  Any keys that
      * have been converted will not appear in the resultant
@@ -1007,25 +1007,25 @@ public class HTMLWriter extends AbstractWriter {
         return to;
     }
 
-    /**
+    /** {@collect.stats}
      * If true, the writer will emit CSS attributes in preference
      * to HTML tags/attributes (i.e. It will emit an HTML 4.0
      * style).
      */
     private boolean writeCSS = false;
 
-    /**
+    /** {@collect.stats}
      * Buffer for the purpose of attribute conversion
      */
     private MutableAttributeSet convAttr = new SimpleAttributeSet();
 
-    /**
+    /** {@collect.stats}
      * Buffer for the purpose of attribute conversion. This can be
      * used if convAttr is being used.
      */
     private MutableAttributeSet oConvAttr = new SimpleAttributeSet();
 
-    /**
+    /** {@collect.stats}
      * Create an older style of HTML attributes.  This will
      * convert character level attributes that have a StyleConstants
      * mapping over to an HTML tag/attribute.  Other CSS attributes
@@ -1096,7 +1096,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Add an attribute only if it doesn't exist so that we don't
      * loose information replacing it with SimpleAttributeSet.EMPTY
      */
@@ -1112,7 +1112,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create/update an HTML &lt;font&gt; tag attribute.  The
      * value of the attribute should be a MutableAttributeSet so
      * that the attributes can be updated as they are discovered.
@@ -1136,7 +1136,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the given AttributeSet to a new set, converting
      * any CSS attributes found to arguments of an HTML style
      * attribute.
@@ -1164,7 +1164,7 @@ public class HTMLWriter extends AbstractWriter {
     // functionality.
     //
 
-    /**
+    /** {@collect.stats}
      * Writes the line separator. This is overriden to make sure we don't
      * replace the newline content in case it is outside normal ascii.
      * @since 1.3
@@ -1177,7 +1177,7 @@ public class HTMLWriter extends AbstractWriter {
         indented = false;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is overriden to map any character entities, such as
      * &lt; to &amp;lt;. <code>super.output</code> will be invoked to
      * write the content.
@@ -1249,7 +1249,7 @@ public class HTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This directly invokes super's <code>output</code> after converting
      * <code>string</code> to a char[].
      */
@@ -1264,7 +1264,7 @@ public class HTMLWriter extends AbstractWriter {
 
     private boolean indented = false;
 
-    /**
+    /** {@collect.stats}
      * Writes indent only once per line.
      */
     private void indentSmart() throws IOException {

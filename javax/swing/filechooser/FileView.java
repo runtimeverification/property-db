@@ -28,7 +28,7 @@ package javax.swing.filechooser;
 import java.io.File;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * <code>FileView</code> defines an abstract class that can be implemented
  * to provide the filechooser with UI information for a <code>File</code>.
  * Each L&F <code>JFileChooserUI</code> object implements this
@@ -66,7 +66,7 @@ import javax.swing.*;
  *
  */
 public abstract class FileView {
-    /**
+    /** {@collect.stats}
      * The name of the file. Normally this would be simply
      * <code>f.getName()</code>.
      */
@@ -74,7 +74,7 @@ public abstract class FileView {
         return null;
     };
 
-    /**
+    /** {@collect.stats}
      * A human readable description of the file. For example,
      * a file named <i>jag.jpg</i> might have a description that read:
      * "A JPEG image file of James Gosling's face".
@@ -83,7 +83,7 @@ public abstract class FileView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * A human readable description of the type of the file. For
      * example, a <code>jpg</code> file might have a type description of:
      * "A JPEG Compressed Image File"
@@ -92,14 +92,14 @@ public abstract class FileView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The icon that represents this file in the <code>JFileChooser</code>.
      */
     public Icon getIcon(File f) {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Whether the directory is traversable or not. This might be
      * useful, for example, if you want a directory to represent
      * a compound document and don't want the user to descend into it.

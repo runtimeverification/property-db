@@ -44,7 +44,7 @@ import javax.print.attribute.standard.Fidelity;
 import sun.print.ServiceDialog;
 import sun.print.SunAlternateMedia;
 
-/** This class is a collection of UI convenience methods which provide a
+/** {@collect.stats} This class is a collection of UI convenience methods which provide a
  * graphical user dialog for browsing print services looked up through the Java
  * Print Service API.
  * <p>
@@ -72,7 +72,7 @@ import sun.print.SunAlternateMedia;
 public class ServiceUI {
 
 
-    /**
+    /** {@collect.stats}
      * Presents a dialog to the user for selecting a print service (printer).
      * It is displayed at the location specified by the application and
      * is modal.
@@ -259,7 +259,7 @@ public class ServiceUI {
         return dialog.getPrintService();
     }
 
-    /**
+    /** {@collect.stats}
      * POSSIBLE FUTURE API: This method may be used down the road if we
      * decide to allow developers to explicitly display a "page setup" dialog.
      * Currently we use that functionality internally for the AWT print model.
@@ -301,7 +301,7 @@ public class ServiceUI {
     }
     */
 
-    /**
+    /** {@collect.stats}
      * Removes any attributes from the given AttributeSet that are
      * unsupported by the given PrintService/DocFlavor combination.
      */

@@ -28,7 +28,7 @@ import java.io.*;
 import javax.swing.Action;
 import javax.swing.JEditorPane;
 
-/**
+/** {@collect.stats}
  * Establishes the set of things needed by a text component
  * to be a reasonably functioning editor for some <em>type</em>
  * of text content.  The EditorKit acts as a factory for some
@@ -47,13 +47,13 @@ import javax.swing.JEditorPane;
  */
 public abstract class EditorKit implements Cloneable, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Construct an EditorKit.
      */
     public EditorKit() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of the editor kit.  This is implemented
      * to use Object.clone</em>.  If the kit cannot be cloned,
      * null is returned.
@@ -70,7 +70,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being installed into the
      * a JEditorPane.
      *
@@ -79,7 +79,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
     public void install(JEditorPane c) {
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being removed from the
      * JEditorPane.  This is used to unregister any
      * listeners that were attached.
@@ -89,7 +89,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
     public void deinstall(JEditorPane c) {
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the MIME type of the data that this
      * kit represents support for.
      *
@@ -97,7 +97,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
      */
     public abstract String getContentType();
 
-    /**
+    /** {@collect.stats}
      * Fetches a factory that is suitable for producing
      * views of any models that are produced by this
      * kit.
@@ -106,7 +106,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
      */
     public abstract ViewFactory getViewFactory();
 
-    /**
+    /** {@collect.stats}
      * Fetches the set of commands that can be used
      * on a text component that is using a model and
      * view produced by this kit.
@@ -115,7 +115,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
      */
     public abstract Action[] getActions();
 
-    /**
+    /** {@collect.stats}
      * Fetches a caret that can navigate through views
      * produced by the associated ViewFactory.
      *
@@ -123,7 +123,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
      */
     public abstract Caret createCaret();
 
-    /**
+    /** {@collect.stats}
      * Creates an uninitialized text storage model
      * that is appropriate for this type of editor.
      *
@@ -131,7 +131,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
      */
     public abstract Document createDefaultDocument();
 
-    /**
+    /** {@collect.stats}
      * Inserts content from the given stream which is expected
      * to be in a format appropriate for this kind of content
      * handler.
@@ -147,7 +147,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
     public abstract void read(InputStream in, Document doc, int pos)
         throws IOException, BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Writes content from a document to the given stream
      * in a format appropriate for this kind of content handler.
      *
@@ -163,7 +163,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
     public abstract void write(OutputStream out, Document doc, int pos, int len)
         throws IOException, BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Inserts content from the given stream which is expected
      * to be in a format appropriate for this kind of content
      * handler.
@@ -184,7 +184,7 @@ public abstract class EditorKit implements Cloneable, Serializable {
     public abstract void read(Reader in, Document doc, int pos)
         throws IOException, BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Writes content from a document to the given stream
      * in a format appropriate for this kind of content handler.
      * <p>

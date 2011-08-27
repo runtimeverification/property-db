@@ -34,7 +34,7 @@ import javax.management.NotificationFilter;
 import javax.management.NotificationListener;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>The client end of a JMX API connector.  An object of this type can
  * be used to establish a connection to a connector server.</p>
  *
@@ -47,7 +47,7 @@ import javax.security.auth.Subject;
  * @since 1.5
  */
 public interface JMXConnector extends Closeable {
-    /**
+    /** {@collect.stats}
       * <p>Name of the attribute that specifies the credentials to send
       * to the connector server during connection.  The value
       * associated with this attribute, if any, is a serializable
@@ -57,7 +57,7 @@ public interface JMXConnector extends Closeable {
      public static final String CREDENTIALS =
          "jmx.remote.credentials";
 
-    /**
+    /** {@collect.stats}
      * <p>Establishes the connection to the connector server.  This
      * method is equivalent to {@link #connect(Map)
      * connect(null)}.</p>
@@ -70,7 +70,7 @@ public interface JMXConnector extends Closeable {
      */
     public void connect() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Establishes the connection to the connector server.</p>
      *
      * <p>If <code>connect</code> has already been called successfully
@@ -96,7 +96,7 @@ public interface JMXConnector extends Closeable {
      */
     public void connect(Map<String,?> env) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an <code>MBeanServerConnection</code> object
      * representing a remote MBean server.  For a given
      * <code>JMXConnector</code>, two successful calls to this method
@@ -134,7 +134,7 @@ public interface JMXConnector extends Closeable {
     public MBeanServerConnection getMBeanServerConnection()
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an <code>MBeanServerConnection</code> object representing
      * a remote MBean server on which operations are performed on behalf of
      * the supplied delegation subject. For a given <code>JMXConnector</code>
@@ -173,7 +173,7 @@ public interface JMXConnector extends Closeable {
                                                Subject delegationSubject)
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Closes the client connection to its server.  Any ongoing or new
      * request using the MBeanServerConnection returned by {@link
      * #getMBeanServerConnection()} will get an
@@ -199,7 +199,7 @@ public interface JMXConnector extends Closeable {
      */
     public void close() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Adds a listener to be informed of changes in connection
      * status.  The listener will receive notifications of type {@link
      * JMXConnectionNotification}.  An implementation can send other
@@ -232,7 +232,7 @@ public interface JMXConnector extends Closeable {
                                           NotificationFilter filter,
                                           Object handback);
 
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from the list to be informed of changes
      * in status.  The listener must previously have been added.  If
      * there is more than one matching listener, all are removed.</p>
@@ -255,7 +255,7 @@ public interface JMXConnector extends Closeable {
         removeConnectionNotificationListener(NotificationListener listener)
             throws ListenerNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Removes a listener from the list to be informed of changes
      * in status.  The listener must previously have been added with
      * the same three parameters.  If there is more than one matching
@@ -280,7 +280,7 @@ public interface JMXConnector extends Closeable {
                                                      Object handback)
             throws ListenerNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Gets this connection's ID from the connector server.  For a
      * given connector server, every connection will have a unique id
      * which does not change during the lifetime of the

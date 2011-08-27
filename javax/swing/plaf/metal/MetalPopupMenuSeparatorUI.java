@@ -34,7 +34,7 @@ import java.awt.Rectangle;
 import javax.swing.plaf.*;
 
 
-/**
+/** {@collect.stats}
  * A Metal L&F implementation of PopupMenuSeparatorUI.  This implementation
  * is a "combined" view/controller.
  *

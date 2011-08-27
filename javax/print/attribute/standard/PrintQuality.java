@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrintQuality is a printing attribute class, an enumeration,
  * that specifies the print quality that the printer uses for the job.
  * <P>
@@ -47,22 +47,22 @@ public class PrintQuality extends EnumSyntax
     implements DocAttribute, PrintRequestAttribute, PrintJobAttribute {
 
     private static final long serialVersionUID = -3072341285225858365L;
-    /**
+    /** {@collect.stats}
      * Lowest quality available on the printer.
      */
     public static final PrintQuality DRAFT = new PrintQuality(3);
 
-    /**
+    /** {@collect.stats}
      * Normal or intermediate quality on the printer.
      */
     public static final PrintQuality NORMAL = new PrintQuality(4);
 
-    /**
+    /** {@collect.stats}
      * Highest quality available on the printer.
      */
     public static final PrintQuality HIGH = new PrintQuality(5);
 
-    /**
+    /** {@collect.stats}
      * Construct a new print quality enumeration value with the given integer
      * value.
      *
@@ -84,28 +84,28 @@ public class PrintQuality extends EnumSyntax
         HIGH
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PrintQuality.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PrintQuality.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lowest integer value used by class PrintQuality.
      */
     protected int getOffset() {
         return 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -119,7 +119,7 @@ public class PrintQuality extends EnumSyntax
         return PrintQuality.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

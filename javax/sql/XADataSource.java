@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * A factory for <code>XAConnection</code> objects that is used internally.
  * An object that implements the <code>XADataSource</code> interface is
  * typically registered with a naming service that uses the
@@ -39,7 +39,7 @@ import java.sql.*;
 
 public interface XADataSource extends CommonDataSource {
 
-  /**
+  /** {@collect.stats}
    * Attempts to establish a physical database connection that can be
    * used in a distributed transaction.
    *
@@ -53,7 +53,7 @@ public interface XADataSource extends CommonDataSource {
    */
   XAConnection getXAConnection() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Attempts to establish a physical database connection, using the given
    * user name and password. The connection that is returned is one that
    * can be used in a distributed transaction.

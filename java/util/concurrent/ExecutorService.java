@@ -39,7 +39,7 @@ import java.util.Collection;
 import java.security.PrivilegedAction;
 import java.security.PrivilegedExceptionAction;
 
-/**
+/** {@collect.stats}
  * An {@link Executor} that provides methods to manage termination and
  * methods that can produce a {@link Future} for tracking progress of
  * one or more asynchronous tasks.
@@ -140,7 +140,7 @@ import java.security.PrivilegedExceptionAction;
  */
 public interface ExecutorService extends Executor {
 
-    /**
+    /** {@collect.stats}
      * Initiates an orderly shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.
      * Invocation has no additional effect if already shut down.
@@ -155,7 +155,7 @@ public interface ExecutorService extends Executor {
      */
     void shutdown();
 
-    /**
+    /** {@collect.stats}
      * Attempts to stop all actively executing tasks, halts the
      * processing of waiting tasks, and returns a list of the tasks that were
      * awaiting execution.
@@ -176,14 +176,14 @@ public interface ExecutorService extends Executor {
      */
     List<Runnable> shutdownNow();
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this executor has been shut down.
      *
      * @return <tt>true</tt> if this executor has been shut down
      */
     boolean isShutdown();
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if all tasks have completed following shut down.
      * Note that <tt>isTerminated</tt> is never <tt>true</tt> unless
      * either <tt>shutdown</tt> or <tt>shutdownNow</tt> was called first.
@@ -192,7 +192,7 @@ public interface ExecutorService extends Executor {
      */
     boolean isTerminated();
 
-    /**
+    /** {@collect.stats}
      * Blocks until all tasks have completed execution after a shutdown
      * request, or the timeout occurs, or the current thread is
      * interrupted, whichever happens first.
@@ -207,7 +207,7 @@ public interface ExecutorService extends Executor {
         throws InterruptedException;
 
 
-    /**
+    /** {@collect.stats}
      * Submits a value-returning task for execution and returns a
      * Future representing the pending results of the task. The
      * Future's <tt>get</tt> method will return the task's result upon
@@ -231,7 +231,7 @@ public interface ExecutorService extends Executor {
      */
     <T> Future<T> submit(Callable<T> task);
 
-    /**
+    /** {@collect.stats}
      * Submits a Runnable task for execution and returns a Future
      * representing that task. The Future's <tt>get</tt> method will
      * return the given result upon successful completion.
@@ -245,7 +245,7 @@ public interface ExecutorService extends Executor {
      */
     <T> Future<T> submit(Runnable task, T result);
 
-    /**
+    /** {@collect.stats}
      * Submits a Runnable task for execution and returns a Future
      * representing that task. The Future's <tt>get</tt> method will
      * return <tt>null</tt> upon <em>successful</em> completion.
@@ -258,7 +258,7 @@ public interface ExecutorService extends Executor {
      */
     Future<?> submit(Runnable task);
 
-    /**
+    /** {@collect.stats}
      * Executes the given tasks, returning a list of Futures holding
      * their status and results when all complete.
      * {@link Future#isDone} is <tt>true</tt> for each
@@ -282,7 +282,7 @@ public interface ExecutorService extends Executor {
     <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Executes the given tasks, returning a list of Futures holding
      * their status and results
      * when all complete or the timeout expires, whichever happens first.
@@ -313,7 +313,7 @@ public interface ExecutorService extends Executor {
                                   long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Executes the given tasks, returning the result
      * of one that has completed successfully (i.e., without throwing
      * an exception), if any do. Upon normal or exceptional return,
@@ -334,7 +334,7 @@ public interface ExecutorService extends Executor {
     <T> T invokeAny(Collection<? extends Callable<T>> tasks)
         throws InterruptedException, ExecutionException;
 
-    /**
+    /** {@collect.stats}
      * Executes the given tasks, returning the result
      * of one that has completed successfully (i.e., without throwing
      * an exception), if any do before the given timeout elapses.

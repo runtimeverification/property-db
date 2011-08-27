@@ -31,7 +31,7 @@ import javax.swing.event.*;
 import javax.swing.plaf.*;
 
 
-/**
+/** {@collect.stats}
  * Provides the Windows look and feel for a password field.
  * The only difference from the standard text field is that
  * the view of the text is simply a string of the echo
@@ -42,7 +42,7 @@ import javax.swing.plaf.*;
  */
 public class BasicPasswordFieldUI extends BasicTextFieldUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JPasswordField.
      *
      * @param c the JPasswordField
@@ -52,7 +52,7 @@ public class BasicPasswordFieldUI extends BasicTextFieldUI {
         return new BasicPasswordFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to look up properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -64,7 +64,7 @@ public class BasicPasswordFieldUI extends BasicTextFieldUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary properties on the JPasswordField.
      * @since 1.6
      */
@@ -77,7 +77,7 @@ public class BasicPasswordFieldUI extends BasicTextFieldUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view (PasswordView) for an element.
      *
      * @param elem the element
@@ -87,7 +87,7 @@ public class BasicPasswordFieldUI extends BasicTextFieldUI {
         return new PasswordView(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Create the action map for Password Field.  This map provides
      * same actions for double mouse click and
      * and for triple mouse click (see bug 4231444).

@@ -32,7 +32,7 @@ import java.util.concurrent.Executor;
 
 import com.sun.jmx.remote.util.ClassLogger;
 
-/**
+/** {@collect.stats}
  * <p>Provides an implementation of {@link
  * javax.management.NotificationEmitter NotificationEmitter}
  * interface.  This can be used as the super class of an MBean that
@@ -59,7 +59,7 @@ import com.sun.jmx.remote.util.ClassLogger;
  * @since 1.5
  */
 public class NotificationBroadcasterSupport implements NotificationEmitter {
-    /**
+    /** {@collect.stats}
      * Constructs a NotificationBroadcasterSupport where each listener is invoked by the
      * thread sending the notification. This constructor is equivalent to
      * {@link NotificationBroadcasterSupport#NotificationBroadcasterSupport(Executor,
@@ -69,7 +69,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
         this(null, (MBeanNotificationInfo[]) null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a NotificationBroadcasterSupport where each listener is invoked using
      * the given {@link java.util.concurrent.Executor}. When {@link #sendNotification
      * sendNotification} is called, a listener is selected if it was added with a null
@@ -91,7 +91,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
         this(executor, (MBeanNotificationInfo[]) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a NotificationBroadcasterSupport with information
      * about the notifications that may be sent.  Each listener is
      * invoked by the thread sending the notification.  This
@@ -116,7 +116,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
         this(null, info);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a NotificationBroadcasterSupport with information about the notifications that may be sent,
      * and where each listener is invoked using the given {@link java.util.concurrent.Executor}.</p>
      *
@@ -156,7 +156,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
         notifInfo = info == null ? NO_NOTIFICATION_INFO : info.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a listener.
      *
      * @param listener The listener to receive notifications.
@@ -215,7 +215,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sends a notification.
      *
      * If an {@code Executor} was specified in the constructor, it will be given one
@@ -249,7 +249,7 @@ public class NotificationBroadcasterSupport implements NotificationEmitter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>This method is called by {@link #sendNotification
      * sendNotification} for each listener in order to send the
      * notification to that listener.  It can be overridden in

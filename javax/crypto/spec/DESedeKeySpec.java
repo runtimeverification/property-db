@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.InvalidKeyException;
 
-/**
+/** {@collect.stats}
  * This class specifies a DES-EDE ("triple-DES") key.
  *
  * @author Jan Luehe
@@ -36,14 +36,14 @@ import java.security.InvalidKeyException;
  */
 public class DESedeKeySpec implements java.security.spec.KeySpec {
 
-    /**
+    /** {@collect.stats}
      * The constant which defines the length of a DESede key in bytes.
      */
     public static final int DES_EDE_KEY_LEN = 24;
 
     private byte[] key;
 
-    /**
+    /** {@collect.stats}
      * Creates a DESedeKeySpec object using the first 24 bytes in
      * <code>key</code> as the key material for the DES-EDE key.
      *
@@ -62,7 +62,7 @@ public class DESedeKeySpec implements java.security.spec.KeySpec {
         this(key, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a DESedeKeySpec object using the first 24 bytes in
      * <code>key</code>, beginning at <code>offset</code> inclusive,
      * as the key material for the DES-EDE key.
@@ -88,7 +88,7 @@ public class DESedeKeySpec implements java.security.spec.KeySpec {
         System.arraycopy(key, offset, this.key, 0, 24);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the DES-EDE key.
      *
      * @return the DES-EDE key. Returns a new array
@@ -98,7 +98,7 @@ public class DESedeKeySpec implements java.security.spec.KeySpec {
         return (byte[])this.key.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the given DES-EDE key, starting at <code>offset</code>
      * inclusive, is parity-adjusted.
      *

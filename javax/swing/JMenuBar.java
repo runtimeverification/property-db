@@ -45,7 +45,7 @@ import javax.swing.border.Border;
 import javax.swing.plaf.*;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * An implementation of a menu bar. You add <code>JMenu</code> objects to the
  * menu bar to construct a menu. When the user selects a <code>JMenu</code>
  * object, its associated <code>JPopupMenu</code> is displayed, allowing the
@@ -83,7 +83,7 @@ import javax.accessibility.*;
  */
 public class JMenuBar extends JComponent implements Accessible,MenuElement
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -102,7 +102,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     private static final boolean VERBOSE = false; // show reuse hits/misses
     private static final boolean DEBUG =   false;  // show bad params, misc.
 
-    /**
+    /** {@collect.stats}
      * Creates a new menu bar.
      */
     public JMenuBar() {
@@ -112,7 +112,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the menubar's current UI.
      * @see #setUI
      */
@@ -120,7 +120,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return (MenuBarUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui the new MenuBarUI L&F object
@@ -135,7 +135,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property with a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -145,7 +145,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "MenuBarUI"
@@ -157,7 +157,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model object that handles single selections.
      *
      * @return the <code>SingleSelectionModel</code> property
@@ -167,7 +167,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return selectionModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the model object to handle single selections.
      *
      * @param model the <code>SingleSelectionModel</code> to use
@@ -183,7 +183,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Appends the specified menu to the end of the menu bar.
      *
      * @param c the <code>JMenu</code> component to add
@@ -194,7 +194,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu at the specified position in the menu bar.
      *
      * @param index  an integer giving the position in the menu bar, where
@@ -210,7 +210,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of items in the menu bar.
      *
      * @return the number of items in the menu bar
@@ -219,7 +219,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return getComponentCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the help menu that appears when the user selects the
      * "help" option in the menu bar. This method is not yet implemented
      * and will throw an exception.
@@ -230,7 +230,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         throw new Error("setHelpMenu() not yet implemented.");
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the help menu for the menu bar.  This method is not yet
      * implemented and will throw an exception.
      *
@@ -240,7 +240,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         throw new Error("getHelpMenu() not yet implemented.");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at the specified index.
      *
      * @param i an integer specifying the position, where 0 is first
@@ -256,7 +256,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return getComponent(i);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the specified component.
      *
      * @param c  the <code>Component</code> to find
@@ -274,7 +274,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the currently selected component, producing a
      * a change to the selection model.
      *
@@ -286,7 +286,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         model.setSelectedIndex(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu bar currently has a component selected.
      *
      * @return true if a selection has been made, else false
@@ -295,7 +295,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return selectionModel.isSelected();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu bars border should be painted.
      *
      * @return  true if the border should be painted, else false
@@ -304,7 +304,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return paintBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the border should be painted.
      *
      * @param b if true and border property is not <code>null</code>,
@@ -325,7 +325,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the menubar's border if <code>BorderPainted</code>
      * property is true.
      *
@@ -339,7 +339,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the margin between the menubar's border and
      * its menus. Setting to <code>null</code> will cause the menubar to
      * use the default margins.
@@ -361,7 +361,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the margin between the menubar's border and
      * its menus.  If there is no previous margin, it will create
      * a default margin with zero size.
@@ -378,7 +378,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implemented to be a <code>MenuElement</code> -- does nothing.
      *
      * @see #getSubElements
@@ -386,7 +386,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     public void processMouseEvent(MouseEvent event,MenuElement path[],MenuSelectionManager manager) {
     }
 
-    /**
+    /** {@collect.stats}
      * Implemented to be a <code>MenuElement</code> -- does nothing.
      *
      * @see #getSubElements
@@ -394,7 +394,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     public void processKeyEvent(KeyEvent e,MenuElement path[],MenuSelectionManager manager) {
     }
 
-    /**
+    /** {@collect.stats}
      * Implemented to be a <code>MenuElement</code> -- does nothing.
      *
      * @see #getSubElements
@@ -402,7 +402,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     public void menuSelectionChanged(boolean isIncluded) {
     }
 
-    /**
+    /** {@collect.stats}
      * Implemented to be a <code>MenuElement</code> -- returns the
      * menus in this menu bar.
      * This is the reason for implementing the <code>MenuElement</code>
@@ -429,7 +429,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Implemented to be a <code>MenuElement</code>. Returns this object.
      *
      * @return the current <code>Component</code> (this)
@@ -440,7 +440,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JMenuBar</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -465,7 +465,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JMenuBar.
      * For JMenuBars, the AccessibleContext takes the form of an
      * AccessibleJMenuBar.
@@ -481,7 +481,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JMenuBar</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to menu bar user-interface
@@ -499,7 +499,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     protected class AccessibleJMenuBar extends AccessibleJComponent
         implements AccessibleSelection {
 
-        /**
+        /** {@collect.stats}
          * Get the accessible state set of this object.
          *
          * @return an instance of AccessibleState containing the current state
@@ -510,7 +510,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             return states;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -520,7 +520,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             return AccessibleRole.MENU_BAR;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleSelection associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -532,7 +532,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns 1 if a menu is currently selected in this menu bar.
          *
          * @return 1 if a menu is currently selected, else 0
@@ -545,7 +545,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             }
          }
 
-        /**
+        /** {@collect.stats}
          * Returns the currently selected menu if one is selected,
          * otherwise null.
          */
@@ -562,7 +562,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             return null;
          }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the current child of this object is selected.
          *
          * @param i the zero-based index of the child in this Accessible
@@ -573,7 +573,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             return (i == getSelectionModel().getSelectedIndex());
         }
 
-        /**
+        /** {@collect.stats}
          * Selects the nth menu in the menu bar, forcing it to
          * pop up.  If another menu is popped up, this will force
          * it to close.  If the nth menu is already selected, this
@@ -608,7 +608,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the nth selected item in the object from the object's
          * selection.  If the nth item isn't currently selected, this
          * method has no effect.  Otherwise, it closes the popup menu.
@@ -626,7 +626,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Clears the selection in the object, so that nothing in the
          * object is selected.  This will close any open menu.
          */
@@ -642,7 +642,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
             getSelectionModel().setSelectedIndex(-1);
         }
 
-        /**
+        /** {@collect.stats}
          * Normally causes every selected item in the object to be selected
          * if the object supports multiple selections.  This method
          * makes no sense in a menu bar, and so does nothing.
@@ -652,7 +652,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     } // internal class AccessibleJMenuBar
 
 
-    /**
+    /** {@collect.stats}
      * Subclassed to check all the child menus.
      * @since 1.3
      */
@@ -701,7 +701,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>JComponent.addNotify</code> to register this
      * menu bar with the current keyboard manager.
      */
@@ -710,7 +710,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
         KeyboardManager.getCurrentManager().registerMenuBar(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>JComponent.removeNotify</code> to unregister this
      * menu bar with the current keyboard manager.
      */
@@ -742,7 +742,7 @@ public class JMenuBar extends JComponent implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * See JComponent.readObject() for information about serialization
      * in Swing.
      */

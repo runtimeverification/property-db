@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * Abstract class for representing access to a system resource.
  * All permissions have a name (whose interpretation depends on the subclass),
  * as well as abstract functions for defining the semantics of the
@@ -68,7 +68,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
 
     private String name;
 
-    /**
+    /** {@collect.stats}
      * Constructs a permission with the specified name.
      *
      * @param name name of the Permission object being created.
@@ -79,7 +79,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements the guard interface for a permission. The
      * <code>SecurityManager.checkPermission</code> method is called,
      * passing this permission object as the permission to check.
@@ -102,7 +102,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
         if (sm != null) sm.checkPermission(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified permission's actions are "implied by"
      * this object's actions.
      * <P>
@@ -121,7 +121,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
 
     public abstract boolean implies(Permission permission);
 
-    /**
+    /** {@collect.stats}
      * Checks two Permission objects for equality.
      * <P>
      * Do not use the <code>equals</code> method for making access control
@@ -134,7 +134,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
 
     public abstract boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this Permission object.
      * <P>
      * The required <code>hashCode</code> behavior for Permission Objects is
@@ -157,7 +157,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
 
     public abstract int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this Permission.
      * For example, in the case of a <code>java.io.FilePermission</code>,
      * the name will be a pathname.
@@ -170,7 +170,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actions as a String. This is abstract
      * so subclasses can defer creating a String representation until
      * one is needed. Subclasses should always return actions in what they
@@ -192,7 +192,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
 
     public abstract String getActions();
 
-    /**
+    /** {@collect.stats}
      * Returns an empty PermissionCollection for a given Permission object, or null if
      * one is not defined. Subclasses of class Permission should
      * override this if they need to store their permissions in a particular
@@ -211,7 +211,7 @@ public abstract class Permission implements Guard, java.io.Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this Permission.  The convention is to
      * specify the class name, the permission name, and the actions in
      * the following format: '("ClassName" "name" "actions")'.

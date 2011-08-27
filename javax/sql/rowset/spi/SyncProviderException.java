@@ -28,7 +28,7 @@ package javax.sql.rowset.spi;
 import java.sql.SQLException;
 import javax.sql.rowset.*;
 
-/**
+/** {@collect.stats}
  * Indicates an error with the <code>SyncProvider</code> mechanism. This exception
  * is created by a <code>SyncProvider</code> abstract class extension if it
  * encounters violations in reading from or writing to the originating data source.
@@ -64,21 +64,21 @@ import javax.sql.rowset.*;
  */
 public class SyncProviderException extends java.sql.SQLException {
 
-    /**
+    /** {@collect.stats}
      * The instance of <code>javax.sql.rowset.spi.SyncResolver</code> that
      * this <code>SyncProviderException</code> object will return when its
      * <code>getSyncResolver</code> method is called.
      */
      private SyncResolver syncResolver = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SyncProviderException</code> object without a detail message.
      */
     public SyncProviderException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SyncProviderException</code> object with the specified
      * detail message.
      *
@@ -88,7 +88,7 @@ public class SyncProviderException extends java.sql.SQLException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SyncProviderException</code> object with the specified
      * <code>SyncResolver</code> instance.
      *
@@ -106,7 +106,7 @@ public class SyncProviderException extends java.sql.SQLException {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>SyncResolver</code> object that has been set for
      * this <code>SyncProviderException</code> object, or
      * if none has been set, an instance of the default <code>SyncResolver</code>
@@ -137,7 +137,7 @@ public class SyncProviderException extends java.sql.SQLException {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>SyncResolver</code> object for this
      * <code>SyncProviderException</code> object to the one supplied.
      * If the argument supplied is <code>null</code>, a call to the method

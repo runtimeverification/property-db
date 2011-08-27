@@ -31,7 +31,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * CookieManager provides a concrete implementation of {@link CookieHandler},
  * which separates the storage of cookies from the policy surrounding accepting
  * and rejecting cookies. A CookieManager is initialized with a {@link CookieStore}
@@ -124,7 +124,7 @@ public class CookieManager extends CookieHandler
 
     /* ---------------- Ctors -------------- */
 
-    /**
+    /** {@collect.stats}
      * Create a new cookie manager.
      *
      * <p>This constructor will create new cookie manager with default
@@ -136,7 +136,7 @@ public class CookieManager extends CookieHandler
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a new cookie manager with specified cookie store and cookie policy.
      *
      * @param store     a <tt>CookieStore</tt> to be used by cookie manager.
@@ -165,7 +165,7 @@ public class CookieManager extends CookieHandler
 
     /* ---------------- Public operations -------------- */
 
-    /**
+    /** {@collect.stats}
      * To set the cookie policy of this cookie manager.
      *
      * <p> A instance of <tt>CookieManager</tt> will have
@@ -180,7 +180,7 @@ public class CookieManager extends CookieHandler
     }
 
 
-    /**
+    /** {@collect.stats}
      * To retrieve current cookie store.
      *
      * @return  the cookie store currently used by cookie manager.

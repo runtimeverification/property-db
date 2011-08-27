@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * The specified MBean listener does not exist in the repository.
  *
  * @since 1.5
@@ -36,14 +36,14 @@ public class ListenerNotFoundException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = -7242605822448519061L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public ListenerNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

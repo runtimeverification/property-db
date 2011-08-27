@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.Binding;
 
-/**
+/** {@collect.stats}
   * This class represents an item in the NamingEnumeration returned as a
   * result of the DirContext.search() methods.
   *<p>
@@ -43,13 +43,13 @@ import javax.naming.Binding;
   */
 
 public class SearchResult extends Binding {
-    /**
+    /** {@collect.stats}
      * Contains the attributes returned with the object.
      * @serial
      */
     private Attributes attrs;
 
-    /**
+    /** {@collect.stats}
       * Constructs a search result using the result's name, its bound object, and
       * its attributes.
       *<p>
@@ -72,7 +72,7 @@ public class SearchResult extends Binding {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a search result using the result's name, its bound object, and
       * its attributes, and whether the name is relative.
       *<p>
@@ -97,7 +97,7 @@ public class SearchResult extends Binding {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a search result using the result's name, its class name,
       * its bound object, and its attributes.
       *
@@ -121,7 +121,7 @@ public class SearchResult extends Binding {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a search result using the result's name, its class name,
       * its bound object, its attributes, and whether the name is relative.
       *
@@ -146,7 +146,7 @@ public class SearchResult extends Binding {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the attributes in this search result.
      *
      * @return The non-null attributes in this search result. Can be empty.
@@ -157,7 +157,7 @@ public class SearchResult extends Binding {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the attributes of this search result to <code>attrs</code>.
      * @param attrs The non-null attributes to use. Can be empty.
      * @see #getAttributes
@@ -168,7 +168,7 @@ public class SearchResult extends Binding {
     }
 
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this SearchResult.
       * The string representation consists of the string representation
       * of the binding and the string representation of
@@ -182,7 +182,7 @@ public class SearchResult extends Binding {
         return super.toString() + ":" + getAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -9158063327699723172L;

@@ -28,13 +28,13 @@ import javax.swing.text.*;
 import java.io.Serializable;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>AttributeSet</code> that can multiplex
  * across a set of <code>AttributeSet</code>s.
  *
  */
 class MuxingAttributeSet implements AttributeSet, Serializable {
-    /**
+    /** {@collect.stats}
      * Creates a <code>MuxingAttributeSet</code> with the passed in
      * attributes.
      */
@@ -42,7 +42,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <code>MuxingAttributeSet</code>. This is intended for
      * use by subclasses only, and it is also intended that subclasses will
      * set the constituent <code>AttributeSet</code>s before invoking any
@@ -51,7 +51,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
     protected MuxingAttributeSet() {
     }
 
-    /**
+    /** {@collect.stats}
      * Directly sets the <code>AttributeSet</code>s that comprise this
      * <code>MuxingAttributeSet</code>.
      */
@@ -59,7 +59,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         this.attrs = attrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AttributeSet</code>s multiplexing too. When the
      * <code>AttributeSet</code>s need to be referenced, this should be called.
      */
@@ -67,7 +67,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return attrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts <code>as</code> at <code>index</code>. This assumes
      * the value of <code>index</code> is between 0 and attrs.length,
      * inclusive.
@@ -93,7 +93,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         attrs = newAttrs;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the AttributeSet at <code>index</code>. This assumes
      * the value of <code>index</code> is greater than or equal to 0,
      * and less than attrs.length.
@@ -122,7 +122,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
 
     //  --- AttributeSet methods ----------------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the number of attributes that are defined.
      *
      * @return the number of attributes
@@ -137,7 +137,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether a given attribute is defined.
      * This will convert the key over to CSS if the
      * key is a StyleConstants key that has a CSS
@@ -157,7 +157,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether two attribute sets are equal.
      *
      * @param attr the attribute set to check against
@@ -169,7 +169,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
                 containsAttributes(attr));
     }
 
-    /**
+    /** {@collect.stats}
      * Copies a set of attributes.
      *
      * @return the copy
@@ -185,7 +185,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of an attribute.  If the requested
      * attribute is a StyleConstants attribute that has
      * a CSS mapping, the request will be converted.
@@ -206,7 +206,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the names of all attributes.
      *
      * @return the attribute names
@@ -216,7 +216,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return new MuxingAttributeNameEnumeration();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether a given attribute name/value is defined.
      *
      * @param name the attribute name
@@ -228,7 +228,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return value.equals(getAttribute(name));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the attribute set contains all of
      * the given attributes.
      *
@@ -248,7 +248,7 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns null, subclasses may wish to do something more
      * intelligent with this.
      */
@@ -256,14 +256,14 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>AttributeSet</code>s that make up the resulting
      * <code>AttributeSet</code>.
      */
     private AttributeSet[] attrs;
 
 
-    /**
+    /** {@collect.stats}
      * An Enumeration of the Attribute names in a MuxingAttributeSet.
      * This may return the same name more than once.
      */
@@ -303,9 +303,9 @@ class MuxingAttributeSet implements AttributeSet, Serializable {
         }
 
 
-        /** Index into attrs the current Enumeration came from. */
+        /** {@collect.stats} Index into attrs the current Enumeration came from. */
         private int attrIndex;
-        /** Enumeration from attrs. */
+        /** {@collect.stats} Enumeration from attrs. */
         private Enumeration currentEnum;
     }
 }

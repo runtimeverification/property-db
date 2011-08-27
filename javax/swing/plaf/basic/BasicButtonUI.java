@@ -40,7 +40,7 @@ import javax.swing.plaf.UIResource;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.text.View;
 
-/**
+/** {@collect.stats}
  * BasicButton implementation
  *
  * @author Jeff Dinkins
@@ -294,7 +294,7 @@ public class BasicButtonUI extends ButtonUI{
 
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v 1.4 this method should not be used or overriden.
      * Use the paintText method which takes the AbstractButton argument.
      */
@@ -306,14 +306,14 @@ public class BasicButtonUI extends ButtonUI{
 
         /* Draw the Text */
         if(model.isEnabled()) {
-            /*** paint the text normally */
+            /** {@collect.stats}* paint the text normally */
             g.setColor(b.getForeground());
             SwingUtilities2.drawStringUnderlineCharAt(c, g,text, mnemonicIndex,
                                           textRect.x + getTextShiftOffset(),
                                           textRect.y + fm.getAscent() + getTextShiftOffset());
         }
         else {
-            /*** paint the text disabled ***/
+            /** {@collect.stats}* paint the text disabled ***/
             g.setColor(b.getBackground().brighter());
             SwingUtilities2.drawStringUnderlineCharAt(c, g,text, mnemonicIndex,
                                           textRect.x, textRect.y + fm.getAscent());
@@ -323,7 +323,7 @@ public class BasicButtonUI extends ButtonUI{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Method which renders the text of the current button.
      * <p>
      * @param g Graphics context
@@ -385,7 +385,7 @@ public class BasicButtonUI extends ButtonUI{
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -406,7 +406,7 @@ public class BasicButtonUI extends ButtonUI{
                                      textRect.width, textRect.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -451,7 +451,7 @@ public class BasicButtonUI extends ButtonUI{
             b.getText() == null ? 0 : b.getIconTextGap());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ButtonListener for the passed in Button, or null if one
      * could not be found.
      */

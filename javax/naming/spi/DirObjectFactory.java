@@ -29,7 +29,7 @@ import java.util.Hashtable;
 import javax.naming.*;
 import javax.naming.directory.Attributes;
 
-/**
+/** {@collect.stats}
   * This interface represents a factory for creating an object given
   * an object and attributes about the object.
   *<p>
@@ -62,7 +62,7 @@ import javax.naming.directory.Attributes;
   */
 
 public interface DirObjectFactory extends ObjectFactory {
-/**
+/** {@collect.stats}
  * Creates an object using the location or reference information, and attributes
  * specified.
  * <p>

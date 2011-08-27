@@ -37,7 +37,7 @@ import java.io.Serializable;
 import sun.rmi.server.MarshalInputStream;
 import sun.rmi.server.MarshalOutputStream;
 
-/**
+/** {@collect.stats}
  * A <code>MarshalledObject</code> contains a byte stream with the serialized
  * representation of an object given to its constructor.  The <code>get</code>
  * method returns a new copy of the original object, as deserialized from
@@ -69,31 +69,31 @@ import sun.rmi.server.MarshalOutputStream;
  * @since   1.2
  */
 public final class MarshalledObject<T> implements Serializable {
-    /**
+    /** {@collect.stats}
      * @serial Bytes of serialized representation.  If <code>objBytes</code> is
      * <code>null</code> then the object marshalled was a <code>null</code>
      * reference.
      */
     private byte[] objBytes = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Bytes of location annotations, which are ignored by
      * <code>equals</code>.  If <code>locBytes</code> is null, there were no
      * non-<code>null</code> annotations during marshalling.
      */
     private byte[] locBytes = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Stored hash code of contained object.
      *
      * @see #hashCode
      */
     private int hash;
 
-    /** Indicate compatibility with 1.2 version of class. */
+    /** {@collect.stats} Indicate compatibility with 1.2 version of class. */
     private static final long serialVersionUID = 8988374069173025854L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>MarshalledObject</code> that contains the
      * serialized representation of the current state of the supplied object.
      * The object is serialized with the semantics used for marshaling
@@ -132,7 +132,7 @@ public final class MarshalledObject<T> implements Serializable {
         hash = h;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new copy of the contained marshalledobject.  The internal
      * representation is deserialized with the semantics used for
      * unmarshaling paramters for RMI calls.
@@ -161,7 +161,7 @@ public final class MarshalledObject<T> implements Serializable {
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a hash code for this <code>MarshalledObject</code>.
      *
      * @return a hash code
@@ -170,7 +170,7 @@ public final class MarshalledObject<T> implements Serializable {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this <code>MarshalledObject</code> to another object.
      * Returns true if and only if the argument refers to a
      * <code>MarshalledObject</code> that contains exactly the same
@@ -212,7 +212,7 @@ public final class MarshalledObject<T> implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class is used to marshal objects for
      * <code>MarshalledObject</code>.  It places the location annotations
      * to one side so that two <code>MarshalledObject</code>s can be
@@ -226,15 +226,15 @@ public final class MarshalledObject<T> implements Serializable {
     private static class MarshalledObjectOutputStream
         extends MarshalOutputStream
     {
-        /** The stream on which location objects are written. */
+        /** {@collect.stats} The stream on which location objects are written. */
         private ObjectOutputStream locOut;
 
-        /** <code>true</code> if non-<code>null</code> annotations are
+        /** {@collect.stats} <code>true</code> if non-<code>null</code> annotations are
          *  written.
          */
         private boolean hadAnnotations;
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>MarshalledObjectOutputStream</code> whose
          * non-location bytes will be written to <code>objOut</code> and whose
          * location annotations (if any) will be written to
@@ -249,7 +249,7 @@ public final class MarshalledObject<T> implements Serializable {
             hadAnnotations = false;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if any non-<code>null</code> location
          * annotations have been written to this stream.
          */
@@ -257,7 +257,7 @@ public final class MarshalledObject<T> implements Serializable {
             return hadAnnotations;
         }
 
-        /**
+        /** {@collect.stats}
          * Overrides MarshalOutputStream.writeLocation implementation to write
          * annotations to the location stream.
          */
@@ -273,7 +273,7 @@ public final class MarshalledObject<T> implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The counterpart to <code>MarshalledObjectOutputStream</code>.
      *
      * @see MarshalledObjectOutputStream
@@ -281,13 +281,13 @@ public final class MarshalledObject<T> implements Serializable {
     private static class MarshalledObjectInputStream
         extends MarshalInputStream
     {
-        /**
+        /** {@collect.stats}
          * The stream from which annotations will be read.  If this is
          * <code>null</code>, then all annotations were <code>null</code>.
          */
         private ObjectInputStream locIn;
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>MarshalledObjectInputStream</code> that
          * reads its objects from <code>objIn</code> and annotations
          * from <code>locIn</code>.  If <code>locIn</code> is
@@ -301,7 +301,7 @@ public final class MarshalledObject<T> implements Serializable {
             this.locIn = (locIn == null ? null : new ObjectInputStream(locIn));
         }
 
-        /**
+        /** {@collect.stats}
          * Overrides MarshalInputStream.readLocation to return locations from
          * the stream we were given, or <code>null</code> if we were given a
          * <code>null</code> location stream.

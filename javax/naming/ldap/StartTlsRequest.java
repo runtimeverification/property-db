@@ -34,7 +34,7 @@ import com.sun.naming.internal.VersionHelper;
 import java.util.ServiceLoader;
 import java.util.ServiceConfigurationError;
 
-/**
+/** {@collect.stats}
  * This class implements the LDAPv3 Extended Request for StartTLS as
  * defined in
  * <a href="http://www.ietf.org/rfc/rfc2830.txt">Lightweight Directory
@@ -80,7 +80,7 @@ public class StartTlsRequest implements ExtendedRequest {
 
     // Constant
 
-    /**
+    /** {@collect.stats}
      * The StartTLS extended request's assigned object identifier
      * is 1.3.6.1.4.1.1466.20037.
      */
@@ -89,7 +89,7 @@ public class StartTlsRequest implements ExtendedRequest {
 
     // Constructors
 
-    /**
+    /** {@collect.stats}
      * Constructs a StartTLS extended request.
      */
     public StartTlsRequest() {
@@ -98,7 +98,7 @@ public class StartTlsRequest implements ExtendedRequest {
 
     // ExtendedRequest methods
 
-    /**
+    /** {@collect.stats}
      * Retrieves the StartTLS request's object identifier string.
      *
      * @return The object identifier string, "1.3.6.1.4.1.1466.20037".
@@ -107,7 +107,7 @@ public class StartTlsRequest implements ExtendedRequest {
         return OID;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the StartTLS request's ASN.1 BER encoded value.
      * Since the request has no defined value, null is always
      * returned.
@@ -118,7 +118,7 @@ public class StartTlsRequest implements ExtendedRequest {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an extended response object that corresponds to the
      * LDAP StartTLS extended request.
      * <p>

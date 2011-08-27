@@ -40,7 +40,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-/**
+/** {@collect.stats}
  * A <code>DropTargetContext</code> is created
  * whenever the logical cursor associated
  * with a Drag and Drop operation coincides with the visible geometry of
@@ -58,7 +58,7 @@ public class DropTargetContext implements Serializable {
 
     private static final long serialVersionUID = -634158968993743371L;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>DropTargetContext</code>
      * given a specified <code>DropTarget</code>.
      * <P>
@@ -71,7 +71,7 @@ public class DropTargetContext implements Serializable {
         dropTarget = dt;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the <code>DropTarget</code> associated with this
      * <code>DropTargetContext</code>.
      * <P>
@@ -80,7 +80,7 @@ public class DropTargetContext implements Serializable {
 
     public DropTarget getDropTarget() { return dropTarget; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the <code>Component</code> associated with
      * this <code>DropTargetContext</code>.
      * <P>
@@ -89,7 +89,7 @@ public class DropTargetContext implements Serializable {
 
     public Component getComponent() { return dropTarget.getComponent(); }
 
-    /**
+    /** {@collect.stats}
      * Called when associated with the <code>DropTargetContextPeer</code>.
      * <P>
      * @param dtcp the <code>DropTargetContextPeer</code>
@@ -99,7 +99,7 @@ public class DropTargetContext implements Serializable {
         dropTargetContextPeer = dtcp;
     }
 
-    /**
+    /** {@collect.stats}
      * Called when disassociated with the <code>DropTargetContextPeer</code>.
      */
 
@@ -108,7 +108,7 @@ public class DropTargetContext implements Serializable {
         transferable          = null;
     }
 
-    /**
+    /** {@collect.stats}
      * This method sets the current actions acceptable to
      * this <code>DropTarget</code>.
      * <P>
@@ -127,7 +127,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns an <code>int</code> representing the
      * current actions this <code>DropTarget</code> will accept.
      * <P>
@@ -142,7 +142,7 @@ public class DropTargetContext implements Serializable {
         );
     }
 
-    /**
+    /** {@collect.stats}
      * This method signals that the drop is completed and
      * if it was successful or not.
      * <P>
@@ -158,7 +158,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * accept the Drag.
      * <P>
      * @param dragOperation the supported action(s)
@@ -171,7 +171,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * reject the Drag.
      */
 
@@ -182,7 +182,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * called to signal that the drop is acceptable
      * using the specified operation.
      * must be called during DropTargetListener.drop method invocation.
@@ -197,7 +197,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * called to signal that the drop is unacceptable.
      * must be called during DropTargetListener.drop method invocation.
      */
@@ -209,7 +209,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * get the available DataFlavors of the
      * <code>Transferable</code> operand of this operation.
      * <P>
@@ -223,7 +223,7 @@ public class DropTargetContext implements Serializable {
         return peer != null ? peer.getTransferDataFlavors() : new DataFlavor[0];
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a the currently available DataFlavors
      * of the <code>Transferable</code> operand
      * as a <code>java.util.List</code>.
@@ -236,7 +236,7 @@ public class DropTargetContext implements Serializable {
         return Arrays.asList(getCurrentDataFlavors());
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns a <code>boolean</code>
      * indicating if the given <code>DataFlavor</code> is
      * supported by this <code>DropTargetContext</code>.
@@ -250,7 +250,7 @@ public class DropTargetContext implements Serializable {
         return getCurrentDataFlavorsAsList().contains(df);
     }
 
-    /**
+    /** {@collect.stats}
      * get the Transferable (proxy) operand of this operation
      * <P>
      * @throws InvalidDnDOperationException if a drag is not outstanding/extant
@@ -277,7 +277,7 @@ public class DropTargetContext implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>DropTargetContextPeer</code>
      * <P>
      * @return the platform peer
@@ -287,7 +287,7 @@ public class DropTargetContext implements Serializable {
         return dropTargetContextPeer;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TransferableProxy to proxy for the specified
      * Transferable.
      *
@@ -300,10 +300,10 @@ public class DropTargetContext implements Serializable {
         return new TransferableProxy(t, local);
     }
 
-/****************************************************************************/
+/** {@collect.stats}**************************************************************************/
 
 
-    /**
+    /** {@collect.stats}
      * <code>TransferableProxy</code> is a helper inner class that implements
      * <code>Transferable</code> interface and serves as a proxy for another
      * <code>Transferable</code> object which represents data transfer for
@@ -316,7 +316,7 @@ public class DropTargetContext implements Serializable {
 
     protected class TransferableProxy implements Transferable {
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>TransferableProxy</code> given
          * a specified <code>Transferable</code> object representing
          * data transfer for a particular drag-n-drop operation and
@@ -333,7 +333,7 @@ public class DropTargetContext implements Serializable {
             isLocal      = local;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an array of DataFlavor objects indicating the flavors
          * the data can be provided in by the encapsulated transferable.
          * <p>
@@ -344,7 +344,7 @@ public class DropTargetContext implements Serializable {
             return proxy.getTransferDataFlavors();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not the specified data flavor is supported by
          * the encapsulated transferable.
          * @param flavor the requested flavor for the data
@@ -355,7 +355,7 @@ public class DropTargetContext implements Serializable {
             return proxy.isDataFlavorSupported(flavor);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an object which represents the data provided by
          * the encapsulated transferable for the requested data flavor.
          * <p>
@@ -386,12 +386,12 @@ public class DropTargetContext implements Serializable {
         // cannot be subclassed by client code because it does not have a
         // public constructor.
 
-        /**
+        /** {@collect.stats}
          * The encapsulated <code>Transferable</code> object.
          */
         protected Transferable  transferable;
 
-        /**
+        /** {@collect.stats}
          * A <code>boolean</code> indicating if the encapsulated
          * <code>Transferable</code> object represents the result
          * of local drag-n-drop operation (within the same JVM).
@@ -401,13 +401,13 @@ public class DropTargetContext implements Serializable {
         private sun.awt.datatransfer.TransferableProxy proxy;
     }
 
-/****************************************************************************/
+/** {@collect.stats}**************************************************************************/
 
     /*
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * The DropTarget associated with this DropTargetContext.
      *
      * @serial

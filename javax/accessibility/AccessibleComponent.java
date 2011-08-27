@@ -28,7 +28,7 @@ package javax.accessibility;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
+/** {@collect.stats}
  * The AccessibleComponent interface should be supported by any object
  * that is rendered on the screen.  This interface provides the standard
  * mechanism for an assistive technology to determine and set the
@@ -50,7 +50,7 @@ import java.awt.event.*;
  */
 public interface AccessibleComponent {
 
-    /**
+    /** {@collect.stats}
      * Gets the background color of this object.
      *
      * @return the background color, if supported, of the object;
@@ -59,7 +59,7 @@ public interface AccessibleComponent {
      */
     public Color getBackground();
 
-    /**
+    /** {@collect.stats}
      * Sets the background color of this object.
      *
      * @param c the new Color for the background
@@ -67,7 +67,7 @@ public interface AccessibleComponent {
      */
     public void setBackground(Color c);
 
-    /**
+    /** {@collect.stats}
      * Gets the foreground color of this object.
      *
      * @return the foreground color, if supported, of the object;
@@ -76,7 +76,7 @@ public interface AccessibleComponent {
      */
     public Color getForeground();
 
-    /**
+    /** {@collect.stats}
      * Sets the foreground color of this object.
      *
      * @param c the new Color for the foreground
@@ -84,7 +84,7 @@ public interface AccessibleComponent {
      */
     public void setForeground(Color c);
 
-    /**
+    /** {@collect.stats}
      * Gets the Cursor of this object.
      *
      * @return the Cursor, if supported, of the object; otherwise, null
@@ -92,7 +92,7 @@ public interface AccessibleComponent {
      */
     public Cursor getCursor();
 
-    /**
+    /** {@collect.stats}
      * Sets the Cursor of this object.
      *
      * @param cursor  the new Cursor for the object
@@ -100,7 +100,7 @@ public interface AccessibleComponent {
      */
     public void setCursor(Cursor cursor);
 
-    /**
+    /** {@collect.stats}
      * Gets the Font of this object.
      *
      * @return the Font,if supported, for the object; otherwise, null
@@ -108,7 +108,7 @@ public interface AccessibleComponent {
      */
     public Font getFont();
 
-    /**
+    /** {@collect.stats}
      * Sets the Font of this object.
      *
      * @param f the new Font for the object
@@ -116,7 +116,7 @@ public interface AccessibleComponent {
      */
     public void setFont(Font f);
 
-    /**
+    /** {@collect.stats}
      * Gets the FontMetrics of this object.
      *
      * @param f the Font
@@ -125,7 +125,7 @@ public interface AccessibleComponent {
      */
     public FontMetrics getFontMetrics(Font f);
 
-    /**
+    /** {@collect.stats}
      * Determines if the object is enabled.  Objects that are enabled
      * will also have the AccessibleState.ENABLED state set in their
      * AccessibleStateSets.
@@ -138,7 +138,7 @@ public interface AccessibleComponent {
      */
     public boolean isEnabled();
 
-    /**
+    /** {@collect.stats}
      * Sets the enabled state of the object.
      *
      * @param b if true, enables this object; otherwise, disables it
@@ -146,7 +146,7 @@ public interface AccessibleComponent {
      */
     public void setEnabled(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Determines if the object is visible.  Note: this means that the
      * object intends to be visible; however, it may not be
      * showing on the screen because one of the objects that this object
@@ -163,7 +163,7 @@ public interface AccessibleComponent {
      */
     public boolean isVisible();
 
-    /**
+    /** {@collect.stats}
      * Sets the visible state of the object.
      *
      * @param b if true, shows this object; otherwise, hides it
@@ -171,7 +171,7 @@ public interface AccessibleComponent {
      */
     public void setVisible(boolean b);
 
-    /**
+    /** {@collect.stats}
      * Determines if the object is showing.  This is determined by checking
      * the visibility of the object and its ancestors.
      * Note: this
@@ -182,7 +182,7 @@ public interface AccessibleComponent {
      */
     public boolean isShowing();
 
-    /**
+    /** {@collect.stats}
      * Checks whether the specified point is within this object's bounds,
      * where the point's x and y coordinates are defined to be relative to the
      * coordinate system of the object.
@@ -193,7 +193,7 @@ public interface AccessibleComponent {
      */
     public boolean contains(Point p);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the object on the screen.
      *
      * @return the location of the object on screen; null if this object
@@ -203,7 +203,7 @@ public interface AccessibleComponent {
      */
     public Point getLocationOnScreen();
 
-    /**
+    /** {@collect.stats}
      * Gets the location of the object relative to the parent in the form
      * of a point specifying the object's top-left corner in the screen's
      * coordinate space.
@@ -216,14 +216,14 @@ public interface AccessibleComponent {
      */
     public Point getLocation();
 
-    /**
+    /** {@collect.stats}
      * Sets the location of the object relative to the parent.
      * @param p the new position for the top-left corner
      * @see #getLocation
      */
     public void setLocation(Point p);
 
-    /**
+    /** {@collect.stats}
      * Gets the bounds of this object in the form of a Rectangle object.
      * The bounds specify this object's width, height, and location
      * relative to its parent.
@@ -234,7 +234,7 @@ public interface AccessibleComponent {
      */
     public Rectangle getBounds();
 
-    /**
+    /** {@collect.stats}
      * Sets the bounds of this object in the form of a Rectangle object.
      * The bounds specify this object's width, height, and location
      * relative to its parent.
@@ -244,7 +244,7 @@ public interface AccessibleComponent {
      */
     public void setBounds(Rectangle r);
 
-    /**
+    /** {@collect.stats}
      * Returns the size of this object in the form of a Dimension object.
      * The height field of the Dimension object contains this object's
      * height, and the width field of the Dimension object contains this
@@ -256,7 +256,7 @@ public interface AccessibleComponent {
      */
     public Dimension getSize();
 
-    /**
+    /** {@collect.stats}
      * Resizes this object so that it has width and height.
      *
      * @param d The dimension specifying the new size of the object.
@@ -264,7 +264,7 @@ public interface AccessibleComponent {
      */
     public void setSize(Dimension d);
 
-    /**
+    /** {@collect.stats}
      * Returns the Accessible child, if one exists, contained at the local
      * coordinate Point.
      *
@@ -274,7 +274,7 @@ public interface AccessibleComponent {
      */
     public Accessible getAccessibleAt(Point p);
 
-    /**
+    /** {@collect.stats}
      * Returns whether this object can accept focus or not.   Objects that
      * can accept focus will also have the AccessibleState.FOCUSABLE state
      * set in their AccessibleStateSets.
@@ -287,7 +287,7 @@ public interface AccessibleComponent {
      */
     public boolean isFocusTraversable();
 
-    /**
+    /** {@collect.stats}
      * Requests focus for this object.  If this object cannot accept focus,
      * nothing will happen.  Otherwise, the object will attempt to take
      * focus.
@@ -295,7 +295,7 @@ public interface AccessibleComponent {
      */
     public void requestFocus();
 
-    /**
+    /** {@collect.stats}
      * Adds the specified focus listener to receive focus events from this
      * component.
      *
@@ -304,7 +304,7 @@ public interface AccessibleComponent {
      */
     public void addFocusListener(FocusListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes the specified focus listener so it no longer receives focus
      * events from this component.
      *

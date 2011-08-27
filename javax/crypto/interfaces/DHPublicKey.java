@@ -27,7 +27,7 @@ package javax.crypto.interfaces;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * The interface to a Diffie-Hellman public key.
  *
  * @author Jan Luehe
@@ -38,13 +38,13 @@ import java.math.BigInteger;
  */
 public interface DHPublicKey extends DHKey, java.security.PublicKey {
 
-    /**
+    /** {@collect.stats}
      * The class fingerprint that is set to indicate serialization
      * compatibility since J2SE 1.4.
      */
     static final long serialVersionUID = -6628103563352519193L;
 
-    /**
+    /** {@collect.stats}
      * Returns the public value, <code>y</code>.
      *
      * @return the public value, <code>y</code>

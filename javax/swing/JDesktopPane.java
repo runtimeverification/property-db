@@ -43,7 +43,7 @@ import java.beans.PropertyVetoException;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
+/** {@collect.stats}
  * A container used to create a multiple-document interface or a virtual desktop.
  * You create <code>JInternalFrame</code> objects and add them to the
  * <code>JDesktopPane</code>. <code>JDesktopPane</code> extends
@@ -88,7 +88,7 @@ import java.util.TreeSet;
  */
 public class JDesktopPane extends JLayeredPane implements Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -98,7 +98,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
 
     private transient JInternalFrame selectedFrame = null;
 
-    /**
+    /** {@collect.stats}
       * Indicates that the entire contents of the item being dragged
       * should appear inside the desktop pane.
       *
@@ -107,7 +107,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
       */
     public static final int LIVE_DRAG_MODE = 0;
 
-    /**
+    /** {@collect.stats}
       * Indicates that an outline only of the item being dragged
       * should appear inside the desktop pane.
       *
@@ -122,7 +122,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
     private boolean componentOrderCheckingEnabled = true;
     private boolean componentOrderChanged = false;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JDesktopPane</code>.
      */
     public JDesktopPane() {
@@ -145,7 +145,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return the <code>DesktopPaneUI</code> object that
@@ -155,7 +155,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         return (DesktopPaneUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the DesktopPaneUI L&F object
@@ -170,7 +170,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the "dragging style" used by the desktop pane.
      * You may want to change to one mode or another for
      * performance or aesthetic reasons.
@@ -194,7 +194,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         dragModeSet = true;
      }
 
-    /**
+    /** {@collect.stats}
      * Gets the current "dragging style" used by the desktop pane.
      * @return either <code>Live_DRAG_MODE</code> or
      *   <code>OUTLINE_DRAG_MODE</code>
@@ -205,7 +205,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
          return dragMode;
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>DesktopManger</code> that handles
      * desktop-specific UI actions.
      */
@@ -213,7 +213,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         return desktopManager;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>DesktopManger</code> that will handle
      * desktop-specific UI actions.
      *
@@ -230,7 +230,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         firePropertyChange("desktopManager", oldValue, desktopManager);
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIManager</code> that the L&F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
@@ -242,7 +242,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "DesktopPaneUI"
@@ -253,7 +253,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all <code>JInternalFrames</code> currently displayed in the
      * desktop. Returns iconified frames as well as expanded frames.
      *
@@ -283,7 +283,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         return results;
     }
 
-    /** Returns the currently active <code>JInternalFrame</code>
+    /** {@collect.stats} Returns the currently active <code>JInternalFrame</code>
       * in this <code>JDesktopPane</code>, or <code>null</code>
       * if no <code>JInternalFrame</code> is currently active.
       *
@@ -296,7 +296,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
       return selectedFrame;
     }
 
-    /** Sets the currently active <code>JInternalFrame</code>
+    /** {@collect.stats} Sets the currently active <code>JInternalFrame</code>
      *  in this <code>JDesktopPane</code>. This method is used to bridge
      *  the package gap between JDesktopPane and the platform implementation
      *  code and should not be called directly. To visually select the frame
@@ -312,7 +312,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
       selectedFrame = f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all <code>JInternalFrames</code> currently displayed in the
      * specified layer of the desktop. Returns iconified frames as well
      * expanded frames.
@@ -440,7 +440,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the next <code>JInternalFrame</code> in this desktop pane.
      *
      * @param forward a boolean indicating which direction to select in;
@@ -479,7 +479,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         componentOrderCheckingEnabled = enable;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -493,7 +493,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -508,7 +508,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         super.remove(index);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -527,7 +527,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         super.removeAll();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -541,7 +541,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -567,7 +567,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JDesktopPane</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -588,7 +588,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>JDesktopPane</code>. For desktop panes, the
      * <code>AccessibleContext</code> takes the form of an
@@ -605,7 +605,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JDesktopPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to desktop pane user-interface
@@ -622,7 +622,7 @@ public class JDesktopPane extends JLayeredPane implements Accessible
      */
     protected class AccessibleJDesktopPane extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

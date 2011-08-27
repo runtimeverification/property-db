@@ -34,7 +34,7 @@ import java.util.Vector;
 
 import javax.sql.rowset.*;
 
-/**
+/** {@collect.stats}
  * A serialized mapping in the Java programming language of an SQL
  * structured type. Each attribute that is not already serialized
  * is mapped to a serialized form, and if an attribute is itself
@@ -53,7 +53,7 @@ import javax.sql.rowset.*;
 public class SerialStruct implements Struct, Serializable, Cloneable {
 
 
-    /**
+    /** {@collect.stats}
      * The SQL type name for the structured type that this
      * <code>SerialStruct</code> object represents.  This is the name
      * used in the SQL definition of the SQL structured type.
@@ -62,7 +62,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
      */
     private String SQLTypeName;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>Object</code> instances in  which each
      * element is an attribute of the SQL structured type that this
      * <code>SerialStruct</code> object represents.  The attributes are
@@ -73,7 +73,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
      */
     private Object attribs[];
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialStruct</code> object from the given
      * <code>Struct</code> object, using the given <code>java.util.Map</code>
      * object for custom mapping the SQL structured type or any of its
@@ -112,7 +112,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
         }
     }
 
-     /**
+     /** {@collect.stats}
       * Constructs a <code>SerialStruct</code> object from the
       * given <code>SQLData</code> object, using the given type
       * map to custom map it to a class in the Java programming
@@ -149,7 +149,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the SQL type name for this <code>SerialStruct</code>
      * object. This is the name used in the SQL definition of the
      * structured type
@@ -163,7 +163,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
         return SQLTypeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves an array of <code>Object</code> values containing the
      * attributes of the SQL structured type that this
      * <code>SerialStruct</code> object represents.
@@ -177,7 +177,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
         return attribs;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the attributes for the SQL structured type that
      * this <code>SerialStruct</code> represents as an array of
      * <code>Object</code> values, using the given type map for
@@ -201,7 +201,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Maps attributes of an SQL structured type that are not
      * serialized to a serialized form, using the given type map
      * for custom mapping when appropriate.  The following types
@@ -246,7 +246,7 @@ public class SerialStruct implements Struct, Serializable, Cloneable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this
      * <code>SerialStruct</code> object.
      */

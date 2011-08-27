@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * An <code>UnmarshalException</code> can be thrown while unmarshalling the
  * parameters or results of a remote method call if any of the following
  * conditions occur:
@@ -51,7 +51,7 @@ public class UnmarshalException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 594380845140740218L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>UnmarshalException</code> with the specified
      * detail message.
      *
@@ -62,7 +62,7 @@ public class UnmarshalException extends RemoteException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>UnmarshalException</code> with the specified
      * detail message and nested exception.
      *

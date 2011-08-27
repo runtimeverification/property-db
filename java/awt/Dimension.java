@@ -27,7 +27,7 @@ package java.awt;
 
 import java.awt.geom.Dimension2D;
 
-/**
+/** {@collect.stats}
  * The <code>Dimension</code> class encapsulates the width and
  * height of a component (in integer precision) in a single object.
  * The class is
@@ -52,7 +52,7 @@ import java.awt.geom.Dimension2D;
  */
 public class Dimension extends Dimension2D implements java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * The width dimension; negative values can be used.
      *
      * @serial
@@ -62,7 +62,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
      */
     public int width;
 
-    /**
+    /** {@collect.stats}
      * The height dimension; negative values can be used.
      *
      * @serial
@@ -77,7 +77,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
      */
      private static final long serialVersionUID = 4723952579491349524L;
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -90,7 +90,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>Dimension</code> with a width
      * of zero and a height of zero.
      */
@@ -98,7 +98,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         this(0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>Dimension</code> whose width
      * and height are the same as for the specified dimension.
      *
@@ -110,7 +110,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         this(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Dimension</code> and initializes
      * it to the specified width and specified height.
      *
@@ -122,7 +122,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         this.height = height;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -130,7 +130,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -138,7 +138,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         return height;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this <code>Dimension</code> object to
      * the specified width and height in double precision.
      * Note that if <code>width</code> or <code>height</code>
@@ -154,7 +154,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         this.height = (int) Math.ceil(height);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the size of this <code>Dimension</code> object.
      * This method is included for completeness, to parallel the
      * <code>getSize</code> method defined by <code>Component</code>.
@@ -169,7 +169,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         return new Dimension(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this <code>Dimension</code> object to the specified size.
      * This method is included for completeness, to parallel the
      * <code>setSize</code> method defined by <code>Component</code>.
@@ -182,7 +182,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         setSize(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this <code>Dimension</code> object
      * to the specified width and height.
      * This method is included for completeness, to parallel the
@@ -199,7 +199,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         this.height = height;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether two dimension objects have equal values.
      */
     public boolean equals(Object obj) {
@@ -210,7 +210,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code for this <code>Dimension</code>.
      *
      * @return    a hash code for this <code>Dimension</code>
@@ -220,7 +220,7 @@ public class Dimension extends Dimension2D implements java.io.Serializable {
         return sum * (sum + 1)/2 + width;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the values of this
      * <code>Dimension</code> object's <code>height</code> and
      * <code>width</code> fields. This method is intended to be used only

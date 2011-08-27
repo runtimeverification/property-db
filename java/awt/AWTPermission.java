@@ -27,7 +27,7 @@ package java.awt;
 
 import java.security.BasicPermission;
 
-/**
+/** {@collect.stats}
  * This class is for AWT permissions.
  * An <code>AWTPermission</code> contains a target name but
  * no actions list; you either have the named permission
@@ -190,10 +190,10 @@ import java.security.BasicPermission;
 
 public final class AWTPermission extends BasicPermission {
 
-    /** use serialVersionUID from the Java 2 platform for interoperability */
+    /** {@collect.stats} use serialVersionUID from the Java 2 platform for interoperability */
     private static final long serialVersionUID = 8890392402588814465L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>AWTPermission</code> with the specified name.
      * The name is the symbolic name of the <code>AWTPermission</code>,
      * such as "topLevelWindow", "systemClipboard", etc. An asterisk
@@ -210,7 +210,7 @@ public final class AWTPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>AWTPermission</code> object with the specified name.
      * The name is the symbolic name of the <code>AWTPermission</code>, and the
      * actions string is currently unused and should be <code>null</code>.

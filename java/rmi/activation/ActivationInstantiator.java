@@ -29,7 +29,7 @@ import java.rmi.MarshalledObject;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/**
+/** {@collect.stats}
  * An <code>ActivationInstantiator</code> is responsible for creating
  * instances of "activatable" objects. A concrete subclass of
  * <code>ActivationGroup</code> implements the <code>newInstance</code>
@@ -41,7 +41,7 @@ import java.rmi.RemoteException;
  */
 public interface ActivationInstantiator extends Remote {
 
-   /**
+   /** {@collect.stats}
     * The activator calls an instantiator's <code>newInstance</code>
     * method in order to recreate in that group an object with the
     * activation identifier, <code>id</code>, and descriptor,

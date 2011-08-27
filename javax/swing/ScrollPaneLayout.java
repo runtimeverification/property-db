@@ -37,7 +37,7 @@ import java.awt.Insets;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * The layout manager used by <code>JScrollPane</code>.
  * <code>JScrollPaneLayout</code> is
  * responsible for nine components: a viewport, two scrollbars,
@@ -61,7 +61,7 @@ public class ScrollPaneLayout
     implements LayoutManager, ScrollPaneConstants, Serializable
 {
 
-    /**
+    /** {@collect.stats}
      * The scrollpane's viewport child.
      * Default is an empty <code>JViewport</code>.
      * @see JScrollPane#setViewport
@@ -69,7 +69,7 @@ public class ScrollPaneLayout
     protected JViewport viewport;
 
 
-    /**
+    /** {@collect.stats}
      * The scrollpane's vertical scrollbar child.
      * Default is a <code>JScrollBar</code>.
      * @see JScrollPane#setVerticalScrollBar
@@ -77,7 +77,7 @@ public class ScrollPaneLayout
     protected JScrollBar vsb;
 
 
-    /**
+    /** {@collect.stats}
      * The scrollpane's horizontal scrollbar child.
      * Default is a <code>JScrollBar</code>.
      * @see JScrollPane#setHorizontalScrollBar
@@ -85,21 +85,21 @@ public class ScrollPaneLayout
     protected JScrollBar hsb;
 
 
-    /**
+    /** {@collect.stats}
      * The row header child.  Default is <code>null</code>.
      * @see JScrollPane#setRowHeader
      */
     protected JViewport rowHead;
 
 
-    /**
+    /** {@collect.stats}
      * The column header child.  Default is <code>null</code>.
      * @see JScrollPane#setColumnHeader
      */
     protected JViewport colHead;
 
 
-    /**
+    /** {@collect.stats}
      * The component to display in the lower left corner.
      * Default is <code>null</code>.
      * @see JScrollPane#setCorner
@@ -107,7 +107,7 @@ public class ScrollPaneLayout
     protected Component lowerLeft;
 
 
-    /**
+    /** {@collect.stats}
      * The component to display in the lower right corner.
      * Default is <code>null</code>.
      * @see JScrollPane#setCorner
@@ -115,7 +115,7 @@ public class ScrollPaneLayout
     protected Component lowerRight;
 
 
-    /**
+    /** {@collect.stats}
      * The component to display in the upper left corner.
      * Default is <code>null</code>.
      * @see JScrollPane#setCorner
@@ -123,7 +123,7 @@ public class ScrollPaneLayout
     protected Component upperLeft;
 
 
-    /**
+    /** {@collect.stats}
      * The component to display in the upper right corner.
      * Default is <code>null</code>.
      * @see JScrollPane#setCorner
@@ -131,7 +131,7 @@ public class ScrollPaneLayout
     protected Component upperRight;
 
 
-    /**
+    /** {@collect.stats}
      * The display policy for the vertical scrollbar.
      * The default is <code>ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED</code>.
      * <p>
@@ -142,7 +142,7 @@ public class ScrollPaneLayout
     protected int vsbPolicy = VERTICAL_SCROLLBAR_AS_NEEDED;
 
 
-    /**
+    /** {@collect.stats}
      * The display policy for the horizontal scrollbar.
      * The default is <code>ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED</code>.
      * <p>
@@ -153,7 +153,7 @@ public class ScrollPaneLayout
     protected int hsbPolicy = HORIZONTAL_SCROLLBAR_AS_NEEDED;
 
 
-    /**
+    /** {@collect.stats}
      * This method is invoked after the ScrollPaneLayout is set as the
      * LayoutManager of a <code>JScrollPane</code>.
      * It initializes all of the internal fields that
@@ -183,7 +183,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes an existing component.  When a new component, such as
      * the left corner, or vertical scrollbar, is added, the old one,
      * if it exists, must be removed.
@@ -205,7 +205,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout. The layout is
      * identified using one of:
      * <ul>
@@ -259,7 +259,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the layout.
      *
      * @param c the component to remove
@@ -296,7 +296,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the vertical scrollbar-display policy.
      *
      * @return an integer giving the display policy
@@ -307,7 +307,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the vertical scrollbar-display policy. The options
      * are:
      * <ul>
@@ -336,7 +336,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal scrollbar-display policy.
      *
      * @return an integer giving the display policy
@@ -346,7 +346,7 @@ public class ScrollPaneLayout
         return hsbPolicy;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the horizontal scrollbar-display policy.
      * The options are:<ul>
      * <li>ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
@@ -374,7 +374,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JViewport</code> object that displays the
      * scrollable contents.
      * @return the <code>JViewport</code> object that displays the scrollable contents
@@ -385,7 +385,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JScrollBar</code> object that handles horizontal scrolling.
      * @return the <code>JScrollBar</code> object that handles horizontal scrolling
      * @see JScrollPane#getHorizontalScrollBar
@@ -394,7 +394,7 @@ public class ScrollPaneLayout
         return hsb;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JScrollBar</code> object that handles vertical scrolling.
      * @return the <code>JScrollBar</code> object that handles vertical scrolling
      * @see JScrollPane#getVerticalScrollBar
@@ -404,7 +404,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JViewport</code> object that is the row header.
      * @return the <code>JViewport</code> object that is the row header
      * @see JScrollPane#getRowHeader
@@ -414,7 +414,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JViewport</code> object that is the column header.
      * @return the <code>JViewport</code> object that is the column header
      * @see JScrollPane#getColumnHeader
@@ -424,7 +424,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Component</code> at the specified corner.
      * @param key the <code>String</code> specifying the corner
      * @return the <code>Component</code> at the specified corner, as defined in
@@ -451,7 +451,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * The preferred size of a <code>ScrollPane</code> is the size of the insets,
      * plus the preferred size of the viewport, plus the preferred size of
      * the visible headers, plus the preferred size of the scrollbars
@@ -577,7 +577,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * The minimum size of a <code>ScrollPane</code> is the size of the insets
      * plus minimum size of the viewport, plus the scrollpane's
      * viewportBorder insets, plus the minimum size
@@ -655,7 +655,7 @@ public class ScrollPaneLayout
     }
 
 
-    /**
+    /** {@collect.stats}
      * Lays out the scrollpane. The positioning of components depends on
      * the following constraints:
      * <ul>
@@ -1042,7 +1042,7 @@ public class ScrollPaneLayout
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the <code>Rectangle</code> <code>available</code> based on if
      * the vertical scrollbar is needed (<code>wantsVSB</code>).
      * The location of the vsb is updated in <code>vsbR</code>, and
@@ -1073,7 +1073,7 @@ public class ScrollPaneLayout
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the <code>Rectangle</code> <code>available</code> based on if
      * the horizontal scrollbar is needed (<code>wantsHSB</code>).
      * The location of the hsb is updated in <code>hsbR</code>, and
@@ -1099,7 +1099,7 @@ public class ScrollPaneLayout
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds of the border around the specified scroll pane's
      * viewport.
      *
@@ -1112,7 +1112,7 @@ public class ScrollPaneLayout
         return scrollpane.getViewportBorderBounds();
     }
 
-    /**
+    /** {@collect.stats}
      * The UI resource version of <code>ScrollPaneLayout</code>.
      */
     public static class UIResource extends ScrollPaneLayout implements javax.swing.plaf.UIResource {}

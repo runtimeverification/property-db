@@ -43,7 +43,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A <code>ChoiceFormat</code> allows you to attach a format to a range of numbers.
  * It is generally used in a <code>MessageFormat</code> for handling plurals.
  * The choice is specified with an ascending list of doubles, where each item
@@ -169,7 +169,7 @@ public class ChoiceFormat extends NumberFormat {
     // Proclaim serial compatibility with 1.1 FCS
     private static final long serialVersionUID = 1795184449645032964L;
 
-    /**
+    /** {@collect.stats}
      * Sets the pattern.
      * @param newPattern See the class description.
      */
@@ -253,7 +253,7 @@ public class ChoiceFormat extends NumberFormat {
         System.arraycopy(newChoiceFormats, 0, choiceFormats, 0, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the pattern.
      */
     public String toPattern() {
@@ -303,7 +303,7 @@ public class ChoiceFormat extends NumberFormat {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs with limits and corresponding formats based on the pattern.
      * @see #applyPattern
      */
@@ -311,7 +311,7 @@ public class ChoiceFormat extends NumberFormat {
         applyPattern(newPattern);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs with the limits and the corresponding formats.
      * @see #setChoices
      */
@@ -319,7 +319,7 @@ public class ChoiceFormat extends NumberFormat {
         setChoices(limits, formats);
     }
 
-    /**
+    /** {@collect.stats}
      * Set the choices to be used in formatting.
      * @param limits contains the top value that you want
      * parsed with that format,and should be in ascending sorted order. When
@@ -342,7 +342,7 @@ public class ChoiceFormat extends NumberFormat {
         choiceFormats = formats;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the limits passed in the constructor.
      * @return the limits.
      */
@@ -350,7 +350,7 @@ public class ChoiceFormat extends NumberFormat {
         return choiceLimits;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the formats passed in the constructor.
      * @return the formats.
      */
@@ -360,7 +360,7 @@ public class ChoiceFormat extends NumberFormat {
 
     // Overrides
 
-    /**
+    /** {@collect.stats}
      * Specialization of format. This method really calls
      * <code>format(double, StringBuffer, FieldPosition)</code>
      * thus the range of longs that are supported is only equal to
@@ -372,7 +372,7 @@ public class ChoiceFormat extends NumberFormat {
         return format((double)number, toAppendTo, status);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns pattern with formatted double.
      * @param number number to be formatted & substituted.
      * @param toAppendTo where text is appended.
@@ -394,7 +394,7 @@ public class ChoiceFormat extends NumberFormat {
         return toAppendTo.append(choiceFormats[i]);
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a Number from the input text.
      * @param text the source text.
      * @param status an input-output parameter.  On input, the
@@ -431,7 +431,7 @@ public class ChoiceFormat extends NumberFormat {
         return new Double(bestNumber);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the least double greater than d.
      * If NaN, returns same value.
      * <p>Used to make half-open intervals.
@@ -441,7 +441,7 @@ public class ChoiceFormat extends NumberFormat {
         return nextDouble(d,true);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the greatest double less than d.
      * If NaN, returns same value.
      * @see #nextDouble
@@ -450,7 +450,7 @@ public class ChoiceFormat extends NumberFormat {
         return nextDouble(d,false);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides Cloneable
      */
     public Object clone()
@@ -462,7 +462,7 @@ public class ChoiceFormat extends NumberFormat {
         return other;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a hash code for the message format object.
      */
     public int hashCode() {
@@ -474,7 +474,7 @@ public class ChoiceFormat extends NumberFormat {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Equality comparision between two
      */
     public boolean equals(Object obj) {
@@ -488,7 +488,7 @@ public class ChoiceFormat extends NumberFormat {
              && Arrays.equals(choiceFormats, other.choiceFormats));
     }
 
-    /**
+    /** {@collect.stats}
      * After reading an object from the input stream, do a simple verification
      * to maintain class invariants.
      * @throws InvalidObjectException if the objects read from the stream is invalid.
@@ -503,7 +503,7 @@ public class ChoiceFormat extends NumberFormat {
 
     // ===============privates===========================
 
-    /**
+    /** {@collect.stats}
      * A list of lower bounds for the choices.  The formatter will return
      * <code>choiceFormats[i]</code> if the number being formatted is greater than or equal to
      * <code>choiceLimits[i]</code> and less than <code>choiceLimits[i+1]</code>.
@@ -511,7 +511,7 @@ public class ChoiceFormat extends NumberFormat {
      */
     private double[] choiceLimits;
 
-    /**
+    /** {@collect.stats}
      * A list of choice strings.  The formatter will return
      * <code>choiceFormats[i]</code> if the number being formatted is greater than or equal to
      * <code>choiceLimits[i]</code> and less than <code>choiceLimits[i+1]</code>.
@@ -550,7 +550,7 @@ public class ChoiceFormat extends NumberFormat {
     static final long EXPONENT            = 0x7FF0000000000000L;
     static final long POSITIVEINFINITY    = 0x7FF0000000000000L;
 
-    /**
+    /** {@collect.stats}
      * Finds the least double greater than d (if positive == true),
      * or the greatest double less than d (if positive == false).
      * If NaN, returns same value.

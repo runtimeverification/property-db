@@ -25,7 +25,7 @@
 
 package javax.print.event;
 
-/**
+/** {@collect.stats}
   * Implementations of this listener interface should be attached to a
   * {@link javax.print.DocPrintJob DocPrintJob} to monitor the status of
   * the printer job.
@@ -36,7 +36,7 @@ package javax.print.event;
 
 public interface PrintJobListener {
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that data has been successfully
      * transferred to the print service, and the client may free
      * local resources allocated for that data.  The client should
@@ -49,14 +49,14 @@ public interface PrintJobListener {
     public void printDataTransferCompleted(PrintJobEvent pje) ;
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job completed successfully.
      * @param pje the job generating this event
      */
     public void printJobCompleted(PrintJobEvent pje) ;
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job failed to complete
      * successfully and will have to be resubmitted.
      * @param pje the job generating this event
@@ -64,7 +64,7 @@ public interface PrintJobListener {
     public void printJobFailed(PrintJobEvent pje) ;
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job was canceled
      * by a user or a program.
      * @param pje the job generating this event
@@ -72,7 +72,7 @@ public interface PrintJobListener {
     public void printJobCanceled(PrintJobEvent pje) ;
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that no more events will be delivered.
      * One cause of this event being generated is if the job
      * has successfully completed, but the printing system
@@ -84,7 +84,7 @@ public interface PrintJobListener {
     public void printJobNoMoreEvents(PrintJobEvent pje) ;
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that an error has occurred that the
      * user might be able to fix.  One example of an error that can
      * generate this event is when the printer runs out of paper.

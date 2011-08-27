@@ -27,7 +27,7 @@ package javax.print;
 
 import javax.print.attribute.PrintRequestAttributeSet;
 
-/**
+/** {@collect.stats}
  *
  * Obtained from a MultiDocPrintService, a MultiDocPrintJob can print a
  * specified collection of documents as a single print job with a set of
@@ -37,7 +37,7 @@ import javax.print.attribute.PrintRequestAttributeSet;
 
 public interface MultiDocPrintJob extends DocPrintJob {
 
-   /**
+   /** {@collect.stats}
      * Print a MultiDoc with the specified job attributes.
      * This method should only be called once for a given print job.
      * Calling it again will not result in a new job being spooled to

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * A tagging interface that all event listener interfaces must extend.
  * @since JDK1.1
  */

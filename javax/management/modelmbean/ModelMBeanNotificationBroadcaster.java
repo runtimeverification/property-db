@@ -39,7 +39,7 @@ import javax.management.NotificationBroadcaster;
 import javax.management.NotificationListener;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * This interface must be implemented by the ModelMBeans. An implementation of this interface
  * must be shipped with every JMX Agent.
  * <P>
@@ -68,7 +68,7 @@ import javax.management.RuntimeOperationsException;
 public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcaster
 {
 
-        /**
+        /** {@collect.stats}
          * Sends a Notification which is passed in to the registered
          * Notification listeners on the ModelMBean as a
          * jmx.modelmbean.generic notification.
@@ -85,7 +85,7 @@ public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcast
         public void sendNotification(Notification ntfyObj)
         throws MBeanException, RuntimeOperationsException;
 
-        /**
+        /** {@collect.stats}
          * Sends a Notification which contains the text string that is passed in
          * to the registered Notification listeners on the ModelMBean.
          *
@@ -105,7 +105,7 @@ public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcast
         public void sendNotification(String ntfyText)
         throws MBeanException, RuntimeOperationsException;
 
-        /**
+        /** {@collect.stats}
          * Sends an attributeChangeNotification which is passed in to
          * the registered attributeChangeNotification listeners on the
          * ModelMBean.
@@ -121,7 +121,7 @@ public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcast
         throws MBeanException, RuntimeOperationsException;
 
 
-        /**
+        /** {@collect.stats}
          * Sends an attributeChangeNotification which contains the old value and new value for the
          * attribute to the registered AttributeChangeNotification listeners on the ModelMBean.
          * <P>
@@ -147,7 +147,7 @@ public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcast
         throws MBeanException, RuntimeOperationsException;
 
 
-        /**
+        /** {@collect.stats}
          * Registers an object which implements the NotificationListener interface as a listener.  This
          * object's 'handleNotification()' method will be invoked when any attributeChangeNotification is issued through
          * or by the ModelMBean.  This does not include other Notifications.  They must be registered
@@ -170,7 +170,7 @@ public interface ModelMBeanNotificationBroadcaster extends NotificationBroadcast
         throws MBeanException, RuntimeOperationsException, IllegalArgumentException;
 
 
-        /**
+        /** {@collect.stats}
          * Removes a listener for attributeChangeNotifications from the RequiredModelMBean.
          *
          * @param listener The listener name which was handling notifications emitted by the registered MBean.

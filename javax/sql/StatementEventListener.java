@@ -28,7 +28,7 @@
  */
 package javax.sql;
 
-/**
+/** {@collect.stats}
  * An object that registers to be notified of events that occur on PreparedStatements
  * that are in the Statement pool.
  * <p>
@@ -56,7 +56,7 @@ package javax.sql;
  * @since 1.6
  */
 public interface StatementEventListener  extends java.util.EventListener{
-  /**
+  /** {@collect.stats}
    * The driver calls this method on all <code>StatementEventListener</code>s registered on the connection when it detects that a
    * <code>PreparedStatement</code> is closed.
    *
@@ -66,7 +66,7 @@ public interface StatementEventListener  extends java.util.EventListener{
    */
   void statementClosed(StatementEvent event);
 
-        /**
+        /** {@collect.stats}
          * The driver calls this method on all <code>StatementEventListener</code>s
          * registered on the connection when it detects that a
          * <code>PreparedStatement</code> is invalid. The driver calls this method

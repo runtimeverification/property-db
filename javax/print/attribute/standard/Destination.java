@@ -31,7 +31,7 @@ import javax.print.attribute.URISyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Destination is a printing attribute class, a URI, that is used to
  * indicate an alternate destination for the spooled printer formatted
  * data. Many PrintServices will not support the notion of a destination
@@ -59,7 +59,7 @@ public final class Destination extends URISyntax
 
     private static final long serialVersionUID = 6776739171700415321L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new destination attribute with the specified URI.
      *
      * @param  uri  URI.
@@ -71,7 +71,7 @@ public final class Destination extends URISyntax
         super (uri);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this destination attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -95,7 +95,7 @@ public final class Destination extends URISyntax
                 object instanceof Destination);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -108,7 +108,7 @@ public final class Destination extends URISyntax
         return Destination.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

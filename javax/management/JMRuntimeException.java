@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Runtime exceptions emitted by JMX implementations.
  *
  * @since 1.5
@@ -36,14 +36,14 @@ public class JMRuntimeException extends RuntimeException   {
     /* Serial version */
     private static final long serialVersionUID = 6573344628407841861L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public JMRuntimeException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.
@@ -52,7 +52,7 @@ public class JMRuntimeException extends RuntimeException   {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with a nested exception.  This constructor is
      * package-private because it arrived too late for the JMX 1.2
      * specification.  A later version may make it public.

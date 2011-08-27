@@ -37,7 +37,7 @@ import javax.management.MBeanOperationInfo;
 import javax.management.MBeanParameterInfo;
 
 
-/**
+/** {@collect.stats}
  * Describes an operation of an Open MBean.
  *
  *
@@ -50,7 +50,7 @@ public class OpenMBeanOperationInfoSupport
     /* Serial version */
     static final long serialVersionUID = 4996859732565369366L;
 
-    /**
+    /** {@collect.stats}
      * @serial The <i>open type</i> of the values returned by the operation
      *         described by this {@link OpenMBeanOperationInfo} instance
      *
@@ -64,7 +64,7 @@ public class OpenMBeanOperationInfoSupport
     private transient String  myToString = null;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanOperationInfoSupport}
      * instance, which describes the operation of a class of open
      * MBeans, with the specified {@code name}, {@code description},
@@ -105,7 +105,7 @@ public class OpenMBeanOperationInfoSupport
              (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanOperationInfoSupport}
      * instance, which describes the operation of a class of open
      * MBeans, with the specified {@code name}, {@code description},
@@ -221,7 +221,7 @@ public class OpenMBeanOperationInfoSupport
     // OpenType<?> returnOpenType and method.getReturnType().
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>open type</i> of the values returned by the
      * operation described by this {@code OpenMBeanOperationInfo}
      * instance.
@@ -236,7 +236,7 @@ public class OpenMBeanOperationInfoSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * <p>Compares the specified {@code obj} parameter with this
      * {@code OpenMBeanOperationInfoSupport} instance for
      * equality.</p>
@@ -310,7 +310,7 @@ public class OpenMBeanOperationInfoSupport
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this {@code
      * OpenMBeanOperationInfoSupport} instance.</p>
      *
@@ -360,7 +360,7 @@ public class OpenMBeanOperationInfoSupport
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of this {@code
      * OpenMBeanOperationInfoSupport} instance.</p>
      *
@@ -406,7 +406,7 @@ public class OpenMBeanOperationInfoSupport
         return myToString;
     }
 
-    /**
+    /** {@collect.stats}
      * An object serialized in a version of the API before Descriptors were
      * added to this class will have an empty or null Descriptor.
      * For consistency with our

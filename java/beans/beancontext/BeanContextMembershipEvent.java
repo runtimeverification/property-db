@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
-/**
+/** {@collect.stats}
  * A <code>BeanContextMembershipEvent</code> encapsulates
  * the list of children added to, or removed from,
  * the membership of a particular <code>BeanContext</code>.
@@ -56,7 +56,7 @@ import java.util.Iterator;
  */
 public class BeanContextMembershipEvent extends BeanContextEvent {
 
-    /**
+    /** {@collect.stats}
      * Contruct a BeanContextMembershipEvent
      *
      * @param bc        The BeanContext source
@@ -73,7 +73,7 @@ public class BeanContextMembershipEvent extends BeanContextEvent {
         children = changes;
     }
 
-    /**
+    /** {@collect.stats}
      * Contruct a BeanContextMembershipEvent
      *
      * @param bc        The BeanContext source
@@ -91,13 +91,13 @@ public class BeanContextMembershipEvent extends BeanContextEvent {
         children = Arrays.asList(changes);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the number of children affected by the notification.
      * @return the number of children affected by the notification
      */
     public int size() { return children.size(); }
 
-    /**
+    /** {@collect.stats}
      * Is the child specified affected by the event?
      * @return <code>true</code> if affected, <code>false</code>
      * if not
@@ -106,13 +106,13 @@ public class BeanContextMembershipEvent extends BeanContextEvent {
         return children.contains(child);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the array of children affected by this event.
      * @return the array of children affected
      */
     public Object[] toArray() { return children.toArray(); }
 
-    /**
+    /** {@collect.stats}
      * Gets the array of children affected by this event.
      * @return the array of children effected
      */
@@ -122,7 +122,7 @@ public class BeanContextMembershipEvent extends BeanContextEvent {
      * fields
      */
 
-   /**
+   /** {@collect.stats}
     * The list of children affected by this
     * event notification.
     */

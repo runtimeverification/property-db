@@ -34,7 +34,7 @@ import java.security.spec.*;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class represents a factory for secret keys.
  *
  * <P> Key factories are used to convert <I>keys</I> (opaque
@@ -85,7 +85,7 @@ public class SecretKeyFactory {
     // null once provider is selected
     private Iterator serviceIterator;
 
-    /**
+    /** {@collect.stats}
      * Creates a SecretKeyFactory object.
      *
      * @param keyFacSpi the delegate
@@ -110,7 +110,7 @@ public class SecretKeyFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SecretKeyFactory</code> object that converts
      * secret keys of the specified algorithm.
      *
@@ -146,7 +146,7 @@ public class SecretKeyFactory {
         return new SecretKeyFactory(algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SecretKeyFactory</code> object that converts
      * secret keys of the specified algorithm.
      *
@@ -193,7 +193,7 @@ public class SecretKeyFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SecretKeyFactory</code> object that converts
      * secret keys of the specified algorithm.
      *
@@ -233,7 +233,7 @@ public class SecretKeyFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>SecretKeyFactory</code> object.
      *
      * @return the provider of this <code>SecretKeyFactory</code> object
@@ -246,7 +246,7 @@ public class SecretKeyFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>SecretKeyFactory</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -260,7 +260,7 @@ public class SecretKeyFactory {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Update the active spi of this class and return the next
      * implementation for failover. If no more implemenations are
      * available, this method returns null. However, the active spi of
@@ -299,7 +299,7 @@ public class SecretKeyFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>SecretKey</code> object from the provided key
      * specification (key material).
      *
@@ -334,7 +334,7 @@ public class SecretKeyFactory {
                 ("Could not generate secret key", failure);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specification (key material) of the given key object
      * in the requested format.
      *
@@ -378,7 +378,7 @@ public class SecretKeyFactory {
                 ("Could not get key spec", failure);
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a key object, whose provider may be unknown or potentially
      * untrusted, into a corresponding key object of this secret-key factory.
      *

@@ -27,7 +27,7 @@ package javax.swing.text;
 import java.awt.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * A <code>LabelView</code> is a styled chunk of text
  * that represents a view mapped over an element in the
  * text model.  It caches the character level attributes
@@ -37,7 +37,7 @@ import javax.swing.event.*;
  */
 public class LabelView extends GlyphView implements TabableView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new view wrapped on an element.
      *
      * @param elem the element
@@ -46,7 +46,7 @@ public class LabelView extends GlyphView implements TabableView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Synchronize the view's cached values with the model.
      * This causes the font, metrics, color, etc to be
      * re-cached if the cache has been invalidated.
@@ -57,7 +57,7 @@ public class LabelView extends GlyphView implements TabableView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the view is underlined.
      * Note that this setter is protected and is really
      * only meant if you need to update some additional
@@ -71,7 +71,7 @@ public class LabelView extends GlyphView implements TabableView {
         underline = u;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the view has a strike/line
      * through it.
      * Note that this setter is protected and is really
@@ -87,7 +87,7 @@ public class LabelView extends GlyphView implements TabableView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the view represents a
      * superscript.
      * Note that this setter is protected and is really
@@ -102,7 +102,7 @@ public class LabelView extends GlyphView implements TabableView {
         superscript = s;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the view represents a
      * subscript.
      * Note that this setter is protected and is really
@@ -117,7 +117,7 @@ public class LabelView extends GlyphView implements TabableView {
         subscript = s;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color for the view. This method is typically
      * invoked as part of configuring this <code>View</code>. If you need
      * to customize the background color you should override
@@ -133,7 +133,7 @@ public class LabelView extends GlyphView implements TabableView {
         this.bg = bg;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the cached properties from the attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -159,7 +159,7 @@ public class LabelView extends GlyphView implements TabableView {
         }
      }
 
-    /**
+    /** {@collect.stats}
      * Fetches the <code>FontMetrics</code> used for this view.
      * @deprecated FontMetrics are not used for glyph rendering
      *  when running in the JDK.
@@ -172,7 +172,7 @@ public class LabelView extends GlyphView implements TabableView {
             Toolkit.getDefaultToolkit().getFontMetrics(font);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the background color to use to render the glyphs.
      * This is implemented to return a cached background color,
      * which defaults to <code>null</code>.
@@ -185,7 +185,7 @@ public class LabelView extends GlyphView implements TabableView {
         return bg;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the foreground color to use to render the glyphs.
      * This is implemented to return a cached foreground color,
      * which defaults to <code>null</code>.
@@ -198,7 +198,7 @@ public class LabelView extends GlyphView implements TabableView {
         return fg;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the font that the glyphs should be based upon.
      * This is implemented to return a cached font.
      *
@@ -209,7 +209,7 @@ public class LabelView extends GlyphView implements TabableView {
         return font;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the glyphs should be underlined.  If true,
      * an underline should be drawn through the baseline.  This
      * is implemented to return the cached underline property.
@@ -229,7 +229,7 @@ public class LabelView extends GlyphView implements TabableView {
         return underline;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the glyphs should have a strikethrough
      * line.  If true, a line should be drawn through the center
      * of the glyphs.  This is implemented to return the
@@ -250,7 +250,7 @@ public class LabelView extends GlyphView implements TabableView {
         return strike;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the glyphs should be rendered as superscript.
      * @return the value of the cached subscript property
      *
@@ -269,7 +269,7 @@ public class LabelView extends GlyphView implements TabableView {
         return subscript;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the glyphs should be rendered as subscript.
      *
      * <p>When you request this property, <code>LabelView</code>
@@ -289,7 +289,7 @@ public class LabelView extends GlyphView implements TabableView {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *

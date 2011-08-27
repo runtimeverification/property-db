@@ -39,7 +39,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A component that lets the user switch between a group of components by
  * clicking on a tab with a given title and/or icon.
  * For examples and information on using tabbed panes see
@@ -109,13 +109,13 @@ import java.io.IOException;
 public class JTabbedPane extends JComponent
        implements Serializable, Accessible, SwingConstants {
 
-   /**
+   /** {@collect.stats}
     * The tab layout policy for wrapping tabs in multiple runs when all
     * tabs will not fit within a single run.
     */
     public static final int WRAP_TAB_LAYOUT = 0;
 
-   /**
+   /** {@collect.stats}
     * Tab layout policy for providing a subset of available tabs when all
     * the tabs will not fit within a single run.  If all the tabs do
     * not fit within a single run the look and feel will provide a way
@@ -124,13 +124,13 @@ public class JTabbedPane extends JComponent
     public static final int SCROLL_TAB_LAYOUT = 1;
 
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "TabbedPaneUI";
 
-    /**
+    /** {@collect.stats}
      * Where the tabs are placed.
      * @see #setTabPlacement
      */
@@ -138,12 +138,12 @@ public class JTabbedPane extends JComponent
 
     private int tabLayoutPolicy;
 
-    /** The default selection model */
+    /** {@collect.stats} The default selection model */
     protected SingleSelectionModel model;
 
     private boolean haveRegistered;
 
-    /**
+    /** {@collect.stats}
      * The <code>changeListener</code> is the listener we add to the
      * model.
      */
@@ -154,7 +154,7 @@ public class JTabbedPane extends JComponent
     /* The component that is currently visible */
     private Component visComp = null;
 
-    /**
+    /** {@collect.stats}
      * Only one <code>ChangeEvent</code> is needed per <code>TabPane</code>
      * instance since the
      * event's only (read-only) state is the source property.  The source
@@ -162,7 +162,7 @@ public class JTabbedPane extends JComponent
      */
     protected transient ChangeEvent changeEvent = null;
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <code>TabbedPane</code> with a default
      * tab placement of <code>JTabbedPane.TOP</code>.
      * @see #addTab
@@ -171,7 +171,7 @@ public class JTabbedPane extends JComponent
         this(TOP, WRAP_TAB_LAYOUT);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <code>TabbedPane</code> with the specified tab placement
      * of either: <code>JTabbedPane.TOP</code>, <code>JTabbedPane.BOTTOM</code>,
      * <code>JTabbedPane.LEFT</code>, or <code>JTabbedPane.RIGHT</code>.
@@ -183,7 +183,7 @@ public class JTabbedPane extends JComponent
         this(tabPlacement, WRAP_TAB_LAYOUT);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <code>TabbedPane</code> with the specified tab placement
      * and tab layout policy.  Tab placement may be either:
      * <code>JTabbedPane.TOP</code>, <code>JTabbedPane.BOTTOM</code>,
@@ -206,7 +206,7 @@ public class JTabbedPane extends JComponent
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the UI object which implements the L&F for this component.
      *
      * @return a <code>TabbedPaneUI</code> object
@@ -216,7 +216,7 @@ public class JTabbedPane extends JComponent
         return (TabbedPaneUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the UI object which implements the L&F for this component.
      *
      * @param ui the new UI object
@@ -238,7 +238,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -248,7 +248,7 @@ public class JTabbedPane extends JComponent
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the UI class that implements the
      * L&F for this component.
      *
@@ -261,7 +261,7 @@ public class JTabbedPane extends JComponent
     }
 
 
-    /**
+    /** {@collect.stats}
      * We pass <code>ModelChanged</code> events along to the listeners with
      * the tabbedpane (instead of the model itself) as the event source.
      */
@@ -271,7 +271,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses that want to handle <code>ChangeEvents</code> differently
      * can override this to return a subclass of <code>ModelListener</code> or
      * another <code>ChangeListener</code> implementation.
@@ -282,7 +282,7 @@ public class JTabbedPane extends JComponent
         return new ModelListener();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to this tabbedpane.
      *
      * @param l the <code>ChangeListener</code> to add
@@ -293,7 +293,7 @@ public class JTabbedPane extends JComponent
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from this tabbedpane.
      *
      * @param l the <code>ChangeListener</code> to remove
@@ -304,7 +304,7 @@ public class JTabbedPane extends JComponent
         listenerList.remove(ChangeListener.class, l);
     }
 
-   /**
+   /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this <code>JTabbedPane</code> with <code>addChangeListener</code>.
      *
@@ -317,7 +317,7 @@ public class JTabbedPane extends JComponent
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a {@code ChangeEvent}, with this {@code JTabbedPane} as the source,
      * to each registered listener. This method is called each time there is
      * a change to either the selected index or the selected tab in the
@@ -419,7 +419,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model associated with this tabbedpane.
      *
      * @see #setModel
@@ -428,7 +428,7 @@ public class JTabbedPane extends JComponent
         return model;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the model to be used with this tabbedpane.
      *
      * @param model the model to be used
@@ -456,7 +456,7 @@ public class JTabbedPane extends JComponent
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the placement of the tabs for this tabbedpane.
      * @see #setTabPlacement
      */
@@ -464,7 +464,7 @@ public class JTabbedPane extends JComponent
         return tabPlacement;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tab placement for this tabbedpane.
      * Possible values are:<ul>
      * <li><code>JTabbedPane.TOP</code>
@@ -503,7 +503,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the policy used by the tabbedpane to layout the tabs when all the
      * tabs will not fit within a single run.
      * @see #setTabLayoutPolicy
@@ -513,7 +513,7 @@ public class JTabbedPane extends JComponent
         return tabLayoutPolicy;
     }
 
-   /**
+   /** {@collect.stats}
      * Sets the policy which the tabbedpane will use in laying out the tabs
      * when all the tabs will not fit within a single run.
      * Possible values are:
@@ -556,7 +556,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently selected index for this tabbedpane.
      * Returns -1 if there is no currently selected tab.
      *
@@ -567,7 +567,7 @@ public class JTabbedPane extends JComponent
         return model.getSelectedIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected index for this tabbedpane. The index must be
      * a valid tab index or -1, which indicates that no tab should be selected
      * (can also be used when there are no tabs in the tabbedpane).  If a -1
@@ -641,7 +641,7 @@ public class JTabbedPane extends JComponent
             accessibleContext.getAccessibleName());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently selected component for this tabbedpane.
      * Returns <code>null</code> if there is no currently selected tab.
      *
@@ -656,7 +656,7 @@ public class JTabbedPane extends JComponent
         return getComponentAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected component for this tabbedpane.  This
      * will automatically set the <code>selectedIndex</code> to the index
      * corresponding to the specified component.
@@ -677,7 +677,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a new tab for the given component, at the given index,
      * represented by the given title and/or icon, either of which may
      * be {@code null}.
@@ -748,7 +748,7 @@ public class JTabbedPane extends JComponent
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> and <code>tip</code>
      * represented by a <code>title</code> and/or <code>icon</code>,
      * either of which can be <code>null</code>.
@@ -766,7 +766,7 @@ public class JTabbedPane extends JComponent
         insertTab(title, icon, component, tip, pages.size());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> represented by a <code>title</code>
      * and/or <code>icon</code>, either of which can be <code>null</code>.
      * Cover method for <code>insertTab</code>.
@@ -782,7 +782,7 @@ public class JTabbedPane extends JComponent
         insertTab(title, icon, component, null, pages.size());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> represented by a <code>title</code>
      * and no icon.
      * Cover method for <code>insertTab</code>.
@@ -797,7 +797,7 @@ public class JTabbedPane extends JComponent
         insertTab(title, null, component, null, pages.size());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> with a tab title defaulting to
      * the name of the component which is the result of calling
      * <code>component.getName</code>.
@@ -818,7 +818,7 @@ public class JTabbedPane extends JComponent
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> with the specified tab title.
      * Cover method for <code>insertTab</code>.
      *
@@ -838,7 +838,7 @@ public class JTabbedPane extends JComponent
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> at the specified tab index with a tab
      * title defaulting to the name of the component.
      * Cover method for <code>insertTab</code>.
@@ -862,7 +862,7 @@ public class JTabbedPane extends JComponent
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> to the tabbed pane.
      * If <code>constraints</code> is a <code>String</code> or an
      * <code>Icon</code>, it will be used for the tab title,
@@ -889,7 +889,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>component</code> at the specified tab index.
      * If <code>constraints</code> is a <code>String</code> or an
      * <code>Icon</code>, it will be used for the tab title,
@@ -916,7 +916,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the tab at <code>index</code>.
      * After the component associated with <code>index</code> is removed,
      * its visibility is reset to true to ensure it will be visible
@@ -1010,7 +1010,7 @@ public class JTabbedPane extends JComponent
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified <code>Component</code> from the
      * <code>JTabbedPane</code>. The method does nothing
      * if the <code>component</code> is null.
@@ -1036,7 +1036,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the tab and component which corresponds to the specified index.
      *
      * @param index the index of the component to remove from the
@@ -1050,7 +1050,7 @@ public class JTabbedPane extends JComponent
         removeTabAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the tabs and their corresponding components
      * from the <code>tabbedpane</code>.
      *
@@ -1068,7 +1068,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of tabs in this <code>tabbedpane</code>.
      *
      * @return an integer specifying the number of tabbed pages
@@ -1077,7 +1077,7 @@ public class JTabbedPane extends JComponent
         return pages.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of tab runs currently used to display
      * the tabs.
      * @return an integer giving the number of rows if the
@@ -1098,7 +1098,7 @@ public class JTabbedPane extends JComponent
 
 // Getters for the Pages
 
-    /**
+    /** {@collect.stats}
      * Returns the tab title at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1111,7 +1111,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).title;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab icon at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1125,7 +1125,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).icon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab disabled icon at <code>index</code>.
      * If the tab disabled icon doesn't exist at <code>index</code>
      * this will forward the call to the look and feel to construct
@@ -1148,7 +1148,7 @@ public class JTabbedPane extends JComponent
         return page.disabledIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab tooltip text at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1163,7 +1163,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).tip;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab background color at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1178,7 +1178,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).getBackground();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab foreground color at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1193,7 +1193,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).getForeground();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the tab at <code>index</code> is
      * currently enabled.
      *
@@ -1209,7 +1209,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).isEnabled();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -1223,7 +1223,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).component;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the keyboard mnemonic for accessing the specified tab.
      * The mnemonic is the key which when combined with the look and feel's
      * mouseless modifier (usually Alt) will activate the specified
@@ -1246,7 +1246,7 @@ public class JTabbedPane extends JComponent
         return page.getMnemonic();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character, as an index, that the look and feel should
      * provide decoration for as representing the mnemonic character.
      *
@@ -1267,7 +1267,7 @@ public class JTabbedPane extends JComponent
         return page.getDisplayedMnemonicIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab bounds at <code>index</code>.  If the tab at
      * this index is not currently visible in the UI, then returns
      * <code>null</code>.
@@ -1293,7 +1293,7 @@ public class JTabbedPane extends JComponent
 
 // Setters for the Pages
 
-    /**
+    /** {@collect.stats}
      * Sets the title at <code>index</code> to <code>title</code> which
      * can be <code>null</code>.
      * The title is not shown if a tab component for this tab was specified.
@@ -1332,7 +1332,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the icon at <code>index</code> to <code>icon</code> which can be
      * <code>null</code>. This does not set disabled icon at <code>icon</code>.
      * If the new Icon is different than the current Icon and disabled icon
@@ -1380,7 +1380,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the disabled icon at <code>index</code> to <code>icon</code>
      * which can be <code>null</code>.
      * An internal exception is raised if there is no tab at that index.
@@ -1405,7 +1405,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tooltip text at <code>index</code> to <code>toolTipText</code>
      * which can be <code>null</code>.
      * An internal exception is raised if there is no tab at that index.
@@ -1436,7 +1436,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color at <code>index</code> to
      * <code>background</code>
      * which can be <code>null</code>, in which case the tab's background color
@@ -1465,7 +1465,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the foreground color at <code>index</code> to
      * <code>foreground</code> which can be
      * <code>null</code>, in which case the tab's foreground color
@@ -1495,7 +1495,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the tab at <code>index</code> is enabled.
      * An internal exception is raised if there is no tab at that index.
      *
@@ -1515,7 +1515,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the component at <code>index</code> to <code>component</code>.
      * An internal exception is raised if there is no tab at that index.
      *
@@ -1573,7 +1573,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to which character in the
      * text should be decorated to represent the mnemonic. Not all look and
      * feels may support this. A value of -1 indicates either there is
@@ -1619,7 +1619,7 @@ public class JTabbedPane extends JComponent
         page.setDisplayedMnemonicIndex(mnemonicIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the keyboard mnemonic for accessing the specified tab.
      * The mnemonic is the key which when combined with the look and feel's
      * mouseless modifier (usually Alt) will activate the specified
@@ -1660,7 +1660,7 @@ public class JTabbedPane extends JComponent
 
 // end of Page setters
 
-    /**
+    /** {@collect.stats}
      * Returns the first tab index with a given <code>title</code>,  or
      * -1 if no tab has this title.
      *
@@ -1677,7 +1677,7 @@ public class JTabbedPane extends JComponent
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first tab index with a given <code>icon</code>,
      * or -1 if no tab has this icon.
      *
@@ -1696,7 +1696,7 @@ public class JTabbedPane extends JComponent
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the tab for the specified component.
      * Returns -1 if there is no tab for this component.
      *
@@ -1715,7 +1715,7 @@ public class JTabbedPane extends JComponent
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab index corresponding to the tab whose bounds
      * intersect the specified location.  Returns -1 if no tab
      * intersects the location.
@@ -1734,7 +1734,7 @@ public class JTabbedPane extends JComponent
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the tooltip text for the component determined by the
      * mouse event location.
      *
@@ -1760,7 +1760,7 @@ public class JTabbedPane extends JComponent
     }
 
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -1789,7 +1789,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -1809,7 +1809,7 @@ public class JTabbedPane extends JComponent
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JTabbedPane</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -1842,7 +1842,7 @@ public class JTabbedPane extends JComponent
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JTabbedPane.
      * For tabbed panes, the AccessibleContext takes the form of an
      * AccessibleJTabbedPane.
@@ -1864,7 +1864,7 @@ public class JTabbedPane extends JComponent
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JTabbedPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to tabbed pane user-interface
@@ -1882,7 +1882,7 @@ public class JTabbedPane extends JComponent
     protected class AccessibleJTabbedPane extends AccessibleJComponent
         implements AccessibleSelection, ChangeListener {
 
-        /**
+        /** {@collect.stats}
          * Returns the accessible name of this object, or {@code null} if
          * there is no accessible name.
          *
@@ -1909,7 +1909,7 @@ public class JTabbedPane extends JComponent
             return super.getAccessibleName();
         }
 
-        /**
+        /** {@collect.stats}
          *  Constructs an AccessibleJTabbedPane
          */
         public AccessibleJTabbedPane() {
@@ -1923,7 +1923,7 @@ public class JTabbedPane extends JComponent
                                null, o);
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of
@@ -1933,7 +1933,7 @@ public class JTabbedPane extends JComponent
             return AccessibleRole.PAGE_TAB_LIST;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children in the object.
          *
          * @return the number of accessible children in the object.
@@ -1942,7 +1942,7 @@ public class JTabbedPane extends JComponent
             return getTabCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Return the specified Accessible child of the object.
          *
          * @param i zero-based index of child
@@ -1956,7 +1956,7 @@ public class JTabbedPane extends JComponent
             return pages.get(i);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>AccessibleSelection</code> associated with
          * this object.  In the implementation of the Java
          * Accessibility API for this class,
@@ -1969,7 +1969,7 @@ public class JTabbedPane extends JComponent
            return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>Accessible</code> child contained at
          * the local coordinate <code>Point</code>, if one exists.
          * Otherwise returns the currently selected tab.
@@ -2300,7 +2300,7 @@ public class JTabbedPane extends JComponent
         }
 
         // TIGER - 4732339
-        /**
+        /** {@collect.stats}
          * Returns an AccessibleIcon
          *
          * @return the enabled icon if one exists and the page
@@ -2329,7 +2329,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
     * Sets the component that is responsible for rendering the
     * title for the specified tab.  A null value means
     * <code>JTabbedPane</code> will render the title and/or icon for
@@ -2370,7 +2370,7 @@ public class JTabbedPane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab component at <code>index</code>.
      *
      * @param index  the index of the item being queried
@@ -2385,7 +2385,7 @@ public class JTabbedPane extends JComponent
         return pages.get(index).tabComponent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the tab for the specified tab component.
      * Returns -1 if there is no tab for this tab component.
      *

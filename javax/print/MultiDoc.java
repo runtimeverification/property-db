@@ -27,7 +27,7 @@ package javax.print;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Interface MultiDoc specifies the interface for an object that supplies more
  * than one piece of print data for a Print Job. "Doc" is a short,
  * easy-to-pronounce term that means "a piece of print data," and a "multidoc"
@@ -111,7 +111,7 @@ import java.io.IOException;
 public interface MultiDoc {
 
 
-    /**
+    /** {@collect.stats}
      * Obtain the current doc object.
      *
      * @return  Current doc object.
@@ -121,7 +121,7 @@ public interface MultiDoc {
      */
     public Doc getDoc() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Go to the multidoc object that contains the next doc object in the
      * sequence of doc objects.
      *

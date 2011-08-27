@@ -27,7 +27,7 @@ package javax.imageio.plugins.jpeg;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A class encapsulating a single JPEG Huffman table.
  * Fields are provided for the "standard" tables taken
  * from Annex K of the JPEG specification.
@@ -121,28 +121,28 @@ public class JPEGHuffmanTable {
         0xf9, 0xfa,
     };
 
-    /**
+    /** {@collect.stats}
      * The standard DC luminance Huffman table.
      */
     public static final JPEGHuffmanTable
         StdDCLuminance = new JPEGHuffmanTable(StdDCLuminanceLengths,
                                               StdDCLuminanceValues, false);
 
-    /**
+    /** {@collect.stats}
      * The standard DC chrominance Huffman table.
      */
     public static final JPEGHuffmanTable
         StdDCChrominance = new JPEGHuffmanTable(StdDCChrominanceLengths,
                                                 StdDCChrominanceValues, false);
 
-    /**
+    /** {@collect.stats}
      * The standard AC luminance Huffman table.
      */
     public static final JPEGHuffmanTable
         StdACLuminance = new JPEGHuffmanTable(StdACLuminanceLengths,
                                               StdACLuminanceValues, false);
 
-    /**
+    /** {@collect.stats}
      * The standard AC chrominance Huffman table.
      */
     public static final JPEGHuffmanTable
@@ -152,7 +152,7 @@ public class JPEGHuffmanTable {
     private short[] lengths;
     private short[] values;
 
-    /**
+    /** {@collect.stats}
      * Creates a Huffman table and initializes it. The input arrays are copied.
      * The arrays must describe a possible Huffman table.
      * For example, 3 codes cannot be expressed with a single bit.
@@ -211,7 +211,7 @@ public class JPEGHuffmanTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>short</code>s containing the number of values
      * for each length in the Huffman table. The returned array is a copy.
      *
@@ -223,7 +223,7 @@ public class JPEGHuffmanTable {
         return Arrays.copyOf(lengths, lengths.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>short</code>s containing the values arranged
      * by increasing length of their corresponding codes.
      * The interpretation of the array is dependent on the values returned
@@ -236,7 +236,7 @@ public class JPEGHuffmanTable {
         return Arrays.copyOf(values, values.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code String} representing this Huffman table.
      * @return a {@code String} representing this Huffman table.
      */

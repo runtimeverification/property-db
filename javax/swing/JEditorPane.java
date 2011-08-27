@@ -36,7 +36,7 @@ import javax.swing.event.*;
 import javax.swing.text.html.*;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A text component to edit various kinds of content.
  * You can find how-to information and examples of using editor panes in
  * <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/text.html">Using Text Components</a>,
@@ -187,7 +187,7 @@ import javax.accessibility.*;
  */
 public class JEditorPane extends JTextComponent {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JEditorPane</code>.
      * The document model is set to <code>null</code>.
      */
@@ -248,7 +248,7 @@ public class JEditorPane extends JTextComponent {
                                     getManagingFocusBackwardTraversalKeys());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JEditorPane</code> based on a specified URL for input.
      *
      * @param initialPage the URL
@@ -260,7 +260,7 @@ public class JEditorPane extends JTextComponent {
         setPage(initialPage);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JEditorPane</code> based on a string containing
      * a URL specification.
      *
@@ -273,7 +273,7 @@ public class JEditorPane extends JTextComponent {
         setPage(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JEditorPane</code> that has been initialized
      * to the given text.  This is a convenience constructor that calls the
      * <code>setContentType</code> and <code>setText</code> methods.
@@ -289,7 +289,7 @@ public class JEditorPane extends JTextComponent {
         setText(text);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a hyperlink listener for notification of any changes, for example
      * when a link is selected and entered.
      *
@@ -299,7 +299,7 @@ public class JEditorPane extends JTextComponent {
         listenerList.add(HyperlinkListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a hyperlink listener.
      *
      * @param listener the listener
@@ -308,7 +308,7 @@ public class JEditorPane extends JTextComponent {
         listenerList.remove(HyperlinkListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>HyperLinkListener</code>s added
      * to this JEditorPane with addHyperlinkListener().
      *
@@ -321,7 +321,7 @@ public class JEditorPane extends JTextComponent {
                 HyperlinkListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  This is normally called
      * by the currently installed <code>EditorKit</code> if a content type
@@ -345,7 +345,7 @@ public class JEditorPane extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current URL being displayed.  The content type of the
      * pane is set, and if the editor kit for the pane is
      * non-<code>null</code>, then
@@ -488,7 +488,7 @@ public class JEditorPane extends JTextComponent {
         firePropertyChange("page", loaded, page);
     }
 
-    /**
+    /** {@collect.stats}
      * Create model and initialize document properties from page properties.
      */
     private Document initializeModel(EditorKit kit, URL page) {
@@ -508,7 +508,7 @@ public class JEditorPane extends JTextComponent {
         return doc;
     }
 
-    /**
+    /** {@collect.stats}
      * Return load priority for the document or -1 if priority not supported.
      */
     private int getAsynchronousLoadPriority(Document doc) {
@@ -516,7 +516,7 @@ public class JEditorPane extends JTextComponent {
             ((AbstractDocument) doc).getAsynchronousLoadPriority() : -1);
     }
 
-    /**
+    /** {@collect.stats}
      * This method initializes from a stream.  If the kit is
      * set to be of type <code>HTMLEditorKit</code>, and the
      * <code>desc</code> parameter is an <code>HTMLDocument</code>,
@@ -547,7 +547,7 @@ public class JEditorPane extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method invokes the <code>EditorKit</code> to initiate a
      * read.  In the case where a <code>ChangedCharSetException</code>
      * is thrown this exception will contain the new CharSet.
@@ -601,12 +601,12 @@ public class JEditorPane extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Thread to load a stream into the text document model.
      */
     class PageLoader extends Thread {
 
-        /**
+        /** {@collect.stats}
          * Construct an asynchronous page loader.
          */
         PageLoader(Document doc, InputStream in, int priority, URL old,
@@ -620,7 +620,7 @@ public class JEditorPane extends JTextComponent {
 
         boolean pageLoaded = false;
 
-        /**
+        /** {@collect.stats}
          * Try to load the document, then scroll the view
          * to the reference (if specified).  When done, fire
          * a page property change event.
@@ -693,22 +693,22 @@ public class JEditorPane extends JTextComponent {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * The stream to load the document with
          */
         InputStream in;
 
-        /**
+        /** {@collect.stats}
          * URL of the old page that was replaced (for the property change event)
          */
         URL old;
 
-        /**
+        /** {@collect.stats}
          * URL of the page being loaded (for the property change event)
          */
         URL page;
 
-        /**
+        /** {@collect.stats}
          * The Document instance to load into. This is cached in case a
          * new Document is created between the time the thread this is created
          * and run.
@@ -725,7 +725,7 @@ public class JEditorPane extends JTextComponent {
             canceled = false;
         }
 
-        /**
+        /** {@collect.stats}
          * Cancel the loading of the stream by throwing
          * an IOException on the next request.
          */
@@ -761,7 +761,7 @@ public class JEditorPane extends JTextComponent {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a stream for the given URL, which is about to
      * be loaded by the <code>setPage</code> method.  By
      * default, this simply opens the URL and returns the
@@ -827,7 +827,7 @@ public class JEditorPane extends JTextComponent {
         return conn.getInputStream();
     }
 
-    /**
+    /** {@collect.stats}
      * Handle URL connection properties (most notably, content type).
      */
     private void handleConnectionProperties(URLConnection conn) {
@@ -867,7 +867,7 @@ public class JEditorPane extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Scrolls the view to the given reference location
      * (that is, the value returned by the <code>UL.getRef</code>
      * method for the URL being displayed).  By default, this
@@ -912,7 +912,7 @@ public class JEditorPane extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current URL being displayed.  If a URL was
      * not specified in the creation of the document, this
      * will return <code>null</code>, and relative URL's will not be
@@ -924,7 +924,7 @@ public class JEditorPane extends JTextComponent {
         return (URL) getDocument().getProperty(Document.StreamDescriptionProperty);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current URL being displayed.
      *
      * @param url the URL for display
@@ -939,7 +939,7 @@ public class JEditorPane extends JTextComponent {
         setPage(page);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the class ID for the UI.
      *
      * @return the string "EditorPaneUI"
@@ -950,7 +950,7 @@ public class JEditorPane extends JTextComponent {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the default editor kit (<code>PlainEditorKit</code>) for when
      * the component is first created.
      *
@@ -960,7 +960,7 @@ public class JEditorPane extends JTextComponent {
         return new PlainEditorKit();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the currently installed kit for handling content.
      * <code>createDefaultEditorKit</code> is called to set up a default
      * if necessary.
@@ -975,7 +975,7 @@ public class JEditorPane extends JTextComponent {
         return kit;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the type of content that this editor
      * is currently set to deal with.  This is
      * defined to be the type associated with the
@@ -987,7 +987,7 @@ public class JEditorPane extends JTextComponent {
         return (kit != null) ? kit.getContentType() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the type of content that this editor
      * handles.  This calls <code>getEditorKitForContentType</code>,
      * and then <code>setEditorKit</code> if an editor kit can
@@ -1041,7 +1041,7 @@ public class JEditorPane extends JTextComponent {
 
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets the charset information specified as part
      * of the content type in the http header information.
      */
@@ -1078,7 +1078,7 @@ public class JEditorPane extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the currently installed kit for handling
      * content.  This is the bound property that
      * establishes the content type of the editor.
@@ -1116,7 +1116,7 @@ public class JEditorPane extends JTextComponent {
         firePropertyChange("editorKit", old, kit);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the editor kit to use for the given type
      * of content.  This is called when a type is requested
      * that doesn't match the currently installed type.
@@ -1152,7 +1152,7 @@ public class JEditorPane extends JTextComponent {
         return k;
     }
 
-    /**
+    /** {@collect.stats}
      * Directly sets the editor kit to use for the given type.  A
      * look-and-feel implementation might use this in conjunction
      * with <code>createEditorKitForContentType</code> to install handlers for
@@ -1168,7 +1168,7 @@ public class JEditorPane extends JTextComponent {
         typeHandlers.put(type, k);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the currently selected content with new content
      * represented by the given string.  If there is no selection
      * this amounts to an insert of the given text.  If there
@@ -1220,7 +1220,7 @@ public class JEditorPane extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a handler for the given type from the default registry
      * of editor kits.  The registry is created if necessary.  If the
      * registered class has not yet been loaded, an attempt
@@ -1270,7 +1270,7 @@ public class JEditorPane extends JTextComponent {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the default bindings of <code>type</code> to
      * <code>classname</code>.
      * The class will be dynamically loaded later when actually
@@ -1287,7 +1287,7 @@ public class JEditorPane extends JTextComponent {
                                         getContextClassLoader());
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the default bindings of <code>type</code> to
      * <code>classname</code>.
      * The class will be dynamically loaded later when actually
@@ -1305,7 +1305,7 @@ public class JEditorPane extends JTextComponent {
         getKitRegisty().remove(type);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently registered <code>EditorKit</code>
      * class name for the type <code>type</code>.
      *
@@ -1336,7 +1336,7 @@ public class JEditorPane extends JTextComponent {
         return ht;
     }
 
-    /**
+    /** {@collect.stats}
      * This is invoked every time the registries are accessed. Loading
      * is done this way instead of via a static as the static is only
      * called once when running in plugin resulting in the entries only
@@ -1369,7 +1369,7 @@ public class JEditorPane extends JTextComponent {
 
     // --- java.awt.Component methods --------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size for the <code>JEditorPane</code>.
      * The preferred size for <code>JEditorPane</code> is slightly altered
      * from the preferred size of the superclass.  If the size
@@ -1417,7 +1417,7 @@ public class JEditorPane extends JTextComponent {
 
     // --- JTextComponent methods -----------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the text of this <code>TextComponent</code> to the specified
      * content,
      * which is expected to be in the format of the content type of
@@ -1481,7 +1481,7 @@ public class JEditorPane extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text contained in this <code>TextComponent</code>
      * in terms of the
      * content type of this editor.  If an exception is thrown while
@@ -1506,7 +1506,7 @@ public class JEditorPane extends JTextComponent {
 
     // --- Scrollable  ----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns true if a viewport should always force the width of this
      * <code>Scrollable</code> to match the width of the viewport.
      *
@@ -1527,7 +1527,7 @@ public class JEditorPane extends JTextComponent {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if a viewport should always force the height of this
      * <code>Scrollable</code> to match the height of the viewport.
      *
@@ -1553,7 +1553,7 @@ public class JEditorPane extends JTextComponent {
 
     // --- Serialization ------------------------------------
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -1571,13 +1571,13 @@ public class JEditorPane extends JTextComponent {
 
     // --- variables ---------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Stream currently loading asynchronously (potentially cancelable).
      * Access to this variable should be synchronized.
      */
     PageStream loading;
 
-    /**
+    /** {@collect.stats}
      * Current content binding of the editor.
      */
     private EditorKit kit;
@@ -1585,10 +1585,10 @@ public class JEditorPane extends JTextComponent {
 
     private Hashtable pageProperties;
 
-    /** Should be kept in sync with javax.swing.text.html.FormView counterpart. */
+    /** {@collect.stats} Should be kept in sync with javax.swing.text.html.FormView counterpart. */
     final static String PostDataProperty = "javax.swing.JEditorPane.postdata";
 
-    /**
+    /** {@collect.stats}
      * Table of registered type handlers for this editor.
      */
     private Hashtable typeHandlers;
@@ -1600,14 +1600,14 @@ public class JEditorPane extends JTextComponent {
     private static final Object kitTypeRegistryKey = new Object(); // JEditorPane.kitTypeRegistry
     private static final Object kitLoaderRegistryKey = new Object(); // JEditorPane.kitLoaderRegistry
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "EditorPaneUI";
 
 
-    /**
+    /** {@collect.stats}
      * Key for a client property used to indicate whether
      * <a href="http://www.w3.org/TR/CSS21/syndata.html#length-units">
      * w3c compliant</a> length units are used for html rendering.
@@ -1620,7 +1620,7 @@ public class JEditorPane extends JTextComponent {
      */
     public static final String W3C_LENGTH_UNITS = "JEditorPane.w3cLengthUnits";
 
-    /**
+    /** {@collect.stats}
      * Key for a client property used to indicate whether
      * the default font and foreground color from the component are
      * used if a font or foreground color is not specified in the styled
@@ -1636,7 +1636,7 @@ public class JEditorPane extends JTextComponent {
 
     static final Map<String, String> defaultEditorKitMap = new HashMap<String, String>(0);
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JEditorPane</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -1663,7 +1663,7 @@ public class JEditorPane extends JTextComponent {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JEditorPane.
      * For editor panes, the AccessibleContext takes the form of an
      * AccessibleJEditorPane.
@@ -1685,7 +1685,7 @@ public class JEditorPane extends JTextComponent {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JEditorPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to editor pane user-interface
@@ -1702,7 +1702,7 @@ public class JEditorPane extends JTextComponent {
      */
     protected class AccessibleJEditorPane extends AccessibleJTextComponent {
 
-        /**
+        /** {@collect.stats}
          * Gets the accessibleDescription property of this object.  If this
          * property isn't set, returns the content type of this
          * <code>JEditorPane</code> instead (e.g. "plain/text", "html/text").
@@ -1725,7 +1725,7 @@ public class JEditorPane extends JTextComponent {
             return description;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleStateSet describing the states
@@ -1739,7 +1739,7 @@ public class JEditorPane extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class provides support for <code>AccessibleHypertext</code>,
      * and is used in instances where the <code>EditorKit</code>
      * installed in this <code>JEditorPane</code> is an instance of
@@ -1767,7 +1767,7 @@ public class JEditorPane extends JTextComponent {
             accessibleContext = kit.getAccessibleContext();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children of the object.
          *
          * @return the number of accessible children of the object.
@@ -1780,7 +1780,7 @@ public class JEditorPane extends JTextComponent {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specified Accessible child of the object.  The Accessible
          * children of an Accessible object are zero-based, so the first child
          * of an Accessible child is at index 0, the second child is at index 1,
@@ -1798,7 +1798,7 @@ public class JEditorPane extends JTextComponent {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Accessible child, if one exists, contained at the local
          * coordinate Point.
          *
@@ -1825,7 +1825,7 @@ public class JEditorPane extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * What's returned by
      * <code>AccessibleJEditorPaneHTML.getAccessibleText</code>.
      *
@@ -1844,7 +1844,7 @@ public class JEditorPane extends JTextComponent {
                 element = e;
             }
 
-            /**
+            /** {@collect.stats}
              * Since the document a link is associated with may have
              * changed, this method returns whether this Link is valid
              * anymore (with respect to the document it references).
@@ -1856,7 +1856,7 @@ public class JEditorPane extends JTextComponent {
                 return JEditorPaneAccessibleHypertextSupport.this.linksValid;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of accessible actions available in this Link
              * If there are more than one, the first one is NOT considered the
              * "default" action of this LINK object (e.g. in an HTML imagemap).
@@ -1868,7 +1868,7 @@ public class JEditorPane extends JTextComponent {
                 return 1;
             }
 
-            /**
+            /** {@collect.stats}
              * Perform the specified Action on the object
              *
              * @param i zero-based index of actions
@@ -1888,7 +1888,7 @@ public class JEditorPane extends JTextComponent {
                 return false;  // link invalid or i != 0
             }
 
-            /**
+            /** {@collect.stats}
              * Return a String description of this particular
              * link action.  The string returned is the text
              * within the document associated with the element
@@ -1913,7 +1913,7 @@ public class JEditorPane extends JTextComponent {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns a URL object that represents the link.
              *
              * @param i zero-based index of the actions
@@ -1940,7 +1940,7 @@ public class JEditorPane extends JTextComponent {
                 return null;  // link invalid or i != 0
             }
 
-            /**
+            /** {@collect.stats}
              * Return an object that represents the link anchor,
              * as appropriate for that link.  E.g. from HTML:
              *   <a href="http://www.sun.com/access">Accessibility</a>
@@ -1960,7 +1960,7 @@ public class JEditorPane extends JTextComponent {
             }
 
 
-            /**
+            /** {@collect.stats}
              * Get the index with the hypertext document at which this
              * link begins
              *
@@ -1970,7 +1970,7 @@ public class JEditorPane extends JTextComponent {
                 return element.getStartOffset();
             }
 
-            /**
+            /** {@collect.stats}
              * Get the index with the hypertext document at which this
              * link ends
              *
@@ -1997,7 +1997,7 @@ public class JEditorPane extends JTextComponent {
         LinkVector hyperlinks;
         boolean linksValid = false;
 
-        /**
+        /** {@collect.stats}
          * Build the private table mapping links to locations in the text
          */
         private void buildLinkTable() {
@@ -2024,7 +2024,7 @@ public class JEditorPane extends JTextComponent {
             linksValid = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Make one of these puppies
          */
         public JEditorPaneAccessibleHypertextSupport() {
@@ -2045,7 +2045,7 @@ public class JEditorPane extends JTextComponent {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of links within this hypertext doc.
          *
          * @return number of links in this hypertext doc.
@@ -2057,7 +2057,7 @@ public class JEditorPane extends JTextComponent {
             return hyperlinks.size();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index into an array of hyperlinks that
          * is associated with this character index, or -1 if there
          * is no hyperlink associated with this index.
@@ -2084,7 +2084,7 @@ public class JEditorPane extends JTextComponent {
             return hyperlinks.baseElementIndex(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index into an array of hyperlinks that
          * index.  If there is no hyperlink at this index, it returns
          * null.
@@ -2103,7 +2103,7 @@ public class JEditorPane extends JTextComponent {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the contiguous text within the document that
          * is associated with this hyperlink.
          *
@@ -2132,7 +2132,7 @@ public class JEditorPane extends JTextComponent {
 
     static class PlainEditorKit extends DefaultEditorKit implements ViewFactory {
 
-        /**
+        /** {@collect.stats}
          * Fetches a factory that is suitable for producing
          * views of any models that are produced by this
          * kit.  The default is to have the UI produce the
@@ -2144,7 +2144,7 @@ public class JEditorPane extends JTextComponent {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a view from the given structural element of a
          * document.
          *
@@ -2176,7 +2176,7 @@ public class JEditorPane extends JTextComponent {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Paragraph for representing plain-text lines that support
          * bidirectional text.
          */
@@ -2199,7 +2199,7 @@ public class JEditorPane extends JTextComponent {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Fetch the constraining span to flow against for
              * the given child index.
              */
@@ -2231,7 +2231,7 @@ public class JEditorPane extends JTextComponent {
                 return req;
             }
 
-            /**
+            /** {@collect.stats}
              * This class can be used to represent a logical view for
              * a flow.  It keeps the children updated to reflect the state
              * of the model, gives the logical child views access to the
@@ -2278,7 +2278,7 @@ public class JEditorPane extends JTextComponent {
                     return v.getPreferredSpan(axis);
                 }
 
-                /**
+                /** {@collect.stats}
                  * Forward the DocumentEvent to the given child view.  This
                  * is implemented to reparent the child to the logical view
                  * (the children may have been parented by a row in the flow

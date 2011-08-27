@@ -37,7 +37,7 @@ package java.awt.image;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  *  This class represents image data which is stored such that each sample
  *  of a pixel occupies one data element of the DataBuffer.  It stores the
  *  N samples which make up a pixel in N separate data array elements.
@@ -75,31 +75,31 @@ import java.util.Arrays;
 
 public class ComponentSampleModel extends SampleModel
 {
-    /** Offsets for all bands in data array elements. */
+    /** {@collect.stats} Offsets for all bands in data array elements. */
     protected int bandOffsets[];
 
-    /** Index for each bank storing a band of image data. */
+    /** {@collect.stats} Index for each bank storing a band of image data. */
     protected int[] bankIndices;
 
-    /**
+    /** {@collect.stats}
      * The number of bands in this
      * <code>ComponentSampleModel</code>.
      */
     protected int numBands = 1;
 
-    /**
+    /** {@collect.stats}
      * The number of banks in this
      * <code>ComponentSampleModel</code>.
      */
     protected int numBanks = 1;
 
-    /**
+    /** {@collect.stats}
      *  Line stride (in data array elements) of the region of image
      *  data described by this ComponentSampleModel.
      */
     protected int scanlineStride;
 
-    /** Pixel stride (in data array elements) of the region of image
+    /** {@collect.stats} Pixel stride (in data array elements) of the region of image
      *  data described by this ComponentSampleModel.
      */
     protected int pixelStride;
@@ -110,7 +110,7 @@ public class ComponentSampleModel extends SampleModel
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ComponentSampleModel with the specified parameters.
      * The number of bands will be given by the length of the bandOffsets array.
      * All bands will be stored in the first bank of the DataBuffer.
@@ -170,7 +170,7 @@ public class ComponentSampleModel extends SampleModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a ComponentSampleModel with the specified parameters.
      * The number of bands will be given by the length of the bandOffsets array.
      * Different bands may be stored in different banks of the DataBuffer.
@@ -246,7 +246,7 @@ public class ComponentSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the data buffer (in data elements) needed
      * for a data buffer that matches this ComponentSampleModel.
      */
@@ -265,7 +265,7 @@ public class ComponentSampleModel extends SampleModel
          return size;
      }
 
-     /**
+     /** {@collect.stats}
       * Preserves band ordering with new step factor...
       */
     int []orderBands(int orig[], int step) {
@@ -287,7 +287,7 @@ public class ComponentSampleModel extends SampleModel
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>ComponentSampleModel</code> with the specified
      * width and height.  The new <code>SampleModel</code> will have the same
      * number of bands, storage data type, interleaving scheme, and
@@ -366,7 +366,7 @@ public class ComponentSampleModel extends SampleModel
                                         lStride, bankIndices, bandOff);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new ComponentSampleModel with a subset of the bands
      * of this ComponentSampleModel.  The new ComponentSampleModel can be
      * used with any DataBuffer that the existing ComponentSampleModel
@@ -397,7 +397,7 @@ public class ComponentSampleModel extends SampleModel
                                         newBankIndices, newBandOffsets);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DataBuffer</code> that corresponds to this
      * <code>ComponentSampleModel</code>.
      * The <code>DataBuffer</code> object's data type, number of banks,
@@ -435,7 +435,7 @@ public class ComponentSampleModel extends SampleModel
     }
 
 
-    /** Gets the offset for the first band of pixel (x,y).
+    /** {@collect.stats} Gets the offset for the first band of pixel (x,y).
      *  A sample of the first band can be retrieved from a
      * <code>DataBuffer</code>
      *  <code>data</code> with a <code>ComponentSampleModel</code>
@@ -452,7 +452,7 @@ public class ComponentSampleModel extends SampleModel
         return offset;
     }
 
-    /** Gets the offset for band b of pixel (x,y).
+    /** {@collect.stats} Gets the offset for band b of pixel (x,y).
      *  A sample of band <code>b</code> can be retrieved from a
      *  <code>DataBuffer</code> <code>data</code>
      *  with a <code>ComponentSampleModel</code> <code>csm</code> as
@@ -469,7 +469,7 @@ public class ComponentSampleModel extends SampleModel
         return offset;
     }
 
-    /** Returns the number of bits per sample for all bands.
+    /** {@collect.stats} Returns the number of bits per sample for all bands.
      *  @return an array containing the number of bits per sample
      *          for all bands, where each element in the array
      *          represents a band.
@@ -484,7 +484,7 @@ public class ComponentSampleModel extends SampleModel
         return sampleSize;
     }
 
-    /** Returns the number of bits per sample for the specified band.
+    /** {@collect.stats} Returns the number of bits per sample for the specified band.
      *  @param band the specified band
      *  @return the number of bits per sample for the specified band.
      */
@@ -492,35 +492,35 @@ public class ComponentSampleModel extends SampleModel
         return DataBuffer.getDataTypeSize(dataType);
     }
 
-    /** Returns the bank indices for all bands.
+    /** {@collect.stats} Returns the bank indices for all bands.
      *  @return the bank indices for all bands.
      */
     public final int [] getBankIndices() {
         return (int[]) bankIndices.clone();
     }
 
-    /** Returns the band offset for all bands.
+    /** {@collect.stats} Returns the band offset for all bands.
      *  @return the band offsets for all bands.
      */
     public final int [] getBandOffsets() {
         return (int[])bandOffsets.clone();
     }
 
-    /** Returns the scanline stride of this ComponentSampleModel.
+    /** {@collect.stats} Returns the scanline stride of this ComponentSampleModel.
      *  @return the scanline stride of this <code>ComponentSampleModel</code>.
      */
     public final int getScanlineStride() {
         return scanlineStride;
     }
 
-    /** Returns the pixel stride of this ComponentSampleModel.
+    /** {@collect.stats} Returns the pixel stride of this ComponentSampleModel.
      *  @return the pixel stride of this <code>ComponentSampleModel</code>.
      */
     public final int getPixelStride() {
         return pixelStride;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of data elements needed to transfer a pixel
      * with the
      * {@link #getDataElements(int, int, Object, DataBuffer) } and
@@ -538,7 +538,7 @@ public class ComponentSampleModel extends SampleModel
         return getNumBands();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns data for a single pixel in a primitive array of type
      * <code>TransferType</code>.  For a <code>ComponentSampleModel</code>,
      * this is the same as the data type, and samples are returned
@@ -688,7 +688,7 @@ public class ComponentSampleModel extends SampleModel
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for the specified pixel in an int array,
      * one sample per array element.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -723,7 +723,7 @@ public class ComponentSampleModel extends SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for the specified rectangle of pixels in
      * an int array, one sample per array element.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -766,7 +766,7 @@ public class ComponentSampleModel extends SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns as int the sample in a specified band for the pixel
      * located at (x,y).
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -790,7 +790,7 @@ public class ComponentSampleModel extends SampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for the pixel located at (x,y) as a float.
      * An <code>ArrayIndexOutOfBoundsException</code> might be
@@ -815,7 +815,7 @@ public class ComponentSampleModel extends SampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sample in a specified band
      * for a pixel located at (x,y) as a double.
      * An <code>ArrayIndexOutOfBoundsException</code> might be
@@ -840,7 +840,7 @@ public class ComponentSampleModel extends SampleModel
         return sample;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples in a specified band for the specified rectangle
      * of pixels in an int array, one sample per data array element.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -884,7 +884,7 @@ public class ComponentSampleModel extends SampleModel
         return samples;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a single pixel in the specified
      * <code>DataBuffer</code> from a primitive array of type
      * <code>TransferType</code>.  For a <code>ComponentSampleModel</code>,
@@ -987,7 +987,7 @@ public class ComponentSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the <code>DataBuffer</code> using an int array of
      * samples for input.  An <code>ArrayIndexOutOfBoundsException</code>
      * might be thrown if the coordinates are
@@ -1010,7 +1010,7 @@ public class ComponentSampleModel extends SampleModel
        }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from an int array containing
      * one sample per array element.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if the
@@ -1046,7 +1046,7 @@ public class ComponentSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the <code>DataBuffer</code> using an int for input.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if the
@@ -1069,7 +1069,7 @@ public class ComponentSampleModel extends SampleModel
                      y*scanlineStride + x*pixelStride + bandOffsets[b], s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the <code>DataBuffer</code> using a float for input.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -1094,7 +1094,7 @@ public class ComponentSampleModel extends SampleModel
                           s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the <code>DataBuffer</code> using a double for input.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if
@@ -1119,7 +1119,7 @@ public class ComponentSampleModel extends SampleModel
                           s);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from an int array containing one sample per data array element.
      * An <code>ArrayIndexOutOfBoundsException</code> might be thrown if the

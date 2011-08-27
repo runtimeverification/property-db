@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 
-/**
+/** {@collect.stats}
  * A RelationTypeSupport object implements the RelationType interface.
  * <P>It represents a relation type, providing role information for each role
  * expected to be supported in every relation of that type.
@@ -96,7 +96,7 @@ public class RelationTypeSupport implements RelationType {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField typeName String Relation type name
      * @serialField roleName2InfoMap Map {@link Map} holding the mapping:
      *              &lt;role name ({@link String})&gt; -&gt; &lt;role info ({@link RoleInfo} object)&gt;
@@ -128,19 +128,19 @@ public class RelationTypeSupport implements RelationType {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial Relation type name
      */
     private String typeName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial {@link Map} holding the mapping:
      *           &lt;role name ({@link String})&gt; -&gt; &lt;role info ({@link RoleInfo} object)&gt;
      */
     private Map<String,RoleInfo> roleName2InfoMap =
         new HashMap<String,RoleInfo>();
 
-    /**
+    /** {@collect.stats}
      * @serial Flag specifying whether the relation type has been declared in the
      *         Relation Service (so can no longer be updated)
      */
@@ -150,7 +150,7 @@ public class RelationTypeSupport implements RelationType {
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Constructor where all role definitions are dynamically created and
      * passed as parameter.
      *
@@ -185,7 +185,7 @@ public class RelationTypeSupport implements RelationType {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor to be used for subclasses.
      *
      * @param relationTypeName  Name of relation type.
@@ -213,7 +213,7 @@ public class RelationTypeSupport implements RelationType {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the relation type name.
      *
      * @return the relation type name.
@@ -222,14 +222,14 @@ public class RelationTypeSupport implements RelationType {
         return typeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of role definitions (ArrayList of RoleInfo objects).
      */
     public List<RoleInfo> getRoleInfos() {
         return new ArrayList<RoleInfo>(roleName2InfoMap.values());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the role info (RoleInfo object) for the given role info name
      * (null if not found).
      *
@@ -274,7 +274,7 @@ public class RelationTypeSupport implements RelationType {
     // Misc
     //
 
-    /**
+    /** {@collect.stats}
      * Add a role info.
      * This method of course should not be used after the creation of the
      * relation type, because updating it would invalidate that the relations
@@ -426,7 +426,7 @@ public class RelationTypeSupport implements RelationType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link RelationTypeSupport} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -461,7 +461,7 @@ public class RelationTypeSupport implements RelationType {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link RelationTypeSupport} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

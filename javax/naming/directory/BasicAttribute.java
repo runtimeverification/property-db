@@ -34,7 +34,7 @@ import javax.naming.NamingException;
 import javax.naming.NamingEnumeration;
 import javax.naming.OperationNotSupportedException;
 
-/**
+/** {@collect.stats}
   * This class provides a basic implementation of the <tt>Attribute</tt> interface.
   *<p>
   * This implementation does not support the schema methods
@@ -70,7 +70,7 @@ import javax.naming.OperationNotSupportedException;
   * @since 1.3
   */
 public class BasicAttribute implements Attribute {
-    /**
+    /** {@collect.stats}
      * Holds the attribute's id. It is initialized by the public constructor and
      * cannot be null unless methods in BasicAttribute that use attrID
      * have been overridden.
@@ -78,14 +78,14 @@ public class BasicAttribute implements Attribute {
      */
     protected String attrID;
 
-    /**
+    /** {@collect.stats}
      * Holds the attribute's values. Initialized by public constructors.
      * Cannot be null unless methods in BasicAttribute that use
      * values have been overridden.
      */
     protected transient Vector<Object> values;
 
-    /**
+    /** {@collect.stats}
      * A flag for recording whether this attribute's values are ordered.
      * @serial
      */
@@ -102,7 +102,7 @@ public class BasicAttribute implements Attribute {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether obj is equal to this attribute.
       * Two attributes are equal if their attribute-ids, syntaxes
       * and values are equal.
@@ -164,7 +164,7 @@ public class BasicAttribute implements Attribute {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
       * Calculates the hash code of this attribute.
       *<p>
       * The hash code is computed by adding the hash code of
@@ -202,7 +202,7 @@ public class BasicAttribute implements Attribute {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this attribute.
       * The string consists of the attribute's id and its values.
       * This string is meant for debugging and not meant to be
@@ -225,7 +225,7 @@ public class BasicAttribute implements Attribute {
         return answer.toString();
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of an unordered attribute with no value.
       *
       * @param id The attribute's id. It cannot be null.
@@ -234,7 +234,7 @@ public class BasicAttribute implements Attribute {
         this(id, false);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of an unordered attribute with a single value.
       *
       * @param id The attribute's id. It cannot be null.
@@ -245,7 +245,7 @@ public class BasicAttribute implements Attribute {
         this(id, value, false);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of a possibly ordered attribute with no value.
       *
       * @param id The attribute's id. It cannot be null.
@@ -258,7 +258,7 @@ public class BasicAttribute implements Attribute {
         this.ordered = ordered;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of a possibly ordered attribute with a
       * single value.
       *
@@ -273,7 +273,7 @@ public class BasicAttribute implements Attribute {
         values.addElement(value);
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves an enumeration of this attribute's values.
       *<p>
       * By default, the values returned are those passed to the
@@ -285,7 +285,7 @@ public class BasicAttribute implements Attribute {
       return new ValuesEnumImpl();
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves one of this attribute's values.
       *<p>
       * By default, the value returned is one of those passed to the
@@ -310,7 +310,7 @@ public class BasicAttribute implements Attribute {
         return attrID;
     }
 
-    /**
+    /** {@collect.stats}
       * Determines whether a value is in this attribute.
       *<p>
       * By default,
@@ -349,7 +349,7 @@ public class BasicAttribute implements Attribute {
         return -1;  // not found
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether two attribute values are equal.
      * Use arrayEquals for arrays and <tt>Object.equals()</tt> otherwise.
      */
@@ -367,7 +367,7 @@ public class BasicAttribute implements Attribute {
         return (obj1.equals(obj2));
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether two arrays are equal by comparing each of their
      * elements using <tt>Object.equals()</tt>.
      */
@@ -389,7 +389,7 @@ public class BasicAttribute implements Attribute {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
       * Adds a new value to this attribute.
       *<p>
       * By default, <tt>Object.equals()</tt> is used when comparing <tt>attrVal</tt>
@@ -407,7 +407,7 @@ public class BasicAttribute implements Attribute {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Removes a specified value from this attribute.
       *<p>
       * By default, <tt>Object.equals()</tt> is used when comparing <tt>attrVal</tt>
@@ -469,7 +469,7 @@ public class BasicAttribute implements Attribute {
 
 // ----------------- Schema methods
 
-    /**
+    /** {@collect.stats}
       * Retrieves the syntax definition associated with this attribute.
       *<p>
       * This method by default throws OperationNotSupportedException. A subclass
@@ -479,7 +479,7 @@ public class BasicAttribute implements Attribute {
             throw new OperationNotSupportedException("attribute syntax");
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves this attribute's schema definition.
       *<p>
       * This method by default throws OperationNotSupportedException. A subclass
@@ -492,7 +492,7 @@ public class BasicAttribute implements Attribute {
 
 //  ---- serialization methods
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid exposing implementation details
      * @serialData Default field (the attribute ID -- a String),
      * followed by the number of values (an int), and the
@@ -507,7 +507,7 @@ public class BasicAttribute implements Attribute {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid exposing implementation details.
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -549,7 +549,7 @@ public class BasicAttribute implements Attribute {
     }
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability.
      */
     private static final long serialVersionUID = 6743528196119291326L;

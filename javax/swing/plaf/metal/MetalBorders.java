@@ -42,14 +42,14 @@ import java.awt.Window;
 import sun.swing.StringUIClientPropertyKey;
 
 
-/**
+/** {@collect.stats}
  * Factory object that can vend Borders appropriate for the metal L & F.
  * @author Steve Wilson
  */
 
 public class MetalBorders {
 
-    /**
+    /** {@collect.stats}
      * Client property indicating the button shouldn't provide a rollover
      * indicator. Only used with the Ocean theme.
      */
@@ -260,7 +260,7 @@ public class MetalBorders {
           }
     }
 
-    /**
+    /** {@collect.stats}
      * Border for a Frame.
      * @since 1.4
      */
@@ -330,7 +330,7 @@ public class MetalBorders {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Border for a Frame.
      * @since 1.4
      */
@@ -430,7 +430,7 @@ public class MetalBorders {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Border for an Error Dialog.
      * @since 1.4
      */
@@ -442,7 +442,7 @@ public class MetalBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Border for a QuestionDialog.  Also used for a JFileChooser and a
      * JColorChooser..
      * @since 1.4
@@ -455,7 +455,7 @@ public class MetalBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Border for a Warning Dialog.
      * @since 1.4
      */
@@ -467,7 +467,7 @@ public class MetalBorders {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Border for a Palette.
      * @since 1.3
      */
@@ -708,7 +708,7 @@ public class MetalBorders {
 
     }
 
-    /**
+    /** {@collect.stats}
      * A border which is like a Margin border but it will only honor the margin
      * if the margin has been explicitly set by the developer.
      *
@@ -830,7 +830,7 @@ public class MetalBorders {
 
     private static Border buttonBorder;
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a JButton
      * @since 1.3
      */
@@ -845,7 +845,7 @@ public class MetalBorders {
 
     private static Border textBorder;
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a text component
      * @since 1.3
      */
@@ -860,7 +860,7 @@ public class MetalBorders {
 
     private static Border textFieldBorder;
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a JTextField
      * @since 1.3
      */
@@ -938,7 +938,7 @@ public class MetalBorders {
 
     private static Border toggleButtonBorder;
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a JToggleButton
      * @since 1.3
      */
@@ -951,7 +951,7 @@ public class MetalBorders {
         return toggleButtonBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.3
      */
     public static class ToggleButtonBorder extends ButtonBorder {
@@ -982,7 +982,7 @@ public class MetalBorders {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Border for a Table Header
      * @since 1.3
      */
@@ -1007,7 +1007,7 @@ public class MetalBorders {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a border instance for a Desktop Icon
      * @since 1.3
      */

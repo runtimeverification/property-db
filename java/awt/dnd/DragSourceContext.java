@@ -43,7 +43,7 @@ import java.io.Serializable;
 
 import java.util.TooManyListenersException;
 
-/**
+/** {@collect.stats}
  * The <code>DragSourceContext</code> class is responsible for managing the
  * initiator side of the Drag and Drop protocol. In particular, it is responsible
  * for managing drag event notifications to the <code>DragSourceListener</code>s
@@ -74,35 +74,35 @@ public class DragSourceContext
 
     // used by updateCurrentCursor
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> used by updateCurrentCursor()
      * indicating that the <code>Cursor</code> should change
      * to the default (no drop) <code>Cursor</code>.
      */
     protected static final int DEFAULT = 0;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> used by updateCurrentCursor()
      * indicating that the <code>Cursor</code>
      * has entered a <code>DropTarget</code>.
      */
     protected static final int ENTER   = 1;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> used by updateCurrentCursor()
      * indicating that the <code>Cursor</code> is
      * over a <code>DropTarget</code>.
      */
     protected static final int OVER    = 2;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> used by updateCurrentCursor()
      * indicating that the user operation has changed.
      */
 
     protected static final int CHANGED = 3;
 
-    /**
+    /** {@collect.stats}
      * Called from <code>DragSource</code>, this constructor creates a new
      * <code>DragSourceContext</code> given the
      * <code>DragSourceContextPeer</code> for this Drag, the
@@ -205,7 +205,7 @@ public class DragSourceContext
         updateCurrentCursor(trigger.getDragAction(), getSourceActions(), DEFAULT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>DragSource</code>
      * that instantiated this <code>DragSourceContext</code>.
      *
@@ -215,7 +215,7 @@ public class DragSourceContext
 
     public DragSource   getDragSource() { return trigger.getDragSource(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Component</code> associated with this
      * <code>DragSourceContext</code>.
      *
@@ -224,7 +224,7 @@ public class DragSourceContext
 
     public Component    getComponent() { return trigger.getComponent(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>DragGestureEvent</code>
      * that initially triggered the drag.
      *
@@ -233,7 +233,7 @@ public class DragSourceContext
 
     public DragGestureEvent getTrigger() { return trigger; }
 
-    /**
+    /** {@collect.stats}
      * Returns a bitwise mask of <code>DnDConstants</code> that
      * represent the set of drop actions supported by the drag source for the
      * drag operation associated with this <code>DragSourceContext</code>.
@@ -244,7 +244,7 @@ public class DragSourceContext
         return sourceActions;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the cursor for this drag operation to the specified
      * <code>Cursor</code>.  If the specified <code>Cursor</code>
      * is <code>null</code>, the default drag cursor behavior is
@@ -261,7 +261,7 @@ public class DragSourceContext
         setCursorImpl(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current drag <code>Cursor</code>.
      * <P>
      * @return the current drag <code>Cursor</code>
@@ -269,7 +269,7 @@ public class DragSourceContext
 
     public Cursor getCursor() { return cursor; }
 
-    /**
+    /** {@collect.stats}
      * Add a <code>DragSourceListener</code> to this
      * <code>DragSourceContext</code> if one has not already been added.
      * If a <code>DragSourceListener</code> already exists,
@@ -294,7 +294,7 @@ public class DragSourceContext
             listener = dsl;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified <code>DragSourceListener</code>
      * from  this <code>DragSourceContext</code>.
      *
@@ -310,7 +310,7 @@ public class DragSourceContext
             throw new IllegalArgumentException();
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies the peer that the <code>Transferable</code>'s
      * <code>DataFlavor</code>s have changed.
      */
@@ -319,7 +319,7 @@ public class DragSourceContext
         if (peer != null) peer.transferablesFlavorsChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dragEnter</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSourceContext</code> and with the associated
@@ -338,7 +338,7 @@ public class DragSourceContext
         updateCurrentCursor(getSourceActions(), dsde.getTargetActions(), ENTER);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dragOver</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSourceContext</code> and with the associated
@@ -357,7 +357,7 @@ public class DragSourceContext
         updateCurrentCursor(getSourceActions(), dsde.getTargetActions(), OVER);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dragExit</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSourceContext</code> and with the associated
@@ -376,7 +376,7 @@ public class DragSourceContext
         updateCurrentCursor(DnDConstants.ACTION_NONE, DnDConstants.ACTION_NONE, DEFAULT);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dropActionChanged</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSourceContext</code> and with the associated
@@ -395,7 +395,7 @@ public class DragSourceContext
         updateCurrentCursor(getSourceActions(), dsde.getTargetActions(), CHANGED);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dragDropEnd</code> on the
      * <code>DragSourceListener</code>s registered with this
      * <code>DragSourceContext</code> and with the associated
@@ -412,7 +412,7 @@ public class DragSourceContext
         getDragSource().processDragDropEnd(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>dragMouseMoved</code> on the
      * <code>DragSourceMotionListener</code>s registered with the
      * <code>DragSource</code> associated with this
@@ -426,7 +426,7 @@ public class DragSourceContext
         getDragSource().processDragMouseMoved(dsde);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Transferable</code> associated with
      * this <code>DragSourceContext</code>.
      *
@@ -434,7 +434,7 @@ public class DragSourceContext
      */
     public Transferable getTransferable() { return transferable; }
 
-    /**
+    /** {@collect.stats}
      * If the default drag cursor behavior is active, this method
      * sets the default drag cursor for the specified actions
      * supported by the drag source, the drop target action,
@@ -495,7 +495,7 @@ public class DragSourceContext
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes this <code>DragSourceContext</code>. This method first
      * performs default serialization. Next, this object's
      * <code>Transferable</code> is written out if and only if it can be
@@ -522,7 +522,7 @@ public class DragSourceContext
                       ? listener : null);
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes this <code>DragSourceContext</code>. This method first
      * performs default deserialization for all non-<code>transient</code>
      * fields. This object's <code>Transferable</code> and
@@ -572,14 +572,14 @@ public class DragSourceContext
 
     private transient DragSourceContextPeer peer;
 
-    /**
+    /** {@collect.stats}
      * The event which triggered the start of the drag.
      *
      * @serial
      */
     private DragGestureEvent    trigger;
 
-    /**
+    /** {@collect.stats}
      * The current drag cursor.
      *
      * @serial
@@ -590,7 +590,7 @@ public class DragSourceContext
 
     private transient DragSourceListener    listener;
 
-    /**
+    /** {@collect.stats}
      * <code>true</code> if the custom drag cursor is used instead of the
      * default one.
      *
@@ -598,7 +598,7 @@ public class DragSourceContext
      */
     private boolean useCustomCursor;
 
-    /**
+    /** {@collect.stats}
      * A bitwise mask of <code>DnDConstants</code> that represents the set of
      * drop actions supported by the drag source for the drag operation associated
      * with this <code>DragSourceContext.</code>

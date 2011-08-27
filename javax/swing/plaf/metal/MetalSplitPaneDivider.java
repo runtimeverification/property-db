@@ -31,7 +31,7 @@ import javax.swing.border.*;
 import javax.swing.plaf.basic.*;
 
 
-/**
+/** {@collect.stats}
  * Metal's split pane divider
  * <p>
  * <strong>Warning:</strong>
@@ -97,7 +97,7 @@ class MetalSplitPaneDivider extends BasicSplitPaneDivider
         super.paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and return an instance of JButton that can be used to
      * collapse the left component in the metal split pane.
      */
@@ -196,7 +196,7 @@ class MetalSplitPaneDivider extends BasicSplitPaneDivider
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary <code>c</code> is made opaque.
      */
     private void maybeMakeButtonOpaque(JComponent c) {
@@ -206,7 +206,7 @@ class MetalSplitPaneDivider extends BasicSplitPaneDivider
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and return an instance of JButton that can be used to
      * collapse the right component in the metal split pane.
      */
@@ -305,7 +305,7 @@ class MetalSplitPaneDivider extends BasicSplitPaneDivider
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Used to layout a MetalSplitPaneDivider. Layout for the divider
      * involves appropriately moving the left/right buttons around.
      * <p>

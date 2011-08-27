@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * This class encapsulates a single tab stop (basically as tab stops
  * are thought of by RTF). A tab stop is at a specified distance from the
  * left margin, aligns text in a specified way, and has a specified leader.
@@ -44,16 +44,16 @@ import java.io.Serializable;
  */
 public class TabStop implements Serializable {
 
-    /** Character following tab is positioned at location. */
+    /** {@collect.stats} Character following tab is positioned at location. */
     public static final int ALIGN_LEFT    = 0;
-    /** Characters following tab are positioned such that all following
+    /** {@collect.stats} Characters following tab are positioned such that all following
      * characters up to next tab/newline end at location. */
     public static final int ALIGN_RIGHT   = 1;
-    /** Characters following tab are positioned such that all following
+    /** {@collect.stats} Characters following tab are positioned such that all following
      * characters up to next tab/newline are centered around the tabs
      * location. */
     public static final int ALIGN_CENTER  = 2;
-    /** Characters following tab are aligned such that next
+    /** {@collect.stats} Characters following tab are aligned such that next
      * decimal/tab/newline is at the tab location, very similar to
      * RIGHT_TAB, just includes decimal as additional character to look for.
      */
@@ -72,13 +72,13 @@ public class TabStop implements Serializable {
     public static final int LEAD_THICKLINE = 4;
     public static final int LEAD_EQUALS    = 5;
 
-    /** Tab type. */
+    /** {@collect.stats} Tab type. */
     private int alignment;
-    /** Location, from the left margin, that tab is at. */
+    /** {@collect.stats} Location, from the left margin, that tab is at. */
     private float position;
     private int leader;
 
-    /**
+    /** {@collect.stats}
      * Creates a tab at position <code>pos</code> with a default alignment
      * and default leader.
      */
@@ -86,7 +86,7 @@ public class TabStop implements Serializable {
         this(pos, ALIGN_LEFT, LEAD_NONE);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a tab with the specified position <code>pos</code>,
      * alignment <code>align</code> and leader <code>leader</code>.
      */
@@ -96,7 +96,7 @@ public class TabStop implements Serializable {
         position = pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position, as a float, of the tab.
      * @return the position of the tab
      */
@@ -104,7 +104,7 @@ public class TabStop implements Serializable {
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment, as an integer, of the tab.
      * @return the alignment of the tab
      */
@@ -112,7 +112,7 @@ public class TabStop implements Serializable {
         return alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the leader of the tab.
      * @return the leader of the tab
      */
@@ -120,7 +120,7 @@ public class TabStop implements Serializable {
         return leader;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the tabs are equal.
      * @return true if the tabs are equal, otherwise false
      */
@@ -138,7 +138,7 @@ public class TabStop implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hashCode for the object.  This must be defined
      * here to ensure 100% pure.
      *

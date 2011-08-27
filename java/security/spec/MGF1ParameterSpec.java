@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used with mask generation
  * function MGF1 in OAEP Padding and RSA-PSS signature scheme, as
  * defined in the
@@ -57,22 +57,22 @@ import java.security.spec.AlgorithmParameterSpec;
  */
 public class MGF1ParameterSpec implements AlgorithmParameterSpec {
 
-    /**
+    /** {@collect.stats}
      * The MGF1ParameterSpec which uses "SHA-1" message digest.
      */
     public static final MGF1ParameterSpec SHA1 =
         new MGF1ParameterSpec("SHA-1");
-    /**
+    /** {@collect.stats}
      * The MGF1ParameterSpec which uses "SHA-256" message digest.
      */
     public static final MGF1ParameterSpec SHA256 =
         new MGF1ParameterSpec("SHA-256");
-    /**
+    /** {@collect.stats}
      * The MGF1ParameterSpec which uses "SHA-384" message digest.
      */
     public static final MGF1ParameterSpec SHA384 =
         new MGF1ParameterSpec("SHA-384");
-    /**
+    /** {@collect.stats}
      * The MGF1ParameterSpec which uses SHA-512 message digest.
      */
     public static final MGF1ParameterSpec SHA512 =
@@ -80,7 +80,7 @@ public class MGF1ParameterSpec implements AlgorithmParameterSpec {
 
     private String mdName;
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for mask generation function MGF1
      * as defined in the PKCS #1 standard.
      *
@@ -95,7 +95,7 @@ public class MGF1ParameterSpec implements AlgorithmParameterSpec {
         this.mdName = mdName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of the message digest used by the mask
      * generation function.
      *

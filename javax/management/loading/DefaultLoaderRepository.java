@@ -32,7 +32,7 @@ import java.util.logging.Level;
 import javax.management.MBeanServer;
 import javax.management.MBeanServerFactory;
 
-/**
+/** {@collect.stats}
  * <p>Keeps the list of Class Loaders registered in the MBean Server.
  * It provides the necessary methods to load classes using the registered
  * Class Loaders.</p>
@@ -55,7 +55,7 @@ import javax.management.MBeanServerFactory;
 @Deprecated
 public class DefaultLoaderRepository {
 
-    /**
+    /** {@collect.stats}
      * Go through the list of class loaders and try to load the requested
      * class.
      * The method will stop as soon as the class is found. If the class
@@ -77,7 +77,7 @@ public class DefaultLoaderRepository {
         return load(null, className);
     }
 
-    /**
+    /** {@collect.stats}
      * Go through the list of class loaders but exclude the given
      * class loader, then try to load
      * the requested class.

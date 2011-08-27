@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * This exception is raised when there is no relation type with given name in
  * Relation Service.
  *
@@ -36,14 +36,14 @@ public class RelationTypeNotFoundException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = 1274155316284300752L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public RelationTypeNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

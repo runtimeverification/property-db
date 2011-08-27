@@ -31,7 +31,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
 
-/**
+/** {@collect.stats}
  * <p>Provides general information for an MBean descriptor object.
  * The feature described can be an attribute, an operation, a
  * parameter, or a notification.  Instances of this class are
@@ -46,7 +46,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
     /* Serial version */
     static final long serialVersionUID = 3952882688968447265L;
 
-    /**
+    /** {@collect.stats}
      * The name of the feature.  It is recommended that subclasses call
      * {@link #getName} rather than reading this field, and that they
      * not change it.
@@ -55,7 +55,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
      */
     protected String name;
 
-    /**
+    /** {@collect.stats}
      * The human-readable description of the feature.  It is
      * recommended that subclasses call {@link #getDescription} rather
      * than reading this field, and that they not change it.
@@ -64,14 +64,14 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
      */
     protected String description;
 
-    /**
+    /** {@collect.stats}
      * @serial The Descriptor for this MBeanFeatureInfo.  This field
      * can be null, which is equivalent to an empty Descriptor.
      */
     private transient Descriptor descriptor;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanFeatureInfo</CODE> object.  This
      * constructor is equivalent to {@code MBeanFeatureInfo(name,
      * description, (Descriptor) null}.
@@ -83,7 +83,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         this(name, description, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanFeatureInfo</CODE> object.
      *
      * @param name The name of the feature.
@@ -100,7 +100,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         this.descriptor = descriptor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the feature.
      *
      * @return the name of the feature.
@@ -109,7 +109,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the human-readable description of the feature.
      *
      * @return the human-readable description of the feature.
@@ -118,7 +118,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the descriptor for the feature.  Changing the returned value
      * will have no affect on the original descriptor.
      *
@@ -130,7 +130,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         return (Descriptor) ImmutableDescriptor.nonNullDescriptor(descriptor).clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this MBeanFeatureInfo to another.
      *
      * @param o the object to compare to.
@@ -157,7 +157,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
                getDescriptor().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link MBeanFeatureInfo} to an {@link ObjectOutputStream}.
      * @serialData
      * For compatibility reasons, an object of this class is serialized as follows.
@@ -201,7 +201,7 @@ public class MBeanFeatureInfo implements Serializable, DescriptorRead {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link MBeanFeatureInfo} from an {@link ObjectInputStream}.
      * @serialData
      * For compatibility reasons, an object of this class is deserialized as follows.

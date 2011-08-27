@@ -35,7 +35,7 @@
 
 package java.util.concurrent;
 
-/**
+/** {@collect.stats}
  * A <tt>TimeUnit</tt> represents time durations at a given unit of
  * granularity and provides utility methods to convert across units,
  * and to perform timing and delay operations in these units.  A
@@ -158,7 +158,7 @@ public enum TimeUnit {
 
     static final long MAX = Long.MAX_VALUE;
 
-    /**
+    /** {@collect.stats}
      * Scale d by m, checking for overflow.
      * This has a short name to make above code more readable.
      */
@@ -173,7 +173,7 @@ public enum TimeUnit {
     // enum classes should not be listed as abstract), method convert
     // etc. are not declared abstract but otherwise act as abstract methods.
 
-    /**
+    /** {@collect.stats}
      * Convert the given time duration in the given unit to this
      * unit.  Conversions from finer to coarser granularities
      * truncate, so lose precision. For example converting
@@ -196,7 +196,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>NANOSECONDS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -208,7 +208,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>MICROSECONDS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -220,7 +220,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>MILLISECONDS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -232,7 +232,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>SECONDS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -244,7 +244,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>MINUTES.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -257,7 +257,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>HOURS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration,
@@ -270,7 +270,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <tt>DAYS.convert(duration, this)</tt>.
      * @param duration the duration
      * @return the converted duration
@@ -281,7 +281,7 @@ public enum TimeUnit {
         throw new AbstractMethodError();
     }
 
-    /**
+    /** {@collect.stats}
      * Utility to compute the excess-nanosecond argument to wait,
      * sleep, join.
      * @param d the duration
@@ -290,7 +290,7 @@ public enum TimeUnit {
      */
     abstract int excessNanos(long d, long m);
 
-    /**
+    /** {@collect.stats}
      * Performs a timed <tt>Object.wait</tt> using this time unit.
      * This is a convenience method that converts timeout arguments
      * into the form required by the <tt>Object.wait</tt> method.
@@ -321,7 +321,7 @@ public enum TimeUnit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a timed <tt>Thread.join</tt> using this time unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.join</tt> method.
@@ -340,7 +340,7 @@ public enum TimeUnit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Performs a <tt>Thread.sleep</tt> using this unit.
      * This is a convenience method that converts time arguments into the
      * form required by the <tt>Thread.sleep</tt> method.

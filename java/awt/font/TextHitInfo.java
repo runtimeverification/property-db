@@ -41,7 +41,7 @@
 package java.awt.font;
 import java.lang.String;
 
-/**
+/** {@collect.stats}
  * The <code>TextHitInfo</code> class represents a character position in a
  * text model, and a <b>bias</b>, or "side," of the character.  Biases are
  * either <EM>leading</EM> (the left edge, for a left-to-right character)
@@ -89,7 +89,7 @@ public final class TextHitInfo {
     private int charIndex;
     private boolean isLeadingEdge;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>TextHitInfo</code>.
      * @param charIndex the index of the character hit
      * @param isLeadingEdge <code>true</code> if the leading edge of the
@@ -100,7 +100,7 @@ public final class TextHitInfo {
         this.isLeadingEdge = isLeadingEdge;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the character hit.
      * @return the index of the character hit.
      */
@@ -108,7 +108,7 @@ public final class TextHitInfo {
         return charIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the leading edge of the character was
      * hit.
      * @return <code>true</code> if the leading edge of the character was
@@ -118,7 +118,7 @@ public final class TextHitInfo {
         return isLeadingEdge;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insertion index.  This is the character index if
      * the leading edge of the character was hit, and one greater
      * than the character index if the trailing edge was hit.
@@ -128,7 +128,7 @@ public final class TextHitInfo {
         return isLeadingEdge ? charIndex : charIndex + 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code.
      * @return the hash code of this <code>TextHitInfo</code>, which is
      * also the <code>charIndex</code> of this <code>TextHitInfo</code>.
@@ -137,7 +137,7 @@ public final class TextHitInfo {
         return charIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the specified <code>Object</code> is a
      * <code>TextHitInfo</code> and equals this <code>TextHitInfo</code>.
      * @param obj the <code>Object</code> to test for equality
@@ -148,7 +148,7 @@ public final class TextHitInfo {
         return (obj instanceof TextHitInfo) && equals((TextHitInfo)obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the specified <code>TextHitInfo</code>
      * has the same <code>charIndex</code> and <code>isLeadingEdge</code>
      * as this <code>TextHitInfo</code>.  This is not the same as having
@@ -163,7 +163,7 @@ public final class TextHitInfo {
             isLeadingEdge == hitInfo.isLeadingEdge;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> representing the hit for debugging
      * use only.
      * @return a <code>String</code> representing this
@@ -173,7 +173,7 @@ public final class TextHitInfo {
         return "TextHitInfo[" + charIndex + (isLeadingEdge ? "L" : "T")+"]";
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TextHitInfo</code> on the leading edge of the
      * character at the specified <code>charIndex</code>.
      * @param charIndex the index of the character hit
@@ -184,7 +184,7 @@ public final class TextHitInfo {
         return new TextHitInfo(charIndex, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a hit on the trailing edge of the character at
      * the specified <code>charIndex</code>.
      * @param charIndex the index of the character hit
@@ -195,7 +195,7 @@ public final class TextHitInfo {
         return new TextHitInfo(charIndex, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TextHitInfo</code> at the specified offset,
      * associated with the character before the offset.
      * @param offset an offset associated with the character before
@@ -206,7 +206,7 @@ public final class TextHitInfo {
         return new TextHitInfo(offset-1, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TextHitInfo</code> at the specified offset,
      * associated with the character after the offset.
      * @param offset an offset associated with the character after
@@ -217,7 +217,7 @@ public final class TextHitInfo {
         return new TextHitInfo(offset, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TextHitInfo</code> on the other side of the
      * insertion point.  This <code>TextHitInfo</code> remains unchanged.
      * @return a <code>TextHitInfo</code> on the other side of the
@@ -231,7 +231,7 @@ public final class TextHitInfo {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TextHitInfo</code> whose character index is offset
      * by <code>delta</code> from the <code>charIndex</code> of this
      * <code>TextHitInfo</code>. This <code>TextHitInfo</code> remains

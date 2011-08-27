@@ -34,7 +34,7 @@ import java.security.spec.*;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class provides the functionality of a secret (symmetric) key generator.
  *
  * <p>Key generators are constructed using one of the <code>getInstance</code>
@@ -117,7 +117,7 @@ public class KeyGenerator {
     private AlgorithmParameterSpec initParams;
     private SecureRandom initRandom;
 
-    /**
+    /** {@collect.stats}
      * Creates a KeyGenerator object.
      *
      * @param keyGenSpi the delegate
@@ -143,7 +143,7 @@ public class KeyGenerator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>KeyGenerator</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -156,7 +156,7 @@ public class KeyGenerator {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyGenerator</code> object that generates secret keys
      * for the specified algorithm.
      *
@@ -191,7 +191,7 @@ public class KeyGenerator {
         return new KeyGenerator(algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyGenerator</code> object that generates secret keys
      * for the specified algorithm.
      *
@@ -237,7 +237,7 @@ public class KeyGenerator {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyGenerator</code> object that generates secret keys
      * for the specified algorithm.
      *
@@ -276,7 +276,7 @@ public class KeyGenerator {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>KeyGenerator</code> object.
      *
      * @return the provider of this <code>KeyGenerator</code> object
@@ -288,7 +288,7 @@ public class KeyGenerator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the active spi of this class and return the next
      * implementation for failover. If no more implemenations are
      * available, this method returns null. However, the active spi of
@@ -348,7 +348,7 @@ public class KeyGenerator {
         initRandom = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator.
      *
      * @param random the source of randomness for this generator
@@ -378,7 +378,7 @@ public class KeyGenerator {
         throw failure;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator with the specified parameter set.
      *
      * <p> If this key generator requires any random bytes, it will get them
@@ -400,7 +400,7 @@ public class KeyGenerator {
         init(params, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator with the specified parameter
      * set and a user-provided source of randomness.
      *
@@ -443,7 +443,7 @@ public class KeyGenerator {
         throw new InvalidAlgorithmParameterException("init() failed", failure);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator for a certain keysize.
      *
      * <p> If this key generator requires any random bytes, it will get them
@@ -464,7 +464,7 @@ public class KeyGenerator {
         init(keysize, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key generator for a certain keysize, using a
      * user-provided source of randomness.
      *
@@ -500,7 +500,7 @@ public class KeyGenerator {
         throw failure;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a secret key.
      *
      * @return the new key

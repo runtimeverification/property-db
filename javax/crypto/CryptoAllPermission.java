@@ -29,7 +29,7 @@ import java.security.*;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * The CryptoAllPermission is a permission that implies
  * any other crypto permissions.
  * <p>
@@ -54,7 +54,7 @@ final class CryptoAllPermission extends CryptoPermission {
         super(ALG_NAME);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified permission is implied by
      * this object.
      *
@@ -67,7 +67,7 @@ final class CryptoAllPermission extends CryptoPermission {
          return (p instanceof CryptoPermission);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two CryptoAllPermission objects for equality.
      * Two CryptoAllPermission objects are always equal.
      *
@@ -79,7 +79,7 @@ final class CryptoAllPermission extends CryptoPermission {
         return (obj == INSTANCE);
     }
 
-    /**
+    /** {@collect.stats}
      *
      * Returns the hash code value for this object.
      *
@@ -89,7 +89,7 @@ final class CryptoAllPermission extends CryptoPermission {
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new PermissionCollection object for storing
      * CryptoAllPermission objects.
      * <p>
@@ -102,7 +102,7 @@ final class CryptoAllPermission extends CryptoPermission {
     }
 }
 
-/**
+/** {@collect.stats}
  * A CryptoAllPermissionCollection stores a collection
  * of CryptoAllPermission permissions.
  *
@@ -121,14 +121,14 @@ final class CryptoAllPermissionCollection extends PermissionCollection
     // true if a CryptoAllPermission has been added
     private boolean all_allowed;
 
-    /**
+    /** {@collect.stats}
      * Create an empty CryptoAllPermissions object.
      */
     CryptoAllPermissionCollection() {
         all_allowed = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the CryptoAllPermissions.
      *
      * @param permission the Permission object to add.
@@ -148,7 +148,7 @@ final class CryptoAllPermissionCollection extends PermissionCollection
         all_allowed = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
      *
@@ -165,7 +165,7 @@ final class CryptoAllPermissionCollection extends PermissionCollection
         return all_allowed;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the CryptoAllPermission
      * objects in the  container.
      *

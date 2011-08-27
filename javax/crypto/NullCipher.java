@@ -25,7 +25,7 @@
 
 package javax.crypto;
 
-/**
+/** {@collect.stats}
  * The NullCipher class is a class that provides an
  * "identity cipher" -- one that does not tranform the plaintext.  As
  * a consequence, the ciphertext is identical to the plaintext.  All

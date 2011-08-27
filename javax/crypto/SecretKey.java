@@ -25,7 +25,7 @@
 
 package javax.crypto;
 
-/**
+/** {@collect.stats}
  * A secret (symmetric) key.
  *
  * <p>This interface contains no methods or constants.
@@ -50,7 +50,7 @@ package javax.crypto;
  */
 
 public interface SecretKey extends java.security.Key {
-    /**
+    /** {@collect.stats}
      * The class fingerprint that is set to indicate serialization
      * compatibility since J2SE 1.4.
      */

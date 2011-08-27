@@ -35,7 +35,7 @@ import javax.management.*;
 
 
 
-/**
+/** {@collect.stats}
  * Exposes the remote management interface of the MLet
  * MBean.
  *
@@ -44,7 +44,7 @@ import javax.management.*;
 public interface MLetMBean   {
 
 
-    /**
+    /** {@collect.stats}
      * Loads a text file containing MLET tags that define the MBeans
      * to be added to the MBean server. The location of the text file is
      * specified by a URL. The text file is read using the UTF-8
@@ -67,7 +67,7 @@ public interface MLetMBean   {
     public Set<Object> getMBeansFromURL(String url)
             throws ServiceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Loads a text file containing MLET tags that define the MBeans
      * to be added to the MBean server. The location of the text file is
      * specified by a URL. The text file is read using the UTF-8
@@ -90,7 +90,7 @@ public interface MLetMBean   {
     public Set<Object> getMBeansFromURL(URL url)
             throws ServiceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Appends the specified URL to the list of URLs to search for classes and
      * resources.
      *
@@ -98,7 +98,7 @@ public interface MLetMBean   {
      */
     public void addURL(URL url) ;
 
-    /**
+    /** {@collect.stats}
      * Appends the specified URL to the list of URLs to search for classes and
      * resources.
      *
@@ -108,7 +108,7 @@ public interface MLetMBean   {
      */
     public void addURL(String url) throws ServiceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns the search path of URLs for loading classes and resources.
      * This includes the original list of URLs specified to the constructor,
      * along with any URLs subsequently appended by the addURL() method.
@@ -117,7 +117,7 @@ public interface MLetMBean   {
      */
     public URL[] getURLs();
 
-    /** Finds the resource with the given name.
+    /** {@collect.stats} Finds the resource with the given name.
      * A resource is some data (images, audio, text, etc) that can be accessed by class code in a way that is
      *   independent of the location of the code.
      *   The name of a resource is a "/"-separated path name that identifies the resource.
@@ -129,7 +129,7 @@ public interface MLetMBean   {
      */
     public URL getResource(String name);
 
-    /** Returns an input stream for reading the specified resource. The search order is described in the documentation for
+    /** {@collect.stats} Returns an input stream for reading the specified resource. The search order is described in the documentation for
      *  getResource(String).
      *
      * @param name  The resource name
@@ -139,7 +139,7 @@ public interface MLetMBean   {
      */
     public InputStream getResourceAsStream(String name);
 
-    /**
+    /** {@collect.stats}
      * Finds all the resources with the given name. A resource is some
      * data (images, audio, text, etc) that can be accessed by class
      * code in a way that is independent of the location of the code.
@@ -157,7 +157,7 @@ public interface MLetMBean   {
      */
     public Enumeration<URL> getResources(String name) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Gets the current directory used by the library loader for
      * storing native libraries before they are loaded into memory.
      *
@@ -170,7 +170,7 @@ public interface MLetMBean   {
      */
     public String getLibraryDirectory();
 
-    /**
+    /** {@collect.stats}
      * Sets the directory used by the library loader for storing
      * native libraries before they are loaded into memory.
      *

@@ -29,7 +29,7 @@ import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * A class to perform rendering of the glyphs.
  * This can be implemented to be stateless, or
  * to hold some information as a cache to
@@ -54,14 +54,14 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         this.layout = layout;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a painter to use for the given GlyphView.
      */
     public GlyphView.GlyphPainter getPainter(GlyphView v, int p0, int p1) {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determine the span the glyphs given a start location
      * (for tab expansion).  This implementation assumes it
      * has no tabs (i.e. TextLayout doesn't deal with tab
@@ -90,7 +90,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return layout.getAscent() + layout.getDescent() + layout.getLeading();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the ascent above the baseline for the glyphs
      * corresponding to the given range in the model.
      */
@@ -98,7 +98,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return layout.getAscent();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the descent below the baseline for the glyphs
      * corresponding to the given range in the model.
      */
@@ -106,7 +106,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return layout.getDescent();
     }
 
-    /**
+    /** {@collect.stats}
      * Paint the glyphs for the given view.  This is implemented
      * to only render if the Graphics is of type Graphics2D which
      * is required by TextLayout (and this should be the case if
@@ -149,7 +149,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return alloc;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -176,7 +176,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return pos + v.getStartOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the model location that represents the
      * maximum advance that fits within the given span.
      * This could be used to break the given view.  The result
@@ -209,7 +209,7 @@ class GlyphPainter2 extends GlyphView.GlyphPainter {
         return v.getStartOffset() + hit.getCharIndex();
     }
 
-    /**
+    /** {@collect.stats}
          * Provides a way to determine the next visually represented model
          * location that one might place a caret.  Some views may not be
          * visible, they might not be in the same order found in the model, or

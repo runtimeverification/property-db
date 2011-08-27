@@ -49,7 +49,7 @@ import javax.management.remote.JMXAuthenticator;
 import javax.management.remote.JMXConnectorServer;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>An RMI object representing a connector server.  Remote clients
  * can make connections using the {@link #newClient(Object)} method.  This
  * method returns an RMI object representing the connection.</p>
@@ -67,7 +67,7 @@ import javax.security.auth.Subject;
  * @since 1.5
  */
 public abstract class RMIServerImpl implements Closeable, RMIServer {
-    /**
+    /** {@collect.stats}
      * <p>Constructs a new <code>RMIServerImpl</code>.</p>
      *
      * @param env the environment containing attributes for the new
@@ -83,14 +83,14 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         this.connServer = connServer;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Exports this RMI object.</p>
      *
      * @exception IOException if this RMI object cannot be exported.
      */
     protected abstract void export() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns a remotable stub for this server object.
      * @return a remotable stub.
      * @exception IOException if the stub cannot be obtained - e.g the
@@ -98,7 +98,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
      **/
     public abstract Remote toStub() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Sets the default <code>ClassLoader</code> for this connector
      * server. New client connections will use this classloader.
      * Existing client connections are unaffected.</p>
@@ -112,7 +112,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         this.cl = cl;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Gets the default <code>ClassLoader</code> used by this connector
      * server.</p>
      *
@@ -125,7 +125,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         return cl;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Sets the <code>MBeanServer</code> to which this connector
      * server is attached. New client connections will interact
      * with this <code>MBeanServer</code>. Existing client connections are
@@ -140,7 +140,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         this.mbeanServer = mbs;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The <code>MBeanServer</code> to which this connector server
      * is attached.  This is the last value passed to {@link
      * #setMBeanServer} on this object, or null if that method has
@@ -165,7 +165,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new client connection.  This method calls {@link
      * #makeClient makeClient} and adds the returned client connection
      * object to an internal list.  When this
@@ -199,7 +199,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         return doNewClient(credentials);
     }
 
-    /**
+    /** {@collect.stats}
      * This method could be overridden by subclasses defined in this package
      * to perform additional operations specific to the underlying transport
      * before creating the new client connection.
@@ -263,7 +263,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         return client;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new client connection.  This method is called by
      * the public method {@link #newClient(Object)}.</p>
      *
@@ -283,7 +283,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
                                                 Subject subject)
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Closes a client connection made by {@link #makeClient makeClient}.
      *
      * @param client a connection previously returned by
@@ -298,7 +298,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
     protected abstract void closeClient(RMIConnection client)
             throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the protocol string for this object.  The string is
      * <code>rmi</code> for RMI/JRMP and <code>iiop</code> for RMI/IIOP.
      *
@@ -306,7 +306,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
      */
     protected abstract String getProtocol();
 
-    /**
+    /** {@collect.stats}
      * <p>Method called when a client connection created by {@link
      * #makeClient makeClient} is closed.  A subclass that defines
      * <code>makeClient</code> must arrange for this method to be
@@ -359,7 +359,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         if (debug) logger.trace("clientClosed","done");
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Closes this connection server.  This method first calls the
      * {@link #closeServer()} method so that no new client connections
      * will be accepted.  Then, for each remaining {@link
@@ -448,7 +448,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
         if (tracing) logger.trace("close","closed.");
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by {@link #close()} to close the connector server.
      * After returning from this method, the connector server must
      * not accept any new connections.</p>
@@ -512,7 +512,7 @@ public abstract class RMIServerImpl implements Closeable, RMIServer {
     private static final ClassLogger logger =
         new ClassLogger("javax.management.remote.rmi", "RMIServerImpl");
 
-    /** List of WeakReference values.  Each one references an
+    /** {@collect.stats} List of WeakReference values.  Each one references an
         RMIConnection created by this object, or null if the
         RMIConnection has been garbage-collected.  */
     private final List<WeakReference<RMIConnection>> clientList =

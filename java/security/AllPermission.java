@@ -31,7 +31,7 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * The AllPermission is a permission that implies all other permissions.
  * <p>
  * <b>Note:</b> Granting AllPermission should be done with extreme care,
@@ -59,7 +59,7 @@ public final class AllPermission extends Permission {
 
     private static final long serialVersionUID = -2916474571451318075L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new AllPermission object.
      */
 
@@ -69,7 +69,7 @@ public final class AllPermission extends Permission {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new AllPermission object. This
      * constructor exists for use by the <code>Policy</code> object
      * to instantiate new Permission objects.
@@ -82,7 +82,7 @@ public final class AllPermission extends Permission {
         this();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified permission is "implied" by
      * this object. This method always returns true.
      *
@@ -94,7 +94,7 @@ public final class AllPermission extends Permission {
          return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two AllPermission objects for equality. Two AllPermission
      * objects are always equal.
      *
@@ -105,7 +105,7 @@ public final class AllPermission extends Permission {
         return (obj instanceof AllPermission);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -115,7 +115,7 @@ public final class AllPermission extends Permission {
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical string representation of the actions.
      *
      * @return the actions.
@@ -125,7 +125,7 @@ public final class AllPermission extends Permission {
         return "<all actions>";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new PermissionCollection object for storing AllPermission
      * objects.
      * <p>
@@ -140,7 +140,7 @@ public final class AllPermission extends Permission {
 
 }
 
-/**
+/** {@collect.stats}
  * A AllPermissionCollection stores a collection
  * of AllPermission permissions. AllPermission objects
  * must be stored in a manner that allows them to be inserted in any
@@ -166,7 +166,7 @@ implements java.io.Serializable
 
     private boolean all_allowed; // true if any all permissions have been added
 
-    /**
+    /** {@collect.stats}
      * Create an empty AllPermissions object.
      *
      */
@@ -175,7 +175,7 @@ implements java.io.Serializable
         all_allowed = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the AllPermissions. The key for the hash is
      * permission.path.
      *
@@ -199,7 +199,7 @@ implements java.io.Serializable
         all_allowed = true; // No sync; staleness OK
     }
 
-    /**
+    /** {@collect.stats}
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
      *
@@ -213,7 +213,7 @@ implements java.io.Serializable
         return all_allowed; // No sync; staleness OK
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the AllPermission objects in the
      * container.
      *

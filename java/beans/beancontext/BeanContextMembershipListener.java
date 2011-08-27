@@ -29,7 +29,7 @@ import java.beans.beancontext.BeanContextMembershipEvent;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * <p>
  * Compliant BeanContexts fire events on this interface when the state of
  * the membership of the BeanContext changes.
@@ -42,7 +42,7 @@ import java.util.EventListener;
 
 public interface BeanContextMembershipListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Called when a child or list of children is added to a
      * <code>BeanContext</code> that this listener is registered with.
      * @param bcme The <code>BeanContextMembershipEvent</code>
@@ -50,7 +50,7 @@ public interface BeanContextMembershipListener extends EventListener {
      */
     void childrenAdded(BeanContextMembershipEvent bcme);
 
-    /**
+    /** {@collect.stats}
      * Called when a child or list of children is removed
      * from a <code>BeanContext</code> that this listener
      * is registered with.

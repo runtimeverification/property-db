@@ -28,7 +28,7 @@ package javax.sound.sampled;
 import java.security.BasicPermission;
 
 
-/**
+/** {@collect.stats}
  * The <code>AudioPermission</code> class represents access rights to the audio
  * system resources.  An <code>AudioPermission</code> contains a target name
  * but no actions list; you either have the named permission or you don't.
@@ -205,7 +205,7 @@ import java.security.BasicPermission;
 
 public class AudioPermission extends BasicPermission {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>AudioPermission</code> object that has the specified
      * symbolic name, such as "play" or "record". An asterisk can be used to indicate
      * all audio permissions.
@@ -219,7 +219,7 @@ public class AudioPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>AudioPermission</code> object that has the specified
      * symbolic name, such as "play" or "record".  The <code>actions</code>
      * parameter is currently unused and should be <code>null</code>.

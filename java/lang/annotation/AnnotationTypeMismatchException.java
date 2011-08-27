@@ -26,7 +26,7 @@
 package java.lang.annotation;
 import java.lang.reflect.Method;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that a program has attempted to access an element of
  * an annotation whose type has changed after the annotation was compiled
  * (or serialized).
@@ -35,19 +35,19 @@ import java.lang.reflect.Method;
  * @since 1.5
  */
 public class AnnotationTypeMismatchException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * The <tt>Method</tt> object for the annotation element.
      */
     private final Method element;
 
-    /**
+    /** {@collect.stats}
      * The (erroneous) type of data found in the annotation.  This string
      * may, but is not required to, contain the value as well.  The exact
      * format of the string is unspecified.
      */
     private final String foundType;
 
-    /**
+    /** {@collect.stats}
      * Constructs an AnnotationTypeMismatchException for the specified
      * annotation type element and found data type.
      *
@@ -63,7 +63,7 @@ public class AnnotationTypeMismatchException extends RuntimeException {
         this.foundType = foundType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <tt>Method</tt> object for the incorrectly typed element.
      *
      * @return the <tt>Method</tt> object for the incorrectly typed element
@@ -72,7 +72,7 @@ public class AnnotationTypeMismatchException extends RuntimeException {
         return this.element;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of data found in the incorrectly typed element.
      * The returned string may, but is not required to, contain the value
      * as well.  The exact format of the string is unspecified.

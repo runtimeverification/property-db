@@ -26,14 +26,14 @@ package javax.swing.text.html;
 
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Processes the &lt;BR&gt; tag.  In other words, forces a line break.
  *
  * @author Sunita Mani
  */
 class BRView extends InlineView {
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents a &lt;BR&gt; element.
      *
      * @param elem the element to create a view for
@@ -42,7 +42,7 @@ class BRView extends InlineView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Forces a line break.
      *
      * @return View.ForcedBreakWeight

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when duplicate flags are provided in the format
  * specifier.
  *
@@ -41,7 +41,7 @@ public class DuplicateFormatFlagsException extends IllegalFormatException {
 
     private String flags;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class with the specified flags.
      *
      * @param  f
@@ -53,7 +53,7 @@ public class DuplicateFormatFlagsException extends IllegalFormatException {
         this.flags = f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of flags which contains a duplicate flag.
      *
      * @return  The flags

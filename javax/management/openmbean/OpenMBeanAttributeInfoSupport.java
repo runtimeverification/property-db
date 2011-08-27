@@ -46,7 +46,7 @@ import javax.management.ImmutableDescriptor;
 import javax.management.MBeanAttributeInfo;
 import com.sun.jmx.remote.util.EnvHelp;
 
-/**
+/** {@collect.stats}
  * Describes an attribute of an open MBean.
  *
  *
@@ -59,28 +59,28 @@ public class OpenMBeanAttributeInfoSupport
     /* Serial version */
     static final long serialVersionUID = -4867215622149721849L;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean attribute's <i>open type</i>
      */
     private OpenType<?> openType;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean attribute's default value
      */
     private final Object defaultValue;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean attribute's legal values. This {@link
      * Set} is unmodifiable
      */
     private final Set<?> legalValues;  // to be constructed unmodifiable
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean attribute's min value
      */
     private final Comparable minValue;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean attribute's max value
      */
     private final Comparable maxValue;
@@ -92,7 +92,7 @@ public class OpenMBeanAttributeInfoSupport
     private transient String  myToString = null;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanAttributeInfoSupport} instance,
      * which describes the attribute of an open MBean with the
      * specified {@code name}, {@code openType} and {@code
@@ -127,7 +127,7 @@ public class OpenMBeanAttributeInfoSupport
              (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanAttributeInfoSupport} instance,
      * which describes the attribute of an open MBean with the
      * specified {@code name}, {@code openType}, {@code
@@ -199,7 +199,7 @@ public class OpenMBeanAttributeInfoSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanAttributeInfoSupport} instance,
      * which describes the attribute of an open MBean with the
      * specified {@code name}, {@code openType}, {@code description}
@@ -251,7 +251,7 @@ public class OpenMBeanAttributeInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanAttributeInfoSupport} instance,
      * which describes the attribute of an open MBean with the
      * specified {@code name}, {@code openType}, {@code description},
@@ -321,7 +321,7 @@ public class OpenMBeanAttributeInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanAttributeInfoSupport} instance,
      * which describes the attribute of an open MBean, with the
      * specified {@code name}, {@code openType}, {@code description},
@@ -426,7 +426,7 @@ public class OpenMBeanAttributeInfoSupport
         check(this);
     }
 
-    /**
+    /** {@collect.stats}
      * An object serialized in a version of the API before Descriptors were
      * added to this class will have an empty or null Descriptor.
      * For consistency with our
@@ -797,7 +797,7 @@ public class OpenMBeanAttributeInfoSupport
         return (T) x;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the open type for the values of the attribute described
      * by this {@code OpenMBeanAttributeInfoSupport} instance.
      */
@@ -805,7 +805,7 @@ public class OpenMBeanAttributeInfoSupport
         return openType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default value for the attribute described by this
      * {@code OpenMBeanAttributeInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -821,7 +821,7 @@ public class OpenMBeanAttributeInfoSupport
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Set of legal values for the attribute
      * described by this {@code OpenMBeanAttributeInfoSupport}
      * instance, if specified, or {@code null} otherwise.
@@ -838,7 +838,7 @@ public class OpenMBeanAttributeInfoSupport
         return (legalValues);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimal value for the attribute described by this
      * {@code OpenMBeanAttributeInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -851,7 +851,7 @@ public class OpenMBeanAttributeInfoSupport
         return minValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximal value for the attribute described by this
      * {@code OpenMBeanAttributeInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -864,7 +864,7 @@ public class OpenMBeanAttributeInfoSupport
         return maxValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanAttributeInfoSupport} instance specifies a non-null
      * default value for the described attribute, {@code false}
@@ -875,7 +875,7 @@ public class OpenMBeanAttributeInfoSupport
         return (defaultValue != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanAttributeInfoSupport} instance specifies a non-null
      * set of legal values for the described attribute, {@code false}
@@ -886,7 +886,7 @@ public class OpenMBeanAttributeInfoSupport
         return (legalValues != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanAttributeInfoSupport} instance specifies a non-null
      * minimal value for the described attribute, {@code false}
@@ -897,7 +897,7 @@ public class OpenMBeanAttributeInfoSupport
         return (minValue != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanAttributeInfoSupport} instance specifies a non-null
      * maximal value for the described attribute, {@code false}
@@ -909,7 +909,7 @@ public class OpenMBeanAttributeInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Tests whether {@code obj} is a valid value for the attribute
      * described by this {@code OpenMBeanAttributeInfoSupport}
      * instance.
@@ -941,7 +941,7 @@ public class OpenMBeanAttributeInfoSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * Compares the specified {@code obj} parameter with this {@code
      * OpenMBeanAttributeInfoSupport} instance for equality.
      * <p>
@@ -1009,7 +1009,7 @@ public class OpenMBeanAttributeInfoSupport
                 !x2.hasLegalValues());
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this {@code
      * OpenMBeanAttributeInfoSupport} instance.</p>
      *
@@ -1069,7 +1069,7 @@ public class OpenMBeanAttributeInfoSupport
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this
      * {@code OpenMBeanAttributeInfoSupport} instance.
      * <p>

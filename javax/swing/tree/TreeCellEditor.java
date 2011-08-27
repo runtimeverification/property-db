@@ -29,7 +29,7 @@ import java.awt.Component;
 import javax.swing.CellEditor;
 import javax.swing.JTree;
 
-/**
+/** {@collect.stats}
   * Adds to CellEditor the extensions necessary to configure an editor
   * in a tree.
   *
@@ -40,7 +40,7 @@ import javax.swing.JTree;
 
 public interface TreeCellEditor extends CellEditor
 {
-    /**
+    /** {@collect.stats}
      * Sets an initial <I>value</I> for the editor.  This will cause
      * the editor to stopEditing and lose any partially edited value
      * if the editor is editing when this method is called. <p>

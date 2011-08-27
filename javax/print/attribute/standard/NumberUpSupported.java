@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.SetOfIntegerSyntax;
 import javax.print.attribute.SupportedValuesAttribute;
 
-/**
+/** {@collect.stats}
  * Class NumberUpSupported is a printing attribute class, a set of integers,
  * that gives the supported values for a {@link NumberUp NumberUp} attribute.
  * <P>
@@ -48,7 +48,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
      private static final long serialVersionUID = -1041573395759141805L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new number up supported attribute with the given members.
      * The supported values for NumberUp are specified in "array form;" see
      * class
@@ -85,7 +85,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new number up supported attribute containing a single
      * integer. That is, only the one value of NumberUp is supported.
      *
@@ -102,7 +102,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new number up supported attribute containing a single range
      * of integers. That is, only those values of NumberUp in the one range are
      * supported.
@@ -125,7 +125,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this number up supported attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -149,7 +149,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
                 object instanceof NumberUpSupported);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -163,7 +163,7 @@ public final class NumberUpSupported    extends SetOfIntegerSyntax
         return NumberUpSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

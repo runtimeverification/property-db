@@ -28,7 +28,7 @@ package javax.swing.plaf;
 import java.awt.Rectangle;
 import javax.swing.JTabbedPane;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JTabbedPane.
  *
  * @author Dave Moore

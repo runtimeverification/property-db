@@ -37,7 +37,7 @@ import java.io.Serializable;
 import java.security.AccessController;
 import java.util.Iterator;
 
-/**
+/** {@collect.stats}
  * Represents the result of a multiple access to several roles of a relation
  * (either for reading or writing).
  *
@@ -76,7 +76,7 @@ public class RoleResult implements Serializable {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField roleList RoleList List of roles successfully accessed
      * @serialField unresolvedRoleList RoleUnresolvedList List of roles unsuccessfully accessed
      */
@@ -105,12 +105,12 @@ public class RoleResult implements Serializable {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial List of roles successfully accessed
      */
     private RoleList roleList = null;
 
-    /**
+    /** {@collect.stats}
      * @serial List of roles unsuccessfully accessed
      */
     private RoleUnresolvedList unresolvedRoleList = null;
@@ -119,7 +119,7 @@ public class RoleResult implements Serializable {
     // Constructor
     //
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param list  list of roles successfully accessed.
@@ -138,7 +138,7 @@ public class RoleResult implements Serializable {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Retrieves list of roles successfully accessed.
      *
      * @return a RoleList
@@ -149,7 +149,7 @@ public class RoleResult implements Serializable {
         return roleList;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves list of roles unsuccessfully accessed.
      *
      * @return a RoleUnresolvedList.
@@ -160,7 +160,7 @@ public class RoleResult implements Serializable {
         return unresolvedRoleList;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets list of roles successfully accessed.
      *
      * @param list  list of roles successfully accessed
@@ -183,7 +183,7 @@ public class RoleResult implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets list of roles unsuccessfully accessed.
      *
      * @param unresolvedList  list of roles unsuccessfully accessed
@@ -207,7 +207,7 @@ public class RoleResult implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link RoleResult} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -237,7 +237,7 @@ public class RoleResult implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link RoleResult} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

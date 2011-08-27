@@ -30,7 +30,7 @@ import javax.swing.plaf.*;
 import javax.swing.plaf.basic.*;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * The Metal implementation of ProgressBarUI.
  * <p>
  * <strong>Warning:</strong>
@@ -53,7 +53,7 @@ public class MetalProgressBarUI extends BasicProgressBarUI {
         return new MetalProgressBarUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Draws a bit of special highlighting on the progress bar.
      * The core painting is deferred to the BasicProgressBar's
      * <code>paintDeterminate</code> method.
@@ -132,7 +132,7 @@ public class MetalProgressBarUI extends BasicProgressBarUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Draws a bit of special highlighting on the progress bar
      * and bouncing box.
      * The core painting is deferred to the BasicProgressBar's

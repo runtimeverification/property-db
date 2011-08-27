@@ -46,7 +46,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class provides the functionality of a cryptographic cipher for
  * encryption and decryption. It forms the core of the Java Cryptographic
  * Extension (JCE) framework.
@@ -100,37 +100,37 @@ public class Cipher {
     private static final Debug debug =
                         Debug.getInstance("jca", "Cipher");
 
-    /**
+    /** {@collect.stats}
      * Constant used to initialize cipher to encryption mode.
      */
     public static final int ENCRYPT_MODE = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant used to initialize cipher to decryption mode.
      */
     public static final int DECRYPT_MODE = 2;
 
-    /**
+    /** {@collect.stats}
      * Constant used to initialize cipher to key-wrapping mode.
      */
     public static final int WRAP_MODE = 3;
 
-    /**
+    /** {@collect.stats}
      * Constant used to initialize cipher to key-unwrapping mode.
      */
     public static final int UNWRAP_MODE = 4;
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate the to-be-unwrapped key is a "public key".
      */
     public static final int PUBLIC_KEY = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate the to-be-unwrapped key is a "private key".
      */
     public static final int PRIVATE_KEY = 2;
 
-    /**
+    /** {@collect.stats}
      * Constant used to indicate the to-be-unwrapped key is a "secret key".
      */
     public static final int SECRET_KEY = 3;
@@ -180,7 +180,7 @@ public class Cipher {
 
     private final Object lock;
 
-    /**
+    /** {@collect.stats}
      * Creates a Cipher object.
      *
      * @param cipherSpi the delegate
@@ -203,7 +203,7 @@ public class Cipher {
         this.lock = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a Cipher object. Called internally and by NullCipher.
      *
      * @param cipherSpi the delegate
@@ -273,7 +273,7 @@ public class Cipher {
     private final static int S_MAYBE = 1;       // unable to determine
     private final static int S_YES   = 2;       // does support
 
-    /**
+    /** {@collect.stats}
      * Nested class to deal with modes and paddings.
      */
     private static class Transform {
@@ -393,7 +393,7 @@ public class Cipher {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Cipher</code> object that implements the specified
      * transformation.
      *
@@ -471,7 +471,7 @@ public class Cipher {
             ("Cannot find any provider supporting " + transformation, failure);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Cipher</code> object that implements the specified
      * transformation.
      *
@@ -527,7 +527,7 @@ public class Cipher {
         return getInstance(transformation, p);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Cipher</code> object that implements the specified
      * transformation.
      *
@@ -641,7 +641,7 @@ public class Cipher {
     // max number of debug warnings to print from chooseFirstProvider()
     private static int warnCount = 10;
 
-    /**
+    /** {@collect.stats}
      * Choose the Spi from the first provider available. Used if
      * delayed provider selection is not possible because init()
      * is not the first method called.
@@ -829,7 +829,7 @@ public class Cipher {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>Cipher</code> object.
      *
      * @return the provider of this <code>Cipher</code> object
@@ -839,7 +839,7 @@ public class Cipher {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>Cipher</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -852,7 +852,7 @@ public class Cipher {
         return this.transformation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the block size (in bytes).
      *
      * @return the block size (in bytes), or 0 if the underlying algorithm is
@@ -863,7 +863,7 @@ public class Cipher {
         return spi.engineGetBlockSize();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length in bytes that an output buffer would need to be in
      * order to hold the result of the next <code>update</code> or
      * <code>doFinal</code> operation, given the input length
@@ -896,7 +896,7 @@ public class Cipher {
         return spi.engineGetOutputSize(inputLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initialization vector (IV) in a new buffer.
      *
      * <p>This is useful in the case where a random IV was created,
@@ -912,7 +912,7 @@ public class Cipher {
         return spi.engineGetIV();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parameters used with this cipher.
      *
      * <p>The returned parameters may be the same that were used to initialize
@@ -928,7 +928,7 @@ public class Cipher {
         return spi.engineGetParameters();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the exemption mechanism object used with this cipher.
      *
      * @return the exemption mechanism object used with this cipher, or
@@ -1048,7 +1048,7 @@ public class Cipher {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key.
      *
      * <p>The cipher is initialized for one of the following four operations:
@@ -1096,7 +1096,7 @@ public class Cipher {
         init(opmode, key, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key and a source of randomness.
      *
      * <p>The cipher is initialized for one of the following four operations:
@@ -1159,7 +1159,7 @@ public class Cipher {
         this.opmode = opmode;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key and a set of algorithm
      * parameters.
      *
@@ -1215,7 +1215,7 @@ public class Cipher {
         init(opmode, key, params, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key, a set of algorithm
      * parameters, and a source of randomness.
      *
@@ -1280,7 +1280,7 @@ public class Cipher {
         this.opmode = opmode;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key and a set of algorithm
      * parameters.
      *
@@ -1336,7 +1336,7 @@ public class Cipher {
         init(opmode, key, params, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with a key, a set of algorithm
      * parameters, and a source of randomness.
      *
@@ -1401,7 +1401,7 @@ public class Cipher {
         this.opmode = opmode;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with the public key from the given certificate.
      * <p> The cipher is initialized for one of the following four operations:
      * encryption, decryption, key wrapping or  key unwrapping, depending
@@ -1463,7 +1463,7 @@ public class Cipher {
         init(opmode, certificate, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this cipher with the public key from the given certificate
      * and
      * a source of randomness.
@@ -1570,7 +1570,7 @@ public class Cipher {
         this.opmode = opmode;
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that Cipher is in a valid state for update() and doFinal()
      * calls - should be initialized and in ENCRYPT_MODE or DECRYPT_MODE.
      * @throws IllegalStateException if Cipher object is not in valid state.
@@ -1588,7 +1588,7 @@ public class Cipher {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -1623,7 +1623,7 @@ public class Cipher {
         return spi.engineUpdate(input, 0, input.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -1663,7 +1663,7 @@ public class Cipher {
         return spi.engineUpdate(input, inputOffset, inputLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -1718,7 +1718,7 @@ public class Cipher {
                                       output, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -1777,7 +1777,7 @@ public class Cipher {
                                       output, outputOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Continues a multiple-part encryption or decryption operation
      * (depending on how this cipher was initialized), processing another data
      * part.
@@ -1834,7 +1834,7 @@ public class Cipher {
         return spi.engineUpdate(input, output);
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes a multiple-part encryption or decryption operation, depending
      * on how this cipher was initialized.
      *
@@ -1873,7 +1873,7 @@ public class Cipher {
         return spi.engineDoFinal(null, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes a multiple-part encryption or decryption operation, depending
      * on how this cipher was initialized.
      *
@@ -1931,7 +1931,7 @@ public class Cipher {
         return spi.engineDoFinal(null, 0, 0, output, outputOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation, or finishes a
      * multiple-part operation. The data is encrypted or decrypted,
      * depending on how this cipher was initialized.
@@ -1978,7 +1978,7 @@ public class Cipher {
         return spi.engineDoFinal(input, 0, input.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation, or finishes a
      * multiple-part operation. The data is encrypted or decrypted,
      * depending on how this cipher was initialized.
@@ -2030,7 +2030,7 @@ public class Cipher {
         return spi.engineDoFinal(input, inputOffset, inputLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation, or finishes a
      * multiple-part operation. The data is encrypted or decrypted,
      * depending on how this cipher was initialized.
@@ -2099,7 +2099,7 @@ public class Cipher {
                                        output, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation, or finishes a
      * multiple-part operation. The data is encrypted or decrypted,
      * depending on how this cipher was initialized.
@@ -2173,7 +2173,7 @@ public class Cipher {
                                        output, outputOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Encrypts or decrypts data in a single-part operation, or finishes a
      * multiple-part operation. The data is encrypted or decrypted,
      * depending on how this cipher was initialized.
@@ -2248,7 +2248,7 @@ public class Cipher {
         return spi.engineDoFinal(input, output);
     }
 
-    /**
+    /** {@collect.stats}
      * Wrap a key.
      *
      * @param key the key to be wrapped.
@@ -2283,7 +2283,7 @@ public class Cipher {
         return spi.engineWrap(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Unwrap a previously wrapped key.
      *
      * @param wrappedKey the key to be unwrapped.
@@ -2369,7 +2369,7 @@ public class Cipher {
         return JceSecurityManager.INSTANCE.getCryptoPermission(parts[0]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum key length for the specified transformation
      * according to the installed JCE jurisdiction policy files. If
      * JCE unlimited strength jurisdiction policy files are installed,
@@ -2394,7 +2394,7 @@ public class Cipher {
         return cp.getMaxKeySize();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an AlgorithmParameterSpec object which contains
      * the maximum cipher parameter value according to the
      * jurisdiction policy file. If JCE unlimited strength jurisdiction

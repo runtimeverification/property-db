@@ -27,7 +27,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Defines the methods that should be implemented by
  * a Dynamic MBean (MBean that exposes a dynamic management interface).
  *
@@ -36,7 +36,7 @@ package javax.management;
 public interface DynamicMBean {
 
 
-    /**
+    /** {@collect.stats}
      * Obtain the value of a specific attribute of the Dynamic MBean.
      *
      * @param attribute The name of the attribute to be retrieved
@@ -52,7 +52,7 @@ public interface DynamicMBean {
     public Object getAttribute(String attribute) throws AttributeNotFoundException,
         MBeanException, ReflectionException;
 
-    /**
+    /** {@collect.stats}
      * Set the value of a specific attribute of the Dynamic MBean.
      *
      * @param attribute The identification of the attribute to
@@ -68,7 +68,7 @@ public interface DynamicMBean {
     public void setAttribute(Attribute attribute) throws AttributeNotFoundException,
         InvalidAttributeValueException, MBeanException, ReflectionException ;
 
-    /**
+    /** {@collect.stats}
      * Get the values of several attributes of the Dynamic MBean.
      *
      * @param attributes A list of the attributes to be retrieved.
@@ -79,7 +79,7 @@ public interface DynamicMBean {
      */
     public AttributeList getAttributes(String[] attributes);
 
-    /**
+    /** {@collect.stats}
      * Sets the values of several attributes of the Dynamic MBean.
      *
      * @param attributes A list of attributes: The identification of the
@@ -91,7 +91,7 @@ public interface DynamicMBean {
      */
     public AttributeList setAttributes(AttributeList attributes);
 
-    /**
+    /** {@collect.stats}
      * Allows an action to be invoked on the Dynamic MBean.
      *
      * @param actionName The name of the action to be invoked.
@@ -110,7 +110,7 @@ public interface DynamicMBean {
     public Object invoke(String actionName, Object params[], String signature[])
         throws MBeanException, ReflectionException ;
 
-    /**
+    /** {@collect.stats}
      * Provides the exposed attributes and actions of the Dynamic MBean using an MBeanInfo object.
      *
      * @return  An instance of <CODE>MBeanInfo</CODE> allowing all attributes and actions

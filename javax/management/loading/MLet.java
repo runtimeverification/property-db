@@ -72,7 +72,7 @@ import static com.sun.jmx.defaults.JmxProperties.MLET_LOGGER;
 import com.sun.jmx.defaults.ServiceName;
 import javax.management.ServiceNotFoundException;
 
-/**
+/** {@collect.stats}
  * Allows you to instantiate and register one or several MBeans in the MBean server
  * coming from a remote URL. M-let is a shortcut for management applet. The m-let service does this
  * by loading an m-let text file, which specifies information on the MBeans to be obtained.
@@ -178,14 +178,14 @@ public class MLet extends java.net.URLClassLoader
      * ------------------------------------------
      */
 
-     /**
+     /** {@collect.stats}
       * The reference to the MBean server.
       * @serial
       */
      private MBeanServer server = null;
 
 
-     /**
+     /** {@collect.stats}
       * The list of instances of the <CODE>MLetContent</CODE>
       * class found at the specified URL.
       * @serial
@@ -193,37 +193,37 @@ public class MLet extends java.net.URLClassLoader
      private List<MLetContent> mletList = new ArrayList<MLetContent>();
 
 
-     /**
+     /** {@collect.stats}
       * The directory used for storing libraries locally before they are loaded.
       */
      private String libraryDirectory;
 
 
-     /**
+     /** {@collect.stats}
       * The object name of the MLet Service.
       * @serial
       */
      private ObjectName mletObjectName = null;
 
-     /**
+     /** {@collect.stats}
       * The URLs of the MLet Service.
       * @serial
       */
      private URL[] myUrls = null;
 
-     /**
+     /** {@collect.stats}
       * What ClassLoaderRepository, if any, to use if this MLet
       * doesn't find an asked-for class.
       */
      private transient ClassLoaderRepository currentClr;
 
-     /**
+     /** {@collect.stats}
       * True if we should consult the {@link ClassLoaderRepository}
       * when we do not find a class ourselves.
       */
      private transient boolean delegateToCLR;
 
-     /**
+     /** {@collect.stats}
       * objects maps from primitive classes to primitive object classes.
       */
      private Map<String,Class<?>> primitiveClasses =
@@ -256,14 +256,14 @@ public class MLet extends java.net.URLClassLoader
       * but one call this(...args...).
       */
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet using the default delegation parent ClassLoader.
       */
      public MLet() {
          this(new URL[0]);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the specified URLs using the default
       * delegation parent ClassLoader.  The URLs will be searched in
       * the order specified for classes and resources after first
@@ -276,7 +276,7 @@ public class MLet extends java.net.URLClassLoader
          this(urls, true);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the given URLs. The URLs will be
       * searched in the order specified for classes and resources
       * after first searching in the specified parent class loader.
@@ -291,7 +291,7 @@ public class MLet extends java.net.URLClassLoader
          this(urls, parent, true);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the specified URLs, parent class
       * loader, and URLStreamHandlerFactory. The parent argument will
       * be used as the parent class loader for delegation. The factory
@@ -309,7 +309,7 @@ public class MLet extends java.net.URLClassLoader
          this(urls, parent, factory, true);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the specified URLs using the default
       * delegation parent ClassLoader.  The URLs will be searched in
       * the order specified for classes and resources after first
@@ -326,7 +326,7 @@ public class MLet extends java.net.URLClassLoader
          init(delegateToCLR);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the given URLs. The URLs will be
       * searched in the order specified for classes and resources
       * after first searching in the specified parent class loader.
@@ -345,7 +345,7 @@ public class MLet extends java.net.URLClassLoader
          init(delegateToCLR);
      }
 
-     /**
+     /** {@collect.stats}
       * Constructs a new MLet for the specified URLs, parent class
       * loader, and URLStreamHandlerFactory. The parent argument will
       * be used as the parent class loader for delegation. The factory
@@ -391,7 +391,7 @@ public class MLet extends java.net.URLClassLoader
       */
 
 
-     /**
+     /** {@collect.stats}
       * Appends the specified URL to the list of URLs to search for classes and
       * resources.
       */
@@ -400,7 +400,7 @@ public class MLet extends java.net.URLClassLoader
              super.addURL(url);
      }
 
-     /**
+     /** {@collect.stats}
       * Appends the specified URL to the list of URLs to search for classes and
       * resources.
       * @exception ServiceNotFoundException The specified URL is malformed.
@@ -420,7 +420,7 @@ public class MLet extends java.net.URLClassLoader
          }
      }
 
-     /** Returns the search path of URLs for loading classes and resources.
+     /** {@collect.stats} Returns the search path of URLs for loading classes and resources.
       * This includes the original list of URLs specified to the constructor,
       * along with any URLs subsequently appended by the addURL() method.
       */
@@ -428,7 +428,7 @@ public class MLet extends java.net.URLClassLoader
          return super.getURLs();
      }
 
-     /**
+     /** {@collect.stats}
       * Loads a text file containing MLET tags that define the MBeans to
       * be added to the MBean server. The location of the text file is specified by
       * a URL. The MBeans specified in the MLET file will be instantiated and
@@ -454,7 +454,7 @@ public class MLet extends java.net.URLClassLoader
          return getMBeansFromURL(url.toString());
      }
 
-     /**
+     /** {@collect.stats}
       * Loads a text file containing MLET tags that define the MBeans to
       * be added to the MBean server. The location of the text file is specified by
       * a URL. The MBeans specified in the MLET file will be instantiated and
@@ -722,7 +722,7 @@ public class MLet extends java.net.URLClassLoader
          return mbeans;
      }
 
-     /**
+     /** {@collect.stats}
       * Gets the current directory used by the library loader for
       * storing native libraries before they are loaded into memory.
       *
@@ -737,7 +737,7 @@ public class MLet extends java.net.URLClassLoader
          return libraryDirectory;
      }
 
-     /**
+     /** {@collect.stats}
       * Sets the directory used by the library loader for storing
       * native libraries before they are loaded into memory.
       *
@@ -752,7 +752,7 @@ public class MLet extends java.net.URLClassLoader
          libraryDirectory = libdir;
      }
 
-     /**
+     /** {@collect.stats}
       * Allows the m-let to perform any operations it needs before
       * being registered in the MBean server. If the ObjectName is
       * null, the m-let provides a default name for its registration
@@ -781,7 +781,7 @@ public class MLet extends java.net.URLClassLoader
         return this.mletObjectName;
      }
 
-     /**
+     /** {@collect.stats}
       * Allows the m-let to perform any operations needed after having been
       * registered in the MBean server or after the registration has failed.
       *
@@ -793,7 +793,7 @@ public class MLet extends java.net.URLClassLoader
      public void postRegister (Boolean registrationDone) {
      }
 
-     /**
+     /** {@collect.stats}
       * Allows the m-let to perform any operations it needs before being unregistered
       * by the MBean server.
       *
@@ -805,14 +805,14 @@ public class MLet extends java.net.URLClassLoader
      }
 
 
-     /**
+     /** {@collect.stats}
       * Allows the m-let to perform any operations needed after having been
       * unregistered in the MBean server.
       */
      public void postDeregister() {
      }
 
-     /**
+     /** {@collect.stats}
       * <p>Save this MLet's contents to the given {@link ObjectOutput}.
       * Not all implementations support this method.  Those that do not
       * throw {@link UnsupportedOperationException}.  A subclass may
@@ -835,7 +835,7 @@ public class MLet extends java.net.URLClassLoader
          throw new UnsupportedOperationException("MLet.writeExternal");
      }
 
-     /**
+     /** {@collect.stats}
       * <p>Restore this MLet's contents from the given {@link ObjectInput}.
       * Not all implementations support this method.  Those that do not
       * throw {@link UnsupportedOperationException}.  A subclass may
@@ -867,7 +867,7 @@ public class MLet extends java.net.URLClassLoader
       * ------------------------------------------
       */
 
-     /**
+     /** {@collect.stats}
       * <p>Load a class, using the given {@link ClassLoaderRepository} if
       * the class is not found in this MLet's URLs.  The given
       * ClassLoaderRepository can be null, in which case a {@link
@@ -902,7 +902,7 @@ public class MLet extends java.net.URLClassLoader
       * ------------------------------------------
       */
 
-     /**
+     /** {@collect.stats}
       * This is the main method for class loaders that is being redefined.
       *
       * @param name The name of the class.
@@ -921,7 +921,7 @@ public class MLet extends java.net.URLClassLoader
          return findClass(name, currentClr);
      }
 
-     /**
+     /** {@collect.stats}
       * Called by {@link MLet#findClass(java.lang.String)}.
       *
       * @param name The name of the class that we want to load/find.
@@ -989,7 +989,7 @@ public class MLet extends java.net.URLClassLoader
          return c;
      }
 
-     /**
+     /** {@collect.stats}
       * Returns the absolute path name of a native library. The VM
       * invokes this method to locate the native libraries that belong
       * to classes loaded with this class loader. Libraries are
@@ -1140,7 +1140,7 @@ public class MLet extends java.net.URLClassLoader
         }
      }
 
-     /**
+     /** {@collect.stats}
       * Search the specified native library in any of the JAR files
       * loaded by this classloader.  If the library is found copy it
       * into the library directory and return the absolute path.  If
@@ -1174,7 +1174,7 @@ public class MLet extends java.net.URLClassLoader
          return null;
      }
 
-   /**
+   /** {@collect.stats}
     * Removes any white space from a string. This is used to
     * convert strings such as "Windows NT" to "WindowsNT".
     */
@@ -1199,7 +1199,7 @@ public class MLet extends java.net.URLClassLoader
          return temp;
      }
 
-     /**
+     /** {@collect.stats}
       * <p>This method is to be overridden when extending this service to
       * support caching and versioning.  It is called from {@link
       * #getMBeansFromURL getMBeansFromURL} when the version,
@@ -1231,7 +1231,7 @@ public class MLet extends java.net.URLClassLoader
          return codebase;
      }
 
-    /**
+    /** {@collect.stats}
      * Loads the serialized object specified by the <CODE>OBJECT</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      *
@@ -1284,7 +1284,7 @@ public class MLet extends java.net.URLClassLoader
         }
      }
 
-     /**
+     /** {@collect.stats}
       * Converts the String value of the constructor's parameter to
       * a basic Java object with the type of the parameter.
       */

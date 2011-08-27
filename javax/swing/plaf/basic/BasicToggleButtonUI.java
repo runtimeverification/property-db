@@ -37,7 +37,7 @@ import javax.swing.text.View;
 
 
 
-/**
+/** {@collect.stats}
  * BasicToggleButton implementation
  * <p>
  *
@@ -164,7 +164,7 @@ public class BasicToggleButtonUI extends BasicButtonUI {
         icon.paintIcon(b, g, iconRect.x, iconRect.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden so that the text will not be rendered as shifted for
      * Toggle buttons and subclasses.
      */

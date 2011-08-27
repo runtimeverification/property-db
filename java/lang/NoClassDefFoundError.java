@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown if the Java Virtual Machine or a <code>ClassLoader</code> instance
  * tries to load in the definition of a class (as part of a normal method call
  * or as part of creating a new instance using the <code>new</code> expression)
@@ -40,14 +40,14 @@ package java.lang;
  */
 public
 class NoClassDefFoundError extends LinkageError {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoClassDefFoundError</code> with no detail message.
      */
     public NoClassDefFoundError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoClassDefFoundError</code> with the specified
      * detail message.
      *

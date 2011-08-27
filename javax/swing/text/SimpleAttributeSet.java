@@ -32,7 +32,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A straightforward implementation of MutableAttributeSet using a
  * hash table.
  * <p>
@@ -51,20 +51,20 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
 {
     private static final long serialVersionUID = -6631553454711782652L;
 
-    /**
+    /** {@collect.stats}
      * An empty attribute set.
      */
     public static final AttributeSet EMPTY = new EmptyAttributeSet();
 
     private transient Hashtable table = new Hashtable(3);
 
-    /**
+    /** {@collect.stats}
      * Creates a new attribute set.
      */
     public SimpleAttributeSet() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new attribute set based on a supplied set of attributes.
      *
      * @param source the set of attributes
@@ -77,7 +77,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         this.table = table;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the set of attributes is empty.
      *
      * @return true if the set is empty else false
@@ -87,7 +87,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return table.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a count of the number of attributes.
      *
      * @return the count
@@ -96,7 +96,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return table.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether a given attribute is defined.
      *
      * @param attrName the attribute name
@@ -106,7 +106,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return table.containsKey(attrName);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares two attribute sets.
      *
      * @param attr the second attribute set
@@ -117,7 +117,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
                 containsAttributes(attr));
     }
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of the attributes.
      *
      * @return the copy
@@ -126,7 +126,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return (AttributeSet) clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the names of the attributes in the set.
      *
      * @return the names as an <code>Enumeration</code>
@@ -135,7 +135,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return table.keys();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of an attribute.
      *
      * @param name the attribute name
@@ -152,7 +152,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the attribute list contains a
      * specified attribute name/value pair.
      *
@@ -164,7 +164,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return value.equals(getAttribute(name));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the attribute list contains all the
      * specified name/value pairs.
      *
@@ -183,7 +183,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute to the list.
      *
      * @param name the attribute name
@@ -193,7 +193,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         table.put(name, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of attributes to the list.
      *
      * @param attributes the set of attributes to add
@@ -206,7 +206,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute from the list.
      *
      * @param name the attribute name
@@ -215,7 +215,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         table.remove(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes from the list.
      *
      * @param names the set of names to remove
@@ -225,7 +225,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
             removeAttribute(names.nextElement());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes from the list.
      *
      * @param attributes the set of attributes to remove
@@ -245,7 +245,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the resolving parent.  This is the set
      * of attributes to resolve through if an attribute
      * isn't defined locally.  This is null if there
@@ -258,7 +258,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return (AttributeSet) table.get(StyleConstants.ResolveAttribute);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the resolving parent.
      *
      * @param parent the parent
@@ -269,7 +269,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
 
     // --- Object methods ---------------------------------
 
-    /**
+    /** {@collect.stats}
      * Clones a set of attributes.
      *
      * @return the new set of attributes
@@ -285,7 +285,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this set of attributes.
      * @return     a hashcode value for this set of attributes.
      */
@@ -293,7 +293,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return table.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this object to the specified object.
      * The result is <code>true</code> if the object is an equivalent
      * set of attributes.
@@ -312,7 +312,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the attribute set to a String.
      *
      * @return the string
@@ -345,7 +345,7 @@ public class SimpleAttributeSet implements MutableAttributeSet, Serializable, Cl
         StyleContext.readAttributeSet(s, this);
     }
 
-    /**
+    /** {@collect.stats}
      * An AttributeSet that is always empty.
      */
     static class EmptyAttributeSet implements AttributeSet, Serializable {

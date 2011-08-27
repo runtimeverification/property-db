@@ -29,7 +29,7 @@ import java.io.*;
 
 import java.security.Permission;
 
-/**
+/** {@collect.stats}
  * A permission for Smart Card operations. A CardPermission consists of the
  * name of the card terminal the permission applies to and a set of actions
  * that are valid for that terminal.
@@ -115,12 +115,12 @@ public class CardPermission extends Permission {
 
     private transient int mask;
 
-    /**
+    /** {@collect.stats}
      * @serial
      */
     private volatile String actions;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardPermission with the specified actions.
      * <code>terminalName</code> is the name of a CardTerminal or <code>*</code>
      * if this permission applies to all terminals. <code>actions</code>
@@ -197,7 +197,7 @@ public class CardPermission extends Permission {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical string representation of the actions.
      * It is <code>*</code> to signify all actions defined by this class or
      * the string concatenation of the comma-separated,
@@ -212,7 +212,7 @@ public class CardPermission extends Permission {
         return actions;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if this CardPermission object implies the specified permission.
      * That is the case, if and only if
      * <ul>
@@ -246,7 +246,7 @@ public class CardPermission extends Permission {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this CardPermission for equality.
      * This CardPermission is equal to another Object <code>object</code>, if
      * and only if
@@ -273,7 +273,7 @@ public class CardPermission extends Permission {
         return this.getName().equals(other.getName()) && (this.mask == other.mask);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this CardPermission object.
      *
      * @return the hash code value for this CardPermission object.

@@ -29,7 +29,7 @@ import java.net.URL;
 
 
 
-/**
+/** {@collect.stats}
  * An instrument is a sound-synthesis algorithm with certain parameter
  * settings, usually designed to emulate a specific real-world
  * musical instrument or to achieve a specific sort of sound effect.
@@ -51,13 +51,13 @@ import java.net.URL;
 public abstract class Instrument extends SoundbankResource {
 
 
-    /**
+    /** {@collect.stats}
      * Instrument patch
      */
     private final Patch patch;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new MIDI instrument from the specified <code>Patch</code>.
      * When a subsequent request is made to load the
      * instrument, the sound bank will search its contents for this instrument's <code>Patch</code>,
@@ -77,7 +77,7 @@ public abstract class Instrument extends SoundbankResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the <code>Patch</code> object that indicates the bank and program
      * numbers where this instrument is to be stored in the synthesizer.
      * @return this instrument's patch

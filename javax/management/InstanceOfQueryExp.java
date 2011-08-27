@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query building mechanism for isInstanceOf expressions.
  * @serial include
  *
@@ -37,13 +37,13 @@ class InstanceOfQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -1081892073854801359L;
 
-    /**
+    /** {@collect.stats}
      * @serial The {@link StringValueExp} returning the name of the class
      *         of which selected MBeans should be instances.
      */
     private StringValueExp classNameValue;
 
-    /**
+    /** {@collect.stats}
      * Creates a new InstanceOfExp with a specific class name.
      * @param classNameValue The {@link StringValueExp} returning the name of
      *        the class of which selected MBeans should be instances.
@@ -63,7 +63,7 @@ class InstanceOfQueryExp extends QueryEval implements QueryExp {
         this.classNameValue = classNameValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the class name.
      * @returns The {@link StringValueExp} returning the name of
      *        the class of which selected MBeans should be instances.
@@ -72,7 +72,7 @@ class InstanceOfQueryExp extends QueryEval implements QueryExp {
         return classNameValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the InstanceOf on a MBean.
      *
      * @param name The name of the MBean on which the InstanceOf will be applied.
@@ -110,7 +110,7 @@ class InstanceOfQueryExp extends QueryEval implements QueryExp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this InstanceOfQueryExp.
      * @return a string representation of this InstanceOfQueryExp.
      */

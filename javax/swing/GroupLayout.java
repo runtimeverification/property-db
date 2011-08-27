@@ -35,7 +35,7 @@ import static javax.swing.LayoutStyle.ComponentPlacement;
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static javax.swing.SwingConstants.VERTICAL;
 
-/**
+/** {@collect.stats}
  * {@code GroupLayout} is a {@code LayoutManager} that hierarchically
  * groups components in order to position them in a {@code Container}.
  * {@code GroupLayout} is intended for use by builders, but may be
@@ -218,7 +218,7 @@ public class GroupLayout implements LayoutManager2 {
 
     private static final int UNSET = Integer.MIN_VALUE;
 
-    /**
+    /** {@collect.stats}
      * Indicates the size from the component or gap should be used for a
      * particular range value.
      *
@@ -226,7 +226,7 @@ public class GroupLayout implements LayoutManager2 {
      */
     public static final int DEFAULT_SIZE = -1;
 
-    /**
+    /** {@collect.stats}
      * Indicates the preferred size from the component or gap should
      * be used for a particular range value.
      *
@@ -243,13 +243,13 @@ public class GroupLayout implements LayoutManager2 {
     // the container.
     private boolean autocreateContainerPadding;
 
-    /**
+    /** {@collect.stats}
      * Group responsible for layout along the horizontal axis.  This is NOT
      * the user specified group, use getHorizontalGroup to dig that out.
      */
     private Group horizontalGroup;
 
-    /**
+    /** {@collect.stats}
      * Group responsible for layout along the vertical axis.  This is NOT
      * the user specified group, use getVerticalGroup to dig that out.
      */
@@ -275,19 +275,19 @@ public class GroupLayout implements LayoutManager2 {
     // exist
     private boolean hasPreferredPaddingSprings;
 
-    /**
+    /** {@collect.stats}
      * The LayoutStyle instance to use, if null the sharedInstance is used.
      */
     private LayoutStyle layoutStyle;
 
-    /**
+    /** {@collect.stats}
      * If true, components that are not visible are treated as though they
      * aren't there.
      */
     private boolean honorsVisibility;
 
 
-    /**
+    /** {@collect.stats}
      * Enumeration of the possible ways {@code ParallelGroup} can align
      * its children.
      *
@@ -295,7 +295,7 @@ public class GroupLayout implements LayoutManager2 {
      * @since 1.6
      */
     public enum Alignment {
-        /**
+        /** {@collect.stats}
          * Indicates the elements should be
          * aligned to the origin.  For the horizontal axis with a left to
          * right orientation this means aligned to the left edge. For the
@@ -305,7 +305,7 @@ public class GroupLayout implements LayoutManager2 {
          */
         LEADING,
 
-        /**
+        /** {@collect.stats}
          * Indicates the elements should be aligned to the end of the
          * region.  For the horizontal axis with a left to right
          * orientation this means aligned to the right edge. For the
@@ -315,7 +315,7 @@ public class GroupLayout implements LayoutManager2 {
          */
         TRAILING,
 
-        /**
+        /** {@collect.stats}
          * Indicates the elements should be centered in
          * the region.
          *
@@ -323,7 +323,7 @@ public class GroupLayout implements LayoutManager2 {
          */
         CENTER,
 
-        /**
+        /** {@collect.stats}
          * Indicates the elements should be aligned along
          * their baseline.
          *
@@ -362,7 +362,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code GroupLayout} for the specified {@code Container}.
      *
      * @param host the {@code Container} the {@code GroupLayout} is
@@ -381,7 +381,7 @@ public class GroupLayout implements LayoutManager2 {
         tmpParallelSet = new HashSet<Spring>();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether component visiblity is considered when sizing and
      * positioning components. A value of {@code true} indicates that
      * non-visible components should not be treated as part of the
@@ -410,7 +410,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether component visiblity is considered when sizing and
      * positioning components.
      *
@@ -421,7 +421,7 @@ public class GroupLayout implements LayoutManager2 {
         return honorsVisibility;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the component's visiblity is considered for
      * sizing and positioning. A value of {@code Boolean.TRUE}
      * indicates that if {@code component} is not visible it should
@@ -452,7 +452,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a gap between components should automatically be
      * created.  For example, if this is {@code true} and you add two
      * components to a {@code SequentialGroup} a gap between the
@@ -469,7 +469,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if gaps between components are automatically
      * created.
      *
@@ -480,7 +480,7 @@ public class GroupLayout implements LayoutManager2 {
         return autocreatePadding;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether a gap between the container and components that
      * touch the border of the container should automatically be
      * created. The default is {@code false}.
@@ -498,7 +498,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if gaps between the container and components that
      * border the container are automatically created.
      *
@@ -509,7 +509,7 @@ public class GroupLayout implements LayoutManager2 {
         return autocreateContainerPadding;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code Group} that positions and sizes
      * components along the horizontal axis.
      *
@@ -525,7 +525,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Group} that positions and sizes components
      * along the horizontal axis.
      *
@@ -540,7 +540,7 @@ public class GroupLayout implements LayoutManager2 {
         return (Group)horizontalGroup.springs.get(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code Group} that positions and sizes
      * components along the vertical axis.
      *
@@ -556,7 +556,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Group} that positions and sizes components
      * along the vertical axis.
      *
@@ -571,7 +571,7 @@ public class GroupLayout implements LayoutManager2 {
         return (Group)verticalGroup.springs.get(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Wraps the user specified group in a sequential group.  If
      * container gaps should be generated the necessary springs are
      * added.
@@ -588,7 +588,7 @@ public class GroupLayout implements LayoutManager2 {
         return group;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code SequentialGroup}.
      *
      * @return a new {@code SequentialGroup}
@@ -597,7 +597,7 @@ public class GroupLayout implements LayoutManager2 {
         return new SequentialGroup();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code ParallelGroup} with an alignment of
      * {@code Alignment.LEADING}.  This is a cover method for the more
      * general {@code createParallelGroup(Alignment)} method.
@@ -609,7 +609,7 @@ public class GroupLayout implements LayoutManager2 {
         return createParallelGroup(Alignment.LEADING);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code ParallelGroup} with the specified
      * alignment.  This is a cover method for the more general {@code
      * createParallelGroup(Alignment,boolean)} method with {@code true}
@@ -625,7 +625,7 @@ public class GroupLayout implements LayoutManager2 {
         return createParallelGroup(alignment, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code ParallelGroup} with the specified
      * alignment and resize behavior. The {@code
      * alignment} argument specifies how children elements are
@@ -659,7 +659,7 @@ public class GroupLayout implements LayoutManager2 {
         return new ParallelGroup(alignment, resizable);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@code ParallelGroup} that aligns it's
      * elements along the baseline.
      *
@@ -674,7 +674,7 @@ public class GroupLayout implements LayoutManager2 {
         return new BaselineGroup(resizable, anchorBaselineToTop);
     }
 
-    /**
+    /** {@collect.stats}
      * Forces the specified components to have the same size
      * regardless of their preferred, minimum or maximum sizes. Components that
      * are linked are given the maximum of the preferred size of each of
@@ -696,7 +696,7 @@ public class GroupLayout implements LayoutManager2 {
         linkSize(SwingConstants.VERTICAL, components);
     }
 
-    /**
+    /** {@collect.stats}
      * Forces the specified components to have the same size along the
      * specified axis regardless of their preferred, minimum or
      * maximum sizes. Components that are linked are given the maximum
@@ -749,7 +749,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces an existing component with a new one.
      *
      * @param existingComponent the component that should be removed
@@ -783,7 +783,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code LayoutStyle} used to calculate the preferred
      * gaps between components. A value of {@code null} indicates the
      * shared instance of {@code LayoutStyle} should be used.
@@ -796,7 +796,7 @@ public class GroupLayout implements LayoutManager2 {
         invalidateHost();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code LayoutStyle} used for calculating the preferred
      * gap between components. This returns the value specified to
      * {@code setLayoutStyle}, which may be {@code null}.
@@ -828,7 +828,7 @@ public class GroupLayout implements LayoutManager2 {
     //
     // LayoutManager
     //
-    /**
+    /** {@collect.stats}
      * Notification that a {@code Component} has been added to
      * the parent container.  You should not invoke this method
      * directly, instead you should use one of the {@code Group}
@@ -840,7 +840,7 @@ public class GroupLayout implements LayoutManager2 {
     public void addLayoutComponent(String name, Component component) {
     }
 
-    /**
+    /** {@collect.stats}
      * Notification that a {@code Component} has been removed from
      * the parent container.  You should not invoke this method
      * directly, instead invoke {@code remove} on the parent
@@ -858,7 +858,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size for the specified container.
      *
      * @param parent the container to return the preferred size for
@@ -876,7 +876,7 @@ public class GroupLayout implements LayoutManager2 {
                 verticalGroup.getPreferredSize(VERTICAL));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum size for the specified container.
      *
      * @param parent the container to return the size for
@@ -894,7 +894,7 @@ public class GroupLayout implements LayoutManager2 {
                 verticalGroup.getMinimumSize(VERTICAL));
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the specified container.
      *
      * @param parent the container to be laid out
@@ -928,7 +928,7 @@ public class GroupLayout implements LayoutManager2 {
     //
     // LayoutManager2
     //
-    /**
+    /** {@collect.stats}
      * Notification that a {@code Component} has been added to
      * the parent container.  You should not invoke this method
      * directly, instead you should use one of the {@code Group}
@@ -940,7 +940,7 @@ public class GroupLayout implements LayoutManager2 {
     public void addLayoutComponent(Component component, Object constraints) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum size for the specified container.
      *
      * @param parent the container to return the size for
@@ -958,7 +958,7 @@ public class GroupLayout implements LayoutManager2 {
                 verticalGroup.getMaximumSize(VERTICAL));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -975,7 +975,7 @@ public class GroupLayout implements LayoutManager2 {
         return .5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -992,7 +992,7 @@ public class GroupLayout implements LayoutManager2 {
         return .5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout, indicating that if the layout manager
      * has cached information it should be discarded.
      *
@@ -1114,7 +1114,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code ComponentInfo} for the specified Component,
      * creating one if necessary.
      */
@@ -1130,7 +1130,7 @@ public class GroupLayout implements LayoutManager2 {
         return info;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the autopadding springs for the horizontal and vertical
      * groups.  If {@code insert} is {@code true} this will insert auto padding
      * springs, otherwise this will only adjust the springs that
@@ -1149,7 +1149,7 @@ public class GroupLayout implements LayoutManager2 {
                 new ArrayList<ComponentSpring>(1), insert);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if the two Components have a common ParallelGroup
      * ancestor along the particular axis.
      */
@@ -1195,7 +1195,7 @@ public class GroupLayout implements LayoutManager2 {
         return host.getComponentOrientation().isLeftToRight();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this {@code GroupLayout}.
      * This method is intended to be used for debugging purposes,
      * and the content and format of the returned string may vary
@@ -1254,7 +1254,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Spring consists of a range: min, pref and max, a value some where in
      * the middle of that, and a location. Spring caches the
      * min/max/pref.  If the min/pref/max has internally changes, or needs
@@ -1273,7 +1273,7 @@ public class GroupLayout implements LayoutManager2 {
             min = pref = max = UNSET;
         }
 
-        /**
+        /** {@collect.stats}
          * Calculates and returns the minimum size.
          *
          * @param axis the axis of layout; one of HORIZONTAL or VERTICAL
@@ -1281,7 +1281,7 @@ public class GroupLayout implements LayoutManager2 {
          */
         abstract int calculateMinimumSize(int axis);
 
-        /**
+        /** {@collect.stats}
          * Calculates and returns the preferred size.
          *
          * @param axis the axis of layout; one of HORIZONTAL or VERTICAL
@@ -1289,7 +1289,7 @@ public class GroupLayout implements LayoutManager2 {
          */
         abstract int calculatePreferredSize(int axis);
 
-        /**
+        /** {@collect.stats}
          * Calculates and returns the minimum size.
          *
          * @param axis the axis of layout; one of HORIZONTAL or VERTICAL
@@ -1297,14 +1297,14 @@ public class GroupLayout implements LayoutManager2 {
          */
         abstract int calculateMaximumSize(int axis);
 
-        /**
+        /** {@collect.stats}
          * Sets the parent of this Spring.
          */
         void setParent(Spring parent) {
             this.parent = parent;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the parent of this spring.
          */
         Spring getParent() {
@@ -1317,14 +1317,14 @@ public class GroupLayout implements LayoutManager2 {
             this.alignment = alignment;
         }
 
-        /**
+        /** {@collect.stats}
          * Alignment for this Spring, this may be null.
          */
         Alignment getAlignment() {
             return alignment;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum size.
          */
         final int getMinimumSize(int axis) {
@@ -1334,7 +1334,7 @@ public class GroupLayout implements LayoutManager2 {
             return min;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred size.
          */
         final int getPreferredSize(int axis) {
@@ -1344,7 +1344,7 @@ public class GroupLayout implements LayoutManager2 {
             return pref;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum size.
          */
         final int getMaximumSize(int axis) {
@@ -1354,7 +1354,7 @@ public class GroupLayout implements LayoutManager2 {
             return max;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the value and location of the spring.  Subclasses
          * will want to invoke super, then do any additional sizing.
          *
@@ -1370,14 +1370,14 @@ public class GroupLayout implements LayoutManager2 {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the cached min/max/pref.
          */
         void unset() {
             size = min = pref = max = UNSET;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the current size.
          */
         int getSize() {
@@ -1402,7 +1402,7 @@ public class GroupLayout implements LayoutManager2 {
             return (min != pref || pref != getMaximumSize(axis));
         }
 
-        /**
+        /** {@collect.stats}
          * Returns {@code true} if this spring will ALWAYS have a zero
          * size. This should NOT check the current size, rather it's
          * meant to quickly test if this Spring will always have a
@@ -1416,7 +1416,7 @@ public class GroupLayout implements LayoutManager2 {
         abstract boolean willHaveZeroSize(boolean treatAutopaddingAsZeroSized);
     }
 
-    /**
+    /** {@collect.stats}
      * {@code Group} provides the basis for the two types of
      * operations supported by {@code GroupLayout}: laying out
      * components one after another ({@link SequentialGroup SequentialGroup})
@@ -1481,7 +1481,7 @@ public class GroupLayout implements LayoutManager2 {
             springs = new ArrayList<Spring>();
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Group} to this {@code Group}.
          *
          * @param group the {@code Group} to add
@@ -1491,7 +1491,7 @@ public class GroupLayout implements LayoutManager2 {
             return addSpring(group);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code Group}.
          *
          * @param component the {@code Component} to add
@@ -1502,7 +1502,7 @@ public class GroupLayout implements LayoutManager2 {
                     DEFAULT_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code Group}
          * with the specified size.
          *
@@ -1520,7 +1520,7 @@ public class GroupLayout implements LayoutManager2 {
             return addSpring(new ComponentSpring(component, min, pref, max));
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a rigid gap to this {@code Group}.
          *
          * @param size the size of the gap
@@ -1532,7 +1532,7 @@ public class GroupLayout implements LayoutManager2 {
             return addGap(size, size, size);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a gap to this {@code Group} with the specified size.
          *
          * @param min the minimum size of the gap
@@ -1554,7 +1554,7 @@ public class GroupLayout implements LayoutManager2 {
             return springs.indexOf(spring);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the Spring to the list of {@code Spring}s and returns
          * the receiver.
          */
@@ -1584,7 +1584,7 @@ public class GroupLayout implements LayoutManager2 {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This is invoked from {@code setSize} if passed a value
          * other than UNSET.
          */
@@ -1602,7 +1602,7 @@ public class GroupLayout implements LayoutManager2 {
             return calculateSize(axis, MAX_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Calculates the specified size.  This is called from
          * one of the {@code getMinimumSize0},
          * {@code getPreferredSize0} or
@@ -1639,7 +1639,7 @@ public class GroupLayout implements LayoutManager2 {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Used to compute how the two values representing two springs
          * will be combined.  For example, a group that layed things out
          * one after the next would return {@code a + b}.
@@ -1650,7 +1650,7 @@ public class GroupLayout implements LayoutManager2 {
         // Padding
         //
 
-        /**
+        /** {@collect.stats}
          * Adjusts the autopadding springs in this group and its children.
          * If {@code insert} is true this will insert auto padding
          * springs, otherwise this will only adjust the springs that
@@ -1673,7 +1673,7 @@ public class GroupLayout implements LayoutManager2 {
                 List<ComponentSpring> leading, List<ComponentSpring> trailing,
                 boolean insert);
 
-        /**
+        /** {@collect.stats}
          * Removes any AutopaddingSprings for this Group and its children.
          */
         void removeAutopadding() {
@@ -1733,7 +1733,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A {@code Group} that positions and sizes its elements
      * sequentially, one after another.  This class has no public
      * constructor, use the {@code createSequentialGroup} method
@@ -1757,14 +1757,14 @@ public class GroupLayout implements LayoutManager2 {
         SequentialGroup() {
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public SequentialGroup addGroup(Group group) {
             return (SequentialGroup)super.addGroup(group);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Group} to this {@code Group}.
          *
          * @param group the {@code Group} to add
@@ -1780,14 +1780,14 @@ public class GroupLayout implements LayoutManager2 {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public SequentialGroup addComponent(Component component) {
             return (SequentialGroup)super.addComponent(component);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code Group}.
          *
          * @param useAsBaseline whether the specified {@code Component} should
@@ -1804,7 +1804,7 @@ public class GroupLayout implements LayoutManager2 {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public SequentialGroup addComponent(Component component, int min,
@@ -1813,7 +1813,7 @@ public class GroupLayout implements LayoutManager2 {
                     component, min, pref, max);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code Group}
          * with the specified size.
          *
@@ -1837,21 +1837,21 @@ public class GroupLayout implements LayoutManager2 {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public SequentialGroup addGap(int size) {
             return (SequentialGroup)super.addGap(size);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public SequentialGroup addGap(int min, int pref, int max) {
             return (SequentialGroup)super.addGap(min, pref, max);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between two
          * components. The element created to represent the gap is not
          * resizable.
@@ -1871,7 +1871,7 @@ public class GroupLayout implements LayoutManager2 {
                     PREFERRED_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between two
          * components.
          *
@@ -1903,7 +1903,7 @@ public class GroupLayout implements LayoutManager2 {
                     comp1, comp2, type, pref, max));
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between the
          * nearest components.  During layout, neighboring
          * components are found, and the size of the added gap is set
@@ -1926,7 +1926,7 @@ public class GroupLayout implements LayoutManager2 {
             return addPreferredGap(type, DEFAULT_SIZE, DEFAULT_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between the
          * nearest components.  During layout, neighboring
          * components are found, and the minimum of this
@@ -1963,7 +1963,7 @@ public class GroupLayout implements LayoutManager2 {
                     type, pref, max));
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between an edge
          * the container and components that touch the border of the
          * container. This has no effect if the added gap does not
@@ -1978,7 +1978,7 @@ public class GroupLayout implements LayoutManager2 {
             return addContainerGap(DEFAULT_SIZE, DEFAULT_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an element representing the preferred gap between one
          * edge of the container and the next or previous {@code
          * Component} with the specified size. This has no
@@ -2103,7 +2103,7 @@ public class GroupLayout implements LayoutManager2 {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the sorted list of SpringDelta's for the current set of
          * Springs. The list is ordered based on the amount of flexibility of
          * the springs.
@@ -2340,7 +2340,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used by SequentialGroup in calculating resizability of springs.
      */
     private static final class SpringDelta implements Comparable<SpringDelta> {
@@ -2365,7 +2365,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A {@code Group} that aligns and sizes it's children.
      * {@code ParallelGroup} aligns it's children in
      * four possible ways: along the baseline, centered, anchored to the
@@ -2458,21 +2458,21 @@ public class GroupLayout implements LayoutManager2 {
             this.resizable = resizable;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public ParallelGroup addGroup(Group group) {
             return (ParallelGroup)super.addGroup(group);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public ParallelGroup addComponent(Component component) {
             return (ParallelGroup)super.addComponent(component);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public ParallelGroup addComponent(Component component, int min, int pref,
@@ -2480,21 +2480,21 @@ public class GroupLayout implements LayoutManager2 {
             return (ParallelGroup)super.addComponent(component, min, pref, max);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public ParallelGroup addGap(int pref) {
             return (ParallelGroup)super.addGap(pref);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          */
         public ParallelGroup addGap(int min, int pref, int max) {
             return (ParallelGroup)super.addGap(min, pref, max);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Group} to this {@code ParallelGroup} with the
          * specified alignment. If the child is smaller than the
          * {@code Group} it is aligned based on the specified
@@ -2512,7 +2512,7 @@ public class GroupLayout implements LayoutManager2 {
             return (ParallelGroup)addSpring(group);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code ParallelGroup} with
          * the specified alignment.
          *
@@ -2528,7 +2528,7 @@ public class GroupLayout implements LayoutManager2 {
                     DEFAULT_SIZE);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a {@code Component} to this {@code ParallelGroup} with the
          * specified alignment and size.
          *
@@ -2643,7 +2643,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An extension of {@code ParallelGroup} that aligns its
      * constituent {@code Spring}s along the baseline.
      */
@@ -2845,7 +2845,7 @@ public class GroupLayout implements LayoutManager2 {
             return Math.max(nonBaselineMin, minAscent + minDescent);
         }
 
-        /**
+        /** {@collect.stats}
          * Lays out springs that have a baseline along the baseline.  All
          * others are centered.
          */
@@ -3100,7 +3100,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Spring representing the preferred distance between two components.
      */
     private class PreferredGapSpring extends Spring {
@@ -3157,7 +3157,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Spring represented a certain amount of space.
      */
     private class GapSpring extends Spring {
@@ -3197,7 +3197,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Spring reprensenting the distance between any number of sources and
      * targets.  The targets and sources are computed during layout.  An
      * instance of this can either be dynamically created when
@@ -3380,7 +3380,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents two springs that should have autopadding inserted between
      * them.
      */
@@ -3403,7 +3403,7 @@ public class GroupLayout implements LayoutManager2 {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An extension of AutopaddingSpring used for container level padding.
      */
     private class ContainerAutoPreferredGapSpring extends
@@ -3573,7 +3573,7 @@ public class GroupLayout implements LayoutManager2 {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tracks the horizontal/vertical Springs for a Component.
      * This class is also used to handle Springs that have their sizes
      * linked.
@@ -3628,7 +3628,7 @@ public class GroupLayout implements LayoutManager2 {
             return visible;
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the cached visibility.
          *
          * @return true if the visibility changed
@@ -3675,7 +3675,7 @@ public class GroupLayout implements LayoutManager2 {
             return component;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this component has its size linked to
          * other components.
          */

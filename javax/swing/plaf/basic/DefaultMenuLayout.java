@@ -31,7 +31,7 @@ import javax.swing.plaf.UIResource;
 import java.awt.Container;
 import java.awt.Dimension;
 
-/**
+/** {@collect.stats}
  * The default layout manager for Popup menus and menubars.  This
  * class is an extension of BoxLayout which adds the UIResource tag
  * so that plauggable L&Fs can distinguish it from user-installed

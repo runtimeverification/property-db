@@ -38,7 +38,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Field;
 
-/**
+/** {@collect.stats}
  * An <code>AWTKeyStroke</code> represents a key action on the
  * keyboard, or equivalent input device. <code>AWTKeyStroke</code>s
  * can correspond to only a press or release of a
@@ -70,7 +70,7 @@ public class AWTKeyStroke implements Serializable {
     private static AWTKeyStroke cacheKey;
     private static Constructor ctor = getCtor(AWTKeyStroke.class);
     private static Map modifierKeywords;
-    /**
+    /** {@collect.stats}
      * Associates VK_XXX (as a String) with code (as Integer). This is
      * done to avoid the overhead of the reflective call to find the
      * constant.
@@ -87,7 +87,7 @@ public class AWTKeyStroke implements Serializable {
         Toolkit.loadLibraries();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AWTKeyStroke</code> with default values.
      * The default values used are:
      * <table border="1" summary="AWTKeyStroke default values">
@@ -119,7 +119,7 @@ public class AWTKeyStroke implements Serializable {
     protected AWTKeyStroke() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AWTKeyStroke</code> with the specified
      * values. <code>AWTKeyStroke</code>s should not be constructed
      * by client code. Use a variant of <code>getAWTKeyStroke</code>
@@ -141,7 +141,7 @@ public class AWTKeyStroke implements Serializable {
         this.onKeyRelease = onKeyRelease;
     }
 
-    /**
+    /** {@collect.stats}
      * Registers a new class which the factory methods in
      * <code>AWTKeyStroke</code> will use when generating new
      * instances of <code>AWTKeyStroke</code>s. After invoking this
@@ -259,7 +259,7 @@ public class AWTKeyStroke implements Serializable {
         return stroke;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of an <code>AWTKeyStroke</code>
      * that represents a <code>KEY_TYPED</code> event for the
      * specified character.
@@ -271,7 +271,7 @@ public class AWTKeyStroke implements Serializable {
         return getCachedStroke(keyChar, KeyEvent.VK_UNDEFINED, 0, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of an {@code AWTKeyStroke}
      * that represents a {@code KEY_TYPED} event for the
      * specified Character object and a set of modifiers. Note
@@ -317,7 +317,7 @@ public class AWTKeyStroke implements Serializable {
                                modifiers, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of an <code>AWTKeyStroke</code>,
      * given a numeric key code and a set of modifiers, specifying
      * whether the key is activated when it is pressed or released.
@@ -364,7 +364,7 @@ public class AWTKeyStroke implements Serializable {
                                onKeyRelease);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared instance of an <code>AWTKeyStroke</code>,
      * given a numeric key code and a set of modifiers. The returned
      * <code>AWTKeyStroke</code> will correspond to a key press.
@@ -408,7 +408,7 @@ public class AWTKeyStroke implements Serializable {
                                false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>AWTKeyStroke</code> which represents the
      * stroke which generated a given <code>KeyEvent</code>.
      * <p>
@@ -442,7 +442,7 @@ public class AWTKeyStroke implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a string and returns an <code>AWTKeyStroke</code>.
      * The string must have the following syntax:
      * <pre>
@@ -570,7 +570,7 @@ public class AWTKeyStroke implements Serializable {
         }
         return vks;
     }
-    /**
+    /** {@collect.stats}
      * Returns the integer constant for the KeyEvent.VK field named
      * <code>key</code>. This will throw an
      * <code>IllegalArgumentException</code> if <code>key</code> is
@@ -598,7 +598,7 @@ public class AWTKeyStroke implements Serializable {
         return value.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character for this <code>AWTKeyStroke</code>.
      *
      * @return a char value
@@ -609,7 +609,7 @@ public class AWTKeyStroke implements Serializable {
         return keyChar;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the numeric key code for this <code>AWTKeyStroke</code>.
      *
      * @return an int containing the key code value
@@ -620,7 +620,7 @@ public class AWTKeyStroke implements Serializable {
         return keyCode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the modifier keys for this <code>AWTKeyStroke</code>.
      *
      * @return an int containing the modifiers
@@ -630,7 +630,7 @@ public class AWTKeyStroke implements Serializable {
         return modifiers;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this <code>AWTKeyStroke</code> represents a key release.
      *
      * @return <code>true</code> if this <code>AWTKeyStroke</code>
@@ -641,7 +641,7 @@ public class AWTKeyStroke implements Serializable {
         return onKeyRelease;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of <code>KeyEvent</code> which corresponds to
      * this <code>AWTKeyStroke</code>.
      *
@@ -660,7 +660,7 @@ public class AWTKeyStroke implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a numeric value for this object that is likely to be unique,
      * making it a good choice as the index value in a hash table.
      *
@@ -671,7 +671,7 @@ public class AWTKeyStroke implements Serializable {
             (onKeyRelease ? 1 : 2);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this object is identical to the specified object.
      *
      * @param anObject the Object to compare this object to
@@ -687,7 +687,7 @@ public class AWTKeyStroke implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this object's properties.
      * The <code>String</code> returned by this method can be passed
      * as a parameter to <code>getAWTKeyStroke(String)</code> to produce
@@ -766,7 +766,7 @@ public class AWTKeyStroke implements Serializable {
         return "UNKNOWN";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a cached instance of <code>AWTKeyStroke</code> (or a subclass of
      * <code>AWTKeyStroke</code>) which is equal to this instance.
      *

@@ -32,7 +32,7 @@ import java.io.OutputStream;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.MidiFileFormat;
 
-/**
+/** {@collect.stats}
  * A <code>MidiFileWriter</code> supplies MIDI file-writing services.  Classes
  * that implement this interface can write one or more types of MIDI file from
  * a <code>{@link Sequence}</code> object.
@@ -43,7 +43,7 @@ import javax.sound.midi.MidiFileFormat;
 public abstract class MidiFileWriter {
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of MIDI file types for which file writing support is
      * provided by this file writer.
      * @return array of file types.  If no file types are supported,
@@ -52,7 +52,7 @@ public abstract class MidiFileWriter {
     public abstract int[] getMidiFileTypes();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the file types that this file writer can write from the
      * sequence specified.
      * @param sequence the sequence for which MIDI file type support
@@ -63,7 +63,7 @@ public abstract class MidiFileWriter {
     public abstract int[] getMidiFileTypes(Sequence sequence);
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether file writing support for the specified MIDI file type
      * is provided by this file writer.
      * @param fileType the file type for which write capabilities are queried
@@ -82,7 +82,7 @@ public abstract class MidiFileWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a MIDI file of the file type specified can be written
      * from the sequence indicated.
      * @param fileType the file type for which write capabilities are queried
@@ -102,7 +102,7 @@ public abstract class MidiFileWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing a MIDI file of the file type
      * indicated to the output stream provided.
      * @param in sequence containing MIDI data to be written to the file
@@ -118,7 +118,7 @@ public abstract class MidiFileWriter {
     public abstract int write(Sequence in, int fileType, OutputStream out) throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing a MIDI file of the file type
      * indicated to the external file provided.
      * @param in sequence containing MIDI data to be written to the external file

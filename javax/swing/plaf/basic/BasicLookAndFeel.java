@@ -79,7 +79,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
 
-/**
+/** {@collect.stats}
  * A base class to use in creating a look and feel for Swing.
  * <p>
  * Each of the {@code ComponentUI}s provided by {@code
@@ -103,16 +103,16 @@ import java.beans.PropertyChangeEvent;
  */
 public abstract class BasicLookAndFeel extends LookAndFeel implements Serializable
 {
-    /**
+    /** {@collect.stats}
      * Whether or not the developer has created a JPopupMenu.
      */
     static boolean needsEventHelper;
 
-    /**
+    /** {@collect.stats}
      * Lock used when manipulating clipPlaying.
      */
     private transient Object audioLock = new Object();
-    /**
+    /** {@collect.stats}
      * The Clip that is currently playing (set in AudioAction).
      */
     private Clip clipPlaying;
@@ -124,7 +124,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
      */
     private PropertyChangeListener disposer = null;
 
-    /**
+    /** {@collect.stats}
      * Returns the look and feel defaults. The returned {@code UIDefaults}
      * is populated by invoking, in order, {@code initClassDefaults},
      * {@code initSystemColorDefaults} and {@code initComponentDefaults}.
@@ -149,7 +149,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         return table;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void initialize() {
@@ -177,7 +177,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void uninitialize() {
@@ -212,7 +212,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with mappings from {@code uiClassID} to the
      * fully qualified name of the ui class. The value for a
      * particular {@code uiClassID} is {@code
@@ -278,7 +278,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         table.putDefaults(uiDefaults);
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with system colors. This creates an
      * array of {@code name-color} pairs and invokes {@code
      * loadSystemColors}.
@@ -352,7 +352,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with the {@code name-color} pairs in
      * {@code systemColors}. Refer to
      * {@link #initSystemColorDefaults(UIDefaults)} for details on
@@ -426,7 +426,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
             }
         }
     }
-    /**
+    /** {@collect.stats}
      * Initialize the defaults table with the name of the ResourceBundle
      * used for getting localized defaults.  Also initialize the default
      * locale used when no locale is passed into UIDefaults.get().  The
@@ -438,7 +438,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         table.addResourceBundle( "com.sun.swing.internal.plaf.basic.resources.basic" );
     }
 
-    /**
+    /** {@collect.stats}
      * Populates {@code table} with the defaults for the basic look and
      * feel.
      *
@@ -1909,7 +1909,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the ui that is of type <code>klass</code>, or null if
      * one can not be found.
      */
@@ -1923,7 +1923,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
     // ********* Auditory Cue support methods and objects *********
     // also see the "AuditoryCues" section of the defaults table
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ActionMap</code> containing the audio actions
      * for this look and feel.
      * <P>
@@ -1989,7 +1989,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         return audioActionMap;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an {@code Action} used to play a sound.
      * <p>
      * If {@code key} is {@code non-null}, an {@code Action} is created
@@ -2015,7 +2015,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Pass the name String to the super constructor. This is used
      * later to identify the Action and decide whether to play it or
      * not. Store the resource String. I is used to get the audio
@@ -2032,7 +2032,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         private String audioResource;
         private byte[] audioBuffer;
 
-        /**
+        /** {@collect.stats}
          * The String is the name of the Action and
          * points to the audio resource.
          * The byte[] is a buffer of the audio bits.
@@ -2073,7 +2073,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
             }
         }
 
-        /**
+        /** {@collect.stats}
          * If the parameter is null, or equal to the currently
          * playing sound, then cancel the currently playing sound.
          */
@@ -2094,7 +2094,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Utility method that loads audio bits for the specified
      * <code>soundFile</code> filename. If this method is unable to
      * build a viable path name from the <code>baseClass</code> and
@@ -2160,7 +2160,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         return buffer;
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary, invokes {@code actionPerformed} on
      * {@code audioAction} to play a sound.
      * The {@code actionPerformed} method is invoked if the value of
@@ -2200,7 +2200,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the parent of the passed in ActionMap to be the audio action
      * map.
      */
@@ -2212,7 +2212,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
     }
 
 
-    /**
+    /** {@collect.stats}
      * Helper method to play a named sound.
      *
      * @param c JComponent to play the sound for.
@@ -2232,7 +2232,7 @@ public abstract class BasicLookAndFeel extends LookAndFeel implements Serializab
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class contains listener that watches for all the mouse
      * events that can possibly invoke popup on the component
      */

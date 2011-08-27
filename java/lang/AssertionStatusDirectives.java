@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * A collection of assertion status directives (such as "enable assertions
  * in package p" or "disable assertions in class c").  This class is used by
  * the JVM to communicate the assertion status directives implied by
@@ -36,14 +36,14 @@ package java.lang;
  * @author Josh Bloch
  */
 class AssertionStatusDirectives {
-    /**
+    /** {@collect.stats}
      * The classes for which assertions are to be enabled or disabled.
      * The strings in this array are fully qualified class names (for
      * example,"com.xyz.foo.Bar").
      */
     String[] classes;
 
-    /**
+    /** {@collect.stats}
      * A parallel array to <tt>classes</tt>, indicating whether each class
      * is to have assertions enabled or disabled.  A value of <tt>true</tt>
      * for <tt>classEnabled[i]</tt> indicates that the class named by
@@ -60,14 +60,14 @@ class AssertionStatusDirectives {
      */
     boolean[] classEnabled;
 
-    /**
+    /** {@collect.stats}
      * The package-trees for which assertions are to be enabled or disabled.
      * The strings in this array are compete or partial package names
      * (for example, "com.xyz" or "com.xyz.foo").
      */
     String[] packages;
 
-    /**
+    /** {@collect.stats}
      * A parallel array to <tt>packages</tt>, indicating whether each
      * package-tree is to have assertions enabled or disabled.  A value of
      * <tt>true</tt> for <tt>packageEnabled[i]</tt> indicates that the
@@ -86,7 +86,7 @@ class AssertionStatusDirectives {
      */
     boolean[] packageEnabled;
 
-    /**
+    /** {@collect.stats}
      * Whether or not assertions in non-system classes are to be enabled
      * by default.
      */

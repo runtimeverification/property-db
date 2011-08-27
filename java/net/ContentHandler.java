@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * The abstract class <code>ContentHandler</code> is the superclass
  * of all classes that read an <code>Object</code> from a
  * <code>URLConnection</code>.
@@ -69,7 +69,7 @@ import java.io.IOException;
  * @since   JDK1.0
  */
 abstract public class ContentHandler {
-    /**
+    /** {@collect.stats}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object from it.
@@ -80,7 +80,7 @@ abstract public class ContentHandler {
      */
     abstract public Object getContent(URLConnection urlc) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Given a URL connect stream positioned at the beginning of the
      * representation of an object, this method reads that stream and
      * creates an object that matches one of the types specified.

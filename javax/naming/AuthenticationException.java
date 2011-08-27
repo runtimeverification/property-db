@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when an authentication error occurs while
   * accessing the naming or directory service.
   * An authentication error can happen, for example, when the credentials
@@ -48,7 +48,7 @@ package javax.naming;
   */
 
 public class AuthenticationException extends NamingSecurityException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of AuthenticationException using the
      * explanation supplied. All other fields default to null.
      *
@@ -60,7 +60,7 @@ public class AuthenticationException extends NamingSecurityException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of AuthenticationException.
       * All fields are set to null.
       */
@@ -68,7 +68,7 @@ public class AuthenticationException extends NamingSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 3678497619904568096L;

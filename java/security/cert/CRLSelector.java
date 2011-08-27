@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/**
+/** {@collect.stats}
  * A selector that defines a set of criteria for selecting <code>CRL</code>s.
  * Classes that implement this interface are often used to specify
  * which <code>CRL</code>s should be retrieved from a <code>CertStore</code>.
@@ -47,7 +47,7 @@ package java.security.cert;
  */
 public interface CRLSelector extends Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Decides whether a <code>CRL</code> should be selected.
      *
      * @param   crl     the <code>CRL</code> to be checked
@@ -56,7 +56,7 @@ public interface CRLSelector extends Cloneable {
      */
     boolean match(CRL crl);
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of this <code>CRLSelector</code>. Changes to the
      * copy will not affect the original and vice versa.
      *

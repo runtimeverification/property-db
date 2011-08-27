@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * When a <CODE>java.lang.Error</CODE> occurs in the agent it should be caught and
  * re-thrown as a <CODE>RuntimeErrorException</CODE>.
  *
@@ -38,12 +38,12 @@ public class RuntimeErrorException extends JMRuntimeException   {
     /* Serial version */
     private static final long serialVersionUID = 704338937753949796L;
 
-    /**
+    /** {@collect.stats}
      * @serial The encapsulated {@link Error}
      */
     private java.lang.Error error ;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      *
      * @param e the wrapped error.
@@ -53,7 +53,7 @@ public class RuntimeErrorException extends JMRuntimeException   {
       error = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param e the wrapped error.
@@ -64,7 +64,7 @@ public class RuntimeErrorException extends JMRuntimeException   {
        error = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link Error} thrown.
      *
      * @return the wrapped {@link Error}.
@@ -73,7 +73,7 @@ public class RuntimeErrorException extends JMRuntimeException   {
         return error ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link Error} thrown.
      *
      * @return the wrapped {@link Error}.

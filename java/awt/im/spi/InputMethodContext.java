@@ -32,7 +32,7 @@ import java.awt.im.InputMethodRequests;
 import java.text.AttributedCharacterIterator;
 import javax.swing.JFrame;
 
-/**
+/** {@collect.stats}
  * Provides methods that input methods
  * can use to communicate with their client components or to request
  * other services.  This interface is implemented by the input method
@@ -48,7 +48,7 @@ import javax.swing.JFrame;
 
 public interface InputMethodContext extends InputMethodRequests {
 
-    /**
+    /** {@collect.stats}
      * Creates an input method event from the arguments given
      * and dispatches it to the client component. For arguments,
      * see {@link java.awt.event.InputMethodEvent#InputMethodEvent}.
@@ -57,7 +57,7 @@ public interface InputMethodContext extends InputMethodRequests {
                 AttributedCharacterIterator text, int committedCharacterCount,
                 TextHitInfo caret, TextHitInfo visiblePosition);
 
-    /**
+    /** {@collect.stats}
      * Creates a top-level window for use by the input method.
      * The intended behavior of this window is:
      * <ul>
@@ -89,7 +89,7 @@ public interface InputMethodContext extends InputMethodRequests {
      */
     public Window createInputMethodWindow(String title, boolean attachToInputContext);
 
-    /**
+    /** {@collect.stats}
      * Creates a top-level Swing JFrame for use by the input method.
      * The intended behavior of this window is:
      * <ul>
@@ -123,7 +123,7 @@ public interface InputMethodContext extends InputMethodRequests {
      */
     public JFrame createInputMethodJFrame(String title, boolean attachToInputContext);
 
-    /**
+    /** {@collect.stats}
      * Enables or disables notification of the current client window's
      * location and state for the specified input method. When
      * notification is enabled, the input method's {@link

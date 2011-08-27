@@ -35,7 +35,7 @@ import javax.sound.midi.Soundbank;
 import javax.sound.midi.InvalidMidiDataException;
 
 
-/**
+/** {@collect.stats}
  * A <code>SoundbankReader</code> supplies soundbank file-reading services.
  * Concrete subclasses of <code>SoundbankReader</code> parse a given
  * soundbank file, producing a {@link javax.sound.midi.Soundbank}
@@ -47,7 +47,7 @@ import javax.sound.midi.InvalidMidiDataException;
 public abstract class SoundbankReader {
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a soundbank object from the URL provided.
      * @param url URL representing the soundbank.
      * @return soundbank object
@@ -58,7 +58,7 @@ public abstract class SoundbankReader {
     public abstract Soundbank getSoundbank(URL url) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a soundbank object from the <code>InputStream</code> provided.
      * @param stream <code>InputStream</code> representing the soundbank
      * @return soundbank object
@@ -69,7 +69,7 @@ public abstract class SoundbankReader {
     public abstract Soundbank getSoundbank(InputStream stream) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a soundbank object from the <code>File</code> provided.
      * @param file the <code>File</code> representing the soundbank
      * @return soundbank object

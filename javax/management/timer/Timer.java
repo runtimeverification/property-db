@@ -44,7 +44,7 @@ import javax.management.MBeanServer;
 import javax.management.NotificationBroadcasterSupport;
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  *
  * Provides the implementation of the timer MBean.
  * The timer MBean sends out an alarm at a specified time
@@ -87,31 +87,31 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Number of milliseconds in one second.
      * Useful constant for the <CODE>addNotification</CODE> method.
      */
     public static final long ONE_SECOND = 1000;
 
-    /**
+    /** {@collect.stats}
      * Number of milliseconds in one minute.
      * Useful constant for the <CODE>addNotification</CODE> method.
      */
     public static final long ONE_MINUTE = 60*ONE_SECOND;
 
-    /**
+    /** {@collect.stats}
      * Number of milliseconds in one hour.
      * Useful constant for the <CODE>addNotification</CODE> method.
      */
     public static final long ONE_HOUR   = 60*ONE_MINUTE;
 
-    /**
+    /** {@collect.stats}
      * Number of milliseconds in one day.
      * Useful constant for the <CODE>addNotification</CODE> method.
      */
     public static final long ONE_DAY    = 24*ONE_HOUR;
 
-    /**
+    /** {@collect.stats}
      * Number of milliseconds in one week.
      * Useful constant for the <CODE>addNotification</CODE> method.
      */
@@ -123,27 +123,27 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Table containing all the timer notifications of this timer,
      * with the associated date, period and number of occurrences.
      */
     private Map<Integer,Object[]> timerTable =
         new Hashtable<Integer,Object[]>();
 
-    /**
+    /** {@collect.stats}
      * Past notifications sending on/off flag value.
      * This attribute is used to specify if the timer has to send past notifications after start.
      * <BR>The default value is set to <CODE>false</CODE>.
      */
     private boolean sendPastNotifications = false;
 
-    /**
+    /** {@collect.stats}
      * Timer state.
      * The default value is set to <CODE>false</CODE>.
      */
     private transient boolean isActive = false;
 
-    /**
+    /** {@collect.stats}
      * Timer sequence number.
      * The default value is set to 0.
      */
@@ -158,7 +158,7 @@ public class Timer extends NotificationBroadcasterSupport
     private static final int ALARM_CLOCK_INDEX     = 4;
     private static final int FIXED_RATE_INDEX      = 5;
 
-    /**
+    /** {@collect.stats}
      * The notification counter ID.
      * Used to keep the max key value inserted into the timer table.
      */
@@ -172,7 +172,7 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public Timer() {
@@ -184,7 +184,7 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Allows the timer MBean to perform any operations it needs before being registered
      * in the MBean server.
      * <P>
@@ -202,7 +202,7 @@ public class Timer extends NotificationBroadcasterSupport
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the timer MBean to perform any operations needed after having been
      * registered in the MBean server or after the registration has failed.
      * <P>
@@ -211,7 +211,7 @@ public class Timer extends NotificationBroadcasterSupport
     public void postRegister (Boolean registrationDone) {
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the timer MBean to perform any operations it needs before being unregistered
      * by the MBean server.
      * <P>
@@ -229,7 +229,7 @@ public class Timer extends NotificationBroadcasterSupport
         stop();
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the timer MBean to perform any operations needed after having been
      * unregistered by the MBean server.
      * <P>
@@ -263,7 +263,7 @@ public class Timer extends NotificationBroadcasterSupport
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Starts the timer.
      * <P>
      * If there is one or more timer notifications before the time in the list of notifications, the notification
@@ -332,7 +332,7 @@ public class Timer extends NotificationBroadcasterSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the timer.
      */
     public synchronized void stop() {
@@ -382,7 +382,7 @@ public class Timer extends NotificationBroadcasterSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date,
      * period and number of occurrences.
@@ -532,7 +532,7 @@ public class Timer extends NotificationBroadcasterSupport
         return notifID;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date,
      * period and number of occurrences.
@@ -576,7 +576,7 @@ public class Timer extends NotificationBroadcasterSupport
       return addNotification(type, message, userData, date, period, nbOccurences, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date
      * and period and a null number of occurrences.
@@ -614,7 +614,7 @@ public class Timer extends NotificationBroadcasterSupport
         return (addNotification(type, message, userData, date, period, 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date
      * and a null period and number of occurrences.
@@ -646,7 +646,7 @@ public class Timer extends NotificationBroadcasterSupport
         return (addNotification(type, message, userData, date, 0, 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the timer notification corresponding to the specified identifier from the list of notifications.
      *
      * @param id The timer notification identifier.
@@ -710,7 +710,7 @@ public class Timer extends NotificationBroadcasterSupport
                 "removeNotification", "timer notification removed");
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the timer notifications corresponding to the specified type from the list of notifications.
      *
      * @param type The timer notification type.
@@ -729,7 +729,7 @@ public class Timer extends NotificationBroadcasterSupport
             removeNotification(i);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the timer notifications from the list of notifications
      * and resets the counter used to update the timer notification identifiers.
      */
@@ -777,7 +777,7 @@ public class Timer extends NotificationBroadcasterSupport
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the number of timer notifications registered into the list of notifications.
      *
      * @return The number of timer notifications.
@@ -786,7 +786,7 @@ public class Timer extends NotificationBroadcasterSupport
         return timerTable.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all timer notification identifiers registered into the list of notifications.
      *
      * @return A vector of <CODE>Integer</CODE> objects containing all the timer notification identifiers.
@@ -796,7 +796,7 @@ public class Timer extends NotificationBroadcasterSupport
         return new Vector<Integer>(timerTable.keySet());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the identifiers of timer notifications corresponding to the specified type.
      *
      * @param type The timer notification type.
@@ -822,7 +822,7 @@ public class Timer extends NotificationBroadcasterSupport
     }
     // 5089997: return is Vector<Integer> not Vector<TimerNotification>
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification type corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -839,7 +839,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification detailed message corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -856,7 +856,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification user data object corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -876,7 +876,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the date associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -894,7 +894,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the period (in milliseconds) associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -912,7 +912,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the remaining number of occurrences associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -930,7 +930,7 @@ public class Timer extends NotificationBroadcasterSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the flag indicating whether a periodic notification is
      * executed at <i>fixed-delay</i> or at <i>fixed-rate</i>.
      *
@@ -949,7 +949,7 @@ public class Timer extends NotificationBroadcasterSupport
       return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the flag indicating whether or not the timer sends past notifications.
      * <BR>The default value of the past notifications sending on/off flag is <CODE>false</CODE>.
      *
@@ -961,7 +961,7 @@ public class Timer extends NotificationBroadcasterSupport
         return sendPastNotifications;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the flag indicating whether the timer sends past notifications or not.
      * <BR>The default value of the past notifications sending on/off flag is <CODE>false</CODE>.
      *
@@ -973,7 +973,7 @@ public class Timer extends NotificationBroadcasterSupport
         sendPastNotifications = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the timer MBean is active.
      * A timer MBean is marked active when the {@link #start start} method is called.
      * It becomes inactive when the {@link #stop stop} method is called.
@@ -985,7 +985,7 @@ public class Timer extends NotificationBroadcasterSupport
         return isActive;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the list of timer notifications is empty.
      *
      * @return <CODE>true</CODE> if the list of timer notifications is empty, <CODE>false</CODE> otherwise.
@@ -1000,7 +1000,7 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Sends or not past notifications depending on the specified flag.
      *
      * @param currentDate The current date.
@@ -1060,7 +1060,7 @@ public class Timer extends NotificationBroadcasterSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If the timer notification is not periodic, it is removed from the list of notifications.
      * <P>
      * If the timer period of the timer notification has a non null periodicity,
@@ -1180,7 +1180,7 @@ public class Timer extends NotificationBroadcasterSupport
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * This method is called by the timer each time
      * the TimerAlarmClock has exceeded its timeout.
      *
@@ -1213,7 +1213,7 @@ public class Timer extends NotificationBroadcasterSupport
         updateTimerTable(timerNotification.getNotificationID());
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used by the timer MBean to update and send a timer
      * notification to all the listeners registered for this kind of notification.
      *
@@ -1252,7 +1252,7 @@ public class Timer extends NotificationBroadcasterSupport
     }
 }
 
-/**
+/** {@collect.stats}
  * TimerAlarmClock inner class:
  * This class provides a simple implementation of an alarm clock MBean.
  * The aim of this MBean is to set up an alarm which wakes up the timer every timeout (fixed-delay)
@@ -1287,7 +1287,7 @@ class TimerAlarmClock extends java.util.TimerTask {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * This method is called by the timer when it is started.
      */
     public void run() {

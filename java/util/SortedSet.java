@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * A {@link Set} that further provides a <i>total ordering</i> on its elements.
  * The elements are ordered using their {@linkplain Comparable natural
  * ordering}, or by a {@link Comparator} typically provided at sorted
@@ -106,7 +106,7 @@ package java.util;
  */
 
 public interface SortedSet<E> extends Set<E> {
-    /**
+    /** {@collect.stats}
      * Returns the comparator used to order the elements in this set,
      * or <tt>null</tt> if this set uses the {@linkplain Comparable
      * natural ordering} of its elements.
@@ -117,7 +117,7 @@ public interface SortedSet<E> extends Set<E> {
      */
     Comparator<? super E> comparator();
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements range
      * from <tt>fromElement</tt>, inclusive, to <tt>toElement</tt>,
      * exclusive.  (If <tt>fromElement</tt> and <tt>toElement</tt> are
@@ -150,7 +150,7 @@ public interface SortedSet<E> extends Set<E> {
      */
     SortedSet<E> subSet(E fromElement, E toElement);
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements are
      * strictly less than <tt>toElement</tt>.  The returned set is
      * backed by this set, so changes in the returned set are
@@ -177,7 +177,7 @@ public interface SortedSet<E> extends Set<E> {
      */
     SortedSet<E> headSet(E toElement);
 
-    /**
+    /** {@collect.stats}
      * Returns a view of the portion of this set whose elements are
      * greater than or equal to <tt>fromElement</tt>.  The returned
      * set is backed by this set, so changes in the returned set are
@@ -204,7 +204,7 @@ public interface SortedSet<E> extends Set<E> {
      */
     SortedSet<E> tailSet(E fromElement);
 
-    /**
+    /** {@collect.stats}
      * Returns the first (lowest) element currently in this set.
      *
      * @return the first (lowest) element currently in this set
@@ -212,7 +212,7 @@ public interface SortedSet<E> extends Set<E> {
      */
     E first();
 
-    /**
+    /** {@collect.stats}
      * Returns the last (highest) element currently in this set.
      *
      * @return the last (highest) element currently in this set

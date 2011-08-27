@@ -26,7 +26,7 @@
 package java.awt.image;
 
 
-/**
+/** {@collect.stats}
  * This class defines a lookup table object.  The output of a
  * lookup operation using an object of this class is interpreted
  * as an unsigned byte quantity.  The lookup table contains byte
@@ -42,13 +42,13 @@ package java.awt.image;
  */
 public class ByteLookupTable extends LookupTable {
 
-    /**
+    /** {@collect.stats}
      * Constants
      */
 
     byte data[][];
 
-    /**
+    /** {@collect.stats}
      * Constructs a ByteLookupTable object from an array of byte
      * arrays representing a lookup table for each
      * band.  The offset will be subtracted from input
@@ -74,7 +74,7 @@ public class ByteLookupTable extends LookupTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ByteLookupTable object from an array
      * of bytes representing a lookup table to be applied to all
      * bands.  The offset will be subtracted from input
@@ -95,7 +95,7 @@ public class ByteLookupTable extends LookupTable {
         this.data[0] = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lookup table data by reference.  If this ByteLookupTable
      * was constructed using a single byte array, the length of the returned
      * array is one.
@@ -105,7 +105,7 @@ public class ByteLookupTable extends LookupTable {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of samples of a pixel, translated with the lookup
      * table. The source and destination array can be the same array.
      * Array <code>dst</code> is returned.
@@ -156,7 +156,7 @@ public class ByteLookupTable extends LookupTable {
         return dst;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of samples of a pixel, translated with the lookup
      * table. The source and destination array can be the same array.
      * Array <code>dst</code> is returned.

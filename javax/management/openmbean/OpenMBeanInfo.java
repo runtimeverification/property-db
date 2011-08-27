@@ -40,7 +40,7 @@ import javax.management.MBeanNotificationInfo;
 
 
 
-/**
+/** {@collect.stats}
  * <p>Describes an Open MBean: an Open MBean is recognized as such if
  * its {@link javax.management.DynamicMBean#getMBeanInfo()
  * getMBeanInfo()} method returns an instance of a class which
@@ -68,7 +68,7 @@ public interface OpenMBeanInfo {
     // Re-declares the methods that are in class MBeanInfo of JMX 1.0
     // (methods will be removed when MBeanInfo is made a parent interface of this interface)
 
-    /**
+    /** {@collect.stats}
      * Returns the fully qualified Java class name of the open MBean
      * instances this <tt>OpenMBeanInfo</tt> describes.
      *
@@ -76,7 +76,7 @@ public interface OpenMBeanInfo {
      */
     public String getClassName() ;
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the type of open MBean
      * instances this <tt>OpenMBeanInfo</tt> describes.
      *
@@ -84,7 +84,7 @@ public interface OpenMBeanInfo {
      */
     public String getDescription() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>OpenMBeanAttributeInfo</tt> instances
      * describing each attribute in the open MBean described by this
      * <tt>OpenMBeanInfo</tt> instance.  Each instance in the returned
@@ -97,7 +97,7 @@ public interface OpenMBeanInfo {
      */
     public MBeanAttributeInfo[] getAttributes() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>OpenMBeanOperationInfo</tt> instances
      * describing each operation in the open MBean described by this
      * <tt>OpenMBeanInfo</tt> instance.  Each instance in the returned
@@ -110,7 +110,7 @@ public interface OpenMBeanInfo {
      */
     public MBeanOperationInfo[] getOperations() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>OpenMBeanConstructorInfo</tt> instances
      * describing each constructor in the open MBean described by this
      * <tt>OpenMBeanInfo</tt> instance.  Each instance in the returned
@@ -123,7 +123,7 @@ public interface OpenMBeanInfo {
      */
     public MBeanConstructorInfo[] getConstructors() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>MBeanNotificationInfo</tt> instances
      * describing each notification emitted by the open MBean
      * described by this <tt>OpenMBeanInfo</tt> instance.
@@ -136,7 +136,7 @@ public interface OpenMBeanInfo {
     // commodity methods
     //
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>OpenMBeanInfo</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -155,7 +155,7 @@ public interface OpenMBeanInfo {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>OpenMBeanInfo</code> instance.
      * <p>
      * The hash code of an <code>OpenMBeanInfo</code> instance is the sum of the hash codes
@@ -174,7 +174,7 @@ public interface OpenMBeanInfo {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>OpenMBeanInfo</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.OpenMBeanInfo</code>),

@@ -28,7 +28,7 @@ package javax.swing.table;
 import java.awt.Component;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * This interface defines the method required by any object that
  * would like to be a renderer for cells in a <code>JTable</code>.
  *
@@ -37,7 +37,7 @@ import javax.swing.*;
 
 public interface TableCellRenderer {
 
-    /**
+    /** {@collect.stats}
      * Returns the component used for drawing the cell.  This method is
      * used to configure the renderer appropriately before drawing.
      * <p>

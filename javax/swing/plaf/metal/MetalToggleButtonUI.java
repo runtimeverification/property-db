@@ -41,7 +41,7 @@ import javax.swing.*;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * MetalToggleButton implementation
  * <p>
  * <strong>Warning:</strong>
@@ -116,7 +116,7 @@ public class MetalToggleButtonUI extends BasicToggleButtonUI {
     // ********************************
     //        Paint Methods
     // ********************************
-    /**
+    /** {@collect.stats}
      * If necessary paints the background of the component, then invokes
      * <code>paint</code>.
      *
@@ -167,11 +167,11 @@ public class MetalToggleButtonUI extends BasicToggleButtonUI {
 
         /* Draw the Text */
         if(model.isEnabled()) {
-            /*** paint the text normally */
+            /** {@collect.stats}* paint the text normally */
             g.setColor(b.getForeground());
         }
         else {
-            /*** paint the text disabled ***/
+            /** {@collect.stats}* paint the text disabled ***/
             if (model.isSelected()) {
                 g.setColor(c.getBackground());
             } else {
@@ -209,7 +209,7 @@ public class MetalToggleButtonUI extends BasicToggleButtonUI {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the appropriate icon of the button <code>b</code> in the
      * space <code>iconRect</code>.
      *

@@ -24,7 +24,7 @@
  */
 package java.awt.peer;
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -35,12 +35,12 @@ public interface MenuItemPeer extends MenuComponentPeer {
     void setLabel(String label);
     void setEnabled(boolean b);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setEnabled(boolean).
      */
     void enable();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setEnabled(boolean).
      */
     void disable();

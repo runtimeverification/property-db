@@ -29,7 +29,7 @@ import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintJobAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 
-/**
+/** {@collect.stats}
  * Class PresentationDirection is a printing attribute class, an enumeration,
  * that is used in conjunction with the {@link  NumberUp NumberUp} attribute to
  * indicate the layout of multiple print-stream pages to impose upon a
@@ -54,63 +54,63 @@ public final class PresentationDirection extends EnumSyntax
 
     private static final long serialVersionUID = 8294728067230931780L;
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in columns starting at the top left,
      * proceeeding towards the bottom & right.
      */
     public static final PresentationDirection TOBOTTOM_TORIGHT =
         new PresentationDirection(0);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in columns starting at the top right,
      * proceeeding towards the bottom & left.
      */
     public static final PresentationDirection TOBOTTOM_TOLEFT =
         new PresentationDirection(1);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in columns starting at the bottom left,
      * proceeeding towards the top & right.
      */
     public static final PresentationDirection TOTOP_TORIGHT =
         new PresentationDirection(2);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in columns starting at the bottom right,
      * proceeeding towards the top & left.
      */
     public static final PresentationDirection TOTOP_TOLEFT =
         new PresentationDirection(3);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in rows starting at the top left,
      * proceeeding towards the right & bottom.
      */
     public static final PresentationDirection TORIGHT_TOBOTTOM =
         new PresentationDirection(4);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in rows starting at the bottom left,
      * proceeeding towards the right & top.
      */
     public static final PresentationDirection TORIGHT_TOTOP =
         new PresentationDirection(5);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in rows starting at the top right,
      * proceeeding towards the left & bottom.
      */
     public static final PresentationDirection TOLEFT_TOBOTTOM =
         new PresentationDirection(6);
 
-    /**
+    /** {@collect.stats}
      * Pages are laid out in rows starting at the bottom right,
      * proceeeding towards the left & top.
      */
     public static final PresentationDirection TOLEFT_TOTOP =
         new PresentationDirection(7);
 
-    /**
+    /** {@collect.stats}
      * Construct a new presentation direction enumeration value with the given
      * integer value.
      *
@@ -142,21 +142,21 @@ public final class PresentationDirection extends EnumSyntax
         TOLEFT_TOTOP,
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PresentationDirection.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PresentationDirection.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -170,7 +170,7 @@ public final class PresentationDirection extends EnumSyntax
         return PresentationDirection.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

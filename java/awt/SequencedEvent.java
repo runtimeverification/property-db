@@ -29,7 +29,7 @@ import java.util.LinkedList;
 import sun.awt.AppContext;
 import sun.awt.SunToolkit;
 
-/**
+/** {@collect.stats}
  * A mechanism for ensuring that a series of AWTEvents are executed in a
  * precise order, even across multiple AppContexts. The nested events will be
  * dispatched in the order in which their wrapping SequencedEvents were
@@ -54,7 +54,7 @@ class SequencedEvent extends AWTEvent implements ActiveEvent {
     private AppContext appContext;
     private boolean disposed;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new SequencedEvent which will dispatch the specified
      * nested event.
      *
@@ -69,7 +69,7 @@ class SequencedEvent extends AWTEvent implements ActiveEvent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Dispatches the nested event after all previous nested events have been
      * dispatched or disposed. If this method is invoked before all previous nested events
      * have been dispatched, then this method blocks until such a point is
@@ -117,7 +117,7 @@ class SequencedEvent extends AWTEvent implements ActiveEvent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * true only if event exists and nested source appContext is disposed.
      */
     private final static boolean isOwnerAppContextDisposed(SequencedEvent se) {
@@ -130,7 +130,7 @@ class SequencedEvent extends AWTEvent implements ActiveEvent {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Sequenced events are dispatched in order, so we cannot dispatch
      * until we are the first sequenced event in the queue (i.e. it's our
      * turn).  But while we wait for our turn to dispatch, the event
@@ -160,7 +160,7 @@ class SequencedEvent extends AWTEvent implements ActiveEvent {
         return first;
     }
 
-    /**
+    /** {@collect.stats}
      * Disposes of this instance. This method is invoked once the nested event
      * has been dispatched and handled, or when the peer of the target of the
      * nested event has been disposed with a call to Component.removeNotify.

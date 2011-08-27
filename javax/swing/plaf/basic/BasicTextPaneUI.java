@@ -33,7 +33,7 @@ import javax.swing.plaf.*;
 import javax.swing.border.*;
 
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a styled text editor.
  * <p>
  * <strong>Warning:</strong>
@@ -49,7 +49,7 @@ import javax.swing.border.*;
  */
 public class BasicTextPaneUI extends BasicEditorPaneUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for the JTextPane.
      *
      * @param c the JTextPane object
@@ -59,14 +59,14 @@ public class BasicTextPaneUI extends BasicEditorPaneUI {
         return new BasicTextPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BasicTextPaneUI.
      */
     public BasicTextPaneUI() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -81,7 +81,7 @@ public class BasicTextPaneUI extends BasicEditorPaneUI {
         super.installUI(c);
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the

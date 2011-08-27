@@ -37,7 +37,7 @@ import java.net.UnknownHostException;
 import java.util.BitSet;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * <p>The address of a JMX API connector server.  Instances of this class
  * are immutable.</p>
  *
@@ -119,7 +119,7 @@ public class JMXServiceURL implements Serializable {
 
     private static final long serialVersionUID = 8173364409860779292L;
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXServiceURL</code> by parsing a Service URL
      * string.</p>
      *
@@ -225,7 +225,7 @@ public class JMXServiceURL implements Serializable {
         validate();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXServiceURL</code> with the given protocol,
      * host, and port.  This constructor is equivalent to
      * {@link #JMXServiceURL(String, String, int, String)
@@ -252,7 +252,7 @@ public class JMXServiceURL implements Serializable {
         this(protocol, host, port, null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXServiceURL</code> with the given parts.
      *
      * @param protocol the protocol part of the URL.  If null, defaults
@@ -481,7 +481,7 @@ public class JMXServiceURL implements Serializable {
     private static final Exception randomException = new Exception();
 
 
-    /**
+    /** {@collect.stats}
      * <p>The protocol part of the Service URL.
      *
      * @return the protocol part of the Service URL.  This is never null.
@@ -490,7 +490,7 @@ public class JMXServiceURL implements Serializable {
         return protocol;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The host part of the Service URL.  If the Service URL was
      * constructed with the constructor that takes a URL string
      * parameter, the result is the substring specifying the host in
@@ -510,7 +510,7 @@ public class JMXServiceURL implements Serializable {
         return host;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The port of the Service URL.  If no port was
      * specified, the returned value is 0.</p>
      *
@@ -520,7 +520,7 @@ public class JMXServiceURL implements Serializable {
         return port;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The URL Path part of the Service URL.  This is an empty
      * string, or a string beginning with a slash (<code>/</code>), or
      * a string beginning with a semicolon (<code>;</code>).
@@ -532,7 +532,7 @@ public class JMXServiceURL implements Serializable {
         return urlPath;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>The string representation of this Service URL.  If the value
      * returned by this method is supplied to the
      * <code>JMXServiceURL</code> constructor, the resultant object is
@@ -569,7 +569,7 @@ public class JMXServiceURL implements Serializable {
         return toString;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Indicates whether some other object is equal to this one.
      * This method returns true if and only if <code>obj</code> is an
      * instance of <code>JMXServiceURL</code> whose {@link
@@ -667,27 +667,27 @@ public class JMXServiceURL implements Serializable {
             set.set(chars.charAt(i));
     }
 
-    /**
+    /** {@collect.stats}
      * The value returned by {@link #getProtocol()}.
      */
     private final String protocol;
 
-    /**
+    /** {@collect.stats}
      * The value returned by {@link #getHost()}.
      */
     private final String host;
 
-    /**
+    /** {@collect.stats}
      * The value returned by {@link #getPort()}.
      */
     private final int port;
 
-    /**
+    /** {@collect.stats}
      * The value returned by {@link #getURLPath()}.
      */
     private final String urlPath;
 
-    /**
+    /** {@collect.stats}
      * Cached result of {@link #toString()}.
      */
     private transient String toString;

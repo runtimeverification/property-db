@@ -28,7 +28,7 @@ package javax.sound.sampled;
 import java.io.InputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * The <code>Clip</code> interface represents a special kind of data line whose
  * audio data can be loaded prior to playback, instead of being streamed in
  * real time.
@@ -56,14 +56,14 @@ import java.io.IOException;
 public interface Clip extends DataLine {
 
 
-    /**
+    /** {@collect.stats}
      * A value indicating that looping should continue indefinitely rather than
      * complete after a specific number of loops.
      * @see #loop
      */
     public static final int LOOP_CONTINUOUSLY = -1;
 
-    /**
+    /** {@collect.stats}
      * Opens the clip, meaning that it should acquire any required
      * system resources and become operational.  The clip is opened
      * with the format and audio data indicated.
@@ -99,7 +99,7 @@ public interface Clip extends DataLine {
      */
     public void open(AudioFormat format, byte[] data, int offset, int bufferSize) throws LineUnavailableException;
 
-    /**
+    /** {@collect.stats}
      * Opens the clip with the format and audio data present in the provided audio
      * input stream.  Opening a clip means that it should acquire any required
      * system resources and become operational.  If this operation
@@ -133,7 +133,7 @@ public interface Clip extends DataLine {
      */
     public void open(AudioInputStream stream) throws LineUnavailableException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Obtains the media length in sample frames.
      * @return the media length, expressed in sample frames,
      * or <code>AudioSystem.NOT_SPECIFIED</code> if the line is not open.
@@ -141,7 +141,7 @@ public interface Clip extends DataLine {
      */
     public int getFrameLength();
 
-    /**
+    /** {@collect.stats}
      * Obtains the media duration in microseconds
      * @return the media duration, expressed in microseconds,
      * or <code>AudioSystem.NOT_SPECIFIED</code> if the line is not open.
@@ -149,7 +149,7 @@ public interface Clip extends DataLine {
      */
     public long getMicrosecondLength();
 
-    /**
+    /** {@collect.stats}
      * Sets the media position in sample frames.  The position is zero-based;
      * the first frame is frame number zero.  When the clip begins playing the
      * next time, it will start by playing the frame at this position.
@@ -162,7 +162,7 @@ public interface Clip extends DataLine {
      */
     public void setFramePosition(int frames);
 
-    /**
+    /** {@collect.stats}
      * Sets the media position in microseconds.  When the clip begins playing the
      * next time, it will start at this position.
      * The level of precision is not guaranteed.  For example, an implementation
@@ -178,7 +178,7 @@ public interface Clip extends DataLine {
      */
     public void setMicrosecondPosition(long microseconds);
 
-    /**
+    /** {@collect.stats}
      * Sets the first and last sample frames that will be played in
      * the loop.  The ending point must be greater than
      * or equal to the starting point, and both must fall within the
@@ -195,7 +195,7 @@ public interface Clip extends DataLine {
      */
     public void setLoopPoints(int start, int end);
 
-    /**
+    /** {@collect.stats}
      * Starts looping playback from the current position.   Playback will
      * continue to the loop's end point, then loop back to the loop start point
      * <code>count</code> times, and finally continue playback to the end of

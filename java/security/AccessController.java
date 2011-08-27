@@ -27,7 +27,7 @@ package java.security;
 
 import sun.security.util.Debug;
 
-/**
+/** {@collect.stats}
  * <p> The AccessController class is used for access control operations
  * and decisions.
  *
@@ -236,12 +236,12 @@ import sun.security.util.Debug;
 
 public final class AccessController {
 
-    /**
+    /** {@collect.stats}
      * Don't allow anyone to instantiate an AccessController
      */
     private AccessController() { }
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedAction</code> with privileges
      * enabled. The action is performed with <i>all</i> of the permissions
      * possessed by the caller's protection domain.
@@ -266,7 +266,7 @@ public final class AccessController {
 
     public static native <T> T doPrivileged(PrivilegedAction<T> action);
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedAction</code> with privileges
      * enabled. The action is performed with <i>all</i> of the permissions
      * possessed by the caller's protection domain.
@@ -299,7 +299,7 @@ public final class AccessController {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedAction</code> with privileges
      * enabled and restricted by the specified
      * <code>AccessControlContext</code>.
@@ -329,7 +329,7 @@ public final class AccessController {
     public static native <T> T doPrivileged(PrivilegedAction<T> action,
                                             AccessControlContext context);
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedExceptionAction</code> with
      * privileges enabled.  The action is performed with <i>all</i> of the
      * permissions possessed by the caller's protection domain.
@@ -358,7 +358,7 @@ public final class AccessController {
         throws PrivilegedActionException;
 
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedExceptionAction</code> with
      * privileges enabled.  The action is performed with <i>all</i> of the
      * permissions possessed by the caller's protection domain.
@@ -394,13 +394,13 @@ public final class AccessController {
         return AccessController.doPrivileged(action, preserveCombiner(dc));
     }
 
-    /**
+    /** {@collect.stats}
      * preserve the combiner across the doPrivileged call
      */
     private static AccessControlContext preserveCombiner
                                         (DomainCombiner combiner) {
 
-        /**
+        /** {@collect.stats}
          * callerClass[0] = Reflection.getCallerClass
          * callerClass[1] = AccessController.preserveCombiner
          * callerClass[2] = AccessController.doPrivileged
@@ -421,7 +421,7 @@ public final class AccessController {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Performs the specified <code>PrivilegedExceptionAction</code> with
      * privileges enabled and restricted by the specified
      * <code>AccessControlContext</code>.  The action is performed with the
@@ -455,7 +455,7 @@ public final class AccessController {
                      AccessControlContext context)
         throws PrivilegedActionException;
 
-    /**
+    /** {@collect.stats}
      * Returns the AccessControl context. i.e., it gets
      * the protection domains of all the callers on the stack,
      * starting at the first class with a non-null
@@ -467,7 +467,7 @@ public final class AccessController {
 
     private static native AccessControlContext getStackAccessControlContext();
 
-    /**
+    /** {@collect.stats}
      * Returns the "inherited" AccessControl context. This is the context
      * that existed when the thread was created. Package private so
      * AccessControlContext can use it.
@@ -475,7 +475,7 @@ public final class AccessController {
 
     static native AccessControlContext getInheritedAccessControlContext();
 
-    /**
+    /** {@collect.stats}
      * This method takes a "snapshot" of the current calling context, which
      * includes the current Thread's inherited AccessControlContext,
      * and places it in an AccessControlContext object. This context may then
@@ -498,7 +498,7 @@ public final class AccessController {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the access request indicated by the
      * specified permission should be allowed or denied, based on
      * the current AccessControlContext and security policy.

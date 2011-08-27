@@ -33,7 +33,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-/**
+/** {@collect.stats}
  * BasicViewport implementation
  *
  * @author Rich Schiavi

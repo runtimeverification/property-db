@@ -32,7 +32,7 @@ import javax.management.MBeanNotificationInfo;
 import static javax.management.monitor.Monitor.NumericalType.*;
 import static javax.management.monitor.MonitorNotification.*;
 
-/**
+/** {@collect.stats}
  * Defines a monitor MBean designed to observe the values of a counter
  * attribute.
  *
@@ -153,26 +153,26 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Counter modulus.
      * <BR>The default value is a null Integer object.
      */
     private Number modulus = INTEGER_ZERO;
 
-    /**
+    /** {@collect.stats}
      * Counter offset.
      * <BR>The default value is a null Integer object.
      */
     private Number offset = INTEGER_ZERO;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the counter monitor notifies when exceeding
      * the threshold.  The default value is set to
      * <CODE>false</CODE>.
      */
     private boolean notify = false;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the counter difference mode is used.  If the
      * counter difference mode is used, the derived gauge is the
      * difference between two consecutive observed values.  Otherwise,
@@ -181,7 +181,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      */
     private boolean differenceMode = false;
 
-    /**
+    /** {@collect.stats}
      * Initial counter threshold.  This value is used to initialize
      * the threshold when a new object is added to the list and reset
      * the threshold to its initial value each time the counter
@@ -211,7 +211,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public CounterMonitor() {
@@ -223,7 +223,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Starts the counter monitor.
      */
     public synchronized void start() {
@@ -245,7 +245,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         doStart();
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the counter monitor.
      */
     public synchronized void stop() {
@@ -255,7 +255,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge of the specified object, if this object is
      * contained in the set of observed MBeans, or <code>null</code> otherwise.
      *
@@ -270,7 +270,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return (Number) super.getDerivedGauge(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the specified object, if
      * this object is contained in the set of observed MBeans, or
      * <code>0</code> otherwise.
@@ -286,7 +286,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return super.getDerivedGaugeTimeStamp(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current threshold value of the specified object, if
      * this object is contained in the set of observed MBeans, or
      * <code>null</code> otherwise.
@@ -320,7 +320,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the initial threshold value common to all observed objects.
      *
      * @return The initial threshold.
@@ -332,7 +332,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return initThreshold;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the initial threshold value common to all observed objects.
      *
      * <BR>The current threshold of every object in the set of
@@ -373,7 +373,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the derived gauge of the first object in the set of
      * observed MBeans.
      *
@@ -391,7 +391,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the first object in the set
      * of observed MBeans.
      *
@@ -409,7 +409,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the threshold value of the first object in the set of
      * observed MBeans.
      *
@@ -424,7 +424,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return getThreshold(getObservedObject());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the initial threshold value.
      *
      * @param value The initial threshold value.
@@ -442,7 +442,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         setInitThreshold(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the offset value common to all observed MBeans.
      *
      * @return The offset value.
@@ -453,7 +453,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the offset value common to all observed MBeans.
      *
      * @param value The offset value.
@@ -483,7 +483,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the modulus value common to all observed MBeans.
      *
      * @see #setModulus
@@ -494,7 +494,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return modulus;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the modulus value common to all observed MBeans.
      *
      * @param value The modulus value.
@@ -529,7 +529,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -542,7 +542,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return notify;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -556,7 +556,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         notify = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the difference mode flag value common to all observed MBeans.
      *
      * @return <CODE>true</CODE> if the difference mode is used,
@@ -568,7 +568,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return differenceMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the difference mode flag value common to all observed MBeans.
      *
      * @param value The difference mode flag value.
@@ -592,7 +592,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <CODE>NotificationInfo</CODE> object containing the
      * name of the Java class of the notification and the notification
      * types sent by the counter monitor.
@@ -608,7 +608,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Updates the derived gauge attribute of the observed object.
      *
      * @param scanCounter The value of the observed attribute.
@@ -664,7 +664,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return is_derived_gauge_valid;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the notification attribute of the observed object
      * and notifies the listeners only once if the notify flag
      * is set to <CODE>true</CODE>.
@@ -716,7 +716,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the threshold attribute of the observed object.
      * @param o The observed object.
      */
@@ -789,7 +789,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the derived gauge of the specified observed object when the
      * differenceMode flag is set to <CODE>true</CODE>.  Integer types
      * only are allowed.
@@ -832,7 +832,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Factory method for ObservedObject creation.
      *
      * @since 1.6
@@ -848,7 +848,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return cmo;
     }
 
-    /**
+    /** {@collect.stats}
      * This method globally sets the derived gauge type for the given
      * "object" and "attribute" after checking that the type of the
      * supplied observed attribute value is one of the value types
@@ -949,7 +949,7 @@ public class CounterMonitor extends Monitor implements CounterMonitorMBean {
         return alarm;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the threshold, offset and modulus of the specified observed
      * object are of the same type as the counter. Only integer types are
      * allowed.

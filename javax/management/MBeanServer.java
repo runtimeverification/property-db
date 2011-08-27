@@ -33,7 +33,7 @@ import java.io.ObjectInputStream;
 // RI import
 import javax.management.loading.ClassLoaderRepository;
 
-/**
+/** {@collect.stats}
  * <p>This is the interface for MBean manipulation on the agent
  * side. It contains the methods necessary for the creation,
  * registration, and deletion of MBeans as well as the access methods
@@ -286,7 +286,7 @@ public interface MBeanServer extends MBeanServerConnection {
                    MBeanRegistrationException, MBeanException,
                    NotCompliantMBeanException, InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Registers a pre-existing object as an MBean with the MBean
      * server. If the object name given is null, the MBean must
      * provide its own name by implementing the {@link
@@ -336,7 +336,7 @@ public interface MBeanServer extends MBeanServerConnection {
     // doc comment inherited from MBeanServerConnection
     public boolean isRegistered(ObjectName name);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of MBeans registered in the MBean server.
      *
      * @return the number of registered MBeans, wrapped in an Integer.
@@ -425,7 +425,7 @@ public interface MBeanServer extends MBeanServerConnection {
     public boolean isInstanceOf(ObjectName name, String className)
             throws InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates an object using the list of all class loaders
      * registered in the MBean server's {@link
      * javax.management.loading.ClassLoaderRepository Class Loader
@@ -456,7 +456,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws ReflectionException, MBeanException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates an object using the class Loader specified by its
      * <CODE>ObjectName</CODE>.  If the loader name is null, the
      * ClassLoader that loaded the MBean Server will be used.  The
@@ -490,7 +490,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws ReflectionException, MBeanException,
                    InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates an object using the list of all class loaders
      * registered in the MBean server {@link
      * javax.management.loading.ClassLoaderRepository Class Loader
@@ -521,7 +521,7 @@ public interface MBeanServer extends MBeanServerConnection {
                               String signature[])
             throws ReflectionException, MBeanException;
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates an object. The class loader to be used is
      * identified by its object name. If the object name of the loader
      * is null, the ClassLoader that loaded the MBean server will be
@@ -553,7 +553,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws ReflectionException, MBeanException,
                    InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>De-serializes a byte array in the context of the class loader
      * of an MBean.</p>
      *
@@ -576,7 +576,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws InstanceNotFoundException, OperationsException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>De-serializes a byte array in the context of a given MBean
      * class loader.  The class loader is found by loading the class
      * <code>className</code> through the {@link
@@ -603,7 +603,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws OperationsException, ReflectionException;
 
 
-    /**
+    /** {@collect.stats}
      * <p>De-serializes a byte array in the context of a given MBean
      * class loader.  The class loader is the one that loaded the
      * class with name "className".  The name of the class loader to
@@ -636,7 +636,7 @@ public interface MBeanServer extends MBeanServerConnection {
             throws InstanceNotFoundException, OperationsException,
                    ReflectionException;
 
-    /**
+    /** {@collect.stats}
      * <p>Return the {@link java.lang.ClassLoader} that was used for
      * loading the class of the named MBean.</p>
      *
@@ -663,7 +663,7 @@ public interface MBeanServer extends MBeanServerConnection {
     public ClassLoader getClassLoaderFor(ObjectName mbeanName)
         throws InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Return the named {@link java.lang.ClassLoader}.</p>
      *
      * @param loaderName The ObjectName of the ClassLoader.  May be
@@ -692,7 +692,7 @@ public interface MBeanServer extends MBeanServerConnection {
     public ClassLoader getClassLoader(ObjectName loaderName)
         throws InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Return the ClassLoaderRepository for this MBeanServer.
      * @return The ClassLoaderRepository for this MBeanServer.
      *

@@ -31,7 +31,7 @@ import java.util.Enumeration;
 import javax.swing.event.TableModelEvent;
 
 
-/**
+/** {@collect.stats}
  * This is an implementation of <code>TableModel</code> that
  * uses a <code>Vector</code> of <code>Vectors</code> to store the
  * cell value objects.
@@ -65,20 +65,20 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
 // Instance Variables
 //
 
-    /**
+    /** {@collect.stats}
      * The <code>Vector</code> of <code>Vectors</code> of
      * <code>Object</code> values.
      */
     protected Vector    dataVector;
 
-    /** The <code>Vector</code> of column identifiers. */
+    /** {@collect.stats} The <code>Vector</code> of column identifiers. */
     protected Vector    columnIdentifiers;
 
 //
 // Constructors
 //
 
-    /**
+    /** {@collect.stats}
      *  Constructs a default <code>DefaultTableModel</code>
      *  which is a table of zero columns and zero rows.
      */
@@ -92,7 +92,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return v;
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>DefaultTableModel</code> with
      *  <code>rowCount</code> and <code>columnCount</code> of
      *  <code>null</code> object values.
@@ -106,7 +106,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         this(newVector(columnCount), rowCount);
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>DefaultTableModel</code> with as many columns
      *  as there are elements in <code>columnNames</code>
      *  and <code>rowCount</code> of <code>null</code>
@@ -124,7 +124,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setDataVector(newVector(rowCount), columnNames);
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>DefaultTableModel</code> with as many
      *  columns as there are elements in <code>columnNames</code>
      *  and <code>rowCount</code> of <code>null</code>
@@ -142,7 +142,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         this(convertToVector(columnNames), rowCount);
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>DefaultTableModel</code> and initializes the table
      *  by passing <code>data</code> and <code>columnNames</code>
      *  to the <code>setDataVector</code> method.
@@ -159,7 +159,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setDataVector(data, columnNames);
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>DefaultTableModel</code> and initializes the table
      *  by passing <code>data</code> and <code>columnNames</code>
      *  to the <code>setDataVector</code>
@@ -175,7 +175,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setDataVector(data, columnNames);
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns the <code>Vector</code> of <code>Vectors</code>
      *  that contains the table's
      *  data values.  The vectors contained in the outer vector are
@@ -198,7 +198,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return (v != null) ? v : new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      *  Replaces the current <code>dataVector</code> instance variable
      *  with the new <code>Vector</code> of rows, <code>dataVector</code>.
      *  Each row is represented in <code>dataVector</code> as a
@@ -225,7 +225,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableStructureChanged();
     }
 
-    /**
+    /** {@collect.stats}
      *  Replaces the value in the <code>dataVector</code> instance
      *  variable with the values in the array <code>dataVector</code>.
      *  The first index in the <code>Object[][]</code>
@@ -240,7 +240,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setDataVector(convertToVector(dataVector), convertToVector(columnIdentifiers));
     }
 
-    /**
+    /** {@collect.stats}
      *  Equivalent to <code>fireTableChanged</code>.
      *
      * @param event  the change event
@@ -269,7 +269,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         }
     }
 
-    /**
+    /** {@collect.stats}
      *  Ensures that the new rows have the correct number of columns.
      *  This is accomplished by  using the <code>setSize</code> method in
      *  <code>Vector</code> which truncates vectors
@@ -289,7 +289,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableChanged(e);
     }
 
-    /**
+    /** {@collect.stats}
      *  Equivalent to <code>fireTableChanged</code>.
      *
      *  @param event the change event
@@ -299,7 +299,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableChanged(event);
     }
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use <code>setRowCount</code> instead.
      */
     /*
@@ -326,7 +326,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         }
     }
 
-    /**
+    /** {@collect.stats}
      *  Sets the number of rows in the model.  If the new size is greater
      *  than the current size, new rows are added to the end of the model
      *  If the new size is less than the current size, all
@@ -339,7 +339,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setNumRows(rowCount);
     }
 
-    /**
+    /** {@collect.stats}
      *  Adds a row to the end of the model.  The new row will contain
      *  <code>null</code> values unless <code>rowData</code> is specified.
      *  Notification of the row being added will be generated.
@@ -350,7 +350,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         insertRow(getRowCount(), rowData);
     }
 
-    /**
+    /** {@collect.stats}
      *  Adds a row to the end of the model.  The new row will contain
      *  <code>null</code> values unless <code>rowData</code> is specified.
      *  Notification of the row being added will be generated.
@@ -361,7 +361,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         addRow(convertToVector(rowData));
     }
 
-    /**
+    /** {@collect.stats}
      *  Inserts a row at <code>row</code> in the model.  The new row
      *  will contain <code>null</code> values unless <code>rowData</code>
      *  is specified.  Notification of the row being added will be generated.
@@ -376,7 +376,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableRowsInserted(row, row);
     }
 
-    /**
+    /** {@collect.stats}
      *  Inserts a row at <code>row</code> in the model.  The new row
      *  will contain <code>null</code> values unless <code>rowData</code>
      *  is specified.  Notification of the row being added will be generated.
@@ -408,7 +408,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         }
     }
 
-    /**
+    /** {@collect.stats}
      *  Moves one or more rows from the inclusive range <code>start</code> to
      *  <code>end</code> to the <code>to</code> position in the model.
      *  After the move, the row that was at index <code>start</code>
@@ -452,7 +452,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableRowsUpdated(first, last);
     }
 
-    /**
+    /** {@collect.stats}
      *  Removes the row at <code>row</code> from the model.  Notification
      *  of the row being removed will be sent to all the listeners.
      *
@@ -468,7 +468,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
 // Manipulating columns
 //
 
-    /**
+    /** {@collect.stats}
      * Replaces the column identifiers in the model.  If the number of
      * <code>newIdentifier</code>s is greater than the current number
      * of columns, new columns are added to the end of each row in the model.
@@ -485,7 +485,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setDataVector(dataVector, columnIdentifiers);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the column identifiers in the model.  If the number of
      * <code>newIdentifier</code>s is greater than the current number
      * of columns, new columns are added to the end of each row in the model.
@@ -502,7 +502,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         setColumnIdentifiers(convertToVector(newIdentifiers));
     }
 
-    /**
+    /** {@collect.stats}
      *  Sets the number of columns in the model.  If the new size is greater
      *  than the current size, new columns are added to the end of the model
      *  with <code>null</code> cell values.
@@ -520,7 +520,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableStructureChanged();
     }
 
-    /**
+    /** {@collect.stats}
      *  Adds a column to the model.  The new column will have the
      *  identifier <code>columnName</code>, which may be null.  This method
      *  will send a
@@ -534,7 +534,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         addColumn(columnName, (Vector)null);
     }
 
-    /**
+    /** {@collect.stats}
      *  Adds a column to the model.  The new column will have the
      *  identifier <code>columnName</code>, which may be null.
      *  <code>columnData</code> is the
@@ -568,7 +568,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         fireTableStructureChanged();
     }
 
-    /**
+    /** {@collect.stats}
      *  Adds a column to the model.  The new column will have the
      *  identifier <code>columnName</code>.  <code>columnData</code> is the
      *  optional array of data for the column.  If it is <code>null</code>
@@ -587,7 +587,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
 // Implementing the TableModel interface
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in this data table.
      * @return the number of rows in the model
      */
@@ -595,7 +595,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return dataVector.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in this data table.
      * @return the number of columns in the model
      */
@@ -603,7 +603,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return columnIdentifiers.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the column name.
      *
      * @return a name for this column using the string value of the
@@ -623,7 +623,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
                             : id.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true regardless of parameter values.
      *
      * @param   row             the row whose value is to be queried
@@ -635,7 +635,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an attribute value for the cell at <code>row</code>
      * and <code>column</code>.
      *
@@ -650,7 +650,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return rowVector.elementAt(column);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the object value for the cell at <code>column</code> and
      * <code>row</code>.  <code>aValue</code> is the new value.  This method
      * will generate a <code>tableChanged</code> notification.
@@ -671,7 +671,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
 // Protected Methods
 //
 
-    /**
+    /** {@collect.stats}
      * Returns a vector that contains the same objects as the array.
      * @param anArray  the array to be converted
      * @return  the new vector; if <code>anArray</code> is <code>null</code>,
@@ -688,7 +688,7 @@ public class DefaultTableModel extends AbstractTableModel implements Serializabl
         return v;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a vector of vectors that contains the same objects as the array.
      * @param anArray  the double array to be converted
      * @return the new vector of vectors; if <code>anArray</code> is

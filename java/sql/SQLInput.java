@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * An input stream that contains a stream of values representing an
  * instance of an SQL structured type or an SQL distinct type.
  * This interface, used only for custom mapping, is used by the driver
@@ -62,7 +62,7 @@ public interface SQLInput {
     // java.sql.ResultSet.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>String</code>
      * in the Java programming language.
      *
@@ -74,7 +74,7 @@ public interface SQLInput {
      */
     String readString() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>boolean</code>
      * in the Java programming language.
      *
@@ -86,7 +86,7 @@ public interface SQLInput {
      */
     boolean readBoolean() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>byte</code>
      * in the Java programming language.
      *
@@ -98,7 +98,7 @@ public interface SQLInput {
      */
     byte readByte() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>short</code>
      * in the Java programming language.
      *
@@ -110,7 +110,7 @@ public interface SQLInput {
      */
     short readShort() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as an <code>int</code>
      * in the Java programming language.
      *
@@ -122,7 +122,7 @@ public interface SQLInput {
      */
     int readInt() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>long</code>
      * in the Java programming language.
      *
@@ -134,7 +134,7 @@ public interface SQLInput {
      */
     long readLong() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>float</code>
      * in the Java programming language.
      *
@@ -146,7 +146,7 @@ public interface SQLInput {
      */
     float readFloat() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>double</code>
      * in the Java programming language.
      *
@@ -158,7 +158,7 @@ public interface SQLInput {
      */
     double readDouble() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>java.math.BigDecimal</code>
      * object in the Java programming language.
      *
@@ -170,7 +170,7 @@ public interface SQLInput {
      */
     java.math.BigDecimal readBigDecimal() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as an array of bytes
      * in the Java programming language.
      *
@@ -182,7 +182,7 @@ public interface SQLInput {
      */
     byte[] readBytes() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>java.sql.Date</code> object.
      *
      * @return the attribute; if the value is SQL <code>NULL</code>, returns <code>null</code>
@@ -193,7 +193,7 @@ public interface SQLInput {
      */
     java.sql.Date readDate() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>java.sql.Time</code> object.
      *
      * @return the attribute; if the value is SQL <code>NULL</code>, returns <code>null</code>
@@ -204,7 +204,7 @@ public interface SQLInput {
      */
     java.sql.Time readTime() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>java.sql.Timestamp</code> object.
      *
      * @return the attribute; if the value is SQL <code>NULL</code>, returns <code>null</code>
@@ -215,7 +215,7 @@ public interface SQLInput {
      */
     java.sql.Timestamp readTimestamp() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a stream of Unicode characters.
      *
      * @return the attribute; if the value is SQL <code>NULL</code>, returns <code>null</code>
@@ -226,7 +226,7 @@ public interface SQLInput {
      */
     java.io.Reader readCharacterStream() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a stream of ASCII characters.
      *
      * @return the attribute; if the value is SQL <code>NULL</code>, returns <code>null</code>
@@ -237,7 +237,7 @@ public interface SQLInput {
      */
     java.io.InputStream readAsciiStream() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a stream of uninterpreted
      * bytes.
      *
@@ -253,7 +253,7 @@ public interface SQLInput {
     // Methods for reading items of SQL user-defined types from the stream.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Reads the datum at the head of the stream and returns it as an
      * <code>Object</code> in the Java programming language.  The
      * actual type of the object returned is determined by the default type
@@ -279,7 +279,7 @@ public interface SQLInput {
      */
     Object readObject() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>REF</code> value from the stream and returns it as a
      * <code>Ref</code> object in the Java programming language.
      *
@@ -293,7 +293,7 @@ public interface SQLInput {
      */
     Ref readRef() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>BLOB</code> value from the stream and returns it as a
      * <code>Blob</code> object in the Java programming language.
      *
@@ -307,7 +307,7 @@ public interface SQLInput {
      */
     Blob readBlob() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>CLOB</code> value from the stream and returns it as a
      * <code>Clob</code> object in the Java programming language.
      *
@@ -321,7 +321,7 @@ public interface SQLInput {
      */
     Clob readClob() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>ARRAY</code> value from the stream and returns it as an
      * <code>Array</code> object in the Java programming language.
      *
@@ -335,7 +335,7 @@ public interface SQLInput {
      */
     Array readArray() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether the last value read was SQL <code>NULL</code>.
      *
      * @return <code>true</code> if the most recently read SQL value was SQL
@@ -350,7 +350,7 @@ public interface SQLInput {
 
     //---------------------------- JDBC 3.0 -------------------------
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>DATALINK</code> value from the stream and returns it as a
      * <code>java.net.URL</code> object in the Java programming language.
      *
@@ -365,7 +365,7 @@ public interface SQLInput {
 
      //---------------------------- JDBC 4.0 -------------------------
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>NCLOB</code> value from the stream and returns it as a
      * <code>NClob</code> object in the Java programming language.
      *
@@ -379,7 +379,7 @@ public interface SQLInput {
      */
     NClob readNClob() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>String</code>
      * in the Java programming language. It is intended for use when
      * accessing  <code>NCHAR</code>,<code>NVARCHAR</code>
@@ -393,7 +393,7 @@ public interface SQLInput {
      */
     String readNString() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>XML</code> value from the stream and returns it as a
      * <code>SQLXML</code> object in the Java programming language.
      *
@@ -407,7 +407,7 @@ public interface SQLInput {
      */
     SQLXML readSQLXML() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>ROWID</code> value from the stream and returns it as a
      * <code>RowId</code> object in the Java programming language.
      *

@@ -25,7 +25,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * Signals that a <code>Credential</code> has expired.
  *
  * <p> This exception is thrown by LoginModules when they determine
@@ -42,7 +42,7 @@ public class CredentialExpiredException extends CredentialException {
 
     private static final long serialVersionUID = -5344739593859737937L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a CredentialExpiredException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -50,7 +50,7 @@ public class CredentialExpiredException extends CredentialException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CredentialExpiredException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.

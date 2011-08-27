@@ -27,7 +27,7 @@ package java.awt;
 
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * A border layout lays out a container, arranging and resizing
  * its components to fit in five regions:
  * north, south, east, west, and center.
@@ -123,7 +123,7 @@ import java.util.Hashtable;
  */
 public class BorderLayout implements LayoutManager2,
                                      java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Constructs a border layout with the horizontal gaps
      * between components.
      * The horizontal gap is specified by <code>hgap</code>.
@@ -135,7 +135,7 @@ public class BorderLayout implements LayoutManager2,
      */
         int hgap;
 
-    /**
+    /** {@collect.stats}
      * Constructs a border layout with the vertical gaps
      * between components.
      * The vertical gap is specified by <code>vgap</code>.
@@ -146,7 +146,7 @@ public class BorderLayout implements LayoutManager2,
      */
         int vgap;
 
-    /**
+    /** {@collect.stats}
      * Constant to specify components location to be the
      *      north portion of the border layout.
      * @serial
@@ -157,7 +157,7 @@ public class BorderLayout implements LayoutManager2,
      * @see #removeLayoutComponent
      */
         Component north;
-     /**
+     /** {@collect.stats}
      * Constant to specify components location to be the
      *      west portion of the border layout.
      * @serial
@@ -168,7 +168,7 @@ public class BorderLayout implements LayoutManager2,
      * @see #removeLayoutComponent
      */
         Component west;
-    /**
+    /** {@collect.stats}
      * Constant to specify components location to be the
      *      east portion of the border layout.
      * @serial
@@ -179,7 +179,7 @@ public class BorderLayout implements LayoutManager2,
      * @see #removeLayoutComponent
      */
         Component east;
-    /**
+    /** {@collect.stats}
      * Constant to specify components location to be the
      *      south portion of the border layout.
      * @serial
@@ -190,7 +190,7 @@ public class BorderLayout implements LayoutManager2,
      * @see #removeLayoutComponent
      */
     Component south;
-    /**
+    /** {@collect.stats}
      * Constant to specify components location to be the
      *      center portion of the border layout.
      * @serial
@@ -202,7 +202,7 @@ public class BorderLayout implements LayoutManager2,
      */
         Component center;
 
-    /**
+    /** {@collect.stats}
      *
      * A relative positioning constant, that can be used instead of
      * north, south, east, west or center.
@@ -216,21 +216,21 @@ public class BorderLayout implements LayoutManager2,
      * @serial
      */
     Component firstLine;
-     /**
+     /** {@collect.stats}
      * A relative positioning constant, that can be used instead of
      * north, south, east, west or center.
      * Please read Description for firstLine.
      * @serial
      */
         Component lastLine;
-     /**
+     /** {@collect.stats}
      * A relative positioning constant, that can be used instead of
      * north, south, east, west or center.
      * Please read Description for firstLine.
      * @serial
      */
         Component firstItem;
-    /**
+    /** {@collect.stats}
      * A relative positioning constant, that can be used instead of
      * north, south, east, west or center.
      * Please read Description for firstLine.
@@ -238,32 +238,32 @@ public class BorderLayout implements LayoutManager2,
      */
         Component lastItem;
 
-    /**
+    /** {@collect.stats}
      * The north layout constraint (top of container).
      */
     public static final String NORTH  = "North";
 
-    /**
+    /** {@collect.stats}
      * The south layout constraint (bottom of container).
      */
     public static final String SOUTH  = "South";
 
-    /**
+    /** {@collect.stats}
      * The east layout constraint (right side of container).
      */
     public static final String EAST   = "East";
 
-    /**
+    /** {@collect.stats}
      * The west layout constraint (left side of container).
      */
     public static final String WEST   = "West";
 
-    /**
+    /** {@collect.stats}
      * The center layout constraint (middle of container).
      */
     public static final String CENTER = "Center";
 
-    /**
+    /** {@collect.stats}
      * Synonym for PAGE_START.  Exists for compatibility with previous
      * versions.  PAGE_START is preferred.
      *
@@ -272,7 +272,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String BEFORE_FIRST_LINE = "First";
 
-    /**
+    /** {@collect.stats}
      * Synonym for PAGE_END.  Exists for compatibility with previous
      * versions.  PAGE_END is preferred.
      *
@@ -281,7 +281,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String AFTER_LAST_LINE = "Last";
 
-    /**
+    /** {@collect.stats}
      * Synonym for LINE_START.  Exists for compatibility with previous
      * versions.  LINE_START is preferred.
      *
@@ -290,7 +290,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String BEFORE_LINE_BEGINS = "Before";
 
-    /**
+    /** {@collect.stats}
      * Synonym for LINE_END.  Exists for compatibility with previous
      * versions.  LINE_END is preferred.
      *
@@ -299,7 +299,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String AFTER_LINE_ENDS = "After";
 
-    /**
+    /** {@collect.stats}
      * The component comes before the first line of the layout's content.
      * For Western, left-to-right and top-to-bottom orientations, this is
      * equivalent to NORTH.
@@ -309,7 +309,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String PAGE_START = BEFORE_FIRST_LINE;
 
-    /**
+    /** {@collect.stats}
      * The component comes after the last line of the layout's content.
      * For Western, left-to-right and top-to-bottom orientations, this is
      * equivalent to SOUTH.
@@ -319,7 +319,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String PAGE_END = AFTER_LAST_LINE;
 
-    /**
+    /** {@collect.stats}
      * The component goes at the beginning of the line direction for the
      * layout. For Western, left-to-right and top-to-bottom orientations,
      * this is equivalent to WEST.
@@ -329,7 +329,7 @@ public class BorderLayout implements LayoutManager2,
      */
     public static final String LINE_START = BEFORE_LINE_BEGINS;
 
-    /**
+    /** {@collect.stats}
      * The component goes at the end of the line direction for the
      * layout. For Western, left-to-right and top-to-bottom orientations,
      * this is equivalent to EAST.
@@ -344,7 +344,7 @@ public class BorderLayout implements LayoutManager2,
      */
      private static final long serialVersionUID = -8658291919501921765L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new border layout with
      * no gaps between components.
      */
@@ -352,7 +352,7 @@ public class BorderLayout implements LayoutManager2,
         this(0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a border layout with the specified gaps
      * between components.
      * The horizontal gap is specified by <code>hgap</code>
@@ -365,7 +365,7 @@ public class BorderLayout implements LayoutManager2,
         this.vgap = vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal gap between components.
      * @since   JDK1.1
      */
@@ -373,7 +373,7 @@ public class BorderLayout implements LayoutManager2,
         return hgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the horizontal gap between components.
      * @param hgap the horizontal gap between components
      * @since   JDK1.1
@@ -382,7 +382,7 @@ public class BorderLayout implements LayoutManager2,
         this.hgap = hgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the vertical gap between components.
      * @since   JDK1.1
      */
@@ -390,7 +390,7 @@ public class BorderLayout implements LayoutManager2,
         return vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the vertical gap between components.
      * @param vgap the vertical gap between components
      * @since   JDK1.1
@@ -399,7 +399,7 @@ public class BorderLayout implements LayoutManager2,
         this.vgap = vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the layout, using the specified
      * constraint object.  For border layouts, the constraint must be
      * one of the following constants:  <code>NORTH</code>,
@@ -428,7 +428,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated  replaced by <code>addLayoutComponent(Component, Object)</code>.
      */
     @Deprecated
@@ -465,7 +465,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from this border layout. This
      * method is called when a container calls its <code>remove</code> or
      * <code>removeAll</code> methods. Most applications do not call this
@@ -499,7 +499,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the component that was added using the given constraint
      *
      * @param   constraints  the desired constraint, one of <code>CENTER</code>,
@@ -539,7 +539,7 @@ public class BorderLayout implements LayoutManager2,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the component that corresponds to the given constraint location
      * based on the target <code>Container</code>'s component orientation.
      * Components added with the relative constraints <code>PAGE_START</code>,
@@ -591,7 +591,7 @@ public class BorderLayout implements LayoutManager2,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the constraints for the specified component
      *
      * @param   comp the component to be queried
@@ -628,7 +628,7 @@ public class BorderLayout implements LayoutManager2,
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum size of the <code>target</code> container
      * using this layout manager.
      * <p>
@@ -683,7 +683,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred size of the <code>target</code>
      * container using this layout manager, based on the components
      * in the container.
@@ -739,7 +739,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum dimensions for this layout given the components
      * in the specified target container.
      * @param target the component which needs to be laid out
@@ -751,7 +751,7 @@ public class BorderLayout implements LayoutManager2,
         return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -762,7 +762,7 @@ public class BorderLayout implements LayoutManager2,
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -773,14 +773,14 @@ public class BorderLayout implements LayoutManager2,
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout, indicating that if the layout manager
      * has cached information it should be discarded.
      */
     public void invalidateLayout(Container target) {
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the container argument using this border layout.
      * <p>
      * This method actually reshapes the components in the specified
@@ -840,7 +840,7 @@ public class BorderLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the component that corresponds to the given constraint location
      *
      * @param   key     The desired absolute position,
@@ -877,7 +877,7 @@ public class BorderLayout implements LayoutManager2,
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the state of this border layout.
      * @return    a string representation of this border layout.
      */

@@ -54,7 +54,7 @@ import sun.misc.URLClassPath;
 import sun.net.www.ParseUtil;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * This class loader is used to load classes and resources from a search
  * path of URLs referring to both JAR files and directories. Any URL that
  * ends with a '/' is assumed to refer to a directory. Otherwise, the URL
@@ -77,7 +77,7 @@ public class URLClassLoader extends SecureClassLoader {
     /* The context to be used when loading classes and resources */
     private AccessControlContext acc;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new URLClassLoader for the given URLs. The URLs will be
      * searched in the order specified for classes and resources after first
      * searching in the specified parent class loader. Any URL that ends with
@@ -106,7 +106,7 @@ public class URLClassLoader extends SecureClassLoader {
         acc = AccessController.getContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new URLClassLoader for the specified URLs using the
      * default delegation parent <code>ClassLoader</code>. The URLs will
      * be searched in the order specified for classes and resources after
@@ -137,7 +137,7 @@ public class URLClassLoader extends SecureClassLoader {
         acc = AccessController.getContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new URLClassLoader for the specified URLs, parent
      * class loader, and URLStreamHandlerFactory. The parent argument
      * will be used as the parent class loader for delegation. The
@@ -169,7 +169,7 @@ public class URLClassLoader extends SecureClassLoader {
         acc = AccessController.getContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified URL to the list of URLs to search for
      * classes and resources.
      *
@@ -179,7 +179,7 @@ public class URLClassLoader extends SecureClassLoader {
         ucp.addURL(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the search path of URLs for loading classes and resources.
      * This includes the original list of URLs specified to the constructor,
      * along with any URLs subsequently appended by the addURL() method.
@@ -189,7 +189,7 @@ public class URLClassLoader extends SecureClassLoader {
         return ucp.getURLs();
     }
 
-    /**
+    /** {@collect.stats}
      * Finds and loads the class with the specified name from the URL search
      * path. Any URLs referring to JAR files are loaded and opened as needed
      * until the class is found.
@@ -278,7 +278,7 @@ public class URLClassLoader extends SecureClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Defines a new package by name in this ClassLoader. The attributes
      * contained in the specified Manifest will be used to obtain package
      * version and sealing information. For sealed packages, the additional
@@ -362,7 +362,7 @@ public class URLClassLoader extends SecureClassLoader {
         return "true".equalsIgnoreCase(sealed);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the resource with the specified name on the URL search path.
      *
      * @param name the name of the resource
@@ -383,7 +383,7 @@ public class URLClassLoader extends SecureClassLoader {
         return url != null ? ucp.checkURL(url) : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an Enumeration of URLs representing all of the resources
      * on the URL search path having the specified name.
      *
@@ -434,7 +434,7 @@ public class URLClassLoader extends SecureClassLoader {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the permissions for the given codesource object.
      * The implementation of this method first calls super.getPermissions
      * and then adds permissions based on the URL of the codesource.
@@ -488,7 +488,7 @@ public class URLClassLoader extends SecureClassLoader {
                 path += "-";
             p =  new FilePermission(path, SecurityConstants.FILE_READ_ACTION);
         } else {
-            /**
+            /** {@collect.stats}
              * Not loading from a 'file:' URL so we want to give the class
              * permission to connect to and accept from the remote host
              * after we've made sure the host is the correct one and is valid.
@@ -522,7 +522,7 @@ public class URLClassLoader extends SecureClassLoader {
         return perms;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of URLClassLoader for the specified
      * URLs and parent class loader. If a security manager is
      * installed, the <code>loadClass</code> method of the URLClassLoader
@@ -551,7 +551,7 @@ public class URLClassLoader extends SecureClassLoader {
         return ucl;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of URLClassLoader for the specified
      * URLs and default parent class loader. If a security manager is
      * installed, the <code>loadClass</code> method of the URLClassLoader

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when a character with an invalid Unicode code
  * point as defined by {@link Character#isValidCodePoint} is passed to the
  * {@link Formatter}.
@@ -42,7 +42,7 @@ public class IllegalFormatCodePointException extends IllegalFormatException {
 
     private int c;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class with the specified illegal code
      * point as defined by {@link Character#isValidCodePoint}.
      *
@@ -53,7 +53,7 @@ public class IllegalFormatCodePointException extends IllegalFormatException {
         this.c = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the illegal code point as defined by {@link
      * Character#isValidCodePoint}.
      *

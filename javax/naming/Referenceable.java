@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This interface is implemented by an object that can provide a
   * Reference to itself.
   *<p>
@@ -47,7 +47,7 @@ package javax.naming;
   * @since 1.3
   */
 public interface Referenceable {
-    /**
+    /** {@collect.stats}
       * Retrieves the Reference of this object.
       *
       * @return The non-null Reference of this object.

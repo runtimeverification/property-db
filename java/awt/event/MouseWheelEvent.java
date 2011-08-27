@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * An event which indicates that the mouse wheel was rotated in a component.
  * <P>
  * A wheel mouse is a mouse which has a wheel in place of the middle button.
@@ -86,7 +86,7 @@ import java.awt.Component;
 
 public class MouseWheelEvent extends MouseEvent {
 
-    /**
+    /** {@collect.stats}
      * Constant representing scrolling by "units" (like scrolling with the
      * arrow keys)
      *
@@ -94,7 +94,7 @@ public class MouseWheelEvent extends MouseEvent {
      */
     public static final int WHEEL_UNIT_SCROLL = 0;
 
-    /**
+    /** {@collect.stats}
      * Constant representing scrolling by a "block" (like scrolling
      * with page-up, page-down keys)
      *
@@ -102,7 +102,7 @@ public class MouseWheelEvent extends MouseEvent {
      */
     public static final int WHEEL_BLOCK_SCROLL = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates what sort of scrolling should take place in response to this
      * event, based on platform settings.  Legal values are:
      * <ul>
@@ -114,7 +114,7 @@ public class MouseWheelEvent extends MouseEvent {
      */
     int scrollType;
 
-    /**
+    /** {@collect.stats}
      * Only valid for scrollType WHEEL_UNIT_SCROLL.
      * Indicates number of units that should be scrolled per
      * click of mouse wheel rotation, based on platform settings.
@@ -124,7 +124,7 @@ public class MouseWheelEvent extends MouseEvent {
      */
     int scrollAmount;
 
-    /**
+    /** {@collect.stats}
      * Indicates how far the mouse wheel was rotated.
      *
      * @see #getWheelRotation
@@ -137,7 +137,7 @@ public class MouseWheelEvent extends MouseEvent {
 
     private static final long serialVersionUID = 6459879390515399677L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MouseWheelEvent</code> object with the
      * specified source component, type, modifiers, coordinates,
      * scroll type, scroll amount, and wheel rotation.
@@ -180,7 +180,7 @@ public class MouseWheelEvent extends MouseEvent {
              popupTrigger, scrollType, scrollAmount, wheelRotation);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MouseWheelEvent</code> object with the
      * specified source component, type, modifiers, coordinates,
      * absolute coordinates, scroll type, scroll amount, and wheel rotation.
@@ -231,7 +231,7 @@ public class MouseWheelEvent extends MouseEvent {
         this.wheelRotation = wheelRotation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of scrolling that should take place in response to this
      * event.  This is determined by the native platform.  Legal values are:
      * <ul>
@@ -251,7 +251,7 @@ public class MouseWheelEvent extends MouseEvent {
         return scrollType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of units that should be scrolled per
      * click of mouse wheel rotation.
      * Only valid if <code>getScrollType</code> returns
@@ -266,7 +266,7 @@ public class MouseWheelEvent extends MouseEvent {
         return scrollAmount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of "clicks" the mouse wheel was rotated.
      *
      * @return negative values if the mouse wheel was rotated up/away from
@@ -277,7 +277,7 @@ public class MouseWheelEvent extends MouseEvent {
         return wheelRotation;
     }
 
-    /**
+    /** {@collect.stats}
      * This is a convenience method to aid in the implementation of
      * the common-case MouseWheelListener - to scroll a ScrollPane or
      * JScrollPane by an amount which conforms to the platform settings.
@@ -328,7 +328,7 @@ public class MouseWheelEvent extends MouseEvent {
         return scrollAmount * wheelRotation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a parameter string identifying this event.
      * This method is useful for event-logging and for debugging.
      *

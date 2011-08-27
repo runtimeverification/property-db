@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * The AccessibleExtendedComponent interface should be supported by any object
  * that is rendered on the screen.  This interface provides the standard
  * mechanism for an assistive technology to determine the extended
@@ -47,7 +47,7 @@ package javax.accessibility;
  */
 public interface AccessibleExtendedComponent extends AccessibleComponent {
 
-    /**
+    /** {@collect.stats}
      * Returns the tool tip text
      *
      * @return the tool tip text, if supported, of the object;
@@ -55,7 +55,7 @@ public interface AccessibleExtendedComponent extends AccessibleComponent {
      */
     public String getToolTipText();
 
-    /**
+    /** {@collect.stats}
      * Returns the titled border text
      *
      * @return the titled border text, if supported, of the object;
@@ -63,7 +63,7 @@ public interface AccessibleExtendedComponent extends AccessibleComponent {
      */
     public String getTitledBorderText();
 
-    /**
+    /** {@collect.stats}
      * Returns key bindings associated with this object
      *
      * @return the key bindings, if supported, of the object;

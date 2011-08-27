@@ -31,7 +31,7 @@ import  java.security.ProtectionDomain;
  * Copyright 2003 Wily Technology, Inc.
  */
 
-/**
+/** {@collect.stats}
  * An agent provides an implementation of this interface in order
  * to transform class files.
  * The transformation occurs before the class is defined by the JVM.
@@ -48,7 +48,7 @@ import  java.security.ProtectionDomain;
  */
 
 public interface ClassFileTransformer {
-    /**
+    /** {@collect.stats}
      * The implementation of this method may transform the supplied class file and
      * return a new replacement class file.
      *

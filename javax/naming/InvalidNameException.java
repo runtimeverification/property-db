@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception indicates that the name being specified does
   * not conform to the naming syntax of a naming system.
   * This exception is thrown by any of the methods that does name
@@ -46,7 +46,7 @@ package javax.naming;
   */
 
 public class InvalidNameException extends NamingException {
-    /**
+    /** {@collect.stats}
       * Constructs an instance of InvalidNameException using an
       * explanation of the problem.
       * All other fields are initialized to null.
@@ -57,7 +57,7 @@ public class InvalidNameException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of InvalidNameException with
       * all fields set to null.
       */
@@ -65,7 +65,7 @@ public class InvalidNameException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -8370672380823801105L;

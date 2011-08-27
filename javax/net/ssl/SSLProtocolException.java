@@ -26,7 +26,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * Reports an error in the operation of the SSL protocol.  Normally
  * this indicates a flaw in one of the protocol implementations.
  *
@@ -38,7 +38,7 @@ class SSLProtocolException extends SSLException
 {
     private static final long serialVersionUID = 5445067063799134928L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an exception reporting an SSL protocol error
      * detected by an SSL subsystem.
      *

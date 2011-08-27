@@ -44,7 +44,7 @@ import java.security.AccessController;
 import sun.security.action.GetPropertyAction;
 
 
-/**
+/** {@collect.stats}
  * Provides the basic look and feel for a <code>JOptionPane</code>.
  * <code>BasicMessagePaneUI</code> provides a means to place an icon,
  * message and buttons into a <code>Container</code>.
@@ -84,7 +84,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
 
     private static String newline;
 
-    /**
+    /** {@collect.stats}
      * <code>JOptionPane</code> that the receiver is providing the
      * look and feel for.
      */
@@ -92,14 +92,14 @@ public class BasicOptionPaneUI extends OptionPaneUI {
 
     protected Dimension minimumSize;
 
-    /** JComponent provide for input if optionPane.getWantsInput() returns
+    /** {@collect.stats} JComponent provide for input if optionPane.getWantsInput() returns
      * true. */
     protected JComponent          inputComponent;
 
-    /** Component to receive focus when messaged with selectInitialValue. */
+    /** {@collect.stats} Component to receive focus when messaged with selectInitialValue. */
     protected Component           initialFocusComponent;
 
-    /** This is set to true in validateComponent if a Component is contained
+    /** {@collect.stats} This is set to true in validateComponent if a Component is contained
      * in either the message or the buttons. */
     protected boolean             hasCustomComponents;
 
@@ -123,14 +123,14 @@ public class BasicOptionPaneUI extends OptionPaneUI {
 
 
 
-    /**
+    /** {@collect.stats}
       * Creates a new BasicOptionPaneUI instance.
       */
     public static ComponentUI createUI(JComponent x) {
         return new BasicOptionPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
       * Installs the receiver as the L&F for the passed in
       * <code>JOptionPane</code>.
       */
@@ -143,7 +143,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         installKeyboardActions();
     }
 
-    /**
+    /** {@collect.stats}
       * Removes the receiver from the L&F controller of the passed in split
       * pane.
       */
@@ -242,7 +242,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum size the option pane should be. Primarily
      * provided for subclassers wishing to offer a different minimum size.
      */
@@ -254,7 +254,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
                              minimumSize.height);
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>c</code> is the <code>JOptionPane</code> the receiver
      * is contained in, the preferred
      * size that is returned is the maximum of the preferred size of
@@ -280,7 +280,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Messaged from installComponents to create a Container containing the
      * body of the message. The icon is the created by calling
      * <code>addIcon</code>.
@@ -325,7 +325,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return top;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the appropriate object to represent <code>msg</code> and
      * places it into <code>container</code>. If <code>msg</code> is an
      * instance of Component, it is added directly, if it is an Icon,
@@ -430,7 +430,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the message to display from the JOptionPane the receiver is
      * providing the look and feel for.
      */
@@ -512,7 +512,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and adds a JLabel representing the icon returned from
      * <code>getIcon</code> to <code>top</code>. This is messaged from
      * <code>createMessageArea</code>
@@ -530,7 +530,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the icon from the JOptionPane the receiver is providing
      * the look and feel for, or the default icon as returned from
      * <code>getDefaultIcon</code>.
@@ -543,7 +543,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return mIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the icon to use for the passed in type.
      */
     protected Icon getIconForType(int messageType) {
@@ -570,14 +570,14 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of characters to place on a line.
      */
     protected int getMaxCharactersPerLineCount() {
         return optionPane.getMaxCharactersPerLineCount();
     }
 
-   /**
+   /** {@collect.stats}
      * Recursively creates new JLabel instances to represent <code>d</code>.
      * Each JLabel instance is added to <code>c</code>.
      */
@@ -606,7 +606,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a Container containing the buttons. The buttons
      * are created by calling <code>getButtons</code>.
      */
@@ -631,7 +631,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return bottom;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the appropriate object to represent each of the objects in
      * <code>buttons</code> and adds it to <code>container</code>. This
      * differs from addMessageComponents in that it will recurse on
@@ -737,7 +737,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return new ButtonActionListener(buttonIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the buttons to display from the JOptionPane the receiver is
      * providing the look and feel for. If the JOptionPane has options
      * set, they will be provided, otherwise if the optionType is
@@ -826,7 +826,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true, basic L&F wants all the buttons to have the same
      * width.
      */
@@ -834,7 +834,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initial index into the buttons to select. The index
      * is calculated from the initial value from the JOptionPane and
      * options of the JOptionPane or 0.
@@ -857,7 +857,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the input value in the option pane the receiver is providing
      * the look and feel for based on the value in the inputComponent.
      */
@@ -876,7 +876,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * If inputComponent is non-null, the focus is requested on that,
      * otherwise request focus on the default value
      */
@@ -896,7 +896,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if in the last call to validateComponent the message
      * or buttons contained a subclass of Component.
      */
@@ -905,7 +905,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>ButtonAreaLayout</code> behaves in a similar manner to
      * <code>FlowLayout</code>. It lays out all components from left to
      * right. If <code>syncAllWidths</code> is true, the widths of each
@@ -918,11 +918,11 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     public static class ButtonAreaLayout implements LayoutManager {
         protected boolean           syncAllWidths;
         protected int               padding;
-        /** If true, children are lumped together in parent. */
+        /** {@collect.stats} If true, children are lumped together in parent. */
         protected boolean           centersChildren;
         private int orientation;
         private boolean reverseButtons;
-        /**
+        /** {@collect.stats}
          * Indicates whether or not centersChildren should be used vs
          * the orientation. This is done for backward compatability
          * for subclassers.
@@ -1114,13 +1114,13 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicOptionPaneUI.
      */
     public class PropertyChangeHandler implements PropertyChangeListener {
-        /**
+        /** {@collect.stats}
          * If the source of the PropertyChangeEvent <code>e</code> equals the
          * optionPane and is one of the ICON_PROPERTY, MESSAGE_PROPERTY,
          * OPTIONS_PROPERTY or INITIAL_VALUE_PROPERTY,
@@ -1131,7 +1131,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Configures any necessary colors/fonts for the specified label
      * used representing the message.
      */
@@ -1148,7 +1148,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Configures any necessary colors/fonts for the specified button
      * used representing the button portion of the optionpane.
      */
@@ -1160,7 +1160,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicOptionPaneUI.
@@ -1333,7 +1333,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     // Classes used when optionPane.getWantsInput returns true.
     //
 
-    /**
+    /** {@collect.stats}
      * A JTextField that allows you to specify an array of KeyStrokes that
      * that will have their bindings processed regardless of whether or
      * not they are registered on the JTextField. This is used as we really
@@ -1348,7 +1348,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
             super(cols);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the KeyStrokes that will be additional processed for
          * ancestor bindings.
          */
@@ -1378,7 +1378,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
 
 
 
-    /**
+    /** {@collect.stats}
      * Registered in the ActionMap. Sets the value of the option pane
      * to <code>JOptionPane.CLOSED_OPTION</code>.
      */
@@ -1399,7 +1399,7 @@ public class BasicOptionPaneUI extends OptionPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This class is used to create the default buttons. This indirection is
      * used so that addButtonComponents can tell which Buttons were created
      * by us vs subclassers or from the JOptionPane itself.

@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when no initial context implementation
   * can be created.  The policy of how an initial context implementation
   * is selected is described in the documentation of the InitialContext class.
@@ -50,7 +50,7 @@ package javax.naming;
   * @since 1.3
   */
 public class NoInitialContextException extends NamingException {
-    /**
+    /** {@collect.stats}
       * Constructs an instance of NoInitialContextException.
       * All fields are initialized to null.
       */
@@ -58,7 +58,7 @@ public class NoInitialContextException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of NoInitialContextException with an
       * explanation. All other fields are initialized to null.
       * @param  explanation     Possibly null additional detail about this exception.
@@ -68,7 +68,7 @@ public class NoInitialContextException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -3413733186901258623L;

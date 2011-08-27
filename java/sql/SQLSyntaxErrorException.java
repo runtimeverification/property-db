@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * The subclass of {@link SQLException} thrown when the SQLState class value is '<i>42</i>'. This indicates that the
  * in-progress query has violated SQL syntax rules.
  *
@@ -33,7 +33,7 @@ package java.sql;
  */
 public class SQLSyntaxErrorException extends SQLNonTransientException {
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>SQLSyntaxErrorException</code> object.
          *  The <code>reason</code>, <code>SQLState</code> are initialized
          * to <code>null</code> and the vendor code is initialized to 0.
@@ -48,7 +48,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
                 super();
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>SQLSyntaxErrorException</code> object
          * with a given <code>reason</code>. The <code>SQLState</code>
          * is initialized to <code>null</code> and the vender code is initialized
@@ -65,7 +65,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
                 super(reason);
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>SQLSyntaxErrorException</code> object
          * with a given <code>reason</code> and <code>SQLState</code>.
          *
@@ -82,7 +82,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
                 super(reason, SQLState);
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>SQLSyntaxErrorException</code> object
          *  with a given <code>reason</code>, <code>SQLState</code>  and
          * <code>vendorCode</code>.
@@ -100,7 +100,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
                 super(reason, SQLState, vendorCode);
         }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SQLSyntaxErrorException</code> object
      *   with a given  <code>cause</code>.
      * The <code>SQLState</code> is initialized
@@ -117,7 +117,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
         super(cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SQLSyntaxErrorException</code> object
      * with a given
      * <code>reason</code> and  <code>cause</code>.
@@ -133,7 +133,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
         super(reason, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SQLSyntaxErrorException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code> and  <code>cause</code>.
@@ -149,7 +149,7 @@ public class SQLSyntaxErrorException extends SQLNonTransientException {
         super(reason, SQLState, cause);
     }
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>SQLSyntaxErrorException</code> object
      * with a given
      * <code>reason</code>, <code>SQLState</code>, <code>vendorCode</code>

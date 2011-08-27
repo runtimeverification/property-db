@@ -29,7 +29,7 @@ import java.util.Vector;
 import java.util.Enumeration;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * This class is used to create a multiple-exclusion scope for
  * a set of buttons. Creating a set of buttons with the
  * same <code>ButtonGroup</code> object means that
@@ -70,17 +70,17 @@ public class ButtonGroup implements Serializable {
     // the list of buttons participating in this group
     protected Vector<AbstractButton> buttons = new Vector();
 
-    /**
+    /** {@collect.stats}
      * The current selection.
      */
     ButtonModel selection = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>ButtonGroup</code>.
      */
     public ButtonGroup() {}
 
-    /**
+    /** {@collect.stats}
      * Adds the button to the group.
      * @param b the button to be added
      */
@@ -101,7 +101,7 @@ public class ButtonGroup implements Serializable {
         b.getModel().setGroup(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the button from the group.
      * @param b the button to be removed
      */
@@ -116,7 +116,7 @@ public class ButtonGroup implements Serializable {
         b.getModel().setGroup(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Clears the selection such that none of the buttons
      * in the <code>ButtonGroup</code> are selected.
      *
@@ -130,7 +130,7 @@ public class ButtonGroup implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all the buttons that are participating in
      * this group.
      * @return an <code>Enumeration</code> of the buttons in this group
@@ -139,7 +139,7 @@ public class ButtonGroup implements Serializable {
         return buttons.elements();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model of the selected button.
      * @return the selected button model
      */
@@ -147,7 +147,7 @@ public class ButtonGroup implements Serializable {
         return selection;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected value for the <code>ButtonModel</code>.
      * Only one button in the group may be selected at a time.
      * @param m the <code>ButtonModel</code>
@@ -165,7 +165,7 @@ public class ButtonGroup implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether a <code>ButtonModel</code> is selected.
      * @return <code>true</code> if the button is selected,
      *   otherwise returns <code>false</code>
@@ -174,7 +174,7 @@ public class ButtonGroup implements Serializable {
         return (m == selection);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of buttons in the group.
      * @return the button count
      * @since 1.3

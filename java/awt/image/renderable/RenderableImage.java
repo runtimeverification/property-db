@@ -38,7 +38,7 @@ import java.util.Vector;
 import java.awt.RenderingHints;
 import java.awt.image.*;
 
-/**
+/** {@collect.stats}
  * A RenderableImage is a common interface for rendering-independent
  * images (a notion which subsumes resolution independence).  That is,
  * images which are described and have operations applied to them
@@ -61,7 +61,7 @@ import java.awt.image.*;
  */
 public interface RenderableImage {
 
-    /**
+    /** {@collect.stats}
      * String constant that can be used to identify a property on
      * a RenderedImage obtained via the createRendering or
      * createScaledRendering methods.  If such a property exists,
@@ -70,7 +70,7 @@ public interface RenderableImage {
      */
      static final String HINTS_OBSERVED = "HINTS_OBSERVED";
 
-    /**
+    /** {@collect.stats}
      * Returns a vector of RenderableImages that are the sources of
      * image data for this RenderableImage. Note that this method may
      * return an empty vector, to indicate that the image has no sources,
@@ -80,7 +80,7 @@ public interface RenderableImage {
      */
     Vector<RenderableImage> getSources();
 
-    /**
+    /** {@collect.stats}
      * Gets a property from the property set of this image.
      * If the property name is not recognized, java.awt.Image.UndefinedProperty
      * will be returned.
@@ -91,13 +91,13 @@ public interface RenderableImage {
      */
     Object getProperty(String name);
 
-    /**
+    /** {@collect.stats}
      * Returns a list of names recognized by getProperty.
      * @return a list of property names.
      */
     String[] getPropertyNames();
 
-    /**
+    /** {@collect.stats}
      * Returns true if successive renderings (that is, calls to
      * createRendering() or createScaledRendering()) with the same arguments
      * may produce different results.  This method may be used to
@@ -109,7 +109,7 @@ public interface RenderableImage {
      */
     boolean isDynamic();
 
-    /**
+    /** {@collect.stats}
      * Gets the width in user coordinate space.  By convention, the
      * usual width of a RenderableImage is equal to the image's aspect
      * ratio (width divided by height).
@@ -118,7 +118,7 @@ public interface RenderableImage {
      */
     float getWidth();
 
-    /**
+    /** {@collect.stats}
      * Gets the height in user coordinate space.  By convention, the
      * usual height of a RenderedImage is equal to 1.0F.
      *
@@ -126,21 +126,21 @@ public interface RenderableImage {
      */
     float getHeight();
 
-    /**
+    /** {@collect.stats}
      * Gets the minimum X coordinate of the rendering-independent image data.
      * @return the minimum X coordinate of the rendering-independent image
      * data.
      */
     float getMinX();
 
-    /**
+    /** {@collect.stats}
      * Gets the minimum Y coordinate of the rendering-independent image data.
      * @return the minimum Y coordinate of the rendering-independent image
      * data.
      */
     float getMinY();
 
-    /**
+    /** {@collect.stats}
      * Creates a RenderedImage instance of this image with width w, and
      * height h in pixels.  The RenderContext is built automatically
      * with an appropriate usr2dev transform and an area of interest
@@ -167,7 +167,7 @@ public interface RenderableImage {
      */
     RenderedImage createScaledRendering(int w, int h, RenderingHints hints);
 
-    /**
+    /** {@collect.stats}
      * Returnd a RenderedImage instance of this image with a default
      * width and height in pixels.  The RenderContext is built
      * automatically with an appropriate usr2dev transform and an area
@@ -179,7 +179,7 @@ public interface RenderableImage {
      */
     RenderedImage createDefaultRendering();
 
-    /**
+    /** {@collect.stats}
      * Creates a RenderedImage that represented a rendering of this image
      * using a given RenderContext.  This is the most general way to obtain a
      * rendering of a RenderableImage.

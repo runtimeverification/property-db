@@ -36,7 +36,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 
 
-/**
+/** {@collect.stats}
  * The base class for all UI delegate objects in the Swing pluggable
  * look and feel architecture.  The UI delegate object for a Swing
  * component is responsible for implementing the aspects of the
@@ -52,14 +52,14 @@ import java.awt.Insets;
  *
  */
 public abstract class ComponentUI {
-    /**
+    /** {@collect.stats}
      * Sole constructor. (For invocation by subclass constructors,
      * typically implicit.)
      */
     public ComponentUI() {
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the specified component appropriate for the look and feel.
      * This method is invoked when the <code>ComponentUI</code> instance is being installed
      * as the UI delegate on the specified component.  This method should
@@ -87,7 +87,7 @@ public abstract class ComponentUI {
     public void installUI(JComponent c) {
     }
 
-    /**
+    /** {@collect.stats}
      * Reverses configuration which was done on the specified component during
      * <code>installUI</code>.  This method is invoked when this
      * <code>UIComponent</code> instance is being removed as the UI delegate
@@ -115,7 +115,7 @@ public abstract class ComponentUI {
     public void uninstallUI(JComponent c) {
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the specified component appropriate for the look and feel.
      * This method is invoked from the <code>ComponentUI.update</code> method when
      * the specified component is being painted.  Subclasses should override
@@ -133,7 +133,7 @@ public abstract class ComponentUI {
     public void paint(Graphics g, JComponent c) {
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies this UI delegate that it's time to paint the specified
      * component.  This method is invoked by <code>JComponent</code>
      * when the specified component is being painted.
@@ -161,7 +161,7 @@ public abstract class ComponentUI {
         paint(g, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's preferred size appropriate for
      * the look and feel.  If <code>null</code> is returned, the preferred
      * size will be calculated by the component's layout manager instead
@@ -181,7 +181,7 @@ public abstract class ComponentUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's minimum size appropriate for
      * the look and feel.  If <code>null</code> is returned, the minimum
      * size will be calculated by the component's layout manager instead
@@ -204,7 +204,7 @@ public abstract class ComponentUI {
         return getPreferredSize(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's maximum size appropriate for
      * the look and feel.  If <code>null</code> is returned, the maximum
      * size will be calculated by the component's layout manager instead
@@ -225,7 +225,7 @@ public abstract class ComponentUI {
         return getPreferredSize(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the specified <i>x,y</i> location is
      * contained within the look and feel's defined shape of the specified
      * component. <code>x</code> and <code>y</code> are defined to be relative
@@ -248,7 +248,7 @@ public abstract class ComponentUI {
         return c.inside(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the UI delegate for the specified component.
      * Each subclass must provide its own static <code>createUI</code>
      * method that returns an instance of that UI delegate subclass.
@@ -262,7 +262,7 @@ public abstract class ComponentUI {
         throw new Error("ComponentUI.createUI not implemented.");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.  The baseline is measured from the top of
      * the component.  This method is primarily meant for
      * <code>LayoutManager</code>s to align components along their
@@ -295,7 +295,7 @@ public abstract class ComponentUI {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of he component
      * changes as the size changes.  This method is primarily meant for
      * layout managers and GUI builders.
@@ -318,7 +318,7 @@ public abstract class ComponentUI {
         return Component.BaselineResizeBehavior.OTHER;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of accessible children in the object.  If all
      * of the children of this object implement <code>Accessible</code>,
      * this
@@ -338,7 +338,7 @@ public abstract class ComponentUI {
         return SwingUtilities.getAccessibleChildrenCount(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>i</code>th <code>Accessible</code> child of the object.
      * UIs might need to override this if they present areas on the
      * screen that can be viewed as components, but actual components

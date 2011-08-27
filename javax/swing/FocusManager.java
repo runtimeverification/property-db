@@ -27,7 +27,7 @@ package javax.swing;
 import java.awt.*;
 
 
-/**
+/** {@collect.stats}
  * This class has been obsoleted by the 1.4 focus APIs. While client code may
  * still use this class, developers are strongly encouraged to use
  * <code>java.awt.KeyboardFocusManager</code> and
@@ -47,7 +47,7 @@ import java.awt.*;
  */
 public abstract class FocusManager extends DefaultKeyboardFocusManager {
 
-    /**
+    /** {@collect.stats}
      * This field is obsolete, and its use is discouraged since its
      * specification is incompatible with the 1.4 focus APIs.
      * The current FocusManager is no longer a property of the UI.
@@ -63,7 +63,7 @@ public abstract class FocusManager extends DefaultKeyboardFocusManager {
 
     private static boolean enabled = true;
 
-    /**
+    /** {@collect.stats}
      * Returns the current <code>KeyboardFocusManager</code> instance
      * for the calling thread's context.
      *
@@ -80,7 +80,7 @@ public abstract class FocusManager extends DefaultKeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current <code>KeyboardFocusManager</code> instance
      * for the calling thread's context. If <code>null</code> is
      * specified, then the current <code>KeyboardFocusManager</code>
@@ -116,7 +116,7 @@ public abstract class FocusManager extends DefaultKeyboardFocusManager {
         KeyboardFocusManager.setCurrentKeyboardFocusManager(toSet);
     }
 
-    /**
+    /** {@collect.stats}
      * Changes the current <code>KeyboardFocusManager</code>'s default
      * <code>FocusTraversalPolicy</code> to
      * <code>DefaultFocusTraversalPolicy</code>.
@@ -136,7 +136,7 @@ public abstract class FocusManager extends DefaultKeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the application has invoked
      * <code>disableSwingFocusManager()</code>.
      *

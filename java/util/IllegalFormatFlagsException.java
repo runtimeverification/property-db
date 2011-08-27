@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when an illegal combination flags is given.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
@@ -40,7 +40,7 @@ public class IllegalFormatFlagsException extends IllegalFormatException {
 
     private String flags;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class with the specified flags.
      *
      * @param  f
@@ -52,7 +52,7 @@ public class IllegalFormatFlagsException extends IllegalFormatException {
         this.flags = f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of flags which contains an illegal combination.
      *
      * @return  The flags

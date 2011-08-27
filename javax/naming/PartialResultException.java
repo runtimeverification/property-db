@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown to indicate that the result being returned
   * or returned so far is partial, and that the operation cannot
   * be completed.  For example, when listing a context, this exception
@@ -41,7 +41,7 @@ package javax.naming;
   */
 
 public class PartialResultException extends NamingException {
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of the exception using the explanation
       * message specified. All other fields default to null.
       *
@@ -51,7 +51,7 @@ public class PartialResultException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of PartialResultException.
       * All fields default to null.
       */
@@ -59,7 +59,7 @@ public class PartialResultException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 2572144970049426786L;

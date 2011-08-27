@@ -34,7 +34,7 @@ import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-/**
+/** {@collect.stats}
  * <p>An <code>SslRMIClientSocketFactory</code> instance is used by the RMI
  * runtime in order to obtain client sockets for RMI calls via SSL.</p>
  *
@@ -73,7 +73,7 @@ import javax.net.ssl.SSLSocketFactory;
 public class SslRMIClientSocketFactory
     implements RMIClientSocketFactory, Serializable {
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new <code>SslRMIClientSocketFactory</code>.</p>
      */
     public SslRMIClientSocketFactory() {
@@ -92,7 +92,7 @@ public class SslRMIClientSocketFactory
         //
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates an SSL socket.</p>
      *
      * <p>If the system property
@@ -160,7 +160,7 @@ public class SslRMIClientSocketFactory
         return sslSocket;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Indicates whether some other object is "equal to" this one.</p>
      *
      * <p>Because all instances of this class are functionally equivalent
@@ -178,7 +178,7 @@ public class SslRMIClientSocketFactory
         return this.getClass().equals(obj.getClass());
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a hash code value for this
      * <code>SslRMIClientSocketFactory</code>.</p>
      *

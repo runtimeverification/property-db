@@ -35,7 +35,7 @@
  */
 package javax.xml.crypto;
 
-/**
+/** {@collect.stats}
  * A dereferencer of {@link URIReference}s.
  * <p>
  * The result of dereferencing a <code>URIReference</code> is either an
@@ -54,7 +54,7 @@ package javax.xml.crypto;
  */
 public interface URIDereferencer {
 
-    /**
+    /** {@collect.stats}
      * Dereferences the specified <code>URIReference</code> and returns the
      * dereferenced data.
      *

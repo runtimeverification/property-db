@@ -25,7 +25,7 @@
 
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * A <code>SizeSequence</code> object
  * efficiently maintains an ordered list
  * of sizes and corresponding positions.
@@ -126,7 +126,7 @@ public class SizeSequence {
     private static int[] emptyArray = new int[0];
     private int a[];
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SizeSequence</code> object
      * that contains no entries.  To add entries, you
      * can use <code>insertEntries</code> or <code>setSizes</code>.
@@ -138,7 +138,7 @@ public class SizeSequence {
         a = emptyArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SizeSequence</code> object
      * that contains the specified number of entries,
      * all initialized to have size 0.
@@ -151,7 +151,7 @@ public class SizeSequence {
         this(numEntries, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SizeSequence</code> object
      * that contains the specified number of entries,
      * all initialized to have size <code>value</code>.
@@ -164,7 +164,7 @@ public class SizeSequence {
         insertEntries(0, numEntries, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SizeSequence</code> object
      * that contains the specified sizes.
      *
@@ -176,7 +176,7 @@ public class SizeSequence {
         setSizes(sizes);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the size sequence to contain <code>length</code> items
      * all with a size of <code>size</code>.
      */
@@ -196,7 +196,7 @@ public class SizeSequence {
         return a[m] + setSizes(m + 1, to, size);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets this <code>SizeSequence</code> object,
      * using the data in the <code>sizes</code> argument.
      * This method reinitializes this object so that it
@@ -223,7 +223,7 @@ public class SizeSequence {
         return a[m] + setSizes(m + 1, to, sizes);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of all entries.
      *
      * @return  a new array containing the sizes in this object
@@ -244,7 +244,7 @@ public class SizeSequence {
         return a[m] + getSizes(m + 1, to, sizes);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the start position for the specified entry.
      * For example, <code>getPosition(0)</code> returns 0,
      * <code>getPosition(1)</code> is equal to
@@ -276,7 +276,7 @@ public class SizeSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the entry
      * that corresponds to the specified position.
      * For example, <code>getIndex(0)</code> is 0,
@@ -303,7 +303,7 @@ public class SizeSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the specified entry.
      * If <code>index</code> is out of the range
      * <code>(0 <= index < getSizes().length)</code>
@@ -316,7 +316,7 @@ public class SizeSequence {
         return getPosition(index + 1) - getPosition(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the specified entry.
      * Note that if the value of <code>index</code>
      * does not fall in the range:
@@ -344,7 +344,7 @@ public class SizeSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a contiguous group of entries to this <code>SizeSequence</code>.
      * Note that the values of <code>start</code> and
      * <code>length</code> must satisfy the following
@@ -378,7 +378,7 @@ public class SizeSequence {
         setSizes(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a contiguous group of entries
      * from this <code>SizeSequence</code>.
      * Note that the values of <code>start</code> and

@@ -30,7 +30,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 
-/**
+/** {@collect.stats}
  * Constants used in the <code>HTMLDocument</code>.  These
  * are basically tag and attribute definitions.
  *
@@ -40,7 +40,7 @@ import javax.swing.text.StyleContext;
  */
 public class HTML {
 
-    /**
+    /** {@collect.stats}
      * Typesafe enumeration for an HTML tag.  Although the
      * set of HTML tags is a closed set, we have left the
      * set open so that people can add their own tag types
@@ -49,10 +49,10 @@ public class HTML {
      */
     public static class Tag {
 
-        /** @since 1.3 */
+        /** {@collect.stats} @since 1.3 */
         public Tag() {}
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>Tag</code> with the specified <code>id</code>,
          * and with <code>causesBreak</code> and <code>isBlock</code>
          * set to <code>false</code>.
@@ -63,7 +63,7 @@ public class HTML {
             this(id, false, false);
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>Tag</code> with the specified <code>id</code>;
          * <code>causesBreak</code> and <code>isBlock</code> are defined
          * by the user.
@@ -80,7 +80,7 @@ public class HTML {
             this.blockTag = isBlock;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if this tag is a block
          * tag, which is a tag used to add structure to a
          * document.
@@ -92,7 +92,7 @@ public class HTML {
             return blockTag;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if this tag causes a
          * line break to the flow of data, otherwise returns
          * <code>false</code>.
@@ -105,7 +105,7 @@ public class HTML {
             return breakTag;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if this tag is pre-formatted,
          * which is true if the tag is either <code>PRE</code> or
          * <code>TEXTAREA</code>.
@@ -117,7 +117,7 @@ public class HTML {
             return (this == PRE || this == TEXTAREA);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the string representation of the
          * tag.
          *
@@ -127,7 +127,7 @@ public class HTML {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns <code>true</code> if this tag is considered to be a paragraph
          * in the internal HTML model. <code>false</code> - otherwise.
          *
@@ -231,7 +231,7 @@ public class HTML {
         public static final Tag UL = new Tag("ul", true, true);
         public static final Tag VAR = new Tag("var");
 
-        /**
+        /** {@collect.stats}
          * All text content must be in a paragraph element.
          * If a paragraph didn't exist when content was
          * encountered, a paragraph is manufactured.
@@ -243,7 +243,7 @@ public class HTML {
          */
         public static final Tag IMPLIED = new Tag("p-implied");
 
-        /**
+        /** {@collect.stats}
          * All text content is labeled with this tag.
          * <p>
          * This is a tag synthesized by the HTML reader.
@@ -253,7 +253,7 @@ public class HTML {
          */
         public static final Tag CONTENT = new Tag("content");
 
-        /**
+        /** {@collect.stats}
          * All comments are labeled with this tag.
          * <p>
          * This is a tag synthesized by the HTML reader.
@@ -285,7 +285,7 @@ public class HTML {
     // Serializable.
     public static class UnknownTag extends Tag implements Serializable {
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>UnknownTag</code> with the specified
          * <code>id</code>.
          * @param id the id of the new tag
@@ -294,7 +294,7 @@ public class HTML {
             super(id);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the hash code which corresponds to the string
          * for this tag.
          */
@@ -302,7 +302,7 @@ public class HTML {
             return toString().hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * Compares this object to the specifed object.
          * The result is <code>true</code> if and only if the argument is not
          * <code>null</code> and is an <code>UnknownTag</code> object
@@ -338,13 +338,13 @@ public class HTML {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Typesafe enumeration representing an HTML
      * attribute.
      */
     public static final class Attribute {
 
-        /**
+        /** {@collect.stats}
          * Creates a new <code>Attribute</code> with the specified
          * <code>id</code>.
          *
@@ -354,7 +354,7 @@ public class HTML {
             name = id;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the string representation of this attribute.
          * @return the string representation of this attribute
          */
@@ -538,7 +538,7 @@ public class HTML {
     //
     private static final Hashtable tagHashtable = new Hashtable(73);
 
-    /** Maps from StyleConstant key to HTML.Tag. */
+    /** {@collect.stats} Maps from StyleConstant key to HTML.Tag. */
     private static final Hashtable scMapping = new Hashtable(8);
 
     static {
@@ -565,7 +565,7 @@ public class HTML {
         scMapping.put(StyleConstants.FontSize, Tag.FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of actual HTML tags that
      * are recognized by the default HTML reader.
      * This set does not include tags that are
@@ -577,7 +577,7 @@ public class HTML {
         return tags;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a tag constant for a well-known tag name (i.e. one of
      * the tags in the set {A, ADDRESS, APPLET, AREA, B,
      * BASE, BASEFONT, BIG,
@@ -602,7 +602,7 @@ public class HTML {
         return (t == null ? null : (Tag)t);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the HTML <code>Tag</code> associated with the
      * <code>StyleConstants</code> key <code>sc</code>.
      * If no matching <code>Tag</code> is found, returns
@@ -616,7 +616,7 @@ public class HTML {
         return (Tag)scMapping.get(sc);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches an integer attribute value.  Attribute values
      * are stored as a string, and this is a convenience method
      * to convert to an actual integer.
@@ -655,7 +655,7 @@ public class HTML {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of HTML attributes recognized.
      * @return the set of HTML attributes recognized
      */
@@ -666,7 +666,7 @@ public class HTML {
         return attributes;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches an attribute constant for a well-known attribute name
      * (i.e. one of the attributes in the set {FACE, COMMENT, SIZE,
      * COLOR, CLEAR, BACKGROUND, BGCOLOR, TEXT, LINK, VLINK, ALINK,

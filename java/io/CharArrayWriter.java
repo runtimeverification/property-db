@@ -27,7 +27,7 @@ package java.io;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * This class implements a character buffer that can be used as an Writer.
  * The buffer automatically grows when data is written to the stream.  The data
  * can be retrieved using toCharArray() and toString().
@@ -41,24 +41,24 @@ import java.util.Arrays;
  */
 public
 class CharArrayWriter extends Writer {
-    /**
+    /** {@collect.stats}
      * The buffer where data is stored.
      */
     protected char buf[];
 
-    /**
+    /** {@collect.stats}
      * The number of chars in the buffer.
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * Creates a new CharArrayWriter.
      */
     public CharArrayWriter() {
         this(32);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new CharArrayWriter with the specified initial size.
      *
      * @param initialSize  an int specifying the initial buffer size.
@@ -72,7 +72,7 @@ class CharArrayWriter extends Writer {
         buf = new char[initialSize];
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a character to the buffer.
      */
     public void write(int c) {
@@ -86,7 +86,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes characters to the buffer.
      * @param c the data to be written
      * @param off       the start offset in the data
@@ -109,7 +109,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write a portion of a string to the buffer.
      * @param  str  String to be written from
      * @param  off  Offset from which to start reading characters
@@ -126,7 +126,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the contents of the buffer to another character stream.
      *
      * @param out       the output stream to write to
@@ -138,7 +138,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq)</tt>
@@ -168,7 +168,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a subsequence of the specified character sequence to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(csq, start,
@@ -206,7 +206,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified character to this writer.
      *
      * <p> An invocation of this method of the form <tt>out.append(c)</tt>
@@ -227,7 +227,7 @@ class CharArrayWriter extends Writer {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the buffer so that you can use it again without
      * throwing away the already allocated buffer.
      */
@@ -235,7 +235,7 @@ class CharArrayWriter extends Writer {
         count = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the input data.
      *
      * @return an array of chars copied from the input data.
@@ -246,7 +246,7 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current size of the buffer.
      *
      * @return an int representing the current size of the buffer.
@@ -255,7 +255,7 @@ class CharArrayWriter extends Writer {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts input data to a string.
      * @return the string.
      */
@@ -265,12 +265,12 @@ class CharArrayWriter extends Writer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flush the stream.
      */
     public void flush() { }
 
-    /**
+    /** {@collect.stats}
      * Close the stream.  This method does not release the buffer, since its
      * contents might still be required. Note: Invoking this method in this class
      * will have no effect.

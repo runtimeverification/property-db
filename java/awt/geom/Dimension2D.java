@@ -25,7 +25,7 @@
 
 package java.awt.geom;
 
-/**
+/** {@collect.stats}
  * The <code>Dimension2D</code> class is to encapsulate a width
  * and a height dimension.
  * <p>
@@ -39,7 +39,7 @@ package java.awt.geom;
  */
 public abstract class Dimension2D implements Cloneable {
 
-    /**
+    /** {@collect.stats}
      * This is an abstract class that cannot be instantiated directly.
      * Type-specific implementation subclasses are available for
      * instantiation and provide a number of formats for storing
@@ -52,7 +52,7 @@ public abstract class Dimension2D implements Cloneable {
     protected Dimension2D() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of this <code>Dimension</code> in double
      * precision.
      * @return the width of this <code>Dimension</code>.
@@ -60,7 +60,7 @@ public abstract class Dimension2D implements Cloneable {
      */
     public abstract double getWidth();
 
-    /**
+    /** {@collect.stats}
      * Returns the height of this <code>Dimension</code> in double
      * precision.
      * @return the height of this <code>Dimension</code>.
@@ -68,7 +68,7 @@ public abstract class Dimension2D implements Cloneable {
      */
     public abstract double getHeight();
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this <code>Dimension</code> object to the
      * specified width and height.
      * This method is included for completeness, to parallel the
@@ -82,7 +82,7 @@ public abstract class Dimension2D implements Cloneable {
      */
     public abstract void setSize(double width, double height);
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this <code>Dimension2D</code> object to
      * match the specified size.
      * This method is included for completeness, to parallel the
@@ -95,7 +95,7 @@ public abstract class Dimension2D implements Cloneable {
         setSize(d.getWidth(), d.getHeight());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new object of the same class as this object.
      *
      * @return     a clone of this instance.

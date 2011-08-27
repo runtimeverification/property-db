@@ -27,7 +27,7 @@ package java.rmi.server;
 
 import java.rmi.RemoteException;
 
-/**
+/** {@collect.stats}
  * This exception is thrown when a call is received that does not
  * match the available skeleton.  It indicates either that the
  * remote method names or signatures in this interface have changed or
@@ -46,7 +46,7 @@ public class SkeletonMismatchException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -7780460454818859281L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SkeletonMismatchException</code> with
      * a specified detail message.
      *

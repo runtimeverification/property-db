@@ -36,7 +36,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * The standard column-handler for a <code>JTable</code>.
  * <p>
  * <strong>Warning:</strong>
@@ -59,31 +59,31 @@ public class DefaultTableColumnModel implements TableColumnModel,
 // Instance Variables
 //
 
-    /** Array of TableColumn objects in this model */
+    /** {@collect.stats} Array of TableColumn objects in this model */
     protected Vector<TableColumn> tableColumns;
 
-    /** Model for keeping track of column selections */
+    /** {@collect.stats} Model for keeping track of column selections */
     protected ListSelectionModel selectionModel;
 
-    /** Width margin between each column */
+    /** {@collect.stats} Width margin between each column */
     protected int columnMargin;
 
-    /** List of TableColumnModelListener */
+    /** {@collect.stats} List of TableColumnModelListener */
     protected EventListenerList listenerList = new EventListenerList();
 
-    /** Change event (only one needed) */
+    /** {@collect.stats} Change event (only one needed) */
     transient protected ChangeEvent changeEvent = null;
 
-    /** Column selection allowed in this column model */
+    /** {@collect.stats} Column selection allowed in this column model */
     protected boolean columnSelectionAllowed;
 
-    /** A local cache of the combined width of all columns */
+    /** {@collect.stats} A local cache of the combined width of all columns */
     protected int totalColumnWidth;
 
 //
 // Constructors
 //
-    /**
+    /** {@collect.stats}
      * Creates a default table column model.
      */
     public DefaultTableColumnModel() {
@@ -101,7 +101,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 // Modifying the model
 //
 
-    /**
+    /** {@collect.stats}
      *  Appends <code>aColumn</code> to the end of the
      *  <code>tableColumns</code> array.
      *  This method also posts the <code>columnAdded</code>
@@ -126,7 +126,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
                                                   getColumnCount() - 1));
     }
 
-    /**
+    /** {@collect.stats}
      *  Deletes the <code>column</code> from the
      *  <code>tableColumns</code> array.  This method will do nothing if
      *  <code>column</code> is not in the table's columns list.
@@ -158,7 +158,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the column and heading at <code>columnIndex</code> to
      * <code>newIndex</code>.  The old column at <code>columnIndex</code>
      * will now be found at <code>newIndex</code>.  The column
@@ -209,7 +209,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
                                                                newIndex));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the column margin to <code>newMargin</code>.  This method
      * also posts a <code>columnMarginChanged</code> event to its
      * listeners.
@@ -230,7 +230,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 // Querying the model
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the <code>tableColumns</code> array.
      *
      * @return  the number of columns in the <code>tableColumns</code> array
@@ -240,7 +240,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         return tableColumns.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of all the columns in the model.
      * @return an <code>Enumeration</code> of the columns in the model
      */
@@ -248,7 +248,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         return tableColumns.elements();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first column in the <code>tableColumns</code>
      * array whose identifier is equal to <code>identifier</code>,
      * when compared using <code>equals</code>.
@@ -282,7 +282,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         throw new IllegalArgumentException("Identifier not found");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableColumn</code> object for the column
      * at <code>columnIndex</code>.
      *
@@ -294,7 +294,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         return (TableColumn)tableColumns.elementAt(columnIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width margin for <code>TableColumn</code>.
      * The default <code>columnMargin</code> is 1.
      *
@@ -305,7 +305,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         return columnMargin;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the column that lies at position <code>x</code>,
      * or -1 if no column covers this point.
      *
@@ -341,7 +341,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total combined width of all columns.
      * @return the <code>totalColumnWidth</code> property
      */
@@ -356,7 +356,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 // Selection model
 //
 
-    /**
+    /** {@collect.stats}
      *  Sets the selection model for this <code>TableColumnModel</code>
      *  to <code>newModel</code>
      *  and registers for listener notifications from the new selection
@@ -385,7 +385,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ListSelectionModel</code> that is used to
      * maintain column selection state.
      *
@@ -398,7 +398,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
     }
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Sets whether column selection is allowed.  The default is false.
      * @param  flag true if column selection will be allowed, false otherwise
      */
@@ -407,7 +407,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
     }
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Returns true if column selection is allowed, otherwise false.
      * The default is false.
      * @return the <code>columnSelectionAllowed</code> property
@@ -417,7 +417,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
     }
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Returns an array of selected columns.  If <code>selectionModel</code>
      * is <code>null</code>, returns an empty array.
      * @return an array of selected columns or an empty array if nothing
@@ -448,7 +448,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
     }
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Returns the number of columns selected.
      * @return the number of columns selected
      */
@@ -473,7 +473,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 //
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Adds a listener for table column model events.
      * @param x  a <code>TableColumnModelListener</code> object
      */
@@ -482,7 +482,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
     }
 
     // implements javax.swing.table.TableColumnModel
-    /**
+    /** {@collect.stats}
      * Removes a listener for table column model events.
      * @param x  a <code>TableColumnModelListener</code> object
      */
@@ -490,7 +490,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         listenerList.remove(TableColumnModelListener.class, x);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the column model listeners
      * registered on this model.
      *
@@ -512,7 +512,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 //   Event firing methods
 //
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -536,7 +536,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -560,7 +560,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -584,7 +584,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -608,7 +608,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -631,7 +631,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this model.
@@ -676,7 +676,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 
     // PENDING(alan)
     // implements java.beans.PropertyChangeListener
-    /**
+    /** {@collect.stats}
      * Property Change Listener change method.  Used to track changes
      * to the column width or preferred column width.
      *
@@ -699,7 +699,7 @@ public class DefaultTableColumnModel implements TableColumnModel,
 //
 
     // implements javax.swing.event.ListSelectionListener
-    /**
+    /** {@collect.stats}
      * A <code>ListSelectionListener</code> that forwards
      * <code>ListSelectionEvents</code> when there is a column
      * selection change.
@@ -714,14 +714,14 @@ public class DefaultTableColumnModel implements TableColumnModel,
 // Protected Methods
 //
 
-    /**
+    /** {@collect.stats}
      * Creates a new default list selection model.
      */
     protected ListSelectionModel createSelectionModel() {
         return new DefaultListSelectionModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Recalculates the total combined width of all columns.  Updates the
      * <code>totalColumnWidth</code> property.
      */

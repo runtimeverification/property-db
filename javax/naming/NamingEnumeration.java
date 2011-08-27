@@ -27,7 +27,7 @@ package javax.naming;
 
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
   * This interface is for enumerating lists returned by
   * methods in the javax.naming and javax.naming.directory packages.
   * It extends Enumeration to allow as exceptions to be thrown during
@@ -79,7 +79,7 @@ import java.util.Enumeration;
   * @since 1.3
   */
 public interface NamingEnumeration<T> extends Enumeration<T> {
-    /**
+    /** {@collect.stats}
       * Retrieves the next element in the enumeration.
       * This method allows naming exceptions encountered while
       * retrieving the next element to be caught and handled
@@ -104,7 +104,7 @@ public interface NamingEnumeration<T> extends Enumeration<T> {
       */
     public T next() throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Determines whether there are any more elements in the enumeration.
       * This method allows naming exceptions encountered while
       * determining whether there are more elements to be caught and handled
@@ -120,7 +120,7 @@ public interface NamingEnumeration<T> extends Enumeration<T> {
       */
     public boolean hasMore() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Closes this enumeration.
      *
      * After this method has been invoked on this enumeration, the

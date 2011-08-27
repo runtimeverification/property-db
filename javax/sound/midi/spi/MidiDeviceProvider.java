@@ -28,7 +28,7 @@ package javax.sound.midi.spi;
 import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiUnavailableException;
 
-/**
+/** {@collect.stats}
  * A <code>MidiDeviceProvider</code> is a factory or provider for a particular
  * type of MIDI device.
  * This mechanism allows the implementation to determine
@@ -40,7 +40,7 @@ import javax.sound.midi.MidiUnavailableException;
 public abstract class MidiDeviceProvider {
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the device provider supports the device represented by
      * the specified device info object.
      * @param info an info object that describes the device for which support is queried
@@ -60,7 +60,7 @@ public abstract class MidiDeviceProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of info objects representing the device
      * or devices provided by this <code>MidiDeviceProvider</code>.
      * @return set of device info objects
@@ -68,7 +68,7 @@ public abstract class MidiDeviceProvider {
     public abstract MidiDevice.Info[] getDeviceInfo();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an instance of the device represented by the info object.
      * @param info an info object that describes the desired device
      * @return device instance

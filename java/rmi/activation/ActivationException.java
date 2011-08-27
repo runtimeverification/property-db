@@ -25,7 +25,7 @@
 
 package java.rmi.activation;
 
-/**
+/** {@collect.stats}
  * General exception used by the activation interfaces.
  *
  * <p>As of release 1.4, this exception has been retrofitted to conform to
@@ -44,7 +44,7 @@ package java.rmi.activation;
  */
 public class ActivationException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * The cause of the activation exception.
      *
      * <p>This field predates the general-purpose exception chaining facility.
@@ -55,17 +55,17 @@ public class ActivationException extends Exception {
      */
     public Throwable detail;
 
-    /** indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = -4320118837291406071L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ActivationException</code>.
      */
     public ActivationException() {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ActivationException</code> with the specified
      * detail message.
      *
@@ -76,7 +76,7 @@ public class ActivationException extends Exception {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ActivationException</code> with the specified
      * detail message and cause.  This constructor sets the {@link #detail}
      * field to the specified <code>Throwable</code>.
@@ -90,7 +90,7 @@ public class ActivationException extends Exception {
         detail = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the detail message, including the message from the cause, if
      * any, of this exception.
      *
@@ -105,7 +105,7 @@ public class ActivationException extends Exception {
                 detail.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this exception.  This method returns the value
      * of the {@link #detail} field.
      *

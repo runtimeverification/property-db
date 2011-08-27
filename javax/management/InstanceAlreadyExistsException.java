@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * The MBean is already registered in the repository.
  *
  * @since 1.5
@@ -36,14 +36,14 @@ public class InstanceAlreadyExistsException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = 8893743928912733931L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public InstanceAlreadyExistsException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

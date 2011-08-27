@@ -53,7 +53,7 @@ import sun.awt.AppContext;
 import java.util.ServiceLoader;
 import java.util.ServiceConfigurationError;
 
-/**
+/** {@collect.stats}
  * A registry for service provider instances.  Service provider
  * classes may be detected at run time by means of meta-information in
  * the JAR files containing them.  The intent is that it be relatively
@@ -111,7 +111,7 @@ import java.util.ServiceConfigurationError;
  */
 public final class IIORegistry extends ServiceRegistry {
 
-    /**
+    /** {@collect.stats}
      * A <code>Vector</code> containing the valid IIO registry
      * categories (superinterfaces) to be used in the constructor.
      */
@@ -125,7 +125,7 @@ public final class IIORegistry extends ServiceRegistry {
         initialCategories.add(ImageOutputStreamSpi.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Set up the valid service provider categories and automatically
      * register all available service providers.
      *
@@ -138,7 +138,7 @@ public final class IIORegistry extends ServiceRegistry {
         registerApplicationClasspathSpis();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>IIORegistry</code> instance used by
      * the Image I/O API.  This instance should be used for all
      * registry functions.
@@ -184,7 +184,7 @@ public final class IIORegistry extends ServiceRegistry {
         registerInstalledProviders();
     }
 
-    /**
+    /** {@collect.stats}
      * Registers all available service providers found on the
      * application class path, using the default
      * <code>ClassLoader</code>.  This method is typically invoked by

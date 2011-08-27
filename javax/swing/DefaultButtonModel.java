@@ -31,7 +31,7 @@ import java.io.Serializable;
 import java.util.EventListener;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * The default implementation of a <code>Button</code> component's data model.
  * <p>
  * <strong>Warning:</strong>
@@ -47,33 +47,33 @@ import javax.swing.event.*;
  */
 public class DefaultButtonModel implements ButtonModel, Serializable {
 
-    /** The bitmask used to store the state of the button. */
+    /** {@collect.stats} The bitmask used to store the state of the button. */
     protected int stateMask = 0;
 
-    /** The action command string fired by the button. */
+    /** {@collect.stats} The action command string fired by the button. */
     protected String actionCommand = null;
 
-    /** The button group that the button belongs to. */
+    /** {@collect.stats} The button group that the button belongs to. */
     protected ButtonGroup group = null;
 
-    /** The button's mnemonic. */
+    /** {@collect.stats} The button's mnemonic. */
     protected int mnemonic = 0;
 
-    /**
+    /** {@collect.stats}
      * Only one <code>ChangeEvent</code> is needed per button model
      * instance since the event's only state is the source property.
      * The source of events generated is always "this".
      */
     protected transient ChangeEvent changeEvent = null;
 
-    /** Stores the listeners on this model. */
+    /** {@collect.stats} Stores the listeners on this model. */
     protected EventListenerList listenerList = new EventListenerList();
 
     // controls the usage of the MenuItem.disabledAreNavigable UIDefaults
     // property in the setArmed() method
     private boolean menuItem = false;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DefaultButtonModel</code>.
      *
      */
@@ -82,89 +82,89 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         setEnabled(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Identifies the "armed" bit in the bitmask, which
      * indicates partial commitment towards choosing/triggering
      * the button.
      */
     public final static int ARMED = 1 << 0;
 
-    /**
+    /** {@collect.stats}
      * Identifies the "selected" bit in the bitmask, which
      * indicates that the button has been selected. Only needed for
      * certain types of buttons - such as radio button or check box.
      */
     public final static int SELECTED = 1 << 1;
 
-    /**
+    /** {@collect.stats}
      * Identifies the "pressed" bit in the bitmask, which
      * indicates that the button is pressed.
      */
     public final static int PRESSED = 1 << 2;
 
-    /**
+    /** {@collect.stats}
      * Identifies the "enabled" bit in the bitmask, which
      * indicates that the button can be selected by
      * an input device (such as a mouse pointer).
      */
     public final static int ENABLED = 1 << 3;
 
-    /**
+    /** {@collect.stats}
      * Identifies the "rollover" bit in the bitmask, which
      * indicates that the mouse is over the button.
      */
     public final static int ROLLOVER = 1 << 4;
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setActionCommand(String actionCommand) {
         this.actionCommand = actionCommand;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public String getActionCommand() {
         return actionCommand;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public boolean isArmed() {
         return (stateMask & ARMED) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public boolean isSelected() {
         return (stateMask & SELECTED) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public boolean isEnabled() {
         return (stateMask & ENABLED) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public boolean isPressed() {
         return (stateMask & PRESSED) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public boolean isRollover() {
         return (stateMask & ROLLOVER) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setArmed(boolean b) {
@@ -188,7 +188,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setEnabled(boolean b) {
@@ -209,7 +209,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setSelected(boolean b) {
@@ -234,7 +234,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setPressed(boolean b) {
@@ -266,7 +266,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setRollover(boolean b) {
@@ -283,7 +283,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setMnemonic(int key) {
@@ -291,28 +291,28 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public int getMnemonic() {
         return mnemonic;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void addChangeListener(ChangeListener l) {
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void removeChangeListener(ChangeListener l) {
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the change listeners
      * registered on this <code>DefaultButtonModel</code>.
      *
@@ -330,7 +330,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -352,21 +352,21 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void addActionListener(ActionListener l) {
         listenerList.add(ActionListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void removeActionListener(ActionListener l) {
         listenerList.remove(ActionListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the action listeners
      * registered on this <code>DefaultButtonModel</code>.
      *
@@ -384,7 +384,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
                 ActionListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.
      *
@@ -406,21 +406,21 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void addItemListener(ItemListener l) {
         listenerList.add(ItemListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void removeItemListener(ItemListener l) {
         listenerList.remove(ItemListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the item listeners
      * registered on this <code>DefaultButtonModel</code>.
      *
@@ -437,7 +437,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         return (ItemListener[])listenerList.getListeners(ItemListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.
      *
@@ -459,7 +459,7 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this model.
@@ -500,19 +500,19 @@ public class DefaultButtonModel implements ButtonModel, Serializable {
         return listenerList.getListeners(listenerType);
     }
 
-    /** Overridden to return <code>null</code>. */
+    /** {@collect.stats} Overridden to return <code>null</code>. */
     public Object[] getSelectedObjects() {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setGroup(ButtonGroup group) {
         this.group = group;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the group that the button belongs to.
      * Normally used with radio buttons, which are mutually
      * exclusive within their group.

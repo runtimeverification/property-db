@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/**
+/** {@collect.stats}
  * An interface for events that know how to dispatch themselves.
  * By implementing this interface an event can be placed upon the event
  * queue and its <code>dispatch()</code> method will be called when the event
@@ -51,7 +51,7 @@ package java.awt;
  */
 public interface ActiveEvent {
 
-    /**
+    /** {@collect.stats}
      * Dispatch the event to its target, listeners of the events source,
      * or do whatever it is this event is supposed to do.
      */

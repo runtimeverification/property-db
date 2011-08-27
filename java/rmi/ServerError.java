@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * A <code>ServerError</code> is thrown as a result of a remote method
  * invocation when an <code>Error</code> is thrown while processing
  * the invocation on the server, either while unmarshalling the arguments,
@@ -42,7 +42,7 @@ public class ServerError extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 8455284893909696482L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ServerError</code> with the specified
      * detail message and nested error.
      *

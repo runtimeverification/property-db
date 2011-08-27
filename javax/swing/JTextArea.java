@@ -38,7 +38,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A <code>JTextArea</code> is a multi-line area that displays plain text.
  * It is intended to be a lightweight component that provides source
  * compatibility with the <code>java.awt.TextArea</code> class where it can
@@ -126,13 +126,13 @@ import java.io.IOException;
  */
 public class JTextArea extends JTextComponent {
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "TextAreaUI";
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TextArea.  A default model is set, the initial string
      * is null, and rows/columns are set to 0.
      */
@@ -140,7 +140,7 @@ public class JTextArea extends JTextComponent {
         this(null, null, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TextArea with the specified text displayed.
      * A default model is created and rows/columns are set to 0.
      *
@@ -150,7 +150,7 @@ public class JTextArea extends JTextComponent {
         this(null, text, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new empty TextArea with the specified number of
      * rows and columns.  A default model is created, and the initial
      * string is null.
@@ -164,7 +164,7 @@ public class JTextArea extends JTextComponent {
         this(null, null, rows, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TextArea with the specified text and number
      * of rows and columns.  A default model is created.
      *
@@ -178,7 +178,7 @@ public class JTextArea extends JTextComponent {
         this(null, text, rows, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new JTextArea with the given document model, and defaults
      * for all of the other arguments (null, 0, 0).
      *
@@ -188,7 +188,7 @@ public class JTextArea extends JTextComponent {
         this(doc, null, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new JTextArea with the specified number of rows
      * and columns, and the given model.  All of the constructors
      * feed through this constructor.
@@ -228,7 +228,7 @@ public class JTextArea extends JTextComponent {
                                     getManagingFocusBackwardTraversalKeys());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the class ID for the UI.
      *
      * @return the ID ("TextAreaUI")
@@ -239,7 +239,7 @@ public class JTextArea extends JTextComponent {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the default implementation of the model
      * to be used at construction if one isn't explicitly
      * given.  A new instance of PlainDocument is returned.
@@ -250,7 +250,7 @@ public class JTextArea extends JTextComponent {
         return new PlainDocument();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of characters to expand tabs to.
      * This will be multiplied by the maximum advance for
      * variable width fonts.  A PropertyChange event ("tabSize") is fired
@@ -272,7 +272,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the number of characters used to expand tabs.  If the document is
      * null or doesn't have a tab setting, return a default of 8.
      *
@@ -290,7 +290,7 @@ public class JTextArea extends JTextComponent {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the line-wrapping policy of the text area.  If set
      * to true the lines will be wrapped if they are too long
      * to fit within the allocated width.  If set to false,
@@ -311,7 +311,7 @@ public class JTextArea extends JTextComponent {
         firePropertyChange("lineWrap", old, wrap);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the line-wrapping policy of the text area.  If set
      * to true the lines will be wrapped if they are too long
      * to fit within the allocated width.  If set to false,
@@ -323,7 +323,7 @@ public class JTextArea extends JTextComponent {
         return wrap;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the style of wrapping used if the text area is wrapping
      * lines.  If set to true the lines will be wrapped at word
      * boundaries (whitespace) if they are too long
@@ -345,7 +345,7 @@ public class JTextArea extends JTextComponent {
         firePropertyChange("wrapStyleWord", old, word);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the style of wrapping used if the text area is wrapping
      * lines.  If set to true the lines will be wrapped at word
      * boundaries (ie whitespace) if they are too long
@@ -360,7 +360,7 @@ public class JTextArea extends JTextComponent {
         return word;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates an offset into the components text to a
      * line number.
      *
@@ -381,7 +381,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the number of lines contained in the area.
      *
      * @return the number of lines > 0
@@ -391,7 +391,7 @@ public class JTextArea extends JTextComponent {
         return map.getElementCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the offset of the start of the given line.
      *
      * @param line  the line number to translate >= 0
@@ -414,7 +414,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the offset of the end of the given line.
      *
      * @param line  the line >= 0
@@ -441,7 +441,7 @@ public class JTextArea extends JTextComponent {
 
     // --- java.awt.TextArea methods ---------------------------------
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified text at the specified position.  Does nothing
      * if the model is null or if the text is null or empty.
      * <p>
@@ -468,7 +468,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the given text to the end of the document.  Does nothing if
      * the model is null or the string is null or empty.
      * <p>
@@ -490,7 +490,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces text from the indicated start to end position with the
      * new text specified.  Does nothing if the model is null.  Simply
      * does a delete if the new string is null or empty.
@@ -529,7 +529,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the TextArea.
      *
      * @return the number of rows >= 0
@@ -538,7 +538,7 @@ public class JTextArea extends JTextComponent {
         return rows;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of rows for this TextArea.  Calls invalidate() after
      * setting the new value.
      *
@@ -559,7 +559,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Defines the meaning of the height of a row.  This defaults to
      * the height of the font.
      *
@@ -573,7 +573,7 @@ public class JTextArea extends JTextComponent {
         return rowHeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the TextArea.
      *
      * @return number of columns >= 0
@@ -582,7 +582,7 @@ public class JTextArea extends JTextComponent {
         return columns;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of columns for this TextArea.  Does an invalidate()
      * after setting the new value.
      *
@@ -603,7 +603,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets column width.
      * The meaning of what a column is can be considered a fairly weak
      * notion for some fonts.  This method is used to define the width
@@ -623,7 +623,7 @@ public class JTextArea extends JTextComponent {
 
     // --- Component methods -----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the TextArea.  This is the
      * maximum of the size needed to display the text and the
      * size requested for the viewport.
@@ -646,7 +646,7 @@ public class JTextArea extends JTextComponent {
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current font.  This removes cached row height and column
      * width so the new font will be reflected, and calls revalidate().
      *
@@ -659,7 +659,7 @@ public class JTextArea extends JTextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JTextArea. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -685,7 +685,7 @@ public class JTextArea extends JTextComponent {
 
     // --- Scrollable methods ----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns true if a viewport should always force the width of this
      * Scrollable to match the width of the viewport.  This is implemented
      * to return true if the line wrapping policy is true, and false
@@ -698,7 +698,7 @@ public class JTextArea extends JTextComponent {
         return (wrap) ? true : super.getScrollableTracksViewportWidth();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the viewport if this component
      * is embedded in a JScrollPane.  This uses the desired column
      * and row settings if they have been set, otherwise the superclass
@@ -719,7 +719,7 @@ public class JTextArea extends JTextComponent {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Components that display logical rows or columns should compute
      * the scroll increment that will completely expose one new row
      * or column, depending on the value of orientation.  This is implemented
@@ -751,7 +751,7 @@ public class JTextArea extends JTextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -771,7 +771,7 @@ public class JTextArea extends JTextComponent {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JTextArea.
      * For JTextAreas, the AccessibleContext takes the form of an
      * AccessibleJTextArea.
@@ -787,7 +787,7 @@ public class JTextArea extends JTextComponent {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JTextArea</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to text area user-interface
@@ -804,7 +804,7 @@ public class JTextArea extends JTextComponent {
      */
     protected class AccessibleJTextArea extends AccessibleJTextComponent {
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleStateSet describing the states

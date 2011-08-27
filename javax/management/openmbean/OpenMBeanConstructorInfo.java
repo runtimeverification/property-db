@@ -36,7 +36,7 @@ package javax.management.openmbean;
 import javax.management.MBeanParameterInfo;
 
 
-/**
+/** {@collect.stats}
  * <p>Describes a constructor of an Open MBean.</p>
  *
  * <p>This interface declares the same methods as the class {@link
@@ -58,7 +58,7 @@ public interface OpenMBeanConstructorInfo {
     // Re-declares the methods that are in class MBeanConstructorInfo of JMX 1.0
     // (methods will be removed when MBeanConstructorInfo is made a parent interface of this interface)
 
-    /**
+    /** {@collect.stats}
      * Returns a human readable description of the constructor
      * described by this <tt>OpenMBeanConstructorInfo</tt> instance.
      *
@@ -66,7 +66,7 @@ public interface OpenMBeanConstructorInfo {
      */
     public String getDescription() ;
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the constructor
      * described by this <tt>OpenMBeanConstructorInfo</tt> instance.
      *
@@ -74,7 +74,7 @@ public interface OpenMBeanConstructorInfo {
      */
     public String getName() ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <tt>OpenMBeanParameterInfo</tt> instances
      * describing each parameter in the signature of the constructor
      * described by this <tt>OpenMBeanConstructorInfo</tt> instance.
@@ -87,7 +87,7 @@ public interface OpenMBeanConstructorInfo {
     // commodity methods
     //
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>OpenMBeanConstructorInfo</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -106,7 +106,7 @@ public interface OpenMBeanConstructorInfo {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>OpenMBeanConstructorInfo</code> instance.
      * <p>
      * The hash code of an <code>OpenMBeanConstructorInfo</code> instance is the sum of the hash codes
@@ -124,7 +124,7 @@ public interface OpenMBeanConstructorInfo {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>OpenMBeanConstructorInfo</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.OpenMBeanConstructorInfo</code>),

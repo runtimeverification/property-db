@@ -28,7 +28,7 @@ package java.security;
 import java.io.Serializable;
 import java.security.cert.CertPath;
 
-/**
+/** {@collect.stats}
  * This class encapsulates information about a code signer.
  * It is immutable.
  *
@@ -40,7 +40,7 @@ public final class CodeSigner implements Serializable {
 
     private static final long serialVersionUID = 6819288105193937581L;
 
-    /**
+    /** {@collect.stats}
      * The signer's certificate path.
      *
      * @serial
@@ -59,7 +59,7 @@ public final class CodeSigner implements Serializable {
      */
     private transient int myhash = -1;
 
-    /**
+    /** {@collect.stats}
      * Constructs a CodeSigner object.
      *
      * @param signerCertPath The signer's certificate path.
@@ -78,7 +78,7 @@ public final class CodeSigner implements Serializable {
         this.timestamp = timestamp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the signer's certificate path.
      *
      * @return A certificate path.
@@ -87,7 +87,7 @@ public final class CodeSigner implements Serializable {
         return signerCertPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the signature timestamp.
      *
      * @return The timestamp or <code>null</code> if none is present.
@@ -96,7 +96,7 @@ public final class CodeSigner implements Serializable {
         return timestamp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this code signer.
      * The hash code is generated using the signer's certificate path and the
      * timestamp, if present.
@@ -114,7 +114,7 @@ public final class CodeSigner implements Serializable {
         return myhash;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests for equality between the specified object and this
      * code signer. Two code signers are considered equal if their
      * signer certificate paths are equal and if their timestamps are equal,
@@ -147,7 +147,7 @@ public final class CodeSigner implements Serializable {
         return signerCertPath.equals(that.getSignerCertPath());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this code signer.
      *
      * @return A string comprising the signer's certificate and a timestamp,

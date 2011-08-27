@@ -31,7 +31,7 @@ import javax.swing.event.*;
 
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * A MenuSelectionManager owns the selection in menu hierarchy.
  *
  * @author Arnaud Weber
@@ -46,7 +46,7 @@ public class MenuSelectionManager {
 
     private static final Object MENU_SELECTION_MANAGER_KEY = new Object(); // javax.swing.MenuSelectionManager
 
-    /**
+    /** {@collect.stats}
      * Returns the default menu selection manager.
      *
      * @return a MenuSelectionManager object
@@ -65,7 +65,7 @@ public class MenuSelectionManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Only one ChangeEvent is needed per button model instance since the
      * event's only state is the source property.  The source of events
      * generated is always "this".
@@ -73,7 +73,7 @@ public class MenuSelectionManager {
     protected transient ChangeEvent changeEvent = null;
     protected EventListenerList listenerList = new EventListenerList();
 
-    /**
+    /** {@collect.stats}
      * Changes the selection in the menu hierarchy.  The elements
      * in the array are sorted in order from the root menu
      * element to the currently selected menu element.
@@ -121,7 +121,7 @@ public class MenuSelectionManager {
         fireStateChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path to the currently selected menu item
      *
      * @return an array of MenuElement objects representing the selected path
@@ -134,7 +134,7 @@ public class MenuSelectionManager {
         return res;
     }
 
-    /**
+    /** {@collect.stats}
      * Tell the menu selection to close and unselect all the menu components. Call this method
      * when a choice has been made
      */
@@ -144,7 +144,7 @@ public class MenuSelectionManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a ChangeListener to the button.
      *
      * @param l the listener to add
@@ -153,7 +153,7 @@ public class MenuSelectionManager {
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a ChangeListener from the button.
      *
      * @param l the listener to remove
@@ -162,7 +162,7 @@ public class MenuSelectionManager {
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this MenuSelectionManager with addChangeListener().
      *
@@ -175,7 +175,7 @@ public class MenuSelectionManager {
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -197,7 +197,7 @@ public class MenuSelectionManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * When a MenuElement receives an event from a MouseListener, it should never process the event
      * directly. Instead all MenuElements should call this method with the event.
      *
@@ -266,7 +266,7 @@ public class MenuSelectionManager {
                 p.y = screenY;
                 SwingUtilities.convertPointFromScreen(p,mc);
 
-                /** Send the event to visible menu element if menu element currently in
+                /** {@collect.stats} Send the event to visible menu element if menu element currently in
                  *  the selected path or contains the event location
                  */
                 if(
@@ -354,7 +354,7 @@ public class MenuSelectionManager {
             Thread.dumpStack();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component in the currently selected path
      * which contains sourcePoint.
      *
@@ -407,7 +407,7 @@ public class MenuSelectionManager {
                 p.y = screenY;
                 SwingUtilities.convertPointFromScreen(p,mc);
 
-                /** Return the deepest component on the selection
+                /** {@collect.stats} Return the deepest component on the selection
                  *  path in whose bounds the event's point occurs
                  */
                 if (p.x >= 0 && p.x < cWidth && p.y >= 0 && p.y < cHeight) {
@@ -418,7 +418,7 @@ public class MenuSelectionManager {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * When a MenuElement receives an event from a KeyListener, it should never process the event
      * directly. Instead all MenuElements should call this method with the event.
      *
@@ -466,7 +466,7 @@ public class MenuSelectionManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if c is part of the currently used menu
      */
     public boolean isComponentPartOfCurrentMenu(Component c) {

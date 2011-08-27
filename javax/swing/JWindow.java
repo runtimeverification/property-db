@@ -33,7 +33,7 @@ import java.io.Serializable;
 
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A <code>JWindow</code> is a container that can be displayed anywhere on the
  * user's desktop. It does not have the title bar, window-management buttons,
  * or other trimmings associated with a <code>JFrame</code>, but it is still a
@@ -93,7 +93,7 @@ public class JWindow extends Window implements Accessible,
                                                RootPaneContainer,
                                TransferHandler.HasGetTransferHandler
 {
-    /**
+    /** {@collect.stats}
      * The <code>JRootPane</code> instance that manages the
      * <code>contentPane</code>
      * and optional <code>menuBar</code> for this frame, as well as the
@@ -104,7 +104,7 @@ public class JWindow extends Window implements Accessible,
      */
     protected JRootPane rootPane;
 
-    /**
+    /** {@collect.stats}
      * If true then calls to <code>add</code> and <code>setLayout</code>
      * will be forwarded to the <code>contentPane</code>. This is initially
      * false, but is set to true when the <code>JWindow</code> is constructed.
@@ -115,12 +115,12 @@ public class JWindow extends Window implements Accessible,
      */
     protected boolean rootPaneCheckingEnabled = false;
 
-    /**
+    /** {@collect.stats}
      * The <code>TransferHandler</code> for this window.
      */
     private TransferHandler transferHandler;
 
-    /**
+    /** {@collect.stats}
      * Creates a window with no specified owner. This window will not be
      * focusable.
      * <p>
@@ -137,7 +137,7 @@ public class JWindow extends Window implements Accessible,
         this((Frame)null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a window with the specified <code>GraphicsConfiguration</code>
      * of a screen device. This window will not be focusable.
      * <p>
@@ -164,7 +164,7 @@ public class JWindow extends Window implements Accessible,
         super.setFocusableWindowState(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a window with the specified owner frame.
      * If <code>owner</code> is <code>null</code>, the shared owner
      * will be used and this window will not be focusable. Also,
@@ -191,7 +191,7 @@ public class JWindow extends Window implements Accessible,
         windowInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a window with the specified owner window. This window
      * will not be focusable unless its owner is showing on the screen.
      * If <code>owner</code> is <code>null</code>, the shared owner
@@ -218,7 +218,7 @@ public class JWindow extends Window implements Accessible,
         windowInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a window with the specified owner window and
      * <code>GraphicsConfiguration</code> of a screen device. If
      * <code>owner</code> is <code>null</code>, the shared owner will be used
@@ -256,7 +256,7 @@ public class JWindow extends Window implements Accessible,
         windowInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructors to init the <code>JWindow</code> properly.
      */
     protected void windowInit() {
@@ -266,7 +266,7 @@ public class JWindow extends Window implements Accessible,
         sun.awt.SunToolkit.checkAndSetPolicy(this, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructor methods to create the default
      * <code>rootPane</code>.
      */
@@ -280,7 +280,7 @@ public class JWindow extends Window implements Accessible,
         return rp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -296,7 +296,7 @@ public class JWindow extends Window implements Accessible,
         return rootPaneCheckingEnabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code transferHandler} property, which is a mechanism to
      * support transfer of data into this component. Use {@code null}
      * if the component does not support data transfer operations.
@@ -336,7 +336,7 @@ public class JWindow extends Window implements Accessible,
         firePropertyChange("transferHandler", oldHandler, newHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>transferHandler</code> property.
      *
      * @return the value of the <code>transferHandler</code> property
@@ -349,7 +349,7 @@ public class JWindow extends Window implements Accessible,
         return transferHandler;
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>paint(g)</code>.  This method was overridden to
      * prevent an unnecessary call to clear the background.
      *
@@ -359,7 +359,7 @@ public class JWindow extends Window implements Accessible,
         paint(g);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -380,7 +380,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the specified child <code>Component</code>.
      * This method is overridden to conditionally forward calls to the
      * <code>contentPane</code>.
@@ -409,7 +409,7 @@ public class JWindow extends Window implements Accessible,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the container. If
      * <code>comp</code> is not the <code>rootPane</code>, this will forward
      * the call to the <code>contentPane</code>. This will do nothing if
@@ -430,7 +430,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>LayoutManager</code>.
      * Overridden to conditionally forward the call to the
      * <code>contentPane</code>.
@@ -451,7 +451,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>rootPane</code> object for this window.
      * @return the <code>rootPane</code> property for this window
      *
@@ -463,7 +463,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the new <code>rootPane</code> object for this window.
      * This method is called by the constructor.
      *
@@ -492,7 +492,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Container</code> which is the <code>contentPane</code>
      * for this window.
      *
@@ -504,7 +504,7 @@ public class JWindow extends Window implements Accessible,
         return getRootPane().getContentPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>contentPane</code> property for this window.
      * This method is called by the constructor.
      *
@@ -524,7 +524,7 @@ public class JWindow extends Window implements Accessible,
         getRootPane().setContentPane(contentPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>layeredPane</code> object for this window.
      *
      * @return the <code>layeredPane</code> property
@@ -535,7 +535,7 @@ public class JWindow extends Window implements Accessible,
         return getRootPane().getLayeredPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>layeredPane</code> property.
      * This method is called by the constructor.
      *
@@ -554,7 +554,7 @@ public class JWindow extends Window implements Accessible,
         getRootPane().setLayeredPane(layeredPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>glassPane Component</code> for this window.
      *
      * @return the <code>glassPane</code> property
@@ -565,7 +565,7 @@ public class JWindow extends Window implements Accessible,
         return getRootPane().getGlassPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>glassPane</code> property.
      * This method is called by the constructor.
      * @param glassPane the <code>glassPane</code> object for this window
@@ -581,7 +581,7 @@ public class JWindow extends Window implements Accessible,
         getRootPane().setGlassPane(glassPane);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @since 1.6
@@ -591,7 +591,7 @@ public class JWindow extends Window implements Accessible,
         return super.getGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified rectangle of this component within
      * <code>time</code> milliseconds.  Refer to <code>RepaintManager</code>
      * for details on how the repaint is handled.
@@ -614,7 +614,7 @@ public class JWindow extends Window implements Accessible,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JWindow</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -637,10 +637,10 @@ public class JWindow extends Window implements Accessible,
 // Accessibility support
 ////////////////
 
-    /** The accessible context property. */
+    /** {@collect.stats} The accessible context property. */
     protected AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JWindow.
      * For JWindows, the AccessibleContext takes the form of an
      * AccessibleJWindow.
@@ -657,7 +657,7 @@ public class JWindow extends Window implements Accessible,
     }
 
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JWindow</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to window user-interface

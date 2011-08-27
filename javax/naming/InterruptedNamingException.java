@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when the naming operation
   * being invoked has been interrupted. For example, an application
   * might interrupt a thread that is performing a search. If the
@@ -50,7 +50,7 @@ package javax.naming;
   */
 
 public class InterruptedNamingException extends NamingException {
-    /**
+    /** {@collect.stats}
       * Constructs an instance of InterruptedNamingException using an
       * explanation of the problem.
       * All name resolution-related fields are initialized to null.
@@ -61,7 +61,7 @@ public class InterruptedNamingException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs an instance of InterruptedNamingException with
       * all name resolution fields and explanation initialized to null.
       */
@@ -69,7 +69,7 @@ public class InterruptedNamingException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 6404516648893194728L;

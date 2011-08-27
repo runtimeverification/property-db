@@ -27,7 +27,7 @@ package javax.sound.sampled.spi;
 
 import javax.sound.sampled.Mixer;
 
-/**
+/** {@collect.stats}
  * A provider or factory for a particular mixer type.
  * This mechanism allows the implementation to determine
  * how resources are managed in creation / management of
@@ -39,7 +39,7 @@ import javax.sound.sampled.Mixer;
 public abstract class MixerProvider {
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the mixer provider supports the mixer represented by
      * the specified mixer info object.
      * @param info an info object that describes the mixer for which support is queried
@@ -59,7 +59,7 @@ public abstract class MixerProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of info objects representing the mixer
      * or mixers provided by this MixerProvider.
      * @return set of mixer info objects
@@ -67,7 +67,7 @@ public abstract class MixerProvider {
     public abstract Mixer.Info[] getMixerInfo();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an instance of the mixer represented by the info object.
      * @param info an info object that describes the desired mixer
      * @return mixer instance

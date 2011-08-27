@@ -25,7 +25,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * This is the base interface for JSSE trust managers.
  * <P>
  * <code>TrustManager</code>s are responsible for managing the trust material

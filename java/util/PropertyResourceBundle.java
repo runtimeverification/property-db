@@ -44,7 +44,7 @@ import java.io.Reader;
 import java.io.IOException;
 import sun.util.ResourceBundleEnumeration;
 
-/**
+/** {@collect.stats}
  * <code>PropertyResourceBundle</code> is a concrete subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * using a set of static strings from a property file. See
@@ -114,7 +114,7 @@ import sun.util.ResourceBundleEnumeration;
  * @since JDK1.1
  */
 public class PropertyResourceBundle extends ResourceBundle {
-    /**
+    /** {@collect.stats}
      * Creates a property resource bundle from an {@link java.io.InputStream
      * InputStream}.  The property file read with this constructor
      * must be encoded in ISO-8859-1.
@@ -130,7 +130,7 @@ public class PropertyResourceBundle extends ResourceBundle {
         lookup = new HashMap(properties);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a property resource bundle from a {@link java.io.Reader
      * Reader}.  Unlike the constructor
      * {@link #PropertyResourceBundle(java.io.InputStream) PropertyResourceBundle(InputStream)},
@@ -156,7 +156,7 @@ public class PropertyResourceBundle extends ResourceBundle {
         return lookup.get(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
      *
@@ -170,7 +170,7 @@ public class PropertyResourceBundle extends ResourceBundle {
                 (parent != null) ? parent.getKeys() : null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
      *

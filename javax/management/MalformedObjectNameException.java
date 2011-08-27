@@ -27,7 +27,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * The format of the string does not correspond to a valid ObjectName.
  *
  * @since 1.5
@@ -37,14 +37,14 @@ public class MalformedObjectNameException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = -572689714442915824L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public MalformedObjectNameException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

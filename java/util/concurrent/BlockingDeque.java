@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A {@link Deque} that additionally supports blocking operations that wait
  * for the deque to become non-empty when retrieving an element, and wait for
  * space to become available in the deque when storing an element.
@@ -205,7 +205,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      * methods specs here are copied from superinterfaces.
      */
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * throwing an <tt>IllegalStateException</tt> if no space is currently
@@ -220,7 +220,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     void addFirst(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * throwing an <tt>IllegalStateException</tt> if no space is currently
@@ -235,7 +235,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     void addLast(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * returning <tt>true</tt> upon success and <tt>false</tt> if no space is
@@ -251,7 +251,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean offerFirst(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque if it is
      * possible to do so immediately without violating capacity restrictions,
      * returning <tt>true</tt> upon success and <tt>false</tt> if no space is
@@ -267,7 +267,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean offerLast(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque,
      * waiting if necessary for space to become available.
      *
@@ -281,7 +281,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     void putFirst(E e) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque,
      * waiting if necessary for space to become available.
      *
@@ -295,7 +295,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     void putLast(E e) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque,
      * waiting up to the specified wait time if necessary for space to
      * become available.
@@ -317,7 +317,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     boolean offerFirst(E e, long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque,
      * waiting up to the specified wait time if necessary for space to
      * become available.
@@ -339,7 +339,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     boolean offerLast(E e, long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the first element of this deque, waiting
      * if necessary until an element becomes available.
      *
@@ -348,7 +348,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E takeFirst() throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the last element of this deque, waiting
      * if necessary until an element becomes available.
      *
@@ -357,7 +357,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E takeLast() throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the first element of this deque, waiting
      * up to the specified wait time if necessary for an element to
      * become available.
@@ -373,7 +373,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     E pollFirst(long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the last element of this deque, waiting
      * up to the specified wait time if necessary for an element to
      * become available.
@@ -389,7 +389,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     E pollLast(long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -405,7 +405,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean removeFirstOccurrence(Object o);
 
-    /**
+    /** {@collect.stats}
      * Removes the last occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the last element <tt>e</tt> such that
@@ -423,7 +423,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 
     // *** BlockingQueue methods ***
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, returning
@@ -444,7 +444,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean add(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque) if it is possible to do so
      * immediately without violating capacity restrictions, returning
@@ -464,7 +464,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean offer(E e);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque), waiting if necessary for
      * space to become available.
@@ -481,7 +481,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     void put(E e) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element into the queue represented by this deque
      * (in other words, at the tail of this deque), waiting up to the
      * specified wait time if necessary for space to become available.
@@ -502,7 +502,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     boolean offer(E e, long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque).
      * This method differs from {@link #poll poll} only in that it
@@ -515,7 +515,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E remove();
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque), or returns
      * <tt>null</tt> if this deque is empty.
@@ -526,7 +526,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E poll();
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque), waiting if
      * necessary until an element becomes available.
@@ -538,7 +538,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E take() throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque), waiting up to the
      * specified wait time if necessary for an element to become available.
@@ -553,7 +553,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     E poll(long timeout, TimeUnit unit)
         throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque (in other words, the first element of this deque).
      * This method differs from {@link #peek peek} only in that it throws an
@@ -566,7 +566,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E element();
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque (in other words, the first element of this deque), or
      * returns <tt>null</tt> if this deque is empty.
@@ -577,7 +577,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     E peek();
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -596,7 +596,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     boolean remove(Object o);
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this deque contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this deque contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
@@ -609,14 +609,14 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
      */
     public boolean contains(Object o);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this deque.
      *
      * @return the number of elements in this deque
      */
     public int size();
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this deque in proper sequence.
      * The elements will be returned in order from first (head) to last (tail).
      *
@@ -626,7 +626,7 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 
     // *** Stack methods ***
 
-    /**
+    /** {@collect.stats}
      * Pushes an element onto the stack represented by this deque.  In other
      * words, inserts the element at the front of this deque unless it would
      * violate capacity restrictions.

@@ -27,7 +27,7 @@ package java.awt.image;
 
 import static sun.java2d.StateTrackable.State.*;
 
-/**
+/** {@collect.stats}
  * This class extends <code>DataBuffer</code> and stores data internally
  * in <code>double</code> form.
  * <p>
@@ -51,13 +51,13 @@ import static sun.java2d.StateTrackable.State.*;
 
 public final class DataBufferDouble extends DataBuffer {
 
-    /** The array of data banks. */
+    /** {@collect.stats} The array of data banks. */
     double bankdata[][];
 
-    /** A reference to the default data bank. */
+    /** {@collect.stats} A reference to the default data bank. */
     double data[];
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with a specified size.
      *
@@ -70,7 +70,7 @@ public final class DataBufferDouble extends DataBuffer {
         bankdata[0] = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with a specified number of banks, all of which are of a
      * specified size.
@@ -88,7 +88,7 @@ public final class DataBufferDouble extends DataBuffer {
         data = bankdata[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with the specified data array.  Only the first
      * <code>size</code> elements are available for use by this
@@ -111,7 +111,7 @@ public final class DataBufferDouble extends DataBuffer {
         bankdata[0] = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with the specified data array.  Only the elements between
      * <code>offset</code> and <code>offset + size - 1</code> are
@@ -136,7 +136,7 @@ public final class DataBufferDouble extends DataBuffer {
         bankdata[0] = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with the specified data arrays.  Only the first
      * <code>size</code> elements of each array are available for use
@@ -158,7 +158,7 @@ public final class DataBufferDouble extends DataBuffer {
         data = bankdata[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>double</code>-based <code>DataBuffer</code>
      * with the specified data arrays, size, and per-bank offsets.
      * The number of banks is equal to dataArray.length.  Each array
@@ -182,7 +182,7 @@ public final class DataBufferDouble extends DataBuffer {
         data = bankdata[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default (first) <code>double</code> data array.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -197,7 +197,7 @@ public final class DataBufferDouble extends DataBuffer {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data array for the specified bank.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -213,7 +213,7 @@ public final class DataBufferDouble extends DataBuffer {
         return bankdata[bank];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data array for all banks.
      * <p>
      * Note that calling this method may cause this {@code DataBuffer}
@@ -228,7 +228,7 @@ public final class DataBufferDouble extends DataBuffer {
         return (double[][]) bankdata.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the first
      * (default) bank as an <code>int</code>.
      *
@@ -241,7 +241,7 @@ public final class DataBufferDouble extends DataBuffer {
         return (int)(data[i+offset]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the specified
      * bank as an <code>int</code>.
      *
@@ -256,7 +256,7 @@ public final class DataBufferDouble extends DataBuffer {
         return (int)(bankdata[bank][i+offsets[bank]]);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the first (default)
      * bank to the given <code>int</code>.
      *
@@ -270,7 +270,7 @@ public final class DataBufferDouble extends DataBuffer {
         theTrackable.markDirty();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the specified bank
      * to the given <code>int</code>.
      *
@@ -285,7 +285,7 @@ public final class DataBufferDouble extends DataBuffer {
         theTrackable.markDirty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the first
      * (default) bank as a <code>float</code>.
      *
@@ -299,7 +299,7 @@ public final class DataBufferDouble extends DataBuffer {
         return (float)data[i+offset];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the specified
      * bank as a <code>float</code>.
      *
@@ -314,7 +314,7 @@ public final class DataBufferDouble extends DataBuffer {
         return (float)bankdata[bank][i+offsets[bank]];
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the first (default)
      * bank to the given <code>float</code>.
      *
@@ -328,7 +328,7 @@ public final class DataBufferDouble extends DataBuffer {
         theTrackable.markDirty();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the specified bank to
      * the given <code>float</code>.
      *
@@ -343,7 +343,7 @@ public final class DataBufferDouble extends DataBuffer {
         theTrackable.markDirty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the first
      * (default) bank as a <code>double</code>.
      *
@@ -357,7 +357,7 @@ public final class DataBufferDouble extends DataBuffer {
         return data[i+offset];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the requested data array element from the specified
      * bank as a <code>double</code>.
      *
@@ -372,7 +372,7 @@ public final class DataBufferDouble extends DataBuffer {
         return bankdata[bank][i+offsets[bank]];
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the first (default)
      * bank to the given <code>double</code>.
      *
@@ -386,7 +386,7 @@ public final class DataBufferDouble extends DataBuffer {
         theTrackable.markDirty();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the requested data array element in the specified bank to
      * the given <code>double</code>.
      *

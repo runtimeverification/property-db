@@ -29,7 +29,7 @@ import java.util.Vector;
 import com.sun.media.sound.MidiUtils;
 
 
-/**
+/** {@collect.stats}
  * A <code>Sequence</code> is a data structure containing musical
  * information (often an entire song or composition) that can be played
  * back by a <code>{@link Sequencer}</code> object. Specifically, the
@@ -57,31 +57,31 @@ public class Sequence {
 
     // Timing types
 
-    /**
+    /** {@collect.stats}
      * The tempo-based timing type, for which the resolution is expressed in pulses (ticks) per quarter note.
      * @see #Sequence(float, int)
      */
     public static final float PPQ                                                       = 0.0f;
 
-    /**
+    /** {@collect.stats}
      * The SMPTE-based timing type with 24 frames per second (resolution is expressed in ticks per frame).
      * @see #Sequence(float, int)
      */
     public static final float SMPTE_24                                          = 24.0f;
 
-    /**
+    /** {@collect.stats}
      * The SMPTE-based timing type with 25 frames per second (resolution is expressed in ticks per frame).
      * @see #Sequence(float, int)
      */
     public static final float SMPTE_25                                          = 25.0f;
 
-    /**
+    /** {@collect.stats}
      * The SMPTE-based timing type with 29.97 frames per second (resolution is expressed in ticks per frame).
      * @see #Sequence(float, int)
      */
     public static final float SMPTE_30DROP                                      = 29.97f;
 
-    /**
+    /** {@collect.stats}
      * The SMPTE-based timing type with 30 frames per second (resolution is expressed in ticks per frame).
      * @see #Sequence(float, int)
      */
@@ -90,7 +90,7 @@ public class Sequence {
 
     // Variables
 
-    /**
+    /** {@collect.stats}
      * The timing division type of the sequence.
      * @see #PPQ
      * @see #SMPTE_24
@@ -101,20 +101,20 @@ public class Sequence {
      */
     protected float divisionType;
 
-    /**
+    /** {@collect.stats}
      * The timing resolution of the sequence.
      * @see #getResolution
      */
     protected int resolution;
 
-    /**
+    /** {@collect.stats}
      * The MIDI tracks in this sequence.
      * @see #getTracks
      */
     protected Vector<Track> tracks = new Vector<Track>();
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new MIDI sequence with the specified timing division
      * type and timing resolution.  The division type must be one of the
      * recognized MIDI timing types.  For tempo-based timing,
@@ -157,7 +157,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new MIDI sequence with the specified timing division
      * type, timing resolution, and number of tracks.  The division type must be one of the
      * recognized MIDI timing types.  For tempo-based timing,
@@ -207,7 +207,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the timing division type for this sequence.
      * @return the division type (PPQ or one of the SMPTE types)
      *
@@ -224,7 +224,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the timing resolution for this sequence.
      * If the sequence's division type is PPQ, the resolution is specified in ticks per beat.
      * For SMTPE timing, the resolution is specified in ticks per frame.
@@ -239,7 +239,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new, initially empty track as part of this sequence.
      * The track initially contains the meta-event End of Track.
      * The newly created track is returned.  All tracks in the sequence
@@ -256,7 +256,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified track from the sequence.
      * @param track the track to remove
      * @return <code>true</code> if the track existed in the track and was removed,
@@ -274,7 +274,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an array containing all the tracks in this sequence.
      * If the sequence contains no tracks, an array of length 0 is returned.
      * @return the array of tracks
@@ -288,7 +288,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the duration of this sequence, expressed in microseconds.
      * @return this sequence's duration in microseconds.
      */
@@ -298,7 +298,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the duration of this sequence, expressed in MIDI ticks.
      *
      * @return this sequence's length in ticks
@@ -322,7 +322,7 @@ public class Sequence {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a list of patches referenced in this sequence.
      * This patch list may be used to load the required
      * <code>{@link Instrument}</code> objects

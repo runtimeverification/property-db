@@ -29,7 +29,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 
 
-/**
+/** {@collect.stats}
  * A model for a potentially unbounded sequence of object values.  This model
  * is similar to <code>ListModel</code> however there are some important differences:
  * <ul>
@@ -68,7 +68,7 @@ import javax.swing.event.*;
  */
 public interface SpinnerModel
 {
-    /**
+    /** {@collect.stats}
      * The <i>current element</i> of the sequence.  This element is usually
      * displayed by the <code>editor</code> part of a <code>JSpinner</code>.
      *
@@ -78,7 +78,7 @@ public interface SpinnerModel
     Object getValue();
 
 
-    /**
+    /** {@collect.stats}
      * Changes current value of the model, typically this value is displayed
      * by the <code>editor</code> part of a  <code>JSpinner</code>.
      * If the <code>SpinnerModel</code> implementation doesn't support
@@ -94,7 +94,7 @@ public interface SpinnerModel
     void setValue(Object value);
 
 
-    /**
+    /** {@collect.stats}
      * Return the object in the sequence that comes after the object returned
      * by <code>getValue()</code>. If the end of the sequence has been reached
      * then return null.  Calling this method does not effect <code>value</code>.
@@ -106,7 +106,7 @@ public interface SpinnerModel
     Object getNextValue();
 
 
-    /**
+    /** {@collect.stats}
      * Return the object in the sequence that comes before the object returned
      * by <code>getValue()</code>.  If the end of the sequence has been reached then
      * return null. Calling this method does not effect <code>value</code>.
@@ -118,7 +118,7 @@ public interface SpinnerModel
     Object getPreviousValue();
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to the model's listener list.  The
      * <code>ChangeListeners</code> must be notified when models <code>value</code>
      * changes.
@@ -129,7 +129,7 @@ public interface SpinnerModel
     void addChangeListener(ChangeListener l);
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the model's listener list.
      *
      * @param l the ChangeListener to remove

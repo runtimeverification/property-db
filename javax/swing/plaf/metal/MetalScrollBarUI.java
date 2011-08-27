@@ -54,7 +54,7 @@ import javax.swing.plaf.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 
-/**
+/** {@collect.stats}
  * Implementation of ScrollBarUI for the Metal Look and Feel
  * <p>
  *
@@ -127,7 +127,7 @@ public class MetalScrollBarUI extends BasicScrollBarUI
 
     }
 
-    /** Returns the view that represents the decrease view.
+    /** {@collect.stats} Returns the view that represents the decrease view.
       */
     protected JButton createDecreaseButton( int orientation )
     {
@@ -135,7 +135,7 @@ public class MetalScrollBarUI extends BasicScrollBarUI
         return decreaseButton;
     }
 
-    /** Returns the view that represents the increase view. */
+    /** {@collect.stats} Returns the view that represents the increase view. */
     protected JButton createIncreaseButton( int orientation )
     {
         increaseButton =  new MetalScrollButton( orientation, scrollBarWidth, isFreeStanding );
@@ -390,7 +390,7 @@ public class MetalScrollBarUI extends BasicScrollBarUI
         return new Dimension( scrollBarWidth, scrollBarWidth );
     }
 
-    /**
+    /** {@collect.stats}
       * This is overridden only to increase the invalid area.  This
       * ensures that the "Shadow" below the thumb is invalidated
       */

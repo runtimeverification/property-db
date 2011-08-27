@@ -81,7 +81,7 @@ import javax.management.loading.ClassLoaderRepository;
 import sun.reflect.misc.MethodUtil;
 import sun.reflect.misc.ReflectUtil;
 
-/**
+/** {@collect.stats}
  * This class is the implementation of a ModelMBean. An appropriate
  * implementation of a ModelMBean must be shipped with every JMX Agent
  * and the class must be named RequiredModelMBean.
@@ -116,9 +116,9 @@ import sun.reflect.misc.ReflectUtil;
 public class RequiredModelMBean
     implements ModelMBean, MBeanRegistration, NotificationEmitter {
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* attributes                        */
-    /*************************************/
+    /** {@collect.stats}***********************************/
     ModelMBeanInfo modelMBeanInfo;
 
     /* Notification broadcaster for any notification to be sent
@@ -138,11 +138,11 @@ public class RequiredModelMBean
     private boolean registered = false;
     private transient MBeanServer server = null;
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* constructors                      */
-    /*************************************/
+    /** {@collect.stats}***********************************/
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>RequiredModelMBean</CODE> with an empty
      * ModelMBeanInfo.
      * <P>
@@ -172,7 +172,7 @@ public class RequiredModelMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a RequiredModelMBean object using ModelMBeanInfo passed in.
      * As long as the RequiredModelMBean is not registered
      * with the MBeanServer yet, the RequiredModelMBean's MBeanInfo and
@@ -210,11 +210,11 @@ public class RequiredModelMBean
     }
 
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* initializers                      */
-    /*************************************/
+    /** {@collect.stats}***********************************/
 
-    /**
+    /** {@collect.stats}
      * Initializes a ModelMBean object using ModelMBeanInfo passed in.
      * This method makes it possible to set a customized ModelMBeanInfo on
      * the ModelMBean as long as it is not registered with the MBeanServer.
@@ -312,7 +312,7 @@ public class RequiredModelMBean
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the instance handle of the object against which to
      * execute all methods in this ModelMBean management interface
      * (MBeanInfo and Descriptors).
@@ -369,7 +369,7 @@ public class RequiredModelMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Instantiates this MBean instance with the data found for
      * the MBean in the persistent store.  The data loaded could include
      * attribute and operation values.</p>
@@ -397,7 +397,7 @@ public class RequiredModelMBean
         throw new MBeanException(x, x.getMessage());
     }
 
-        /**
+        /** {@collect.stats}
      * <p>Captures the current state of this MBean instance and writes
      * it out to the persistent store.  The state stored could include
      * attribute and operation values.</p>
@@ -439,11 +439,11 @@ public class RequiredModelMBean
         throw new MBeanException(x, x.getMessage());
     }
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* DynamicMBean Interface            */
-    /*************************************/
+    /** {@collect.stats}***********************************/
 
-    /**
+    /** {@collect.stats}
      * The resolveForCacheValue method checks the descriptor passed in to
      * see if there is a valid cached value in the descriptor.
      * The valid value will be in the 'value' field if there is one.
@@ -648,7 +648,7 @@ public class RequiredModelMBean
         return response;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the attributes, operations, constructors and notifications
      * that this RequiredModelMBean exposes for management.
      *
@@ -790,7 +790,7 @@ public class RequiredModelMBean
         return retStr.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes a method on or through a RequiredModelMBean and returns
      * the result of the method execution.
      * <P>
@@ -1303,7 +1303,7 @@ public class RequiredModelMBean
         return rmmbMethodNames.contains(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of a specific attribute defined for this
      * ModelMBean.
      * The last value returned by an attribute may be cached in the
@@ -1662,7 +1662,7 @@ public class RequiredModelMBean
         return response;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the values of several attributes in the ModelMBean.
      * Executes a getAttribute for each attribute name in the
      * attrNames array passed in.
@@ -1718,7 +1718,7 @@ public class RequiredModelMBean
         return responseList;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of a specific attribute of a named ModelMBean.
      *
      * If the 'setMethod' field of the attribute's descriptor
@@ -1963,7 +1963,7 @@ public class RequiredModelMBean
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the values of an array of attributes of this ModelMBean.
      * Executes the setAttribute() method for each attribute in the list.
      *
@@ -2016,9 +2016,9 @@ public class RequiredModelMBean
                    "Default ModelMBean", null, null, null, null));
     }
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* NotificationBroadcaster Interface */
-    /*************************************/
+    /** {@collect.stats}***********************************/
 
 
     private synchronized void writeToLog(String logFileName,
@@ -2067,7 +2067,7 @@ public class RequiredModelMBean
     }
 
 
-    /**
+    /** {@collect.stats}
      * Registers an object which implements the NotificationListener
      * interface as a listener.  This
      * object's 'handleNotification()' method will be invoked when any
@@ -2115,7 +2115,7 @@ public class RequiredModelMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener for Notifications from the RequiredModelMBean.
      *
      * @param listener The listener name which was handling notifications
@@ -2286,7 +2286,7 @@ public class RequiredModelMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns `true' if the notification `notifName' is found
      * in `info'. (bug 4744667)
      **/
@@ -2303,7 +2303,7 @@ public class RequiredModelMBean
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a default ModelMBeanNotificationInfo for GENERIC
      * notification.  (bug 4744667)
      **/
@@ -2323,7 +2323,7 @@ public class RequiredModelMBean
             genericDescriptor);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a default ModelMBeanNotificationInfo for ATTRIBUTE_CHANGE
      * notification.  (bug 4744667)
      **/
@@ -2344,7 +2344,7 @@ public class RequiredModelMBean
             attributeDescriptor );
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the array of Notifications always generated by the
      * RequiredModelMBean.
      * <P>
@@ -2735,7 +2735,7 @@ public class RequiredModelMBean
 
     }
 
-    /**
+    /** {@collect.stats}
      * Return the Class Loader Repository used to perform class loading.
      * Subclasses may wish to redefine this method in order to return
      * the appropriate {@link javax.management.loading.ClassLoaderRepository}
@@ -2761,11 +2761,11 @@ public class RequiredModelMBean
     }
 
 
-    /*************************************/
+    /** {@collect.stats}***********************************/
     /* MBeanRegistration Interface       */
-    /*************************************/
+    /** {@collect.stats}***********************************/
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations it needs before
      * being registered in the MBean server.  If the name of the MBean
      * is not specified, the MBean can provide a name for its
@@ -2807,7 +2807,7 @@ public class RequiredModelMBean
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations needed after having been
      * registered in the MBean server or after the registration has failed.
      * <P>
@@ -2824,7 +2824,7 @@ public class RequiredModelMBean
         registered = registrationDone.booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations it needs before
      * being unregistered by the MBean server.
      * <P>
@@ -2841,7 +2841,7 @@ public class RequiredModelMBean
     public void preDeregister() throws java.lang.Exception {
     }
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations needed after having been
      * unregistered in the MBean server.
      * <P>

@@ -29,7 +29,7 @@ import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Rectangle;
 
-/**
+/** {@collect.stats}
  * A low-level event which indicates that a component moved, changed
  * size, or changed visibility (also, the root class for the other
  * component-level events).
@@ -62,32 +62,32 @@ import java.awt.Rectangle;
  */
 public class ComponentEvent extends AWTEvent {
 
-    /**
+    /** {@collect.stats}
      * The first number in the range of ids used for component events.
      */
     public static final int COMPONENT_FIRST             = 100;
 
-    /**
+    /** {@collect.stats}
      * The last number in the range of ids used for component events.
      */
     public static final int COMPONENT_LAST              = 103;
 
-   /**
+   /** {@collect.stats}
      * This event indicates that the component's position changed.
      */
     public static final int COMPONENT_MOVED     = COMPONENT_FIRST;
 
-    /**
+    /** {@collect.stats}
      * This event indicates that the component's size changed.
      */
     public static final int COMPONENT_RESIZED   = 1 + COMPONENT_FIRST;
 
-    /**
+    /** {@collect.stats}
      * This event indicates that the component was made visible.
      */
     public static final int COMPONENT_SHOWN     = 2 + COMPONENT_FIRST;
 
-    /**
+    /** {@collect.stats}
      * This event indicates that the component was rendered invisible.
      */
     public static final int COMPONENT_HIDDEN    = 3 + COMPONENT_FIRST;
@@ -97,7 +97,7 @@ public class ComponentEvent extends AWTEvent {
      */
     private static final long serialVersionUID = 8101406823902992965L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ComponentEvent</code> object.
      * <p>Note that passing in an invalid <code>id</code> results in
      * unspecified behavior. This method throws an
@@ -112,7 +112,7 @@ public class ComponentEvent extends AWTEvent {
         super(source, id);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the originator of the event.
      *
      * @return the <code>Component</code> object that originated
@@ -123,7 +123,7 @@ public class ComponentEvent extends AWTEvent {
         return (source instanceof Component) ? (Component)source : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a parameter string identifying this event.
      * This method is useful for event-logging and for debugging.
      *

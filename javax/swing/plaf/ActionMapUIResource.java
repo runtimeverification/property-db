@@ -28,7 +28,7 @@ package javax.swing.plaf;
 import javax.swing.ActionMap;
 
 
-/**
+/** {@collect.stats}
  * A subclass of javax.swing.ActionMap that implements UIResource.
  * UI classes which provide an ActionMap should use this class.
  *

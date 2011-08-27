@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.*;
 import java.util.concurrent.atomic.*;
 
-/**
+/** {@collect.stats}
  * A scalable concurrent {@link ConcurrentNavigableMap} implementation.
  * The map is sorted according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} provided at map
@@ -321,45 +321,45 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     private static final long serialVersionUID = -8627078645895051609L;
 
-    /**
+    /** {@collect.stats}
      * Generates the initial random seed for the cheaper per-instance
      * random number generators used in randomLevel.
      */
     private static final Random seedGenerator = new Random();
 
-    /**
+    /** {@collect.stats}
      * Special value used to identify base-level header
      */
     private static final Object BASE_HEADER = new Object();
 
-    /**
+    /** {@collect.stats}
      * The topmost head index of the skiplist.
      */
     private transient volatile HeadIndex<K,V> head;
 
-    /**
+    /** {@collect.stats}
      * The comparator used to maintain order in this map, or null
      * if using natural ordering.
      * @serial
      */
     private final Comparator<? super K> comparator;
 
-    /**
+    /** {@collect.stats}
      * Seed for simple random number generator.  Not volatile since it
      * doesn't matter too much if different threads don't see updates.
      */
     private transient int randomSeed;
 
-    /** Lazily initialized key set */
+    /** {@collect.stats} Lazily initialized key set */
     private transient KeySet keySet;
-    /** Lazily initialized entry set */
+    /** {@collect.stats} Lazily initialized entry set */
     private transient EntrySet entrySet;
-    /** Lazily initialized values collection */
+    /** {@collect.stats} Lazily initialized values collection */
     private transient Values values;
-    /** Lazily initialized descending key set */
+    /** {@collect.stats} Lazily initialized descending key set */
     private transient ConcurrentNavigableMap<K,V> descendingMap;
 
-    /**
+    /** {@collect.stats}
      * Initializes or resets state. Needed by constructors, clone,
      * clear, readObject. and ConcurrentSkipListSet.clone.
      * (Note that comparator must be separately initialized.)
@@ -374,13 +374,13 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                                   null, null, 1);
     }
 
-    /** Updater for casHead */
+    /** {@collect.stats} Updater for casHead */
     private static final
         AtomicReferenceFieldUpdater<ConcurrentSkipListMap, HeadIndex>
         headUpdater = AtomicReferenceFieldUpdater.newUpdater
         (ConcurrentSkipListMap.class, HeadIndex.class, "head");
 
-    /**
+    /** {@collect.stats}
      * compareAndSet head node
      */
     private boolean casHead(HeadIndex<K,V> cmp, HeadIndex<K,V> val) {
@@ -389,7 +389,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Nodes -------------- */
 
-    /**
+    /** {@collect.stats}
      * Nodes hold keys and values, and are singly linked in sorted
      * order, possibly with some intervening marker nodes. The list is
      * headed by a dummy node accessible as head.node. The value field
@@ -401,7 +401,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         volatile Object value;
         volatile Node<K,V> next;
 
-        /**
+        /** {@collect.stats}
          * Creates a new regular node.
          */
         Node(K key, Object value, Node<K,V> next) {
@@ -410,7 +410,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             this.next = next;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new marker node. A marker is distinguished by
          * having its value field point to itself.  Marker nodes also
          * have null keys, a fact that is exploited in a few places,
@@ -423,31 +423,31 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             this.next = next;
         }
 
-        /** Updater for casNext */
+        /** {@collect.stats} Updater for casNext */
         static final AtomicReferenceFieldUpdater<Node, Node>
             nextUpdater = AtomicReferenceFieldUpdater.newUpdater
             (Node.class, Node.class, "next");
 
-        /** Updater for casValue */
+        /** {@collect.stats} Updater for casValue */
         static final AtomicReferenceFieldUpdater<Node, Object>
             valueUpdater = AtomicReferenceFieldUpdater.newUpdater
             (Node.class, Object.class, "value");
 
-        /**
+        /** {@collect.stats}
          * compareAndSet value field
          */
         boolean casValue(Object cmp, Object val) {
             return valueUpdater.compareAndSet(this, cmp, val);
         }
 
-        /**
+        /** {@collect.stats}
          * compareAndSet next field
          */
         boolean casNext(Node<K,V> cmp, Node<K,V> val) {
             return nextUpdater.compareAndSet(this, cmp, val);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node is a marker. This method isn't
          * actually called in any current code checking for markers
          * because callers will have already read value field and need
@@ -460,7 +460,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return value == this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this node is the header of base-level list.
          * @return true if this node is header node
          */
@@ -468,7 +468,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return value == BASE_HEADER;
         }
 
-        /**
+        /** {@collect.stats}
          * Tries to append a deletion marker to this node.
          * @param f the assumed current successor of this node
          * @return true if successful
@@ -477,7 +477,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return casNext(f, new Node<K,V>(f));
         }
 
-        /**
+        /** {@collect.stats}
          * Helps out a deletion by appending marker or unlinking from
          * predecessor. This is called during traversals when value
          * field seen to be null.
@@ -498,7 +498,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns value if this node contains a valid key-value pair,
          * else null.
          * @return this node's value if it isn't a marker or header or
@@ -511,7 +511,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return (V)v;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates and returns a new SimpleImmutableEntry holding current
          * mapping if this node holds a valid value, else null.
          * @return new entry or null
@@ -526,7 +526,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Indexing -------------- */
 
-    /**
+    /** {@collect.stats}
      * Index nodes represent the levels of the skip list.  Note that
      * even though both Nodes and Indexes have forward-pointing
      * fields, they have different types and are handled in different
@@ -538,7 +538,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         final Index<K,V> down;
         volatile Index<K,V> right;
 
-        /**
+        /** {@collect.stats}
          * Creates index node with given values.
          */
         Index(Node<K,V> node, Index<K,V> down, Index<K,V> right) {
@@ -547,19 +547,19 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             this.right = right;
         }
 
-        /** Updater for casRight */
+        /** {@collect.stats} Updater for casRight */
         static final AtomicReferenceFieldUpdater<Index, Index>
             rightUpdater = AtomicReferenceFieldUpdater.newUpdater
             (Index.class, Index.class, "right");
 
-        /**
+        /** {@collect.stats}
          * compareAndSet right field
          */
         final boolean casRight(Index<K,V> cmp, Index<K,V> val) {
             return rightUpdater.compareAndSet(this, cmp, val);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the node this indexes has been deleted.
          * @return true if indexed node is known to be deleted
          */
@@ -567,7 +567,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return node.value == null;
         }
 
-        /**
+        /** {@collect.stats}
          * Tries to CAS newSucc as successor.  To minimize races with
          * unlink that may lose this index node, if the node being
          * indexed is known to be deleted, it doesn't try to link in.
@@ -581,7 +581,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return n.value != null && casRight(succ, newSucc);
         }
 
-        /**
+        /** {@collect.stats}
          * Tries to CAS right field to skip over apparent successor
          * succ.  Fails (forcing a retraversal by caller) if this node
          * is known to be deleted.
@@ -595,7 +595,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Head nodes -------------- */
 
-    /**
+    /** {@collect.stats}
      * Nodes heading each level keep track of their level.
      */
     static final class HeadIndex<K,V> extends Index<K,V> {
@@ -608,7 +608,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Comparison utilities -------------- */
 
-    /**
+    /** {@collect.stats}
      * Represents a key with a comparator as a Comparable.
      *
      * Because most sorted collections seem to use natural ordering on
@@ -635,7 +635,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If using comparator, return a ComparableUsingComparator, else
      * cast key as Comparable, which may cause ClassCastException,
      * which is propagated back to caller.
@@ -649,7 +649,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return (Comparable<? super K>)key;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares using comparator or natural ordering. Used when the
      * ComparableUsingComparator approach doesn't apply.
      */
@@ -661,7 +661,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return ((Comparable<? super K>)k1).compareTo(k2);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if given key greater than or equal to least and
      * strictly less than fence, bypassing either test if least or
      * fence are null. Needed mainly in submap operations.
@@ -673,7 +673,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 (fence == null || compare(key, fence) <  0));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if given key greater than or equal to least and less
      * or equal to fence. Needed mainly in submap operations.
      */
@@ -686,7 +686,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Traversal -------------- */
 
-    /**
+    /** {@collect.stats}
      * Returns a base-level node with key strictly less than given key,
      * or the base-level header if there is no such node.  Also
      * unlinks indexes to deleted nodes found along the way.  Callers
@@ -726,7 +726,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns node holding key or null if no such, clearing out any
      * deleted nodes seen along the way.  Repeatedly traverses at
      * base-level looking for key starting at predecessor returned
@@ -798,7 +798,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Specialized variant of findNode to perform Map.get. Does a weak
      * traversal, not bothering to fix any deleted index nodes,
      * returning early if it happens to see key in index, and passing
@@ -854,7 +854,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs map.get via findNode.  Used as a backup if doGet
      * encounters an in-progress deletion.
      * @param key the key
@@ -878,7 +878,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Insertion -------------- */
 
-    /**
+    /** {@collect.stats}
      * Main insertion method.  Adds element if not present, or
      * replaces value if present and onlyIfAbsent is false.
      * @param kkey the key
@@ -929,7 +929,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a random level for inserting a new node.
      * Hardwired to k=1, p=0.5, max 31 (see above and
      * Pugh's "Skip List Cookbook", sec 3.4).
@@ -950,7 +950,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return level;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and adds index nodes for the given node.
      * @param z the node
      * @param level the level of the index
@@ -1002,7 +1002,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds given index nodes from given level down to 1.
      * @param idx the topmost index node being inserted
      * @param h the value of head to use to insert. This must be
@@ -1066,7 +1066,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Deletion -------------- */
 
-    /**
+    /** {@collect.stats}
      * Main deletion method. Locates node, nulls value, appends a
      * deletion marker, unlinks predecessor, removes associated index
      * nodes, and possibly reduces head index level.
@@ -1127,7 +1127,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Possibly reduce head level if it has no nodes.  This method can
      * (rarely) make mistakes, in which case levels can disappear even
      * though they are about to contain index nodes. This impacts
@@ -1164,7 +1164,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Finding and removing first element -------------- */
 
-    /**
+    /** {@collect.stats}
      * Specialized variant of findNode to get first valid node.
      * @return first node or null if empty
      */
@@ -1180,7 +1180,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes first entry; returns its snapshot.
      * @return null if empty, else snapshot of first entry
      */
@@ -1207,7 +1207,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Clears out index nodes associated with deleted first entry.
      */
     private void clearIndexToFirst() {
@@ -1229,7 +1229,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Finding and removing last element -------------- */
 
-    /**
+    /** {@collect.stats}
      * Specialized version of find to get last valid node.
      * @return last node or null if empty
      */
@@ -1275,7 +1275,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Specialized variant of findPredecessor to get predecessor of last
      * valid node.  Needed when removing the last entry.  It is possible
      * that all successors of returned node will have been deleted upon
@@ -1306,7 +1306,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes last entry; returns its snapshot.
      * Specialized variant of doRemove.
      * @return null if empty, else snapshot of last entry
@@ -1361,7 +1361,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
     private static final int LT = 2;
     private static final int GT = 0; // Actually checked as !LT
 
-    /**
+    /** {@collect.stats}
      * Utility for ceiling, floor, lower, higher methods.
      * @param kkey the key
      * @param rel the relation -- OR'ed combination of EQ, LT, GT
@@ -1397,7 +1397,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns SimpleImmutableEntry for results of findNear.
      * @param key the key
      * @param rel the relation -- OR'ed combination of EQ, LT, GT
@@ -1417,7 +1417,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Constructors -------------- */
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty map, sorted according to the
      * {@linkplain Comparable natural ordering} of the keys.
      */
@@ -1426,7 +1426,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         initialize();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty map, sorted according to the specified
      * comparator.
      *
@@ -1439,7 +1439,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         initialize();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new map containing the same mappings as the given map,
      * sorted according to the {@linkplain Comparable natural ordering} of
      * the keys.
@@ -1456,7 +1456,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         putAll(m);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new map containing the same mappings and using the
      * same ordering as the specified sorted map.
      *
@@ -1471,7 +1471,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         buildFromSorted(m);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>ConcurrentSkipListMap</tt>
      * instance. (The keys and values themselves are not cloned.)
      *
@@ -1490,7 +1490,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return clone;
     }
 
-    /**
+    /** {@collect.stats}
      * Streamlined bulk insertion to initialize from elements of
      * given sorted map.  Call only from constructor or clone
      * method.
@@ -1548,7 +1548,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Serialization -------------- */
 
-    /**
+    /** {@collect.stats}
      * Save the state of this map to a stream.
      *
      * @serialData The key (Object) and value (Object) for each
@@ -1573,7 +1573,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the map from a stream.
      */
     private void readObject(final java.io.ObjectInputStream s)
@@ -1636,7 +1636,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ------ Map API methods ------ */
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.
      *
@@ -1650,7 +1650,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doGet(key) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -1668,7 +1668,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doGet(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for the key, the old
      * value is replaced.
@@ -1687,7 +1687,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doPut(key, value, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for the specified key from this map if present.
      *
      * @param  key key for which mapping should be removed
@@ -1701,7 +1701,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doRemove(key, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.  This operation requires time linear in the
      * map size.
@@ -1722,7 +1722,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this map.  If this map
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, it
      * returns <tt>Integer.MAX_VALUE</tt>.
@@ -1747,7 +1747,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (count >= Integer.MAX_VALUE)? Integer.MAX_VALUE : (int)count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains no key-value mappings.
      * @return <tt>true</tt> if this map contains no key-value mappings
      */
@@ -1755,7 +1755,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return findFirst() == null;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the mappings from this map.
      */
     public void clear() {
@@ -1773,7 +1773,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
      * another racing thread.
      */
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link NavigableSet} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -1804,7 +1804,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (ks != null) ? ks : (keySet = new KeySet(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection's iterator returns the values in ascending order
      * of the corresponding keys.
@@ -1827,7 +1827,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (vs != null) ? vs : (values = new Values(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set's iterator returns the entries in ascending key order.
      * The set is backed by the map, so changes to the map are
@@ -1868,7 +1868,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- AbstractMap Overrides -------------- */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this map for equality.
      * Returns <tt>true</tt> if the given object is also a map and the
      * two maps represent the same mappings.  More formally, two maps
@@ -1906,7 +1906,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ------ ConcurrentMap API methods ------ */
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @return the previous value associated with the specified key,
@@ -1921,7 +1921,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doPut(key, value, true);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws ClassCastException if the specified key cannot be compared
@@ -1936,7 +1936,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doRemove(key, value) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws ClassCastException if the specified key cannot be compared
@@ -1961,7 +1961,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @return the previous value associated with the specified key,
@@ -1990,7 +1990,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public K firstKey() {
@@ -2000,7 +2000,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public K lastKey() {
@@ -2010,7 +2010,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromKey} or {@code toKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2025,7 +2025,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             (this, fromKey, fromInclusive, toKey, toInclusive, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2038,7 +2038,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             (this, null, false, toKey, inclusive, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2051,7 +2051,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             (this, fromKey, inclusive, null, false, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromKey} or {@code toKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2060,7 +2060,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return subMap(fromKey, true, toKey, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code toKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2069,7 +2069,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return headMap(toKey, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if {@code fromKey} is null
      * @throws IllegalArgumentException {@inheritDoc}
@@ -2080,7 +2080,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Relational operations -------------- */
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the greatest key
      * strictly less than the given key, or <tt>null</tt> if there is
      * no such key. The returned entry does <em>not</em> support the
@@ -2093,7 +2093,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return getNear(key, LT);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      */
@@ -2102,7 +2102,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (n == null)? null : n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the greatest key
      * less than or equal to the given key, or <tt>null</tt> if there
      * is no such key. The returned entry does <em>not</em> support
@@ -2116,7 +2116,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return getNear(key, LT|EQ);
     }
 
-    /**
+    /** {@collect.stats}
      * @param key the key
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
@@ -2126,7 +2126,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (n == null)? null : n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the least key
      * greater than or equal to the given key, or <tt>null</tt> if
      * there is no such entry. The returned entry does <em>not</em>
@@ -2139,7 +2139,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return getNear(key, GT|EQ);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      */
@@ -2148,7 +2148,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (n == null)? null : n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the least key
      * strictly greater than the given key, or <tt>null</tt> if there
      * is no such key. The returned entry does <em>not</em> support
@@ -2162,7 +2162,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return getNear(key, GT);
     }
 
-    /**
+    /** {@collect.stats}
      * @param key the key
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
@@ -2172,7 +2172,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return (n == null)? null : n.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the least
      * key in this map, or <tt>null</tt> if the map is empty.
      * The returned entry does <em>not</em> support
@@ -2189,7 +2189,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a key-value mapping associated with the greatest
      * key in this map, or <tt>null</tt> if the map is empty.
      * The returned entry does <em>not</em> support
@@ -2206,7 +2206,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns a key-value mapping associated with
      * the least key in this map, or <tt>null</tt> if the map is empty.
      * The returned entry does <em>not</em> support
@@ -2216,7 +2216,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         return doRemoveFirstEntry();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns a key-value mapping associated with
      * the greatest key in this map, or <tt>null</tt> if the map is empty.
      * The returned entry does <em>not</em> support
@@ -2229,18 +2229,18 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /* ---------------- Iterators -------------- */
 
-    /**
+    /** {@collect.stats}
      * Base of iterator classes:
      */
     abstract class Iter<T> implements Iterator<T> {
-        /** the last node returned by next() */
+        /** {@collect.stats} the last node returned by next() */
         Node<K,V> lastReturned;
-        /** the next node to return from next(); */
+        /** {@collect.stats} the next node to return from next(); */
         Node<K,V> next;
-        /** Cache of next value field to maintain weak consistency */
+        /** {@collect.stats} Cache of next value field to maintain weak consistency */
         V nextValue;
 
-        /** Initializes ascending iterator for entire range. */
+        /** {@collect.stats} Initializes ascending iterator for entire range. */
         Iter() {
             for (;;) {
                 next = findFirst();
@@ -2258,7 +2258,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return next != null;
         }
 
-        /** Advances next to higher entry. */
+        /** {@collect.stats} Advances next to higher entry. */
         final void advance() {
             if (next == null)
                 throw new NoSuchElementException();
@@ -2498,7 +2498,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         public <T> T[] toArray(T[] a) { return toList(this).toArray(a); }
     }
 
-    /**
+    /** {@collect.stats}
      * Submaps returned by {@link ConcurrentSkipListMap} submap operations
      * represent a subrange of mappings of their underlying
      * maps. Instances of this class support all methods of their
@@ -2515,17 +2515,17 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                    java.io.Serializable {
         private static final long serialVersionUID = -7647078645895051609L;
 
-        /** Underlying map */
+        /** {@collect.stats} Underlying map */
         private final ConcurrentSkipListMap<K,V> m;
-        /** lower bound key, or null if from start */
+        /** {@collect.stats} lower bound key, or null if from start */
         private final K lo;
-        /** upper bound key, or null if to end */
+        /** {@collect.stats} upper bound key, or null if to end */
         private final K hi;
-        /** inclusion flag for lo */
+        /** {@collect.stats} inclusion flag for lo */
         private final boolean loInclusive;
-        /** inclusion flag for hi */
+        /** {@collect.stats} inclusion flag for hi */
         private final boolean hiInclusive;
-        /** direction */
+        /** {@collect.stats} direction */
         private final boolean isDescending;
 
         // Lazily initialized view holders
@@ -2533,7 +2533,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
         private transient Set<Map.Entry<K,V>> entrySetView;
         private transient Collection<V> valuesView;
 
-        /**
+        /** {@collect.stats}
          * Creates a new submap, initializing all fields
          */
         SubMap(ConcurrentSkipListMap<K,V> map,
@@ -2582,7 +2582,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 throw new IllegalArgumentException("key out of range");
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if node key is less than upper bound of range
          */
         private boolean isBeforeEnd(ConcurrentSkipListMap.Node<K,V> n) {
@@ -2599,7 +2599,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns lowest node. This node might not be in range, so
          * most usages need to check bounds
          */
@@ -2612,7 +2612,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 return m.findNear(lo, m.GT);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns highest node. This node might not be in range, so
          * most usages need to check bounds
          */
@@ -2625,7 +2625,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 return m.findNear(hi, m.LT);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns lowest absolute key (ignoring directonality)
          */
         private K lowestKey() {
@@ -2636,7 +2636,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 throw new NoSuchElementException();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns highest absolute key (ignoring directonality)
          */
         private K highestKey() {
@@ -2699,7 +2699,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Submap version of ConcurrentSkipListMap.getNearEntry
          */
         private Map.Entry<K,V> getNearEntry(K key, int rel) {
@@ -2855,7 +2855,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
                 return cmp;
         }
 
-        /**
+        /** {@collect.stats}
          * Utility to create submaps, where given bounds override
          * unbounded(null) ones and/or are checked against bounded ones.
          */
@@ -3033,15 +3033,15 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
             return new SubMapEntryIterator();
         }
 
-        /**
+        /** {@collect.stats}
          * Variant of main Iter class to traverse through submaps.
          */
         abstract class SubMapIter<T> implements Iterator<T> {
-            /** the last node returned by next() */
+            /** {@collect.stats} the last node returned by next() */
             Node<K,V> lastReturned;
-            /** the next node to return from next(); */
+            /** {@collect.stats} the next node to return from next(); */
             Node<K,V> next;
-            /** Cache of next value field to maintain weak consistency */
+            /** {@collect.stats} Cache of next value field to maintain weak consistency */
             V nextValue;
 
             SubMapIter() {

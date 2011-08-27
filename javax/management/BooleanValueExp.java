@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class represents a boolean value. A BooleanValueExp may be
  * used anywhere a ValueExp is required.
  * @serial include
@@ -38,36 +38,36 @@ class BooleanValueExp extends QueryEval implements ValueExp {
     /* Serial version */
     private static final long serialVersionUID = 7754922052666594581L;
 
-    /**
+    /** {@collect.stats}
      * @serial The boolean value
      */
     private boolean val = false;
 
 
-    /** Creates a new BooleanValueExp representing the boolean literal <val>.*/
+    /** {@collect.stats} Creates a new BooleanValueExp representing the boolean literal <val>.*/
     BooleanValueExp(boolean val) {
         this.val = val;
     }
 
-    /**Creates a new BooleanValueExp representing the Boolean object <val>.*/
+    /** {@collect.stats}Creates a new BooleanValueExp representing the Boolean object <val>.*/
     BooleanValueExp(Boolean val) {
         this.val = val.booleanValue();
     }
 
 
-    /** Returns the  Boolean object representing the value of the BooleanValueExp object.*/
+    /** {@collect.stats} Returns the  Boolean object representing the value of the BooleanValueExp object.*/
     public Boolean getValue()  {
         return Boolean.valueOf(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {
         return String.valueOf(val);
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the ValueExp on a MBean.
      *
      * @param name The name of the MBean on which the ValueExp will be applied.

@@ -25,7 +25,7 @@
 
 package javax.sound.midi;
 
-/**
+/** {@collect.stats}
  * MIDI events contain a MIDI message and a corresponding time-stamp
  * expressed in ticks, and can represent the MIDI event information
  * stored in a MIDI file or a <code>{@link Sequence}</code> object.  The
@@ -45,19 +45,19 @@ public class MidiEvent {
 
     // Instance variables
 
-    /**
+    /** {@collect.stats}
      * The MIDI message for this event.
      */
     private final MidiMessage message;
 
 
-    /**
+    /** {@collect.stats}
      * The tick value for this event.
      */
     private long tick;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>MidiEvent</code>.
      * @param message the MIDI message contained in the event
      * @param tick the time-stamp for the event, in MIDI ticks
@@ -68,7 +68,7 @@ public class MidiEvent {
         this.tick = tick;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI message contained in the event.
      * @return the MIDI message
      */
@@ -77,7 +77,7 @@ public class MidiEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the time-stamp for the event, in MIDI ticks
      * @param tick the new time-stamp, in MIDI ticks
      */
@@ -86,7 +86,7 @@ public class MidiEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the time-stamp for the event, in MIDI ticks
      * @return the time-stamp for the event, in MIDI ticks
      */

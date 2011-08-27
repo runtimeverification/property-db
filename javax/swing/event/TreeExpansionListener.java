@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
   * The listener that's notified when a tree expands or collapses
   * a node.
   * For further documentation and examples see
@@ -40,12 +40,12 @@ import java.util.EventListener;
 
 public interface TreeExpansionListener extends EventListener
 {
-    /**
+    /** {@collect.stats}
       * Called whenever an item in the tree has been expanded.
       */
     public void treeExpanded(TreeExpansionEvent event);
 
-    /**
+    /** {@collect.stats}
       * Called whenever an item in the tree has been collapsed.
       */
     public void treeCollapsed(TreeExpansionEvent event);

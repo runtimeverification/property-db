@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/**
+/** {@collect.stats}
  * The Permission class for reflective operations.  A
  * ReflectPermission is a <em>named permission</em> and has no
  * actions.  The only name currently defined is {@code suppressAccessChecks},
@@ -71,7 +71,7 @@ class ReflectPermission extends java.security.BasicPermission {
 
     private static final long serialVersionUID = 7412737110241507485L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ReflectPermission with the specified name.
      *
      * @param name the name of the ReflectPermission
@@ -83,7 +83,7 @@ class ReflectPermission extends java.security.BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ReflectPermission with the specified name and actions.
      * The actions should be null; they are ignored.
      *

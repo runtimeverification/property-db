@@ -27,7 +27,7 @@
 package javax.net.ssl;
 
 
-/**
+/** {@collect.stats}
  * Indicates that the client and server could not negotiate the
  * desired level of security.  The connection is no longer usable.
  *
@@ -39,7 +39,7 @@ class SSLHandshakeException extends SSLException
 {
     private static final long serialVersionUID = -5045881315018326890L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an exception reporting an error found by
      * an SSL subsystem during handshaking.
      *

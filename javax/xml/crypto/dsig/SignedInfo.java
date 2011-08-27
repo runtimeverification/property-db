@@ -31,7 +31,7 @@ import javax.xml.crypto.XMLStructure;
 import java.io.InputStream;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * An representation of the XML <code>SignedInfo</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -60,21 +60,21 @@ import java.util.List;
  */
 public interface SignedInfo extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns the canonicalization method of this <code>SignedInfo</code>.
      *
      * @return the canonicalization method
      */
     CanonicalizationMethod getCanonicalizationMethod();
 
-    /**
+    /** {@collect.stats}
      * Returns the signature method of this <code>SignedInfo</code>.
      *
      * @return the signature method
      */
     SignatureMethod getSignatureMethod();
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList
      * unmodifiable list} of one or more {@link Reference}s.
      *
@@ -82,7 +82,7 @@ public interface SignedInfo extends XMLStructure {
      */
     List getReferences();
 
-    /**
+    /** {@collect.stats}
      * Returns the optional <code>Id</code> attribute of this
      * <code>SignedInfo</code>.
      *
@@ -90,7 +90,7 @@ public interface SignedInfo extends XMLStructure {
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Returns the canonicalized signed info bytes after a signing or
      * validation operation. This method is useful for debugging.
      *

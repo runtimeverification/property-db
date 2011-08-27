@@ -41,7 +41,7 @@ import java.util.*;
 import javax.accessibility.*;
 import java.lang.ref.*;
 
-/**
+/** {@collect.stats}
  * The Swing JEditorPane text component supports different kinds
  * of content via a plug-in mechanism called an EditorKit.  Because
  * HTML is a very popular format of content, some support is provided
@@ -165,7 +165,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
 
     private JEditorPane theEditor;
 
-    /**
+    /** {@collect.stats}
      * Constructs an HTMLEditorKit, creates a StyleContext,
      * and loads the style sheet.
      */
@@ -173,7 +173,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Get the MIME type of the data that this
      * kit represents support for.  This kit supports
      * the type <code>text/html</code>.
@@ -184,7 +184,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return "text/html";
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a factory that is suitable for producing
      * views of any models that are produced by this
      * kit.
@@ -195,7 +195,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return defaultFactory;
     }
 
-    /**
+    /** {@collect.stats}
      * Create an uninitialized text storage model
      * that is appropriate for this type of editor.
      *
@@ -214,7 +214,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return doc;
     }
 
-    /**
+    /** {@collect.stats}
      * Try to get an HTML parser from the document.  If no parser is set for
      * the document, return the editor kit's default parser.  It is an error
      * if no parser could be obtained from the editor kit.
@@ -230,7 +230,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts content from the given stream. If <code>doc</code> is
      * an instance of HTMLDocument, this will read
      * HTML 3.2 text. Inserting HTML into a non-empty document must be inside
@@ -266,7 +266,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts HTML into an existing document.
      *
      * @param doc       the document to insert into
@@ -298,7 +298,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         receiver.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * Write content from a document to the given stream
      * in a format appropriate for this kind of content handler.
      *
@@ -325,7 +325,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being installed into the
      * a JEditorPane.
      *
@@ -339,7 +339,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         theEditor = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being removed from the
      * JEditorPane.  This is used to unregister any
      * listeners that were attached.
@@ -354,13 +354,13 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         theEditor = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Default Cascading Style Sheet file that sets
      * up the tag views.
      */
     public static final String DEFAULT_CSS = "default.css";
 
-    /**
+    /** {@collect.stats}
      * Set the set of styles to be used to render the various
      * HTML elements.  These styles are specified in terms of
      * CSS specifications.  Each document produced by the kit
@@ -378,7 +378,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the set of styles currently being used to render the
      * HTML elements.  By default the resource specified by
      * DEFAULT_CSS gets loaded, and is shared by all HTMLEditorKit
@@ -405,7 +405,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return defaultStyles;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a resource relative to the HTMLEditorKit classfile.
      * If this is called on 1.2 the loading will occur under the
      * protection of a doPrivileged call to allow the HTMLEditorKit
@@ -425,7 +425,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the command list for the editor.  This is
      * the list of commands supported by the superclass
      * augmented by the collection of commands defined
@@ -437,7 +437,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return TextAction.augmentList(super.getActions(), this.defaultActions);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the key/values in <code>element</code>s AttributeSet into
      * <code>set</code>. This does not copy component, icon, or element
      * names attributes. Subclasses may wish to refine what is and what
@@ -491,7 +491,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input attributes used for the styled
      * editing actions.
      *
@@ -504,7 +504,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return input;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the default cursor.
      *
      * @since 1.3
@@ -513,7 +513,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         defaultCursor = cursor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default cursor.
      *
      * @since 1.3
@@ -522,7 +522,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return defaultCursor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the cursor to use over links.
      *
      * @since 1.3
@@ -531,7 +531,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         linkCursor = cursor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cursor to use over hyper links.
      * @since 1.3
      */
@@ -539,7 +539,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return linkCursor;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether an html form submission is processed automatically
      * or only <code>FormSubmitEvent</code> is fired.
      *
@@ -553,7 +553,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return isAutoFormSubmission;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies if an html form submission is processed
      * automatically or only <code>FormSubmitEvent</code> is fired.
      * By default it is set to true.
@@ -566,7 +566,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         isAutoFormSubmission = isAuto;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of the editor kit.
      *
      * @return the copy
@@ -580,7 +580,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the parser to use for reading HTML streams.
      * This can be reimplemented to provide a different
      * parser.  The default implementation is loaded dynamically
@@ -602,7 +602,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
     // ----- Accessibility support -----
     private AccessibleContext accessibleContext;
 
-    /**
+    /** {@collect.stats}
      * returns the AccessibleContext associated with this editor kit
      *
      * @return the AccessibleContext associated with this editor kit
@@ -626,7 +626,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
     private static final Cursor DefaultCursor = Cursor.getPredefinedCursor
                                     (Cursor.DEFAULT_CURSOR);
 
-    /** Shared factory for creating HTML Views. */
+    /** {@collect.stats} Shared factory for creating HTML Views. */
     private static final ViewFactory defaultFactory = new HTMLFactory();
 
     MutableAttributeSet input;
@@ -637,26 +637,26 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
     private Cursor linkCursor = MoveCursor;
     private boolean isAutoFormSubmission = true;
 
-    /**
+    /** {@collect.stats}
      * Class to watch the associated component and fire
      * hyperlink events on it when appropriate.
      */
     public static class LinkController extends MouseAdapter implements MouseMotionListener, Serializable {
         private Element curElem = null;
-        /**
+        /** {@collect.stats}
          * If true, the current element (curElem) represents an image.
          */
         private boolean curElemImage = false;
         private String href = null;
-        /** This is used by viewToModel to avoid allocing a new array each
+        /** {@collect.stats} This is used by viewToModel to avoid allocing a new array each
          * time. */
         private transient Position.Bias[] bias = new Position.Bias[1];
-        /**
+        /** {@collect.stats}
          * Current offset.
          */
         private int curOffset;
 
-        /**
+        /** {@collect.stats}
          * Called for a mouse click event.
          * If the component is read-only (ie a browser) then
          * the clicked event is used to drive an attempt to
@@ -751,7 +751,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string anchor if the passed in element has a
          * USEMAP that contains the passed in location.
          */
@@ -790,7 +790,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the View representing <code>e</code> contains
          * the location <code>x</code>, <code>y</code>. <code>offset</code>
          * gives the offset into the Document to check for.
@@ -822,7 +822,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Calls linkActivated on the associated JEditorPane
          * if the given position represents a link.<p>This is implemented
          * to forward to the method with the same name, but with the following
@@ -835,7 +835,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             activateLink(pos, editor, -1, -1);
         }
 
-        /**
+        /** {@collect.stats}
          * Calls linkActivated on the associated JEditorPane
          * if the given position represents a link. If this was the result
          * of a mouse click, <code>x</code> and
@@ -872,7 +872,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates and returns a new instance of HyperlinkEvent. If
          * <code>hdoc</code> is a frame document a HTMLFrameHyperlinkEvent
          * will be created.
@@ -951,13 +951,13 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Interface to be supported by the parser.  This enables
      * providing a different parser while reusing some of the
      * implementation provided by this editor kit.
      */
     public static abstract class Parser {
-        /**
+        /** {@collect.stats}
          * Parse the given stream and drive the given callback
          * with the results of the parse.  This method should
          * be implemented to be thread-safe.
@@ -966,7 +966,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
 
     }
 
-    /**
+    /** {@collect.stats}
      * The result of parsing drives these callback methods.
      * The open and close actions should be balanced.  The
      * <code>flush</code> method will be the last method
@@ -979,7 +979,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
      * @see javax.swing.text.html.parser.DocumentParser
      */
     public static class ParserCallback {
-        /**
+        /** {@collect.stats}
          * This is passed as an attribute in the attributeset to indicate
          * the element is implied eg, the string '&lt;&gt;foo&lt;\t&gt;'
          * contains an implied html element and an implied body element.
@@ -1010,7 +1010,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         public void handleError(String errorMsg, int pos){
         }
 
-        /**
+        /** {@collect.stats}
          * This is invoked after the stream has been parsed, but before
          * <code>flush</code>. <code>eol</code> will be one of \n, \r
          * or \r\n, which ever is encountered the most in parsing the
@@ -1022,7 +1022,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A factory to build views for HTML.  The following
      * table describes what this factory will build by
      * default.
@@ -1105,7 +1105,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
      */
     public static class HTMLFactory implements ViewFactory {
 
-        /**
+        /** {@collect.stats}
          * Creates a view from an element.
          *
          * @param elem the element
@@ -1361,66 +1361,66 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
 
     // --- Action implementations ------------------------------
 
-/** The bold action identifier
+/** {@collect.stats} The bold action identifier
 */
     public static final String  BOLD_ACTION = "html-bold-action";
-/** The italic action identifier
+/** {@collect.stats} The italic action identifier
 */
     public static final String  ITALIC_ACTION = "html-italic-action";
-/** The paragraph left indent action identifier
+/** {@collect.stats} The paragraph left indent action identifier
 */
     public static final String  PARA_INDENT_LEFT = "html-para-indent-left";
-/** The paragraph right indent action identifier
+/** {@collect.stats} The paragraph right indent action identifier
 */
     public static final String  PARA_INDENT_RIGHT = "html-para-indent-right";
-/** The  font size increase to next value action identifier
+/** {@collect.stats} The  font size increase to next value action identifier
 */
     public static final String  FONT_CHANGE_BIGGER = "html-font-bigger";
-/** The font size decrease to next value action identifier
+/** {@collect.stats} The font size decrease to next value action identifier
 */
     public static final String  FONT_CHANGE_SMALLER = "html-font-smaller";
-/** The Color choice action identifier
+/** {@collect.stats} The Color choice action identifier
      The color is passed as an argument
 */
     public static final String  COLOR_ACTION = "html-color-action";
-/** The logical style choice action identifier
+/** {@collect.stats} The logical style choice action identifier
      The logical style is passed in as an argument
 */
     public static final String  LOGICAL_STYLE_ACTION = "html-logical-style-action";
-    /**
+    /** {@collect.stats}
      * Align images at the top.
      */
     public static final String  IMG_ALIGN_TOP = "html-image-align-top";
 
-    /**
+    /** {@collect.stats}
      * Align images in the middle.
      */
     public static final String  IMG_ALIGN_MIDDLE = "html-image-align-middle";
 
-    /**
+    /** {@collect.stats}
      * Align images at the bottom.
      */
     public static final String  IMG_ALIGN_BOTTOM = "html-image-align-bottom";
 
-    /**
+    /** {@collect.stats}
      * Align images at the border.
      */
     public static final String  IMG_BORDER = "html-image-border";
 
 
-    /** HTML used when inserting tables. */
+    /** {@collect.stats} HTML used when inserting tables. */
     private static final String INSERT_TABLE_HTML = "<table border=1><tr><td></td></tr></table>";
 
-    /** HTML used when inserting unordered lists. */
+    /** {@collect.stats} HTML used when inserting unordered lists. */
     private static final String INSERT_UL_HTML = "<ul><li></li></ul>";
 
-    /** HTML used when inserting ordered lists. */
+    /** {@collect.stats} HTML used when inserting ordered lists. */
     private static final String INSERT_OL_HTML = "<ol><li></li></ol>";
 
-    /** HTML used when inserting hr. */
+    /** {@collect.stats} HTML used when inserting hr. */
     private static final String INSERT_HR_HTML = "<hr>";
 
-    /** HTML used when inserting pre. */
+    /** {@collect.stats} HTML used when inserting pre. */
     private static final String INSERT_PRE_HTML = "<pre></pre>";
 
     private static final NavigateLinkAction nextLinkAction =
@@ -1466,7 +1466,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
     private Object linkNavigationTag;
 
 
-    /**
+    /** {@collect.stats}
      * An abstract Action providing some convenience methods that may
      * be useful in inserting HTML into an existing document.
      * <p>NOTE: None of the convenience methods obtain a lock on the
@@ -1478,7 +1478,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             super(name);
         }
 
-        /**
+        /** {@collect.stats}
          * @return HTMLDocument of <code>e</code>.
          */
         protected HTMLDocument getHTMLDocument(JEditorPane e) {
@@ -1489,7 +1489,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             throw new IllegalArgumentException("document must be HTMLDocument");
         }
 
-        /**
+        /** {@collect.stats}
          * @return HTMLEditorKit for <code>e</code>.
          */
         protected HTMLEditorKit getHTMLEditorKit(JEditorPane e) {
@@ -1500,7 +1500,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             throw new IllegalArgumentException("EditorKit must be HTMLEditorKit");
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an array of the Elements that contain <code>offset</code>.
          * The first elements corresponds to the root.
          */
@@ -1508,7 +1508,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return getElementsAt(doc.getDefaultRootElement(), offset, 0);
         }
 
-        /**
+        /** {@collect.stats}
          * Recursive method used by getElementsAt.
          */
         private Element[] getElementsAt(Element parent, int offset,
@@ -1524,7 +1524,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return retValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns number of elements, starting at the deepest leaf, needed
          * to get to an element representing <code>tag</code>. This will
          * return -1 if no elements is found representing <code>tag</code>,
@@ -1546,7 +1546,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return depth;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the deepest element at <code>offset</code> matching
          * <code>tag</code>.
          */
@@ -1566,7 +1566,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * InsertHTMLTextAction can be used to insert an arbitrary string of HTML
      * into an existing HTML document. At least two HTML.Tags need to be
      * supplied. The first Tag, parentTag, identifies the parent in
@@ -1614,7 +1614,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             this.adjustSelection = adjustSelection;
         }
 
-        /**
+        /** {@collect.stats}
          * A cover for HTMLEditorKit.insertHTML. If an exception it
          * thrown it is wrapped in a RuntimeException and thrown.
          */
@@ -1632,7 +1632,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This is invoked when inserting at a boundary. It determines
          * the number of pops, and then the number of pushes that need
          * to be performed, and then invokes insertHTML.
@@ -1646,7 +1646,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
                             parentTag, addTag);
         }
 
-        /**
+        /** {@collect.stats}
          * This is invoked when inserting at a boundary. It determines
          * the number of pops, and then the number of pushes that need
          * to be performed, and then invokes insertHTML.
@@ -1709,7 +1709,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * If there is an Element with name <code>tag</code> at
          * <code>offset</code>, this will invoke either insertAtBoundary
          * or <code>insertHTML</code>. This returns true if there is
@@ -1734,7 +1734,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Called after an insertion to adjust the selection.
          */
         /* protected */
@@ -1763,7 +1763,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts the HTML into the document.
          *
          * @param ae the event
@@ -1792,24 +1792,24 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             }
         }
 
-        /** HTML to insert. */
+        /** {@collect.stats} HTML to insert. */
         protected String html;
-        /** Tag to check for in the document. */
+        /** {@collect.stats} Tag to check for in the document. */
         protected HTML.Tag parentTag;
-        /** Tag in HTML to start adding tags from. */
+        /** {@collect.stats} Tag in HTML to start adding tags from. */
         protected HTML.Tag addTag;
-        /** Alternate Tag to check for in the document if parentTag is
+        /** {@collect.stats} Alternate Tag to check for in the document if parentTag is
          * not found. */
         protected HTML.Tag alternateParentTag;
-        /** Alternate tag in HTML to start adding tags from if parentTag
+        /** {@collect.stats} Alternate tag in HTML to start adding tags from if parentTag
          * is not found and alternateParentTag is found. */
         protected HTML.Tag alternateAddTag;
-        /** True indicates the selection should be adjusted after an insert. */
+        /** {@collect.stats} True indicates the selection should be adjusted after an insert. */
         boolean adjustSelection;
     }
 
 
-    /**
+    /** {@collect.stats}
      * InsertHRAction is special, at actionPerformed time it will determine
      * the parent HTML.Tag based on the paragraph element at the selection
      * start.
@@ -1820,7 +1820,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
                   false);
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts the HTML into the document.
          *
          * @param ae the event
@@ -1882,7 +1882,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             focusBack = "previous-link-action".equals(actionName);
         }
 
-        /**
+        /** {@collect.stats}
          * Called when the caret position is updated.
          *
          * @param e the caret event
@@ -2004,7 +2004,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * A highlight painter that draws a one-pixel border around
          * the highlighted area.
          */
@@ -2015,7 +2015,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
                 super(color);
             }
 
-            /**
+            /** {@collect.stats}
              * Paints a portion of a highlight.
              *
              * @param g the graphics context
@@ -2080,7 +2080,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
      */
     static class ActivateLinkAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Create this action with the appropriate identifier.
          */
         public ActivateLinkAction(String actionName) {
@@ -2260,7 +2260,7 @@ public class HTMLEditorKit extends StyledEditorKit implements Accessible {
             this.select = select;
         }
 
-        /** The operation to perform when this action is triggered. */
+        /** {@collect.stats} The operation to perform when this action is triggered. */
         public void actionPerformed(ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             int bodyStart = getBodyElementStart(target);

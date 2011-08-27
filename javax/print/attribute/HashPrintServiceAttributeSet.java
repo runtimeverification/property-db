@@ -27,7 +27,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class HashPrintServiceAttributeSet provides an attribute set
  * which inherits its implementation from class {@link HashAttributeSet
  * HashAttributeSet} and enforces the semantic restrictions of interface
@@ -41,7 +41,7 @@ public class HashPrintServiceAttributeSet extends HashAttributeSet
 
     private static final long serialVersionUID = 6642904616179203070L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty hash print service attribute set.
      */
     public HashPrintServiceAttributeSet() {
@@ -49,7 +49,7 @@ public class HashPrintServiceAttributeSet extends HashAttributeSet
     }
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new hash print service attribute set,
      *  initially populated with the given value.
      *
@@ -62,7 +62,7 @@ public class HashPrintServiceAttributeSet extends HashAttributeSet
         super (attribute, PrintServiceAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new print service attribute set, initially populated with
      * the values from the given array. The new attribute set is populated
      * by adding the elements of <CODE>attributes</CODE> array to the set in
@@ -82,7 +82,7 @@ public class HashPrintServiceAttributeSet extends HashAttributeSet
     }
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the
      * values from the  given set where the members of the attribute set
      * are restricted to the <code>PrintServiceAttribute</code> interface.

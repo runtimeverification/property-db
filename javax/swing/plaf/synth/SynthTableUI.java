@@ -56,7 +56,7 @@ import javax.swing.table.TableColumnModel;
 
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * SynthTableUI implementation
  *
  * @author Philip Milne
@@ -92,7 +92,7 @@ class SynthTableUI extends BasicTableUI implements SynthUI,
         return new SynthTableUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JTable properties, e.g. font, foreground, and background.
      * The font, foreground, and background properties are only set if their
      * current value is either null or a UIResource, other properties are set
@@ -186,7 +186,7 @@ class SynthTableUI extends BasicTableUI implements SynthUI,
         context.dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * Attaches listeners to the JTable.
      */
     protected void installListeners() {

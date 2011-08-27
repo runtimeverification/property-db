@@ -25,7 +25,7 @@
 
 package javax.naming.directory;
 
-/**
+/** {@collect.stats}
   * This class represents a modification item.
   * It consists of a modification code and an attribute on which to operate.
   *<p>
@@ -45,20 +45,20 @@ package javax.naming.directory;
 */
 
 public class ModificationItem implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Contains an integer identify the modification
      * to be performed.
      * @serial
      */
     private int mod_op;
-    /**
+    /** {@collect.stats}
      * Contains the attribute identifying
      * the attribute and/or its value to be applied for the modification.
      * @serial
      */
     private Attribute attr;
 
-    /**
+    /** {@collect.stats}
       * Creates a new instance of ModificationItem.
       * @param mod_op Modification to apply.  It must be one of:
       *         DirContext.ADD_ATTRIBUTE
@@ -85,7 +85,7 @@ public class ModificationItem implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the modification code of this modification item.
       * @return The modification code.  It is one of:
       *         DirContext.ADD_ATTRIBUTE
@@ -96,7 +96,7 @@ public class ModificationItem implements java.io.Serializable {
         return mod_op;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the attribute associated with this modification item.
       * @return The non-null attribute to use for the modification.
       */
@@ -104,7 +104,7 @@ public class ModificationItem implements java.io.Serializable {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
       * Generates the string representation of this modification item,
       * which consists of the modification operation and its related attribute.
       * The string representation is meant for debugging and not to be
@@ -126,7 +126,7 @@ public class ModificationItem implements java.io.Serializable {
         return "";      // should never happen
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 7573258562534746850L;

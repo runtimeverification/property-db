@@ -37,7 +37,7 @@ package java.awt.image.renderable;
 import java.awt.image.RenderedImage;
 import java.awt.RenderingHints;
 
-/**
+/** {@collect.stats}
  * The RenderedImageFactory interface (often abbreviated RIF) is
  * intended to be implemented by classes that wish to act as factories
  * to produce different renderings, for example by executing a series
@@ -46,7 +46,7 @@ import java.awt.RenderingHints;
  */
 public interface RenderedImageFactory {
 
-  /**
+  /** {@collect.stats}
    * Creates a RenderedImage representing the results of an imaging
    * operation (or chain of operations) for a given ParameterBlock and
    * RenderingHints.  The RIF may also query any source images

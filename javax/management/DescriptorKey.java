@@ -27,7 +27,7 @@ package javax.management;
 
 import java.lang.annotation.*;
 
-/**
+/** {@collect.stats}
  * <p>Meta-annotation that describes how an annotation element relates
  * to a field in a {@link Descriptor}.  This can be the Descriptor for
  * an MBean, or for an attribute, operation, or constructor in an

@@ -27,7 +27,7 @@ package javax.naming.ldap;
 
 import javax.naming.event.NamingListener;
 
-/**
+/** {@collect.stats}
  * This interface is for handling <tt>UnsolicitedNotificationEvent</tt>.
  * "Unsolicited notification" is defined in
  * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
@@ -59,7 +59,7 @@ import javax.naming.event.NamingListener;
  */
 public interface UnsolicitedNotificationListener extends NamingListener {
 
-    /**
+    /** {@collect.stats}
      * Called when an unsolicited notification has been received.
      *
      * @param evt The non-null UnsolicitedNotificationEvent

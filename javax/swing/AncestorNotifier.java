@@ -38,7 +38,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * @author Dave Moore
  */
 
@@ -65,7 +65,7 @@ class AncestorNotifier implements ComponentListener, PropertyChangeListener, Ser
         return (AncestorListener[])listenerList.getListeners(AncestorListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notify all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -87,7 +87,7 @@ class AncestorNotifier implements ComponentListener, PropertyChangeListener, Ser
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notify all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -108,7 +108,7 @@ class AncestorNotifier implements ComponentListener, PropertyChangeListener, Ser
             }
         }
     }
-    /**
+    /** {@collect.stats}
      * Notify all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into

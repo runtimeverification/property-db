@@ -27,7 +27,7 @@ package javax.swing.text.html;
 import javax.swing.text.*;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * This is the view associated with the html tag NOFRAMES.
  * This view has been written to ignore the contents of the
  * NOFRAMES tag.  The contents of the tag will only be visible
@@ -37,7 +37,7 @@ import java.awt.*;
  */
 class NoFramesView extends BlockView {
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents an
      * html box.  This can be used for a number
      * of elements.  By default this view is not
@@ -52,7 +52,7 @@ class NoFramesView extends BlockView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * If this view is not visible, then it returns.
      * Otherwise it invokes the superclass.
      *
@@ -75,7 +75,7 @@ class NoFramesView extends BlockView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the JTextComponent that the view
      * is contained in is editable. If so, then this
      * view and all its child views are visible.
@@ -95,7 +95,7 @@ class NoFramesView extends BlockView {
         super.setParent(p);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a true/false value that represents
      * whether the view is visible or not.
      */
@@ -104,7 +104,7 @@ class NoFramesView extends BlockView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Do nothing if the view is not visible, otherwise
      * invoke the superclass to perform layout.
      */
@@ -115,7 +115,7 @@ class NoFramesView extends BlockView {
         super.layout(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view.  Returns
      * 0 if the view is not visible, otherwise it calls the
      * superclass method to get the preferred span.
@@ -135,7 +135,7 @@ class NoFramesView extends BlockView {
         return super.getPreferredSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.  Returns 0 if the view is not visible, otherwise
      * it calls the superclass method to get the minimum span.
@@ -152,7 +152,7 @@ class NoFramesView extends BlockView {
         return super.getMinimumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.  Returns 0 if the view is not visible, otherwise
      * it calls the superclass method ot get the maximum span.

@@ -39,7 +39,7 @@ import javax.swing.plaf.UIResource;
 import javax.swing.text.View;
 
 
-/**
+/** {@collect.stats}
  * Standard tool tip L&F.
  * <p>
  *
@@ -48,7 +48,7 @@ import javax.swing.text.View;
 public class BasicToolTipUI extends ToolTipUI
 {
     static BasicToolTipUI sharedInstance = new BasicToolTipUI();
-    /**
+    /** {@collect.stats}
      * Global <code>PropertyChangeListener</code> that
      * <code>createPropertyChangeListener</code> returns.
      */
@@ -193,7 +193,7 @@ public class BasicToolTipUI extends ToolTipUI
         return d;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the <code>JCompoment</code> associated with the
      * <code>JToolTip</code> has changed, or at initialization time. This
      * should update any state dependant upon the <code>JComponent</code>.

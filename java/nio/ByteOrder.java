@@ -26,7 +26,7 @@
 package java.nio;
 
 
-/**
+/** {@collect.stats}
  * A typesafe enumeration for byte orders.
  *
  * @author Mark Reinhold
@@ -42,7 +42,7 @@ public final class ByteOrder {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Constant denoting big-endian byte order.  In this order, the bytes of a
      * multibyte value are ordered from most significant to least significant.
      * </p>
@@ -50,7 +50,7 @@ public final class ByteOrder {
     public static final ByteOrder BIG_ENDIAN
         = new ByteOrder("BIG_ENDIAN");
 
-    /**
+    /** {@collect.stats}
      * Constant denoting little-endian byte order.  In this order, the bytes of
      * a multibyte value are ordered from least significant to most
      * significant.  </p>
@@ -58,7 +58,7 @@ public final class ByteOrder {
     public static final ByteOrder LITTLE_ENDIAN
         = new ByteOrder("LITTLE_ENDIAN");
 
-    /**
+    /** {@collect.stats}
      * Retrieves the native byte order of the underlying platform.
      *
      * <p> This method is defined so that performance-sensitive Java code can
@@ -73,7 +73,7 @@ public final class ByteOrder {
         return Bits.byteOrder();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a string describing this object.
      *
      * <p> This method returns the string <tt>"BIG_ENDIAN"</tt> for {@link

@@ -31,7 +31,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.UIResource;
 import javax.swing.plaf.basic.*;
 
-/**
+/** {@collect.stats}
  * Metal implementation of <code>MenuBarUI</code>. This class is responsible
  * for providing the metal look and feel for <code>JMenuBar</code>s.
  *
@@ -39,7 +39,7 @@ import javax.swing.plaf.basic.*;
  * @since 1.5
  */
 public class MetalMenuBarUI extends BasicMenuBarUI  {
-    /**
+    /** {@collect.stats}
      * Creates the <code>ComponentUI</code> implementation for the passed
      * in component.
      *
@@ -54,7 +54,7 @@ public class MetalMenuBarUI extends BasicMenuBarUI  {
         return new MetalMenuBarUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the specified component appropriate for the metal look and
      * feel.
      *
@@ -66,7 +66,7 @@ public class MetalMenuBarUI extends BasicMenuBarUI  {
         MetalToolBarUI.register(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Reverses configuration which was done on the specified component during
      * <code>installUI</code>.
      *
@@ -78,7 +78,7 @@ public class MetalMenuBarUI extends BasicMenuBarUI  {
         MetalToolBarUI.unregister(c);
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary paints the background of the component, then
      * invokes <code>paint</code>.
      *

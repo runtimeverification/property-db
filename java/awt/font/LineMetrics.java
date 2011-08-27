@@ -27,7 +27,7 @@
 
 package java.awt.font;
 
-/**
+/** {@collect.stats}
 * The <code>LineMetrics</code> class allows access to the
 * metrics needed to layout characters along a line
 * and to layout of a set of lines.  A <code>LineMetrics</code>
@@ -46,7 +46,7 @@ package java.awt.font;
 public abstract class LineMetrics {
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of characters (<code>char</code> values) in the text whose
      * metrics are encapsulated by this <code>LineMetrics</code>
      * object.
@@ -55,7 +55,7 @@ public abstract class LineMetrics {
      */
     public abstract int getNumChars();
 
-    /**
+    /** {@collect.stats}
      * Returns the ascent of the text.  The ascent
      * is the distance from the baseline
      * to the ascender line.  The ascent usually represents the
@@ -65,7 +65,7 @@ public abstract class LineMetrics {
      */
     public abstract float getAscent();
 
-    /**
+    /** {@collect.stats}
      * Returns the descent of the text.  The descent
      * is the distance from the baseline
      * to the descender line.  The descent usually represents
@@ -76,7 +76,7 @@ public abstract class LineMetrics {
      */
     public abstract float getDescent();
 
-    /**
+    /** {@collect.stats}
      * Returns the leading of the text. The
      * leading is the recommended
      * distance from the bottom of the descender line to the
@@ -85,7 +85,7 @@ public abstract class LineMetrics {
      */
     public abstract float getLeading();
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the text.  The
      * height is equal to the sum of the ascent, the
      * descent and the leading.
@@ -93,7 +93,7 @@ public abstract class LineMetrics {
      */
     public abstract float getHeight();
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline index of the text.
      * The index is one of
      * {@link java.awt.Font#ROMAN_BASELINE ROMAN_BASELINE},
@@ -103,7 +103,7 @@ public abstract class LineMetrics {
      */
     public abstract int getBaselineIndex();
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline offsets of the text,
      * relative to the baseline of the text.  The
      * offsets are indexed by baseline index.  For
@@ -117,27 +117,27 @@ public abstract class LineMetrics {
      */
     public abstract float[] getBaselineOffsets();
 
-    /**
+    /** {@collect.stats}
      * Returns the position of the strike-through line
      * relative to the baseline.
      * @return the position of the strike-through line.
      */
     public abstract float getStrikethroughOffset();
 
-    /**
+    /** {@collect.stats}
      * Returns the thickness of the strike-through line.
      * @return the thickness of the strike-through line.
      */
     public abstract float getStrikethroughThickness();
 
-    /**
+    /** {@collect.stats}
      * Returns the position of the underline relative to
      * the baseline.
      * @return the position of the underline.
      */
     public abstract float getUnderlineOffset();
 
-    /**
+    /** {@collect.stats}
      * Returns the thickness of the underline.
      * @return the thickness of the underline.
      */

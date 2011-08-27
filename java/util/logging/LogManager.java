@@ -36,7 +36,7 @@ import java.beans.PropertyChangeSupport;
 import java.net.URL;
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * There is a single global LogManager object that is used to
  * maintain a set of shared state about Loggers and log services.
  * <p>
@@ -235,7 +235,7 @@ public class LogManager {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Protected constructor.  This is protected so that container applications
      * (such as J2EE containers) can subclass the object.  It is non-public as
      * it is intended that there only be one LogManager object, whose value is
@@ -251,7 +251,7 @@ public class LogManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the global LogManager object.
      */
     public static LogManager getLogManager() {
@@ -288,7 +288,7 @@ public class LogManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an event listener to be invoked when the logging
      * properties are re-read. Adding multiple instances of
      * the same event Listener results in multiple entries
@@ -307,7 +307,7 @@ public class LogManager {
         changes.addPropertyChangeListener(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an event listener for property change events.
      * If the same listener instance has been added to the listener table
      * through multiple invocations of <CODE>addPropertyChangeListener</CODE>,
@@ -523,7 +523,7 @@ public class LogManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Add a named logger.  This does nothing and returns false if a logger
      * with the same name is already registered.
      * <p>
@@ -674,7 +674,7 @@ public class LogManager {
         return node;
     }
 
-    /**
+    /** {@collect.stats}
      * Method to find a named logger.
      * <p>
      * Note that since untrusted code may create loggers with
@@ -703,7 +703,7 @@ public class LogManager {
         return logger;
     }
 
-    /**
+    /** {@collect.stats}
      * Get an enumeration of known logger names.
      * <p>
      * Note:  Loggers may be added dynamically as new classes are loaded.
@@ -723,7 +723,7 @@ public class LogManager {
         return namedLoggers.keys();
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the logging properties and reread the logging configuration.
      * <p>
      * The same rules are used for locating the configuration properties
@@ -786,7 +786,7 @@ public class LogManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reset the logging configuration.
      * <p>
      * For all named loggers, the reset operation removes and closes
@@ -869,7 +869,7 @@ public class LogManager {
         return result.toArray(new String[result.size()]);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the logging properties and reread the logging configuration
      * from the given stream, which should be in java.util.Properties format.
      * A PropertyChangeEvent will be fired after the properties are read.
@@ -916,7 +916,7 @@ public class LogManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the value of a logging property.
      * The method returns null if the property is not found.
      * @param name      property name
@@ -1047,7 +1047,7 @@ public class LogManager {
 
     private Permission ourPermission = new LoggingPermission("control", null);
 
-    /**
+    /** {@collect.stats}
      * Check that the current context is trusted to modify the logging
      * configuration.  This requires LoggingPermission("control").
      * <p>
@@ -1155,7 +1155,7 @@ public class LogManager {
 
     // Management Support
     private static LoggingMXBean loggingMXBean = null;
-    /**
+    /** {@collect.stats}
      * String representation of the
      * {@link javax.management.ObjectName} for {@link LoggingMXBean}.
      * @since 1.5
@@ -1163,7 +1163,7 @@ public class LogManager {
     public final static String LOGGING_MXBEAN_NAME
         = "java.util.logging:type=Logging";
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>LoggingMXBean</tt> for managing loggers.
      * The <tt>LoggingMXBean</tt> can also obtained from the
      * {@link java.lang.management.ManagementFactory#getPlatformMBeanServer

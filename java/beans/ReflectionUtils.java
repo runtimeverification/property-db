@@ -39,7 +39,7 @@ import sun.reflect.misc.MethodUtil;
 import sun.reflect.misc.ConstructorUtil;
 import sun.reflect.misc.ReflectUtil;
 
-/**
+/** {@collect.stats}
  * A utility class for reflectively finding methods, constuctors and fields
  * using reflection.
  */
@@ -68,7 +68,7 @@ class ReflectionUtils {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests each element on the class arrays for assignability.
      *
      * @param argClasses arguments to be tested
@@ -80,7 +80,7 @@ class ReflectionUtils {
         return matchArguments(argClasses, argTypes, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests each element on the class arrays for equality.
      *
      * @param argClasses arguments to be tested
@@ -117,7 +117,7 @@ class ReflectionUtils {
         return match;
     }
 
-    /**
+    /** {@collect.stats}
      * @return the method which best matches the signature or throw an exception
      *         if it can't be found or the method is ambiguous.
      */
@@ -131,7 +131,7 @@ class ReflectionUtils {
         return m;
     }
 
-    /**
+    /** {@collect.stats}
      * @return the method which best matches the signature or null if it cant be found or
      *         the method is ambiguous.
      */
@@ -182,7 +182,7 @@ class ReflectionUtils {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the most specific method from the list of methods which
      * matches the args. The most specific method will have the most
      * number of equal parameters or will be closest in the inheritance
@@ -240,7 +240,7 @@ class ReflectionUtils {
         return method;
     }
 
-    /**
+    /** {@collect.stats}
      * @return the method or null if it can't be found or is ambiguous.
      */
     public static Method findMethod(Class targetClass, String methodName,
@@ -291,7 +291,7 @@ class ReflectionUtils {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * A class that represents the unique elements of a method that will be a
      * key in the method cache.
      */
@@ -330,7 +330,7 @@ class ReflectionUtils {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Hash code computed using algorithm suggested in
          * Effective Java, Item 8.
          */
@@ -351,7 +351,7 @@ class ReflectionUtils {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A wrapper to findMethod(), which will search or populate the method
      * in a cache.
      * @throws exception if the method is ambiguios.
@@ -386,7 +386,7 @@ class ReflectionUtils {
         return method;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a constructor on the class with the arguments.
      *
      * @throws exception if the method is ambiguios.
@@ -408,7 +408,7 @@ class ReflectionUtils {
         return getPrivateField(instance, cls, name, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of a private field.
      *
      * @param instance object instance

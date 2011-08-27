@@ -30,7 +30,7 @@ import javax.swing.event.*;
 import java.io.Serializable;
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  *  This abstract class provides default implementations for most of
  *  the methods in the <code>TableModel</code> interface. It takes care of
  *  the management of listeners and provides some conveniences for generating
@@ -63,14 +63,14 @@ public abstract class AbstractTableModel implements TableModel, Serializable
 // Instance Variables
 //
 
-    /** List of listeners */
+    /** {@collect.stats} List of listeners */
     protected EventListenerList listenerList = new EventListenerList();
 
 //
 // Default Implementation of the Interface
 //
 
-    /**
+    /** {@collect.stats}
      *  Returns a default name for the column using spreadsheet conventions:
      *  A, B, C, ... Z, AA, AB, etc.  If <code>column</code> cannot be found,
      *  returns an empty string.
@@ -86,7 +86,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a column given its name.
      * Implementation is naive so this should be overridden if
      * this method is to be called often. This method is not
@@ -105,7 +105,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns <code>Object.class</code> regardless of <code>columnIndex</code>.
      *
      *  @param columnIndex  the column being queried
@@ -115,7 +115,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         return Object.class;
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns false.  This is the default implementation for all cells.
      *
      *  @param  rowIndex  the row being queried
@@ -126,7 +126,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      *  This empty implementation is provided so users don't have to implement
      *  this method if their data model is not editable.
      *
@@ -142,7 +142,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
 //  Managing Listeners
 //
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list that's notified each time a change
      * to the data model occurs.
      *
@@ -152,7 +152,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         listenerList.add(TableModelListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from the list that's notified each time a
      * change to the data model occurs.
      *
@@ -162,7 +162,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         listenerList.remove(TableModelListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the table model listeners
      * registered on this model.
      *
@@ -184,7 +184,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
 //  Fire methods
 //
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that all cell values in the table's
      * rows may have changed. The number of rows may also have changed
      * and the <code>JTable</code> should redraw the
@@ -199,7 +199,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         fireTableChanged(new TableModelEvent(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that the table's structure has changed.
      * The number of columns in the table, and the names and types of
      * the new columns may be different from the previous state.
@@ -217,7 +217,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         fireTableChanged(new TableModelEvent(this, TableModelEvent.HEADER_ROW));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that rows in the range
      * <code>[firstRow, lastRow]</code>, inclusive, have been inserted.
      *
@@ -233,7 +233,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
                              TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that rows in the range
      * <code>[firstRow, lastRow]</code>, inclusive, have been updated.
      *
@@ -248,7 +248,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
                              TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that rows in the range
      * <code>[firstRow, lastRow]</code>, inclusive, have been deleted.
      *
@@ -263,7 +263,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
                              TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE));
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that the value of the cell at
      * <code>[row, column]</code> has been updated.
      *
@@ -276,7 +276,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         fireTableChanged(new TableModelEvent(this, row, row, column));
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the given notification event to all
      * <code>TableModelListeners</code> that registered
      * themselves as listeners for this table model.
@@ -299,7 +299,7 @@ public abstract class AbstractTableModel implements TableModel, Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>AbstractTableModel</code>.

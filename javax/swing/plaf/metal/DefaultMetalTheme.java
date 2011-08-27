@@ -33,7 +33,7 @@ import sun.awt.AppContext;
 import sun.security.action.GetPropertyAction;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A concrete implementation of {@code MetalTheme} providing
  * the original look of the Java Look and Feel, code-named "Steel". Refer
  * to {@link MetalLookAndFeel#setCurrentTheme} for details on changing
@@ -89,26 +89,26 @@ import sun.swing.SwingUtilities2;
  * @author Steve Wilson
  */
 public class DefaultMetalTheme extends MetalTheme {
-    /**
+    /** {@collect.stats}
      * Whether or not fonts should be plain.  This is only used if
      * the defaults property 'swing.boldMetal' == "false".
      */
     private static final boolean PLAIN_FONTS;
 
-    /**
+    /** {@collect.stats}
      * Names of the fonts to use.
      */
     private static final String[] fontNames = {
         Font.DIALOG,Font.DIALOG,Font.DIALOG,Font.DIALOG,Font.DIALOG,Font.DIALOG
     };
-    /**
+    /** {@collect.stats}
      * Styles for the fonts.  This is ignored if the defaults property
      * <code>swing.boldMetal</code> is false, or PLAIN_FONTS is true.
      */
     private static final int[] fontStyles = {
         Font.BOLD, Font.PLAIN, Font.PLAIN, Font.BOLD, Font.BOLD, Font.PLAIN
     };
-    /**
+    /** {@collect.stats}
      * Sizes for the fonts.
      */
     private static final int[] fontSizes = {
@@ -122,7 +122,7 @@ public class DefaultMetalTheme extends MetalTheme {
     //
     // However, we don't promise to support these forever.  We may move
     // to getting these from the swing.properties file, or elsewhere.
-    /**
+    /** {@collect.stats}
      * System property names used to look up fonts.
      */
     private static final String[] defaultNames = {
@@ -134,21 +134,21 @@ public class DefaultMetalTheme extends MetalTheme {
         "swing.plaf.metal.smallFont"
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the ideal font name for the font identified by key.
      */
     static String getDefaultFontName(int key) {
         return fontNames[key];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ideal font size for the font identified by key.
      */
     static int getDefaultFontSize(int key) {
         return fontSizes[key];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ideal font style for the font identified by key.
      */
     static int getDefaultFontStyle(int key) {
@@ -173,7 +173,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return fontStyles[key];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default used to look up the specified font.
      */
     static String getDefaultPropertyName(int key) {
@@ -206,21 +206,21 @@ public class DefaultMetalTheme extends MetalTheme {
 
     private FontDelegate fontDelegate;
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this theme. This returns {@code "Steel"}.
      *
      * @return the name of this theme.
      */
     public String getName() { return "Steel"; }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an instance of {@code DefaultMetalTheme}.
      */
     public DefaultMetalTheme() {
         install();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 1 color. This returns a color with rgb values
      * of 102, 102, and 153, respectively.
      *
@@ -228,7 +228,7 @@ public class DefaultMetalTheme extends MetalTheme {
      */
     protected ColorUIResource getPrimary1() { return primary1; }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 2 color. This returns a color with rgb values
      * of 153, 153, 204, respectively.
      *
@@ -236,7 +236,7 @@ public class DefaultMetalTheme extends MetalTheme {
      */
     protected ColorUIResource getPrimary2() { return primary2; }
 
-    /**
+    /** {@collect.stats}
      * Returns the primary 3 color. This returns a color with rgb values
      * 204, 204, 255, respectively.
      *
@@ -244,7 +244,7 @@ public class DefaultMetalTheme extends MetalTheme {
      */
     protected ColorUIResource getPrimary3() { return primary3; }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 1 color. This returns a color with rgb values
      * 102, 102, and 102, respectively.
      *
@@ -252,7 +252,7 @@ public class DefaultMetalTheme extends MetalTheme {
      */
     protected ColorUIResource getSecondary1() { return secondary1; }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 2 color. This returns a color with rgb values
      * 153, 153, and 153, respectively.
      *
@@ -260,7 +260,7 @@ public class DefaultMetalTheme extends MetalTheme {
      */
     protected ColorUIResource getSecondary2() { return secondary2; }
 
-    /**
+    /** {@collect.stats}
      * Returns the secondary 3 color. This returns a color with rgb values
      * 204, 204, and 204, respectively.
      *
@@ -269,7 +269,7 @@ public class DefaultMetalTheme extends MetalTheme {
     protected ColorUIResource getSecondary3() { return secondary3; }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the control text font. This returns Dialog, 12pt. If
      * plain fonts have been enabled as described in <a href="#fontStyle">
      * font style</a>, the font style is plain. Otherwise the font style is
@@ -281,7 +281,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return getFont(CONTROL_TEXT_FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the system text font. This returns Dialog, 12pt, plain.
      *
      * @return the sytem text font
@@ -290,7 +290,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return getFont(SYSTEM_TEXT_FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the user text font. This returns Dialog, 12pt, plain.
      *
      * @return the user text font
@@ -299,7 +299,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return getFont(USER_TEXT_FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu text font. This returns Dialog, 12pt. If
      * plain fonts have been enabled as described in <a href="#fontStyle">
      * font style</a>, the font style is plain. Otherwise the font style is
@@ -311,7 +311,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return getFont(MENU_TEXT_FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the window title font. This returns Dialog, 12pt, bold.
      *
      * @return the window title font
@@ -320,7 +320,7 @@ public class DefaultMetalTheme extends MetalTheme {
         return getFont(WINDOW_TITLE_FONT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sub-text font. This returns Dialog, 10pt, plain.
      *
      * @return the sub-text font
@@ -343,14 +343,14 @@ public class DefaultMetalTheme extends MetalTheme {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this is a theme provided by the core platform.
      */
     boolean isSystemTheme() {
         return (getClass() == DefaultMetalTheme.class);
     }
 
-    /**
+    /** {@collect.stats}
      * FontDelegates add an extra level of indirection to obtaining fonts.
      */
     private static class FontDelegate {
@@ -381,7 +381,7 @@ public class DefaultMetalTheme extends MetalTheme {
             return fonts[type];
         }
 
-        /**
+        /** {@collect.stats}
          * This is the same as invoking
          * <code>Font.getFont(key)</code>, with the exception
          * that it is wrapped inside a <code>doPrivileged</code> call.
@@ -397,7 +397,7 @@ public class DefaultMetalTheme extends MetalTheme {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The WindowsFontDelegate uses DesktopProperties to obtain fonts.
      */
     private static class WindowsFontDelegate extends FontDelegate {

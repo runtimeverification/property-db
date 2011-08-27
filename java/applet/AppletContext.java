@@ -34,7 +34,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-/**
+/** {@collect.stats}
  * This interface corresponds to an applet's environment: the
  * document containing the applet and the other applets in the same
  * document.
@@ -46,7 +46,7 @@ import java.util.Iterator;
  * @since       JDK1.0
  */
 public interface AppletContext {
-    /**
+    /** {@collect.stats}
      * Creates an audio clip.
      *
      * @param   url   an absolute URL giving the location of the audio clip.
@@ -54,7 +54,7 @@ public interface AppletContext {
      */
     AudioClip getAudioClip(URL url);
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Image</code> object that can then be painted on
      * the screen. The <code>url</code> argument<code> </code>that is
      * passed as an argument must specify an absolute URL.
@@ -70,7 +70,7 @@ public interface AppletContext {
      */
     Image getImage(URL url);
 
-    /**
+    /** {@collect.stats}
      * Finds and returns the applet in the document represented by this
      * applet context with the given name. The name can be set in the
      * HTML tag by setting the <code>name</code> attribute.
@@ -81,7 +81,7 @@ public interface AppletContext {
      */
     Applet getApplet(String name);
 
-    /**
+    /** {@collect.stats}
      * Finds all the applets in the document represented by this applet
      * context.
      *
@@ -90,7 +90,7 @@ public interface AppletContext {
      */
     Enumeration<Applet> getApplets();
 
-    /**
+    /** {@collect.stats}
      * Requests that the browser or applet viewer show the Web page
      * indicated by the <code>url</code> argument. The browser or
      * applet viewer determines which window or frame to display the
@@ -101,7 +101,7 @@ public interface AppletContext {
      */
     void showDocument(URL url);
 
-    /**
+    /** {@collect.stats}
      * Requests that the browser or applet viewer show the Web page
      * indicated by the <code>url</code> argument. The
      * <code>target</code> argument indicates in which HTML frame the
@@ -134,7 +134,7 @@ public interface AppletContext {
      */
     public void showDocument(URL url, String target);
 
-    /**
+    /** {@collect.stats}
      * Requests that the argument string be displayed in the
      * "status window". Many browsers and applet viewers
      * provide such a window, where the application can inform users of
@@ -144,7 +144,7 @@ public interface AppletContext {
      */
     void showStatus(String status);
 
-    /**
+    /** {@collect.stats}
      * Associates the specified stream with the specified key in this
      * applet context. If the applet context previously contained a mapping
      * for this key, the old value is replaced.
@@ -164,7 +164,7 @@ public interface AppletContext {
      */
     public void setStream(String key, InputStream stream)throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns the stream to which specified key is associated within this
      * applet context. Returns <tt>null</tt> if the applet context contains
      * no stream for this key.
@@ -179,7 +179,7 @@ public interface AppletContext {
      */
     public InputStream getStream(String key);
 
-    /**
+    /** {@collect.stats}
      * Finds all the keys of the streams in this applet context.
      * <p>
      * For security reasons, mapping of streams and keys exists for each

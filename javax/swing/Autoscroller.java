@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
+/** {@collect.stats}
  * Autoscroller is responsible for generating synthetic mouse dragged
  * events. It is the responsibility of the Component (or its MouseListeners)
  * that receive the events to do the actual scrolling in response to the
@@ -38,7 +38,7 @@ import java.awt.event.*;
  * @author Scott Violet
  */
 class Autoscroller implements ActionListener {
-    /**
+    /** {@collect.stats}
      * Global Autoscroller.
      */
     private static Autoscroller sharedInstance = new Autoscroller();
@@ -53,21 +53,21 @@ class Autoscroller implements ActionListener {
     //
     // The public API, all methods are cover methods for an instance method
     //
-    /**
+    /** {@collect.stats}
      * Stops autoscroll events from happening on the specified component.
      */
     public static void stop(JComponent c) {
         sharedInstance._stop(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Stops autoscroll events from happening on the specified component.
      */
     public static boolean isRunning(JComponent c) {
         return sharedInstance._isRunning(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a mouse dragged event occurs, will start the autoscroller
      * if necessary.
      */
@@ -79,7 +79,7 @@ class Autoscroller implements ActionListener {
     Autoscroller() {
     }
 
-    /**
+    /** {@collect.stats}
      * Starts the timer targeting the passed in component.
      */
     private void start(JComponent c, MouseEvent e) {
@@ -110,7 +110,7 @@ class Autoscroller implements ActionListener {
     // Methods mirror the public static API
     //
 
-    /**
+    /** {@collect.stats}
      * Stops scrolling for the passed in widget.
      */
     private void _stop(JComponent c) {
@@ -124,7 +124,7 @@ class Autoscroller implements ActionListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if autoscrolling is currently running for the specified
      * widget.
      */
@@ -132,7 +132,7 @@ class Autoscroller implements ActionListener {
         return (c == component && timer != null && timer.isRunning());
     }
 
-    /**
+    /** {@collect.stats}
      * MouseListener method, invokes start/stop as necessary.
      */
     private void _processMouseDragged(MouseEvent e) {
@@ -152,7 +152,7 @@ class Autoscroller implements ActionListener {
     //
     // ActionListener
     //
-    /**
+    /** {@collect.stats}
      * ActionListener method. Invoked when the Timer fires. This will scroll
      * if necessary.
      */

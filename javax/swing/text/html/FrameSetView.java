@@ -30,7 +30,7 @@ import javax.swing.*;
 import javax.swing.text.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * Implements a FrameSetView, intended to support the HTML
  * &lt;FRAMESET&gt; tag.  Supports the ROWS and COLS attributes.
  *
@@ -53,7 +53,7 @@ class FrameSetView extends javax.swing.text.BoxView {
     int absoluteTotals;
     int relativeTotals;
 
-    /**
+    /** {@collect.stats}
      * Constructs a FrameSetView for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -63,7 +63,7 @@ class FrameSetView extends javax.swing.text.BoxView {
         children = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the ROW or COL attributes and returns
      * an array of strings that represent the space
      * distribution.
@@ -102,7 +102,7 @@ class FrameSetView extends javax.swing.text.BoxView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes a number of internal state variables
      * that store information about space allocation
      * for the frames contained within the frameset.
@@ -150,7 +150,7 @@ class FrameSetView extends javax.swing.text.BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Perform layout for the major axis of the box (i.e. the
      * axis that it represents).  The results of the layout should
      * be placed in the given arrays which represent the allocations
@@ -205,7 +205,7 @@ class FrameSetView extends javax.swing.text.BoxView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is responsible for returning in span[] the
      * span for each child view along the major axis.  it
      * computes this based on the information that extracted

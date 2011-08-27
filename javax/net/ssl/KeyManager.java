@@ -25,7 +25,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * This is the base interface for JSSE key managers.
  * <P>
  * <code>KeyManager</code>s are responsible for managing the

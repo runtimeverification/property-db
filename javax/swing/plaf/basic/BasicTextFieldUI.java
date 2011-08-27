@@ -37,7 +37,7 @@ import javax.swing.text.*;
 import javax.swing.plaf.*;
 import sun.swing.DefaultLookup;
 
-/**
+/** {@collect.stats}
  * Basis of a look and feel for a JTextField.
  * <p>
  * <strong>Warning:</strong>
@@ -53,7 +53,7 @@ import sun.swing.DefaultLookup;
  */
 public class BasicTextFieldUI extends BasicTextUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JTextField.
      *
      * @param c the text field
@@ -63,14 +63,14 @@ public class BasicTextFieldUI extends BasicTextUI {
         return new BasicTextFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BasicTextFieldUI.
      */
     public BasicTextFieldUI() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -81,7 +81,7 @@ public class BasicTextFieldUI extends BasicTextUI {
         return "TextField";
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view (FieldView) based on an element.
      *
      * @param elem the element
@@ -106,7 +106,7 @@ public class BasicTextFieldUI extends BasicTextUI {
         return new FieldView(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -147,7 +147,7 @@ public class BasicTextFieldUI extends BasicTextUI {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -162,7 +162,7 @@ public class BasicTextFieldUI extends BasicTextUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A field view that support bidirectional text via the
      * support provided by ParagraphView.
      */
@@ -172,7 +172,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             super(elem);
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the constraining span to flow against for
          * the given child index.  There is no limit for
          * a field since it scrolls, so this is implemented to
@@ -191,7 +191,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return c.getComponentOrientation().isLeftToRight();
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the allocation given to the view
          * to be a suitable allocation for a text field.
          * If the view has been allocated more than the
@@ -272,7 +272,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Update the visibility model with the associated JTextField
          * (if there is one) to reflect the current visibility as a
          * result of changes to the document model.  The bounded
@@ -301,7 +301,7 @@ public class BasicTextFieldUI extends BasicTextUI {
 
         // --- View methods -------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Renders using the given rendering surface and area on that surface.
          * The view may need to do layout and create child views to enable
          * itself to render into the given allocation.
@@ -317,7 +317,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             super.paint(g, adjustAllocation(a));
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the resizability of the view along the
          * given axis.  A value of 0 or less is not resizable.
          *
@@ -331,7 +331,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -346,7 +346,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return super.modelToView(pos, adjustAllocation(a), b);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -372,7 +372,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return super.modelToView(p0, b0, p1, b1, adjustAllocation(a));
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.
          *
@@ -387,7 +387,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             return super.viewToModel(fx, fy, adjustAllocation(a), bias);
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was inserted into the document
          * in a location that this view is responsible for.
          *
@@ -401,7 +401,7 @@ public class BasicTextFieldUI extends BasicTextUI {
             updateVisibilityModel();
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was removed from the document
          * in a location that this view is responsible for.
          *

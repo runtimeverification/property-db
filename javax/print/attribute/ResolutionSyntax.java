@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class ResolutionSyntax is an abstract base class providing the common
  * implementation of all attributes denoting a printer resolution.
  * <P>
@@ -87,32 +87,32 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 2706743076526672017L;
 
-    /**
+    /** {@collect.stats}
      * Cross feed direction resolution in units of dots per 100 inches (dphi).
      * @serial
      */
     private int crossFeedResolution;
 
-    /**
+    /** {@collect.stats}
      * Feed direction resolution in units of dots per 100 inches (dphi).
      * @serial
      */
     private int feedResolution;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of dots per inch (dpi). It is actually the
      * conversion factor by which to multiply dpi to yield dphi (100).
      */
     public static final int DPI = 100;
 
-    /**
+    /** {@collect.stats}
      * Value to indicate units of dots per centimeter (dpcm). It is actually
      * the conversion factor by which to multiply dpcm to yield dphi (254).
      */
     public static final int DPCM = 254;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new resolution attribute from the given items.
      *
      * @param  crossFeedResolution
@@ -144,7 +144,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
         this.feedResolution = feedResolution * units;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert a value from dphi to some other units. The result is rounded to
      * the nearest integer.
      *
@@ -167,7 +167,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
         return (dphi + round) / units;
     }
 
-    /**
+    /** {@collect.stats}
      * Get this resolution attribute's resolution values in the given units.
      * The values are rounded to the nearest integer.
      *
@@ -187,7 +187,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
                                };
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this resolution attribute's cross feed direction resolution in
      * the given units. The value is rounded to the nearest integer.
      *
@@ -204,7 +204,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
         return convertFromDphi (crossFeedResolution, units);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this resolution attribute's feed direction resolution in the
      * given units. The value is rounded to the nearest integer.
      *
@@ -221,7 +221,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
         return convertFromDphi (feedResolution, units);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this resolution attribute in the given units.
      * The string takes the form <CODE>"<I>C</I>x<I>F</I> <I>U</I>"</CODE>,
      * where <I>C</I> is the cross feed direction resolution, <I>F</I> is the
@@ -253,7 +253,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determine whether this resolution attribute's value is less than or
      * equal to the given resolution attribute's value. This is true if all
      * of the following conditions are true:
@@ -280,7 +280,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns whether this resolution attribute is equivalent to the passed in
      * object. To be equivalent, all of the following conditions must be true:
      * <OL TYPE=1>
@@ -311,7 +311,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
                ((ResolutionSyntax) object).feedResolution);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this resolution attribute.
      */
     public int hashCode() {
@@ -319,7 +319,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
                ((feedResolution      & 0x0000FFFF) << 16));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string version of this resolution attribute. The string takes
      * the form <CODE>"<I>C</I>x<I>F</I> dphi"</CODE>, where <I>C</I> is the
      * cross feed direction resolution and <I>F</I> is the feed direction
@@ -335,7 +335,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns this resolution attribute's cross feed direction resolution in
      * units of dphi. (For use in a subclass.)
      *
@@ -345,7 +345,7 @@ public abstract class ResolutionSyntax implements Serializable, Cloneable {
         return crossFeedResolution;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this resolution attribute's feed direction resolution in units
      * of dphi. (For use in a subclass.)
      *

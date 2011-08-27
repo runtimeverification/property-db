@@ -29,7 +29,7 @@ package javax.management;
 import java.util.Vector;
 
 
-/**
+/** {@collect.stats}
  * This class implements of the {@link javax.management.NotificationFilter NotificationFilter}
  * interface for the {@link javax.management.AttributeChangeNotification attribute change notification}.
  * The filtering is performed on the name of the observed attribute.
@@ -44,14 +44,14 @@ public class AttributeChangeNotificationFilter implements NotificationFilter {
     /* Serial version */
     private static final long serialVersionUID = -6347317584796410029L;
 
-    /**
+    /** {@collect.stats}
      * @serial {@link Vector} that contains the enabled attribute names.
      *         The default value is an empty vector.
      */
     private Vector<String> enabledAttributes = new Vector<String>();
 
 
-    /**
+    /** {@collect.stats}
      * Invoked before sending the specified notification to the listener.
      * <BR>This filter compares the attribute name of the specified attribute change notification
      * with each enabled attribute name.
@@ -76,7 +76,7 @@ public class AttributeChangeNotificationFilter implements NotificationFilter {
         return enabledAttributes.contains(attributeName);
     }
 
-    /**
+    /** {@collect.stats}
      * Enables all the attribute change notifications the attribute name of which equals
      * the specified name to be sent to the listener.
      * <BR>If the specified name is already in the list of enabled attribute names,
@@ -95,7 +95,7 @@ public class AttributeChangeNotificationFilter implements NotificationFilter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Disables all the attribute change notifications the attribute name of which equals
      * the specified attribute name to be sent to the listener.
      * <BR>If the specified name is not in the list of enabled attribute names,
@@ -107,14 +107,14 @@ public class AttributeChangeNotificationFilter implements NotificationFilter {
         enabledAttributes.removeElement(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Disables all the attribute names.
      */
     public synchronized void disableAllAttributes() {
         enabledAttributes.removeAllElements();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the enabled attribute names for this filter.
      *
      * @return The list containing all the enabled attribute names.

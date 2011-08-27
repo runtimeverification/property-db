@@ -36,7 +36,7 @@ import javax.swing.plaf.ActionMapUIResource;
 import javax.swing.plaf.ButtonUI;
 import javax.swing.plaf.ComponentInputMapUIResource;
 
-/**
+/** {@collect.stats}
  * Button Listener
  *
  * @author Jeff Dinkins
@@ -49,7 +49,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
     private long lastPressedTimestamp = -1;
     private boolean shouldDiscardRelease = false;
 
-    /**
+    /** {@collect.stats}
      * Populates Buttons actions.
      */
     static void loadActionMap(LazyActionMap map) {
@@ -80,7 +80,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
         b.setOpaque( b.isContentAreaFilled() );
     }
 
-    /**
+    /** {@collect.stats}
      * Register default key actions: pressing space to "click" a
      * button and registring the keyboard mnemonic (if any).
      */
@@ -97,7 +97,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
         SwingUtilities.replaceUIInputMap(c, JComponent.WHEN_FOCUSED, km);
     }
 
-    /**
+    /** {@collect.stats}
      * Unregister's default key actions
      */
     public void uninstallKeyboardActions(JComponent c) {
@@ -107,7 +107,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
         SwingUtilities.replaceUIActionMap(c, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the InputMap for condition <code>condition</code>. Called as
      * part of <code>installKeyboardActions</code>.
      */
@@ -123,7 +123,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the binding for the mnemonic in the WHEN_IN_FOCUSED_WINDOW
      * UI InputMap.
      */
@@ -275,7 +275,7 @@ public class BasicButtonListener implements MouseListener, MouseMotionListener,
     };
 
 
-    /**
+    /** {@collect.stats}
      * Actions for Buttons. Two types of action are supported:
      * pressed: Moves the button to a pressed state
      * released: Disarms the button.

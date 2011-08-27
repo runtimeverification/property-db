@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a naming operation proceeds to a point
   * where a context is required to continue the operation, but the
   * resolved object is not a context. For example, Context.destroy() requires
@@ -47,7 +47,7 @@ package javax.naming;
   */
 
 public class NotContextException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NotContextException using an
      * explanation. All other fields default to null.
      *
@@ -58,7 +58,7 @@ public class NotContextException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of NotContextException.
       * All fields default to null.
       */
@@ -66,7 +66,7 @@ public class NotContextException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 849752551644540417L;

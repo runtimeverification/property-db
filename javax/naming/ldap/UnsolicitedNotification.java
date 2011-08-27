@@ -27,7 +27,7 @@ package javax.naming.ldap;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
  * This interface represents an unsolicited notification as defined in
  * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
  * An unsolicited notification is sent by the LDAP server to the LDAP
@@ -45,7 +45,7 @@ import javax.naming.NamingException;
  */
 
 public interface UnsolicitedNotification extends ExtendedResponse, HasControls {
-    /**
+    /** {@collect.stats}
      * Retrieves the referral(s) sent by the server.
      *
      * @return A possibly null array of referrals, each of which is represented
@@ -53,7 +53,7 @@ public interface UnsolicitedNotification extends ExtendedResponse, HasControls {
      */
     public String[] getReferrals();
 
-    /**
+    /** {@collect.stats}
      * Retrieves the exception as constructed using information
      * sent by the server.
      * @return A possibly null exception as constructed using information

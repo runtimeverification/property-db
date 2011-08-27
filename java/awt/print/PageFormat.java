@@ -29,7 +29,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * The <code>PageFormat</code> class describes the size and
  * orientation of a page to be printed.
  */
@@ -38,7 +38,7 @@ public class PageFormat implements Cloneable
 
  /* Class Constants */
 
-    /**
+    /** {@collect.stats}
      *  The origin is at the bottom left of the paper with
      *  x running bottom to top and y running left to right.
      *  Note that this is not the Macintosh landscape but
@@ -46,14 +46,14 @@ public class PageFormat implements Cloneable
      */
     public static final int LANDSCAPE = 0;
 
-    /**
+    /** {@collect.stats}
      *  The origin is at the top left of the paper with
      *  x running to the right and y running down the
      *  paper.
      */
     public static final int PORTRAIT = 1;
 
-    /**
+    /** {@collect.stats}
      *  The origin is at the top right of the paper with x
      *  running top to bottom and y running right to left.
      *  Note that this is the Macintosh landscape.
@@ -62,12 +62,12 @@ public class PageFormat implements Cloneable
 
  /* Instance Variables */
 
-    /**
+    /** {@collect.stats}
      * A description of the physical piece of paper.
      */
     private Paper mPaper;
 
-    /**
+    /** {@collect.stats}
      * The orientation of the current page. This will be
      * one of the constants: PORTRIAT, LANDSCAPE, or
      * REVERSE_LANDSCAPE,
@@ -76,7 +76,7 @@ public class PageFormat implements Cloneable
 
  /* Constructors */
 
-    /**
+    /** {@collect.stats}
      * Creates a default, portrait-oriented
      * <code>PageFormat</code>.
      */
@@ -87,7 +87,7 @@ public class PageFormat implements Cloneable
 
  /* Instance Methods */
 
-    /**
+    /** {@collect.stats}
      * Makes a copy of this <code>PageFormat</code> with the same
      * contents as this <code>PageFormat</code>.
      * @return a copy of this <code>PageFormat</code>.
@@ -108,7 +108,7 @@ public class PageFormat implements Cloneable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the width, in 1/72nds of an inch, of the page.
      * This method takes into account the orientation of the
      * page when determining the width.
@@ -127,7 +127,7 @@ public class PageFormat implements Cloneable
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height, in 1/72nds of an inch, of the page.
      * This method takes into account the orientation of the
      * page when determining the height.
@@ -146,7 +146,7 @@ public class PageFormat implements Cloneable
         return height;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the x coordinate of the upper left point of the
      * imageable area of the <code>Paper</code> object
      * associated with this <code>PageFormat</code>.
@@ -185,7 +185,7 @@ public class PageFormat implements Cloneable
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the y coordinate of the upper left point of the
      * imageable area of the <code>Paper</code> object
      * associated with this <code>PageFormat</code>.
@@ -224,7 +224,7 @@ public class PageFormat implements Cloneable
         return y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width, in 1/72nds of an inch, of the imageable
      * area of the page. This method takes into account the orientation
      * of the page.
@@ -242,7 +242,7 @@ public class PageFormat implements Cloneable
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the height, in 1/72nds of an inch, of the imageable
      * area of the page. This method takes into account the orientation
      * of the page.
@@ -261,7 +261,7 @@ public class PageFormat implements Cloneable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the {@link Paper} object associated
      * with this <code>PageFormat</code>.  Changes made to the
      * <code>Paper</code> object returned from this method do not
@@ -279,7 +279,7 @@ public class PageFormat implements Cloneable
         return (Paper)mPaper.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Paper</code> object for this
      * <code>PageFormat</code>.
      * @param paper the <code>Paper</code> object to which to set
@@ -292,7 +292,7 @@ public class PageFormat implements Cloneable
          mPaper = (Paper)paper.clone();
      }
 
-    /**
+    /** {@collect.stats}
      * Sets the page orientation. <code>orientation</code> must be
      * one of the constants: PORTRAIT, LANDSCAPE,
      * or REVERSE_LANDSCAPE.
@@ -310,7 +310,7 @@ public class PageFormat implements Cloneable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the orientation of this <code>PageFormat</code>.
      * @return this <code>PageFormat</code> object's orientation.
      * @see #setOrientation
@@ -319,7 +319,7 @@ public class PageFormat implements Cloneable
         return mOrientation;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a transformation matrix that translates user
      * space rendering to the requested orientation
      * of the page.  The values are placed into the

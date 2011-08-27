@@ -29,7 +29,7 @@ package javax.xml.crypto.dsig.keyinfo;
 
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>KeyName</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -57,7 +57,7 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface KeyName extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this <code>KeyName</code>.
      *
      * @return the name of this <code>KeyName</code> (never

@@ -43,23 +43,23 @@ import java.text.BreakIterator;
  */
 class AccessibleHTML implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * The editor.
      */
     private JEditorPane editor;
-    /**
+    /** {@collect.stats}
      * Current model.
      */
     private Document model;
-    /**
+    /** {@collect.stats}
      * DocumentListener installed on the current model.
      */
     private DocumentListener docListener;
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener installed on the editor
      */
     private PropertyChangeListener propChangeListener;
-    /**
+    /** {@collect.stats}
      * The root ElementInfo for the document
      */
     private ElementInfo rootElementInfo;
@@ -76,7 +76,7 @@ class AccessibleHTML implements Accessible {
         docListener = new DocumentHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the document.
      */
     private void setDocument(Document document) {
@@ -102,28 +102,28 @@ class AccessibleHTML implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Document currently presenting information for.
      */
     private Document getDocument() {
         return model;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the JEditorPane providing information for.
      */
     private JEditorPane getTextComponent() {
         return editor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ElementInfo representing the root Element.
      */
     private ElementInfo getRootInfo() {
         return rootElementInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root <code>View</code> associated with the current text
      * component.
      */
@@ -131,7 +131,7 @@ class AccessibleHTML implements Accessible {
         return getTextComponent().getUI().getRootView(getTextComponent());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bounds the root View will be rendered in.
      */
     private Rectangle getRootEditorRect() {
@@ -148,7 +148,7 @@ class AccessibleHTML implements Accessible {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * If possible acquires a lock on the Document.  If a lock has been
      * obtained a key will be retured that should be passed to
      * <code>unlock</code>.
@@ -163,7 +163,7 @@ class AccessibleHTML implements Accessible {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Releases a lock previously obtained via <code>lock</code>.
      */
     private void unlock(Object key) {
@@ -172,7 +172,7 @@ class AccessibleHTML implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Rebuilds the information from the current info.
      */
     private void buildInfo() {
@@ -211,7 +211,7 @@ class AccessibleHTML implements Accessible {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root AccessibleContext for the document
      */
     public AccessibleContext getAccessibleContext() {
@@ -231,7 +231,7 @@ class AccessibleHTML implements Accessible {
             super(elementInfo);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the accessibleName property of this object.  The accessibleName
          * property of an object is a localized String that designates the purpose
          * of the object.  For example, the accessibleName property of a label
@@ -254,7 +254,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the accessibleDescription property of this object.  If this
          * property isn't set, returns the content type of this
          * <code>JEditorPane</code> instead (e.g. "plain/text", "html/text").
@@ -268,7 +268,7 @@ class AccessibleHTML implements Accessible {
             return editor.getContentType();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.  The role of the object is the generic
          * purpose or use of the class of this object.  For example, the role
          * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -308,7 +308,7 @@ class AccessibleHTML implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleStateSet describing the states
@@ -337,7 +337,7 @@ class AccessibleHTML implements Accessible {
             return states;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the 0-based index of this object in its accessible parent.
          *
          * @return the 0-based index of this object in its parent; -1 if this
@@ -351,7 +351,7 @@ class AccessibleHTML implements Accessible {
             return elementInfo.getIndexInParent();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children of the object.
          *
          * @return the number of accessible children of the object.
@@ -360,7 +360,7 @@ class AccessibleHTML implements Accessible {
             return elementInfo.getChildCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specified Accessible child of the object.  The Accessible
          * children of an Accessible object are zero-based, so the first child
          * of an Accessible child is at index 0, the second child is at index 1,
@@ -379,7 +379,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the locale of the component. If the component does not have a
          * locale, then the locale of its parent is returned.
          *
@@ -401,7 +401,7 @@ class AccessibleHTML implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the background color of this object.
          *
          * @return the background color, if supported, of the object;
@@ -412,7 +412,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().getBackground();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the background color of this object.
          *
          * @param c the new Color for the background
@@ -422,7 +422,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setBackground(c);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the foreground color of this object.
          *
          * @return the foreground color, if supported, of the object;
@@ -433,7 +433,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().getForeground();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the foreground color of this object.
          *
          * @param c the new Color for the foreground
@@ -443,7 +443,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setForeground(c);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the Cursor of this object.
          *
          * @return the Cursor, if supported, of the object; otherwise, null
@@ -453,7 +453,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().getCursor();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the Cursor of this object.
          *
          * @param c the new Cursor for the object
@@ -463,7 +463,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setCursor(cursor);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the Font of this object.
          *
          * @return the Font,if supported, for the object; otherwise, null
@@ -473,7 +473,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().getFont();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the Font of this object.
          *
          * @param f the new Font for the object
@@ -483,7 +483,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setFont(f);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the FontMetrics of this object.
          *
          * @param f the Font
@@ -494,7 +494,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().getFontMetrics(f);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is enabled.  Objects that are enabled
          * will also have the AccessibleState.ENABLED state set in their
          * AccessibleStateSets.
@@ -509,7 +509,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().isEnabled();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the enabled state of the object.
          *
          * @param b if true, enables this object; otherwise, disables it
@@ -519,7 +519,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setEnabled(b);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is visible.  Note: this means that the
          * object intends to be visible; however, it may not be
          * showing on the screen because one of the objects that this object
@@ -538,7 +538,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().isVisible();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the visible state of the object.
          *
          * @param b if true, shows this object; otherwise, hides it
@@ -548,7 +548,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().setVisible(b);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the object is showing.  This is determined by checking
          * the visibility of the object and its ancestors.
          * Note: this
@@ -561,7 +561,7 @@ class AccessibleHTML implements Accessible {
             return getTextComponent().isShowing();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether the specified point is within this object's bounds,
          * where the point's x and y coordinates are defined to be relative
          * to the coordinate system of the object.
@@ -579,7 +579,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the location of the object on the screen.
          *
          * @return the location of the object on screen; null if this object
@@ -598,7 +598,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the location of the object relative to the parent in the form
          * of a point specifying the object's top-left corner in the screen's
          * coordinate space.
@@ -618,7 +618,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the location of the object relative to the parent.
          * @param p the new position for the top-left corner
          * @see #getLocation
@@ -626,7 +626,7 @@ class AccessibleHTML implements Accessible {
         public void setLocation(Point p) {
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the bounds of this object in the form of a Rectangle object.
          * The bounds specify this object's width, height, and location
          * relative to its parent.
@@ -639,7 +639,7 @@ class AccessibleHTML implements Accessible {
             return elementInfo.getBounds();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the bounds of this object in the form of a Rectangle object.
          * The bounds specify this object's width, height, and location
          * relative to its parent.
@@ -650,7 +650,7 @@ class AccessibleHTML implements Accessible {
         public void setBounds(Rectangle r) {
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the size of this object in the form of a Dimension object.
          * The height field of the Dimension object contains this object's
          * height, and the width field of the Dimension object contains this
@@ -669,7 +669,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Resizes this object so that it has width and height.
          *
          * @param d The dimension specifying the new size of the object.
@@ -680,7 +680,7 @@ class AccessibleHTML implements Accessible {
             comp.setSize(d);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Accessible child, if one exists, contained at the local
          * coordinate Point.
          *
@@ -730,7 +730,7 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether this object can accept focus or not.   Objects that
          * can accept focus will also have the AccessibleState.FOCUSABLE state
          * set in their AccessibleStateSets.
@@ -751,7 +751,7 @@ class AccessibleHTML implements Accessible {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Requests focus for this object.  If this object cannot accept focus,
          * nothing will happen.  Otherwise, the object will attempt to take
          * focus.
@@ -789,7 +789,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the specified focus listener to receive focus events from this
          * component.
          *
@@ -800,7 +800,7 @@ class AccessibleHTML implements Accessible {
             getTextComponent().addFocusListener(l);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the specified focus listener so it no longer receives focus
          * events from this component.
          *
@@ -848,7 +848,7 @@ class AccessibleHTML implements Accessible {
                 return this;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleName property of this object.  The accessibleName
              * property of an object is a localized String that designates the purpose
              * of the object.  For example, the accessibleName property of a label
@@ -871,7 +871,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleDescription property of this object.  If this
              * property isn't set, returns the content type of this
              * <code>JEditorPane</code> instead (e.g. "plain/text", "html/text").
@@ -885,7 +885,7 @@ class AccessibleHTML implements Accessible {
                 return editor.getContentType();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.  The role of the object is the generic
              * purpose or use of the class of this object.  For example, the role
              * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -907,7 +907,7 @@ class AccessibleHTML implements Accessible {
                 return AccessibleRole.TEXT;
             }
 
-            /**
+            /** {@collect.stats}
              * Given a point in local coordinates, return the zero-based index
              * of the character under that Point.  If the point is invalid,
              * this method returns -1.
@@ -925,7 +925,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determine the bounding box of the character at the given
              * index into the string.  The bounds are returned in local
              * coordinates.  If the index is invalid an empty rectangle is
@@ -943,7 +943,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Return the number of characters (valid indicies)
              *
              * @return the number of characters
@@ -956,7 +956,7 @@ class AccessibleHTML implements Accessible {
                 return 0;
             }
 
-            /**
+            /** {@collect.stats}
              * Return the zero-based offset of the caret.
              *
              * Note: That to the right of the caret will have the same index
@@ -979,12 +979,12 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * IndexedSegment extends Segment adding the offset into the
              * the model the <code>Segment</code> was asked for.
              */
             private class IndexedSegment extends Segment {
-                /**
+                /** {@collect.stats}
                  * Offset into the model that the position represents.
                  */
                 public int modelOffset;
@@ -1003,7 +1003,7 @@ class AccessibleHTML implements Accessible {
                 return getAtIndex(part, index, -1);
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the word, sentence, or character at <code>index</code>.
              * If <code>direction</code> is non-null this will find the
              * next/previous word/sentence/character.
@@ -1113,7 +1113,7 @@ class AccessibleHTML implements Accessible {
             }
 
 
-            /**
+            /** {@collect.stats}
              * Returns the Segment at <code>index</code> representing either
              * the paragraph or sentence as identified by <code>part</code>, or
              * null if a valid paragraph/sentence can't be found. The offset
@@ -1159,7 +1159,7 @@ class AccessibleHTML implements Accessible {
                 return seg;
             }
 
-            /**
+            /** {@collect.stats}
              * Return the AttributeSet for a given character at a given index
              *
              * @param i the zero-based index into the text
@@ -1176,7 +1176,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the start offset within the selected text.
              * If there is no selection, but there is
              * a caret, the start and end offsets will be the same.
@@ -1187,7 +1187,7 @@ class AccessibleHTML implements Accessible {
                 return editor.getSelectionStart();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the end offset within the selected text.
              * If there is no selection, but there is
              * a caret, the start and end offsets will be the same.
@@ -1198,7 +1198,7 @@ class AccessibleHTML implements Accessible {
                 return editor.getSelectionEnd();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the portion of the text that is selected.
              *
              * @return the String portion of the text that is selected
@@ -1286,7 +1286,7 @@ class AccessibleHTML implements Accessible {
                 super(elementInfo);
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleName property of this object.  The accessibleName
              * property of an object is a localized String that designates the purpose
              * of the object.  For example, the accessibleName property of a label
@@ -1305,7 +1305,7 @@ class AccessibleHTML implements Accessible {
                 return getAccessibleIconDescription();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleDescription property of this object.  If this
              * property isn't set, returns the content type of this
              * <code>JEditorPane</code> instead (e.g. "plain/text", "html/text").
@@ -1319,7 +1319,7 @@ class AccessibleHTML implements Accessible {
                 return editor.getContentType();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.  The role of the object is the generic
              * purpose or use of the class of this object.  For example, the role
              * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -1347,7 +1347,7 @@ class AccessibleHTML implements Accessible {
                 return icons;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the description of the icon.  This is meant to be a brief
              * textual description of the object.  For example, it might be
              * presented to a blind user to give an indication of the purpose
@@ -1359,7 +1359,7 @@ class AccessibleHTML implements Accessible {
                 return ((ImageView)getView()).getAltText();
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the description of the icon.  This is meant to be a brief
              * textual description of the object.  For example, it might be
              * presented to a blind user to give an indication of the purpose
@@ -1370,7 +1370,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleIconDescription(String description) {
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the width of the icon
              *
              * @return the width of the icon.
@@ -1382,7 +1382,7 @@ class AccessibleHTML implements Accessible {
                 return width;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the height of the icon
              *
              * @return the height of the icon.
@@ -1398,7 +1398,7 @@ class AccessibleHTML implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * TableElementInfo encapsulates information about a HTML.Tag.TABLE.
      * To make access fast it crates a grid containing the children to
      * allow for access by row, column. TableElementInfo will contain
@@ -1412,7 +1412,7 @@ class AccessibleHTML implements Accessible {
 
         protected ElementInfo caption;
 
-        /**
+        /** {@collect.stats}
          * Allocation of the table by row x column. There may be holes (eg
          * nulls) depending upon the html, any cell that has a rowspan/colspan
          * > 1 will be contained multiple times in the grid.
@@ -1428,7 +1428,7 @@ class AccessibleHTML implements Accessible {
             return caption;
         }
 
-        /**
+        /** {@collect.stats}
          * Overriden to update the grid when validating.
          */
         protected void validate() {
@@ -1436,7 +1436,7 @@ class AccessibleHTML implements Accessible {
             updateGrid();
         }
 
-        /**
+        /** {@collect.stats}
          * Overriden to only alloc instances of TableRowElementInfos.
          */
         protected void loadChildren(Element e) {
@@ -1458,7 +1458,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the grid.
          */
         private void updateGrid() {
@@ -1490,14 +1490,14 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the TableCellElementInfo at the specified index.
          */
         public TableRowElementInfo getRow(int index) {
             return (TableRowElementInfo)getChild(index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the TableCellElementInfo by row and column.
          */
         public TableCellElementInfo getCell(int r, int c) {
@@ -1508,7 +1508,7 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the rowspan of the specified entry.
          */
         public int getRowExtentAt(int r, int c) {
@@ -1526,7 +1526,7 @@ class AccessibleHTML implements Accessible {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the colspan of the specified entry.
          */
         public int getColumnExtentAt(int r, int c) {
@@ -1544,7 +1544,7 @@ class AccessibleHTML implements Accessible {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of rows in the table.
          */
         public int getRowCount() {
@@ -1554,7 +1554,7 @@ class AccessibleHTML implements Accessible {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of columns in the table.
          */
         public int getColumnCount() {
@@ -1586,7 +1586,7 @@ class AccessibleHTML implements Accessible {
                 super(elementInfo);
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleName property of this object.  The accessibleName
              * property of an object is a localized String that designates the purpose
              * of the object.  For example, the accessibleName property of a label
@@ -1606,7 +1606,7 @@ class AccessibleHTML implements Accessible {
                 return getAccessibleRole().toString();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessibleDescription property of this object.  If this
              * property isn't set, returns the content type of this
              * <code>JEditorPane</code> instead (e.g. "plain/text", "html/text").
@@ -1620,7 +1620,7 @@ class AccessibleHTML implements Accessible {
                 return editor.getContentType();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.  The role of the object is the generic
              * purpose or use of the class of this object.  For example, the role
              * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -1642,7 +1642,7 @@ class AccessibleHTML implements Accessible {
                 return AccessibleRole.TABLE;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the 0-based index of this object in its accessible parent.
              *
              * @return the 0-based index of this object in its parent; -1 if this
@@ -1656,7 +1656,7 @@ class AccessibleHTML implements Accessible {
                 return elementInfo.getIndexInParent();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of accessible children of the object.
              *
              * @return the number of accessible children of the object.
@@ -1666,7 +1666,7 @@ class AccessibleHTML implements Accessible {
                     ((TableElementInfo)elementInfo).getColumnCount();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the specified Accessible child of the object.  The Accessible
              * children of an Accessible object are zero-based, so the first child
              * of an Accessible child is at index 0, the second child is at index 1,
@@ -1692,7 +1692,7 @@ class AccessibleHTML implements Accessible {
                 return this;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the caption for the table.
              *
              * @return the caption for the table
@@ -1706,7 +1706,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the caption for the table.
              *
              * @param a the caption for the table
@@ -1714,7 +1714,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleCaption(Accessible a) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the summary description of the table.
              *
              * @return the summary description of the table
@@ -1723,7 +1723,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the summary description of the table
              *
              * @param a the summary description of the table
@@ -1731,7 +1731,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleSummary(Accessible a) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of rows in the table.
              *
              * @return the number of rows in the table
@@ -1740,7 +1740,7 @@ class AccessibleHTML implements Accessible {
                 return ((TableElementInfo)elementInfo).getRowCount();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of columns in the table.
              *
              * @return the number of columns in the table
@@ -1749,7 +1749,7 @@ class AccessibleHTML implements Accessible {
                 return ((TableElementInfo)elementInfo).getColumnCount();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the Accessible at a specified row and column
              * in the table.
              *
@@ -1766,7 +1766,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of rows occupied by the Accessible at
              * a specified row and column in the table.
              *
@@ -1777,7 +1777,7 @@ class AccessibleHTML implements Accessible {
                 return ((TableElementInfo)elementInfo).getRowExtentAt(r, c);
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of columns occupied by the Accessible at
              * a specified row and column in the table.
              *
@@ -1788,7 +1788,7 @@ class AccessibleHTML implements Accessible {
                 return ((TableElementInfo)elementInfo).getColumnExtentAt(r, c);
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the row headers as an AccessibleTable.
              *
              * @return an AccessibleTable representing the row
@@ -1798,7 +1798,7 @@ class AccessibleHTML implements Accessible {
                 return rowHeadersTable;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the row headers.
              *
              * @param table an AccessibleTable representing the
@@ -1807,7 +1807,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleRowHeader(AccessibleTable table) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the column headers as an AccessibleTable.
              *
              * @return an AccessibleTable representing the column
@@ -1817,7 +1817,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the column headers.
              *
              * @param table an AccessibleTable representing the
@@ -1826,7 +1826,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleColumnHeader(AccessibleTable table) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the description of the specified row in the table.
              *
              * @param r zero-based row of the table
@@ -1836,7 +1836,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the description text of the specified row of the table.
              *
              * @param r zero-based row of the table
@@ -1845,7 +1845,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleRowDescription(int r, Accessible a) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the description text of the specified column in the table.
              *
              * @param c zero-based column of the table
@@ -1855,7 +1855,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the description text of the specified column in the table.
              *
              * @param c zero-based column of the table
@@ -1864,7 +1864,7 @@ class AccessibleHTML implements Accessible {
             public void setAccessibleColumnDescription(int c, Accessible a) {
             }
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the accessible at
              * a specified row and column is selected.
              *
@@ -1892,7 +1892,7 @@ class AccessibleHTML implements Accessible {
                 return false;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the specified row
              * is selected.
              *
@@ -1925,7 +1925,7 @@ class AccessibleHTML implements Accessible {
                 return false;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the specified column
              * is selected.
              *
@@ -1957,7 +1957,7 @@ class AccessibleHTML implements Accessible {
                 return false;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the selected rows in a table.
              *
              * @return an array of selected rows where each element is a
@@ -1982,7 +1982,7 @@ class AccessibleHTML implements Accessible {
                 return new int[0];
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the selected columns in a table.
              *
              * @return an array of selected columns where each element is a
@@ -2009,7 +2009,7 @@ class AccessibleHTML implements Accessible {
 
             // begin AccessibleExtendedTable implementation -------------
 
-            /**
+            /** {@collect.stats}
              * Returns the row number of an index in the table.
              *
              * @param index the zero-based index in the table
@@ -2029,7 +2029,7 @@ class AccessibleHTML implements Accessible {
                 return -1;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the column number of an index in the table.
              *
              * @param index the zero-based index in the table
@@ -2049,7 +2049,7 @@ class AccessibleHTML implements Accessible {
                 return -1;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the index at a row and column in the table.
              *
              * @param r zero-based row of the table
@@ -2069,7 +2069,7 @@ class AccessibleHTML implements Accessible {
                 return -1;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the row header at a row in a table.
              * @param r zero-based row of the table
              *
@@ -2095,7 +2095,7 @@ class AccessibleHTML implements Accessible {
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the column header at a column in a table.
              * @param c zero-based column of the table
              *
@@ -2148,7 +2148,7 @@ class AccessibleHTML implements Accessible {
                     list.add(cellInfo);
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the caption for the table.
                  *
                  * @return the caption for the table
@@ -2157,7 +2157,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the caption for the table.
                  *
                  * @param a the caption for the table
@@ -2165,7 +2165,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleCaption(Accessible a) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the summary description of the table.
                  *
                  * @return the summary description of the table
@@ -2174,7 +2174,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the summary description of the table
                  *
                  * @param a the summary description of the table
@@ -2182,7 +2182,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleSummary(Accessible a) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the number of rows in the table.
                  *
                  * @return the number of rows in the table
@@ -2191,7 +2191,7 @@ class AccessibleHTML implements Accessible {
                     return rowCount;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the number of columns in the table.
                  *
                  * @return the number of columns in the table
@@ -2209,7 +2209,7 @@ class AccessibleHTML implements Accessible {
                     }
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the Accessible at a specified row and column
                  * in the table.
                  *
@@ -2226,7 +2226,7 @@ class AccessibleHTML implements Accessible {
                     }
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the number of rows occupied by the Accessible at
                  * a specified row and column in the table.
                  *
@@ -2242,7 +2242,7 @@ class AccessibleHTML implements Accessible {
                     }
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the number of columns occupied by the Accessible at
                  * a specified row and column in the table.
                  *
@@ -2258,7 +2258,7 @@ class AccessibleHTML implements Accessible {
                     }
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the row headers as an AccessibleTable.
                  *
                  * @return an AccessibleTable representing the row
@@ -2268,7 +2268,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the row headers.
                  *
                  * @param table an AccessibleTable representing the
@@ -2277,7 +2277,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleRowHeader(AccessibleTable table) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the column headers as an AccessibleTable.
                  *
                  * @return an AccessibleTable representing the column
@@ -2287,7 +2287,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the column headers.
                  *
                  * @param table an AccessibleTable representing the
@@ -2296,7 +2296,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleColumnHeader(AccessibleTable table) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the description of the specified row in the table.
                  *
                  * @param r zero-based row of the table
@@ -2306,7 +2306,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the description text of the specified row of the table.
                  *
                  * @param r zero-based row of the table
@@ -2315,7 +2315,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleRowDescription(int r, Accessible a) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the description text of the specified column in the table.
                  *
                  * @param c zero-based column of the table
@@ -2325,7 +2325,7 @@ class AccessibleHTML implements Accessible {
                     return null;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Sets the description text of the specified column in the table.
                  *
                  * @param c zero-based column of the table
@@ -2334,7 +2334,7 @@ class AccessibleHTML implements Accessible {
                 public void setAccessibleColumnDescription(int c, Accessible a) {
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns a boolean value indicating whether the accessible at
                  * a specified row and column is selected.
                  *
@@ -2348,7 +2348,7 @@ class AccessibleHTML implements Accessible {
                     return false;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns a boolean value indicating whether the specified row
                  * is selected.
                  *
@@ -2360,7 +2360,7 @@ class AccessibleHTML implements Accessible {
                     return false;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns a boolean value indicating whether the specified column
                  * is selected.
                  *
@@ -2372,7 +2372,7 @@ class AccessibleHTML implements Accessible {
                     return false;
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the selected rows in a table.
                  *
                  * @return an array of selected rows where each element is a
@@ -2382,7 +2382,7 @@ class AccessibleHTML implements Accessible {
                     return new int [0];
                 }
 
-                /**
+                /** {@collect.stats}
                  * Returns the selected columns in a table.
                  *
                  * @return an array of selected columns where each element is a
@@ -2432,7 +2432,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the max of the rowspans of the cells in this row.
              */
             public int getRowCount() {
@@ -2452,7 +2452,7 @@ class AccessibleHTML implements Accessible {
                 return rowCount;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the sum of the column spans of the individual
              * cells in this row.
              */
@@ -2472,7 +2472,7 @@ class AccessibleHTML implements Accessible {
                 return colCount;
             }
 
-            /**
+            /** {@collect.stats}
              * Overriden to invalidate the table as well as
              * TableRowElementInfo.
              */
@@ -2481,7 +2481,7 @@ class AccessibleHTML implements Accessible {
                 getParent().invalidate(true);
             }
 
-            /**
+            /** {@collect.stats}
              * Places the TableCellElementInfos for this element in
              * the grid.
              */
@@ -2521,7 +2521,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the column count of the number of columns that have
              * a rowcount >= rowspan.
              */
@@ -2543,7 +2543,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * TableCellElementInfo is used to represents the cells of
          * the table.
          */
@@ -2593,7 +2593,7 @@ class AccessibleHTML implements Accessible {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the rowspan attribute.
              */
             public int getRowCount() {
@@ -2604,7 +2604,7 @@ class AccessibleHTML implements Accessible {
                 return 0;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the colspan attribute.
              */
             public int getColumnCount() {
@@ -2615,7 +2615,7 @@ class AccessibleHTML implements Accessible {
                 return 0;
             }
 
-            /**
+            /** {@collect.stats}
              * Overriden to invalidate the TableRowElementInfo as well as
              * the TableCellElementInfo.
              */
@@ -2627,7 +2627,7 @@ class AccessibleHTML implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * ElementInfo provides a slim down view of an Element.  Each ElementInfo
      * can have any number of child ElementInfos that are not necessarily
      * direct children of the Element. As the Document changes various
@@ -2640,36 +2640,36 @@ class AccessibleHTML implements Accessible {
      */
     private class ElementInfo {
 
-        /**
+        /** {@collect.stats}
          * The children of this ElementInfo.
          */
         private ArrayList children;
-        /**
+        /** {@collect.stats}
          * The Element this ElementInfo is providing information for.
          */
         private Element element;
-        /**
+        /** {@collect.stats}
          * The parent ElementInfo, will be null for the root.
          */
         private ElementInfo parent;
-        /**
+        /** {@collect.stats}
          * Indicates the validity of the ElementInfo.
          */
         private boolean isValid;
-        /**
+        /** {@collect.stats}
          * Indicates if the ElementInfo can become valid.
          */
         private boolean canBeValid;
 
 
-        /**
+        /** {@collect.stats}
          * Creates the root ElementInfo.
          */
         ElementInfo(Element element) {
             this(element, null);
         }
 
-        /**
+        /** {@collect.stats}
          * Creates an ElementInfo representing <code>element</code> with
          * the specified parent.
          */
@@ -2680,7 +2680,7 @@ class AccessibleHTML implements Accessible {
             canBeValid = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Validates the receiver. This recreates the children as well. This
          * will be invoked within a <code>readLock</code>. If this is overriden
          * it MUST invoke supers implementation first!
@@ -2690,7 +2690,7 @@ class AccessibleHTML implements Accessible {
             loadChildren(getElement());
         }
 
-        /**
+        /** {@collect.stats}
          * Recreates the direct children of <code>info</code>.
          */
         protected void loadChildren(Element parent) {
@@ -2710,7 +2710,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the child in the parent, or -1 for the
          * root or if the parent isn't valid.
          */
@@ -2721,21 +2721,21 @@ class AccessibleHTML implements Accessible {
             return parent.indexOf(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Element this <code>ElementInfo</code> represents.
          */
         public Element getElement() {
             return element;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the parent of this Element, or null for the root.
          */
         public ElementInfo getParent() {
             return parent;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the specified child, or -1 if
          * <code>child</code> isn't a valid child.
          */
@@ -2748,7 +2748,7 @@ class AccessibleHTML implements Accessible {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the child ElementInfo at <code>index</code>, or null
          * if <code>index</code> isn't a valid index.
          */
@@ -2764,7 +2764,7 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of children the ElementInfo contains.
          */
         public int getChildCount() {
@@ -2772,7 +2772,7 @@ class AccessibleHTML implements Accessible {
             return (children == null) ? 0 : children.size();
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a new child to this ElementInfo.
          */
         protected void addChild(ElementInfo child) {
@@ -2782,7 +2782,7 @@ class AccessibleHTML implements Accessible {
             children.add(child);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the View corresponding to this ElementInfo, or null
          * if the ElementInfo can't be validated.
          */
@@ -2805,7 +2805,7 @@ class AccessibleHTML implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Bounds for this ElementInfo, or null
          * if the ElementInfo can't be validated.
          */
@@ -2834,14 +2834,14 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if this ElementInfo is valid.
          */
         protected boolean isValid() {
             return isValid;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet associated with the Element, this will
          * return null if the ElementInfo can't be validated.
          */
@@ -2852,7 +2852,7 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet associated with the View that is
          * representing this Element, this will
          * return null if the ElementInfo can't be validated.
@@ -2869,7 +2869,7 @@ class AccessibleHTML implements Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Convenience method for getting an integer attribute from the passed
          * in AttributeSet.
          */
@@ -2892,7 +2892,7 @@ class AccessibleHTML implements Accessible {
             return deflt;
         }
 
-        /**
+        /** {@collect.stats}
          * Validates the ElementInfo if necessary.  Some ElementInfos may
          * never be valid again.  You should check <code>isValid</code> before
          * using one.  This will reload the children and invoke
@@ -2913,7 +2913,7 @@ class AccessibleHTML implements Accessible {
             return isValid();
         }
 
-        /**
+        /** {@collect.stats}
          * Invalidates the ElementInfo. Subclasses should override this
          * if they need to reset state once invalid.
          */
@@ -3027,7 +3027,7 @@ class AccessibleHTML implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * DocumentListener installed on the current Document.  Will invoke
      * <code>update</code> on the <code>RootInfo</code> in response to
      * any event.

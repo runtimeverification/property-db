@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * <p>Constructs query object constraints. The static methods provided
  * return query expressions that may be used in listing and
  * enumerating MBeans. Individual constraint construction methods
@@ -45,70 +45,70 @@ package javax.management;
  public class Query extends Object   {
 
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#gt} query.  This is chiefly
       * of interest for the serialized form of queries.
       */
      public static final int GT  = 0;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#lt} query.  This is chiefly
       * of interest for the serialized form of queries.
       */
      public static final int LT  = 1;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#geq} query.  This is chiefly
       * of interest for the serialized form of queries.
       */
      public static final int GE  = 2;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#leq} query.  This is chiefly
       * of interest for the serialized form of queries.
       */
      public static final int LE  = 3;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#eq} query.  This is chiefly
       * of interest for the serialized form of queries.
       */
      public static final int EQ  = 4;
 
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#plus} expression.  This
       * is chiefly of interest for the serialized form of queries.
       */
      public static final int PLUS  = 0;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#minus} expression.  This
       * is chiefly of interest for the serialized form of queries.
       */
      public static final int MINUS = 1;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#times} expression.  This
       * is chiefly of interest for the serialized form of queries.
       */
      public static final int TIMES = 2;
 
-     /**
+     /** {@collect.stats}
       * A code representing the {@link Query#div} expression.  This is
       * chiefly of interest for the serialized form of queries.
       */
      public static final int DIV   = 3;
 
 
-     /**
+     /** {@collect.stats}
       * Basic constructor.
       */
      public Query() {
      }
 
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that is the conjunction of two other query
       * expressions.
       *
@@ -124,7 +124,7 @@ package javax.management;
          return new AndQueryExp(q1, q2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that is the disjunction of two other query
       * expressions.
       *
@@ -140,7 +140,7 @@ package javax.management;
          return new OrQueryExp(q1, q2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a "greater than" constraint on
       * two values.
       *
@@ -158,7 +158,7 @@ package javax.management;
          return new BinaryRelQueryExp(GT, v1, v2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a "greater than or equal
       * to" constraint on two values.
       *
@@ -176,7 +176,7 @@ package javax.management;
          return new BinaryRelQueryExp(GE, v1, v2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a "less than or equal to"
       * constraint on two values.
       *
@@ -194,7 +194,7 @@ package javax.management;
          return new BinaryRelQueryExp(LE, v1, v2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a "less than" constraint on
       * two values.
       *
@@ -212,7 +212,7 @@ package javax.management;
          return new BinaryRelQueryExp(LT, v1, v2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents an equality constraint on
       * two values.
       *
@@ -230,7 +230,7 @@ package javax.management;
          return new BinaryRelQueryExp(EQ, v1, v2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents the constraint that one
       * value is between two other values.
       *
@@ -248,7 +248,7 @@ package javax.management;
          return new BetweenQueryExp(v1, v2, v3);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a matching constraint on
       * a string argument. The matching syntax is consistent with file globbing:
       * supports "<code>?</code>", "<code>*</code>", "<code>[</code>",
@@ -276,7 +276,7 @@ package javax.management;
          return new MatchQueryExp(a, s);
      }
 
-     /**
+     /** {@collect.stats}
       * <p>Returns a new attribute expression.</p>
       *
       * <p>Evaluating this expression for a given
@@ -292,7 +292,7 @@ package javax.management;
          return new AttributeValueExp(name);
      }
 
-     /**
+     /** {@collect.stats}
       * <p>Returns a new qualified attribute expression.</p>
       *
       * <p>Evaluating this expression for a given
@@ -315,7 +315,7 @@ package javax.management;
          return new QualifiedAttributeValueExp(className, name);
      }
 
-     /**
+     /** {@collect.stats}
       * <p>Returns a new class attribute expression which can be used in any
       * Query call that expects a ValueExp.</p>
       *
@@ -334,7 +334,7 @@ package javax.management;
          return new ClassAttributeValueExp();
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a constraint that is the negation of its argument.
       *
       * @param queryExp The constraint to negate.
@@ -348,7 +348,7 @@ package javax.management;
          return new NotQueryExp(queryExp);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns an expression constraining a value to be one of an explicit list.
       *
       * @param val A value to be constrained.
@@ -364,7 +364,7 @@ package javax.management;
          return new InQueryExp(val, valueList);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a new string expression.
       *
       * @param val The string value.
@@ -375,7 +375,7 @@ package javax.management;
          return new StringValueExp(val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a numeric value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -391,7 +391,7 @@ package javax.management;
          return new NumericValueExp(val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a numeric value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -407,7 +407,7 @@ package javax.management;
          return new NumericValueExp((long) val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a numeric value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -423,7 +423,7 @@ package javax.management;
          return new NumericValueExp(val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a numeric value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -439,7 +439,7 @@ package javax.management;
          return new NumericValueExp((double) val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a numeric value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -455,7 +455,7 @@ package javax.management;
          return new NumericValueExp(val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a boolean value expression that can be used in any Query call
       * that expects a ValueExp.
       *
@@ -471,7 +471,7 @@ package javax.management;
          return new BooleanValueExp(val);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a binary expression representing the sum of two numeric values,
       * or the concatenation of two string values.
       *
@@ -489,7 +489,7 @@ package javax.management;
          return new BinaryOpValueExp(PLUS, value1, value2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a binary expression representing the product of two numeric values.
       *
       *
@@ -507,7 +507,7 @@ package javax.management;
          return new BinaryOpValueExp(TIMES, value1, value2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a binary expression representing the difference between two numeric
       * values.
       *
@@ -525,7 +525,7 @@ package javax.management;
          return new BinaryOpValueExp(MINUS, value1, value2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a binary expression representing the quotient of two numeric
       * values.
       *
@@ -543,7 +543,7 @@ package javax.management;
          return new BinaryOpValueExp(DIV, value1, value2);
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a matching constraint on
       * a string argument. The value must start with the given literal string
       * value.
@@ -563,7 +563,7 @@ package javax.management;
              new StringValueExp(escapeString(s.getValue()) + "*"));
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a matching constraint on
       * a string argument. The value must contain the given literal string
       * value.
@@ -582,7 +582,7 @@ package javax.management;
              new StringValueExp("*" + escapeString(s.getValue()) + "*"));
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents a matching constraint on
       * a string argument. The value must end with the given literal string
       * value.
@@ -602,7 +602,7 @@ package javax.management;
              new StringValueExp("*" + escapeString(s.getValue())));
      }
 
-     /**
+     /** {@collect.stats}
       * Returns a query expression that represents an inheritance constraint
       * on an MBean class.
       * <p>Example: to find MBeans that are instances of
@@ -627,7 +627,7 @@ package javax.management;
         return new InstanceOfQueryExp(classNameValue);
      }
 
-     /**
+     /** {@collect.stats}
       * Utility method to escape strings used with
       * Query.{initial|any|final}SubString() methods.
       */

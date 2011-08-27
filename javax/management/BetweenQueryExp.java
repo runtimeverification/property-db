@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent binary
  * relations.
  * @serial include
@@ -38,29 +38,29 @@ class BetweenQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -2933597532866307444L;
 
-    /**
+    /** {@collect.stats}
      * @serial The checked value
      */
     private ValueExp exp1;
 
-    /**
+    /** {@collect.stats}
      * @serial The lower bound value
      */
     private ValueExp exp2;
 
-    /**
+    /** {@collect.stats}
      * @serial The upper bound value
      */
     private ValueExp exp3;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public BetweenQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BetweenQueryExp with v1 checked value, v2 lower bound
      * and v3 upper bound values.
      */
@@ -71,28 +71,28 @@ class BetweenQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the checked value of the query.
      */
     public ValueExp getCheckedValue()  {
         return exp1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lower bound value of the query.
      */
     public ValueExp getLowerBound()  {
         return exp2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the upper bound value of the query.
      */
     public ValueExp getUpperBound()  {
         return exp3;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the BetweenQueryExp on an MBean.
      *
      * @param name The name of the MBean on which the BetweenQueryExp will be applied.
@@ -141,7 +141,7 @@ class BetweenQueryExp extends QueryEval implements QueryExp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

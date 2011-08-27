@@ -26,7 +26,7 @@ package java.awt.peer;
 
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -41,19 +41,19 @@ public interface ContainerPeer extends ComponentPeer {
     void endLayout();
     boolean isPaintPending();
 
-    /**
+    /** {@collect.stats}
      * Restacks native windows - children of this native window - according to Java container order
      * @since 1.5
      */
     void restack();
 
-    /**
+    /** {@collect.stats}
      * Indicates availabiltity of restacking operation in this container.
      * @return Returns true if restack is supported, false otherwise
      * @since 1.5
      */
     boolean isRestackSupported();
-    /**
+    /** {@collect.stats}
 
 
 

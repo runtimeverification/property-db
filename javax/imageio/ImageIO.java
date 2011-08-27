@@ -53,7 +53,7 @@ import javax.imageio.stream.ImageOutputStream;
 import sun.awt.AppContext;
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * A class containing static convenience methods for locating
  * <code>ImageReader</code>s and <code>ImageWriter</code>s, and
  * performing simple encoding and decoding.
@@ -64,12 +64,12 @@ public final class ImageIO {
     private static final IIORegistry theRegistry =
         IIORegistry.getDefaultInstance();
 
-    /**
+    /** {@collect.stats}
      * Constructor is private to prevent instantiation.
      */
     private ImageIO() {}
 
-    /**
+    /** {@collect.stats}
      * Scans for plug-ins on the application class path,
      * loads their service provider classes, and registers a service
      * provider instance for each one found with the
@@ -111,7 +111,7 @@ public final class ImageIO {
 
     // ImageInputStreams
 
-    /**
+    /** {@collect.stats}
      * A class to hold information about caching.  Each
      * <code>ThreadGroup</code> will have its own copy
      * via the <code>AppContext</code> mechanism.
@@ -148,7 +148,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>CacheInfo</code> object associated with this
      * <code>ThreadGroup</code>.
      */
@@ -162,7 +162,7 @@ public final class ImageIO {
         return info;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default temporary (cache) directory as defined by the
      * java.io.tmpdir system property.
      */
@@ -171,7 +171,7 @@ public final class ImageIO {
         return (String)AccessController.doPrivileged(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the caller has write access to the cache
      * directory, stores the result in the <code>CacheInfo</code> object,
      * and returns the decision.  This method helps to prevent mysterious
@@ -213,7 +213,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a flag indicating whether a disk-based cache file should
      * be used when creating <code>ImageInputStream</code>s and
      * <code>ImageOutputStream</code>s.
@@ -243,7 +243,7 @@ public final class ImageIO {
         getCacheInfo().setUseCache(useCache);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current value set by <code>setUseCache</code>, or
      * <code>true</code> if no explicit setting has been made.
      *
@@ -257,7 +257,7 @@ public final class ImageIO {
         return getCacheInfo().getUseCache();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the directory where cache files are to be created.  A
      * value of <code>null</code> indicates that the system-dependent
      * default temporary-file directory is to be used.  If
@@ -282,7 +282,7 @@ public final class ImageIO {
         getCacheInfo().setHasPermission(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current value set by
      * <code>setCacheDirectory</code>, or <code>null</code> if no
      * explicit setting has been made.
@@ -297,7 +297,7 @@ public final class ImageIO {
         return getCacheInfo().getCacheDirectory();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageInputStream</code> that will take its
      * input from the given <code>Object</code>.  The set of
      * <code>ImageInputStreamSpi</code>s registered with the
@@ -358,7 +358,7 @@ public final class ImageIO {
 
     // ImageOutputStreams
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageOutputStream</code> that will send its
      * output to the given <code>Object</code>.  The set of
      * <code>ImageOutputStreamSpi</code>s registered with the
@@ -463,7 +463,7 @@ public final class ImageIO {
 
     // Readers
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * informal format names understood by the current set of registered
      * readers.
@@ -475,7 +475,7 @@ public final class ImageIO {
                                    SpiInfo.FORMAT_NAMES);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * MIME types understood by the current set of registered
      * readers.
@@ -487,7 +487,7 @@ public final class ImageIO {
                                    SpiInfo.MIME_TYPES);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * file suffixes associated with the formats understood
      * by the current set of registered readers.
@@ -607,7 +607,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageReader</code>s that claim to be able to
      * decode the supplied <code>Object</code>, typically an
@@ -670,7 +670,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageReader</code>s that claim to be able to
      * decode the named format.
@@ -705,7 +705,7 @@ public final class ImageIO {
         return new ImageReaderIterator(iter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageReader</code>s that claim to be able to
      * decode files with the given suffix.
@@ -740,7 +740,7 @@ public final class ImageIO {
         return new ImageReaderIterator(iter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageReader</code>s that claim to be able to
      * decode files with the given MIME type.
@@ -777,7 +777,7 @@ public final class ImageIO {
 
     // Writers
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * informal format names understood by the current set of registered
      * writers.
@@ -789,7 +789,7 @@ public final class ImageIO {
                                    SpiInfo.FORMAT_NAMES);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * MIME types understood by the current set of registered
      * writers.
@@ -801,7 +801,7 @@ public final class ImageIO {
                                    SpiInfo.MIME_TYPES);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s listing all of the
      * file suffixes associated with the formats understood
      * by the current set of registered writers.
@@ -853,7 +853,7 @@ public final class ImageIO {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageWriter</code>s that claim to be able to
      * encode the named format.
@@ -888,7 +888,7 @@ public final class ImageIO {
         return new ImageWriterIterator(iter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageWriter</code>s that claim to be able to
      * encode files with the given suffix.
@@ -922,7 +922,7 @@ public final class ImageIO {
         return new ImageWriterIterator(iter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageWriter</code>s that claim to be able to
      * encode files with the given MIME type.
@@ -956,7 +956,7 @@ public final class ImageIO {
         return new ImageWriterIterator(iter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageWriter</code>corresponding to the given
      * <code>ImageReader</code>, if there is one, or <code>null</code>
      * if the plug-in for this <code>ImageReader</code> does not
@@ -1043,7 +1043,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageReader</code>corresponding to the given
      * <code>ImageWriter</code>, if there is one, or <code>null</code>
      * if the plug-in for this <code>ImageWriter</code> does not
@@ -1123,7 +1123,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageWriter</code>s that claim to be able to
      * encode images of the given layout (specified using an
@@ -1210,7 +1210,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing all currently
      * registered <code>ImageTranscoder</code>s that claim to be
      * able to transcode between the metadata of the given
@@ -1252,7 +1252,7 @@ public final class ImageIO {
 
     // All-in-one methods
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>BufferedImage</code> as the result of decoding
      * a supplied <code>File</code> with an <code>ImageReader</code>
      * chosen automatically from among those currently registered.
@@ -1302,7 +1302,7 @@ public final class ImageIO {
         return bi;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>BufferedImage</code> as the result of decoding
      * a supplied <code>InputStream</code> with an <code>ImageReader</code>
      * chosen automatically from among those currently registered.
@@ -1346,7 +1346,7 @@ public final class ImageIO {
         return bi;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>BufferedImage</code> as the result of decoding
      * a supplied <code>URL</code> with an <code>ImageReader</code>
      * chosen automatically from among those currently registered.  An
@@ -1397,7 +1397,7 @@ public final class ImageIO {
         return bi;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>BufferedImage</code> as the result of decoding
      * a supplied <code>ImageInputStream</code> with an
      * <code>ImageReader</code> chosen automatically from among those
@@ -1443,7 +1443,7 @@ public final class ImageIO {
         return bi;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an image using the an arbitrary <code>ImageWriter</code>
      * that supports the given format to an
      * <code>ImageOutputStream</code>.  The image is written to the
@@ -1482,7 +1482,7 @@ public final class ImageIO {
         return doWrite(im, getWriter(im, formatName), output);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an image using an arbitrary <code>ImageWriter</code>
      * that supports the given format to a <code>File</code>.  If
      * there is already a <code>File</code> present, its contents are
@@ -1529,7 +1529,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an image using an arbitrary <code>ImageWriter</code>
      * that supports the given format to an <code>OutputStream</code>.
      *
@@ -1571,7 +1571,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>ImageWriter</code> instance according to given
      * rendered image and image format or <code>null</code> if there
      * is no appropriate writer.
@@ -1589,7 +1589,7 @@ public final class ImageIO {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes image to output stream  using given image writer.
      */
     private static boolean doWrite(RenderedImage im, ImageWriter writer,

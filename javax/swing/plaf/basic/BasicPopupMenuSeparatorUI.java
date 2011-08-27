@@ -33,7 +33,7 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import javax.swing.plaf.ComponentUI;
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of PopupMenuSeparatorUI.  This implementation
  * is a "combined" view/controller.
  *

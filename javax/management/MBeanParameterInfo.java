@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Describes an argument of an operation exposed by an MBean.
  * Instances of this class are immutable.  Subclasses may be mutable
  * but this is not recommended.
@@ -41,13 +41,13 @@ public class MBeanParameterInfo extends MBeanFeatureInfo implements Cloneable {
     /* All zero-length arrays are interchangeable. */
     static final MBeanParameterInfo[] NO_PARAMS = new MBeanParameterInfo[0];
 
-    /**
+    /** {@collect.stats}
      * @serial The type or class name of the data.
      */
     private final String type;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanParameterInfo</CODE> object.
      *
      * @param name The name of the data
@@ -60,7 +60,7 @@ public class MBeanParameterInfo extends MBeanFeatureInfo implements Cloneable {
         this(name, type, description, (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanParameterInfo</CODE> object.
      *
      * @param name The name of the data
@@ -81,7 +81,7 @@ public class MBeanParameterInfo extends MBeanFeatureInfo implements Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a shallow clone of this instance.
      * The clone is obtained by simply calling <tt>super.clone()</tt>,
      * thus calling the default native shallow cloning mechanism
@@ -100,7 +100,7 @@ public class MBeanParameterInfo extends MBeanFeatureInfo implements Cloneable {
          }
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the type or class name of the data.
      *
      * @return the type string.
@@ -119,7 +119,7 @@ public class MBeanParameterInfo extends MBeanFeatureInfo implements Cloneable {
             "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this MBeanParameterInfo to another.
      *
      * @param o the object to compare to.

@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A Smart Card's answer-to-reset bytes. A Card's ATR object can be obtained
  * by calling {@linkplain Card#getATR}.
  * This class does not attempt to verify that the ATR encodes a semantically
@@ -50,7 +50,7 @@ public final class ATR implements java.io.Serializable {
 
     private transient int startHistorical, nHistorical;
 
-    /**
+    /** {@collect.stats}
      * Constructs an ATR from a byte array.
      *
      * @param atr the byte array containing the answer-to-reset bytes
@@ -97,7 +97,7 @@ public final class ATR implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the bytes in this ATR.
      *
      * @return a copy of the bytes in this ATR.
@@ -106,7 +106,7 @@ public final class ATR implements java.io.Serializable {
         return atr.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the historical bytes in this ATR.
      * If this ATR does not contain historical bytes, an array of length
      * zero is returned.
@@ -119,7 +119,7 @@ public final class ATR implements java.io.Serializable {
         return b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this ATR.
      *
      * @return a String representation of this ATR.
@@ -128,7 +128,7 @@ public final class ATR implements java.io.Serializable {
         return "ATR: " + atr.length + " bytes";
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this ATR for equality.
      * Returns true if the given object is also an ATR and its bytes are
      * identical to the bytes in this ATR.
@@ -147,7 +147,7 @@ public final class ATR implements java.io.Serializable {
         return Arrays.equals(this.atr, other.atr);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this ATR.
      *
      * @return the hash code value for this ATR.

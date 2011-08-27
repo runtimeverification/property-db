@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * Superclass of all exceptions specific to Object Stream classes.
  *
  * @author  unascribed
@@ -35,7 +35,7 @@ public abstract class ObjectStreamException extends IOException {
 
     private static final long serialVersionUID = 7260898174833392607L;
 
-    /**
+    /** {@collect.stats}
      * Create an ObjectStreamException with the specified argument.
      *
      * @param classname the detailed message for the exception
@@ -44,7 +44,7 @@ public abstract class ObjectStreamException extends IOException {
         super(classname);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an ObjectStreamException.
      */
     protected ObjectStreamException() {

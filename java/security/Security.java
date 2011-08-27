@@ -37,7 +37,7 @@ import java.security.Provider.Service;
 
 import sun.security.jca.*;
 
-/**
+/** {@collect.stats}
  * <p>This class centralizes all security properties and common security
  * methods. One of its primary uses is to manage providers.
  *
@@ -200,7 +200,7 @@ public final class Security {
         props.put("security.provider.6", "com.sun.security.sasl.Provider");
     }
 
-    /**
+    /** {@collect.stats}
      * Don't let anyone instantiate this.
      */
     private Security() {
@@ -214,7 +214,7 @@ public final class Security {
                         "security" + sep + filename);
     }
 
-    /**
+    /** {@collect.stats}
      * Looks up providers, and returns the property (and its associated
      * provider) mapping the key, if any.
      * The order in which the providers are looked up is the
@@ -255,7 +255,7 @@ public final class Security {
         return entry;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the property (if any) mapping the key for the given provider.
      */
     private static String getProviderProperty(String key, Provider provider) {
@@ -275,7 +275,7 @@ public final class Security {
         return prop;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a specified property for an algorithm. The algorithm name
      * should be a standard name. See Appendix A in the <a href=
      * "../../../technotes/guides/security/crypto/CryptoSpec.html#AppA">
@@ -310,7 +310,7 @@ public final class Security {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new provider, at a specified position. The position is
      * the preference order in which providers are searched for
      * requested algorithms.  The position is 1-based, that is,
@@ -367,7 +367,7 @@ public final class Security {
         return newList.getIndex(providerName) + 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a provider to the next position available.
      *
      * <p>First, if there is a security manager, its
@@ -408,7 +408,7 @@ public final class Security {
         return insertProviderAt(provider, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the provider with the specified name.
      *
      * <p>When the specified provider is removed, all providers located
@@ -447,7 +447,7 @@ public final class Security {
         Providers.setProviderList(newList);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all the installed providers. The order of
      * the providers in the array is their preference order.
      *
@@ -457,7 +457,7 @@ public final class Security {
         return Providers.getFullProviderList().toArray();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider installed with the specified name, if
      * any. Returns null if no provider with the specified name is
      * installed or if name is null.
@@ -473,7 +473,7 @@ public final class Security {
         return Providers.getProviderList().getProvider(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all installed providers that satisfy the
      * specified selection criterion, or null if no such providers have been
      * installed. The returned providers are ordered
@@ -552,7 +552,7 @@ public final class Security {
         return (getProviders(hashtableFilter));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all installed providers that satisfy the
      * specified* selection criteria, or null if no such providers have been
      * installed. The returned providers are ordered
@@ -663,7 +663,7 @@ public final class Security {
     private static final Map<String,Class> spiMap =
                                 new ConcurrentHashMap<String,Class>();
 
-    /**
+    /** {@collect.stats}
      * Return the Class object for the given engine type
      * (e.g. "MessageDigest"). Works for Spis in the java.security package
      * only.
@@ -733,7 +733,7 @@ public final class Security {
             (type, getSpiClass(type), algorithm, params, provider).toArray();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a security property value.
      *
      * <p>First, if there is a security manager, its
@@ -768,7 +768,7 @@ public final class Security {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a security property value.
      *
      * <p>First, if there is a security manager, its
@@ -1054,7 +1054,7 @@ public final class Security {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Set of Strings containing the names of all available
      * algorithms or types for the specified Java cryptographic service
      * (e.g., Signature, MessageDigest, Cipher, Mac, KeyStore). Returns

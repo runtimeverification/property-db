@@ -28,7 +28,7 @@ package javax.sql;
 import java.sql.*;
 
 
-/**
+/** {@collect.stats}
  * An object that provides support for distributed
  * transactions.  An <code>XAConnection</code> object  may be enlisted
  * in a distributed transaction by means of an <code>XAResource</code> object.
@@ -44,7 +44,7 @@ import java.sql.*;
 public interface XAConnection extends PooledConnection {
 
 
-  /**
+  /** {@collect.stats}
    * Retrieves an <code>XAResource</code> object that
    * the transaction manager will use
    * to manage this <code>XAConnection</code> object's participation in a

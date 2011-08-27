@@ -27,7 +27,7 @@ package javax.crypto;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * A CipherInputStream is composed of an InputStream and a Cipher so
  * that read() methods return data that are read in from the
  * underlying InputStream but have been additionally processed by the
@@ -87,7 +87,7 @@ public class CipherInputStream extends FilterInputStream {
     // the offset pointing to the last "new" byte
     private int ofinish = 0;
 
-    /**
+    /** {@collect.stats}
      * private convenience function.
      *
      * Entry condition: ostart = ofinish
@@ -126,7 +126,7 @@ public class CipherInputStream extends FilterInputStream {
         return ofinish;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CipherInputStream from an InputStream and a
      * Cipher.
      * <br>Note: if the specified input stream or cipher is
@@ -141,7 +141,7 @@ public class CipherInputStream extends FilterInputStream {
         cipher = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CipherInputStream from an InputStream without
      * specifying a Cipher. This has the effect of constructing a
      * CipherInputStream using a NullCipher.
@@ -155,7 +155,7 @@ public class CipherInputStream extends FilterInputStream {
         cipher = new NullCipher();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
@@ -180,7 +180,7 @@ public class CipherInputStream extends FilterInputStream {
         return ((int) obuffer[ostart++] & 0xff);
     };
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>b.length</code> bytes of data from this input
      * stream into an array of bytes.
      * <p>
@@ -200,7 +200,7 @@ public class CipherInputStream extends FilterInputStream {
         return read(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes. This method blocks until some input is
      * available. If the first argument is <code>null,</code> up to
@@ -236,7 +236,7 @@ public class CipherInputStream extends FilterInputStream {
         return available;
     }
 
-    /**
+    /** {@collect.stats}
      * Skips <code>n</code> bytes of input from the bytes that can be read
      * from this input stream without blocking.
      *
@@ -266,7 +266,7 @@ public class CipherInputStream extends FilterInputStream {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of bytes that can be read from this input
      * stream without blocking. The <code>available</code> method of
      * <code>InputStream</code> returns <code>0</code>. This method
@@ -281,7 +281,7 @@ public class CipherInputStream extends FilterInputStream {
         return (ofinish - ostart);
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * <p>
@@ -306,7 +306,7 @@ public class CipherInputStream extends FilterInputStream {
         ofinish = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods, which it does not.
      *

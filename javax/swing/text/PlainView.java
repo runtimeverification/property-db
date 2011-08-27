@@ -29,7 +29,7 @@ import java.util.Properties;
 import java.awt.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * Implements View interface for a simple multi-line text view
  * that has text in one font and color.  The view represents each
  * child element as a line of text.
@@ -39,7 +39,7 @@ import javax.swing.event.*;
  */
 public class PlainView extends View implements TabExpander {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new PlainView wrapped on an element.
      *
      * @param elem the element
@@ -48,7 +48,7 @@ public class PlainView extends View implements TabExpander {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the tab size set for the document, defaulting to 8.
      *
      * @return the tab size
@@ -59,7 +59,7 @@ public class PlainView extends View implements TabExpander {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders a line of text, suppressing whitespace at the end
      * and expanding any tabs.  This is implemented to make calls
      * to the methods <code>drawUnselectedText</code> and
@@ -133,7 +133,7 @@ public class PlainView extends View implements TabExpander {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as normal unselected
      * text.  Uses the foreground or disabled color to render the text.
      *
@@ -156,7 +156,7 @@ public class PlainView extends View implements TabExpander {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as selected text.  This
      * is implemented to render the text in the color specified in
      * the hosting component.  It assumes the highlighter will render
@@ -181,7 +181,7 @@ public class PlainView extends View implements TabExpander {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives access to a buffer that can be used to fetch
      * text from the associated document.
      *
@@ -194,7 +194,7 @@ public class PlainView extends View implements TabExpander {
         return lineBuffer;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see if the font metrics and longest line
      * are up-to-date.
      *
@@ -213,7 +213,7 @@ public class PlainView extends View implements TabExpander {
 
     // ---- View methods ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -236,7 +236,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that surface.
      * The view may need to do layout and create child views to enable
      * itself to render into the given allocation.
@@ -319,7 +319,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Should return a shape ideal for painting based on the passed in
      * Shape <code>a</code>. This is useful if painting in a different
      * region. The default implementation returns <code>a</code>.
@@ -328,7 +328,7 @@ public class PlainView extends View implements TabExpander {
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -365,7 +365,7 @@ public class PlainView extends View implements TabExpander {
         return lineArea;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -438,7 +438,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the document
      * in a location that this view is responsible for.
      *
@@ -451,7 +451,7 @@ public class PlainView extends View implements TabExpander {
         updateDamage(changes, a, f);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      *
@@ -464,7 +464,7 @@ public class PlainView extends View implements TabExpander {
         updateDamage(changes, a, f);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -477,7 +477,7 @@ public class PlainView extends View implements TabExpander {
         updateDamage(changes, a, f);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view along the given axis, if it
      * has any layout duties.
@@ -492,7 +492,7 @@ public class PlainView extends View implements TabExpander {
 
     // --- TabExpander methods ------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the next tab stop position after a given reference position.
      * This implementation does not support things like centering so it
      * ignores the tabOffset argument.
@@ -512,7 +512,7 @@ public class PlainView extends View implements TabExpander {
 
     // --- local methods ------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Repaint the region of change covered by the given document
      * event.  Damages the line that begins the range to cover
      * the case when the insert/remove is only on one line.
@@ -578,7 +578,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Repaint the given line range.
      *
      * @param host the component hosting the view (used to call repaint)
@@ -602,7 +602,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determine the rectangle that represents the given line.
      *
      * @param a  the region allocated for the view to render into
@@ -625,7 +625,7 @@ public class PlainView extends View implements TabExpander {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Iterate over the lines represented by the child elements
      * of the element this view represents, looking for the line
      * that is the longest.  The <em>longLine</em> variable is updated to
@@ -651,7 +651,7 @@ public class PlainView extends View implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the width of the line represented by
      * the given element.  It is assumed that the font
      * and font metrics are up-to-date.
@@ -676,12 +676,12 @@ public class PlainView extends View implements TabExpander {
 
     // --- member variables -----------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Font metrics for the current font.
      */
     protected FontMetrics metrics;
 
-    /**
+    /** {@collect.stats}
      * The current longest line.  This is used to calculate
      * the preferred width of the view.  Since the calculation
      * is potentially expensive we try to avoid it by stashing
@@ -689,7 +689,7 @@ public class PlainView extends View implements TabExpander {
      */
     Element longLine;
 
-    /**
+    /** {@collect.stats}
      * Font used to calculate the longest line... if this
      * changes we need to recalculate the longest line
      */
@@ -704,7 +704,7 @@ public class PlainView extends View implements TabExpander {
     Color unselected;
     Color selected;
 
-    /**
+    /** {@collect.stats}
      * Offset of where to draw the first character on the first line.
      * This is a hack and temporary until we can better address the problem
      * of text measuring. This field is actually never set directly in

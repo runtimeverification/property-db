@@ -27,7 +27,7 @@ package javax.naming;
 
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * This abstract class is used to represent a referral exception,
  * which is generated in response to a <em>referral</em>
  * such as that returned by LDAP v3 servers.
@@ -69,7 +69,7 @@ import java.util.Hashtable;
  */
 
 public abstract class ReferralException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of ReferralException using the
      * explanation supplied. All other fields are set to null.
      *
@@ -80,7 +80,7 @@ public abstract class ReferralException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ReferralException.
       * All fields are set to null.
       */
@@ -88,7 +88,7 @@ public abstract class ReferralException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves information (such as URLs) related to this referral.
      * The program may examine or display this information
      * to the user to determine whether to continue with the referral,
@@ -99,7 +99,7 @@ public abstract class ReferralException extends NamingException {
      */
     public abstract Object getReferralInfo();
 
-    /**
+    /** {@collect.stats}
      * Retrieves the context at which to continue the method.
      * Regardless of whether a referral is encountered directly during a
      * context operation, or indirectly, for example, during a search
@@ -119,7 +119,7 @@ public abstract class ReferralException extends NamingException {
      */
     public abstract Context getReferralContext() throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the context at which to continue the method using
      * environment properties.
      * Regardless of whether a referral is encountered directly during a
@@ -150,7 +150,7 @@ public abstract class ReferralException extends NamingException {
         getReferralContext(Hashtable<?,?> env)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Discards the referral about to be processed.
      * A call to this method should be followed by a call to
      * <code>getReferralContext</code> to allow the processing of
@@ -171,7 +171,7 @@ public abstract class ReferralException extends NamingException {
      */
     public abstract boolean skipReferral();
 
-    /**
+    /** {@collect.stats}
      * Retries the referral currently being processed.
      * A call to this method should be followed by a call to
      * <code>getReferralContext</code> to allow the current
@@ -197,7 +197,7 @@ public abstract class ReferralException extends NamingException {
      */
     public abstract void retryReferral();
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -2881363844695698876L;

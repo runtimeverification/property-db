@@ -27,7 +27,7 @@ package javax.imageio;
 
 import javax.imageio.metadata.IIOMetadata;
 
-/**
+/** {@collect.stats}
  * An interface providing metadata transcoding capability.
  *
  * <p> Any image may be transcoded (written to a different format
@@ -85,7 +85,7 @@ import javax.imageio.metadata.IIOMetadata;
  */
 public interface ImageTranscoder {
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadata</code> object that may be used for
      * encoding and optionally modified using its document interfaces
      * or other interfaces specific to the writer plug-in that will be
@@ -115,7 +115,7 @@ public interface ImageTranscoder {
     IIOMetadata convertStreamMetadata(IIOMetadata inData,
                                       ImageWriteParam param);
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadata</code> object that may be used for
      * encoding and optionally modified using its document interfaces
      * or other interfaces specific to the writer plug-in that will be

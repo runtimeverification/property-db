@@ -27,7 +27,7 @@ package java.awt.print;
 
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * The <code>Paper</code> class describes the physical characteristics of
  * a piece of paper.
  * <p>
@@ -50,7 +50,7 @@ public class Paper implements Cloneable {
 
  /* Instance Variables */
 
-    /**
+    /** {@collect.stats}
      * The height of the physical page in 1/72nds
      * of an inch. The number is stored as a floating
      * point value rather than as an integer
@@ -61,13 +61,13 @@ public class Paper implements Cloneable {
      */
     private double mHeight;
 
-    /**
+    /** {@collect.stats}
      * The width of the physical page in 1/72nds
      * of an inch.
      */
     private double mWidth;
 
-    /**
+    /** {@collect.stats}
      * The area of the page on which drawing will
      * be visable. The area outside of this
      * rectangle but on the Page generally
@@ -80,7 +80,7 @@ public class Paper implements Cloneable {
 
  /* Constructors */
 
-    /**
+    /** {@collect.stats}
      * Creates a letter sized piece of paper
      * with one inch margins.
      */
@@ -94,7 +94,7 @@ public class Paper implements Cloneable {
 
  /* Instance Methods */
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of this <code>Paper</code> with the same contents
      * as this <code>Paper</code>.
      * @return a copy of this <code>Paper</code>.
@@ -118,7 +118,7 @@ public class Paper implements Cloneable {
         return newPaper;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the page in 1/72nds of an inch.
      * @return the height of the page described by this
      *          <code>Paper</code>.
@@ -127,7 +127,7 @@ public class Paper implements Cloneable {
         return mHeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the width and height of this <code>Paper</code>
      * object, which represents the properties of the page onto
      * which printing occurs.
@@ -143,7 +143,7 @@ public class Paper implements Cloneable {
         mHeight = height;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of the page in 1/72nds
      * of an inch.
      * @return the width of the page described by this
@@ -153,7 +153,7 @@ public class Paper implements Cloneable {
         return mWidth;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the imageable area of this <code>Paper</code>.  The
      * imageable area is the area on the page in which printing
      * occurs.
@@ -171,7 +171,7 @@ public class Paper implements Cloneable {
         mImageableArea = new Rectangle2D.Double(x, y, width,height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the x coordinate of the upper-left corner of this
      * <code>Paper</code> object's imageable area.
      * @return the x coordinate of the imageable area.
@@ -180,7 +180,7 @@ public class Paper implements Cloneable {
         return mImageableArea.getX();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the y coordinate of the upper-left corner of this
      * <code>Paper</code> object's imageable area.
      * @return the y coordinate of the imageable area.
@@ -189,7 +189,7 @@ public class Paper implements Cloneable {
         return mImageableArea.getY();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width of this <code>Paper</code> object's imageable
      * area.
      * @return the width of the imageable area.
@@ -198,7 +198,7 @@ public class Paper implements Cloneable {
         return mImageableArea.getWidth();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of this <code>Paper</code> object's imageable
      * area.
      * @return the height of the imageable area.

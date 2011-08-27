@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A RoleList represents a list of roles (Role objects). It is used as
  * parameter when creating a relation, and when trying to set several roles in
  * a relation (via 'setRoles()' method). It is returned as part of a
@@ -64,14 +64,14 @@ public class RoleList extends ArrayList<Object> {
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty RoleList.
      */
     public RoleList() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty RoleList with the initial capacity
      * specified.
      *
@@ -81,7 +81,7 @@ public class RoleList extends ArrayList<Object> {
         super(initialCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code RoleList} containing the elements of the
      * {@code List} specified, in the order in which they are returned by
      * the {@code List}'s iterator. The {@code RoleList} instance has
@@ -112,7 +112,7 @@ public class RoleList extends ArrayList<Object> {
         super.addAll(list);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a view of this list as a {@code List<Role>}.
      * Changes to the returned value are reflected by changes
      * to the original {@code RoleList} and vice versa.
@@ -147,7 +147,7 @@ public class RoleList extends ArrayList<Object> {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Adds the Role specified as the last element of the list.
      *
      * @param role  the role to be added.
@@ -164,7 +164,7 @@ public class RoleList extends ArrayList<Object> {
         super.add(role);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the role specified as an element at the position specified.
      * Elements with an index greater than or equal to the current position are
      * shifted up.
@@ -190,7 +190,7 @@ public class RoleList extends ArrayList<Object> {
         super.add(index, role);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the element at the position specified to be the role
      * specified.
      * The previous element at that position is discarded.
@@ -216,7 +216,7 @@ public class RoleList extends ArrayList<Object> {
         super.set(index, role);
      }
 
-    /**
+    /** {@collect.stats}
      * Appends all the elements in the RoleList specified to the end
      * of the list, in the order in which they are returned by the Iterator of
      * the RoleList specified.
@@ -240,7 +240,7 @@ public class RoleList extends ArrayList<Object> {
         return (super.addAll(roleList));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts all of the elements in the RoleList specified into this
      * list, starting at the specified position, in the order in which they are
      * returned by the Iterator of the RoleList specified.
@@ -322,7 +322,7 @@ public class RoleList extends ArrayList<Object> {
         return super.set(index, element);
     }
 
-    /**
+    /** {@collect.stats}
      * IllegalArgumentException if o is a non-Role object.
      */
     private static void checkTypeSafe(Object o) {
@@ -333,7 +333,7 @@ public class RoleList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * IllegalArgumentException if c contains any non-Role objects.
      */
     private static void checkTypeSafe(Collection<?> c) {
@@ -346,7 +346,7 @@ public class RoleList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if o is a non-Role object.
      */
     private static boolean isTainted(Object o) {
@@ -358,7 +358,7 @@ public class RoleList extends ArrayList<Object> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if c contains any non-Role objects.
      */
     private static boolean isTainted(Collection<?> c) {

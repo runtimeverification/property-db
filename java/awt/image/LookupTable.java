@@ -26,7 +26,7 @@
 package java.awt.image;
 
 
-/**
+/** {@collect.stats}
  * This abstract class defines a lookup table object.  ByteLookupTable
  * and ShortLookupTable are subclasses, which
  * contain byte and short data, respectively.  A lookup table
@@ -45,7 +45,7 @@ package java.awt.image;
  */
 public abstract class LookupTable extends Object{
 
-    /**
+    /** {@collect.stats}
      * Constants
      */
 
@@ -53,7 +53,7 @@ public abstract class LookupTable extends Object{
     int  offset;
     int  numEntries;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new LookupTable from the number of components and an offset
      * into the lookup table.
      * @param offset the offset to subtract from input values before indexing
@@ -76,7 +76,7 @@ public abstract class LookupTable extends Object{
         this.offset = offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of components in the lookup table.
      * @return the number of components in this <code>LookupTable</code>.
      */
@@ -84,7 +84,7 @@ public abstract class LookupTable extends Object{
         return numComponents;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset.
      * @return the offset of this <code>LookupTable</code>.
      */
@@ -92,7 +92,7 @@ public abstract class LookupTable extends Object{
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>int</code> array of components for
      * one pixel.  The <code>dest</code> array contains the
      * result of the lookup and is returned.  If dest is

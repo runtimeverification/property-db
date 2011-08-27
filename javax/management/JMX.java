@@ -29,7 +29,7 @@ import com.sun.jmx.mbeanserver.Introspector;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
-/**
+/** {@collect.stats}
  * Static methods from the JMX API.  There are no instances of this class.
  *
  * @since 1.6
@@ -42,61 +42,61 @@ public class JMX {
 
     private JMX() {}
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#defaultValue">{@code
      * defaultValue}</a> field.
      */
     public static final String DEFAULT_VALUE_FIELD = "defaultValue";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#immutableInfo">{@code
      * immutableInfo}</a> field.
      */
     public static final String IMMUTABLE_INFO_FIELD = "immutableInfo";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#interfaceClassName">{@code
      * interfaceClassName}</a> field.
      */
     public static final String INTERFACE_CLASS_NAME_FIELD = "interfaceClassName";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#legalValues">{@code
      * legalValues}</a> field.
      */
     public static final String LEGAL_VALUES_FIELD = "legalValues";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#maxValue">{@code
      * maxValue}</a> field.
      */
     public static final String MAX_VALUE_FIELD = "maxValue";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#minValue">{@code
      * minValue}</a> field.
      */
     public static final String MIN_VALUE_FIELD = "minValue";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#mxbean">{@code
      * mxbean}</a> field.
      */
     public static final String MXBEAN_FIELD = "mxbean";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#openType">{@code
      * openType}</a> field.
      */
     public static final String OPEN_TYPE_FIELD = "openType";
 
-    /**
+    /** {@collect.stats}
      * The name of the <a href="Descriptor.html#originalType">{@code
      * originalType}</a> field.
      */
     public static final String ORIGINAL_TYPE_FIELD = "originalType";
 
-    /**
+    /** {@collect.stats}
      * <p>Make a proxy for a Standard MBean in a local or remote
      * MBean Server.</p>
      *
@@ -165,7 +165,7 @@ public class JMX {
         return newMBeanProxy(connection, objectName, interfaceClass, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a proxy for a Standard MBean in a local or remote MBean
      * Server that may also support the methods of {@link
      * NotificationEmitter}.</p>
@@ -210,7 +210,7 @@ public class JMX {
                 notificationBroadcaster);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a proxy for an MXBean in a local or remote
      * MBean Server.</p>
      *
@@ -307,7 +307,7 @@ public class JMX {
         return newMXBeanProxy(connection, objectName, interfaceClass, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Make a proxy for an MXBean in a local or remote MBean
      * Server that may also support the methods of {@link
      * NotificationEmitter}.</p>
@@ -367,7 +367,7 @@ public class JMX {
         return interfaceClass.cast(proxy);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Test whether an interface is an MXBean interface.
      * An interface is an MXBean interface if it is annotated
      * {@link MXBean &#64;MXBean} or {@code @MXBean(true)}

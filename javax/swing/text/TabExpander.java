@@ -25,7 +25,7 @@
 package javax.swing.text;
 
 
-/**
+/** {@collect.stats}
  * Simple interface to allow for different types of
  * implementations of tab expansion.
  *
@@ -33,7 +33,7 @@ package javax.swing.text;
  */
 public interface TabExpander {
 
-    /**
+    /** {@collect.stats}
      * Returns the next tab stop position given a reference
      * position.  Values are expressed in points.
      *

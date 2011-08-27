@@ -31,7 +31,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <code>InternationalFormatter</code> extends <code>DefaultFormatter</code>,
  * using an instance of <code>java.text.Format</code> to handle the
  * conversion to a String, and the conversion from a String.
@@ -93,25 +93,25 @@ import javax.swing.text.*;
  * @since 1.4
  */
 public class InternationalFormatter extends DefaultFormatter {
-    /**
+    /** {@collect.stats}
      * Used by <code>getFields</code>.
      */
     private static final Format.Field[] EMPTY_FIELD_ARRAY =new Format.Field[0];
 
-    /**
+    /** {@collect.stats}
      * Object used to handle the conversion.
      */
     private Format format;
-    /**
+    /** {@collect.stats}
      * Can be used to impose a maximum value.
      */
     private Comparable max;
-    /**
+    /** {@collect.stats}
      * Can be used to impose a minimum value.
      */
     private Comparable min;
 
-    /**
+    /** {@collect.stats}
      * <code>InternationalFormatter</code>'s behavior is dicatated by a
      * <code>AttributedCharacterIterator</code> that is obtained from
      * the <code>Format</code>. On every edit, assuming
@@ -134,26 +134,26 @@ public class InternationalFormatter extends DefaultFormatter {
      * the valid FieldPositions, you will need to override
      * <code>canIncrement</code>.
      */
-    /**
+    /** {@collect.stats}
      * A bit is set for every index identified in the
      * AttributedCharacterIterator that is not considered decoration.
      * This should only be used if validMask is true.
      */
     private transient BitSet literalMask;
-    /**
+    /** {@collect.stats}
      * Used to iterate over characters.
      */
     private transient AttributedCharacterIterator iterator;
-    /**
+    /** {@collect.stats}
      * True if the Format was able to convert the value to a String and
      * back.
      */
     private transient boolean validMask;
-    /**
+    /** {@collect.stats}
      * Current value being displayed.
      */
     private transient String string;
-    /**
+    /** {@collect.stats}
      * If true, DocumentFilter methods are unconditionally allowed,
      * and no checking is done on their values. This is used when
      * incrementing/decrementing via the actions.
@@ -161,7 +161,7 @@ public class InternationalFormatter extends DefaultFormatter {
     private transient boolean ignoreDocumentMutate;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>InternationalFormatter</code> with no
      * <code>Format</code> specified.
      */
@@ -169,7 +169,7 @@ public class InternationalFormatter extends DefaultFormatter {
         setOverwriteMode(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>InternationalFormatter</code> with the specified
      * <code>Format</code> instance.
      *
@@ -180,7 +180,7 @@ public class InternationalFormatter extends DefaultFormatter {
         setFormat(format);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the format that dictates the legal values that can be edited
      * and displayed.
      *
@@ -191,7 +191,7 @@ public class InternationalFormatter extends DefaultFormatter {
         this.format = format;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the format that dictates the legal values that can be edited
      * and displayed.
      *
@@ -201,7 +201,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return format;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the minimum permissible value. If the <code>valueClass</code> has
      * not been specified, and <code>minimum</code> is non null, the
      * <code>valueClass</code> will be set to that of the class of
@@ -217,7 +217,7 @@ public class InternationalFormatter extends DefaultFormatter {
         min = minimum;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum permissible value.
      *
      * @return Minimum legal value that can be input
@@ -226,7 +226,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return min;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum permissible value. If the <code>valueClass</code> has
      * not been specified, and <code>max</code> is non null, the
      * <code>valueClass</code> will be set to that of the class of
@@ -242,7 +242,7 @@ public class InternationalFormatter extends DefaultFormatter {
         this.max = max;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum permissible value.
      *
      * @return Maximum legal value that can be input
@@ -251,7 +251,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return max;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the <code>DefaultFormatter</code> onto a particular
      * <code>JFormattedTextField</code>.
      * This will invoke <code>valueToString</code> to convert the
@@ -288,7 +288,7 @@ public class InternationalFormatter extends DefaultFormatter {
         positionCursorAtInitialLocation();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String representation of the Object <code>value</code>.
      * This invokes <code>format</code> on the current <code>Format</code>.
      *
@@ -308,7 +308,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return f.format(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Object</code> representation of the
      * <code>String</code> <code>text</code>.
      *
@@ -336,7 +336,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Format.Field</code> constants associated with
      * the text at <code>offset</code>. If <code>offset</code> is not
      * a valid location into the current text, this will return an
@@ -363,7 +363,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return EMPTY_FIELD_ARRAY;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of the DefaultFormatter.
      *
      * @return copy of the DefaultFormatter
@@ -379,7 +379,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return formatter;
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>getSupportsIncrement</code> returns true, this returns
      * two Actions suitable for incrementing/decrementing the value.
      */
@@ -391,7 +391,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>parseObject</code> on <code>f</code>, returning
      * its value.
      */
@@ -402,7 +402,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return f.parseObject(text);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>value</code> is between the min/max.
      *
      * @param wantsCCE If false, and a ClassCastException is thrown in
@@ -437,7 +437,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Set of the attribute identifiers at <code>index</code>.
      */
     Map getAttributes(int index) {
@@ -453,7 +453,7 @@ public class InternationalFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the start of the first run that contains the attribute
      * <code>id</code>. This will return <code>-1</code> if the attribute
      * can not be found.
@@ -473,7 +473,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AttributedCharacterIterator</code> used to
      * format the last value.
      */
@@ -481,7 +481,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return iterator;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the AttributedCharacterIterator and bitset, if necessary.
      */
     void updateMaskIfNecessary() {
@@ -499,7 +499,7 @@ public class InternationalFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the AttributedCharacterIterator by invoking
      * <code>formatToCharacterIterator</code> on the <code>Format</code>.
      * If this is successful,
@@ -533,7 +533,7 @@ public class InternationalFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of literal characters before <code>index</code>.
      */
     int getLiteralCountTo(int index) {
@@ -547,7 +547,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return lCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the character at index is a literal, that is
      * not editable.
      */
@@ -558,7 +558,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the literal character at index.
      */
     char getLiteral(int index) {
@@ -568,7 +568,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return (char)0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the character at offset is navigatable too. This
      * is implemented in terms of <code>isLiteral</code>, subclasses
      * may wish to provide different behavior.
@@ -577,7 +577,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return !isLiteral(offset);
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to update the mask after invoking supers implementation.
      */
     void updateValue(Object value) {
@@ -585,7 +585,7 @@ public class InternationalFormatter extends DefaultFormatter {
         updateMaskIfNecessary();
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to unconditionally allow the replace if
      * ignoreDocumentMutate is true.
      */
@@ -599,7 +599,7 @@ public class InternationalFormatter extends DefaultFormatter {
         super.replace(fb, offset, length, text, attrs);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the next non-literal character starting at
      * index. If index is not a literal, it will be returned.
      *
@@ -619,7 +619,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return (direction == -1) ? 0 : max;
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden in an attempt to honor the literals.
      * <p>
      * If we do
@@ -723,7 +723,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return can;
     }
 
-    /**
+    /** {@collect.stats}
      * When in !allowsInvalid mode the text is reset on every edit, thus
      * supers implementation will position the cursor at the wrong position.
      * As such, this invokes supers implementation and then invokes
@@ -768,7 +768,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Repositions the cursor. <code>startLiteralCount</code> gives
      * the number of literals to the start of the deleted range, end
      * gives the ending location to adjust from, direction gives
@@ -790,7 +790,7 @@ public class InternationalFormatter extends DefaultFormatter {
         repositionCursor(end, 1 /*direction*/);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character from the mask that has been buffered
      * at <code>index</code>.
      */
@@ -803,21 +803,21 @@ public class InternationalFormatter extends DefaultFormatter {
         return (char)0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the current mask is valid.
      */
     boolean isValidMask() {
         return validMask;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>attributes</code> is null or empty.
      */
     boolean isLiteral(Map attributes) {
         return ((attributes == null) || attributes.size() == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the interal bitset from <code>iterator</code>. This will
      * set <code>validMask</code> to true if <code>iterator</code> is
      * non-null.
@@ -859,7 +859,7 @@ public class InternationalFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>field</code> is non-null.
      * Subclasses that wish to allow incrementing to happen outside of
      * the known fields will need to override this.
@@ -868,7 +868,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return (field != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the fields identified by <code>attributes</code>.
      */
     void selectField(Object f, int count) {
@@ -898,14 +898,14 @@ public class InternationalFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the field that will be adjusted by adjustValue.
      */
     Object getAdjustField(int start, Map attributes) {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of occurences of <code>f</code> before
      * the location <code>start</code> in the current
      * <code>AttributedCharacterIterator</code>.
@@ -937,7 +937,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses supporting incrementing must override this to handle
      * the actual incrementing. <code>value</code> is the current value,
      * <code>attributes</code> gives the field the cursor is in (may be
@@ -950,7 +950,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false, indicating InternationalFormatter does not allow
      * incrementing of the value. Subclasses that wish to support
      * incrementing/decrementing the value should override this and
@@ -961,7 +961,7 @@ public class InternationalFormatter extends DefaultFormatter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the value of the JFormattedTextField to be
      * <code>value</code>.
      */
@@ -979,7 +979,7 @@ public class InternationalFormatter extends DefaultFormatter {
         updateValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Subclassed to update the internal representation of the mask after
      * the default read operation has completed.
      */
@@ -990,7 +990,7 @@ public class InternationalFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overriden to return an instance of <code>ExtendedReplaceHolder</code>.
      */
     ReplaceHolder getReplaceHolder(DocumentFilter.FilterBypass fb, int offset,
@@ -1003,20 +1003,20 @@ public class InternationalFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * As InternationalFormatter replaces the complete text on every edit,
      * ExtendedReplaceHolder keeps track of the offset and length passed
      * into canReplace.
      */
     static class ExtendedReplaceHolder extends ReplaceHolder {
-        /** Offset of the insert/remove. This may differ from offset in
+        /** {@collect.stats} Offset of the insert/remove. This may differ from offset in
          * that if !allowsInvalid the text is replaced on every edit. */
         int endOffset;
-        /** Length of the text. This may differ from text.length in
+        /** {@collect.stats} Length of the text. This may differ from text.length in
          * that if !allowsInvalid the text is replaced on every edit. */
         int endTextLength;
 
-        /**
+        /** {@collect.stats}
          * Resets the region to delete to be the complete document and
          * the text from invoking valueToString on the current value.
          */
@@ -1036,7 +1036,7 @@ public class InternationalFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * IncrementAction is used to increment the value by a certain amount.
      * It calls into <code>adjustValue</code> to handle the actual
      * incrementing of the value.

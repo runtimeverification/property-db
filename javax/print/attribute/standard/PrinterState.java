@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterState is a printing attribute class, an enumeration, that
  * identifies the current state of a printer. Class PrinterState defines
  * standard printer state values. A Print Service implementation only needs
@@ -51,28 +51,28 @@ implements PrintServiceAttribute {
 
     private static final long serialVersionUID = -649578618346507718L;
 
-    /**
+    /** {@collect.stats}
      * The printer state is unknown.
      */
     public static final PrinterState UNKNOWN = new PrinterState(0);
 
-    /**
+    /** {@collect.stats}
      * Indicates that new jobs can start processing without waiting.
      */
     public static final PrinterState IDLE = new PrinterState(3);
 
-    /**
+    /** {@collect.stats}
      * Indicates that jobs are processing;
      * new jobs will wait before processing.
      */
     public static final PrinterState PROCESSING = new PrinterState(4);
 
-    /**
+    /** {@collect.stats}
      * Indicates that no jobs can be processed and intervention is required.
      */
     public static final PrinterState STOPPED = new PrinterState(5);
 
-    /**
+    /** {@collect.stats}
      * Construct a new printer state enumeration value with the given integer
      * value.
      *
@@ -100,21 +100,21 @@ implements PrintServiceAttribute {
         STOPPED
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PrinterState.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PrinterState.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -127,7 +127,7 @@ implements PrintServiceAttribute {
         return PrinterState.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * <p>
  * The <code>Document</code> is a container for text that serves
  * as the model for swing text components.  The goal for this
@@ -183,7 +183,7 @@ import javax.swing.event.*;
  */
 public interface Document {
 
-    /**
+    /** {@collect.stats}
      * Returns number of characters of content currently
      * in the document.
      *
@@ -191,7 +191,7 @@ public interface Document {
      */
     public int getLength();
 
-    /**
+    /** {@collect.stats}
      * Registers the given observer to begin receiving notifications
      * when changes are made to the document.
      *
@@ -200,7 +200,7 @@ public interface Document {
      */
     public void addDocumentListener(DocumentListener listener);
 
-    /**
+    /** {@collect.stats}
      * Unregisters the given observer from the notification list
      * so it will no longer receive change updates.
      *
@@ -209,7 +209,7 @@ public interface Document {
      */
     public void removeDocumentListener(DocumentListener listener);
 
-    /**
+    /** {@collect.stats}
      * Registers the given observer to begin receiving notifications
      * when undoable edits are made to the document.
      *
@@ -218,7 +218,7 @@ public interface Document {
      */
     public void addUndoableEditListener(UndoableEditListener listener);
 
-    /**
+    /** {@collect.stats}
      * Unregisters the given observer from the notification list
      * so it will no longer receive updates.
      *
@@ -227,7 +227,7 @@ public interface Document {
      */
     public void removeUndoableEditListener(UndoableEditListener listener);
 
-    /**
+    /** {@collect.stats}
      * Gets the properties associated with the document.
      *
      * @param key a non-<code>null</code> property key
@@ -236,7 +236,7 @@ public interface Document {
      */
     public Object getProperty(Object key);
 
-    /**
+    /** {@collect.stats}
      * Associates a property with the document.  Two standard
      * property keys provided are: <a href="#StreamDescriptionProperty">
      * <code>StreamDescriptionProperty</code></a> and
@@ -249,7 +249,7 @@ public interface Document {
      */
     public void putProperty(Object key, Object value);
 
-    /**
+    /** {@collect.stats}
      * Removes a portion of the content of the document.
      * This will cause a DocumentEvent of type
      * DocumentEvent.EventType.REMOVE to be sent to the
@@ -292,7 +292,7 @@ public interface Document {
      */
     public void remove(int offs, int len) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Inserts a string of content.  This will cause a DocumentEvent
      * of type DocumentEvent.EventType.INSERT to be sent to the
      * registered DocumentListers, unless an exception is thrown.
@@ -328,7 +328,7 @@ public interface Document {
      */
     public void insertString(int offset, String str, AttributeSet a) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Fetches the text contained within the given portion
      * of the document.
      *
@@ -342,7 +342,7 @@ public interface Document {
      */
     public String getText(int offset, int length) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Fetches the text contained within the given portion
      * of the document.
      * <p>
@@ -381,7 +381,7 @@ public interface Document {
      */
     public void getText(int offset, int length, Segment txt) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Returns a position that represents the start of the document.  The
      * position returned can be counted on to track change and stay
      * located at the beginning of the document.
@@ -390,7 +390,7 @@ public interface Document {
      */
     public Position getStartPosition();
 
-    /**
+    /** {@collect.stats}
      * Returns a position that represents the end of the document.  The
      * position returned can be counted on to track change and stay
      * located at the end of the document.
@@ -399,7 +399,7 @@ public interface Document {
      */
     public Position getEndPosition();
 
-    /**
+    /** {@collect.stats}
      * This method allows an application to mark a place in
      * a sequence of character content. This mark can then be
      * used to tracks change as insertions and removals are made
@@ -416,7 +416,7 @@ public interface Document {
      */
     public Position createPosition(int offs) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Returns all of the root elements that are defined.
      * <p>
      * Typically there will be only one document structure, but the interface
@@ -437,7 +437,7 @@ public interface Document {
      */
     public Element[] getRootElements();
 
-    /**
+    /** {@collect.stats}
      * Returns the root element that views should be based upon,
      * unless some other mechanism for assigning views to element
      * structures is provided.
@@ -446,7 +446,7 @@ public interface Document {
      */
     public Element getDefaultRootElement();
 
-    /**
+    /** {@collect.stats}
      * Allows the model to be safely rendered in the presence
      * of concurrency, if the model supports being updated asynchronously.
      * The given runnable will be executed in a way that allows it
@@ -458,7 +458,7 @@ public interface Document {
      */
     public void render(Runnable r);
 
-    /**
+    /** {@collect.stats}
      * The property name for the description of the stream
      * used to initialize the document.  This should be used
      * if the document was initialized from a stream and
@@ -466,7 +466,7 @@ public interface Document {
      */
     public static final String StreamDescriptionProperty = "stream";
 
-    /**
+    /** {@collect.stats}
      * The property name for the title of the document, if
      * there is one.
      */

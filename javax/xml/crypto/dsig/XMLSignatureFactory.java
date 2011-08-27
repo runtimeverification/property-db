@@ -49,7 +49,7 @@ import java.util.List;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * A factory for creating {@link XMLSignature} objects from scratch or
  * for unmarshalling an <code>XMLSignature</code> object from a corresponding
  * XML representation.
@@ -153,12 +153,12 @@ public abstract class XMLSignatureFactory {
     private String mechanismType;
     private Provider provider;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, for invocation by subclasses.
      */
     protected XMLSignatureFactory() {}
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>XMLSignatureFactory</code> that supports the
      * specified XML processing mechanism and representation type (ex: "DOM").
      *
@@ -203,7 +203,7 @@ public abstract class XMLSignatureFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>XMLSignatureFactory</code> that supports the
      * requested XML processing mechanism and representation type (ex: "DOM"),
      * as supplied by the specified provider. Note that the specified
@@ -245,7 +245,7 @@ public abstract class XMLSignatureFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>XMLSignatureFactory</code> that supports the
      * requested XML processing mechanism and representation type (ex: "DOM"),
      * as supplied by the specified provider. The specified provider must be
@@ -293,7 +293,7 @@ public abstract class XMLSignatureFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>XMLSignatureFactory</code> that supports the
      * default XML processing mechanism and representation type ("DOM").
      *
@@ -318,7 +318,7 @@ public abstract class XMLSignatureFactory {
         return getInstance("DOM");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of the XML processing mechanism and representation
      * supported by this <code>XMLSignatureFactory</code> (ex: "DOM").
      *
@@ -329,7 +329,7 @@ public abstract class XMLSignatureFactory {
         return mechanismType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>XMLSignatureFactory</code>.
      *
      * @return the provider of this <code>XMLSignatureFactory</code>
@@ -338,7 +338,7 @@ public abstract class XMLSignatureFactory {
         return provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XMLSignature</code> and initializes it with the contents
      * of the specified <code>SignedInfo</code> and <code>KeyInfo</code>
      * objects.
@@ -350,7 +350,7 @@ public abstract class XMLSignatureFactory {
      */
     public abstract XMLSignature newXMLSignature(SignedInfo si, KeyInfo ki);
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XMLSignature</code> and initializes it with the
      * specified parameters.
      *
@@ -368,7 +368,7 @@ public abstract class XMLSignatureFactory {
     public abstract XMLSignature newXMLSignature(SignedInfo si, KeyInfo ki,
         List objects, String id, String signatureValueId);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Reference</code> with the specified URI and digest
      * method.
      *
@@ -381,7 +381,7 @@ public abstract class XMLSignatureFactory {
      */
     public abstract Reference newReference(String uri, DigestMethod dm);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Reference</code> with the specified parameters.
      *
      * @param uri the reference URI (may be <code>null</code>)
@@ -401,7 +401,7 @@ public abstract class XMLSignatureFactory {
     public abstract Reference newReference(String uri, DigestMethod dm,
         List transforms, String type, String id);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Reference</code> with the specified parameters and
      * pre-calculated digest value.
      *
@@ -431,7 +431,7 @@ public abstract class XMLSignatureFactory {
     public abstract Reference newReference(String uri, DigestMethod dm,
         List transforms, String type, String id, byte[] digestValue);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Reference</code> with the specified parameters.
      *
      * <p>This method is useful when a list of transforms have already been
@@ -474,7 +474,7 @@ public abstract class XMLSignatureFactory {
         List appliedTransforms, Data result, List transforms, String type,
         String id);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SignedInfo</code> with the specified canonicalization
      * and signature methods, and list of one or more references.
      *
@@ -492,7 +492,7 @@ public abstract class XMLSignatureFactory {
     public abstract SignedInfo newSignedInfo(CanonicalizationMethod cm,
         SignatureMethod sm, List references);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SignedInfo</code> with the specified parameters.
      *
      * @param cm the canonicalization method
@@ -511,7 +511,7 @@ public abstract class XMLSignatureFactory {
         SignatureMethod sm, List references, String id);
 
     // Object factory methods
-    /**
+    /** {@collect.stats}
      * Creates an <code>XMLObject</code> from the specified parameters.
      *
      * @param content a list of {@link XMLStructure}s. The list
@@ -527,7 +527,7 @@ public abstract class XMLSignatureFactory {
     public abstract XMLObject newXMLObject(List content, String id,
         String mimeType, String encoding);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Manifest</code> containing the specified
      * list of {@link Reference}s.
      *
@@ -542,7 +542,7 @@ public abstract class XMLSignatureFactory {
      */
     public abstract Manifest newManifest(List references);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Manifest</code> containing the specified
      * list of {@link Reference}s and optional id.
      *
@@ -558,7 +558,7 @@ public abstract class XMLSignatureFactory {
      */
     public abstract Manifest newManifest(List references, String id);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SignatureProperty</code> containing the specified
      * list of {@link XMLStructure}s, target URI and optional id.
      *
@@ -577,7 +577,7 @@ public abstract class XMLSignatureFactory {
     public abstract SignatureProperty newSignatureProperty
         (List content, String target, String id);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SignatureProperties</code> containing the specified
      * list of {@link SignatureProperty}s and optional id.
      *
@@ -596,7 +596,7 @@ public abstract class XMLSignatureFactory {
         (List properties, String id);
 
     // Algorithm factory methods
-    /**
+    /** {@collect.stats}
      * Creates a <code>DigestMethod</code> for the specified algorithm URI
      * and parameters.
      *
@@ -615,7 +615,7 @@ public abstract class XMLSignatureFactory {
         DigestMethodParameterSpec params) throws NoSuchAlgorithmException,
         InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SignatureMethod</code> for the specified algorithm URI
      * and parameters.
      *
@@ -634,7 +634,7 @@ public abstract class XMLSignatureFactory {
         SignatureMethodParameterSpec params) throws NoSuchAlgorithmException,
         InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Transform</code> for the specified algorithm URI
      * and parameters.
      *
@@ -653,7 +653,7 @@ public abstract class XMLSignatureFactory {
         TransformParameterSpec params) throws NoSuchAlgorithmException,
         InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Transform</code> for the specified algorithm URI
      * and parameters. The parameters are specified as a mechanism-specific
      * <code>XMLStructure</code> (ex: {@link DOMStructure}). This method is
@@ -678,7 +678,7 @@ public abstract class XMLSignatureFactory {
         XMLStructure params) throws NoSuchAlgorithmException,
         InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CanonicalizationMethod</code> for the specified
      * algorithm URI and parameters.
      *
@@ -697,7 +697,7 @@ public abstract class XMLSignatureFactory {
         String algorithm, C14NMethodParameterSpec params)
         throws NoSuchAlgorithmException, InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CanonicalizationMethod</code> for the specified
      * algorithm URI and parameters. The parameters are specified as a
      * mechanism-specific <code>XMLStructure</code> (ex: {@link DOMStructure}).
@@ -722,7 +722,7 @@ public abstract class XMLSignatureFactory {
         String algorithm, XMLStructure params)
         throws NoSuchAlgorithmException, InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyInfoFactory</code> that creates <code>KeyInfo</code>
      * objects. The returned <code>KeyInfoFactory</code> has the same
      * mechanism type and provider as this <code>XMLSignatureFactory</code>.
@@ -736,7 +736,7 @@ public abstract class XMLSignatureFactory {
         return KeyInfoFactory.getInstance(getMechanismType(), getProvider());
     }
 
-    /**
+    /** {@collect.stats}
      * Unmarshals a new <code>XMLSignature</code> instance from a
      * mechanism-specific <code>XMLValidateContext</code> instance.
      *
@@ -753,7 +753,7 @@ public abstract class XMLSignatureFactory {
     public abstract XMLSignature unmarshalXMLSignature
         (XMLValidateContext context) throws MarshalException;
 
-    /**
+    /** {@collect.stats}
      * Unmarshals a new <code>XMLSignature</code> instance from a
      * mechanism-specific <code>XMLStructure</code> instance.
      * This method is useful if you only want to unmarshal (and not
@@ -772,7 +772,7 @@ public abstract class XMLSignatureFactory {
     public abstract XMLSignature unmarshalXMLSignature
         (XMLStructure xmlStructure) throws MarshalException;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a specified feature is supported.
      *
      * @param feature the feature name (as an absolute URI)
@@ -782,7 +782,7 @@ public abstract class XMLSignatureFactory {
      */
     public abstract boolean isFeatureSupported(String feature);
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the <code>URIDereferencer</code> that is used by
      * default to dereference URIs in {@link Reference} objects.
      *

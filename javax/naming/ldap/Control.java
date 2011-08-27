@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
   * This interface represents an LDAPv3 control as defined in
   * <A HREF="ftp://ftp.isi.edu/in-notes/rfc2251.txt">RFC 2251</A>.
   *<p>
@@ -50,26 +50,26 @@ package javax.naming.ldap;
   * @since 1.3
   */
 public interface Control extends java.io.Serializable {
-    /**
+    /** {@collect.stats}
       * Indicates a critical control.
       * The value of this constant is <tt>true</tt>.
       */
     public static final boolean CRITICAL = true;
 
-    /**
+    /** {@collect.stats}
       * Indicates a non-critical control.
       * The value of this constant is <tt>false</tt>.
       */
     public static final boolean NONCRITICAL = false;
 
-    /**
+    /** {@collect.stats}
       * Retrieves the object identifier assigned for the LDAP control.
       *
       * @return The non-null object identifier string.
       */
     public String getID();
 
-    /**
+    /** {@collect.stats}
       * Determines the criticality of the LDAP control.
       * A critical control must not be ignored by the server.
       * In other words, if the server receives a critical control
@@ -80,7 +80,7 @@ public interface Control extends java.io.Serializable {
       */
     public boolean isCritical();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the ASN.1 BER encoded value of the LDAP control.
       * The result is the raw BER bytes including the tag and length of
       * the control's value. It does not include the controls OID or criticality.

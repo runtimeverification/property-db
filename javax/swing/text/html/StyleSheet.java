@@ -35,7 +35,7 @@ import javax.swing.border.*;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Support for defining the visual characteristics of
  * HTML views being rendered.  The StyleSheet is used to
  * translate the HTML model into visual characteristics.
@@ -158,7 +158,7 @@ public class StyleSheet extends StyleContext {
     //   AttributeSet that contains HTML.Tag.B, the HTML.Tag.B entry will
     //   be removed.
 
-    /**
+    /** {@collect.stats}
      * Construct a StyleSheet
      */
     public StyleSheet() {
@@ -170,7 +170,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the style to use to render the given type
      * of HTML tag.  The element given is representing
      * the tag and can be used to determine the nesting
@@ -258,7 +258,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the rule that best matches the selector given
      * in string form. Where <code>selector</code> is a space separated
      * String of the element names. For example, <code>selector</code>
@@ -278,7 +278,7 @@ public class StyleSheet extends StyleContext {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of rules to the sheet.  The rules are expected to
      * be in valid CSS format.  Typically this would be called as
      * a result of parsing a &lt;style&gt; tag.
@@ -309,7 +309,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a CSS declaration to an AttributeSet that represents
      * the CSS declaration.  Typically this would be called as a
      * result of encountering an HTML style attribute.
@@ -322,7 +322,7 @@ public class StyleSheet extends StyleContext {
         return parser.parseDeclaration(decl);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads a set of rules that have been specified in terms of
      * CSS1 grammar.  If there are collisions with existing rules,
      * the newly specified rule will win.
@@ -338,7 +338,7 @@ public class StyleSheet extends StyleContext {
         parser.parse(ref, in, false, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a set of attributes to use in the view for
      * displaying.  This is basically a set of attributes that
      * can be used for View.getAttributes.
@@ -347,7 +347,7 @@ public class StyleSheet extends StyleContext {
         return new ViewAttributeSet(v);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a named style previously added to the document.
      *
      * @param nm  the name of the style to remove
@@ -381,7 +381,7 @@ public class StyleSheet extends StyleContext {
         super.removeStyle(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the rules from the StyleSheet <code>ss</code> to those of
      * the receiver. <code>ss's</code> rules will override the rules of
      * any previously added style sheets. An added StyleSheet will never
@@ -406,7 +406,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the StyleSheet <code>ss</code> from those of the receiver.
      *
      * @since 1.3
@@ -430,7 +430,7 @@ public class StyleSheet extends StyleContext {
     // The following is used to import style sheets.
     //
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the linked StyleSheets. Will return null
      * if there are no linked StyleSheets.
      *
@@ -451,7 +451,7 @@ public class StyleSheet extends StyleContext {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Imports a style sheet from <code>url</code>. The resulting rules
      * are directly added to the receiver. If you do not want the rules
      * to become part of the receiver, create a new StyleSheet and use
@@ -475,7 +475,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the base. All import statements that are relative, will be
      * relative to <code>base</code>.
      *
@@ -485,7 +485,7 @@ public class StyleSheet extends StyleContext {
         this.base = base;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base.
      *
      * @since 1.3
@@ -494,7 +494,7 @@ public class StyleSheet extends StyleContext {
         return base;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a CSS attribute to the given set.
      *
      * @since 1.3
@@ -504,7 +504,7 @@ public class StyleSheet extends StyleContext {
         css.addInternalCSSValue(attr, key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a CSS attribute to the given set.
      *
      * @since 1.3
@@ -521,7 +521,7 @@ public class StyleSheet extends StyleContext {
 
     // ---- Conversion functionality ---------------------------------
 
-    /**
+    /** {@collect.stats}
      * Converts a set of HTML attributes to an equivalent
      * set of CSS attributes.
      *
@@ -536,7 +536,7 @@ public class StyleSheet extends StyleContext {
         return cssStyleSet;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute to the given set, and returns
      * the new representative set.  This is reimplemented to
      * convert StyleConstant attributes to CSS prior to forwarding
@@ -578,7 +578,7 @@ public class StyleSheet extends StyleContext {
         return super.addAttribute(old, key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of attributes to the element.  If any of these attributes
      * are StyleConstants attributes, they will be converted to CSS prior
      * to forwarding to the superclass behavior.
@@ -595,7 +595,7 @@ public class StyleSheet extends StyleContext {
         return super.addAttributes(old, convertAttributeSet(attr));
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute from the set.  If the attribute is a StyleConstants
      * attribute, the request will be converted to a CSS attribute prior to
      * forwarding to the superclass behavior.
@@ -621,7 +621,7 @@ public class StyleSheet extends StyleContext {
         return super.removeAttribute(old, key);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes for the element.  If any of the attributes
      * is a StyleConstants attribute, the request will be converted to a CSS
      * attribute prior to forwarding to the superclass behavior.
@@ -638,7 +638,7 @@ public class StyleSheet extends StyleContext {
         return super.removeAttributes(old, names);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes. If any of the attributes
      * is a StyleConstants attribute, the request will be converted to a CSS
      * attribute prior to forwarding to the superclass behavior.
@@ -655,7 +655,7 @@ public class StyleSheet extends StyleContext {
         return super.removeAttributes(old, convertAttributeSet(attrs));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a compact set of attributes that might be shared.
      * This is a hook for subclasses that want to alter the
      * behavior of SmallAttributeSet.  This can be reimplemented
@@ -669,7 +669,7 @@ public class StyleSheet extends StyleContext {
         return new SmallConversionSet(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a large set of attributes that should trade off
      * space for time.  This set will not be shared.  This is
      * a hook for subclasses that want to alter the behavior
@@ -685,7 +685,7 @@ public class StyleSheet extends StyleContext {
         return new LargeConversionSet(a);
     }
 
-    /**
+    /** {@collect.stats}
      * For any StyleConstants key in attr that has an associated HTML.Tag,
      * it is removed from old. The resulting AttributeSet is then returned.
      */
@@ -710,7 +710,7 @@ public class StyleSheet extends StyleContext {
         return old;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a set of attributes (if necessary) so that
      * any attributes that were specified as StyleConstants
      * attributes and have a CSS mapping, will be converted
@@ -759,13 +759,13 @@ public class StyleSheet extends StyleContext {
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Large set of attributes that does conversion of requests
      * for attributes of type StyleConstants.
      */
     class LargeConversionSet extends SimpleAttributeSet {
 
-        /**
+        /** {@collect.stats}
          * Creates a new attribute set based on a supplied set of attributes.
          *
          * @param source the set of attributes
@@ -778,7 +778,7 @@ public class StyleSheet extends StyleContext {
             super();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          *
          * @param key the attribute key
@@ -796,7 +796,7 @@ public class StyleSheet extends StyleContext {
             return super.isDefined(key);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.
          *
          * @param key the attribute name
@@ -819,13 +819,13 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Small set of attributes that does conversion of requests
      * for attributes of type StyleConstants.
      */
     class SmallConversionSet extends SmallAttributeSet {
 
-        /**
+        /** {@collect.stats}
          * Creates a new attribute set based on a supplied set of attributes.
          *
          * @param source the set of attributes
@@ -834,7 +834,7 @@ public class StyleSheet extends StyleContext {
             super(attrs);
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          *
          * @param key the attribute key
@@ -852,7 +852,7 @@ public class StyleSheet extends StyleContext {
             return super.isDefined(key);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.
          *
          * @param key the attribute name
@@ -877,14 +877,14 @@ public class StyleSheet extends StyleContext {
 
     // ---- Resource handling ----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the font to use for the given set of attributes.
      */
     public Font getFont(AttributeSet a) {
         return css.getFont(this, a, 12, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a foreground color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.
@@ -900,7 +900,7 @@ public class StyleSheet extends StyleContext {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a background color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.
@@ -912,7 +912,7 @@ public class StyleSheet extends StyleContext {
         return css.getColor(a, CSS.Attribute.BACKGROUND_COLOR);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the box formatter to use for the given set
      * of CSS attributes.
      */
@@ -920,7 +920,7 @@ public class StyleSheet extends StyleContext {
         return new BoxPainter(a, css, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the list formatter to use for the given set
      * of CSS attributes.
      */
@@ -928,14 +928,14 @@ public class StyleSheet extends StyleContext {
         return new ListPainter(a, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the base font size, with valid values between 1 and 7.
      */
     public void setBaseFontSize(int sz) {
         css.setBaseFontSize(sz);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the base font size from the passed in String. The string
      * can either identify a specific font size, with legal values between
      * 1 and 7, or identifiy a relative font size such as +1 or -2.
@@ -948,14 +948,14 @@ public class StyleSheet extends StyleContext {
         return CSS.getIndexOfSize(pt, sizeMapDefault);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the point size, given a size index.
      */
     public float getPointSize(int index) {
         return css.getPointSize(index, this);
     }
 
-    /**
+    /** {@collect.stats}
      *  Given a string such as "+2", "-2", or "2",
      *  returns a point size value.
      */
@@ -963,7 +963,7 @@ public class StyleSheet extends StyleContext {
         return css.getPointSize(size, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a color string such as "RED" or "#NNNNNN" to a Color.
      * Note: This will only convert the HTML3.2 color strings
      *       or a string of length 7;
@@ -973,7 +973,7 @@ public class StyleSheet extends StyleContext {
         return CSS.stringToColor(string);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ImageIcon to draw in the background for
      * <code>attr</code>.
      */
@@ -986,7 +986,7 @@ public class StyleSheet extends StyleContext {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a rule into the StyleSheet.
      *
      * @param selector the selector to use for the rule.
@@ -1039,7 +1039,7 @@ public class StyleSheet extends StyleContext {
     // the sheet.
     //
 
-    /**
+    /** {@collect.stats}
      * Updates the attributes of the rules to reference any related
      * rules in <code>ss</code>.
      */
@@ -1054,7 +1054,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes references to the rules in <code>ss</code>.
      * <code>index</code> gives the index the StyleSheet was at, that is
      * how many StyleSheets had been added before it.
@@ -1069,7 +1069,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the simple selectors that comprise selector.
      */
     /* protected */
@@ -1101,7 +1101,7 @@ public class StyleSheet extends StyleContext {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that only has one space between simple selectors,
      * which may be the passed in String.
      */
@@ -1131,7 +1131,7 @@ public class StyleSheet extends StyleContext {
         return selector;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new String that contains only one space between non
      * white space characters.
      */
@@ -1189,7 +1189,7 @@ public class StyleSheet extends StyleContext {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root selector mapping that all selectors are relative
      * to. This is an inverted graph of the selectors.
      */
@@ -1197,7 +1197,7 @@ public class StyleSheet extends StyleContext {
         return selectorMapping;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specificity of the passed in String. It assumes the
      * passed in string doesn't contain junk, that is each selector is
      * separated by a space and each selector at most contains one . or one
@@ -1230,7 +1230,7 @@ public class StyleSheet extends StyleContext {
         return specificity;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the style that linked attributes should be added to. This
      * will create the style if necessary.
      */
@@ -1249,7 +1249,7 @@ public class StyleSheet extends StyleContext {
         return retStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the resolved style for <code>selector</code>. This will
      * create the resolved style, if necessary.
      */
@@ -1263,7 +1263,7 @@ public class StyleSheet extends StyleContext {
         return retStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the resolved style for <code>selector</code>. This will
      * create the resolved style, if necessary.
      */
@@ -1275,7 +1275,7 @@ public class StyleSheet extends StyleContext {
         return retStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds <code>mapping</code> to <code>elements</code>. It is added
      * such that <code>elements</code> will remain ordered by
      * specificity.
@@ -1297,7 +1297,7 @@ public class StyleSheet extends StyleContext {
         elements.addElement(mapping);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds <code>parentMapping</code> to <code>styles</code>, and
      * recursively calls this method if <code>parentMapping</code> has
      * any child mappings for any of the Elements in <code>elements</code>.
@@ -1359,7 +1359,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a Style containing all the rules that match
      *  <code>selector</code>.
      */
@@ -1442,7 +1442,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a Style containing all the rules that
      * matches <code>selector</code>.
      *
@@ -1506,7 +1506,7 @@ public class StyleSheet extends StyleContext {
         return createResolvedStyle(selector, tags, ids, classes);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a Style containing all the rules that match
      *  <code>selector</code>. It is assumed that each simple selector
      * in <code>selector</code> is separated by a space.
@@ -1651,7 +1651,7 @@ public class StyleSheet extends StyleContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Should be invoked when a new rule is added that did not previously
      * exist. Goes through and refreshes the necessary resolved
      * rules.
@@ -1672,7 +1672,7 @@ public class StyleSheet extends StyleContext {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A temporary class used to hold a Vector, a StringBuffer and a
      * Hashtable. This is used to avoid allocing a lot of garbage when
      * searching for rules. Use the static method obtainSearchBuffer and
@@ -1680,7 +1680,7 @@ public class StyleSheet extends StyleContext {
      * done.
      */
     private static class SearchBuffer {
-        /** A stack containing instances of SearchBuffer. Used in getting
+        /** {@collect.stats} A stack containing instances of SearchBuffer. Used in getting
          * rules. */
         static Stack searchBuffers = new Stack();
         // A set of temporary variables that can be used in whatever way.
@@ -1688,7 +1688,7 @@ public class StyleSheet extends StyleContext {
         StringBuffer stringBuffer = null;
         Hashtable hashtable = null;
 
-        /**
+        /** {@collect.stats}
          * Returns an instance of SearchBuffer. Be sure and issue
          * a releaseSearchBuffer when done with it.
          */
@@ -1706,7 +1706,7 @@ public class StyleSheet extends StyleContext {
             return sb;
         }
 
-        /**
+        /** {@collect.stats}
          * Adds <code>sb</code> to the stack of SearchBuffers that can
          * be used.
          */
@@ -1752,7 +1752,7 @@ public class StyleSheet extends StyleContext {
 
     static final Border noBorder = new EmptyBorder(0,0,0,0);
 
-    /**
+    /** {@collect.stats}
      * Class to carry out some of the duties of
      * CSS formatting.  Implementations of this
      * class enable views to present the CSS formatting
@@ -1780,7 +1780,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches a border to render for the given attributes.
          * PENDING(prinz) This is pretty badly hacked at the
          * moment.
@@ -1807,7 +1807,7 @@ public class StyleSheet extends StyleContext {
             return b;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the color to use for borders.  This will either be
          * the value specified by the border-color attribute (which
          * is not inherited), or it will default to the color attribute
@@ -1824,7 +1824,7 @@ public class StyleSheet extends StyleContext {
             return color;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the inset needed on a given side to
          * account for the margin, border, and padding.
          *
@@ -1868,7 +1868,7 @@ public class StyleSheet extends StyleContext {
             return inset;
         }
 
-        /**
+        /** {@collect.stats}
          * Paints the CSS box according to the attributes
          * given.  This should paint the border, padding,
          * and background.
@@ -1973,7 +1973,7 @@ public class StyleSheet extends StyleContext {
 
         static enum HorizontalMargin { LEFT, RIGHT };
 
-        /**
+        /** {@collect.stats}
          * for <dir>, <menu>, <ul> etc.
          * margins are Left-To-Right/Right-To-Left depended.
          * see 5088268 for more details
@@ -2033,7 +2033,7 @@ public class StyleSheet extends StyleContext {
         BackgroundImagePainter bgPainter;
     }
 
-    /**
+    /** {@collect.stats}
      * Class to carry out some of the duties of CSS list
      * formatting.  Implementations of this
      * class enable views to present the CSS formatting
@@ -2083,7 +2083,7 @@ public class StyleSheet extends StyleContext {
             paintRect = new Rectangle();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string that represents the value
          * of the HTML.Attribute.TYPE attribute.
          * If this attributes is not defined, then
@@ -2113,7 +2113,7 @@ public class StyleSheet extends StyleContext {
             return childtype;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the starting index from <code>parent</code>.
          */
         private void getStart(View parent) {
@@ -2135,7 +2135,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an integer that should be used to render the child at
          * <code>childIndex</code> with. The retValue will usually be
          * <code>childIndex</code> + 1, unless <code>parentView</code>
@@ -2168,7 +2168,7 @@ public class StyleSheet extends StyleContext {
             return retIndex + start;
         }
 
-        /**
+        /** {@collect.stats}
          * Paints the CSS list decoration according to the
          * attributes given.
          *
@@ -2261,7 +2261,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Draws the bullet icon specified by the list-style-image argument.
          *
          * @param g     the graphics context
@@ -2282,7 +2282,7 @@ public class StyleSheet extends StyleContext {
             img.paintIcon(c, g, x, y);
         }
 
-        /**
+        /** {@collect.stats}
          * Draws the graphical bullet item specified by the type argument.
          *
          * @param g     the graphics context
@@ -2309,7 +2309,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Draws the letter or number for an ordered list.
          *
          * @param g     the graphics context
@@ -2333,7 +2333,7 @@ public class StyleSheet extends StyleContext {
             SwingUtilities2.drawString(null, g, str, x, y);
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the item number into the ordered list number
          * (i.e.  1 2 3, i ii iii, a b c, etc.
          *
@@ -2374,7 +2374,7 @@ public class StyleSheet extends StyleContext {
             return formattedNum;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the item number into an alphabetic character
          *
          * @param itemNum number to format
@@ -2401,7 +2401,7 @@ public class StyleSheet extends StyleContext {
             {'m', '?' },
         };
 
-        /**
+        /** {@collect.stats}
          * Converts the item number into a roman numeral
          *
          * @param num  number to format
@@ -2410,7 +2410,7 @@ public class StyleSheet extends StyleContext {
             return formatRomanNumerals(0, num);
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the item number into a roman numeral
          *
          * @param num  number to format
@@ -2425,7 +2425,7 @@ public class StyleSheet extends StyleContext {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Converts the item number into a roman numeral
          *
          * @param level position
@@ -2465,7 +2465,7 @@ public class StyleSheet extends StyleContext {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Paints the background image.
      */
     static class BackgroundImagePainter implements Serializable {
@@ -2630,7 +2630,7 @@ public class StyleSheet extends StyleContext {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A subclass of MuxingAttributeSet that translates between
      * CSS and HTML and StyleConstants. The AttributeSets used are
      * the CSS rules that match the Views Elements.
@@ -2661,7 +2661,7 @@ public class StyleSheet extends StyleContext {
                             if (key instanceof HTML.Tag) {
                                 if ((HTML.Tag)key  == HTML.Tag.A) {
                                     Object o = a.getAttribute((HTML.Tag)key);
-                                /**
+                                /** {@collect.stats}
                                    In the case of an A tag, the css rules
                                    apply only for tags that have their
                                    href attribute defined and not for
@@ -2707,7 +2707,7 @@ public class StyleSheet extends StyleContext {
 
         //  --- AttributeSet methods ----------------------------
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          * This will convert the key over to CSS if the
          * key is a StyleConstants key that has a CSS
@@ -2728,7 +2728,7 @@ public class StyleSheet extends StyleContext {
             return super.isDefined(key);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.  If the requested
          * attribute is a StyleConstants attribute that has
          * a CSS mapping, the request will be converted.
@@ -2770,7 +2770,7 @@ public class StyleSheet extends StyleContext {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * If not overriden, the resolving parent defaults to
          * the parent element.
          *
@@ -2785,12 +2785,12 @@ public class StyleSheet extends StyleContext {
             return (parent != null) ? parent.getAttributes() : null;
         }
 
-        /** View created for. */
+        /** {@collect.stats} View created for. */
         View host;
     }
 
 
-    /**
+    /** {@collect.stats}
      * A subclass of MuxingAttributeSet that implements Style. Currently
      * the MutableAttributeSet methods are unimplemented, that is they
      * do nothing.
@@ -2807,7 +2807,7 @@ public class StyleSheet extends StyleContext {
             this.extendedIndex = extendedIndex;
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts a Style into the receiver so that the styles the
          * receiver represents are still ordered by specificity.
          * <code>style</code> will be added before any extended styles, that
@@ -2827,7 +2827,7 @@ public class StyleSheet extends StyleContext {
             extendedIndex++;
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a previously added style. This will do nothing if
          * <code>style</code> is not referenced by the receiver.
          */
@@ -2845,7 +2845,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds <code>s</code> as one of the Attributesets to look up
          * attributes in.
          */
@@ -2853,7 +2853,7 @@ public class StyleSheet extends StyleContext {
             insertAttributeSetAt(attr, extendedIndex + index);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds <code>s</code> as one of the AttributeSets to look up
          * attributes in. It will be the AttributeSet last checked.
          */
@@ -2861,7 +2861,7 @@ public class StyleSheet extends StyleContext {
             insertAttributeSetAt(attr, getAttributes().length);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the style at <code>index</code> +
          * <code>extendedIndex</code>.
          */
@@ -2869,7 +2869,7 @@ public class StyleSheet extends StyleContext {
             removeAttributeSetAt(extendedIndex + index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver matches <code>selector</code>, where
          * a match is defined by the CSS rule matching.
          * Each simple selector must be separated by a single space.
@@ -2915,7 +2915,7 @@ public class StyleSheet extends StyleContext {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the substring of the receiver, in the range
          * thisCurrent, thisLast matches the substring of selector in
          * the ranme sCurrent to sLast based on CSS selector matching.
@@ -2996,7 +2996,7 @@ public class StyleSheet extends StyleContext {
                                            thisLast - thisCurrent));
         }
 
-        /**
+        /** {@collect.stats}
          * Similiar to String.indexOf, but allows an upper bound
          * (this is slower in that it will still check string starting at
          * start.
@@ -3023,16 +3023,16 @@ public class StyleSheet extends StyleContext {
             return new ChangeListener[0];
         }
 
-        /** The name of the Style, which is the selector.
+        /** {@collect.stats} The name of the Style, which is the selector.
          * This will NEVER change!
          */
         String name;
-        /** Start index of styles coming from other StyleSheets. */
+        /** {@collect.stats} Start index of styles coming from other StyleSheets. */
         private int extendedIndex;
     }
 
 
-    /**
+    /** {@collect.stats}
      * SelectorMapping contains a specifitiy, as an integer, and an associated
      * Style. It can also reference children <code>SelectorMapping</code>s,
      * so that it behaves like a tree.
@@ -3045,28 +3045,28 @@ public class StyleSheet extends StyleContext {
             this.specificity = specificity;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specificity this mapping represents.
          */
         public int getSpecificity() {
             return specificity;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the Style associated with this mapping.
          */
         public void setStyle(Style style) {
             this.style = style;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Style associated with this mapping.
          */
         public Style getStyle() {
             return style;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the child mapping identified by the simple selector
          * <code>selector</code>. If a child mapping does not exist for
          *<code>selector</code>, and <code>create</code> is true, a new
@@ -3091,7 +3091,7 @@ public class StyleSheet extends StyleContext {
             return retValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a child <code>SelectorMapping</code> with the specified
          * <code>specificity</code>.
          */
@@ -3099,7 +3099,7 @@ public class StyleSheet extends StyleContext {
             return new SelectorMapping(specificity);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specificity for the child selector
          * <code>selector</code>.
          */
@@ -3127,15 +3127,15 @@ public class StyleSheet extends StyleContext {
             return specificity;
         }
 
-        /**
+        /** {@collect.stats}
          * The specificity for this selector.
          */
         private int specificity;
-        /**
+        /** {@collect.stats}
          * Style for this selector.
          */
         private Style style;
-        /**
+        /** {@collect.stats}
          * Any sub selectors. Key will be String, and value will be
          * another SelectorMapping.
          */
@@ -3149,24 +3149,24 @@ public class StyleSheet extends StyleContext {
 
     private CSS css;
 
-    /**
+    /** {@collect.stats}
      * An inverted graph of the selectors.
      */
     private SelectorMapping selectorMapping;
 
-    /** Maps from selector (as a string) to Style that includes all
+    /** {@collect.stats} Maps from selector (as a string) to Style that includes all
      * relevant styles. */
     private Hashtable resolvedStyles;
 
-    /** Vector of StyleSheets that the rules are to reference.
+    /** {@collect.stats} Vector of StyleSheets that the rules are to reference.
      */
     private Vector linkedStyleSheets;
 
-    /** Where the style sheet was found. Used for relative imports. */
+    /** {@collect.stats} Where the style sheet was found. Used for relative imports. */
     private URL base;
 
 
-    /**
+    /** {@collect.stats}
      * Default parser for CSS specifications that get loaded into
      * the StyleSheet.<p>
      * This class is NOT thread safe, do not ask it to parse while it is
@@ -3174,7 +3174,7 @@ public class StyleSheet extends StyleContext {
      */
     class CssParser implements CSSParser.CSSParserCallback {
 
-        /**
+        /** {@collect.stats}
          * Parses the passed in CSS declaration into an AttributeSet.
          */
         public AttributeSet parseDeclaration(String string) {
@@ -3184,7 +3184,7 @@ public class StyleSheet extends StyleContext {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Parses the passed in CSS declaration into an AttributeSet.
          */
         public AttributeSet parseDeclaration(Reader r) throws IOException {
@@ -3192,7 +3192,7 @@ public class StyleSheet extends StyleContext {
             return declaration.copyAttributes();
         }
 
-        /**
+        /** {@collect.stats}
          * Parse the given CSS stream
          */
         public void parse(URL base, Reader r, boolean parseDeclaration,
@@ -3211,7 +3211,7 @@ public class StyleSheet extends StyleContext {
         // CSSParserCallback methods, public to implement the interface.
         //
 
-        /**
+        /** {@collect.stats}
          * Invoked when a valid @import is encountered, will call
          * <code>importStyleSheet</code> if a
          * <code>MalformedURLException</code> is not thrown in creating
@@ -3224,7 +3224,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * A selector has been encountered.
          */
         public void handleSelector(String selector) {
@@ -3247,7 +3247,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the start of a rule is encountered.
          */
         public void startRule() {
@@ -3257,14 +3257,14 @@ public class StyleSheet extends StyleContext {
             propertyName = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a property name is encountered.
          */
         public void handleProperty(String property) {
             propertyName = property;
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a property value is encountered.
          */
         public void handleValue(String value) {
@@ -3291,7 +3291,7 @@ public class StyleSheet extends StyleContext {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the end of a rule is encountered.
          */
         public void endRule() {
@@ -3316,15 +3316,15 @@ public class StyleSheet extends StyleContext {
 
         Vector selectors = new Vector();
         Vector selectorTokens = new Vector();
-        /** Name of the current property. */
+        /** {@collect.stats} Name of the current property. */
         String propertyName;
         MutableAttributeSet declaration = new SimpleAttributeSet();
-        /** True if parsing a declaration, that is the Reader will not
+        /** {@collect.stats} True if parsing a declaration, that is the Reader will not
          * contain a selector. */
         boolean parsingDeclaration;
-        /** True if the attributes are coming from a linked/imported style. */
+        /** {@collect.stats} True if the attributes are coming from a linked/imported style. */
         boolean isLink;
-        /** Where the CSS stylesheet lives. */
+        /** {@collect.stats} Where the CSS stylesheet lives. */
         URL base;
         CSSParser parser = new CSSParser();
     }
@@ -3347,7 +3347,7 @@ public class StyleSheet extends StyleContext {
         return w3cLengthUnits;
     }
 
-    /**
+    /** {@collect.stats}
      * The HTML/CSS size model has seven slots
      * that one can assign sizes to.
      */

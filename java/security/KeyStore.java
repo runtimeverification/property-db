@@ -34,7 +34,7 @@ import javax.crypto.SecretKey;
 
 import javax.security.auth.callback.*;
 
-/**
+/** {@collect.stats}
  * This class represents a storage facility for cryptographic
  * keys and certificates.
  *
@@ -196,7 +196,7 @@ public class KeyStore {
     // Has this keystore been initialized (loaded)?
     private boolean initialized = false;
 
-    /**
+    /** {@collect.stats}
      * A marker interface for <code>KeyStore</code>
      * {@link #load(KeyStore.LoadStoreParameter) load}
      * and
@@ -206,7 +206,7 @@ public class KeyStore {
      * @since 1.5
      */
     public static interface LoadStoreParameter {
-        /**
+        /** {@collect.stats}
          * Gets the parameter used to protect keystore data.
          *
          * @return the parameter used to protect keystore data, or null
@@ -214,7 +214,7 @@ public class KeyStore {
         public ProtectionParameter getProtectionParameter();
     }
 
-    /**
+    /** {@collect.stats}
      * A marker interface for keystore protection parameters.
      *
      * <p> The information stored in a <code>ProtectionParameter</code>
@@ -228,7 +228,7 @@ public class KeyStore {
      */
     public static interface ProtectionParameter { }
 
-    /**
+    /** {@collect.stats}
      * A password-based implementation of <code>ProtectionParameter</code>.
      *
      * @since 1.5
@@ -239,7 +239,7 @@ public class KeyStore {
         private final char[] password;
         private volatile boolean destroyed = false;
 
-        /**
+        /** {@collect.stats}
          * Creates a password parameter.
          *
          * <p> The specified <code>password</code> is cloned before it is stored
@@ -251,7 +251,7 @@ public class KeyStore {
             this.password = (password == null) ? null : password.clone();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the password.
          *
          * <p>Note that this method returns a reference to the password.
@@ -271,7 +271,7 @@ public class KeyStore {
             return password;
         }
 
-        /**
+        /** {@collect.stats}
          * Clears the password.
          *
          * @exception DestroyFailedException if this method was unable
@@ -285,7 +285,7 @@ public class KeyStore {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if password has been cleared.
          *
          * @return true if the password has been cleared, false otherwise
@@ -295,7 +295,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A ProtectionParameter encapsulating a CallbackHandler.
      *
      * @since 1.5
@@ -305,7 +305,7 @@ public class KeyStore {
 
         private final CallbackHandler handler;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new CallbackHandlerProtection from a
          * CallbackHandler.
          *
@@ -319,7 +319,7 @@ public class KeyStore {
             this.handler = handler;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the CallbackHandler.
          *
          * @return the CallbackHandler.
@@ -330,14 +330,14 @@ public class KeyStore {
 
     }
 
-    /**
+    /** {@collect.stats}
      * A marker interface for <code>KeyStore</code> entry types.
      *
      * @since 1.5
      */
     public static interface Entry { }
 
-    /**
+    /** {@collect.stats}
      * A <code>KeyStore</code> entry that holds a <code>PrivateKey</code>
      * and corresponding certificate chain.
      *
@@ -348,7 +348,7 @@ public class KeyStore {
         private final PrivateKey privKey;
         private final Certificate[] chain;
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>PrivateKeyEntry</code> with a
          * <code>PrivateKey</code> and corresponding certificate chain.
          *
@@ -410,7 +410,7 @@ public class KeyStore {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>PrivateKey</code> from this entry.
          *
          * @return the <code>PrivateKey</code> from this entry
@@ -419,7 +419,7 @@ public class KeyStore {
             return privKey;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>Certificate</code> chain from this entry.
          *
          * <p> The stored chain is cloned before being returned.
@@ -434,7 +434,7 @@ public class KeyStore {
             return chain.clone();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the end entity <code>Certificate</code>
          * from the certificate chain in this entry.
          *
@@ -448,7 +448,7 @@ public class KeyStore {
             return chain[0];
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this PrivateKeyEntry.
          * @return a string representation of this PrivateKeyEntry.
          */
@@ -465,7 +465,7 @@ public class KeyStore {
 
     }
 
-    /**
+    /** {@collect.stats}
      * A <code>KeyStore</code> entry that holds a <code>SecretKey</code>.
      *
      * @since 1.5
@@ -474,7 +474,7 @@ public class KeyStore {
 
         private final SecretKey sKey;
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>SecretKeyEntry</code> with a
          * <code>SecretKey</code>.
          *
@@ -490,7 +490,7 @@ public class KeyStore {
             this.sKey = secretKey;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>SecretKey</code> from this entry.
          *
          * @return the <code>SecretKey</code> from this entry
@@ -499,7 +499,7 @@ public class KeyStore {
             return sKey;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this SecretKeyEntry.
          * @return a string representation of this SecretKeyEntry.
          */
@@ -508,7 +508,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A <code>KeyStore</code> entry that holds a trusted
      * <code>Certificate</code>.
      *
@@ -518,7 +518,7 @@ public class KeyStore {
 
         private final Certificate cert;
 
-        /**
+        /** {@collect.stats}
          * Constructs a <code>TrustedCertificateEntry</code> with a
          * trusted <code>Certificate</code>.
          *
@@ -534,7 +534,7 @@ public class KeyStore {
             this.cert = trustedCert;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the trusted <code>Certficate</code> from this entry.
          *
          * @return the trusted <code>Certificate</code> from this entry
@@ -543,7 +543,7 @@ public class KeyStore {
             return cert;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this TrustedCertificateEntry.
          * @return a string representation of this TrustedCertificateEntry.
          */
@@ -552,7 +552,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a KeyStore object of the given type, and encapsulates the given
      * provider implementation (SPI object) in it.
      *
@@ -567,7 +567,7 @@ public class KeyStore {
         this.type = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a keystore object of the specified type.
      *
      * <p> This method traverses the list of registered security Providers,
@@ -606,7 +606,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a keystore object of the specified type.
      *
      * <p> A new KeyStore object encapsulating the
@@ -652,7 +652,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a keystore object of the specified type.
      *
      * <p> A new KeyStore object encapsulating the
@@ -693,7 +693,7 @@ public class KeyStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default keystore type as specified in the Java security
      * properties file, or the string
      * &quot;jks&quot; (acronym for &quot;Java keystore&quot;)
@@ -729,7 +729,7 @@ public class KeyStore {
         return kstype;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this keystore.
      *
      * @return the provider of this keystore.
@@ -739,7 +739,7 @@ public class KeyStore {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this keystore.
      *
      * @return the type of this keystore.
@@ -749,7 +749,7 @@ public class KeyStore {
         return this.type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key associated with the given alias, using the given
      * password to recover it.  The key must have been associated with
      * the alias by a call to <code>setKeyEntry</code>,
@@ -779,7 +779,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetKey(alias, password);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate chain associated with the given alias.
      * The certificate chain must have been associated with the alias
      * by a call to <code>setKeyEntry</code>,
@@ -804,7 +804,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetCertificateChain(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate associated with the given alias.
      *
      * <p> If the given alias name identifies an entry
@@ -837,7 +837,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetCertificate(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the creation date of the entry identified by the given alias.
      *
      * @param alias the alias name
@@ -857,7 +857,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetCreationDate(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Assigns the given key to the given alias, protecting it with the given
      * password.
      *
@@ -896,7 +896,7 @@ public class KeyStore {
         keyStoreSpi.engineSetKeyEntry(alias, key, password, chain);
     }
 
-    /**
+    /** {@collect.stats}
      * Assigns the given key (that has already been protected) to the given
      * alias.
      *
@@ -930,7 +930,7 @@ public class KeyStore {
         keyStoreSpi.engineSetKeyEntry(alias, key, chain);
     }
 
-    /**
+    /** {@collect.stats}
      * Assigns the given trusted certificate to the given alias.
      *
      * <p> If the given alias identifies an existing entry
@@ -957,7 +957,7 @@ public class KeyStore {
         keyStoreSpi.engineSetCertificateEntry(alias, cert);
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the entry identified by the given alias from this keystore.
      *
      * @param alias the alias name
@@ -974,7 +974,7 @@ public class KeyStore {
         keyStoreSpi.engineDeleteEntry(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Lists all the alias names of this keystore.
      *
      * @return enumeration of the alias names
@@ -991,7 +991,7 @@ public class KeyStore {
         return keyStoreSpi.engineAliases();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the given alias exists in this keystore.
      *
      * @param alias the alias name
@@ -1010,7 +1010,7 @@ public class KeyStore {
         return keyStoreSpi.engineContainsAlias(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of entries in this keystore.
      *
      * @return the number of entries in this keystore
@@ -1027,7 +1027,7 @@ public class KeyStore {
         return keyStoreSpi.engineSize();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the entry identified by the given alias
      * was created by a call to <code>setKeyEntry</code>,
      * or created by a call to <code>setEntry</code> with a
@@ -1050,7 +1050,7 @@ public class KeyStore {
         return keyStoreSpi.engineIsKeyEntry(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the entry identified by the given alias
      * was created by a call to <code>setCertificateEntry</code>,
      * or created by a call to <code>setEntry</code> with a
@@ -1073,7 +1073,7 @@ public class KeyStore {
         return keyStoreSpi.engineIsCertificateEntry(alias);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the (alias) name of the first keystore entry whose certificate
      * matches the given certificate.
      *
@@ -1108,7 +1108,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetCertificateAlias(cert);
     }
 
-    /**
+    /** {@collect.stats}
      * Stores this keystore to the given output stream, and protects its
      * integrity with the given password.
      *
@@ -1133,7 +1133,7 @@ public class KeyStore {
         keyStoreSpi.engineStore(stream, password);
     }
 
-    /**
+    /** {@collect.stats}
      * Stores this keystore using the given <code>LoadStoreParameter</code>.
      *
      * @param param the <code>LoadStoreParameter</code>
@@ -1162,7 +1162,7 @@ public class KeyStore {
         keyStoreSpi.engineStore(param);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads this KeyStore from the given input stream.
      *
      * <p>A password may be given to unlock the keystore
@@ -1202,7 +1202,7 @@ public class KeyStore {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Loads this keystore using the given <code>LoadStoreParameter</code>.
      *
      * <p> Note that if this KeyStore has already been loaded, it is
@@ -1236,7 +1236,7 @@ public class KeyStore {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a keystore <code>Entry</code> for the specified alias
      * with the specified protection parameter.
      *
@@ -1277,7 +1277,7 @@ public class KeyStore {
         return keyStoreSpi.engineGetEntry(alias, protParam);
     }
 
-    /**
+    /** {@collect.stats}
      * Saves a keystore <code>Entry</code> under the specified alias.
      * The protection parameter is used to protect the
      * <code>Entry</code>.
@@ -1313,7 +1313,7 @@ public class KeyStore {
         keyStoreSpi.engineSetEntry(alias, entry, protParam);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the keystore <code>Entry</code> for the specified
      * <code>alias</code> is an instance or subclass of the specified
      * <code>entryClass</code>.
@@ -1348,7 +1348,7 @@ public class KeyStore {
         return keyStoreSpi.engineEntryInstanceOf(alias, entryClass);
     }
 
-    /**
+    /** {@collect.stats}
      * A description of a to-be-instantiated KeyStore object.
      *
      * <p>An instance of this class encapsulates the information needed to
@@ -1368,14 +1368,14 @@ public class KeyStore {
         // maximum times to try the callbackhandler if the password is wrong
         static final int MAX_CALLBACK_TRIES = 3;
 
-        /**
+        /** {@collect.stats}
          * Construct a new Builder.
          */
         protected Builder() {
             // empty
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the KeyStore described by this object.
          *
          * @exception KeyStoreException if an error occured during the
@@ -1384,7 +1384,7 @@ public class KeyStore {
          */
         public abstract KeyStore getKeyStore() throws KeyStoreException;
 
-        /**
+        /** {@collect.stats}
          * Returns the ProtectionParameters that should be used to obtain
          * the {@link KeyStore.Entry Entry} with the given alias.
          * The <code>getKeyStore</code> method must be invoked before this
@@ -1402,7 +1402,7 @@ public class KeyStore {
         public abstract ProtectionParameter getProtectionParameter(String alias)
             throws KeyStoreException;
 
-        /**
+        /** {@collect.stats}
          * Returns a new Builder that encapsulates the given KeyStore.
          * The {@linkplain #getKeyStore} method of the returned object
          * will return <code>keyStore</code>, the {@linkplain
@@ -1451,7 +1451,7 @@ public class KeyStore {
             };
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a new Builder object.
          *
          * <p>The first call to the {@link #getKeyStore} method on the returned
@@ -1632,7 +1632,7 @@ public class KeyStore {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a new Builder object.
          *
          * <p>Each call to the {@link #getKeyStore} method on the returned

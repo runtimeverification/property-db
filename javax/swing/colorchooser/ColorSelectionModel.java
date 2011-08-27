@@ -29,7 +29,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.Color;
 
-/**
+/** {@collect.stats}
  * A model that supports selecting a <code>Color</code>.
  *
  * @author Steve Wilson
@@ -37,7 +37,7 @@ import java.awt.Color;
  * @see java.awt.Color
  */
 public interface ColorSelectionModel {
-    /**
+    /** {@collect.stats}
      * Returns the selected <code>Color</code> which should be
      * non-<code>null</code>.
      *
@@ -46,7 +46,7 @@ public interface ColorSelectionModel {
      */
     Color getSelectedColor();
 
-    /**
+    /** {@collect.stats}
      * Sets the selected color to <code>color</code>.
      * Note that setting the color to <code>null</code>
      * is undefined and may have unpredictable results.
@@ -59,13 +59,13 @@ public interface ColorSelectionModel {
      */
     void setSelectedColor(Color color);
 
-    /**
+    /** {@collect.stats}
      * Adds <code>listener</code> as a listener to changes in the model.
      * @param listener the <code>ChangeListener</code> to be added
      */
     void addChangeListener(ChangeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Removes <code>listener</code> as a listener to changes in the model.
      * @param listener the <code>ChangeListener</code> to be removed
      */

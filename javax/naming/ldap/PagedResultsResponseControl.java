@@ -29,7 +29,7 @@ import java.io.IOException;
 import com.sun.jndi.ldap.Ber;
 import com.sun.jndi.ldap.BerDecoder;
 
-/**
+/** {@collect.stats}
  * Indicates the end of a batch of search results.
  * Contains an estimate of the total number of entries in the result set
  * and an opaque cookie. The cookie must be supplied to the next search
@@ -60,7 +60,7 @@ import com.sun.jndi.ldap.BerDecoder;
  */
 final public class PagedResultsResponseControl extends BasicControl {
 
-    /**
+    /** {@collect.stats}
      * The paged-results response control's assigned object identifier
      * is 1.2.840.113556.1.4.319.
      */
@@ -68,21 +68,21 @@ final public class PagedResultsResponseControl extends BasicControl {
 
     private static final long serialVersionUID = -8819778744844514666L;
 
-    /**
+    /** {@collect.stats}
      * An estimate of the number of entries in the search result.
      *
      * @serial
      */
     private int resultSize;
 
-    /**
+    /** {@collect.stats}
      * A server-generated cookie.
      *
      * @serial
      */
     private byte[] cookie;
 
-    /**
+    /** {@collect.stats}
      * Constructs a paged-results response control.
      *
      * @param   id              The control's object identifier string.
@@ -106,7 +106,7 @@ final public class PagedResultsResponseControl extends BasicControl {
         cookie = ber.parseOctetString(Ber.ASN_OCTET_STR, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves (an estimate of) the number of entries in the search result.
      *
      * @return The number of entries in the search result, or zero if unknown.
@@ -115,7 +115,7 @@ final public class PagedResultsResponseControl extends BasicControl {
         return resultSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the server-generated cookie. Null is returned when there are
      * no more entries for the server to return.
      *

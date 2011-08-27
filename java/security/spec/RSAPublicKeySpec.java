@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * This class specifies an RSA public key.
  *
  * @author Jan Luehe
@@ -46,7 +46,7 @@ public class RSAPublicKeySpec implements KeySpec {
     private BigInteger modulus;
     private BigInteger publicExponent;
 
-    /**
+    /** {@collect.stats}
      * Creates a new RSAPublicKeySpec.
      *
      * @param modulus the modulus
@@ -57,7 +57,7 @@ public class RSAPublicKeySpec implements KeySpec {
         this.publicExponent = publicExponent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the modulus.
      *
      * @return the modulus
@@ -66,7 +66,7 @@ public class RSAPublicKeySpec implements KeySpec {
         return this.modulus;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the public exponent.
      *
      * @return the public exponent

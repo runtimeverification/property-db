@@ -30,7 +30,7 @@ import javax.swing.AbstractButton;
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 
-/**
+/** {@collect.stats}
  * Synth's ToggleButtonUI.
  * <p>
  * @author Jeff Dinkins

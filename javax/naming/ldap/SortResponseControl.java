@@ -32,7 +32,7 @@ import com.sun.jndi.ldap.Ber;
 import com.sun.jndi.ldap.BerDecoder;
 import com.sun.jndi.ldap.LdapCtx;
 
-/**
+/** {@collect.stats}
  * Indicates whether the requested sort of search results was successful or not.
  * When the result code indicates success then the results have been sorted as
  * requested. Otherwise the sort was unsuccessful and additional details
@@ -79,7 +79,7 @@ import com.sun.jndi.ldap.LdapCtx;
  */
 final public class SortResponseControl extends BasicControl {
 
-    /**
+    /** {@collect.stats}
      * The server-side sort response control's assigned object identifier
      * is 1.2.840.113556.1.4.474.
      */
@@ -87,21 +87,21 @@ final public class SortResponseControl extends BasicControl {
 
     private static final long serialVersionUID = 5142939176006310877L;
 
-    /**
+    /** {@collect.stats}
      * The sort result code.
      *
      * @serial
      */
     private int resultCode = 0;
 
-    /**
+    /** {@collect.stats}
      * The ID of the attribute that caused the sort to fail.
      *
      * @serial
      */
     private String badAttrId = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to indicate the outcome of a sort request.
      *
      * @param   id              The control's object identifier string.
@@ -127,7 +127,7 @@ final public class SortResponseControl extends BasicControl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the search results have been successfully sorted.
      * If an error occurred during sorting a NamingException is thrown.
      *
@@ -137,7 +137,7 @@ final public class SortResponseControl extends BasicControl {
         return (resultCode == 0); // a result code of zero indicates success
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the LDAP result code of the sort operation.
      *
      * @return    The result code. A zero value indicates success.
@@ -146,7 +146,7 @@ final public class SortResponseControl extends BasicControl {
         return resultCode;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the ID of the attribute that caused the sort to fail.
      * Returns null if no ID was returned by the server.
      *
@@ -156,7 +156,7 @@ final public class SortResponseControl extends BasicControl {
         return badAttrId;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the NamingException appropriate for the result code.
      *
      * @return A NamingException or null if the result code indicates

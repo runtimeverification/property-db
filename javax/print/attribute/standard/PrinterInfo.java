@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterInfo is a printing attribute class, a text attribute, that
  * provides descriptive information about a printer. This could include things
  * like: <CODE>"This printer can be used for printing color transparencies for
@@ -51,7 +51,7 @@ public final class PrinterInfo extends TextSyntax
 
     private static final long serialVersionUID = 7765280618777599727L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer info attribute with the given information
      * string and locale.
      *
@@ -67,7 +67,7 @@ public final class PrinterInfo extends TextSyntax
         super (info, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer info attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -93,7 +93,7 @@ public final class PrinterInfo extends TextSyntax
         return (super.equals(object) && object instanceof PrinterInfo);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -106,7 +106,7 @@ public final class PrinterInfo extends TextSyntax
         return PrinterInfo.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

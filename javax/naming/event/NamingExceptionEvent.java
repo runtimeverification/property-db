@@ -27,7 +27,7 @@ package javax.naming.event;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This class represents an event fired when the procedures/processes
   * used to collect information for notifying listeners of
   * <tt>NamingEvent</tt>s threw a <tt>NamingException</tt>.
@@ -43,13 +43,13 @@ import javax.naming.NamingException;
   */
 
 public class NamingExceptionEvent extends java.util.EventObject {
-    /**
+    /** {@collect.stats}
      * Contains the exception that was thrown
      * @serial
      */
     private NamingException exception;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of <tt>NamingExceptionEvent</tt> using
      * the context in which the <tt>NamingException</tt> was thrown and the exception
      * that was thrown.
@@ -63,7 +63,7 @@ public class NamingExceptionEvent extends java.util.EventObject {
         exception = exc;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the exception that was thrown.
      * @return The exception that was thrown.
      */
@@ -71,7 +71,7 @@ public class NamingExceptionEvent extends java.util.EventObject {
         return exception;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <tt>EventContext</tt> that fired this event.
      * This returns the same object as <tt>EventObject.getSource()</tt>.
      * @return The non-null <tt>EventContext</tt> that fired this event.
@@ -80,7 +80,7 @@ public class NamingExceptionEvent extends java.util.EventObject {
         return (EventContext)getSource();
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes the <tt>namingExceptionThrown()</tt> method on
      * a listener using this event.
      * @param listener The non-null naming listener on which to invoke

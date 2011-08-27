@@ -55,7 +55,7 @@ import sun.reflect.misc.MethodUtil;
 import sun.reflect.misc.ReflectUtil;
 import sun.util.CoreResourceBundleControl;
 
-/**
+/** {@collect.stats}
  * A table of defaults for Swing components.  Applications can set/get
  * default values via the <code>UIManager</code>.
  * <p>
@@ -81,7 +81,7 @@ public class UIDefaults extends Hashtable<Object,Object>
 
     private Locale defaultLocale = Locale.getDefault();
 
-    /**
+    /** {@collect.stats}
      * Maps from a Locale to a cached Map of the ResourceBundle. This is done
      * so as to avoid an exception being thrown when a value is asked for.
      * Access to this should be done while holding a lock on the
@@ -89,14 +89,14 @@ public class UIDefaults extends Hashtable<Object,Object>
      */
     private Map resourceCache;
 
-    /**
+    /** {@collect.stats}
      * Creates an empty defaults table.
      */
     public UIDefaults() {
         this(700, .75f);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty defaults table with the specified initial capacity and
      * load factor.
      *
@@ -111,7 +111,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a defaults table initialized with the specified
      * key/value pairs.  For example:
      * <pre>
@@ -132,7 +132,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value for key.  If the value is a
      * <code>UIDefaults.LazyValue</code> then the real
      * value is computed with <code>LazyValue.createValue()</code>,
@@ -163,7 +163,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (value != null) ? value : getFromResourceBundle(key, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Looks up up the given key in our Hashtable and resolves LazyValues
      * or ActiveValues.
      */
@@ -236,7 +236,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the value for key associated with the given locale.
      * If the value is a <code>UIDefaults.LazyValue</code> then the real
      * value is computed with <code>LazyValue.createValue()</code>,
@@ -266,7 +266,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (value != null) ? value : getFromResourceBundle(key, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Looks up given key in our resource bundles.
      */
     private Object getFromResourceBundle(Object key, Locale l) {
@@ -290,7 +290,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Map of the known resources for the given locale.
      */
     private Map getResourceCache(Locale l) {
@@ -328,7 +328,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return values;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of <code>key</code> to <code>value</code> for all locales.
      * If <code>key</code> is a string and the new value isn't
      * equal to the old one, fire a <code>PropertyChangeEvent</code>.
@@ -351,7 +351,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Puts all of the key/value pairs in the database and
      * unconditionally generates one <code>PropertyChangeEvent</code>.
      * The events oldValue and newValue will be <code>null</code> and its
@@ -376,7 +376,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is a <code>Font</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -390,7 +390,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is a <code>Font</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -406,7 +406,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (value instanceof Font) ? (Font)value : null;
     }
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is a <code>Color</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -420,7 +420,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is a <code>Color</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -437,7 +437,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is an <code>Icon</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -451,7 +451,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is an <code>Icon</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -468,7 +468,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is a <code>Border</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -482,7 +482,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is a <code>Border</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -499,7 +499,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is a <code>String</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -512,7 +512,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (value instanceof String) ? (String)value : null;
     }
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is a <code>String</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -528,7 +528,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (value instanceof String) ? (String)value : null;
     }
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is an <code>Integer</code> return its
      * integer value, otherwise return 0.
      * @param key the desired key
@@ -541,7 +541,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is an <code>Integer</code> return its integer value, otherwise return 0.
      * @param key the desired key
@@ -557,7 +557,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is boolean, return the
      * boolean value, otherwise return false.
      *
@@ -572,7 +572,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is boolean, return the boolean value, otherwise return false.
      *
@@ -589,7 +589,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is an <code>Insets</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -603,7 +603,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is an <code>Insets</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -620,7 +620,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> is a <code>Dimension</code> return it,
      * otherwise return <code>null</code>.
      * @param key the desired key
@@ -634,7 +634,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the value of <code>key</code> for the given <code>Locale</code>
      * is a <code>Dimension</code> return it, otherwise return <code>null</code>.
      * @param key the desired key
@@ -651,7 +651,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * The value of <code>get(uidClassID)</code> must be the
      * <code>String</code> name of a
      * class that implements the corresponding <code>ComponentUI</code>
@@ -703,7 +703,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F class that renders this component.
      *
      * @param uiClassID a string containing the class ID
@@ -715,7 +715,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * If <code>getUI()</code> fails for any reason,
      * it calls this method before returning <code>null</code>.
      * Subclasses may choose to do more or less here.
@@ -733,7 +733,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>ComponentUI</code> implementation for the
      * specified component.  In other words create the look
      * and feel specific delegate object for <code>target</code>.
@@ -779,7 +779,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return (ComponentUI)uiObject;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>PropertyChangeListener</code> to the listener list.
      * The listener is registered for all properties.
      * <p>
@@ -797,7 +797,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChangeListener</code> from the listener list.
      * This removes a <code>PropertyChangeListener</code> that was registered
      * for all properties.
@@ -812,7 +812,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>PropertyChangeListener</code>s added
      * to this UIDefaults with addPropertyChangeListener().
      *
@@ -828,7 +828,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Support for reporting bound property changes.  If oldValue and
      * newValue are not equal and the <code>PropertyChangeEvent</code>x
      * listener list isn't empty, then fire a
@@ -847,7 +847,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a resource bundle to the list of resource bundles that are
      * searched for localized values.  Resource bundles are searched in the
      * reverse order they were added.  In other words, the most recently added
@@ -872,7 +872,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a resource bundle from the list of resource bundles that are
      * searched for localized defaults.
      *
@@ -888,7 +888,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         resourceCache.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the default locale.  The default locale is used in retrieving
      * localized values via <code>get</code> methods that do not take a
      * locale argument.  As of release 1.4, Swing UI objects should retrieve
@@ -906,7 +906,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         defaultLocale = l;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default locale.  The default locale is used in retrieving
      * localized values via <code>get</code> methods that do not take a
      * locale argument.  As of release 1.4, Swing UI objects should retrieve
@@ -924,7 +924,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         return defaultLocale;
     }
 
-    /**
+    /** {@collect.stats}
      * This class enables one to store an entry in the defaults
      * table that isn't constructed until the first time it's
      * looked up with one of the <code>getXXX(key)</code> methods.
@@ -950,7 +950,7 @@ public class UIDefaults extends Hashtable<Object,Object>
      * @see UIDefaults#get
      */
     public interface LazyValue {
-        /**
+        /** {@collect.stats}
          * Creates the actual value retrieved from the <code>UIDefaults</code>
          * table. When an object that implements this interface is
          * retrieved from the table, this method is used to create
@@ -964,7 +964,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * This class enables one to store an entry in the defaults
      * table that's constructed each time it's looked up with one of
      * the <code>getXXX(key)</code> methods. Here's an example of
@@ -983,7 +983,7 @@ public class UIDefaults extends Hashtable<Object,Object>
      * @see UIDefaults#get
      */
     public interface ActiveValue {
-        /**
+        /** {@collect.stats}
          * Creates the value retrieved from the <code>UIDefaults</code> table.
          * The object is created each time it is accessed.
          *
@@ -993,7 +993,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         Object createValue(UIDefaults table);
     }
 
-    /**
+    /** {@collect.stats}
      * This class provides an implementation of <code>LazyValue</code>
      * which can be
      * used to delay loading of the Class for the instance to be created.
@@ -1011,7 +1011,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         private String methodName;
         private Object[] args;
 
-        /**
+        /** {@collect.stats}
          * Creates a <code>LazyValue</code> which will construct an instance
          * when asked.
          *
@@ -1021,7 +1021,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         public ProxyLazyValue(String c) {
             this(c, (String)null);
         }
-        /**
+        /** {@collect.stats}
          * Creates a <code>LazyValue</code> which will construct an instance
          * when asked.
          *
@@ -1035,7 +1035,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         public ProxyLazyValue(String c, String m) {
             this(c, m, null);
         }
-        /**
+        /** {@collect.stats}
          * Creates a <code>LazyValue</code> which will construct an instance
          * when asked.
          *
@@ -1047,7 +1047,7 @@ public class UIDefaults extends Hashtable<Object,Object>
         public ProxyLazyValue(String c, Object[] o) {
             this(c, null, o);
         }
-        /**
+        /** {@collect.stats}
          * Creates a <code>LazyValue</code> which will construct an instance
          * when asked.
          *
@@ -1069,7 +1069,7 @@ public class UIDefaults extends Hashtable<Object,Object>
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates the value retrieved from the <code>UIDefaults</code> table.
          * The object is created each time it is accessed.
          *
@@ -1182,7 +1182,7 @@ public class UIDefaults extends Hashtable<Object,Object>
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>LazyInputMap</code> will create a <code>InputMap</code>
      * in its <code>createValue</code>
      * method. The bindings are passed in in the constructor.
@@ -1194,14 +1194,14 @@ public class UIDefaults extends Hashtable<Object,Object>
      * @since 1.3
      */
     public static class LazyInputMap implements LazyValue {
-        /** Key bindings are registered under. */
+        /** {@collect.stats} Key bindings are registered under. */
         private Object[] bindings;
 
         public LazyInputMap(Object[] bindings) {
             this.bindings = bindings;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates an <code>InputMap</code> with the bindings that are
          * passed in.
          *

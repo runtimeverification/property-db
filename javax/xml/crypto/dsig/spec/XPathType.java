@@ -32,7 +32,7 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * The XML Schema Definition of the <code>XPath</code> element as defined in the
  * <a href="http://www.w3.org/TR/xmldsig-filter2">
  * W3C Recommendation for XML-Signature XPath Filter 2.0</a>:
@@ -69,7 +69,7 @@ import java.util.Map;
  */
 public class XPathType {
 
-    /**
+    /** {@collect.stats}
      * Represents the filter set operation.
      */
     public static class Filter {
@@ -79,7 +79,7 @@ public class XPathType {
             this.operation = operation;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the string form of the operation.
          *
          * @return the string form of the operation
@@ -88,17 +88,17 @@ public class XPathType {
             return operation;
         }
 
-        /**
+        /** {@collect.stats}
          * The intersect filter operation.
          */
         public static final Filter INTERSECT = new Filter("intersect");
 
-        /**
+        /** {@collect.stats}
          * The subtract filter operation.
          */
         public static final Filter SUBTRACT = new Filter("subtract");
 
-        /**
+        /** {@collect.stats}
          * The union filter operation.
          */
         public static final Filter UNION = new Filter("union");
@@ -108,7 +108,7 @@ public class XPathType {
     private final Filter filter;
     private Map nsMap;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XPathType</code> instance with the specified XPath
      * expression and filter.
      *
@@ -130,7 +130,7 @@ public class XPathType {
         this.nsMap = Collections.EMPTY_MAP;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XPathType</code> instance with the specified XPath
      * expression, filter, and namespace map. The map is copied to protect
      * against subsequent modification.
@@ -164,7 +164,7 @@ public class XPathType {
         nsMap = Collections.unmodifiableMap(nsMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the XPath expression to be evaluated.
      *
      * @return the XPath expression to be evaluated
@@ -173,7 +173,7 @@ public class XPathType {
         return expression;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the filter operation.
      *
      * @return the filter operation
@@ -182,7 +182,7 @@ public class XPathType {
         return filter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a map of namespace prefixes. Each key is a namespace prefix
      * <code>String</code> that maps to a corresponding namespace URI
      * <code>String</code>.

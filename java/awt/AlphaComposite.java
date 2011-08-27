@@ -28,7 +28,7 @@ package java.awt;
 import java.awt.image.ColorModel;
 import sun.java2d.SunCompositeContext;
 
-/**
+/** {@collect.stats}
  * The <code>AlphaComposite</code> class implements basic alpha
  * compositing rules for combining source and destination colors
  * to achieve blending and transparency effects with graphics and
@@ -350,7 +350,7 @@ import sun.java2d.SunCompositeContext;
  */
 
 public final class AlphaComposite implements Composite {
-    /**
+    /** {@collect.stats}
      * Both the color and the alpha of the destination are cleared
      * (Porter-Duff Clear rule).
      * Neither the source nor the destination is used as input.
@@ -363,7 +363,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     CLEAR           = 1;
 
-    /**
+    /** {@collect.stats}
      * The source is copied to the destination
      * (Porter-Duff Source rule).
      * The destination is not used as input.
@@ -376,7 +376,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     SRC             = 2;
 
-    /**
+    /** {@collect.stats}
      * The destination is left untouched
      * (Porter-Duff Destination rule).
      *<p>
@@ -390,7 +390,7 @@ public final class AlphaComposite implements Composite {
     public static final int     DST             = 9;
     // Note that DST was added in 1.4 so it is numbered out of order...
 
-    /**
+    /** {@collect.stats}
      * The source is composited over the destination
      * (Porter-Duff Source Over Destination rule).
      *<p>
@@ -402,7 +402,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     SRC_OVER        = 3;
 
-    /**
+    /** {@collect.stats}
      * The destination is composited over the source and
      * the result replaces the destination
      * (Porter-Duff Destination Over Source rule).
@@ -415,7 +415,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     DST_OVER        = 4;
 
-    /**
+    /** {@collect.stats}
      * The part of the source lying inside of the destination replaces
      * the destination
      * (Porter-Duff Source In Destination rule).
@@ -428,7 +428,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     SRC_IN          = 5;
 
-    /**
+    /** {@collect.stats}
      * The part of the destination lying inside of the source
      * replaces the destination
      * (Porter-Duff Destination In Source rule).
@@ -441,7 +441,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     DST_IN          = 6;
 
-    /**
+    /** {@collect.stats}
      * The part of the source lying outside of the destination
      * replaces the destination
      * (Porter-Duff Source Held Out By Destination rule).
@@ -454,7 +454,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     SRC_OUT         = 7;
 
-    /**
+    /** {@collect.stats}
      * The part of the destination lying outside of the source
      * replaces the destination
      * (Porter-Duff Destination Held Out By Source rule).
@@ -472,7 +472,7 @@ public final class AlphaComposite implements Composite {
     //
     // public static final int  DST             = 9;
 
-    /**
+    /** {@collect.stats}
      * The part of the source lying inside of the destination
      * is composited onto the destination
      * (Porter-Duff Source Atop Destination rule).
@@ -486,7 +486,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     SRC_ATOP        = 10;
 
-    /**
+    /** {@collect.stats}
      * The part of the destination lying inside of the source
      * is composited over the source and replaces the destination
      * (Porter-Duff Destination Atop Source rule).
@@ -500,7 +500,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     DST_ATOP        = 11;
 
-    /**
+    /** {@collect.stats}
      * The part of the source that lies outside of the destination
      * is combined with the part of the destination that lies outside
      * of the source
@@ -515,21 +515,21 @@ public final class AlphaComposite implements Composite {
      */
     public static final int     XOR             = 12;
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque CLEAR rule
      * with an alpha of 1.0f.
      * @see #CLEAR
      */
     public static final AlphaComposite Clear    = new AlphaComposite(CLEAR);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque SRC rule
      * with an alpha of 1.0f.
      * @see #SRC
      */
     public static final AlphaComposite Src      = new AlphaComposite(SRC);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque DST rule
      * with an alpha of 1.0f.
      * @see #DST
@@ -537,49 +537,49 @@ public final class AlphaComposite implements Composite {
      */
     public static final AlphaComposite Dst      = new AlphaComposite(DST);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque SRC_OVER rule
      * with an alpha of 1.0f.
      * @see #SRC_OVER
      */
     public static final AlphaComposite SrcOver  = new AlphaComposite(SRC_OVER);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque DST_OVER rule
      * with an alpha of 1.0f.
      * @see #DST_OVER
      */
     public static final AlphaComposite DstOver  = new AlphaComposite(DST_OVER);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque SRC_IN rule
      * with an alpha of 1.0f.
      * @see #SRC_IN
      */
     public static final AlphaComposite SrcIn    = new AlphaComposite(SRC_IN);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque DST_IN rule
      * with an alpha of 1.0f.
      * @see #DST_IN
      */
     public static final AlphaComposite DstIn    = new AlphaComposite(DST_IN);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque SRC_OUT rule
      * with an alpha of 1.0f.
      * @see #SRC_OUT
      */
     public static final AlphaComposite SrcOut   = new AlphaComposite(SRC_OUT);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque DST_OUT rule
      * with an alpha of 1.0f.
      * @see #DST_OUT
      */
     public static final AlphaComposite DstOut   = new AlphaComposite(DST_OUT);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque SRC_ATOP rule
      * with an alpha of 1.0f.
      * @see #SRC_ATOP
@@ -587,7 +587,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final AlphaComposite SrcAtop  = new AlphaComposite(SRC_ATOP);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque DST_ATOP rule
      * with an alpha of 1.0f.
      * @see #DST_ATOP
@@ -595,7 +595,7 @@ public final class AlphaComposite implements Composite {
      */
     public static final AlphaComposite DstAtop  = new AlphaComposite(DST_ATOP);
 
-    /**
+    /** {@collect.stats}
      * <code>AlphaComposite</code> object that implements the opaque XOR rule
      * with an alpha of 1.0f.
      * @see #XOR
@@ -624,7 +624,7 @@ public final class AlphaComposite implements Composite {
         this.extraAlpha = alpha;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>AlphaComposite</code> object with the specified rule.
      * @param rule the compositing rule
      * @throws IllegalArgumentException if <code>rule</code> is not one of
@@ -664,7 +664,7 @@ public final class AlphaComposite implements Composite {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>AlphaComposite</code> object with the specified rule and
      * the constant alpha to multiply with the alpha of the source.
      * The source is multiplied with the specified alpha before being composited
@@ -688,7 +688,7 @@ public final class AlphaComposite implements Composite {
         return new AlphaComposite(rule, alpha);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a context for the compositing operation.
      * The context contains state that is used in performing
      * the compositing operation.
@@ -703,7 +703,7 @@ public final class AlphaComposite implements Composite {
         return new SunCompositeContext(this, srcColorModel, dstColorModel);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alpha value of this <code>AlphaComposite</code>.  If this
      * <code>AlphaComposite</code> does not have an alpha value, 1.0 is returned.
      * @return the alpha value of this <code>AlphaComposite</code>.
@@ -712,7 +712,7 @@ public final class AlphaComposite implements Composite {
         return extraAlpha;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the compositing rule of this <code>AlphaComposite</code>.
      * @return the compositing rule of this <code>AlphaComposite</code>.
      */
@@ -720,7 +720,7 @@ public final class AlphaComposite implements Composite {
         return rule;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a similar <code>AlphaComposite</code> object that uses
      * the specified compositing rule.
      * If this object already uses the specified compositing rule,
@@ -742,7 +742,7 @@ public final class AlphaComposite implements Composite {
             : getInstance(rule, this.extraAlpha);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a similar <code>AlphaComposite</code> object that uses
      * the specified alpha value.
      * If this object already has the specified alpha value,
@@ -762,7 +762,7 @@ public final class AlphaComposite implements Composite {
             : getInstance(this.rule, alpha);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hashcode for this composite.
      * @return      a hash code for this composite.
      */
@@ -770,7 +770,7 @@ public final class AlphaComposite implements Composite {
         return (Float.floatToIntBits(extraAlpha) * 31 + rule);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the specified object is equal to this
      * <code>AlphaComposite</code>.
      * <p>

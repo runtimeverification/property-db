@@ -36,7 +36,7 @@ import javax.crypto.SecretKey;
 
 import javax.security.auth.callback.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>KeyStore</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -53,7 +53,7 @@ import javax.security.auth.callback.*;
 
 public abstract class KeyStoreSpi {
 
-    /**
+    /** {@collect.stats}
      * Returns the key associated with the given alias, using the given
      * password to recover it.  The key must have been associated with
      * the alias by a call to <code>setKeyEntry</code>,
@@ -74,7 +74,7 @@ public abstract class KeyStoreSpi {
     public abstract Key engineGetKey(String alias, char[] password)
         throws NoSuchAlgorithmException, UnrecoverableKeyException;
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate chain associated with the given alias.
      * The certificate chain must have been associated with the alias
      * by a call to <code>setKeyEntry</code>,
@@ -89,7 +89,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract Certificate[] engineGetCertificateChain(String alias);
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate associated with the given alias.
      *
      * <p> If the given alias name identifies an entry
@@ -112,7 +112,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract Certificate engineGetCertificate(String alias);
 
-    /**
+    /** {@collect.stats}
      * Returns the creation date of the entry identified by the given alias.
      *
      * @param alias the alias name
@@ -122,7 +122,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract Date engineGetCreationDate(String alias);
 
-    /**
+    /** {@collect.stats}
      * Assigns the given key to the given alias, protecting it with the given
      * password.
      *
@@ -149,7 +149,7 @@ public abstract class KeyStoreSpi {
                                            Certificate[] chain)
         throws KeyStoreException;
 
-    /**
+    /** {@collect.stats}
      * Assigns the given key (that has already been protected) to the given
      * alias.
      *
@@ -174,7 +174,7 @@ public abstract class KeyStoreSpi {
                                            Certificate[] chain)
         throws KeyStoreException;
 
-    /**
+    /** {@collect.stats}
      * Assigns the given certificate to the given alias.
      *
      * <p> If the given alias identifies an existing entry
@@ -195,7 +195,7 @@ public abstract class KeyStoreSpi {
                                                    Certificate cert)
         throws KeyStoreException;
 
-    /**
+    /** {@collect.stats}
      * Deletes the entry identified by the given alias from this keystore.
      *
      * @param alias the alias name
@@ -205,14 +205,14 @@ public abstract class KeyStoreSpi {
     public abstract void engineDeleteEntry(String alias)
         throws KeyStoreException;
 
-    /**
+    /** {@collect.stats}
      * Lists all the alias names of this keystore.
      *
      * @return enumeration of the alias names
      */
     public abstract Enumeration<String> engineAliases();
 
-    /**
+    /** {@collect.stats}
      * Checks if the given alias exists in this keystore.
      *
      * @param alias the alias name
@@ -221,14 +221,14 @@ public abstract class KeyStoreSpi {
      */
     public abstract boolean engineContainsAlias(String alias);
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of entries in this keystore.
      *
      * @return the number of entries in this keystore
      */
     public abstract int engineSize();
 
-    /**
+    /** {@collect.stats}
      * Returns true if the entry identified by the given alias
      * was created by a call to <code>setKeyEntry</code>,
      * or created by a call to <code>setEntry</code> with a
@@ -241,7 +241,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract boolean engineIsKeyEntry(String alias);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the entry identified by the given alias
      * was created by a call to <code>setCertificateEntry</code>,
      * or created by a call to <code>setEntry</code> with a
@@ -254,7 +254,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract boolean engineIsCertificateEntry(String alias);
 
-    /**
+    /** {@collect.stats}
      * Returns the (alias) name of the first keystore entry whose certificate
      * matches the given certificate.
      *
@@ -279,7 +279,7 @@ public abstract class KeyStoreSpi {
      */
     public abstract String engineGetCertificateAlias(Certificate cert);
 
-    /**
+    /** {@collect.stats}
      * Stores this keystore to the given output stream, and protects its
      * integrity with the given password.
      *
@@ -295,7 +295,7 @@ public abstract class KeyStoreSpi {
     public abstract void engineStore(OutputStream stream, char[] password)
         throws IOException, NoSuchAlgorithmException, CertificateException;
 
-    /**
+    /** {@collect.stats}
      * Stores this keystore using the given
      * <code>KeyStore.LoadStoreParmeter</code>.
      *
@@ -320,7 +320,7 @@ public abstract class KeyStoreSpi {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the keystore from the given input stream.
      *
      * <p>A password may be given to unlock the keystore
@@ -349,7 +349,7 @@ public abstract class KeyStoreSpi {
     public abstract void engineLoad(InputStream stream, char[] password)
         throws IOException, NoSuchAlgorithmException, CertificateException;
 
-    /**
+    /** {@collect.stats}
      * Loads the keystore using the given
      * <code>KeyStore.LoadStoreParameter</code>.
      *
@@ -418,7 +418,7 @@ public abstract class KeyStoreSpi {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a <code>KeyStore.Entry</code> for the specified alias
      * with the specified protection parameter.
      *
@@ -483,7 +483,7 @@ public abstract class KeyStoreSpi {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Saves a <code>KeyStore.Entry</code> under the specified alias.
      * The specified protection parameter is used to protect the
      * <code>Entry</code>.
@@ -559,7 +559,7 @@ public abstract class KeyStoreSpi {
                 ("unsupported entry type: " + entry.getClass().getName());
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the keystore <code>Entry</code> for the specified
      * <code>alias</code> is an instance or subclass of the specified
      * <code>entryClass</code>.

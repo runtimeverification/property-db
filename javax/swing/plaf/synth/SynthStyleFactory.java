@@ -29,7 +29,7 @@ import java.util.*;
 import javax.swing.plaf.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * Factory used for obtaining <code>SynthStyle</code>s.  Each of the
  * Synth <code>ComponentUI</code>s will call into the current
  * <code>SynthStyleFactory</code> to obtain a <code>SynthStyle</code>
@@ -61,13 +61,13 @@ import javax.swing.*;
  * @author Scott Violet
  */
 public abstract class SynthStyleFactory {
-    /**
+    /** {@collect.stats}
      * Creates a <code>SynthStyleFactory</code>.
      */
     public SynthStyleFactory() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the style for the specified Component.
      *
      * @param c Component asking for

@@ -35,7 +35,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.cert.*;
 
-/**
+/** {@collect.stats}
  *
  * <p>This class extends the concept of a codebase to
  * encapsulate not only the location (URL) but also the certificate chains
@@ -49,7 +49,7 @@ public class CodeSource implements java.io.Serializable {
 
     private static final long serialVersionUID = 4977541819976013951L;
 
-    /**
+    /** {@collect.stats}
      * The code location.
      *
      * @serial
@@ -72,7 +72,7 @@ public class CodeSource implements java.io.Serializable {
     // for generating cert paths
     private transient CertificateFactory factory = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a CodeSource and associates it with the specified
      * location and set of certificates.
      *
@@ -90,7 +90,7 @@ public class CodeSource implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CodeSource and associates it with the specified
      * location and set of code signers.
      *
@@ -109,7 +109,7 @@ public class CodeSource implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -122,7 +122,7 @@ public class CodeSource implements java.io.Serializable {
             return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests for equality between the specified object and this
      * object. Two CodeSource objects are considered equal if their
      * locations are of identical value and if their signer certificate
@@ -156,7 +156,7 @@ public class CodeSource implements java.io.Serializable {
         return matchCerts(cs, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location associated with this CodeSource.
      *
      * @return the location (URL).
@@ -167,7 +167,7 @@ public class CodeSource implements java.io.Serializable {
         return this.location;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the certificates associated with this CodeSource.
      * <p>
      * If this CodeSource object was created using the
@@ -202,7 +202,7 @@ public class CodeSource implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the code signers associated with this CodeSource.
      * <p>
      * If this CodeSource object was created using the
@@ -229,7 +229,7 @@ public class CodeSource implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this CodeSource object "implies" the specified CodeSource.
      * <P>
      * More specifically, this method makes the following checks, in order.
@@ -306,7 +306,7 @@ public class CodeSource implements java.io.Serializable {
         return matchCerts(codesource, false) && matchLocation(codesource);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if all the certs in this
      * CodeSource are also in <i>that</i>.
      *
@@ -364,7 +364,7 @@ public class CodeSource implements java.io.Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if two CodeSource's have the "same" location.
      *
      * @param that CodeSource to compare against
@@ -449,7 +449,7 @@ public class CodeSource implements java.io.Serializable {
                 return location.getRef().equals(that.location.getRef());
         }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this CodeSource, telling its
      * URL and certificates.
      *
@@ -476,7 +476,7 @@ public class CodeSource implements java.io.Serializable {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes this object out to a stream (i.e., serializes it).
      *
      * @serialData An initial <code>URL</code> is followed by an
@@ -521,7 +521,7 @@ public class CodeSource implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Restores this object from a stream (i.e., deserializes it).
      */
     private void readObject(java.io.ObjectInputStream ois)

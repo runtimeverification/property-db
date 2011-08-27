@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * A customizer class provides a complete custom GUI for customizing
  * a target Java Bean.
  * <P>
@@ -37,14 +37,14 @@ package java.beans;
 
 public interface Customizer {
 
-    /**
+    /** {@collect.stats}
      * Set the object to be customized.  This method should be called only
      * once, before the Customizer has been added to any parent AWT container.
      * @param bean  The object to be customized.
      */
     void setObject(Object bean);
 
-    /**
+    /** {@collect.stats}
      * Register a listener for the PropertyChange event.  The customizer
      * should fire a PropertyChange event whenever it changes the target
      * bean in a way that might require the displayed properties to be
@@ -55,7 +55,7 @@ public interface Customizer {
      */
      void addPropertyChangeListener(PropertyChangeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Remove a listener for the PropertyChange event.
      *
      * @param listener  The PropertyChange listener to be removed.

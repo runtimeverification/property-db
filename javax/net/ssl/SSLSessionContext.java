@@ -29,7 +29,7 @@ package javax.net.ssl;
 import java.util.Enumeration;
 
 
-/**
+/** {@collect.stats}
  * A <code>SSLSessionContext</code> represents a set of
  * <code>SSLSession</code>s associated with a single entity. For example,
  * it could be associated with a server or client who participates in many
@@ -56,7 +56,7 @@ import java.util.Enumeration;
  */
 public interface SSLSessionContext {
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SSLSession</code> bound to the specified session id.
      *
      * @param sessionId the Session identifier
@@ -67,7 +67,7 @@ public interface SSLSessionContext {
      */
     public SSLSession getSession(byte[] sessionId);
 
-    /**
+    /** {@collect.stats}
      * Returns an Enumeration of all session id's grouped under this
      * <code>SSLSessionContext</code>.
      *
@@ -75,7 +75,7 @@ public interface SSLSessionContext {
      */
     public Enumeration<byte[]> getIds();
 
-    /**
+    /** {@collect.stats}
      * Sets the timeout limit for <code>SSLSession</code> objects grouped
      * under this <code>SSLSessionContext</code>.
      * <p>
@@ -96,7 +96,7 @@ public interface SSLSessionContext {
     public void setSessionTimeout(int seconds)
                  throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Returns the timeout limit of <code>SSLSession</code> objects grouped
      * under this <code>SSLSessionContext</code>.
      * <p>
@@ -115,7 +115,7 @@ public interface SSLSessionContext {
      */
     public int getSessionTimeout();
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the cache used for storing
      * <code>SSLSession</code> objects grouped under this
      * <code>SSLSessionContext</code>.
@@ -128,7 +128,7 @@ public interface SSLSessionContext {
     public void setSessionCacheSize(int size)
                  throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the cache used for storing
      * <code>SSLSession</code> objects grouped under this
      * <code>SSLSessionContext</code>.

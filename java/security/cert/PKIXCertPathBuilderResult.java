@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.PublicKey;
 
-/**
+/** {@collect.stats}
  * This class represents the successful result of the PKIX certification
  * path builder algorithm. All certification paths that are built and
  * returned using this algorithm are also validated according to the PKIX
@@ -61,7 +61,7 @@ public class PKIXCertPathBuilderResult extends PKIXCertPathValidatorResult
 
     private CertPath certPath;
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>PKIXCertPathBuilderResult</code>
      * containing the specified parameters.
      *
@@ -85,7 +85,7 @@ public class PKIXCertPathBuilderResult extends PKIXCertPathValidatorResult
         this.certPath = certPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the built and validated certification path. The
      * <code>CertPath</code> object does not include the trust anchor.
      * Instead, use the {@link #getTrustAnchor() getTrustAnchor()} method to
@@ -99,7 +99,7 @@ public class PKIXCertPathBuilderResult extends PKIXCertPathValidatorResult
         return certPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a printable representation of this
      * <code>PKIXCertPathBuilderResult</code>.
      *

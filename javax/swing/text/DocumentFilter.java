@@ -24,7 +24,7 @@
  */
 package javax.swing.text;
 
-/**
+/** {@collect.stats}
  * <code>DocumentFilter</code>, as the name implies, is a filter for the
  * <code>Document</code> mutation methods. When a <code>Document</code>
  * containing a <code>DocumentFilter</code> is modified (either through
@@ -49,7 +49,7 @@ package javax.swing.text;
  * @since 1.4
  */
 public class DocumentFilter {
-    /**
+    /** {@collect.stats}
      * Invoked prior to removal of the specified region in the
      * specified Document. Subclasses that want to conditionally allow
      * removal should override this and only call supers implementation as
@@ -68,7 +68,7 @@ public class DocumentFilter {
         fb.remove(offset, length);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked prior to insertion of text into the
      * specified Document. Subclasses that want to conditionally allow
      * insertion should override this and only call supers implementation as
@@ -89,7 +89,7 @@ public class DocumentFilter {
         fb.insertString(offset, string, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked prior to replacing a region of text in the
      * specified Document. Subclasses that want to conditionally allow
      * replace should override this and only call supers implementation as
@@ -110,7 +110,7 @@ public class DocumentFilter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used as a way to circumvent calling back into the Document to
      * change it. Document implementations that wish to support
      * a DocumentFilter must provide an implementation that will
@@ -119,14 +119,14 @@ public class DocumentFilter {
      * @since 1.4
      */
     public static abstract class FilterBypass {
-        /**
+        /** {@collect.stats}
          * Returns the Document the mutation is occuring on.
          *
          * @return Document that remove/insertString will operate on
          */
         public abstract Document getDocument();
 
-        /**
+        /** {@collect.stats}
          * Removes the specified region of text, bypassing the
          * DocumentFilter.
          *
@@ -139,7 +139,7 @@ public class DocumentFilter {
         public abstract void remove(int offset, int length) throws
                              BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Inserts the specified text, bypassing the
          * DocumentFilter.
          * @param offset  the offset into the document to insert the
@@ -155,7 +155,7 @@ public class DocumentFilter {
                                           AttributeSet attr) throws
                                    BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Deletes the region of text from <code>offset</code> to
          * <code>offset + length</code>, and replaces it with
          *  <code>text</code>.

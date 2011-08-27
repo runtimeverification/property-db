@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.channels.*;
 
 
-/**
+/** {@collect.stats}
  * Base implementation class for selectable channels.
  *
  * <p> This class defines methods that handle the mechanics of channel
@@ -70,14 +70,14 @@ public abstract class AbstractSelectableChannel
     // Blocking mode, protected by regLock
     boolean blocking = true;
 
-    /**
+    /** {@collect.stats}
      * Initializes a new instance of this class.
      */
     protected AbstractSelectableChannel(SelectorProvider provider) {
         this.provider = provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider that created this channel.
      *
      * @return  The provider that created this channel
@@ -160,7 +160,7 @@ public abstract class AbstractSelectableChannel
         return findKey(sel);
     }
 
-    /**
+    /** {@collect.stats}
      * Registers this channel with the given selector, returning a selection key.
      *
      * <p>  This method first verifies that this channel is open and that the
@@ -204,7 +204,7 @@ public abstract class AbstractSelectableChannel
 
     // -- Closing --
 
-    /**
+    /** {@collect.stats}
      * Closes this channel.
      *
      * <p> This method, which is specified in the {@link
@@ -226,7 +226,7 @@ public abstract class AbstractSelectableChannel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this selectable channel.
      *
      * <p> This method is invoked by the {@link java.nio.channels.Channel#close
@@ -254,7 +254,7 @@ public abstract class AbstractSelectableChannel
         return regLock;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts this channel's blocking mode.
      *
      * <p> If the given blocking mode is different from the current blocking
@@ -278,7 +278,7 @@ public abstract class AbstractSelectableChannel
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts this channel's blocking mode.
      *
      * <p> This method is invoked by the {@link #configureBlocking

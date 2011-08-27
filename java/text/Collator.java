@@ -48,7 +48,7 @@ import sun.util.resources.LocaleData;
 import sun.util.LocaleServiceProviderPool;
 
 
-/**
+/** {@collect.stats}
  * The <code>Collator</code> class performs locale-sensitive
  * <code>String</code> comparison. You use this class to build
  * searching and sorting routines for natural language text.
@@ -128,7 +128,7 @@ import sun.util.LocaleServiceProviderPool;
 public abstract class Collator
     implements java.util.Comparator<Object>, Cloneable
 {
-    /**
+    /** {@collect.stats}
      * Collator strength value.  When set, only PRIMARY differences are
      * considered significant during comparison. The assignment of strengths
      * to language features is locale dependant. A common example is for
@@ -137,7 +137,7 @@ public abstract class Collator
      * @see java.text.Collator#getStrength
      */
     public final static int PRIMARY = 0;
-    /**
+    /** {@collect.stats}
      * Collator strength value.  When set, only SECONDARY and above differences are
      * considered significant during comparison. The assignment of strengths
      * to language features is locale dependant. A common example is for
@@ -147,7 +147,7 @@ public abstract class Collator
      * @see java.text.Collator#getStrength
      */
     public final static int SECONDARY = 1;
-    /**
+    /** {@collect.stats}
      * Collator strength value.  When set, only TERTIARY and above differences are
      * considered significant during comparison. The assignment of strengths
      * to language features is locale dependant. A common example is for
@@ -157,7 +157,7 @@ public abstract class Collator
      */
     public final static int TERTIARY = 2;
 
-    /**
+    /** {@collect.stats}
      * Collator strength value.  When set, all differences are
      * considered significant during comparison. The assignment of strengths
      * to language features is locale dependant. A common example is for control
@@ -170,7 +170,7 @@ public abstract class Collator
      */
     public final static int IDENTICAL = 3;
 
-    /**
+    /** {@collect.stats}
      * Decomposition mode value. With NO_DECOMPOSITION
      * set, accented characters will not be decomposed for collation. This
      * is the default setting and provides the fastest collation but
@@ -180,7 +180,7 @@ public abstract class Collator
      */
     public final static int NO_DECOMPOSITION = 0;
 
-    /**
+    /** {@collect.stats}
      * Decomposition mode value. With CANONICAL_DECOMPOSITION
      * set, characters that are canonical variants according to Unicode
      * standard will be decomposed for collation. This should be used to get
@@ -195,7 +195,7 @@ public abstract class Collator
      */
     public final static int CANONICAL_DECOMPOSITION = 1;
 
-    /**
+    /** {@collect.stats}
      * Decomposition mode value. With FULL_DECOMPOSITION
      * set, both Unicode canonical variants and Unicode compatibility variants
      * will be decomposed for collation.  This causes not only accented
@@ -214,7 +214,7 @@ public abstract class Collator
      */
     public final static int FULL_DECOMPOSITION = 2;
 
-    /**
+    /** {@collect.stats}
      * Gets the Collator for the current default locale.
      * The default locale is determined by java.util.Locale.getDefault.
      * @return the Collator for the default locale.(for example, en_US)
@@ -224,7 +224,7 @@ public abstract class Collator
         return getInstance(Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the Collator for the desired locale.
      * @param desiredLocale the desired locale.
      * @return the Collator for the desired locale.
@@ -287,7 +287,7 @@ public abstract class Collator
         return (Collator)result.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the source string to the target string according to the
      * collation rules for this Collator.  Returns an integer less than,
      * equal to or greater than zero depending on whether the source String is
@@ -308,7 +308,7 @@ public abstract class Collator
      */
     public abstract int compare(String source, String target);
 
-    /**
+    /** {@collect.stats}
      * Compares its two arguments for order.  Returns a negative integer,
      * zero, or a positive integer as the first argument is less than, equal
      * to, or greater than the second.
@@ -327,7 +327,7 @@ public abstract class Collator
     return compare((String)o1, (String)o2);
     }
 
-    /**
+    /** {@collect.stats}
      * Transforms the String into a series of bits that can be compared bitwise
      * to other CollationKeys. CollationKeys provide better performance than
      * Collator.compare when Strings are involved in multiple comparisons.
@@ -340,7 +340,7 @@ public abstract class Collator
      */
     public abstract CollationKey getCollationKey(String source);
 
-    /**
+    /** {@collect.stats}
      * Convenience method for comparing the equality of two strings based on
      * this Collator's collation rules.
      * @param source the source string to be compared with.
@@ -354,7 +354,7 @@ public abstract class Collator
         return (compare(source, target) == Collator.EQUAL);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this Collator's strength property.  The strength property determines
      * the minimum level of difference considered significant during comparison.
      * See the Collator class description for an example of use.
@@ -370,7 +370,7 @@ public abstract class Collator
         return strength;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this Collator's strength property.  The strength property determines
      * the minimum level of difference considered significant during comparison.
      * See the Collator class description for an example of use.
@@ -392,7 +392,7 @@ public abstract class Collator
         strength = newStrength;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the decomposition mode of this Collator. Decomposition mode
      * determines how Unicode composed characters are handled. Adjusting
      * decomposition mode allows the user to select between faster and more
@@ -415,7 +415,7 @@ public abstract class Collator
     {
         return decmp;
     }
-    /**
+    /** {@collect.stats}
      * Set the decomposition mode of this Collator. See getDecomposition
      * for a description of decomposition mode.
      * @param decompositionMode  the new decomposition mode.
@@ -434,7 +434,7 @@ public abstract class Collator
         decmp = decompositionMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all locales for which the
      * <code>getInstance</code> methods of this class can return
      * localized instances.
@@ -453,7 +453,7 @@ public abstract class Collator
         return pool.getAvailableLocales();
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides Cloneable
      */
     public Object clone()
@@ -465,7 +465,7 @@ public abstract class Collator
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the equality of two Collators.
      * @param that the Collator to be compared with this.
      * @return true if this Collator is the same as that Collator;
@@ -481,12 +481,12 @@ public abstract class Collator
                 (decmp == other.decmp));
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the hash code for this Collator.
      */
     abstract public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Default constructor.  This constructor is
      * protected so subclasses can get access to it. Users typically create
      * a Collator sub-class by calling the factory method getInstance.
@@ -505,26 +505,26 @@ public abstract class Collator
     //
     // FIXME: These three constants should be removed.
     //
-    /**
+    /** {@collect.stats}
      * LESS is returned if source string is compared to be less than target
      * string in the compare() method.
      * @see java.text.Collator#compare
      */
     final static int LESS = -1;
-    /**
+    /** {@collect.stats}
      * EQUAL is returned if source string is compared to be equal to target
      * string in the compare() method.
      * @see java.text.Collator#compare
      */
     final static int EQUAL = 0;
-    /**
+    /** {@collect.stats}
      * GREATER is returned if source string is compared to be greater than
      * target string in the compare() method.
      * @see java.text.Collator#compare
      */
     final static int GREATER = 1;
 
-    /**
+    /** {@collect.stats}
      * Obtains a Collator instance from a CollatorProvider
      * implementation.
      */

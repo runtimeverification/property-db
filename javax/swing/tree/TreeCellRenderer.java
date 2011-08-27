@@ -27,7 +27,7 @@ package javax.swing.tree;
 import java.awt.Component;
 import javax.swing.JTree;
 
-/**
+/** {@collect.stats}
  * Defines the requirements for an object that displays a tree node.
  * See <a
  href="http://java.sun.com/docs/books/tutorial/uiswing/components/tree.html">How to Use Trees</a>
@@ -41,7 +41,7 @@ import javax.swing.JTree;
  */
 public interface TreeCellRenderer {
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the current tree cell to <code>value</code>.
      * If <code>selected</code> is true, the cell will be drawn as if
      * selected. If <code>expanded</code> is true the node is currently

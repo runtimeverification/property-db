@@ -38,7 +38,7 @@ import java.util.logging.Logger;
 import java.util.Comparator;
 import sun.misc.ASCIICaseInsensitiveComparator;
 
-/**
+/** {@collect.stats}
  * The Attributes class maps Manifest attribute names to associated string
  * values. Valid attribute names are case-insensitive, are restricted to
  * the ASCII characters in the set [0-9a-zA-Z_-], and cannot exceed 70
@@ -52,19 +52,19 @@ import sun.misc.ASCIICaseInsensitiveComparator;
  * @since   1.2
  */
 public class Attributes implements Map<Object,Object>, Cloneable {
-    /**
+    /** {@collect.stats}
      * The attribute name-value mappings.
      */
     protected Map<Object,Object> map;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty Attributes object with default size.
      */
     public Attributes() {
         this(11);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty Attributes object with the specified
      * initial size.
      *
@@ -74,7 +74,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         map = new HashMap(size);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new Attributes object with the same attribute name-value
      * mappings as in the specified Attributes.
      *
@@ -85,7 +85,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the specified attribute name, or null if the
      * attribute name was not found.
      *
@@ -97,7 +97,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.get(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the specified attribute name, specified as
      * a string, or null if the attribute was not found. The attribute
      * name is case-insensitive.
@@ -116,7 +116,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return (String)get(new Attributes.Name(name));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the specified Attributes.Name, or null if the
      * attribute was not found.
      * <p>
@@ -133,7 +133,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return (String)get(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified attribute name
      * (key) in this Map. If the Map previously contained a mapping for
      * the attribute name, the old value is replaced.
@@ -148,7 +148,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.put((Attributes.Name)name, (String)value);
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified attribute name,
      * specified as a String. The attributes name is case-insensitive.
      * If the Map previously contained a mapping for the attribute name,
@@ -168,7 +168,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return (String)put(new Name(name), value);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the attribute with the specified name (key) from this Map.
      * Returns the previous attribute value, or null if none.
      *
@@ -179,7 +179,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.remove(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this Map maps one or more attribute names (keys)
      * to the specified value.
      *
@@ -191,7 +191,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this Map contains the specified attribute name (key).
      *
      * @param name the attribute name
@@ -201,7 +201,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.containsKey(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the attribute name-value mappings from the specified
      * Attributes to this Map. Duplicate mappings will be replaced.
      *
@@ -216,42 +216,42 @@ public class Attributes implements Map<Object,Object>, Cloneable {
             put(me.getKey(), me.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all attributes from this Map.
      */
     public void clear() {
         map.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of attributes in this Map.
      */
     public int size() {
         return map.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this Map contains no attributes.
      */
     public boolean isEmpty() {
         return map.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Set view of the attribute names (keys) contained in this Map.
      */
     public Set<Object> keySet() {
         return map.keySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Collection view of the attribute values contained in this Map.
      */
     public Collection<Object> values() {
         return map.values();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Collection view of the attribute name-value mappings
      * contained in this Map.
      */
@@ -259,7 +259,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.entrySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Attributes object with this Map for equality.
      * Returns true if the given object is also an instance of Attributes
      * and the two Attributes objects represent the same mappings.
@@ -271,14 +271,14 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         return map.equals(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this Map.
      */
     public int hashCode() {
         return map.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the Attributes, implemented as follows:
      * <pre>
      *     public Object clone() { return new Attributes(this); }
@@ -435,7 +435,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The Attributes.Name class represents an attribute name stored in
      * this Map. Valid attribute names are case-insensitive, are restricted
      * to the ASCII characters in the set [0-9a-zA-Z_-], and cannot exceed
@@ -448,7 +448,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
         private String name;
         private int hashCode = -1;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new attribute name using the given string name.
          *
          * @param name the attribute string name
@@ -491,7 +491,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
             return c >= '0' && c <= '9';
         }
 
-        /**
+        /** {@collect.stats}
          * Compares this attribute name to another for equality.
          * @param o the object to compare
          * @return true if this attribute name is equal to the
@@ -506,7 +506,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Computes the hash value for this attribute name.
          */
         public int hashCode() {
@@ -516,14 +516,14 @@ public class Attributes implements Map<Object,Object>, Cloneable {
             return hashCode;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the attribute name as a String.
          */
         public String toString() {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Manifest-Version</code>
          * manifest attribute. This attribute indicates the version number
          * of the manifest standard to which a JAR file's manifest conforms.
@@ -532,7 +532,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name MANIFEST_VERSION = new Name("Manifest-Version");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Signature-Version</code>
          * manifest attribute used when signing JAR files.
          * @see <a href="../../../../technotes/guides/jar/jar.html#JAR Manifest">
@@ -540,13 +540,13 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name SIGNATURE_VERSION = new Name("Signature-Version");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Content-Type</code>
          * manifest attribute.
          */
         public static final Name CONTENT_TYPE = new Name("Content-Type");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Class-Path</code>
          * manifest attribute. Bundled extensions can use this attribute
          * to find other JAR files containing needed classes.
@@ -555,7 +555,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name CLASS_PATH = new Name("Class-Path");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Main-Class</code> manifest
          * attribute used for launching applications packaged in JAR files.
          * The <code>Main-Class</code> attribute is used in conjunction
@@ -564,7 +564,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name MAIN_CLASS = new Name("Main-Class");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Sealed</code> manifest attribute
          * used for sealing.
          * @see <a href="../../../../technotes/guides/extensions/spec.html#sealing">
@@ -572,7 +572,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name SEALED = new Name("Sealed");
 
-       /**
+       /** {@collect.stats}
          * <code>Name</code> object for <code>Extension-List</code> manifest attribute
          * used for declaring dependencies on installed extensions.
          * @see <a href="../../../../technotes/guides/extensions/spec.html#dependency">
@@ -580,7 +580,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name EXTENSION_LIST = new Name("Extension-List");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Extension-Name</code> manifest attribute
          * used for declaring dependencies on installed extensions.
          * @see <a href="../../../../technotes/guides/extensions/spec.html#dependency">
@@ -588,7 +588,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name EXTENSION_NAME = new Name("Extension-Name");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Extension-Name</code> manifest attribute
          * used for declaring dependencies on installed extensions.
          * @see <a href="../../../../technotes/guides/extensions/spec.html#dependency">
@@ -596,7 +596,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name EXTENSION_INSTALLATION = new Name("Extension-Installation");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Implementation-Title</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -604,7 +604,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name IMPLEMENTATION_TITLE = new Name("Implementation-Title");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Implementation-Version</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -612,7 +612,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name IMPLEMENTATION_VERSION = new Name("Implementation-Version");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Implementation-Vendor</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -620,7 +620,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name IMPLEMENTATION_VENDOR = new Name("Implementation-Vendor");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Implementation-Vendor-Id</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -628,7 +628,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name IMPLEMENTATION_VENDOR_ID = new Name("Implementation-Vendor-Id");
 
-       /**
+       /** {@collect.stats}
          * <code>Name</code> object for <code>Implementation-Vendor-URL</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -636,7 +636,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name IMPLEMENTATION_URL = new Name("Implementation-URL");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Specification-Title</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -644,7 +644,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name SPECIFICATION_TITLE = new Name("Specification-Title");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Specification-Version</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">
@@ -652,7 +652,7 @@ public class Attributes implements Map<Object,Object>, Cloneable {
          */
         public static final Name SPECIFICATION_VERSION = new Name("Specification-Version");
 
-        /**
+        /** {@collect.stats}
          * <code>Name</code> object for <code>Specification-Vendor</code>
          * manifest attribute used for package versioning.
          * @see <a href="../../../../technotes/guides/versioning/spec/versioning2.html#wp90779">

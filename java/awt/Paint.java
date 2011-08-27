@@ -29,7 +29,7 @@ import java.awt.image.ColorModel;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * This <code>Paint</code> interface defines how color patterns
  * can be generated for {@link Graphics2D} operations.  A class
  * implementing the <code>Paint</code> interface is added to the
@@ -49,7 +49,7 @@ import java.awt.geom.Rectangle2D;
  */
 
 public interface Paint extends Transparency {
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@link PaintContext} used to
      * generate the color pattern.
      * The arguments to this method convey additional information 

@@ -27,7 +27,7 @@ package java.security.cert;
 
 import java.security.GeneralSecurityException;
 
-/**
+/** {@collect.stats}
  * An exception indicating one of a variety of problems encountered when
  * building a certification path with a <code>CertPathBuilder</code>.
  * <p>
@@ -52,7 +52,7 @@ public class CertPathBuilderException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 5316471420178794402L;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertPathBuilderException</code> with <code>null</code>
      * as its detail message.
      */
@@ -60,7 +60,7 @@ public class CertPathBuilderException extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertPathBuilderException</code> with the given
      * detail message. The detail message is a <code>String</code> that
      * describes this particular exception in more detail.
@@ -71,7 +71,7 @@ public class CertPathBuilderException extends GeneralSecurityException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertPathBuilderException</code> that wraps the specified
      * throwable. This allows any exception to be converted into a
      * <code>CertPathBuilderException</code>, while retaining information
@@ -88,7 +88,7 @@ public class CertPathBuilderException extends GeneralSecurityException {
         super(cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertPathBuilderException</code> with the specified
      * detail message and cause.
      *

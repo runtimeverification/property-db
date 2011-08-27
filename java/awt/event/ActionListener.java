@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving action events.
  * The class that is interested in processing an action event
  * implements this interface, and the object created with that
@@ -44,7 +44,7 @@ import java.util.EventListener;
  */
 public interface ActionListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Invoked when an action occurs.
      */
     public void actionPerformed(ActionEvent e);

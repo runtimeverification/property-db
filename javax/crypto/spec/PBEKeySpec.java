@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.spec.KeySpec;
 
-/**
+/** {@collect.stats}
  * A user-chosen password that can be used with password-based encryption
  * (<i>PBE</i>).
  *
@@ -67,7 +67,7 @@ public class PBEKeySpec implements KeySpec {
     private int iterationCount = 0;
     private int keyLength = 0;
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes a password. An empty char[] is used if
      * null is specified.
      *
@@ -85,7 +85,7 @@ public class PBEKeySpec implements KeySpec {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes a password, salt, iteration count, and
      * to-be-derived key length for generating PBEKey of variable-key-size
      * PBE ciphers.  An empty char[] is used if null is specified for
@@ -131,7 +131,7 @@ public class PBEKeySpec implements KeySpec {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes a password, salt, iteration count for
      * generating PBEKey of fixed-key-size PBE ciphers. An empty
      * char[] is used if null is specified for <code>password</code>.
@@ -168,7 +168,7 @@ public class PBEKeySpec implements KeySpec {
         this.iterationCount = iterationCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Clears the internal copy of the password.
      *
      */
@@ -181,7 +181,7 @@ public class PBEKeySpec implements KeySpec {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the password.
      *
      * <p> Note: this method returns a copy of the password. It is
@@ -199,7 +199,7 @@ public class PBEKeySpec implements KeySpec {
         return (char[]) password.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the salt or null if not specified.
      *
      * <p> Note: this method should return a copy of the salt. It is
@@ -216,7 +216,7 @@ public class PBEKeySpec implements KeySpec {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the iteration count or 0 if not specified.
      *
      * @return the iteration count.
@@ -225,7 +225,7 @@ public class PBEKeySpec implements KeySpec {
         return iterationCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the to-be-derived key length or 0 if not specified.
      *
      * <p> Note: this is used to indicate the preference on key length

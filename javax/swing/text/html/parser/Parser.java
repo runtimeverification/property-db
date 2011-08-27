@@ -37,7 +37,7 @@ import java.net.URL;
 
 import sun.misc.MessageUtils;
 
-/**
+/** {@collect.stats}
  * A simple DTD-driven HTML parser. The parser reads an
  * HTML file from an InputStream and calls various methods
  * (which should be overridden in a subclass) when tags and
@@ -109,7 +109,7 @@ class Parser implements DTDConstants {
     private boolean seenHead = false;
     private boolean seenBody = false;
 
-    /**
+    /** {@collect.stats}
      * The html spec does not specify how spaces are coalesced very well.
      * If strict == false, ignoreSpace is used to try and mimic the behavior
      * of the popular browsers.
@@ -131,7 +131,7 @@ class Parser implements DTDConstants {
      */
     private boolean ignoreSpace;
 
-    /**
+    /** {@collect.stats}
      * This flag determines whether or not the Parser will be strict
      * in enforcing SGML compatibility.  If false, it will be lenient
      * with certain common classes of erroneous HTML constructs.
@@ -141,11 +141,11 @@ class Parser implements DTDConstants {
     protected boolean strict = false;
 
 
-    /** Number of \r\n's encountered. */
+    /** {@collect.stats} Number of \r\n's encountered. */
     private int crlfCount;
-    /** Number of \r's encountered. A \r\n will not increment this. */
+    /** {@collect.stats} Number of \r's encountered. A \r\n will not increment this. */
     private int crCount;
-    /** Number of \n's encountered. A \r\n will not increment this. */
+    /** {@collect.stats} Number of \n's encountered. A \r\n will not increment this. */
     private int lfCount;
 
     //
@@ -154,14 +154,14 @@ class Parser implements DTDConstants {
     // after the text has been parsed, that is the parser parses the text,
     // then a tag, then invokes handleText followed by handleStart.
     //
-    /** The start position of the current block. Block is overloaded here,
+    /** {@collect.stats} The start position of the current block. Block is overloaded here,
      * it really means the current start position for the current comment,
      * tag, text. Use getBlockStartPosition to access this. */
     private int currentBlockStartPos;
-    /** Start position of the last block. */
+    /** {@collect.stats} Start position of the last block. */
     private int lastBlockStartPos;
 
-    /**
+    /** {@collect.stats}
      * array for mapping numeric references in range
      * 130-159 to displayable Unicode characters.
      */
@@ -203,14 +203,14 @@ class Parser implements DTDConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * @return the line number of the line currently being parsed
      */
     protected int getCurrentLine() {
         return ln;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the start position of the current block. Block is
      * overloaded here, it really means the current start position for
      * the current comment tag, text, block.... This is provided for
@@ -221,7 +221,7 @@ class Parser implements DTDConstants {
         return Math.max(0, lastBlockStartPos - 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Makes a TagElement.
      */
     protected TagElement makeTag(Element elem, boolean fictional) {
@@ -240,13 +240,13 @@ class Parser implements DTDConstants {
         attributes.removeAttributes(attributes);
     }
 
-    /**
+    /** {@collect.stats}
      * Called when PCDATA is encountered.
      */
     protected void handleText(char text[]) {
     }
 
-    /**
+    /** {@collect.stats}
      * Called when an HTML title tag is encountered.
      */
     protected void handleTitle(char text[]) {
@@ -255,7 +255,7 @@ class Parser implements DTDConstants {
         handleText(text);
     }
 
-    /**
+    /** {@collect.stats}
      * Called when an HTML comment is encountered.
      */
     protected void handleComment(char text[]) {
@@ -286,25 +286,25 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when an empty tag is encountered.
      */
     protected void handleEmptyTag(TagElement tag) throws ChangedCharSetException {
     }
 
-    /**
+    /** {@collect.stats}
      * Called when a start tag is encountered.
      */
     protected void handleStartTag(TagElement tag) {
     }
 
-    /**
+    /** {@collect.stats}
      * Called when an end tag is encountered.
      */
     protected void handleEndTag(TagElement tag) {
     }
 
-    /**
+    /** {@collect.stats}
      * An error has occurred.
      */
     protected void handleError(int ln, String msg) {
@@ -316,7 +316,7 @@ class Parser implements DTDConstants {
         */
     }
 
-    /**
+    /** {@collect.stats}
      * Output text.
      */
     void handleText(TagElement tag) {
@@ -367,7 +367,7 @@ class Parser implements DTDConstants {
         space = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoke the error handler.
      */
     protected void error(String err, String arg1, String arg2,
@@ -386,7 +386,7 @@ class Parser implements DTDConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Handle a start tag. The new tag is pushed
      * onto the tag stack. The attribute list is
      * checked for required attributes.
@@ -438,7 +438,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handle an end tag. The end tag is popped
      * from the tag stack.
      */
@@ -496,7 +496,7 @@ class Parser implements DTDConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Marks the first time a tag has been seen in a document
      */
 
@@ -518,7 +518,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create a legal content for an element.
      */
     boolean legalElementContext(Element elem) throws ChangedCharSetException {
@@ -708,7 +708,7 @@ class Parser implements DTDConstants {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a legal context for a tag.
      */
     void legalTagContext(TagElement tag) throws ChangedCharSetException {
@@ -740,7 +740,7 @@ class Parser implements DTDConstants {
         error("tag.unexpected", tag.getElement().getName());
     }
 
-    /**
+    /** {@collect.stats}
      * Error context. Something went wrong, make sure we are in
      * the document's body context
      */
@@ -754,7 +754,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Add a char to the string buffer.
      */
     void addString(int c) {
@@ -766,7 +766,7 @@ class Parser implements DTDConstants {
         str[strpos++] = (char)c;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the string that's been accumulated.
      */
     String getString(int pos) {
@@ -805,7 +805,7 @@ class Parser implements DTDConstants {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Skip space.
      * [5] 297:5
      */
@@ -839,7 +839,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse identifier. Uppercase characters are folded
      * to lowercase when lower is true. Returns falsed if
      * no identifier is found. [55] 346:17
@@ -899,7 +899,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse an entity reference. [59] 350:17
      */
     private char[] parseEntityReference() throws IOException {
@@ -1017,7 +1017,7 @@ class Parser implements DTDConstants {
         return ent.getData();
     }
 
-    /**
+    /** {@collect.stats}
      * Converts numeric character reference to Unicode character.
      *
      * Normally the code in a reference should be always converted
@@ -1036,7 +1036,7 @@ class Parser implements DTDConstants {
         return cp1252Map[c - 130];
     }
 
-    /**
+    /** {@collect.stats}
      * Parse a comment. [92] 391:7
      */
     void parseComment() throws IOException {
@@ -1045,7 +1045,7 @@ class Parser implements DTDConstants {
             int c = ch;
             switch (c) {
               case '-':
-                  /** Presuming that the start string of a comment "<!--" has
+                  /** {@collect.stats} Presuming that the start string of a comment "<!--" has
                       already been parsed, the '-' character is valid only as
                       part of a comment termination and further more it must
                       be present in even numbers. Hence if strict is true, we
@@ -1126,7 +1126,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse literal content. [46] 343:1 and [47] 344:1
      */
     void parseLiteral(boolean replace) throws IOException {
@@ -1200,7 +1200,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse attribute value. [33] 331:1
      */
     String parseAttributeValue(boolean lower) throws IOException {
@@ -1322,7 +1322,7 @@ class Parser implements DTDConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Parse attribute specification List. [31] 327:17
      */
     void parseAttributeSpecificationList(Element elem) throws IOException {
@@ -1466,7 +1466,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses th Document Declaration Type markup declaration.
      * Currently ignores it.
      */
@@ -1508,7 +1508,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse markup declarations.
      * Currently only handles the Document Type Declaration markup.
      * Returns true if it is a markup declaration false otherwise.
@@ -1524,7 +1524,7 @@ class Parser implements DTDConstants {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Parse an invalid tag.
      */
     void parseInvalidTag() throws IOException {
@@ -1545,7 +1545,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse a start or end tag.
      */
     void parseTag() throws IOException {
@@ -1906,7 +1906,7 @@ class Parser implements DTDConstants {
         TagElement tag = makeTag(elem, false);
 
 
-        /** In dealing with forms, we have decided to treat
+        /** {@collect.stats} In dealing with forms, we have decided to treat
             them as legal in any context.  Also, even though
             they do have a start and an end tag, we will
             not put this tag on the stack.  This is to deal
@@ -2023,7 +2023,7 @@ class Parser implements DTDConstants {
         } // while
     }
 
-    /**
+    /** {@collect.stats}
      * Parse Content. [24] 320:1
      */
     void parseContent() throws IOException {
@@ -2185,7 +2185,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the end of line string. This will return the end of line
      * string that has been encountered the most, one of \r, \n or \r\n.
      */
@@ -2208,7 +2208,7 @@ class Parser implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parse an HTML stream, given a DTD.
      */
     public synchronized void parse(Reader in) throws IOException {

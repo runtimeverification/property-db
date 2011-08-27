@@ -28,7 +28,7 @@ package java.security;
 import java.io.Serializable;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * <p>This class represents identities: real-world objects such as people,
  * companies or organizations whose identities can be authenticated using
  * their public keys. Identities may also be more abstract (or concrete)
@@ -59,52 +59,52 @@ import java.util.*;
 @Deprecated
 public abstract class Identity implements Principal, Serializable {
 
-    /** use serialVersionUID from JDK 1.1.x for interoperability */
+    /** {@collect.stats} use serialVersionUID from JDK 1.1.x for interoperability */
     private static final long serialVersionUID = 3609922007826600659L;
 
-    /**
+    /** {@collect.stats}
      * The name for this identity.
      *
      * @serial
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * The public key for this identity.
      *
      * @serial
      */
     private PublicKey publicKey;
 
-    /**
+    /** {@collect.stats}
      * Generic, descriptive information about the identity.
      *
      * @serial
      */
     String info = "No further information available.";
 
-    /**
+    /** {@collect.stats}
      * The scope of the identity.
      *
      * @serial
      */
     IdentityScope scope;
 
-    /**
+    /** {@collect.stats}
      * The certificates for this identity.
      *
      * @serial
      */
     Vector<Certificate> certificates;
 
-    /**
+    /** {@collect.stats}
      * Constructor for serialization only.
      */
     protected Identity() {
         this("restoring...");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an identity with the specified name and scope.
      *
      * @param name the identity name.
@@ -122,7 +122,7 @@ public abstract class Identity implements Principal, Serializable {
         this.scope = scope;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an identity with the specified name and no scope.
      *
      * @param name the identity name.
@@ -131,7 +131,7 @@ public abstract class Identity implements Principal, Serializable {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this identity's name.
      *
      * @return the name of this identity.
@@ -140,7 +140,7 @@ public abstract class Identity implements Principal, Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this identity's scope.
      *
      * @return the scope of this identity.
@@ -149,7 +149,7 @@ public abstract class Identity implements Principal, Serializable {
         return scope;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this identity's public key.
      *
      * @return the public key for this identity.
@@ -160,7 +160,7 @@ public abstract class Identity implements Principal, Serializable {
         return publicKey;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this identity's public key. The old key and all of this
      * identity's certificates are removed by this operation.
      *
@@ -188,7 +188,7 @@ public abstract class Identity implements Principal, Serializable {
         certificates = new Vector<Certificate>();
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies a general information string for this identity.
      *
      * <p>First, if there is a security manager, its <code>checkSecurityAccess</code>
@@ -209,7 +209,7 @@ public abstract class Identity implements Principal, Serializable {
         this.info = info;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns general information previously specified for this identity.
      *
      * @return general information about this identity.
@@ -220,7 +220,7 @@ public abstract class Identity implements Principal, Serializable {
         return info;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a certificate for this identity. If the identity has a public
      * key, the public key in the certificate must be the same, and if
      * the identity does not have a public key, the identity's
@@ -274,7 +274,7 @@ public abstract class Identity implements Principal, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a certificate from this identity.
      *
      * <p>First, if there is a security manager, its <code>checkSecurityAccess</code>
@@ -300,7 +300,7 @@ public abstract class Identity implements Principal, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of all the certificates for this identity.
      *
      * @return a copy of all the certificates for this identity.
@@ -315,7 +315,7 @@ public abstract class Identity implements Principal, Serializable {
         return certs;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests for equality between the specified object and this identity.
      * This first tests to see if the entities actually refer to the same
      * object, in which case it returns true. Next, it checks to see if
@@ -347,7 +347,7 @@ public abstract class Identity implements Principal, Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests for equality between the specified identity and this identity.
      * This method should be overriden by subclasses to test for equality.
      * The default behavior is to return true if the names and public keys
@@ -375,7 +375,7 @@ public abstract class Identity implements Principal, Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a parsable name for identity: identityName.scopeName
      */
     String fullName() {
@@ -386,7 +386,7 @@ public abstract class Identity implements Principal, Serializable {
         return parsable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a short string describing this identity, telling its
      * name and its scope (if any).
      *
@@ -412,7 +412,7 @@ public abstract class Identity implements Principal, Serializable {
         return printable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this identity, with
      * optionally more details than that provided by the
      * <code>toString</code> method without any arguments.
@@ -477,7 +477,7 @@ public abstract class Identity implements Principal, Serializable {
         return out;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this identity.
      *
      * @return a hashcode for this identity.

@@ -49,7 +49,7 @@ import com.sun.media.sound.ReferenceCountingDevice;
 import com.sun.media.sound.AutoConnectSequencer;
 
 
-/**
+/** {@collect.stats}
  * The <code>MidiSystem</code> class provides access to the installed MIDI
  * system resources, including devices such as synthesizers, sequencers, and
  * MIDI input and output ports.  A typical simple MIDI application might
@@ -163,14 +163,14 @@ import com.sun.media.sound.AutoConnectSequencer;
  */
 public class MidiSystem {
 
-    /**
+    /** {@collect.stats}
      * Private no-args constructor for ensuring against instantiation.
      */
     private MidiSystem() {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an array of information objects representing
      * the set of all MIDI devices available on the system.
      * A returned information object can then be used to obtain the
@@ -197,7 +197,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the requested MIDI device.
      *
      * @param info a device information object representing the desired device.
@@ -222,7 +222,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI receiver from an external MIDI port
      * or other default device.
      *
@@ -265,7 +265,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI transmitter from an external MIDI port
      * or other default source.
      *
@@ -305,7 +305,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the default synthesizer.
      *
      * <p>If the system property
@@ -325,7 +325,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the default <code>Sequencer</code>, connected to
      * a default device.
      * The returned <code>Sequencer</code> instance is
@@ -367,7 +367,7 @@ public class MidiSystem {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the default <code>Sequencer</code>, optionally
      * connected to a default device.
      *
@@ -482,7 +482,7 @@ public class MidiSystem {
 
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a MIDI sound bank by reading it from the specified stream.
      * The stream must point to
      * a valid MIDI soundbank file.  In general, MIDI soundbank providers may
@@ -521,7 +521,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Soundbank</code> by reading it from the specified URL.
      * The URL must point to a valid MIDI soundbank file.
      *
@@ -552,7 +552,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Soundbank</code> by reading it from the specified
      * <code>File</code>.
      * The <code>File</code> must point to a valid MIDI soundbank file.
@@ -584,7 +584,7 @@ public class MidiSystem {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the data in the specified input stream.
      * The stream must point to valid MIDI file data for a file type recognized
      * by the system.
@@ -640,7 +640,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the data in the specified URL.  The URL
      * must point to valid MIDI file data for a file type recognized
      * by the system.
@@ -686,7 +686,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the specified <code>File</code>.  The
      * <code>File</code> must point to valid MIDI file data for a file type
      * recognized by the system.
@@ -732,7 +732,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the specified input stream.  The stream must
      * point to valid MIDI file data for a file type recognized
      * by the system.
@@ -787,7 +787,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the specified URL.  The URL must
      * point to valid MIDI file data for a file type recognized
      * by the system.
@@ -831,7 +831,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the specified <code>File</code>.
      * The <code>File</code> must point to valid MIDI file data
      * for a file type recognized by the system.
@@ -875,7 +875,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of MIDI file types for which file writing support is
      * provided by the system.
      * @return array of unique file types.  If no file types are supported,
@@ -906,7 +906,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether file writing support for the specified MIDI file type
      * is provided by the system.
      * @param fileType the file type for which write capabilities are queried
@@ -927,7 +927,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of MIDI file types that the system can write from the
      * sequence specified.
      * @param sequence the sequence for which MIDI file type support
@@ -960,7 +960,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a MIDI file of the file type specified can be written
      * from the sequence indicated.
      * @param fileType the file type for which write capabilities
@@ -983,7 +983,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing a file of the MIDI file type
      * indicated to the output stream provided.
      * @param in sequence containing MIDI data to be written to the file
@@ -1017,7 +1017,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing a file of the MIDI file type
      * indicated to the external file provided.
      * @param in sequence containing MIDI data to be written to the file
@@ -1074,7 +1074,7 @@ public class MidiSystem {
     }
 
 
-    /** Attempts to locate and return a default MidiDevice of the specified
+    /** {@collect.stats} Attempts to locate and return a default MidiDevice of the specified
      * type.
      *
      * This method wraps {@link #getDefaultDevice}. It catches the
@@ -1099,7 +1099,7 @@ public class MidiSystem {
     }
 
 
-    /** Attempts to locate and return a default MidiDevice of the specified
+    /** {@collect.stats} Attempts to locate and return a default MidiDevice of the specified
      * type.
      *
      * @param deviceClass The requested device type, one of Synthesizer.class,
@@ -1149,7 +1149,7 @@ public class MidiSystem {
 
 
 
-    /** Return a MidiDeviceProcider of a given class from the list of
+    /** {@collect.stats} Return a MidiDeviceProcider of a given class from the list of
         MidiDeviceProviders.
 
         @param providerClassName The class name of the provider to be returned.
@@ -1168,7 +1168,7 @@ public class MidiSystem {
     }
 
 
-    /** Return a MidiDevice with a given name from a given MidiDeviceProvider.
+    /** {@collect.stats} Return a MidiDevice with a given name from a given MidiDeviceProvider.
         @param deviceName The name of the MidiDevice to be returned.
         @param provider The MidiDeviceProvider to check for MidiDevices.
         @param deviceClass The requested device type, one of Synthesizer.class,
@@ -1200,7 +1200,7 @@ public class MidiSystem {
     }
 
 
-    /** Return a MidiDevice with a given name from a given MidiDeviceProvider.
+    /** {@collect.stats} Return a MidiDevice with a given name from a given MidiDeviceProvider.
       @param deviceName The name of the MidiDevice to be returned.
       @param provider The MidiDeviceProvider to check for MidiDevices.
       @param deviceClass The requested device type, one of Synthesizer.class,
@@ -1227,7 +1227,7 @@ public class MidiSystem {
     }
 
 
-    /** Return a MidiDevice with a given name from a list of
+    /** {@collect.stats} Return a MidiDevice with a given name from a list of
         MidiDeviceProviders.
         @param deviceName The name of the MidiDevice to be returned.
         @param providers The List of MidiDeviceProviders to check for
@@ -1260,7 +1260,7 @@ public class MidiSystem {
     }
 
 
-    /** Return a MidiDevice with a given name from a list of
+    /** {@collect.stats} Return a MidiDevice with a given name from a list of
         MidiDeviceProviders.
         @param deviceName The name of the MidiDevice to be returned.
         @param providers The List of MidiDeviceProviders to check for
@@ -1288,7 +1288,7 @@ public class MidiSystem {
     }
 
 
-    /** From a given MidiDeviceProvider, return the first appropriate device.
+    /** {@collect.stats} From a given MidiDeviceProvider, return the first appropriate device.
         @param provider The MidiDeviceProvider to check for MidiDevices.
         @param deviceClass The requested device type, one of Synthesizer.class,
         Sequencer.class, Receiver.class or Transmitter.class.
@@ -1318,7 +1318,7 @@ public class MidiSystem {
     }
 
 
-    /** From a given MidiDeviceProvider, return the first appropriate device.
+    /** {@collect.stats} From a given MidiDeviceProvider, return the first appropriate device.
         @param provider The MidiDeviceProvider to check for MidiDevices.
         @param deviceClass The requested device type, one of Synthesizer.class,
         Sequencer.class, Receiver.class or Transmitter.class.
@@ -1341,7 +1341,7 @@ public class MidiSystem {
     }
 
 
-    /** From a List of MidiDeviceProviders, return the first appropriate
+    /** {@collect.stats} From a List of MidiDeviceProviders, return the first appropriate
         MidiDevice.
         @param providers The List of MidiDeviceProviders to search.
         @param deviceClass The requested device type, one of Synthesizer.class,
@@ -1372,7 +1372,7 @@ public class MidiSystem {
     }
 
 
-    /** From a List of MidiDeviceProviders, return the first appropriate
+    /** {@collect.stats} From a List of MidiDeviceProviders, return the first appropriate
         MidiDevice.
         @param providers The List of MidiDeviceProviders to search.
         @param deviceClass The requested device type, one of Synthesizer.class,
@@ -1397,7 +1397,7 @@ public class MidiSystem {
     }
 
 
-    /** Checks if a MidiDevice is appropriate.
+    /** {@collect.stats} Checks if a MidiDevice is appropriate.
         If deviceClass is Synthesizer or Sequencer, a device implementing
         the respective interface is considered appropriate. If deviceClass
         is Receiver or Transmitter, a device is considered appropriate if
@@ -1451,7 +1451,7 @@ public class MidiSystem {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of services currently installed on the system
      * using sun.misc.Service, the SPI mechanism in 1.3.
      * @return a List of instances of providers for the requested service.

@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * A <code>MarshalException</code> is thrown if a
  * <code>java.io.IOException</code> occurs while marshalling the remote call
  * header, arguments or return value for a remote method call.  A
@@ -46,7 +46,7 @@ public class MarshalException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 6223554758134037936L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MarshalException</code> with the specified
      * detail message.
      *
@@ -57,7 +57,7 @@ public class MarshalException extends RemoteException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MarshalException</code> with the specified
      * detail message and nested exception.
      *

@@ -27,7 +27,7 @@ package java.security.spec;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used with the DSA algorithm.
  *
  * @author Jan Luehe
@@ -45,7 +45,7 @@ java.security.interfaces.DSAParams {
     BigInteger q;
     BigInteger g;
 
-    /**
+    /** {@collect.stats}
      * Creates a new DSAParameterSpec with the specified parameter values.
      *
      * @param p the prime.
@@ -60,7 +60,7 @@ java.security.interfaces.DSAParams {
         this.g = g;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the prime <code>p</code>.
      *
      * @return the prime <code>p</code>.
@@ -69,7 +69,7 @@ java.security.interfaces.DSAParams {
         return this.p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sub-prime <code>q</code>.
      *
      * @return the sub-prime <code>q</code>.
@@ -78,7 +78,7 @@ java.security.interfaces.DSAParams {
         return this.q;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base <code>g</code>.
      *
      * @return the base <code>g</code>.

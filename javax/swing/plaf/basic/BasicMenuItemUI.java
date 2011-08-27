@@ -38,7 +38,7 @@ import javax.swing.text.View;
 
 import sun.swing.*;
 
-/**
+/** {@collect.stats}
  * BasicMenuItem implementation
  *
  * @author Georges Saab
@@ -62,7 +62,7 @@ public class BasicMenuItemUI extends MenuItemUI
     protected MouseInputListener mouseInputListener;
     protected MenuDragMouseListener menuDragMouseListener;
     protected MenuKeyListener menuKeyListener;
-    /**
+    /** {@collect.stats}
      * <code>PropertyChangeListener</code> returned from
      * <code>createPropertyChangeListener</code>. You should not
      * need to access this field, rather if you want to customize the
@@ -197,7 +197,7 @@ public class BasicMenuItemUI extends MenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.3
      */
     protected void installComponents(JMenuItem menuItem){
@@ -256,7 +256,7 @@ public class BasicMenuItemUI extends MenuItemUI
             checkIcon = null;
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.3
      */
     protected void uninstallComponents(JMenuItem menuItem){
@@ -303,7 +303,7 @@ public class BasicMenuItemUI extends MenuItemUI
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PropertyChangeListener</code> which will be added to
      * the menu item.
      * If this method returns null then it will not be added to the menu item.
@@ -457,7 +457,7 @@ public class BasicMenuItemUI extends MenuItemUI
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * We draw the background in paintMenuItem()
      * so override update (which fills the background of opaque
      * components by default) to just call paint().
@@ -626,7 +626,7 @@ public class BasicMenuItemUI extends MenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Draws the background of the menu item.
      *
      * @param g the paint graphics
@@ -658,7 +658,7 @@ public class BasicMenuItemUI extends MenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the text of the current menu item.
      * <p>
      * @param g graphics context
@@ -799,7 +799,7 @@ public class BasicMenuItemUI extends MenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Call this method when a menu item is to be activated.
      * This method handles some of the details of menu item activation
      * such as clearing the selected path and messaging the
@@ -829,7 +829,7 @@ public class BasicMenuItemUI extends MenuItemUI
         menuItem.doClick(0);
     }
 
-    /**
+    /** {@collect.stats}
      * This is to see if the menu item in question is part of the
      * system menu on an internal frame.
      * The Strings that are being checked can be found in

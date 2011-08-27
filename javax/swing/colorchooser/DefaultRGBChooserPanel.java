@@ -29,7 +29,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * The standard RGB chooser.
  * <p>
  * <strong>Warning:</strong>
@@ -65,7 +65,7 @@ class DefaultRGBChooserPanel extends AbstractColorChooserPanel implements Change
         setInheritsPopupMenu(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the values of the controls to reflect the color
      */
     private void setColor( Color newColor ) {
@@ -95,7 +95,7 @@ class DefaultRGBChooserPanel extends AbstractColorChooserPanel implements Change
         return UIManager.getString("ColorChooser.rgbNameText");
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the
      * <code>KeyEvent.VK</code> constant that can be used as a mnemonic to
      * access the panel. A return value <= 0 indicates there is no mnemonic.
@@ -118,7 +118,7 @@ class DefaultRGBChooserPanel extends AbstractColorChooserPanel implements Change
         return getInt("ColorChooser.rgbMnemonic", -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to the index of the character in
      * <code>getDisplayName</code> that should be visually identified as the
      * mnemonic. The look and feel should only use this if
@@ -154,7 +154,7 @@ class DefaultRGBChooserPanel extends AbstractColorChooserPanel implements Change
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The background color, foreground color, and font are already set to the
      * defaults from the defaults table before this method is called.
      */

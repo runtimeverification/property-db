@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * The <code>DataInput</code> interface provides
  * for reading bytes from a binary stream and
  * reconstructing from them data in any of
@@ -192,7 +192,7 @@ package java.io;
  */
 public
 interface DataInput {
-    /**
+    /** {@collect.stats}
      * Reads some bytes from an input
      * stream and stores them into the buffer
      * array <code>b</code>. The number of bytes
@@ -234,7 +234,7 @@ interface DataInput {
      */
     void readFully(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      *
      * Reads <code>len</code>
      * bytes from
@@ -280,7 +280,7 @@ interface DataInput {
      */
     void readFully(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Makes an attempt to skip over
      * <code>n</code> bytes
      * of data from the input
@@ -303,7 +303,7 @@ interface DataInput {
      */
     int skipBytes(int n) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads one input byte and returns
      * <code>true</code> if that byte is nonzero,
      * <code>false</code> if that byte is zero.
@@ -318,7 +318,7 @@ interface DataInput {
      */
     boolean readBoolean() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads and returns one input byte.
      * The byte is treated as a signed value in
      * the range <code>-128</code> through <code>127</code>,
@@ -334,7 +334,7 @@ interface DataInput {
      */
     byte readByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads one input byte, zero-extends
      * it to type <code>int</code>, and returns
      * the result, which is therefore in the range
@@ -354,7 +354,7 @@ interface DataInput {
      */
     int readUnsignedByte() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads two input bytes and returns
      * a <code>short</code> value. Let <code>a</code>
      * be the first byte read and <code>b</code>
@@ -375,7 +375,7 @@ interface DataInput {
      */
     short readShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads two input bytes and returns
      * an <code>int</code> value in the range <code>0</code>
      * through <code>65535</code>. Let <code>a</code>
@@ -398,7 +398,7 @@ interface DataInput {
      */
     int readUnsignedShort() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads two input bytes and returns a <code>char</code> value.
      * Let <code>a</code>
      * be the first byte read and <code>b</code>
@@ -418,7 +418,7 @@ interface DataInput {
      */
     char readChar() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads four input bytes and returns an
      * <code>int</code> value. Let <code>a-d</code>
      * be the first through fourth bytes read. The value returned is:
@@ -438,7 +438,7 @@ interface DataInput {
      */
     int readInt() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads eight input bytes and returns
      * a <code>long</code> value. Let <code>a-h</code>
      * be the first through eighth bytes read.
@@ -465,7 +465,7 @@ interface DataInput {
      */
     long readLong() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads four input bytes and returns
      * a <code>float</code> value. It does this
      * by first constructing an <code>int</code>
@@ -485,7 +485,7 @@ interface DataInput {
      */
     float readFloat() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads eight input bytes and returns
      * a <code>double</code> value. It does this
      * by first constructing a <code>long</code>
@@ -505,7 +505,7 @@ interface DataInput {
      */
     double readDouble() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads the next line of text from the input stream.
      * It reads successive bytes, converting
      * each byte separately into a character,
@@ -546,7 +546,7 @@ interface DataInput {
      */
     String readLine() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads in a string that has been encoded using a
      * <a href="#modified-utf-8">modified UTF-8</a>
      * format.

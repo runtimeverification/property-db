@@ -29,7 +29,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.stream.ImageOutputStream;
 
-/**
+/** {@collect.stats}
  * The service provider interface (SPI) for
  * <code>ImageOutputStream</code>s.  For more information on service
  * provider interfaces, see the class comment for the
@@ -55,13 +55,13 @@ import javax.imageio.stream.ImageOutputStream;
  */
 public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * A <code>Class</code> object indicating the legal object type
      * for use by the <code>createInputStreamInstance</code> method.
      */
     protected Class<?> outputClass;
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>ImageOutputStreamSpi</code>.  It is up
      * to the subclass to initialize instance variables and/or
      * override method implementations in order to provide working
@@ -70,7 +70,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
     protected ImageOutputStreamSpi() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageOutputStreamSpi</code> with a given
      * set of values.
      *
@@ -92,7 +92,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
         this.outputClass = outputClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Class</code> object representing the class or
      * interface type that must be implemented by an output
      * destination in order to be "wrapped" in an
@@ -111,7 +111,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
         return outputClass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageOutputStream</code>
      * implementation associated with this service provider can
      * optionally make use of a cache <code>File</code> for improved
@@ -128,7 +128,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageOutputStream</code>
      * implementation associated with this service provider requires
      * the use of a cache <code>File</code>.
@@ -142,7 +142,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageOutputStream</code>
      * implementation associated with this service provider.  If the
      * use of a cache file is optional, the <code>useCache</code>
@@ -175,7 +175,7 @@ public abstract class ImageOutputStreamSpi extends IIOServiceProvider {
                                                      File cacheDir)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageOutputStream</code>
      * implementation associated with this service provider.  A cache
      * file will be created in the system-dependent default

@@ -46,7 +46,7 @@ import javax.xml.crypto.dsig.*;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * A factory for creating {@link KeyInfo} objects from scratch or for
  * unmarshalling a <code>KeyInfo</code> object from a corresponding XML
  * representation.
@@ -109,12 +109,12 @@ public abstract class KeyInfoFactory {
     private String mechanismType;
     private Provider provider;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, for invocation by subclasses.
      */
     protected KeyInfoFactory() {}
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyInfoFactory</code> that supports the
      * specified XML processing mechanism and representation type (ex: "DOM").
      *
@@ -158,7 +158,7 @@ public abstract class KeyInfoFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyInfoFactory</code> that supports the
      * requested XML processing mechanism and representation type (ex: "DOM"),
      * as supplied by the specified provider. Note that the specified
@@ -200,7 +200,7 @@ public abstract class KeyInfoFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyInfoFactory</code> that supports the
      * requested XML processing mechanism and representation type (ex: "DOM"),
      * as supplied by the specified provider. The specified provider must be
@@ -248,7 +248,7 @@ public abstract class KeyInfoFactory {
         return factory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyInfoFactory</code> that supports the
      * default XML processing mechanism and representation type ("DOM").
      *
@@ -272,7 +272,7 @@ public abstract class KeyInfoFactory {
         return getInstance("DOM");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of the XML processing mechanism and representation
      * supported by this <code>KeyInfoFactory</code> (ex: "DOM")
      *
@@ -283,7 +283,7 @@ public abstract class KeyInfoFactory {
         return mechanismType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>KeyInfoFactory</code>.
      *
      * @return the provider of this <code>KeyInfoFactory</code>
@@ -292,7 +292,7 @@ public abstract class KeyInfoFactory {
         return provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>KeyInfo</code> containing the specified list of
      * key information types.
      *
@@ -307,7 +307,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract KeyInfo newKeyInfo(List content);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>KeyInfo</code> containing the specified list of key
      * information types and optional id. The
      * <code>id</code> parameter represents the value of an XML
@@ -326,7 +326,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract KeyInfo newKeyInfo(List content, String id);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>KeyName</code> from the specified name.
      *
      * @param name the name that identifies the key
@@ -335,7 +335,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract KeyName newKeyName(String name);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>KeyValue</code> from the specified public key.
      *
      * @param key the public key
@@ -346,7 +346,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract KeyValue newKeyValue(PublicKey key) throws KeyException;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PGPData</code> from the specified PGP public key
      * identifier.
      *
@@ -360,7 +360,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract PGPData newPGPData(byte[] keyId);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PGPData</code> from the specified PGP public key
      * identifier, and optional key material packet and list of external
      * elements.
@@ -388,7 +388,7 @@ public abstract class KeyInfoFactory {
     public abstract PGPData newPGPData(byte[] keyId, byte[] keyPacket,
         List other);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PGPData</code> from the specified PGP key material
      * packet and optional list of external elements.
      *
@@ -410,7 +410,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract PGPData newPGPData(byte[] keyPacket, List other);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>RetrievalMethod</code> from the specified URI.
      *
      * @param uri the URI that identifies the <code>KeyInfo</code> information
@@ -422,7 +422,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract RetrievalMethod newRetrievalMethod(String uri);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>RetrievalMethod</code> from the specified parameters.
      *
      * @param uri the URI that identifies the <code>KeyInfo</code> information
@@ -442,7 +442,7 @@ public abstract class KeyInfoFactory {
     public abstract RetrievalMethod newRetrievalMethod(String uri, String type,
         List transforms);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>X509Data</code> containing the specified list of
      * X.509 content.
      *
@@ -466,7 +466,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract X509Data newX509Data(List content);
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>X509IssuerSerial</code> from the specified X.500 issuer
      * distinguished name and serial number.
      *
@@ -484,7 +484,7 @@ public abstract class KeyInfoFactory {
     public abstract X509IssuerSerial newX509IssuerSerial
         (String issuerName, BigInteger serialNumber);
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a specified feature is supported.
      *
      * @param feature the feature name (as an absolute URI)
@@ -494,7 +494,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract boolean isFeatureSupported(String feature);
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the <code>URIDereferencer</code> that is used by
      * default to dereference URIs in {@link RetrievalMethod} objects.
      *
@@ -502,7 +502,7 @@ public abstract class KeyInfoFactory {
      */
     public abstract URIDereferencer getURIDereferencer();
 
-    /**
+    /** {@collect.stats}
      * Unmarshals a new <code>KeyInfo</code> instance from a
      * mechanism-specific <code>XMLStructure</code> (ex: {@link DOMStructure})
      * instance.

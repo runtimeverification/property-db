@@ -31,14 +31,14 @@ import java.awt.Rectangle;
 import java.awt.Insets;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Text editor user interface
  *
  * @author  Timothy Prinzing
  */
 public abstract class TextUI extends ComponentUI
 {
-    /**
+    /** {@collect.stats}
      * Converts the given location in the model to a place in
      * the view coordinate system.
      *
@@ -49,7 +49,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract Rectangle modelToView(JTextComponent t, int pos) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Converts the given location in the model to a place in
      * the view coordinate system.
      *
@@ -60,7 +60,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract Rectangle modelToView(JTextComponent t, int pos, Position.Bias bias) throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Converts the given place in the view coordinate system
      * to the nearest representative location in the model.
      *
@@ -71,7 +71,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract int viewToModel(JTextComponent t, Point pt);
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -89,7 +89,7 @@ public abstract class TextUI extends ComponentUI
     public abstract int viewToModel(JTextComponent t, Point pt,
                                     Position.Bias[] biasReturn);
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location that one might place a caret.  Some views may not be visible,
      * they might not be in the same order found in the model, or they just
@@ -113,7 +113,7 @@ public abstract class TextUI extends ComponentUI
                          int direction, Position.Bias[] biasRet)
                          throws BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Causes the portion of the view responsible for the
      * given part of the model to be repainted.
      *
@@ -122,7 +122,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract void damageRange(JTextComponent t, int p0, int p1);
 
-    /**
+    /** {@collect.stats}
      * Causes the portion of the view responsible for the
      * given part of the model to be repainted.
      *
@@ -133,7 +133,7 @@ public abstract class TextUI extends ComponentUI
                                      Position.Bias firstBias,
                                      Position.Bias secondBias);
 
-    /**
+    /** {@collect.stats}
      * Fetches the binding of services that set a policy
      * for the type of document being edited.  This contains
      * things like the commands available, stream readers and
@@ -143,7 +143,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract EditorKit getEditorKit(JTextComponent t);
 
-    /**
+    /** {@collect.stats}
      * Fetches a View with the allocation of the associated
      * text component (i.e. the root of the hierarchy) that
      * can be traversed to determine how the model is being
@@ -153,7 +153,7 @@ public abstract class TextUI extends ComponentUI
      */
     public abstract View getRootView(JTextComponent t);
 
-    /**
+    /** {@collect.stats}
      * Returns the string to be used as the tooltip at the passed in location.
      *
      * @see javax.swing.text.JTextComponent#getToolTipText

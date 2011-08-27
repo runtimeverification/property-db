@@ -26,7 +26,7 @@
 package java.util.prefs;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A factory object that generates Preferences objects.  Providers of
  * new {@link Preferences} implementations should provide corresponding
  * <tt>PreferencesFactory</tt> implementations so that the new
@@ -42,13 +42,13 @@ import java.util.*;
  * @since   1.4
  */
 public interface PreferencesFactory {
-    /**
+    /** {@collect.stats}
      * Returns the system root preference node.  (Multiple calls on this
      * method will return the same object reference.)
      */
     Preferences systemRoot();
 
-    /**
+    /** {@collect.stats}
      * Returns the user root preference node corresponding to the calling
      * user.  In a server, the returned value will typically depend on
      * some implicit client-context.

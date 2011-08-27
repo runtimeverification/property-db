@@ -36,7 +36,7 @@ import java.awt.event.*;
 
 import java.lang.reflect.Method;
 
-/**
+/** {@collect.stats}
  * The default editor for editable combo boxes. The editor is implemented as a JTextField.
  *
  * @author Arnaud Weber
@@ -54,7 +54,7 @@ public class BasicComboBoxEditor implements ComboBoxEditor,FocusListener {
         return editor;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the internal editor component. Override this to provide
      * a custom implementation.
      *
@@ -67,7 +67,7 @@ public class BasicComboBoxEditor implements ComboBoxEditor,FocusListener {
         return editor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the item that should be edited.
      *
      * @param anObject the displayed value of the editor
@@ -145,7 +145,7 @@ public class BasicComboBoxEditor implements ComboBoxEditor,FocusListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A subclass of BasicComboBoxEditor that implements UIResource.
      * BasicComboBoxEditor doesn't implement UIResource
      * directly so that applications can safely override the

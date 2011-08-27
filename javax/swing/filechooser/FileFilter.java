@@ -27,7 +27,7 @@ package javax.swing.filechooser;
 
 import java.io.File;
 
-/**
+/** {@collect.stats}
  * <code>FileFilter</code> is an abstract class used by {@code JFileChooser}
  * for filtering the set of files shown to the user. See
  * {@code FileNameExtensionFilter} for an implementation that filters using
@@ -49,12 +49,12 @@ import java.io.File;
  * @author Jeff Dinkins
  */
 public abstract class FileFilter {
-    /**
+    /** {@collect.stats}
      * Whether the given file is accepted by this filter.
      */
     public abstract boolean accept(File f);
 
-    /**
+    /** {@collect.stats}
      * The description of this filter. For example: "JPG and GIF Images"
      * @see FileView#getName
      */

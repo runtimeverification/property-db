@@ -36,7 +36,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * An implementation of a two-state button.
  * The <code>JRadioButton</code> and <code>JCheckBox</code> classes
  * are subclasses of this class.
@@ -78,13 +78,13 @@ import java.io.IOException;
  */
 public class JToggleButton extends AbstractButton implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "ToggleButtonUI";
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected toggle button
      * without setting the text or image.
      */
@@ -92,7 +92,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(null, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected toggle button
      * with the specified image but no text.
      *
@@ -102,7 +102,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(null, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a toggle button with the specified image
      * and selection state, but no text.
      *
@@ -114,7 +114,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(null, icon, selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unselected toggle button with the specified text.
      *
      * @param text  the string displayed on the toggle button
@@ -123,7 +123,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(text, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a toggle button with the specified text
      * and selection state.
      *
@@ -135,7 +135,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(text, null, selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a toggle button where properties are taken from the
      * Action supplied.
      *
@@ -146,7 +146,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         setAction(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a toggle button that has the specified text and image,
      * and that is initially unselected.
      *
@@ -157,7 +157,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         this(text, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a toggle button with the specified text, image, and
      * selection state.
      *
@@ -176,7 +176,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         init(text, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -185,7 +185,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         setUI((ButtonUI)UIManager.getUI(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the l&f class
      * that renders this component.
      *
@@ -200,7 +200,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overriden to return true, JToggleButton supports
      * the selected state.
      */
@@ -210,7 +210,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
 
     // *********************************************************************
 
-    /**
+    /** {@collect.stats}
      * The ToggleButton model
      * <p>
      * <strong>Warning:</strong>
@@ -224,13 +224,13 @@ public class JToggleButton extends AbstractButton implements Accessible {
      */
     public static class ToggleButtonModel extends DefaultButtonModel {
 
-        /**
+        /** {@collect.stats}
          * Creates a new ToggleButton Model
          */
         public ToggleButtonModel () {
         }
 
-        /**
+        /** {@collect.stats}
          * Checks if the button is selected.
          */
         public boolean isSelected() {
@@ -242,7 +242,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Sets the selected state of the button.
          * @param b true selects the toggle button,
          *          false deselects the toggle button.
@@ -277,7 +277,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
 
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the pressed state of the toggle button.
          */
         public void setPressed(boolean b) {
@@ -316,7 +316,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -332,7 +332,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JToggleButton. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -350,7 +350,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JToggleButton.
      * For toggle buttons, the AccessibleContext takes the form of an
      * AccessibleJToggleButton.
@@ -369,7 +369,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JToggleButton</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to toggle button user-interface
@@ -392,7 +392,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
             JToggleButton.this.addItemListener(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Fire accessible property change events when the state of the
          * toggle button changes.
          */
@@ -411,7 +411,7 @@ public class JToggleButton extends AbstractButton implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

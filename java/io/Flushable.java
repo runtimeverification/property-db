@@ -27,7 +27,7 @@ package java.io;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A <tt>Flushable</tt> is a destination of data that can be flushed.  The
  * flush method is invoked to write any buffered output to the underlying
  * stream.
@@ -37,7 +37,7 @@ import java.io.IOException;
 
 public interface Flushable {
 
-    /**
+    /** {@collect.stats}
      * Flushes this stream by writing any buffered output to the underlying
      * stream.
      *

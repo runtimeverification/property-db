@@ -50,7 +50,7 @@ import javax.swing.tree.TreePath;
 import sun.swing.plaf.synth.SynthIcon;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Skinnable TreeUI.
  *
  * @author Scott Violet
@@ -604,7 +604,7 @@ class SynthTreeUI extends BasicTreeUI implements PropertyChangeListener,
                : x - (int)Math.floor(iconWidth / 2.0);
     }
 
-    /**
+    /** {@collect.stats}
      * @inheritDoc
      */
     @Override

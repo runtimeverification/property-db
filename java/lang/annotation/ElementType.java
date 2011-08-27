@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/**
+/** {@collect.stats}
  * A program element type.  The constants of this enumerated type
  * provide a simple classification of the declared elements in a
  * Java program.
@@ -37,27 +37,27 @@ package java.lang.annotation;
  * @since 1.5
  */
 public enum ElementType {
-    /** Class, interface (including annotation type), or enum declaration */
+    /** {@collect.stats} Class, interface (including annotation type), or enum declaration */
     TYPE,
 
-    /** Field declaration (includes enum constants) */
+    /** {@collect.stats} Field declaration (includes enum constants) */
     FIELD,
 
-    /** Method declaration */
+    /** {@collect.stats} Method declaration */
     METHOD,
 
-    /** Parameter declaration */
+    /** {@collect.stats} Parameter declaration */
     PARAMETER,
 
-    /** Constructor declaration */
+    /** {@collect.stats} Constructor declaration */
     CONSTRUCTOR,
 
-    /** Local variable declaration */
+    /** {@collect.stats} Local variable declaration */
     LOCAL_VARIABLE,
 
-    /** Annotation type declaration */
+    /** {@collect.stats} Annotation type declaration */
     ANNOTATION_TYPE,
 
-    /** Package declaration */
+    /** {@collect.stats} Package declaration */
     PACKAGE
 }

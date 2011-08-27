@@ -27,7 +27,7 @@ package java.lang.management;
 
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * The management interface for the thread system of
  * the Java virtual machine.
  *
@@ -118,7 +118,7 @@ import java.util.Map;
  */
 
 public interface ThreadMXBean {
-    /**
+    /** {@collect.stats}
      * Returns the current number of live threads including both
      * daemon and non-daemon threads.
      *
@@ -126,7 +126,7 @@ public interface ThreadMXBean {
      */
     public int getThreadCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the peak live thread count since the Java virtual machine
      * started or peak was reset.
      *
@@ -134,7 +134,7 @@ public interface ThreadMXBean {
      */
     public int getPeakThreadCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of threads created and also started
      * since the Java virtual machine started.
      *
@@ -142,14 +142,14 @@ public interface ThreadMXBean {
      */
     public long getTotalStartedThreadCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the current number of live daemon threads.
      *
      * @return the current number of live daemon threads.
      */
     public int getDaemonThreadCount();
 
-    /**
+    /** {@collect.stats}
      * Returns all live thread IDs.
      * Some threads included in the returned array
      * may have been terminated when this method returns.
@@ -162,7 +162,7 @@ public interface ThreadMXBean {
      */
     public long[] getAllThreadIds();
 
-    /**
+    /** {@collect.stats}
      * Returns the thread info for a thread of the specified
      * <tt>id</tt> with no stack trace.
      * This method is equivalent to calling:
@@ -201,7 +201,7 @@ public interface ThreadMXBean {
      */
     public ThreadInfo getThreadInfo(long id);
 
-    /**
+    /** {@collect.stats}
      * Returns the thread info for each thread
      * whose ID is in the input array <tt>ids</tt> with no stack trace.
      * This method is equivalent to calling:
@@ -239,7 +239,7 @@ public interface ThreadMXBean {
      */
     public ThreadInfo[] getThreadInfo(long[] ids);
 
-    /**
+    /** {@collect.stats}
      * Returns a thread info for a thread of the specified <tt>id</tt>,
      * with stack trace of a specified number of stack trace elements.
      * The <tt>maxDepth</tt> parameter indicates the maximum number of
@@ -287,7 +287,7 @@ public interface ThreadMXBean {
      */
     public ThreadInfo getThreadInfo(long id, int maxDepth);
 
-    /**
+    /** {@collect.stats}
      * Returns the thread info for each thread
      * whose ID is in the input array <tt>ids</tt>,
      * with stack trace of a specified number of stack trace elements.
@@ -340,7 +340,7 @@ public interface ThreadMXBean {
      */
     public ThreadInfo[] getThreadInfo(long[] ids, int maxDepth);
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports thread contention monitoring.
      *
      * @return
@@ -350,7 +350,7 @@ public interface ThreadMXBean {
      */
     public boolean isThreadContentionMonitoringSupported();
 
-    /**
+    /** {@collect.stats}
      * Tests if thread contention monitoring is enabled.
      *
      * @return <tt>true</tt> if thread contention monitoring is enabled;
@@ -363,7 +363,7 @@ public interface ThreadMXBean {
      */
     public boolean isThreadContentionMonitoringEnabled();
 
-    /**
+    /** {@collect.stats}
      * Enables or disables thread contention monitoring.
      * Thread contention monitoring is disabled by default.
      *
@@ -381,7 +381,7 @@ public interface ThreadMXBean {
      */
     public void setThreadContentionMonitoringEnabled(boolean enable);
 
-    /**
+    /** {@collect.stats}
      * Returns the total CPU time for the current thread in nanoseconds.
      * The returned value is of nanoseconds precision but
      * not necessarily nanoseconds accuracy.
@@ -410,7 +410,7 @@ public interface ThreadMXBean {
      */
     public long getCurrentThreadCpuTime();
 
-    /**
+    /** {@collect.stats}
      * Returns the CPU time that the current thread has executed
      * in user mode in nanoseconds.
      * The returned value is of nanoseconds precision but
@@ -437,7 +437,7 @@ public interface ThreadMXBean {
      */
     public long getCurrentThreadUserTime();
 
-    /**
+    /** {@collect.stats}
      * Returns the total CPU time for a thread of the specified ID in nanoseconds.
      * The returned value is of nanoseconds precision but
      * not necessarily nanoseconds accuracy.
@@ -474,7 +474,7 @@ public interface ThreadMXBean {
      */
     public long getThreadCpuTime(long id);
 
-    /**
+    /** {@collect.stats}
      * Returns the CPU time that a thread of the specified ID
      * has executed in user mode in nanoseconds.
      * The returned value is of nanoseconds precision but
@@ -509,7 +509,7 @@ public interface ThreadMXBean {
      */
     public long getThreadUserTime(long id);
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine implementation supports CPU time
      * measurement for any thread.
      * A Java virtual machine implementation that supports CPU time
@@ -524,7 +524,7 @@ public interface ThreadMXBean {
      */
     public boolean isThreadCpuTimeSupported();
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports CPU time
      * measurement for the current thread.
      * This method returns <tt>true</tt> if {@link #isThreadCpuTimeSupported}
@@ -538,7 +538,7 @@ public interface ThreadMXBean {
      */
     public boolean isCurrentThreadCpuTimeSupported();
 
-    /**
+    /** {@collect.stats}
      * Tests if thread CPU time measurement is enabled.
      *
      * @return <tt>true</tt> if thread CPU time measurement is enabled;
@@ -553,7 +553,7 @@ public interface ThreadMXBean {
      */
     public boolean isThreadCpuTimeEnabled();
 
-    /**
+    /** {@collect.stats}
      * Enables or disables thread CPU time measurement.  The default
      * is platform dependent.
      *
@@ -573,7 +573,7 @@ public interface ThreadMXBean {
      */
     public void setThreadCpuTimeEnabled(boolean enable);
 
-    /**
+    /** {@collect.stats}
      * Finds cycles of threads that are in deadlock waiting to acquire
      * object monitors. That is, threads that are blocked waiting to enter a
      * synchronization block or waiting to reenter a synchronization block
@@ -608,7 +608,7 @@ public interface ThreadMXBean {
      */
     public long[] findMonitorDeadlockedThreads();
 
-    /**
+    /** {@collect.stats}
      * Resets the peak thread count to the current number of
      * live threads.
      *
@@ -621,7 +621,7 @@ public interface ThreadMXBean {
      */
     public void resetPeakThreadCount();
 
-    /**
+    /** {@collect.stats}
      * Finds cycles of threads that are in deadlock waiting to acquire
      * object monitors or
      * <a href="LockInfo.html#OwnableSynchronizer">ownable synchronizers</a>.
@@ -650,7 +650,7 @@ public interface ThreadMXBean {
      */
     public long[] findDeadlockedThreads();
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports monitoring of
      * object monitor usage.
      *
@@ -665,7 +665,7 @@ public interface ThreadMXBean {
      */
     public boolean isObjectMonitorUsageSupported();
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports monitoring of
      * <a href="LockInfo.html#OwnableSynchronizer">
      * ownable synchronizer</a> usage.
@@ -681,7 +681,7 @@ public interface ThreadMXBean {
      */
     public boolean isSynchronizerUsageSupported();
 
-    /**
+    /** {@collect.stats}
      * Returns the thread info for each thread
      * whose ID is in the input array <tt>ids</tt>, with stack trace
      * and synchronization information.
@@ -761,7 +761,7 @@ public interface ThreadMXBean {
      */
     public ThreadInfo[] getThreadInfo(long[] ids, boolean lockedMonitors, boolean lockedSynchronizers);
 
-    /**
+    /** {@collect.stats}
      * Returns the thread info for all live threads with stack trace
      * and synchronization information.
      * Some threads included in the returned array

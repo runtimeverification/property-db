@@ -29,7 +29,7 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import javax.imageio.ImageReader;
 
-/**
+/** {@collect.stats}
  * An interface used by <code>ImageReader</code> implementations to
  * notify callers of their image and thumbnail reading methods of
  * pixel updates.
@@ -40,7 +40,7 @@ import javax.imageio.ImageReader;
  */
 public interface IIOReadUpdateListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Reports that the current read operation is about to begin a
      * progressive pass.  Readers of formats that support progressive
      * encoding should use this to notify clients when each pass is
@@ -81,7 +81,7 @@ public interface IIOReadUpdateListener extends EventListener {
                      int periodX, int periodY,
                      int[] bands);
 
-    /**
+    /** {@collect.stats}
      * Reports that a given region of the image has been updated.
      * The application might choose to redisplay the specified area,
      * for example, in order to provide a progressive display effect,
@@ -149,7 +149,7 @@ public interface IIOReadUpdateListener extends EventListener {
                      int periodX, int periodY,
                      int[] bands);
 
-    /**
+    /** {@collect.stats}
      * Reports that the current read operation has completed a
      * progressive pass.  Readers of formats that support
      * progressive encoding should use this to notify clients when
@@ -164,7 +164,7 @@ public interface IIOReadUpdateListener extends EventListener {
      */
     void passComplete(ImageReader source, BufferedImage theImage);
 
-    /**
+    /** {@collect.stats}
      * Reports that the current thumbnail read operation is about to
      * begin a progressive pass.  Readers of formats that support
      * progressive encoding should use this to notify clients when
@@ -200,7 +200,7 @@ public interface IIOReadUpdateListener extends EventListener {
                               int periodX, int periodY,
                               int[] bands);
 
-    /**
+    /** {@collect.stats}
      * Reports that a given region of a thumbnail image has been updated.
      * The application might choose to redisplay the specified area,
      * for example, in order to provide a progressive display effect,
@@ -231,7 +231,7 @@ public interface IIOReadUpdateListener extends EventListener {
                          int periodX, int periodY,
                          int[] bands);
 
-    /**
+    /** {@collect.stats}
      * Reports that the current thumbnail read operation has completed
      * a progressive pass.  Readers of formats that support
      * progressive encoding should use this to notify clients when

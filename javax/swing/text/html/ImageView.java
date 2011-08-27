@@ -34,7 +34,7 @@ import javax.swing.*;
 import javax.swing.text.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * View of an Image, intended to support the HTML &lt;IMG&gt; tag.
  * Supports scaling via the HEIGHT and WIDTH attributes of the tag.
  * If the image is unable to be loaded any text specified via the
@@ -48,7 +48,7 @@ import javax.swing.event.*;
  * @since 1.4
  */
 public class ImageView extends View {
-    /**
+    /** {@collect.stats}
      * If true, when some of the bits are available a repaint is done.
      * <p>
      * This is set to false as swing does not offer a repaint that takes a
@@ -57,20 +57,20 @@ public class ImageView extends View {
      * (or anything else going on for that matter).
      */
     private static boolean sIsInc = false;
-    /**
+    /** {@collect.stats}
      * Repaint delay when some of the bits are available.
      */
     private static int sIncRate = 100;
-    /**
+    /** {@collect.stats}
      * Property name for pending image icon
      */
     private static final String PENDING_IMAGE = "html.pendingImage";
-    /**
+    /** {@collect.stats}
      * Property name for missing image icon
      */
     private static final String MISSING_IMAGE = "html.missingImage";
 
-    /**
+    /** {@collect.stats}
      * Document property for image cache.
      */
     private static final String IMAGE_CACHE_PROPERTY = "imageCache";
@@ -81,7 +81,7 @@ public class ImageView extends View {
     private static final int DEFAULT_WIDTH = 38;
     private static final int DEFAULT_HEIGHT= 38;
 
-    /**
+    /** {@collect.stats}
      * Default border to use if one is not specified.
      */
     private static final int DEFAULT_BORDER = 2;
@@ -99,7 +99,7 @@ public class ImageView extends View {
     private Image image;
     private int width;
     private int height;
-    /** Bitmask containing some of the above bitmask values. Because the
+    /** {@collect.stats} Bitmask containing some of the above bitmask values. Because the
      * image loading notification can happen on another thread access to
      * this is synchronized (at least for modifying it). */
     private int state;
@@ -114,22 +114,22 @@ public class ImageView extends View {
     private short rightInset;
     private short topInset;
     private short bottomInset;
-    /**
+    /** {@collect.stats}
      * We don't directly implement ImageObserver, instead we use an instance
      * that calls back to us.
      */
     private ImageObserver imageObserver;
-    /**
+    /** {@collect.stats}
      * Used for alt text. Will be non-null if the image couldn't be found,
      * and there is valid alt text.
      */
     private View altView;
-    /** Alignment along the vertical (Y) axis. */
+    /** {@collect.stats} Alignment along the vertical (Y) axis. */
     private float vAlign;
 
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents an IMG element.
      *
      * @param elem the element to create a view for
@@ -141,7 +141,7 @@ public class ImageView extends View {
         state = RELOAD_FLAG | RELOAD_IMAGE_FLAG;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the text to display if the image can't be loaded. This is
      * obtained from the Elements attribute set with the attribute name
      * <code>HTML.Attribute.ALT</code>.
@@ -151,7 +151,7 @@ public class ImageView extends View {
             (HTML.Attribute.ALT);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a URL for the image source,
      * or null if it could not be determined.
      */
@@ -171,21 +171,21 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the icon to use if the image couldn't be found.
      */
     public Icon getNoImageIcon() {
         return (Icon) UIManager.getLookAndFeelDefaults().get(MISSING_IMAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the icon to use while in the process of loading the image.
      */
     public Icon getLoadingImageIcon() {
         return (Icon) UIManager.getLookAndFeelDefaults().get(PENDING_IMAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the image to render.
      */
     public Image getImage() {
@@ -193,7 +193,7 @@ public class ImageView extends View {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets how the image is loaded. If <code>newValue</code> is true,
      * the image we be loaded when first asked for, otherwise it will
      * be loaded asynchronously. The default is to not load synchronously,
@@ -210,14 +210,14 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the image should be loaded when first asked for.
      */
     public boolean getLoadsSynchronously() {
         return ((state & SYNC_LOAD_FLAG) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get the StyleSheet.
      */
     protected StyleSheet getStyleSheet() {
@@ -225,7 +225,7 @@ public class ImageView extends View {
         return doc.getStyleSheet();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -235,7 +235,7 @@ public class ImageView extends View {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * For images the tooltip text comes from text specified with the
      * <code>ALT</code> attribute. This is overriden to return
      * <code>getAltText</code>.
@@ -246,7 +246,7 @@ public class ImageView extends View {
         return getAltText();
     }
 
-    /**
+    /** {@collect.stats}
      * Update any cached values that come from attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -297,7 +297,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the parent view for this view.
      * Seize this moment to cache the AWT Container I'm in.
      */
@@ -312,7 +312,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the Elements attributes have changed. Recreates the image.
      */
     public void changedUpdate(DocumentEvent e, Shape a, ViewFactory f) {
@@ -326,7 +326,7 @@ public class ImageView extends View {
         preferenceChanged(null, true, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the View.
      *
      * @param g the rendering surface to use
@@ -421,7 +421,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -474,7 +474,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  This is implemented to give the alignment to the
      * bottom of the icon along the y axis, and the default
@@ -496,7 +496,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -521,7 +521,7 @@ public class ImageView extends View {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -542,7 +542,7 @@ public class ImageView extends View {
         return getEndOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of the view.  This should cause
      * layout of the view if it has any layout duties.
      *
@@ -562,14 +562,14 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this image within a link?
      */
     private boolean isLink() {
         return ((state & LINK_FLAG) == LINK_FLAG);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the passed in image has a non-zero width and height.
      */
     private boolean hasPixels(Image image) {
@@ -578,7 +578,7 @@ public class ImageView extends View {
             (image.getWidth(imageObserver) > 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred span of the View used to display the alt text,
      * or 0 if the view does not exist.
      */
@@ -593,7 +593,7 @@ public class ImageView extends View {
         return 0f;
     }
 
-    /**
+    /** {@collect.stats}
      * Request that this view be repainted.
      * Assumes the view is still at its last-drawn location.
      */
@@ -604,7 +604,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method for getting an integer attribute from the elements
      * AttributeSet.
      */
@@ -628,7 +628,7 @@ public class ImageView extends View {
             return deflt;
     }
 
-    /**
+    /** {@collect.stats}
      * Makes sure the necessary properties and image is loaded.
      */
     private void sync() {
@@ -645,7 +645,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the image and updates the size accordingly. This should be
      * invoked instead of invoking <code>loadImage</code> or
      * <code>updateImageSize</code> directly.
@@ -675,7 +675,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the image from the URL <code>getImageURL</code>. This should
      * only be invoked from <code>refreshImage</code>.
      */
@@ -700,7 +700,7 @@ public class ImageView extends View {
         image = newImage;
     }
 
-    /**
+    /** {@collect.stats}
      * Recreates and reloads the image.  This should
      * only be invoked from <code>refreshImage</code>.
      */
@@ -788,7 +788,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the view representing the alt text.
      */
     private void updateAltTextView() {
@@ -804,7 +804,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the view to use for alternate text. This may be null.
      */
     private View getAltView() {
@@ -819,7 +819,7 @@ public class ImageView extends View {
         return view;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>preferenceChanged</code> on the event displatching
      * thread.
      */
@@ -843,7 +843,7 @@ public class ImageView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * ImageHandler implements the ImageObserver to correctly update the
      * display as new parts of the image become available.
      */
@@ -930,7 +930,7 @@ public class ImageView extends View {
     }
 
 
-    /**
+    /** {@collect.stats}
      * ImageLabelView is used if the image can't be loaded, and
      * the attribute specified an alt attribute. It overriden a handle of
      * methods as the text is hardcoded and does not come from the document.

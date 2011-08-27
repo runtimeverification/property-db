@@ -29,7 +29,7 @@ import java.lang.annotation.*;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
-/**
+/** {@collect.stats}
    <p>An annotation on a constructor that shows how the parameters of
    that constructor correspond to the constructed object's getter
    methods.  For example:
@@ -67,7 +67,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 */
 @Documented @Target(CONSTRUCTOR) @Retention(RUNTIME)
 public @interface ConstructorProperties {
-    /**
+    /** {@collect.stats}
        <p>The getter names.</p>
        @return the getter names corresponding to the parameters in the
        annotated constructor.

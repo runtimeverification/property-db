@@ -34,7 +34,7 @@ import java.io.Serializable;
 
 import javax.sql.rowset.serial.*;
 
-/**
+/** {@collect.stats}
  * An abstract class providing a <code>RowSet</code> object with its basic functionality.
  * The basic functions include having properties and sending event notifications,
  * which all JavaBeans<sup><font size=-2>TM</font></sup> components must implement.
@@ -296,7 +296,7 @@ import javax.sql.rowset.serial.*;
 
 public abstract class BaseRowSet implements Serializable, Cloneable {
 
-/**
+/** {@collect.stats}
  * A constant indicating to a <code>RowSetReaderImpl</code> object
  * that a given parameter is a Unicode stream. This
  * <code>RowSetReaderImpl</code> object is provided as an extension of the
@@ -305,7 +305,7 @@ public abstract class BaseRowSet implements Serializable, Cloneable {
  */
 public static final int UNICODE_STREAM_PARAM = 0;
 
-/**
+/** {@collect.stats}
  * A constant indicating to a <code>RowSetReaderImpl</code> object
  * that a given parameter is a binary stream. A
  * <code>RowSetReaderImpl</code> object is provided as an extension of the
@@ -314,7 +314,7 @@ public static final int UNICODE_STREAM_PARAM = 0;
  */
 public static final int BINARY_STREAM_PARAM = 1;
 
-/**
+/** {@collect.stats}
  * A constant indicating to a <code>RowSetReaderImpl</code> object
  * that a given parameter is an ASCII stream. A
  * <code>RowSetReaderImpl</code> object is provided as an extension of the
@@ -323,7 +323,7 @@ public static final int BINARY_STREAM_PARAM = 1;
  */
 public static final int ASCII_STREAM_PARAM = 2;
 
-    /**
+    /** {@collect.stats}
      * The <code>InputStream</code> object that will be
      * returned by the method <code>getBinaryStream</code>, which is
      * specified in the <code>ResultSet</code> interface.
@@ -331,7 +331,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     protected java.io.InputStream binaryStream;
 
-    /**
+    /** {@collect.stats}
      * The <code>InputStream</code> object that will be
      * returned by the method <code>getUnicodeStream</code>,
      * which is specified in the <code>ResultSet</code> interface.
@@ -339,7 +339,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     protected java.io.InputStream unicodeStream;
 
-    /**
+    /** {@collect.stats}
      * The <code>InputStream</code> object that will be
      * returned by the method <code>getAsciiStream</code>,
      * which is specified in the <code>ResultSet</code> interface.
@@ -347,7 +347,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     protected java.io.InputStream asciiStream;
 
-    /**
+    /** {@collect.stats}
      * The <code>Reader</code> object that will be
      * returned by the method <code>getCharacterStream</code>,
      * which is specified in the <code>ResultSet</code> interface.
@@ -355,14 +355,14 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     protected java.io.Reader charStream;
 
-    /**
+    /** {@collect.stats}
      * The query that will be sent to the DBMS for execution when the
      * method <code>execute</code> is called.
      * @serial
      */
     private String command;
 
-    /**
+    /** {@collect.stats}
      * The JDBC URL the reader, writer, or both supply to the method
      * <code>DriverManager.getConnection</code> when the
      * <code>DriverManager</code> is used to get a connection.
@@ -374,7 +374,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private String URL;
 
-    /**
+    /** {@collect.stats}
      * The logical name of the data source that the reader/writer should use
      * in order to retrieve a <code>DataSource</code> object from a Java
      * Directory and Naming Interface (JNDI) naming service.
@@ -382,7 +382,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private String dataSource;
 
-    /**
+    /** {@collect.stats}
      * The user name the reader, writer, or both supply to the method
      * <code>DriverManager.getConnection</code> when the
      * <code>DriverManager</code> is used to get a connection.
@@ -390,7 +390,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private transient String username;
 
-    /**
+    /** {@collect.stats}
      * The password the reader, writer, or both supply to the method
      * <code>DriverManager.getConnection</code> when the
      * <code>DriverManager</code> is used to get a connection.
@@ -398,7 +398,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private transient String password;
 
-    /**
+    /** {@collect.stats}
      * A constant indicating the type of this JDBC <code>RowSet</code>
      * object. It must be one of the following <code>ResultSet</code>
      * constants:  <code>TYPE_FORWARD_ONLY</code>,
@@ -408,14 +408,14 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int rowSetType = ResultSet.TYPE_SCROLL_INSENSITIVE;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> indicating whether deleted rows are visible in this
      * JDBC <code>RowSet</code> object .
      * @serial
      */
     private boolean showDeleted = false; // default is false
 
-    /**
+    /** {@collect.stats}
      * The maximum number of seconds the driver
      * will wait for a command to execute.  This limit applies while
      * this JDBC <code>RowSet</code> object is connected to its data
@@ -425,19 +425,19 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int queryTimeout = 0; // default is no timeout
 
-    /**
+    /** {@collect.stats}
      * The maximum number of rows the reader should read.
      * @serial
      */
     private int maxRows = 0; // default is no limit
 
-    /**
+    /** {@collect.stats}
      * The maximum field size the reader should read.
      * @serial
      */
     private int maxFieldSize = 0; // default is no limit
 
-    /**
+    /** {@collect.stats}
      * A constant indicating the concurrency of this JDBC <code>RowSet</code>
      * object. It must be one of the following <code>ResultSet</code>
      * constants: <code>CONCUR_READ_ONLY</code> or
@@ -446,7 +446,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int concurrency = ResultSet.CONCUR_UPDATABLE;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> indicating whether this JDBC <code>RowSet</code>
      * object is read-only.  <code>true</code> indicates that it is read-only;
      * <code>false</code> that it is writable.
@@ -454,7 +454,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private boolean readOnly;
 
-    /**
+    /** {@collect.stats}
      * A <code>boolean</code> indicating whether the reader for this
      * JDBC <code>RowSet</code> object should perform escape processing.
      * <code>true</code> means that escape processing is turned on;
@@ -463,7 +463,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private boolean escapeProcessing;
 
-    /**
+    /** {@collect.stats}
      * A constant indicating the isolation level of the connection
      * for this JDBC <code>RowSet</code> object . It must be one of
      * the following <code>Connection</code> constants:
@@ -476,7 +476,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int isolation;
 
-    /**
+    /** {@collect.stats}
      * A constant used as a hint to the driver that indicates the direction in
      * which data from this JDBC <code>RowSet</code> object  is going
      * to be fetched. The following <code>ResultSet</code> constants are
@@ -490,7 +490,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int fetchDir = ResultSet.FETCH_FORWARD; // default fetch direction
 
-    /**
+    /** {@collect.stats}
      * A hint to the driver that indicates the expected number of rows
      * in this JDBC <code>RowSet</code> object .
      * <P>
@@ -499,7 +499,7 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private int fetchSize = 0; // default fetchSize
 
-    /**
+    /** {@collect.stats}
      * The <code>java.util.Map</code> object that contains entries mapping
      * SQL type names to classes in the Java programming language for the
      * custom mapping of user-defined types.
@@ -507,21 +507,21 @@ public static final int ASCII_STREAM_PARAM = 2;
      */
     private Map map;
 
-    /**
+    /** {@collect.stats}
      * A <code>Vector</code> object that holds the list of listeners
      * that have registered with this <code>RowSet</code> object.
      * @serial
      */
     private Vector listeners;
 
-    /**
+    /** {@collect.stats}
      * A <code>Vector</code> object that holds the parameters set
      * for this <code>RowSet</code> object's current command.
      * @serial
      */
     private Hashtable params; // could be transient?
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>BaseRowSet</code> object initialized with
      * a default <code>Vector</code> object for its <code>listeners</code>
      * field. The other default values with which it is initialized are listed
@@ -532,7 +532,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         listeners = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Performs the necessary internal configurations and initializations
      * to allow any JDBC <code>RowSet</code> implementation to start using
      * the standard facilities provided by a <code>BaseRowSet</code>
@@ -549,7 +549,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     // Events
     //--------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
     * The listener will be notified whenever an event occurs on this <code>RowSet</code>
     * object.
     * <P>
@@ -575,7 +575,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         listeners.add(listener);
     }
 
-    /**
+    /** {@collect.stats}
     * Removes the designated object from this <code>RowSet</code> object's list of listeners.
     * If the given argument is not a registered listener, this method
     * does nothing.
@@ -592,7 +592,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         listeners.remove(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if instance of this class extends the RowSet interface.
      */
     private void checkforRowSetInterface() throws SQLException {
@@ -602,7 +602,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
     }
 
-    /**
+    /** {@collect.stats}
     * Notifies all of the listeners registered with this
     * <code>RowSet</code> object that its cursor has moved.
     * <P>
@@ -625,7 +625,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
     }
 
-    /**
+    /** {@collect.stats}
     * Notifies all of the listeners registered with this <code>RowSet</code> object that
     * one of its rows has changed.
     * <P>
@@ -650,7 +650,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
     }
 
-   /**
+   /** {@collect.stats}
     * Notifies all of the listeners registered with this <code>RowSet</code>
     * object that its entire contents have changed.
     * <P>
@@ -675,7 +675,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
 }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the SQL query that is the command for this
      * <code>RowSet</code> object. The command property contains the query that
      * will be executed to populate this <code>RowSet</code> object.
@@ -702,7 +702,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return command;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this <code>RowSet</code> object's <code>command</code> property to
      * the given <code>String</code> object and clears the parameters, if any,
      * that were set for the previous command.
@@ -739,7 +739,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the JDBC URL that this <code>RowSet</code> object's
      * <code>javax.sql.Reader</code> object uses to make a connection
      * with a relational database using a JDBC technology-enabled driver.
@@ -758,7 +758,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return URL;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the Url property for this <code>RowSet</code> object
      * to the given <code>String</code> object and sets the dataSource name
      * property to <code>null</code>. The Url property is a
@@ -804,7 +804,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the logical name that when supplied to a naming service
      * that uses the Java Naming and Directory Interface (JNDI) API, will
      * retrieve a <code>javax.sql.DataSource</code> object. This
@@ -826,7 +826,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>DataSource</code> name property for this <code>RowSet</code>
      * object to the given logical name and sets this <code>RowSet</code> object's
      * Url property to <code>null</code>. The name must have been bound to a
@@ -860,7 +860,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         URL = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the user name used to create a database connection.  Because it
      * is not serialized, the username property is set at runtime before
      * calling the method <code>execute</code>.
@@ -874,7 +874,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return username;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the username property for this <code>RowSet</code> object
      * to the given user name. Because it
      * is not serialized, the username property is set at run time before
@@ -893,7 +893,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the password used to create a database connection for this
      * <code>RowSet</code> object.  Because the password property is not
      * serialized, it is set at run time before calling the method
@@ -907,7 +907,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return password;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the password used to create a database connection for this
      * <code>RowSet</code> object to the given <code>String</code>
      * object.  Because the password property is not
@@ -928,7 +928,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the type for this <code>RowSet</code> object to the specified type.
      * The default type is <code>ResultSet.TYPE_SCROLL_INSENSITIVE</code>.
      *
@@ -956,7 +956,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.rowSetType = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this <code>RowSet</code> object. The type is initially
      * determined by the statement that created the <code>RowSet</code> object.
      * The <code>RowSet</code> object can call the method
@@ -976,7 +976,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return rowSetType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the concurrency for this <code>RowSet</code> object to
      * the specified concurrency. The default concurrency for any <code>RowSet</code>
      * object (connected or disconnected) is <code>ResultSet.CONCUR_UPDATABLE</code>,
@@ -1002,7 +1002,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.concurrency = concurrency;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>boolean</code> indicating whether this
      * <code>RowSet</code> object is read-only.
      * Any attempts to update a read-only <code>RowSet</code> object will result in an
@@ -1018,7 +1018,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return readOnly;
     };
 
-    /**
+    /** {@collect.stats}
      * Sets this <code>RowSet</code> object's readOnly  property to the given <code>boolean</code>.
      *
      * @param value <code>true</code> to indicate that this
@@ -1029,7 +1029,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         readOnly = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the transaction isolation property for this
      * <code>RowSet</code> object's connection. This property represents
      * the transaction isolation level requested for use in transactions.
@@ -1056,7 +1056,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return isolation;
     };
 
-    /**
+    /** {@collect.stats}
      * Sets the transaction isolation property for this JDBC <code>RowSet</code> object to the given
      * constant. The DBMS will use this transaction isolation level for
      * transactions if it can.
@@ -1098,7 +1098,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.isolation = level;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the type map associated with the <code>Connection</code>
      * object for this <code>RowSet</code> object.
      * <P>
@@ -1120,7 +1120,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return map;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the given <code>java.util.Map</code> object as the type map
      * associated with the <code>Connection</code> object for this
      * <code>RowSet</code> object.  The custom mapping indicated in
@@ -1138,7 +1138,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.map = map;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of bytes that can be used for a column
      * value in this <code>RowSet</code> object.
      * This limit applies only to columns that hold values of the
@@ -1156,7 +1156,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return maxFieldSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum number of bytes that can be used for a column
      * value in this <code>RowSet</code> object to the given number.
      * This limit applies only to columns that hold values of the
@@ -1179,7 +1179,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         maxFieldSize = max;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of rows that this <code>RowSet</code> object may contain. If
      * this limit is exceeded, the excess rows are silently dropped.
      *
@@ -1192,7 +1192,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return maxRows;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum number of rows that this <code>RowSet</code> object may contain to
      * the given number. If this limit is exceeded, the excess rows are
      * silently dropped.
@@ -1216,7 +1216,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.maxRows = max;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets to the given <code>boolean</code> whether or not the driver will
      * scan for escape syntax and do escape substitution before sending SQL
      * statements to the database. The default is for the driver to do escape
@@ -1235,7 +1235,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         escapeProcessing = enable;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of seconds the driver will wait for a
      * query to execute. If the limit is exceeded, an <code>SQLException</code>
      * is thrown.
@@ -1249,7 +1249,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return queryTimeout;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets to the given number the maximum number of seconds the driver will
      * wait for a query to execute. If the limit is exceeded, an
      * <code>SQLException</code> is thrown.
@@ -1267,7 +1267,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         this.queryTimeout = seconds;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a <code>boolean</code> indicating whether rows marked
      * for deletion appear in the set of current rows.
      * The default value is <code>false</code>.
@@ -1287,7 +1287,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return showDeleted;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the property <code>showDeleted</code> to the given
      * <code>boolean</code> value, which determines whether
      * rows marked for deletion appear in the set of current rows.
@@ -1302,7 +1302,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         showDeleted = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Ascertains whether escape processing is enabled for this
      * <code>RowSet</code> object.
      *
@@ -1316,7 +1316,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return escapeProcessing;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives the driver a performance hint as to the direction in
      * which the rows in this <code>RowSet</code> object will be
      * processed.  The driver may ignore this hint.
@@ -1359,7 +1359,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         fetchDir = direction;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves this <code>RowSet</code> object's current setting for the
      * fetch direction. The default type is <code>ResultSet.FETCH_FORWARD</code>
      *
@@ -1388,7 +1388,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return (fetchDir);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the fetch size for this <code>RowSet</code> object to the given number of
      * rows.  The fetch size gives a JDBC technology-enabled driver ("JDBC driver")
      * a hint as to the
@@ -1445,7 +1445,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         fetchSize = rows;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the fetch size for this <code>RowSet</code> object. The default
      * value is zero.
      *
@@ -1459,7 +1459,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         return fetchSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the concurrency for this <code>RowSet</code> object.
      * The default is <code>CONCUR_UPDATABLE</code> for both connected and
      * disconnected <code>RowSet</code> objects.
@@ -1484,7 +1484,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     // Parameters
     //-----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Checks the given index to see whether it is less than <code>1</code> and
      * throws an <code>SQLException</code> object if it is.
      * <P>
@@ -1505,7 +1505,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     // setter methods for setting the parameters in a <code>RowSet</code> object's command
     //---------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to SQL <code>NULL</code>.
      * Note that the parameter's SQL type must be specified using one of the
          * type codes defined in <code>java.sql.Types</code>.  This SQL type is
@@ -1572,7 +1572,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), nullVal);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to SQL <code>NULL</code>.
      *
      * Although this version of the  method <code>setNull</code> is intended
@@ -1655,7 +1655,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>boolean</code> in the
      * Java programming language.  The driver converts this to an SQL
      * <code>BIT</code> value when it sends it to the database.
@@ -1689,7 +1689,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Boolean(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>byte</code> in the Java
      * programming language.  The driver converts this to an SQL
      * <code>TINYINT</code> value when it sends it to the database.
@@ -1723,7 +1723,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Byte(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>short</code> in the
      * Java programming language.  The driver converts this to an SQL
      * <code>SMALLINT</code> value when it sends it to the database.
@@ -1757,7 +1757,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Short(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to an <code>int</code> in the Java
      * programming language.  The driver converts this to an SQL
      * <code>INTEGER</code> value when it sends it to the database.
@@ -1789,7 +1789,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Integer(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>long</code> in the Java
      * programming language.  The driver converts this to an SQL
      * <code>BIGINT</code> value when it sends it to the database.
@@ -1821,7 +1821,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Long(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>float</code> in the
      * Java programming language.  The driver converts this to an SQL
      * <code>FLOAT</code> value when it sends it to the database.
@@ -1853,7 +1853,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Float(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>double</code> in the
      * Java programming language.  The driver converts this to an SQL
      * <code>DOUBLE</code> value when it sends it to the database.
@@ -1885,7 +1885,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new Double(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.lang.BigDecimal</code> value.  The driver converts this to
      * an SQL <code>NUMERIC</code> value when it sends it to the database.
@@ -1917,7 +1917,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>String</code>
      * value.  The driver converts this to an SQL
      * <code>VARCHAR</code> or <code>LONGVARCHAR</code> value
@@ -1951,7 +1951,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given array of bytes.
      * The driver converts this to an SQL
      * <code>VARBINARY</code> or <code>LONGVARBINARY</code> value
@@ -1985,7 +1985,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Date</code>
      * value. The driver converts this to an SQL
      * <code>DATE</code> value when it sends it to the database.
@@ -2027,7 +2027,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Time</code>
      * value.  The driver converts this to an SQL <code>TIME</code> value
      * when it sends it to the database.
@@ -2072,7 +2072,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.sql.Timestamp</code> value.
      * The driver converts this to an SQL <code>TIMESTAMP</code> value when it
@@ -2115,7 +2115,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.io.InputStream</code> object,
      * which will have the specified number of bytes.
@@ -2195,7 +2195,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), asciiStream);
     }
 
-  /**
+  /** {@collect.stats}
    * Sets the designated parameter in this <code>RowSet</code> object's command
    * to the given input stream.
    * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
@@ -2223,7 +2223,7 @@ public static final int ASCII_STREAM_PARAM = 2;
       throw new SQLFeatureNotSupportedException("Feature not supported");
   }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.io.InputStream</code>
      * object, which will have the specified number of bytes.
      * The contents of the stream will be read and sent to the database.
@@ -2300,7 +2300,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     }
 
 
-   /**
+   /** {@collect.stats}
    * Sets the designated parameter in this <code>RowSet</code> object's command
    * to the given input stream.
    * When a very large binary value is input to a <code>LONGVARBINARY</code>
@@ -2328,7 +2328,7 @@ public static final int ASCII_STREAM_PARAM = 2;
   }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.io.InputStream</code> object, which will have the specified
      * number of bytes. The contents of the stream will be read and sent
@@ -2404,7 +2404,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), unicodeStream);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.io.Reader</code>
      * object, which will have the specified number of characters. The
      * contents of the reader will be read and sent to the database.
@@ -2482,7 +2482,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), charStream);
     }
 
-   /**
+   /** {@collect.stats}
    * Sets the designated parameter in this <code>RowSet</code> object's command
    * to the given <code>Reader</code>
    * object.
@@ -2512,7 +2512,7 @@ public static final int ASCII_STREAM_PARAM = 2;
       throw new SQLFeatureNotSupportedException("Feature not supported");
   }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to an <code>Object</code> in the Java
      * programming language. The second parameter must be an
      * <code>Object</code> type.  For integral values, the
@@ -2599,7 +2599,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the designated parameter with the given
      * <code>Object</code> value.
      * This method is like <code>setObject(int parameterIndex, Object x, int
@@ -2661,7 +2661,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to an <code>Object</code> in the Java
      * programming language. The second parameter must be an
      * <code>Object</code>
@@ -2729,7 +2729,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), x);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>Ref</code> object in
      * the Java programming language.  The driver converts this to an SQL
      * <code>REF</code> value when it sends it to the database. Internally, the
@@ -2776,7 +2776,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new SerialRef(ref));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>Blob</code> object in
      * the Java programming language.  The driver converts this to an SQL
      * <code>BLOB</code> value when it sends it to the database. Internally,
@@ -2820,7 +2820,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new SerialBlob(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>Clob</code> object in
      * the Java programming language.  The driver converts this to an SQL
      * <code>CLOB</code> value when it sends it to the database. Internally, the
@@ -2865,7 +2865,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new SerialClob(x));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to an <code>Array</code> object in the
      * Java programming language.  The driver converts this to an SQL
      * <code>ARRAY</code> value when it sends it to the database. Internally,
@@ -2913,7 +2913,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), new SerialArray(array));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Date</code>
      * object.
      * When the DBMS does not store time zone information, the driver will use
@@ -2978,7 +2978,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), date);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given <code>java.sql.Time</code>
      * object.  The driver converts this
      * to an SQL <code>TIME</code> value when it sends it to the database.
@@ -3044,7 +3044,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), time);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to the given
      * <code>java.sql.Timestamp</code> object.  The driver converts this
      * to an SQL <code>TIMESTAMP</code> value when it sends it to the database.
@@ -3110,7 +3110,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.put(new Integer(parameterIndex - 1), timestamp);
     }
 
-    /**
+    /** {@collect.stats}
      * Clears all of the current parameter values in this <code>RowSet</code>
      * object's internal representation of the parameters to be set in
      * this <code>RowSet</code> object's command when it is executed.
@@ -3132,7 +3132,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         params.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves an array containing the parameter values (both Objects and
      * primitives) that have been set for this
      * <code>RowSet</code> object's command and throws an <code>SQLException</code> object
@@ -3193,7 +3193,7 @@ public static final int ASCII_STREAM_PARAM = 2;
     } //end getParams
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to SQL <code>NULL</code>.
     *
     * <P><B>Note:</B> You must specify the parameter's SQL type.
@@ -3211,7 +3211,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to SQL <code>NULL</code>.
     * This version of the method <code>setNull</code> should
     * be used for user-defined types and REF type parameters.  Examples
@@ -3250,7 +3250,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>boolean</code> value.
     * The driver converts this
     * to an SQL <code>BIT</code> or <code>BOOLEAN</code> value when it sends it to the database.
@@ -3270,7 +3270,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>byte</code> value.
     * The driver converts this
     * to an SQL <code>TINYINT</code> value when it sends it to the database.
@@ -3290,7 +3290,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>short</code> value.
     * The driver converts this
     * to an SQL <code>SMALLINT</code> value when it sends it to the database.
@@ -3309,7 +3309,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>int</code> value.
     * The driver converts this
     * to an SQL <code>INTEGER</code> value when it sends it to the database.
@@ -3328,7 +3328,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>long</code> value.
     * The driver converts this
     * to an SQL <code>BIGINT</code> value when it sends it to the database.
@@ -3347,7 +3347,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>float</code> value.
     * The driver converts this
     * to an SQL <code>FLOAT</code> value when it sends it to the database.
@@ -3366,7 +3366,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>double</code> value.
     * The driver converts this
     * to an SQL <code>DOUBLE</code> value when it sends it to the database.
@@ -3386,7 +3386,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given
     * <code>java.math.BigDecimal</code> value.
     * The driver converts this to an SQL <code>NUMERIC</code> value when
@@ -3407,7 +3407,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java <code>String</code> value.
     * The driver converts this
     * to an SQL <code>VARCHAR</code> or <code>LONGVARCHAR</code> value
@@ -3430,7 +3430,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given Java array of bytes.
     * The driver converts this to an SQL <code>VARBINARY</code> or
     * <code>LONGVARBINARY</code> (depending on the argument's size relative
@@ -3452,7 +3452,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Timestamp</code> value.
     * The driver
     * converts this to an SQL <code>TIMESTAMP</code> value when it sends it to the
@@ -3474,7 +3474,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given input stream, which will have
     * the specified number of bytes.
     * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
@@ -3502,7 +3502,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given input stream, which will have
     * the specified number of bytes.
     * When a very large binary value is input to a <code>LONGVARBINARY</code>
@@ -3529,7 +3529,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-  /**
+  /** {@collect.stats}
     * Sets the designated parameter to the given <code>Reader</code>
     * object, which is the given number of characters long.
     * When a very large UNICODE value is input to a <code>LONGVARCHAR</code>
@@ -3559,7 +3559,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-  /**
+  /** {@collect.stats}
    * Sets the designated parameter to the given input stream.
    * When a very large ASCII value is input to a <code>LONGVARCHAR</code>
    * parameter, it may be more practical to send it via a
@@ -3587,7 +3587,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given input stream.
     * When a very large binary value is input to a <code>LONGVARBINARY</code>
     * parameter, it may be more practical to send it via a
@@ -3615,7 +3615,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>Reader</code>
     * object.
     * When a very large UNICODE value is input to a <code>LONGVARCHAR</code>
@@ -3645,7 +3645,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter in this <code>RowSet</code> object's command
   * to a <code>Reader</code> object. The
   * <code>Reader</code> reads the data till end-of-file is reached. The
@@ -3674,7 +3674,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the value of the designated parameter with the given object. The second
     * argument must be an object type; for integral values, the
     * <code>java.lang</code> equivalent objects should be used.
@@ -3722,7 +3722,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the value of the designated parameter with the given object.
     * This method is like the method <code>setObject</code>
     * above, except that it assumes a scale of zero.
@@ -3749,7 +3749,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
    * Sets the value of the designated parameter with the given object.
    * The second parameter must be of type <code>Object</code>; therefore, the
    * <code>java.lang</code> equivalent objects should be used for built-in types.
@@ -3791,7 +3791,7 @@ public static final int ASCII_STREAM_PARAM = 2;
 
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>InputStream</code> object.  The inputstream must contain  the number
     * of characters specified by length otherwise a <code>SQLException</code> will be
     * generated when the <code>PreparedStatement</code> is executed.
@@ -3821,7 +3821,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>InputStream</code> object.
     * This method differs from the <code>setBinaryStream (int, InputStream)</code>
     * method because it informs the driver that the parameter value should be
@@ -3851,7 +3851,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>InputStream</code> object.  The <code>inputstream</code> must contain  the number
      * of characters specified by length, otherwise a <code>SQLException</code> will be
      * generated when the <code>CallableStatement</code> is executed.
@@ -3883,7 +3883,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Blob</code> object.
     * The driver converts this to an SQL <code>BLOB</code> value when it
     * sends it to the database.
@@ -3901,7 +3901,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>InputStream</code> object.
     * This method differs from the <code>setBinaryStream (int, InputStream)</code>
     * method because it informs the driver that the parameter value should be
@@ -3928,7 +3928,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
    * Sets the designated parameter to a <code>Reader</code> object.  The reader must contain  the number
    * of characters specified by length otherwise a <code>SQLException</code> will be
    * generated when the <code>PreparedStatement</code> is executed.
@@ -3953,7 +3953,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-/**
+/** {@collect.stats}
    * Sets the designated parameter to a <code>Reader</code> object.
    * This method differs from the <code>setCharacterStream (int, Reader)</code> method
    * because it informs the driver that the parameter value should be sent to
@@ -3980,7 +3980,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain  the number
                * of characters specified by length otherwise a <code>SQLException</code> will be
                * generated when the <code>CallableStatement</code> is executed.
@@ -4007,7 +4007,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-  /**
+  /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Clob</code> object.
     * The driver converts this to an SQL <code>CLOB</code> value when it
     * sends it to the database.
@@ -4025,7 +4025,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to a <code>Reader</code> object.
     * This method differs from the <code>setCharacterStream (int, Reader)</code> method
     * because it informs the driver that the parameter value should be sent to
@@ -4051,7 +4051,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Date</code> value
     * using the default time zone of the virtual machine that is running
     * the application.
@@ -4073,7 +4073,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Date</code> value,
     * using the given <code>Calendar</code> object.  The driver uses
     * the <code>Calendar</code> object to construct an SQL <code>DATE</code> value,
@@ -4100,7 +4100,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Time</code> value.
     * The driver converts this
     * to an SQL <code>TIME</code> value when it sends it to the database.
@@ -4120,7 +4120,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Time</code> value,
     * using the given <code>Calendar</code> object.  The driver uses
     * the <code>Calendar</code> object to construct an SQL <code>TIME</code> value,
@@ -4147,7 +4147,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
     * Sets the designated parameter to the given <code>java.sql.Timestamp</code> value,
     * using the given <code>Calendar</code> object.  The driver uses
     * the <code>Calendar</code> object to construct an SQL <code>TIMESTAMP</code> value,
@@ -4174,7 +4174,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
    * Sets the designated parameter to the given <code>java.sql.SQLXML</code> object. The driver converts this to an
     * SQL <code>XML</code> value when it sends it to the database.
     * @param parameterIndex index of the first parameter is 1, the second is 2, ...
@@ -4194,7 +4194,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-  /**
+  /** {@collect.stats}
    * Sets the designated parameter to the given <code>java.sql.SQLXML</code> object. The driver converts this to an
     * <code>SQL XML</code> value when it sends it to the database.
     * @param parameterName the name of the parameter
@@ -4214,7 +4214,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to the given <code>java.sql.RowId</code> object. The
   * driver converts this to a SQL <code>ROWID</code> value when it sends it
   * to the database
@@ -4230,7 +4230,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
  * Sets the designated parameter to the given <code>java.sql.RowId</code> object. The
  * driver converts this to a SQL <code>ROWID</code> when it sends it to the
  * database.
@@ -4244,7 +4244,7 @@ public static final int ASCII_STREAM_PARAM = 2;
         throw new SQLFeatureNotSupportedException("Feature not supported");
    }
 
- /**
+ /** {@collect.stats}
   * Sets the designated paramter to the given <code>String</code> object.
   * The driver converts this to a SQL <code>NCHAR</code> or
   * <code>NVARCHAR</code> or <code>LONGNVARCHAR</code> value
@@ -4264,7 +4264,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated paramter to the given <code>String</code> object.
   * The driver converts this to a SQL <code>NCHAR</code> or
   * <code>NVARCHAR</code> or <code>LONGNVARCHAR</code>
@@ -4281,7 +4281,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object. The
   * <code>Reader</code> reads the data till end-of-file is reached. The
   * driver does the necessary conversion from Java character format to
@@ -4299,7 +4299,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object. The
   * <code>Reader</code> reads the data till end-of-file is reached. The
   * driver does the necessary conversion from Java character format to
@@ -4318,7 +4318,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object. The
   * <code>Reader</code> reads the data till end-of-file is reached. The
   * driver does the necessary conversion from Java character format to
@@ -4345,7 +4345,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
  * Sets the designated parameter to a <code>java.sql.NClob</code> object. The object
  * implements the <code>java.sql.NClob</code> interface. This <code>NClob</code>
  * object maps to a SQL <code>NCLOB</code>.
@@ -4361,7 +4361,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain    * the number
              * of characters specified by length otherwise a <code>SQLException</code> will be
             * generated when the <code>CallableStatement</code> is executed.
@@ -4390,7 +4390,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object.
   * This method differs from the <code>setCharacterStream (int, Reader)</code> method
   * because it informs the driver that the parameter value should be sent to
@@ -4417,7 +4417,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>Reader</code> object.  The reader must contain  the number
      * of characters specified by length otherwise a <code>SQLException</code> will be
      * generated when the <code>PreparedStatement</code> is executed.
@@ -4445,7 +4445,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the designated parameter to a <code>java.sql.NClob</code> object. The driver converts this oa
      * SQL <code>NCLOB</code> value when it sends it to the database.
      * @param parameterIndex of the first parameter is 1, the second is 2, ...
@@ -4460,7 +4460,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to a <code>Reader</code> object.
   * This method differs from the <code>setCharacterStream (int, Reader)</code> method
   * because it informs the driver that the parameter value should be sent to
@@ -4489,7 +4489,7 @@ public static final int ASCII_STREAM_PARAM = 2;
    }
 
 
- /**
+ /** {@collect.stats}
   * Sets the designated parameter to the given <code>java.net.URL</code> value.
   * The driver converts this to an SQL <code>DATALINK</code> value
   * when it sends it to the database.

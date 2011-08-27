@@ -29,7 +29,7 @@ import java.util.EventObject;
 import javax.swing.*;
 
 
-/**
+/** {@collect.stats}
  * An event that characterizes a change in selection. The change is limited to a
  * a single inclusive interval. The selection of at least one index within the
  * range will have changed. A decent {@code ListSelectionModel} implementation
@@ -56,7 +56,7 @@ public class ListSelectionEvent extends EventObject
     private int lastIndex;
     private boolean isAdjusting;
 
-    /**
+    /** {@collect.stats}
      * Represents a change in selection status between {@code firstIndex} and
      * {@code lastIndex}, inclusive. {@code firstIndex} is less than or equal to
      * {@code lastIndex}. The selection of at least one index within the range will
@@ -76,7 +76,7 @@ public class ListSelectionEvent extends EventObject
         this.isAdjusting = isAdjusting;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first row whose selection may have changed.
      * {@code getFirstIndex() &lt;= getLastIndex()}
      *
@@ -85,7 +85,7 @@ public class ListSelectionEvent extends EventObject
      */
     public int getFirstIndex() { return firstIndex; }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the last row whose selection may have changed.
      * {@code getLastIndex() &gt;= getFirstIndex()}
      *
@@ -94,7 +94,7 @@ public class ListSelectionEvent extends EventObject
      */
     public int getLastIndex() { return lastIndex; }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not this is one in a series of multiple events,
      * where changes are still being made. See the documentation for
      * {@link javax.swing.ListSelectionModel#setValueIsAdjusting} for
@@ -105,7 +105,7 @@ public class ListSelectionEvent extends EventObject
      */
     public boolean getValueIsAdjusting() { return isAdjusting; }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code String} that displays and identifies this
      * object's properties.
      *

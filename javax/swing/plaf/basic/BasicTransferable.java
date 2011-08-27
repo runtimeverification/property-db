@@ -28,7 +28,7 @@ import java.io.*;
 import java.awt.datatransfer.*;
 import javax.swing.plaf.UIResource;
 
-/**
+/** {@collect.stats}
  * A transferable implementation for the default data transfer of some Swing
  * components.
  *
@@ -70,7 +70,7 @@ class BasicTransferable implements Transferable, UIResource {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of DataFlavor objects indicating the flavors the data
      * can be provided in.  The array should be ordered according to preference
      * for providing the data (from most richly descriptive to least descriptive).
@@ -106,7 +106,7 @@ class BasicTransferable implements Transferable, UIResource {
         return flavors;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the specified data flavor is supported for
      * this object.
      * @param flavor the requested flavor for the data
@@ -122,7 +122,7 @@ class BasicTransferable implements Transferable, UIResource {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object which represents the data to be transferred.  The class
      * of the object returned is defined by the representation class of the flavor.
      *
@@ -181,7 +181,7 @@ class BasicTransferable implements Transferable, UIResource {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Some subclasses will have flavors that are more descriptive than HTML
      * or plain text.  If this method returns a non-null value, it will be
      * placed at the start of the array of supported flavors.
@@ -196,7 +196,7 @@ class BasicTransferable implements Transferable, UIResource {
 
     // --- html flavors ----------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the specified data flavor is an HTML flavor that
      * is supported.
      * @param flavor the requested flavor for the data
@@ -212,7 +212,7 @@ class BasicTransferable implements Transferable, UIResource {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Should the HTML flavors be offered?  If so, the method
      * getHTMLData should be implemented to provide something reasonable.
      */
@@ -220,7 +220,7 @@ class BasicTransferable implements Transferable, UIResource {
         return htmlData != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the data in a text/html format
      */
     protected String getHTMLData() {
@@ -229,7 +229,7 @@ class BasicTransferable implements Transferable, UIResource {
 
     // --- plain text flavors ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the specified data flavor is an plain flavor that
      * is supported.
      * @param flavor the requested flavor for the data
@@ -245,7 +245,7 @@ class BasicTransferable implements Transferable, UIResource {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Should the plain text flavors be offered?  If so, the method
      * getPlainData should be implemented to provide something reasonable.
      */
@@ -253,7 +253,7 @@ class BasicTransferable implements Transferable, UIResource {
         return plainData != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the data in a text/plain format.
      */
     protected String getPlainData() {
@@ -262,7 +262,7 @@ class BasicTransferable implements Transferable, UIResource {
 
     // --- string flavorss --------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the specified data flavor is a String flavor that
      * is supported.
      * @param flavor the requested flavor for the data

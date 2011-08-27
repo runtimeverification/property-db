@@ -29,7 +29,7 @@ import java.applet.Applet;
 
 import java.beans.beancontext.BeanContext;
 
-/**
+/** {@collect.stats}
  * <p>
  * This interface is designed to work in collusion with java.beans.Beans.instantiate.
  * The interafce is intended to provide mechanism to allow the proper
@@ -46,7 +46,7 @@ import java.beans.beancontext.BeanContext;
 
 public interface AppletInitializer {
 
-    /**
+    /** {@collect.stats}
      * <p>
      * If passed to the appropriate variant of java.beans.Beans.instantiate
      * this method will be called in order to associate the newly instantiated
@@ -77,7 +77,7 @@ public interface AppletInitializer {
 
     void initialize(Applet newAppletBean, BeanContext bCtxt);
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Activate, and/or mark Applet active. Implementors of this interface
      * shall mark this Applet as active, and optionally invoke its start()

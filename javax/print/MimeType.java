@@ -35,7 +35,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * Class MimeType encapsulates a Multipurpose Internet Mail Extensions (MIME)
  * media type as defined in <A HREF="http://www.ietf.org/rfc/rfc2045.txt">RFC
  * 2045</A> and <A HREF="http://www.ietf.org/rfc/rfc2046.txt">RFC 2046</A>. A
@@ -84,7 +84,7 @@ class MimeType implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -2785720609362367683L;
 
-    /**
+    /** {@collect.stats}
      * Array of strings that hold pieces of this MIME type's canonical form.
      * If the MIME type has <I>n</I> parameters, <I>n</I> &gt;= 0, then the
      * strings in the array are:
@@ -99,22 +99,22 @@ class MimeType implements Serializable, Cloneable {
      */
     private String[] myPieces;
 
-    /**
+    /** {@collect.stats}
      * String value for this MIME type. Computed when needed and cached.
      */
     private transient String myStringValue = null;
 
-    /**
+    /** {@collect.stats}
      * Parameter map entry set. Computed when needed and cached.
      */
     private transient ParameterMapEntrySet myEntrySet = null;
 
-    /**
+    /** {@collect.stats}
      * Parameter map. Computed when needed and cached.
      */
     private transient ParameterMap myParameterMap = null;
 
-    /**
+    /** {@collect.stats}
      * Parameter map entry.
      */
     private class ParameterMapEntry implements Map.Entry {
@@ -142,7 +142,7 @@ class MimeType implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parameter map entry set iterator.
      */
     private class ParameterMapEntrySetIterator implements Iterator {
@@ -164,7 +164,7 @@ class MimeType implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parameter map entry set.
      */
     private class ParameterMapEntrySet extends AbstractSet {
@@ -176,7 +176,7 @@ class MimeType implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parameter map.
      */
     private class ParameterMap extends AbstractMap {
@@ -188,7 +188,7 @@ class MimeType implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MIME type object from the given string. The given
      * string is converted into canonical form and stored internally.
      *
@@ -204,7 +204,7 @@ class MimeType implements Serializable, Cloneable {
         parse (s);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this MIME type object's MIME type string based on the canonical
      * form. Each parameter value is enclosed in quotes.
      */
@@ -212,21 +212,21 @@ class MimeType implements Serializable, Cloneable {
         return getStringValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this MIME type object's media type.
      */
     public String getMediaType() {
         return myPieces[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this MIME type object's media subtype.
      */
     public String getMediaSubtype() {
         return myPieces[1];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable map view of the parameters in this MIME type
      * object. Each entry in the parameter map view consists of a parameter
      * name String (key) mapping to a parameter value String. If this MIME
@@ -241,7 +241,7 @@ class MimeType implements Serializable, Cloneable {
         return myParameterMap;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts this MIME type object to a string.
      *
      * @return  MIME type string based on the canonical form. Each parameter
@@ -251,14 +251,14 @@ class MimeType implements Serializable, Cloneable {
         return getStringValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this MIME type object.
      */
     public int hashCode() {
         return getStringValue().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if this MIME type object is equal to the given object. The two
      * are equal if the given object is not null, is an instance of class
      * net.jini.print.data.MimeType, and has the same canonical form as this
@@ -280,7 +280,7 @@ class MimeType implements Serializable, Cloneable {
                getStringValue().equals(((MimeType) obj).getStringValue()));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this MIME type's string value in canonical form.
      */
     private String getStringValue() {
@@ -466,7 +466,7 @@ class MimeType implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a lowercase version of the given string. The lowercase version
      * is constructed by applying Character.toLowerCase() to each character of
      * the given string, which maps characters to lowercase using the rules of
@@ -483,7 +483,7 @@ class MimeType implements Serializable, Cloneable {
         return new String (result);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a version of the given string with backslashes removed.
      */
     private static String removeBackslashes(String s) {
@@ -502,7 +502,7 @@ class MimeType implements Serializable, Cloneable {
         return new String (result, 0, j);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a version of the string surrounded by quotes and with interior
      * quotes preceded by a backslash.
      */
@@ -523,7 +523,7 @@ class MimeType implements Serializable, Cloneable {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the given string into canonical pieces and stores the pieces in
      * {@link #myPieces <CODE>myPieces</CODE>}.
      * <P>

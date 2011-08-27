@@ -26,7 +26,7 @@
 
 package javax.security.cert;
 
-/**
+/** {@collect.stats}
  * Certificate Expired Exception. This is thrown whenever the current
  * <code>Date</code> or the specified <code>Date</code> is after the
  * <code>notAfter</code> date/time specified in the validity period
@@ -43,7 +43,7 @@ package javax.security.cert;
  */
 public class CertificateExpiredException extends CertificateException {
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateExpiredException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -52,7 +52,7 @@ public class CertificateExpiredException extends CertificateException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateExpiredException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.

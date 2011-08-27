@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This class implements the <tt>Set</tt> interface, backed by a hash table
  * (actually a <tt>HashMap</tt> instance).  It makes no guarantees as to the
  * iteration order of the set; in particular, it does not guarantee that the
@@ -95,7 +95,7 @@ public class HashSet<E>
     // Dummy value to associate with an Object in the backing Map
     private static final Object PRESENT = new Object();
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * default initial capacity (16) and load factor (0.75).
      */
@@ -103,7 +103,7 @@ public class HashSet<E>
         map = new HashMap<E,Object>();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new set containing the elements in the specified
      * collection.  The <tt>HashMap</tt> is created with default load factor
      * (0.75) and an initial capacity sufficient to contain the elements in
@@ -117,7 +117,7 @@ public class HashSet<E>
         addAll(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * the specified initial capacity and the specified load factor.
      *
@@ -130,7 +130,7 @@ public class HashSet<E>
         map = new HashMap<E,Object>(initialCapacity, loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
      * the specified initial capacity and default load factor (0.75).
      *
@@ -142,7 +142,7 @@ public class HashSet<E>
         map = new HashMap<E,Object>(initialCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty linked hash set.  (This package private
      * constructor is only used by LinkedHashSet.) The backing
      * HashMap instance is a LinkedHashMap with the specified initial
@@ -159,7 +159,7 @@ public class HashSet<E>
         map = new LinkedHashMap<E,Object>(initialCapacity, loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this set.  The elements
      * are returned in no particular order.
      *
@@ -170,7 +170,7 @@ public class HashSet<E>
         return map.keySet().iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this set (its cardinality).
      *
      * @return the number of elements in this set (its cardinality)
@@ -179,7 +179,7 @@ public class HashSet<E>
         return map.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains no elements.
      *
      * @return <tt>true</tt> if this set contains no elements
@@ -188,7 +188,7 @@ public class HashSet<E>
         return map.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this set contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this set
      * contains an element <tt>e</tt> such that
@@ -201,7 +201,7 @@ public class HashSet<E>
         return map.containsKey(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified element to this set if it is not already present.
      * More formally, adds the specified element <tt>e</tt> to this set if
      * this set contains no element <tt>e2</tt> such that
@@ -217,7 +217,7 @@ public class HashSet<E>
         return map.put(e, PRESENT)==null;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified element from this set if it is present.
      * More formally, removes an element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,
@@ -233,7 +233,7 @@ public class HashSet<E>
         return map.remove(o)==PRESENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this set.
      * The set will be empty after this call returns.
      */
@@ -241,7 +241,7 @@ public class HashSet<E>
         map.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>HashSet</tt> instance: the elements
      * themselves are not cloned.
      *
@@ -257,7 +257,7 @@ public class HashSet<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Save the state of this <tt>HashSet</tt> instance to a stream (that is,
      * serialize it).
      *
@@ -284,7 +284,7 @@ public class HashSet<E>
             s.writeObject(i.next());
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the <tt>HashSet</tt> instance from a stream (that is,
      * deserialize it).
      */

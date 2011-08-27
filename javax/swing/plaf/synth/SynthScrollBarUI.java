@@ -33,7 +33,7 @@ import javax.swing.plaf.basic.*;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's ScrollBarUI.
  *
  * @author Scott Violet
@@ -272,7 +272,7 @@ class SynthScrollBarUI extends BasicScrollBarUI implements
                         orientation);
     }
 
-    /**
+    /** {@collect.stats}
      * A vertical scrollbar's preferred width is the maximum of
      * preferred widths of the (non <code>null</code>)
      * increment/decrement buttons,

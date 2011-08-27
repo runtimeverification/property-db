@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
  * This class provides a basic implementation of the <tt>Control</tt>
  * interface. It represents an LDAPv3 Control as defined in
  * <a href="http://www.ietf.org/rfc/rfc2251.txt">RFC 2251</a>.
@@ -35,21 +35,21 @@ package javax.naming.ldap;
  */
 public class BasicControl implements Control {
 
-    /**
+    /** {@collect.stats}
      * The control's object identifier string.
      *
      * @serial
      */
     protected String id;
 
-    /**
+    /** {@collect.stats}
      * The control's criticality.
      *
      * @serial
      */
     protected boolean criticality = false; // default
 
-    /**
+    /** {@collect.stats}
      * The control's ASN.1 BER encoded value.
      *
      * @serial
@@ -58,7 +58,7 @@ public class BasicControl implements Control {
 
     private static final long serialVersionUID = -4233907508771791687L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a non-critical control.
      *
      * @param   id      The control's object identifier string.
@@ -68,7 +68,7 @@ public class BasicControl implements Control {
         this.id = id;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a control using the supplied arguments.
      *
      * @param   id              The control's object identifier string.
@@ -84,7 +84,7 @@ public class BasicControl implements Control {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the control's object identifier string.
      *
      * @return The non-null object identifier string.
@@ -93,7 +93,7 @@ public class BasicControl implements Control {
         return id;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the control's criticality.
      *
      * @return true if the control is critical; false otherwise.
@@ -102,7 +102,7 @@ public class BasicControl implements Control {
         return criticality;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the control's ASN.1 BER encoded value.
      * The result includes the BER tag and length for the control's value but
      * does not include the control's object identifier and criticality setting.

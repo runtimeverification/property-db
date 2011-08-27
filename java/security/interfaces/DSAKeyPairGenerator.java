@@ -27,7 +27,7 @@ package java.security.interfaces;
 
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * An interface to an object capable of generating DSA key pairs.
  *
  * <p>The <code>initialize</code> methods may each be called any number
@@ -66,7 +66,7 @@ import java.security.*;
  */
 public interface DSAKeyPairGenerator {
 
-    /**
+    /** {@collect.stats}
      * Initializes the key pair generator using the DSA family parameters
      * (p,q and g) and an optional SecureRandom bit source. If a
      * SecureRandom bit source is needed but not supplied, i.e. null, a
@@ -83,7 +83,7 @@ public interface DSAKeyPairGenerator {
    public void initialize(DSAParams params, SecureRandom random)
    throws InvalidParameterException;
 
-    /**
+    /** {@collect.stats}
      * Initializes the key pair generator for a given modulus length
      * (instead of parameters), and an optional SecureRandom bit source.
      * If a SecureRandom bit source is needed but not supplied, i.e.

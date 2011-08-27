@@ -28,7 +28,7 @@ package javax.swing.event;
 import java.util.EventObject;
 
 
-/**
+/** {@collect.stats}
  * Defines an event that encapsulates changes to a list.
  * <p>
  * <strong>Warning:</strong>
@@ -44,18 +44,18 @@ import java.util.EventObject;
  */
 public class ListDataEvent extends EventObject
 {
-    /** Identifies one or more changes in the lists contents. */
+    /** {@collect.stats} Identifies one or more changes in the lists contents. */
     public static final int CONTENTS_CHANGED = 0;
-    /** Identifies the addition of one or more contiguous items to the list */
+    /** {@collect.stats} Identifies the addition of one or more contiguous items to the list */
     public static final int INTERVAL_ADDED = 1;
-    /** Identifies the removal of one or more contiguous items from the list */
+    /** {@collect.stats} Identifies the removal of one or more contiguous items from the list */
     public static final int INTERVAL_REMOVED = 2;
 
     private int type;
     private int index0;
     private int index1;
 
-    /**
+    /** {@collect.stats}
      * Returns the event type. The possible values are:
      * <ul>
      * <li> {@link #CONTENTS_CHANGED}
@@ -67,7 +67,7 @@ public class ListDataEvent extends EventObject
      */
     public int getType() { return type; }
 
-    /**
+    /** {@collect.stats}
      * Returns the lower index of the range. For a single
      * element, this value is the same as that returned by {@link #getIndex1}.
 
@@ -75,7 +75,7 @@ public class ListDataEvent extends EventObject
      * @return an int representing the lower index value
      */
     public int getIndex0() { return index0; }
-    /**
+    /** {@collect.stats}
      * Returns the upper index of the range. For a single
      * element, this value is the same as that returned by {@link #getIndex0}.
      *
@@ -83,7 +83,7 @@ public class ListDataEvent extends EventObject
      */
     public int getIndex1() { return index1; }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ListDataEvent object. If index0 is >
      * index1, index0 and index1 will be swapped such that
      * index0 will always be <= index1.
@@ -101,7 +101,7 @@ public class ListDataEvent extends EventObject
         this.index1 = Math.max(index0, index1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this ListDataEvent. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between

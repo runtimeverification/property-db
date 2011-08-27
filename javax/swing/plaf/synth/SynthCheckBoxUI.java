@@ -32,7 +32,7 @@ import javax.swing.plaf.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Synth's CheckBoxUI.
  *
  * @author Jeff Dinkins

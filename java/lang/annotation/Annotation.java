@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/**
+/** {@collect.stats}
  * The common interface extended by all annotation types.  Note that an
  * interface that manually extends this one does <i>not</i> define
  * an annotation type.  Also note that this interface does not itself
@@ -35,7 +35,7 @@ package java.lang.annotation;
  * @since   1.5
  */
 public interface Annotation {
-    /**
+    /** {@collect.stats}
      * Returns true if the specified object represents an annotation
      * that is logically equivalent to this one.  In other words,
      * returns true if the specified object is an instance of the same
@@ -73,7 +73,7 @@ public interface Annotation {
      */
     boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code of this annotation, as defined below:
      *
      * <p>The hash code of an annotation is the sum of the hash codes
@@ -109,7 +109,7 @@ public interface Annotation {
      */
     int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this annotation.  The details
      * of the representation are implementation-dependent, but the following
      * may be regarded as typical:
@@ -121,7 +121,7 @@ public interface Annotation {
      */
     String toString();
 
-    /**
+    /** {@collect.stats}
      * Returns the annotation type of this annotation.
      */
     Class<? extends Annotation> annotationType();

@@ -28,7 +28,7 @@ package javax.management.remote;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * <p>Exception thrown by {@link JMXConnectorFactory} and
  * {@link JMXConnectorServerFactory} when a provider exists for
  * the required protocol but cannot be used for some reason.</p>
@@ -41,14 +41,14 @@ public class JMXProviderException extends IOException {
 
     private static final long serialVersionUID = -3166703627550447198L;
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXProviderException</code> with no
      * specified detail message.</p>
      */
     public JMXProviderException() {
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXProviderException</code> with the
      * specified detail message.</p>
      *
@@ -58,7 +58,7 @@ public class JMXProviderException extends IOException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a <code>JMXProviderException</code> with the
      * specified detail message and nested exception.</p>
      *
@@ -74,7 +74,7 @@ public class JMXProviderException extends IOException {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * @serial An exception that caused this exception to be thrown.
      *         This field may be null.
      * @see #getCause()

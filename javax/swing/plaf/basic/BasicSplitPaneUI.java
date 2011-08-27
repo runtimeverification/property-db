@@ -43,7 +43,7 @@ import javax.swing.plaf.UIResource;
 import sun.swing.SwingUtilities2;
 
 
-/**
+/** {@collect.stats}
  * A Basic L&F implementation of the SplitPaneUI.
  *
  * @author Scott Violet
@@ -52,7 +52,7 @@ import sun.swing.SwingUtilities2;
  */
 public class BasicSplitPaneUI extends SplitPaneUI
 {
-    /**
+    /** {@collect.stats}
      * The divider used for non-continuous layout is added to the split pane
      * with this object.
      */
@@ -60,39 +60,39 @@ public class BasicSplitPaneUI extends SplitPaneUI
         "nonContinuousDivider";
 
 
-    /**
+    /** {@collect.stats}
      * How far (relative) the divider does move when it is moved around by
      * the cursor keys on the keyboard.
      */
     protected static int KEYBOARD_DIVIDER_MOVE_OFFSET = 3;
 
 
-    /**
+    /** {@collect.stats}
      * JSplitPane instance this instance is providing
      * the look and feel for.
      */
     protected JSplitPane splitPane;
 
 
-    /**
+    /** {@collect.stats}
      * LayoutManager that is created and placed into the split pane.
      */
     protected BasicHorizontalLayoutManager layoutManager;
 
 
-    /**
+    /** {@collect.stats}
      * Instance of the divider for this JSplitPane.
      */
     protected BasicSplitPaneDivider divider;
 
 
-    /**
+    /** {@collect.stats}
      * Instance of the PropertyChangeListener for this JSplitPane.
      */
     protected PropertyChangeListener propertyChangeListener;
 
 
-    /**
+    /** {@collect.stats}
      * Instance of the FocusListener for this JSplitPane.
      */
     protected FocusListener focusListener;
@@ -100,46 +100,46 @@ public class BasicSplitPaneUI extends SplitPaneUI
     private Handler handler;
 
 
-    /**
+    /** {@collect.stats}
      * Keys to use for forward focus traversal when the JComponent is
      * managing focus.
      */
     private Set managingFocusForwardTraversalKeys;
 
-    /**
+    /** {@collect.stats}
      * Keys to use for backward focus traversal when the JComponent is
      * managing focus.
      */
     private Set managingFocusBackwardTraversalKeys;
 
 
-    /**
+    /** {@collect.stats}
      * The size of the divider while the dragging session is valid.
      */
     protected int dividerSize;
 
 
-    /**
+    /** {@collect.stats}
      * Instance for the shadow of the divider when non continuous layout
      * is being used.
      */
     protected Component nonContinuousLayoutDivider;
 
 
-    /**
+    /** {@collect.stats}
      * Set to true in startDragging if any of the children
      * (not including the nonContinuousLayoutDivider) are heavy weights.
      */
     protected boolean draggingHW;
 
 
-    /**
+    /** {@collect.stats}
      * Location of the divider when the dragging session began.
      */
     protected int beginDragDividerLocation;
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -149,7 +149,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke upKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -159,7 +159,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke downKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -169,7 +169,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke leftKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -179,7 +179,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke rightKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -189,7 +189,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke homeKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -199,7 +199,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected KeyStroke endKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -210,7 +210,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     @Deprecated
     protected KeyStroke dividerResizeToggleKey;
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -220,7 +220,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected ActionListener keyboardUpLeftListener;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -230,7 +230,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected ActionListener keyboardDownRightListener;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -240,7 +240,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected ActionListener keyboardHomeListener;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -250,7 +250,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
      */
     @Deprecated
     protected ActionListener keyboardEndListener;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -276,16 +276,16 @@ public class BasicSplitPaneUI extends SplitPaneUI
     // Indicates wether the one of splitpane sides is expanded
     private boolean keepHidden = false;
 
-    /** Indicates that we have painted once. */
+    /** {@collect.stats} Indicates that we have painted once. */
     // This is used by the LayoutManager to determine when it should use
     // the divider location provided by the JSplitPane. This is used as there
     // is no way to determine when the layout process has completed.
     boolean             painted;
-    /** If true, setDividerLocation does nothing. */
+    /** {@collect.stats} If true, setDividerLocation does nothing. */
     boolean             ignoreDividerLocationChange;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new BasicSplitPaneUI instance
      */
     public static ComponentUI createUI(JComponent x) {
@@ -305,7 +305,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
 
 
 
-    /**
+    /** {@collect.stats}
      * Installs the UI.
      */
     public void installUI(JComponent c) {
@@ -320,7 +320,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the UI defaults.
      */
     protected void installDefaults(){
@@ -386,7 +386,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the event listeners for the UI.
      */
     protected void installListeners() {
@@ -401,7 +401,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Installs the keyboard actions for the UI.
      */
     protected void installKeyboardActions() {
@@ -423,7 +423,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the UI.
      */
     public void uninstallUI(JComponent c) {
@@ -436,7 +436,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the UI defaults.
      */
     protected void uninstallDefaults() {
@@ -471,7 +471,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the event listeners for the UI.
      */
     protected void uninstallListeners() {
@@ -493,7 +493,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the keyboard actions for the UI.
      */
     protected void uninstallKeyboardActions() {
@@ -504,7 +504,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a PropertyChangeListener for the JSplitPane UI.
      */
     protected PropertyChangeListener createPropertyChangeListener() {
@@ -519,7 +519,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a FocusListener for the JSplitPane UI.
      */
     protected FocusListener createFocusListener() {
@@ -527,7 +527,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no
      * longer used. Subclassers previously using this method should
      * instead create an Action wrapping the ActionListener, and register
@@ -546,7 +546,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no
      * longer used. Subclassers previously using this method should
      * instead create an Action wrapping the ActionListener, and register
@@ -565,7 +565,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no
      * longer used. Subclassers previously using this method should
      * instead create an Action wrapping the ActionListener, and register
@@ -584,7 +584,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no
      * longer used. Subclassers previously using this method should
      * instead create an Action wrapping the ActionListener, and register
@@ -603,7 +603,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no
      * longer used. Subclassers previously using this method should
      * instead create an Action wrapping the ActionListener, and register
@@ -622,7 +622,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the orientation for the JSplitPane.
      */
     public int getOrientation() {
@@ -630,7 +630,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the orientation for the JSplitPane.
      */
     public void setOrientation(int orientation) {
@@ -638,7 +638,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines wether the JSplitPane is set to use a continuous layout.
      */
     public boolean isContinuousLayout() {
@@ -646,7 +646,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Turn continuous layout on/off.
      */
     public void setContinuousLayout(boolean b) {
@@ -654,7 +654,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the last drag location of the JSplitPane.
      */
     public int getLastDragLocation() {
@@ -662,21 +662,21 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the last drag location of the JSplitPane.
      */
     public void setLastDragLocation(int l) {
         lastDragLocation = l;
     }
 
-    /**
+    /** {@collect.stats}
      * @return increment via keyboard methods.
      */
     int getKeyboardMoveIncrement() {
         return 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of the PropertyChangeListener
      * that the JSplitPane UI uses.
      * <p>
@@ -690,7 +690,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         // new functionality add it to the Handler, but make sure this
         // class calls into the Handler.
 
-        /**
+        /** {@collect.stats}
          * Messaged from the <code>JSplitPane</code> the receiver is
          * contained in.  May potentially reset the layout manager and cause a
          * <code>validate</code> to be sent.
@@ -701,7 +701,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of the FocusListener that the JSplitPane UI uses.
      * <p>
      * This class should be treated as a &quot;protected&quot; inner class.
@@ -723,7 +723,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of an ActionListener that the JSplitPane UI uses for
      * handling specific key presses.
      * <p>
@@ -740,7 +740,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of an ActionListener that the JSplitPane UI uses for
      * handling specific key presses.
      * <p>
@@ -758,7 +758,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of an ActionListener that the JSplitPane UI uses for
      * handling specific key presses.
      * <p>
@@ -775,7 +775,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of an ActionListener that the JSplitPane UI uses for
      * handling specific key presses.
      * <p>
@@ -803,7 +803,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of an ActionListener that the JSplitPane UI uses for
      * handling specific key presses.
      * <p>
@@ -819,7 +819,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the divider between the top Components.
      */
     public BasicSplitPaneDivider getDivider() {
@@ -827,7 +827,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the default non continuous layout divider, which is an
      * instanceof Canvas that fills the background in dark gray.
      */
@@ -849,7 +849,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the divider to use when the splitPane is configured to
      * not continuously layout. This divider will only be used during a
      * dragging session. It is recommended that the passed in component
@@ -860,7 +860,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the divider to use.
      */
     protected void setNonContinuousLayoutDivider(Component newDivider,
@@ -903,7 +903,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the divider to use when the splitPane is configured to
      * not continuously layout. This divider will only be used during a
      * dragging session.
@@ -913,7 +913,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the splitpane this instance is currently contained
      * in.
      */
@@ -922,7 +922,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates the default divider.
      */
     public BasicSplitPaneDivider createDefaultDivider() {
@@ -930,7 +930,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Messaged to reset the preferred sizes.
      */
     public void resetToPreferredSizes(JSplitPane jc) {
@@ -942,7 +942,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the location of the divider to location.
      */
     public void setDividerLocation(JSplitPane jc, int location) {
@@ -970,7 +970,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the divider, which may differ from what
      * the splitpane thinks the location of the divider is.
      */
@@ -981,7 +981,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the minimum location of the divider.
      */
     public int getMinimumDividerLocation(JSplitPane jc) {
@@ -1008,7 +1008,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the maximum location of the divider.
      */
     public int getMaximumDividerLocation(JSplitPane jc) {
@@ -1040,7 +1040,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Messaged after the JSplitPane the receiver is providing the look
      * and feel for paints its children.
      */
@@ -1061,7 +1061,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Messaged to paint the look and feel.
      */
     public void paint(Graphics g, JComponent jc) {
@@ -1073,7 +1073,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size for the passed in component,
      * This is passed off to the current layoutmanager.
      */
@@ -1084,7 +1084,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum size for the passed in component,
      * This is passed off to the current layoutmanager.
      */
@@ -1095,7 +1095,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum size for the passed in component,
      * This is passed off to the current layoutmanager.
      */
@@ -1106,7 +1106,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the insets. The insets are returned from the border insets
      * of the current border.
      */
@@ -1115,7 +1115,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the layout manager based on orientation and messages it
      * with invalidateLayout to pull in appropriate Components.
      */
@@ -1131,14 +1131,14 @@ public class BasicSplitPaneUI extends SplitPaneUI
         splitPane.repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Set the value to indicate if one of the splitpane sides is expanded.
      */
     void setKeepHidden(boolean keepHidden) {
         this.keepHidden = keepHidden;
     }
 
-    /**
+    /** {@collect.stats}
      * The value returned indicates if one of the splitpane sides is expanded.
      * @return true if one of the splitpane sides is expanded, false otherwise.
      */
@@ -1146,7 +1146,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         return keepHidden;
     }
 
-    /**
+    /** {@collect.stats}
      * Should be messaged before the dragging session starts, resets
      * lastDragLocation and dividerSize.
      */
@@ -1186,7 +1186,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Messaged during a dragging session to move the divider to the
      * passed in location. If continuousLayout is true the location is
      * reset and the splitPane validated.
@@ -1229,7 +1229,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Messaged to finish the dragging session. If not continuous display
      * the dividers location will be reset.
      */
@@ -1254,7 +1254,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this method is no longer used. Instead
      * you should set the border on the divider.
      * <p>
@@ -1269,7 +1269,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * LayoutManager for JSplitPanes that have an orientation of
      * HORIZONTAL_SPLIT.
      */
@@ -1278,11 +1278,11 @@ public class BasicSplitPaneUI extends SplitPaneUI
         /* left, right, divider. (in this exact order) */
         protected int[]         sizes;
         protected Component[]   components;
-        /** Size of the splitpane the last time laid out. */
+        /** {@collect.stats} Size of the splitpane the last time laid out. */
         private int             lastSplitPaneSize;
-        /** True if resetToPreferredSizes has been invoked. */
+        /** {@collect.stats} True if resetToPreferredSizes has been invoked. */
         private boolean         doReset;
-        /** Axis, 0 for horizontal, or 1 for veritcal. */
+        /** {@collect.stats} Axis, 0 for horizontal, or 1 for veritcal. */
         private int             axis;
 
 
@@ -1301,7 +1301,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         // LayoutManager
         //
 
-        /**
+        /** {@collect.stats}
          * Does the actual layout.
          */
         public void layoutContainer(Container container) {
@@ -1402,7 +1402,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Adds the component at place.  Place must be one of
          * JSplitPane.LEFT, RIGHT, TOP, BOTTOM, or null (for the
          * divider).
@@ -1438,7 +1438,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum size needed to contain the children.
          * The width is the sum of all the childrens min widths and
          * the height is the largest of the childrens minimum heights.
@@ -1471,7 +1471,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred size needed to contain the children.
          * The width is the sum of all the childrens preferred widths and
          * the height is the largest of the childrens preferred heights.
@@ -1505,7 +1505,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Removes the specified component from our knowledge.
          */
         public void removeLayoutComponent(Component component) {
@@ -1524,7 +1524,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         //
 
 
-        /**
+        /** {@collect.stats}
          * Adds the specified component to the layout, using the specified
          * constraint object.
          * @param comp the component to be added
@@ -1541,7 +1541,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the alignment along the x axis.  This specifies how
          * the component would like to be aligned relative to other
          * components.  The value should be a number between 0 and 1
@@ -1553,7 +1553,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the alignment along the y axis.  This specifies how
          * the component would like to be aligned relative to other
          * components.  The value should be a number between 0 and 1
@@ -1565,7 +1565,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Does nothing. If the developer really wants to change the
          * size of one of the views JSplitPane.resetToPreferredSizes should
          * be messaged.
@@ -1574,7 +1574,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum layout size, which is Integer.MAX_VALUE
          * in both directions.
          */
@@ -1587,7 +1587,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         // New methods.
         //
 
-        /**
+        /** {@collect.stats}
          * Marks the receiver so that the next time this instance is
          * laid out it'll ask for the preferred sizes.
          */
@@ -1595,7 +1595,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             doReset = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the size of the Component at the passed in location.
          */
         protected void resetSizeAt(int index) {
@@ -1604,7 +1604,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Sets the sizes to <code>newSizes</code>.
          */
         protected void setSizes(int[] newSizes) {
@@ -1612,7 +1612,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the sizes of the components.
          */
         protected int[] getSizes() {
@@ -1623,7 +1623,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the width of the passed in Components preferred size.
          */
         protected int getPreferredSizeOfComponent(Component c) {
@@ -1631,7 +1631,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the width of the passed in Components minimum size.
          */
         int getMinimumSizeOfComponent(Component c) {
@@ -1639,7 +1639,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the width of the passed in component.
          */
         protected int getSizeOfComponent(Component c) {
@@ -1647,7 +1647,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the available width based on the container size and
          * Insets.
          */
@@ -1661,7 +1661,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the left inset, unless the Insets are null in which case
          * 0 is returned.
          */
@@ -1672,7 +1672,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Sets the width of the component c to be size, placing its
          * x location at location, y to the insets.top and height
          * to the containersize.height less the top and bottom insets.
@@ -1701,7 +1701,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * If the axis == 0, the width is returned, otherwise the height.
          */
         int getSizeForPrimaryAxis(Dimension size) {
@@ -1711,7 +1711,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return size.height;
         }
 
-        /**
+        /** {@collect.stats}
          * If the axis == 0, the width is returned, otherwise the height.
          */
         int getSizeForSecondaryAxis(Dimension size) {
@@ -1721,7 +1721,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return size.width;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a particular value of the inset identified by the
          * axis and <code>isTop</code><p>
          *   axis isTop
@@ -1743,7 +1743,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return insets.bottom;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a particular value of the inset identified by the
          * axis and <code>isTop</code><p>
          *   axis isTop
@@ -1765,7 +1765,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return insets.right;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the components. This should be called whenever
          * a new instance of this is installed into an existing
          * SplitPane.
@@ -1818,7 +1818,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the size of the first component to <code>leftSize</code>,
          * and the right component to the remainder of the space.
          */
@@ -1851,7 +1851,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an array of the minimum sizes of the components.
          */
         int[] getPreferredSizes() {
@@ -1870,7 +1870,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return retValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an array of the minimum sizes of the components.
          */
         int[] getMinimumSizes() {
@@ -1891,7 +1891,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             return retValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the components to their preferred sizes.
          */
         void resetToPreferredSizes(int availableSize) {
@@ -1919,7 +1919,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
             distributeSpace(availableSize - totalSize, false);
         }
 
-        /**
+        /** {@collect.stats}
          * Distributes <code>space</code> between the two components
          * (divider won't get any extra space) based on the weighting. This
          * attempts to honor the min size of the components.
@@ -2014,7 +2014,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * LayoutManager used for JSplitPanes with an orientation of
      * VERTICAL_SPLIT.
      * <p>
@@ -2032,7 +2032,7 @@ public class BasicSplitPaneUI extends SplitPaneUI
         //
         // PropertyChangeListener
         //
-        /**
+        /** {@collect.stats}
          * Messaged from the <code>JSplitPane</code> the receiver is
          * contained in.  May potentially reset the layout manager and cause a
          * <code>validate</code> to be sent.

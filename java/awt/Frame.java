@@ -39,7 +39,7 @@ import sun.awt.SunToolkit;
 import java.lang.ref.WeakReference;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A <code>Frame</code> is a top-level window with a title and a border.
  * <p>
  * The size of the frame includes any area designated for the
@@ -137,93 +137,93 @@ public class Frame extends Window implements MenuContainer {
      * variables going forward. See Cursor and Component.setCursor.
      */
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.DEFAULT_CURSOR</code>.
     */
     @Deprecated
     public static final int     DEFAULT_CURSOR                  = Cursor.DEFAULT_CURSOR;
 
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.CROSSHAIR_CURSOR</code>.
     */
     @Deprecated
     public static final int     CROSSHAIR_CURSOR                = Cursor.CROSSHAIR_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.TEXT_CURSOR</code>.
     */
     @Deprecated
     public static final int     TEXT_CURSOR                     = Cursor.TEXT_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.WAIT_CURSOR</code>.
     */
     @Deprecated
     public static final int     WAIT_CURSOR                     = Cursor.WAIT_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.SW_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     SW_RESIZE_CURSOR                = Cursor.SW_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.SE_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     SE_RESIZE_CURSOR                = Cursor.SE_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.NW_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     NW_RESIZE_CURSOR                = Cursor.NW_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.NE_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     NE_RESIZE_CURSOR                = Cursor.NE_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.N_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     N_RESIZE_CURSOR                 = Cursor.N_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.S_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     S_RESIZE_CURSOR                 = Cursor.S_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.W_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     W_RESIZE_CURSOR                 = Cursor.W_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.E_RESIZE_CURSOR</code>.
     */
     @Deprecated
     public static final int     E_RESIZE_CURSOR                 = Cursor.E_RESIZE_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.HAND_CURSOR</code>.
     */
     @Deprecated
     public static final int     HAND_CURSOR                     = Cursor.HAND_CURSOR;
 
-   /**
+   /** {@collect.stats}
     * @deprecated   replaced by <code>Cursor.MOVE_CURSOR</code>.
     */
     @Deprecated
     public static final int     MOVE_CURSOR                     = Cursor.MOVE_CURSOR;
 
 
-    /**
+    /** {@collect.stats}
      * Frame is in the "normal" state.  This symbolic constant names a
      * frame state with all state bits cleared.
      * @see #setExtendedState(int)
@@ -231,14 +231,14 @@ public class Frame extends Window implements MenuContainer {
      */
     public static final int NORMAL = 0;
 
-    /**
+    /** {@collect.stats}
      * This state bit indicates that frame is iconified.
      * @see #setExtendedState(int)
      * @see #getExtendedState
      */
     public static final int ICONIFIED = 1;
 
-    /**
+    /** {@collect.stats}
      * This state bit indicates that frame is maximized in the
      * horizontal direction.
      * @see #setExtendedState(int)
@@ -247,7 +247,7 @@ public class Frame extends Window implements MenuContainer {
      */
     public static final int MAXIMIZED_HORIZ = 2;
 
-    /**
+    /** {@collect.stats}
      * This state bit indicates that frame is maximized in the
      * vertical direction.
      * @see #setExtendedState(int)
@@ -256,7 +256,7 @@ public class Frame extends Window implements MenuContainer {
      */
     public static final int MAXIMIZED_VERT = 4;
 
-    /**
+    /** {@collect.stats}
      * This state bit mask indicates that frame is fully maximized
      * (that is both horizontally and vertically).  It is just a
      * convenience alias for
@@ -278,7 +278,7 @@ public class Frame extends Window implements MenuContainer {
      */
     public static final int MAXIMIZED_BOTH = MAXIMIZED_VERT | MAXIMIZED_HORIZ;
 
-    /**
+    /** {@collect.stats}
      * Maximized bounds for this frame.
      * @see     #setMaximizedBounds(Rectangle)
      * @see     #getMaximizedBounds
@@ -288,7 +288,7 @@ public class Frame extends Window implements MenuContainer {
     Rectangle maximizedBounds;
 
 
-    /**
+    /** {@collect.stats}
      * This is the title of the frame.  It can be changed
      * at any time.  <code>title</code> can be null and if
      * this is the case the <code>title</code> = "".
@@ -299,7 +299,7 @@ public class Frame extends Window implements MenuContainer {
      */
     String      title = "Untitled";
 
-    /**
+    /** {@collect.stats}
      * The frames menubar.  If <code>menuBar</code> = null
      * the frame will not have a menubar.
      *
@@ -309,7 +309,7 @@ public class Frame extends Window implements MenuContainer {
      */
     MenuBar     menuBar;
 
-    /**
+    /** {@collect.stats}
      * This field indicates whether the frame is resizable.
      * This property can be changed at any time.
      * <code>resizable</code> will be true if the frame is
@@ -320,7 +320,7 @@ public class Frame extends Window implements MenuContainer {
      */
     boolean     resizable = true;
 
-    /**
+    /** {@collect.stats}
      * This field indicates whether the frame is undecorated.
      * This property can only be changed while the frame is not displayable.
      * <code>undecorated</code> will be true if the frame is
@@ -334,7 +334,7 @@ public class Frame extends Window implements MenuContainer {
      */
     boolean undecorated = false;
 
-    /**
+    /** {@collect.stats}
      * <code>mbManagement</code> is only used by the Motif implementation.
      *
      * @serial
@@ -370,7 +370,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <code>Frame</code> that is
      * initially invisible.  The title of the <code>Frame</code>
      * is empty.
@@ -384,7 +384,7 @@ public class Frame extends Window implements MenuContainer {
         this("");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, initially invisible {@code Frame} with the
      * specified {@code GraphicsConfiguration}.
      *
@@ -403,7 +403,7 @@ public class Frame extends Window implements MenuContainer {
         this("", gc);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, initially invisible <code>Frame</code> object
      * with the specified title.
      * @param title the title to be displayed in the frame's border.
@@ -420,7 +420,7 @@ public class Frame extends Window implements MenuContainer {
         init(title, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, initially invisible <code>Frame</code> object
      * with the specified title and a
      * <code>GraphicsConfiguration</code>.
@@ -451,7 +451,7 @@ public class Frame extends Window implements MenuContainer {
         SunToolkit.checkAndSetPolicy(this, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -461,7 +461,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes this Frame displayable by connecting it to
      * a native screen resource.  Making a frame displayable will
      * cause any of its children to be made displayable.
@@ -487,7 +487,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the title of the frame.  The title is displayed in the
      * frame's border.
      * @return    the title of this frame, or an empty string ("")
@@ -498,7 +498,7 @@ public class Frame extends Window implements MenuContainer {
         return title;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the title for this frame to the specified string.
      * @param title the title to be displayed in the frame's border.
      *              A <code>null</code> value
@@ -522,7 +522,7 @@ public class Frame extends Window implements MenuContainer {
         firePropertyChange("title", oldTitle, title);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the image to be displayed as the icon for this frame.
      * <p>
      * This method is obsolete and kept for backward compatibility
@@ -547,14 +547,14 @@ public class Frame extends Window implements MenuContainer {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setIconImage(Image image) {
         super.setIconImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the menu bar for this frame.
      * @return    the menu bar for this frame, or <code>null</code>
      *                   if this frame doesn't have a menu bar.
@@ -564,7 +564,7 @@ public class Frame extends Window implements MenuContainer {
         return menuBar;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the menu bar for this frame to the specified menu bar.
      * @param     mb the menu bar being set.
      *            If this parameter is <code>null</code> then any
@@ -599,7 +599,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this frame is resizable by the user.
      * By default, all frames are initially resizable.
      * @return    <code>true</code> if the user can resize this frame;
@@ -610,7 +610,7 @@ public class Frame extends Window implements MenuContainer {
         return resizable;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether this frame is resizable by the user.
      * @param    resizable   <code>true</code> if this frame is resizable;
      *                       <code>false</code> otherwise.
@@ -640,7 +640,7 @@ public class Frame extends Window implements MenuContainer {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the state of this frame (obsolete).
      * <p>
      * In older versions of JDK a frame state could only be NORMAL or
@@ -667,7 +667,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the state of this frame. The state is
      * represented as a bitwise mask.
      * <ul>
@@ -718,7 +718,7 @@ public class Frame extends Window implements MenuContainer {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the state of this frame (obsolete).
      * <p>
      * In older versions of JDK a frame state could only be NORMAL or
@@ -739,7 +739,7 @@ public class Frame extends Window implements MenuContainer {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the state of this frame. The state is
      * represented as a bitwise mask.
      * <ul>
@@ -765,7 +765,7 @@ public class Frame extends Window implements MenuContainer {
         return state;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximized bounds for this frame.
      * <p>
      * When a frame is in maximized state the system supplies some
@@ -793,7 +793,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets maximized bounds for this frame.
      * Some fields may contain <code>Integer.MAX_VALUE</code> to indicate
      * that system supplied values for this field must be used.
@@ -807,7 +807,7 @@ public class Frame extends Window implements MenuContainer {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Disables or enables decorations for this frame.
      * This method can only be called while the frame is not displayable.
      * @param  undecorated <code>true</code> if no frame decorations are
@@ -830,7 +830,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this frame is undecorated.
      * By default, all frames are initially decorated.
      * @return    <code>true</code> if frame is undecorated;
@@ -842,7 +842,7 @@ public class Frame extends Window implements MenuContainer {
         return undecorated;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified menu bar from this frame.
      * @param    m   the menu component to remove.
      *           If <code>m</code> is <code>null</code>, then
@@ -871,7 +871,7 @@ public class Frame extends Window implements MenuContainer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes this Frame undisplayable by removing its connection
      * to its native screen resource. Making a Frame undisplayable
      * will cause any of its children to be made undisplayable.
@@ -905,7 +905,7 @@ public class Frame extends Window implements MenuContainer {
         super.postProcessKeyEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this <code>Frame</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -943,7 +943,7 @@ public class Frame extends Window implements MenuContainer {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>Component.setCursor(Cursor)</code>.
      */
@@ -955,7 +955,7 @@ public class Frame extends Window implements MenuContainer {
         setCursor(Cursor.getPredefinedCursor(cursorType));
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>Component.getCursor()</code>.
      */
@@ -964,7 +964,7 @@ public class Frame extends Window implements MenuContainer {
         return (getCursor().getType());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all {@code Frame}s created by this application.
      * If called from an applet, the array includes only the {@code Frame}s
      * accessible by that applet.
@@ -1010,14 +1010,14 @@ public class Frame extends Window implements MenuContainer {
      * windows that are "owned" by this frame.
      */
 
-    /**
+    /** {@collect.stats}
      * <code>Frame</code>'s Serialized Data Version.
      *
      * @serial
      */
     private int frameSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * an optional serializable icon <code>Image</code>, which is
      * available as of 1.4.
@@ -1043,7 +1043,7 @@ public class Frame extends Window implements MenuContainer {
         s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code>.  Tries
      * to read an icon <code>Image</code>, which is optional
      * data available as of 1.4.  If an icon <code>Image</code>
@@ -1103,7 +1103,7 @@ public class Frame extends Window implements MenuContainer {
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -1113,7 +1113,7 @@ public class Frame extends Window implements MenuContainer {
      *
      */
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this Frame.
      * For frames, the AccessibleContext takes the form of an
      * AccessibleAWTFrame.
@@ -1130,7 +1130,7 @@ public class Frame extends Window implements MenuContainer {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Frame</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to frame user-interface elements.
@@ -1143,7 +1143,7 @@ public class Frame extends Window implements MenuContainer {
          */
         private static final long serialVersionUID = -6172960752956030250L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1154,7 +1154,7 @@ public class Frame extends Window implements MenuContainer {
             return AccessibleRole.FRAME;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current

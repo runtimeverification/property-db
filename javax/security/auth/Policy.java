@@ -25,7 +25,7 @@
 
 package javax.security.auth;
 
-/**
+/** {@collect.stats}
  * <p> This is an abstract class for representing the system policy for
  * Subject-based authorization.  A subclass implementation
  * of this class provides a means to specify a Subject-based
@@ -168,13 +168,13 @@ public abstract class Policy {
         });
     };
 
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected Policy() { }
 
-    /**
+    /** {@collect.stats}
      * Returns the installed Policy object.
      * This method first calls
      * <code>SecurityManager.checkPermission</code> with the
@@ -197,7 +197,7 @@ public abstract class Policy {
         return getPolicyNoCheck();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the installed Policy object, skipping the security check.
      *
      * @return the installed Policy.
@@ -246,7 +246,7 @@ public abstract class Policy {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the system-wide Policy object. This method first calls
      * <code>SecurityManager.checkPermission</code> with the
      * <code>AuthPermission("setPolicy")</code>
@@ -267,7 +267,7 @@ public abstract class Policy {
         Policy.policy = policy;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the Permissions granted to the Principals associated with
      * the specified <code>CodeSource</code>.
      *
@@ -295,7 +295,7 @@ public abstract class Policy {
                                         (Subject subject,
                                         java.security.CodeSource cs);
 
-    /**
+    /** {@collect.stats}
      * Refresh and reload the Policy.
      *
      * <p>This method causes this object to refresh/reload its current

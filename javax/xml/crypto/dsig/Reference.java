@@ -33,7 +33,7 @@ import javax.xml.crypto.XMLStructure;
 import java.io.InputStream;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A representation of the <code>Reference</code> element as defined in the
  * <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -77,7 +77,7 @@ import java.util.List;
  */
 public interface Reference extends URIReference, XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of {@link Transform}s that are contained in this
      * <code>Reference</code>.
@@ -87,14 +87,14 @@ public interface Reference extends URIReference, XMLStructure {
      */
     List getTransforms();
 
-    /**
+    /** {@collect.stats}
      * Returns the digest method of this <code>Reference</code>.
      *
      * @return the digest method
      */
     DigestMethod getDigestMethod();
 
-    /**
+    /** {@collect.stats}
      * Returns the optional <code>Id</code> attribute of this
      * <code>Reference</code>, which permits this reference to be
      * referenced from elsewhere.
@@ -104,7 +104,7 @@ public interface Reference extends URIReference, XMLStructure {
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Returns the digest value of this <code>Reference</code>.
      *
      * @return the raw digest value, or <code>null</code> if this reference has
@@ -113,7 +113,7 @@ public interface Reference extends URIReference, XMLStructure {
      */
     byte[] getDigestValue();
 
-    /**
+    /** {@collect.stats}
      * Returns the calculated digest value of this <code>Reference</code>
      * after a validation operation. This method is useful for debugging if
      * the reference fails to validate.
@@ -124,7 +124,7 @@ public interface Reference extends URIReference, XMLStructure {
      */
     byte[] getCalculatedDigestValue();
 
-    /**
+    /** {@collect.stats}
      * Validates this reference. This method verifies the digest of this
      * reference.
      *
@@ -142,7 +142,7 @@ public interface Reference extends URIReference, XMLStructure {
     boolean validate(XMLValidateContext validateContext)
         throws XMLSignatureException;
 
-    /**
+    /** {@collect.stats}
      * Returns the dereferenced data, if
      * <a href="XMLSignContext.html#Supported Properties">reference caching</a>
      * is enabled. This is the result of dereferencing the URI of this
@@ -154,7 +154,7 @@ public interface Reference extends URIReference, XMLStructure {
      */
     Data getDereferencedData();
 
-    /**
+    /** {@collect.stats}
      * Returns the pre-digested input stream, if
      * <a href="XMLSignContext.html#Supported Properties">reference caching</a>
      * is enabled. This is the input to the digest operation during a

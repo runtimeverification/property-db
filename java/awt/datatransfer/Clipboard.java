@@ -36,7 +36,7 @@ import java.io.IOException;
 import sun.awt.EventListenerAggregate;
 
 
-/**
+/** {@collect.stats}
  * A class that implements a mechanism to transfer data using
  * cut/copy/paste operations.
  * <p>
@@ -58,14 +58,14 @@ public class Clipboard {
     protected ClipboardOwner owner;
     protected Transferable contents;
 
-    /**
+    /** {@collect.stats}
      * An aggregate of flavor listeners registered on this local clipboard.
      *
      * @since 1.5
      */
     private EventListenerAggregate flavorListeners;
 
-    /**
+    /** {@collect.stats}
      * A set of <code>DataFlavor</code>s that is available on
      * this local clipboard. It is used for tracking changes
      * of <code>DataFlavor</code>s available on this clipboard.
@@ -74,7 +74,7 @@ public class Clipboard {
      */
     private Set currentDataFlavors;
 
-    /**
+    /** {@collect.stats}
      * Creates a clipboard object.
      *
      * @see java.awt.Toolkit#getSystemClipboard
@@ -83,7 +83,7 @@ public class Clipboard {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this clipboard object.
      *
      * @see java.awt.Toolkit#getSystemClipboard
@@ -92,7 +92,7 @@ public class Clipboard {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current contents of the clipboard to the specified
      * transferable object and registers the specified clipboard owner
      * as the owner of the new contents.
@@ -134,7 +134,7 @@ public class Clipboard {
         fireFlavorsChanged();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a transferable object representing the current contents
      * of the clipboard.  If the clipboard currently has no contents,
      * it returns <code>null</code>. The parameter Object requestor is
@@ -153,7 +153,7 @@ public class Clipboard {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>DataFlavor</code>s in which the current
      * contents of this clipboard can be provided. If there are no
      * <code>DataFlavor</code>s available, this method returns a zero-length
@@ -174,7 +174,7 @@ public class Clipboard {
         return cntnts.getTransferDataFlavors();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the current contents of this clipboard can be
      * provided in the specified <code>DataFlavor</code>.
      *
@@ -201,7 +201,7 @@ public class Clipboard {
         return cntnts.isDataFlavorSupported(flavor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object representing the current contents of this clipboard
      * in the specified <code>DataFlavor</code>.
      * The class of the object returned is defined by the representation
@@ -237,7 +237,7 @@ public class Clipboard {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Registers the specified <code>FlavorListener</code> to receive
      * <code>FlavorEvent</code>s from this clipboard.
      * If <code>listener</code> is <code>null</code>, no exception
@@ -262,7 +262,7 @@ public class Clipboard {
         flavorListeners.add(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified <code>FlavorListener</code> so that it no longer
      * receives <code>FlavorEvent</code>s from this <code>Clipboard</code>.
      * This method performs no function, nor does it throw an exception, if
@@ -286,7 +286,7 @@ public class Clipboard {
         flavorListeners.remove(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>FlavorListener</code>s currently
      * registered on this <code>Clipboard</code>.
      *
@@ -303,7 +303,7 @@ public class Clipboard {
                 (FlavorListener[])flavorListeners.getListenersCopy();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks change of the <code>DataFlavor</code>s and, if necessary,
      * notifies all listeners that have registered interest for notification
      * on <code>FlavorEvent</code>s.
@@ -331,7 +331,7 @@ public class Clipboard {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a set of <code>DataFlavor</code>s currently available
      * on this clipboard.
      *

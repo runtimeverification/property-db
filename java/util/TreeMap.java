@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * A Red-Black tree based {@link NavigableMap} implementation.
  * The map is sorted according to the {@linkplain Comparable natural
  * ordering} of its keys, or by a {@link Comparator} provided at map
@@ -106,7 +106,7 @@ public class TreeMap<K,V>
     extends AbstractMap<K,V>
     implements NavigableMap<K,V>, Cloneable, java.io.Serializable
 {
-    /**
+    /** {@collect.stats}
      * The comparator used to maintain order in this tree map, or
      * null if it uses the natural ordering of its keys.
      *
@@ -116,17 +116,17 @@ public class TreeMap<K,V>
 
     private transient Entry<K,V> root = null;
 
-    /**
+    /** {@collect.stats}
      * The number of entries in the tree
      */
     private transient int size = 0;
 
-    /**
+    /** {@collect.stats}
      * The number of structural modifications to the tree.
      */
     private transient int modCount = 0;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty tree map, using the natural ordering of its
      * keys.  All keys inserted into the map must implement the {@link
      * Comparable} interface.  Furthermore, all such keys must be
@@ -142,7 +142,7 @@ public class TreeMap<K,V>
         comparator = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new, empty tree map, ordered according to the given
      * comparator.  All keys inserted into the map must be <i>mutually
      * comparable</i> by the given comparator: <tt>comparator.compare(k1,
@@ -160,7 +160,7 @@ public class TreeMap<K,V>
         this.comparator = comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new tree map containing the same mappings as the given
      * map, ordered according to the <i>natural ordering</i> of its keys.
      * All keys inserted into the new map must implement the {@link
@@ -179,7 +179,7 @@ public class TreeMap<K,V>
         putAll(m);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new tree map containing the same mappings and
      * using the same ordering as the specified sorted map.  This
      * method runs in linear time.
@@ -200,7 +200,7 @@ public class TreeMap<K,V>
 
     // Query Operations
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this map.
      *
      * @return the number of key-value mappings in this map
@@ -209,7 +209,7 @@ public class TreeMap<K,V>
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.
      *
@@ -226,7 +226,7 @@ public class TreeMap<K,V>
         return getEntry(key) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.  More formally, returns <tt>true</tt> if and only if
      * this map contains at least one mapping to a value <tt>v</tt> such
@@ -246,7 +246,7 @@ public class TreeMap<K,V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -277,21 +277,21 @@ public class TreeMap<K,V>
         return comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public K firstKey() {
         return key(getFirstEntry());
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public K lastKey() {
         return key(getLastEntry());
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified map to this map.
      * These mappings replace any mappings that this map had for any
      * of the keys currently in the specified map.
@@ -321,7 +321,7 @@ public class TreeMap<K,V>
         super.putAll(map);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this map's entry for the given key, or <tt>null</tt> if the map
      * does not contain an entry for the key.
      *
@@ -353,7 +353,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Version of getEntry using comparator. Split off from getEntry
      * for performance. (This is not worth doing for most methods,
      * that are less dependent on comparator performance, but is
@@ -377,7 +377,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the entry corresponding to the specified key; if no such entry
      * exists, returns the entry for the least key greater than the specified
      * key; if no such entry exists (i.e., the greatest key in the Tree is less
@@ -410,7 +410,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the entry corresponding to the specified key; if no such entry
      * exists, returns the entry for the greatest key less than the specified
      * key; if no such entry exists, returns <tt>null</tt>.
@@ -443,7 +443,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the entry for the least key greater than the specified
      * key; if no such entry exists, returns the entry for the least
      * key greater than the specified key; if no such entry exists
@@ -475,7 +475,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the entry for the greatest key less than the specified key; if
      * no such entry exists (i.e., the least key in the Tree is greater than
      * the specified key), returns <tt>null</tt>.
@@ -506,7 +506,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for the key, the old
      * value is replaced.
@@ -579,7 +579,7 @@ public class TreeMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for this key from this TreeMap if present.
      *
      * @param  key key for which mapping should be removed
@@ -603,7 +603,7 @@ public class TreeMap<K,V>
         return oldValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
      */
@@ -613,7 +613,7 @@ public class TreeMap<K,V>
         root = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>TreeMap</tt> instance. (The keys and
      * values themselves are not cloned.)
      *
@@ -647,21 +647,21 @@ public class TreeMap<K,V>
 
     // NavigableMap API methods
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public Map.Entry<K,V> firstEntry() {
         return exportEntry(getFirstEntry());
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public Map.Entry<K,V> lastEntry() {
         return exportEntry(getLastEntry());
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public Map.Entry<K,V> pollFirstEntry() {
@@ -672,7 +672,7 @@ public class TreeMap<K,V>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public Map.Entry<K,V> pollLastEntry() {
@@ -683,7 +683,7 @@ public class TreeMap<K,V>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -694,7 +694,7 @@ public class TreeMap<K,V>
         return exportEntry(getLowerEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -705,7 +705,7 @@ public class TreeMap<K,V>
         return keyOrNull(getLowerEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -716,7 +716,7 @@ public class TreeMap<K,V>
         return exportEntry(getFloorEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -727,7 +727,7 @@ public class TreeMap<K,V>
         return keyOrNull(getFloorEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -738,7 +738,7 @@ public class TreeMap<K,V>
         return exportEntry(getCeilingEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -749,7 +749,7 @@ public class TreeMap<K,V>
         return keyOrNull(getCeilingEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -760,7 +760,7 @@ public class TreeMap<K,V>
         return exportEntry(getHigherEntry(key));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified key is null
      *         and this map uses natural ordering, or its comparator
@@ -773,7 +773,7 @@ public class TreeMap<K,V>
 
     // Views
 
-    /**
+    /** {@collect.stats}
      * Fields initialized to contain an instance of the entry set view
      * the first time this view is requested.  Views are stateless, so
      * there's no reason to create more than one.
@@ -782,7 +782,7 @@ public class TreeMap<K,V>
     private transient KeySet<K> navigableKeySet = null;
     private transient NavigableMap<K,V> descendingMap = null;
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set's iterator returns the keys in ascending order.
      * The set is backed by the map, so changes to the map are
@@ -800,7 +800,7 @@ public class TreeMap<K,V>
         return navigableKeySet();
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public NavigableSet<K> navigableKeySet() {
@@ -808,14 +808,14 @@ public class TreeMap<K,V>
         return (nks != null) ? nks : (navigableKeySet = new KeySet(this));
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public NavigableSet<K> descendingKeySet() {
         return descendingMap().navigableKeySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection's iterator returns the values in ascending order
      * of the corresponding keys.
@@ -835,7 +835,7 @@ public class TreeMap<K,V>
         return (vs != null) ? vs : (values = new Values());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set's iterator returns the entries in ascending key order.
      * The set is backed by the map, so changes to the map are
@@ -855,7 +855,7 @@ public class TreeMap<K,V>
         return (es != null) ? es : (entrySet = new EntrySet());
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public NavigableMap<K, V> descendingMap() {
@@ -866,7 +866,7 @@ public class TreeMap<K,V>
                                                   true, null, true));
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>fromKey</tt> or <tt>toKey</tt> is
      *         null and this map uses natural ordering, or its comparator
@@ -881,7 +881,7 @@ public class TreeMap<K,V>
                                    false, toKey,   toInclusive);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>toKey</tt> is null
      *         and this map uses natural ordering, or its comparator
@@ -895,7 +895,7 @@ public class TreeMap<K,V>
                                    false, toKey, inclusive);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>fromKey</tt> is null
      *         and this map uses natural ordering, or its comparator
@@ -909,7 +909,7 @@ public class TreeMap<K,V>
                                    true,  null,    true);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>fromKey</tt> or <tt>toKey</tt> is
      *         null and this map uses natural ordering, or its comparator
@@ -920,7 +920,7 @@ public class TreeMap<K,V>
         return subMap(fromKey, true, toKey, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>toKey</tt> is null
      *         and this map uses natural ordering, or its comparator
@@ -931,7 +931,7 @@ public class TreeMap<K,V>
         return headMap(toKey, false);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws ClassCastException       {@inheritDoc}
      * @throws NullPointerException if <tt>fromKey</tt> is null
      *         and this map uses natural ordering, or its comparator
@@ -1091,7 +1091,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Base class for TreeMap Iterators
      */
     abstract class PrivateEntryIterator<T> implements Iterator<T> {
@@ -1183,7 +1183,7 @@ public class TreeMap<K,V>
 
     // Little utilities
 
-    /**
+    /** {@collect.stats}
      * Compares two keys using the correct comparison method for this TreeMap.
      */
     final int compare(Object k1, Object k2) {
@@ -1191,7 +1191,7 @@ public class TreeMap<K,V>
             : comparator.compare((K)k1, (K)k2);
     }
 
-    /**
+    /** {@collect.stats}
      * Test two values for equality.  Differs from o1.equals(o2) only in
      * that it copes with <tt>null</tt> o1 properly.
      */
@@ -1199,7 +1199,7 @@ public class TreeMap<K,V>
         return (o1==null ? o2==null : o1.equals(o2));
     }
 
-    /**
+    /** {@collect.stats}
      * Return SimpleImmutableEntry for entry, or null if null
      */
     static <K,V> Map.Entry<K,V> exportEntry(TreeMap.Entry<K,V> e) {
@@ -1207,14 +1207,14 @@ public class TreeMap<K,V>
             new AbstractMap.SimpleImmutableEntry<K,V>(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Return key for entry, or null if null
      */
     static <K,V> K keyOrNull(TreeMap.Entry<K,V> e) {
         return e == null? null : e.key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key corresponding to the specified Entry.
      * @throws NoSuchElementException if the Entry is null
      */
@@ -1227,23 +1227,23 @@ public class TreeMap<K,V>
 
     // SubMaps
 
-    /**
+    /** {@collect.stats}
      * Dummy value serving as unmatchable fence key for unbounded
      * SubMapIterators
      */
     private static final Object UNBOUNDED = new Object();
 
-    /**
+    /** {@collect.stats}
      * @serial include
      */
     static abstract class NavigableSubMap<K,V> extends AbstractMap<K,V>
         implements NavigableMap<K,V>, java.io.Serializable {
-        /**
+        /** {@collect.stats}
          * The backing map.
          */
         final TreeMap<K,V> m;
 
-        /**
+        /** {@collect.stats}
          * Endpoints are represented as triples (fromStart, lo,
          * loInclusive) and (toEnd, hi, hiInclusive). If fromStart is
          * true, then the low (absolute) bound is the start of the
@@ -1360,14 +1360,14 @@ public class TreeMap<K,V>
             return (e == null || tooLow(e.key)) ? null : e;
         }
 
-        /** Returns the absolute high fence for ascending traversal */
+        /** {@collect.stats} Returns the absolute high fence for ascending traversal */
         final TreeMap.Entry<K,V> absHighFence() {
             return (toEnd ? null : (hiInclusive ?
                                     m.getHigherEntry(hi) :
                                     m.getCeilingEntry(hi)));
         }
 
-        /** Return the absolute low fence for descending traversal  */
+        /** {@collect.stats} Return the absolute low fence for descending traversal  */
         final TreeMap.Entry<K,V> absLowFence() {
             return (fromStart ? null : (loInclusive ?
                                         m.getLowerEntry(lo) :
@@ -1384,10 +1384,10 @@ public class TreeMap<K,V>
         abstract TreeMap.Entry<K,V> subFloor(K key);
         abstract TreeMap.Entry<K,V> subLower(K key);
 
-        /** Returns ascending iterator from the perspective of this submap */
+        /** {@collect.stats} Returns ascending iterator from the perspective of this submap */
         abstract Iterator<K> keyIterator();
 
-        /** Returns descending iterator from the perspective of this submap */
+        /** {@collect.stats} Returns descending iterator from the perspective of this submap */
         abstract Iterator<K> descendingKeyIterator();
 
         // public methods
@@ -1566,7 +1566,7 @@ public class TreeMap<K,V>
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Iterators for SubMaps
          */
         abstract class SubMapIterator<T> implements Iterator<T> {
@@ -1688,7 +1688,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @serial include
      */
     static final class AscendingSubMap<K,V> extends NavigableSubMap<K,V> {
@@ -1767,7 +1767,7 @@ public class TreeMap<K,V>
         TreeMap.Entry<K,V> subLower(K key)   { return absLower(key); }
     }
 
-    /**
+    /** {@collect.stats}
      * @serial include
      */
     static final class DescendingSubMap<K,V>  extends NavigableSubMap<K,V> {
@@ -1848,7 +1848,7 @@ public class TreeMap<K,V>
         TreeMap.Entry<K,V> subLower(K key)   { return absHigher(key); }
     }
 
-    /**
+    /** {@collect.stats}
      * This class exists solely for the sake of serialization
      * compatibility with previous releases of TreeMap that did not
      * support NavigableMap.  It translates an old-version SubMap into
@@ -1882,7 +1882,7 @@ public class TreeMap<K,V>
     private static final boolean RED   = false;
     private static final boolean BLACK = true;
 
-    /**
+    /** {@collect.stats}
      * Node in the Tree.  Doubles as a means to pass key-value pairs back to
      * user (see Map.Entry).
      */
@@ -1895,7 +1895,7 @@ public class TreeMap<K,V>
         Entry<K,V> parent;
         boolean color = BLACK;
 
-        /**
+        /** {@collect.stats}
          * Make a new cell with given key, value, and parent, and with
          * <tt>null</tt> child links, and BLACK color.
          */
@@ -1905,7 +1905,7 @@ public class TreeMap<K,V>
             this.parent = parent;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the key.
          *
          * @return the key
@@ -1914,7 +1914,7 @@ public class TreeMap<K,V>
             return key;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the value associated with the key.
          *
          * @return the value associated with the key
@@ -1923,7 +1923,7 @@ public class TreeMap<K,V>
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the value currently associated with the key with the given
          * value.
          *
@@ -1955,7 +1955,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first Entry in the TreeMap (according to the TreeMap's
      * key-sort function).  Returns null if the TreeMap is empty.
      */
@@ -1967,7 +1967,7 @@ public class TreeMap<K,V>
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last Entry in the TreeMap (according to the TreeMap's
      * key-sort function).  Returns null if the TreeMap is empty.
      */
@@ -1979,7 +1979,7 @@ public class TreeMap<K,V>
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the successor of the specified Entry, or null if no such.
      */
     static <K,V> TreeMap.Entry<K,V> successor(Entry<K,V> t) {
@@ -2001,7 +2001,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the predecessor of the specified Entry, or null if no such.
      */
     static <K,V> Entry<K,V> predecessor(Entry<K,V> t) {
@@ -2023,7 +2023,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Balancing operations.
      *
      * Implementations of rebalancings during insertion and deletion are
@@ -2054,7 +2054,7 @@ public class TreeMap<K,V>
         return (p == null) ? null: p.right;
     }
 
-    /** From CLR */
+    /** {@collect.stats} From CLR */
     private void rotateLeft(Entry<K,V> p) {
         if (p != null) {
             Entry<K,V> r = p.right;
@@ -2073,7 +2073,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /** From CLR */
+    /** {@collect.stats} From CLR */
     private void rotateRight(Entry<K,V> p) {
         if (p != null) {
             Entry<K,V> l = p.left;
@@ -2090,7 +2090,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /** From CLR */
+    /** {@collect.stats} From CLR */
     private void fixAfterInsertion(Entry<K,V> x) {
         x.color = RED;
 
@@ -2132,7 +2132,7 @@ public class TreeMap<K,V>
         root.color = BLACK;
     }
 
-    /**
+    /** {@collect.stats}
      * Delete node p, and then rebalance the tree.
      */
     private void deleteEntry(Entry<K,V> p) {
@@ -2183,7 +2183,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /** From CLR */
+    /** {@collect.stats} From CLR */
     private void fixAfterDeletion(Entry<K,V> x) {
         while (x != root && colorOf(x) == BLACK) {
             if (x == leftOf(parentOf(x))) {
@@ -2248,7 +2248,7 @@ public class TreeMap<K,V>
 
     private static final long serialVersionUID = 919286545866124006L;
 
-    /**
+    /** {@collect.stats}
      * Save the state of the <tt>TreeMap</tt> instance to a stream (i.e.,
      * serialize it).
      *
@@ -2276,7 +2276,7 @@ public class TreeMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the <tt>TreeMap</tt> instance from a stream (i.e.,
      * deserialize it).
      */
@@ -2291,13 +2291,13 @@ public class TreeMap<K,V>
         buildFromSorted(size, null, s, null);
     }
 
-    /** Intended to be called only from TreeSet.readObject */
+    /** {@collect.stats} Intended to be called only from TreeSet.readObject */
     void readTreeSet(int size, java.io.ObjectInputStream s, V defaultVal)
         throws java.io.IOException, ClassNotFoundException {
         buildFromSorted(size, null, s, defaultVal);
     }
 
-    /** Intended to be called only from TreeSet.addAll */
+    /** {@collect.stats} Intended to be called only from TreeSet.addAll */
     void addAllForTreeSet(SortedSet<? extends K> set, V defaultVal) {
         try {
             buildFromSorted(set.size(), set.iterator(), null, defaultVal);
@@ -2307,7 +2307,7 @@ public class TreeMap<K,V>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Linear time tree building algorithm from sorted data.  Can accept keys
      * and/or values from iterator or stream. This leads to too many
      * parameters, but seems better than alternatives.  The four formats
@@ -2346,7 +2346,7 @@ public class TreeMap<K,V>
                                it, str, defaultVal);
     }
 
-    /**
+    /** {@collect.stats}
      * Recursive "helper method" that does the real work of the
      * previous method.  Identically named parameters have
      * identical definitions.  Additional parameters are documented below.
@@ -2425,7 +2425,7 @@ public class TreeMap<K,V>
         return middle;
     }
 
-    /**
+    /** {@collect.stats}
      * Find the level down to which to assign all nodes BLACK.  This is the
      * last `full' level of the complete binary tree produced by
      * buildTree. The remaining nodes are colored RED. (This makes a `nice'

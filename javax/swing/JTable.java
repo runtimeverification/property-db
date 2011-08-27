@@ -59,7 +59,7 @@ import static sun.swing.SwingUtilities2.Section.*;
 import sun.swing.PrintingStatus;
 import sun.swing.SwingLazyValue;
 
-/**
+/** {@collect.stats}
  * The <code>JTable</code> is used to display and edit regular two-dimensional tables
  * of cells.
  * See <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/table.html">How to Use Tables</a>
@@ -225,30 +225,30 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Static Constants
 //
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "TableUI";
 
-    /** Do not adjust column widths automatically; use a horizontal scrollbar instead. */
+    /** {@collect.stats} Do not adjust column widths automatically; use a horizontal scrollbar instead. */
     public static final int     AUTO_RESIZE_OFF = 0;
 
-    /** When a column is adjusted in the UI, adjust the next column the opposite way. */
+    /** {@collect.stats} When a column is adjusted in the UI, adjust the next column the opposite way. */
     public static final int     AUTO_RESIZE_NEXT_COLUMN = 1;
 
-    /** During UI adjustment, change subsequent columns to preserve the total width;
+    /** {@collect.stats} During UI adjustment, change subsequent columns to preserve the total width;
       * this is the default behavior. */
     public static final int     AUTO_RESIZE_SUBSEQUENT_COLUMNS = 2;
 
-    /** During all resize operations, apply adjustments to the last column only. */
+    /** {@collect.stats} During all resize operations, apply adjustments to the last column only. */
     public static final int     AUTO_RESIZE_LAST_COLUMN = 3;
 
-    /** During all resize operations, proportionately resize all columns. */
+    /** {@collect.stats} During all resize operations, proportionately resize all columns. */
     public static final int     AUTO_RESIZE_ALL_COLUMNS = 4;
 
 
-    /**
+    /** {@collect.stats}
      * Printing modes, used in printing <code>JTable</code>s.
      *
      * @see #print(JTable.PrintMode, MessageFormat, MessageFormat,
@@ -258,13 +258,13 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
      */
     public enum PrintMode {
 
-        /**
+        /** {@collect.stats}
          * Printing mode that prints the table at its current size,
          * spreading both columns and rows across multiple pages if necessary.
          */
         NORMAL,
 
-        /**
+        /** {@collect.stats}
          * Printing mode that scales the output smaller, if necessary,
          * to fit the table's entire width (and thereby all columns) on each page;
          * Rows are spread across multiple pages as necessary.
@@ -277,53 +277,53 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Instance Variables
 //
 
-    /** The <code>TableModel</code> of the table. */
+    /** {@collect.stats} The <code>TableModel</code> of the table. */
     protected TableModel        dataModel;
 
-    /** The <code>TableColumnModel</code> of the table. */
+    /** {@collect.stats} The <code>TableColumnModel</code> of the table. */
     protected TableColumnModel  columnModel;
 
-    /** The <code>ListSelectionModel</code> of the table, used to keep track of row selections. */
+    /** {@collect.stats} The <code>ListSelectionModel</code> of the table, used to keep track of row selections. */
     protected ListSelectionModel selectionModel;
 
-    /** The <code>TableHeader</code> working with the table. */
+    /** {@collect.stats} The <code>TableHeader</code> working with the table. */
     protected JTableHeader      tableHeader;
 
-    /** The height in pixels of each row in the table. */
+    /** {@collect.stats} The height in pixels of each row in the table. */
     protected int               rowHeight;
 
-    /** The height in pixels of the margin between the cells in each row. */
+    /** {@collect.stats} The height in pixels of the margin between the cells in each row. */
     protected int               rowMargin;
 
-    /** The color of the grid. */
+    /** {@collect.stats} The color of the grid. */
     protected Color             gridColor;
 
-    /** The table draws horizontal lines between cells if <code>showHorizontalLines</code> is true. */
+    /** {@collect.stats} The table draws horizontal lines between cells if <code>showHorizontalLines</code> is true. */
     protected boolean           showHorizontalLines;
 
-    /** The table draws vertical lines between cells if <code>showVerticalLines</code> is true. */
+    /** {@collect.stats} The table draws vertical lines between cells if <code>showVerticalLines</code> is true. */
     protected boolean           showVerticalLines;
 
-    /**
+    /** {@collect.stats}
      *  Determines if the table automatically resizes the
      *  width of the table's columns to take up the entire width of the
      *  table, and how it does the resizing.
      */
     protected int               autoResizeMode;
 
-    /**
+    /** {@collect.stats}
      *  The table will query the <code>TableModel</code> to build the default
      *  set of columns if this is true.
      */
     protected boolean           autoCreateColumnsFromModel;
 
-    /** Used by the <code>Scrollable</code> interface to determine the initial visible area. */
+    /** {@collect.stats} Used by the <code>Scrollable</code> interface to determine the initial visible area. */
     protected Dimension         preferredViewportSize;
 
-    /** True if row selection is allowed in this table. */
+    /** {@collect.stats} True if row selection is allowed in this table. */
     protected boolean           rowSelectionAllowed;
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.3.  Please use the
      * <code>rowSelectionAllowed</code> property and the
      * <code>columnSelectionAllowed</code> property of the
@@ -337,40 +337,40 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
      */
     protected boolean           cellSelectionEnabled;
 
-    /** If editing, the <code>Component</code> that is handling the editing. */
+    /** {@collect.stats} If editing, the <code>Component</code> that is handling the editing. */
     transient protected Component       editorComp;
 
-    /**
+    /** {@collect.stats}
      * The active cell editor object, that overwrites the screen real estate
      * occupied by the current cell and allows the user to change its contents.
      * {@code null} if the table isn't currently editing.
      */
     transient protected TableCellEditor cellEditor;
 
-    /** Identifies the column of the cell being edited. */
+    /** {@collect.stats} Identifies the column of the cell being edited. */
     transient protected int             editingColumn;
 
-    /** Identifies the row of the cell being edited. */
+    /** {@collect.stats} Identifies the row of the cell being edited. */
     transient protected int             editingRow;
 
-    /**
+    /** {@collect.stats}
      * A table of objects that display the contents of a cell,
      * indexed by class as declared in <code>getColumnClass</code>
      * in the <code>TableModel</code> interface.
      */
     transient protected Hashtable defaultRenderersByColumnClass;
 
-    /**
+    /** {@collect.stats}
      * A table of objects that display and edit the contents of a cell,
      * indexed by class as declared in <code>getColumnClass</code>
      * in the <code>TableModel</code> interface.
      */
     transient protected Hashtable defaultEditorsByColumnClass;
 
-    /** The foreground color of selected cells. */
+    /** {@collect.stats} The foreground color of selected cells. */
     protected Color selectionForeground;
 
-    /** The background color of selected cells. */
+    /** {@collect.stats} The background color of selected cells. */
     protected Color selectionBackground;
 
 //
@@ -383,71 +383,71 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     private boolean dragEnabled;
     private boolean surrendersFocusOnKeystroke;
     private PropertyChangeListener editorRemover = null;
-    /**
+    /** {@collect.stats}
      * The last value of getValueIsAdjusting from the column selection models
      * columnSelectionChanged notification. Used to test if a repaint is
      * needed.
      */
     private boolean columnSelectionAdjusting;
-    /**
+    /** {@collect.stats}
      * The last value of getValueIsAdjusting from the row selection models
      * valueChanged notification. Used to test if a repaint is needed.
      */
     private boolean rowSelectionAdjusting;
 
-    /**
+    /** {@collect.stats}
      * To communicate errors between threads during printing.
      */
     private Throwable printError;
 
-    /**
+    /** {@collect.stats}
      * True when setRowHeight(int) has been invoked.
      */
     private boolean isRowHeightSet;
 
-    /**
+    /** {@collect.stats}
      * If true, on a sort the selection is reset.
      */
     private boolean updateSelectionOnSort;
 
-    /**
+    /** {@collect.stats}
      * Information used in sorting.
      */
     private transient SortManager sortManager;
 
-    /**
+    /** {@collect.stats}
      * If true, when sorterChanged is invoked it's value is ignored.
      */
     private boolean ignoreSortChange;
 
-    /**
+    /** {@collect.stats}
      * Whether or not sorterChanged has been invoked.
      */
     private boolean sorterChanged;
 
-    /**
+    /** {@collect.stats}
      * If true, any time the model changes a new RowSorter is set.
      */
     private boolean autoCreateRowSorter;
 
-    /**
+    /** {@collect.stats}
      * Whether or not the table always fills the viewport height.
      * @see #setFillsViewportHeight
      * @see #getScrollableTracksViewportHeight
      */
     private boolean fillsViewportHeight;
 
-    /**
+    /** {@collect.stats}
      * The drop mode for this component.
      */
     private DropMode dropMode = DropMode.USE_SELECTION;
 
-    /**
+    /** {@collect.stats}
      * The drop location.
      */
     private transient DropLocation dropLocation;
 
-    /**
+    /** {@collect.stats}
      * A subclass of <code>TransferHandler.DropLocation</code> representing
      * a drop location for a <code>JTable</code>.
      *
@@ -470,7 +470,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             this.isInsertCol = isInsertCol;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row index where a dropped item should be placed in the
          * table. Interpretation of the value depends on the return of
          * <code>isInsertRow()</code>. If that method returns
@@ -488,7 +488,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return row;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the column index where a dropped item should be placed in the
          * table. Interpretation of the value depends on the return of
          * <code>isInsertColumn()</code>. If that method returns
@@ -506,7 +506,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return col;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not this location represents an insert
          * of a row.
          *
@@ -516,7 +516,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return isInsertRow;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not this location represents an insert
          * of a column.
          *
@@ -526,7 +526,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return isInsertCol;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this drop location.
          * This method is intended to be used for debugging purposes,
          * and the content and format of the returned string may vary
@@ -548,7 +548,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Constructors
 //
 
-    /**
+    /** {@collect.stats}
      * Constructs a default <code>JTable</code> that is initialized with a default
      * data model, a default column model, and a default selection
      * model.
@@ -561,7 +561,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this(null, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> that is initialized with
      * <code>dm</code> as the data model, a default column model,
      * and a default selection model.
@@ -574,7 +574,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this(dm, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> that is initialized with
      * <code>dm</code> as the data model, <code>cm</code>
      * as the column model, and a default selection model.
@@ -587,7 +587,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this(dm, cm, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> that is initialized with
      * <code>dm</code> as the data model, <code>cm</code> as the
      * column model, and <code>sm</code> as the selection model.
@@ -636,7 +636,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> with <code>numRows</code>
      * and <code>numColumns</code> of empty cells using
      * <code>DefaultTableModel</code>.  The columns will have
@@ -650,7 +650,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this(new DefaultTableModel(numRows, numColumns));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> to display the values in the
      * <code>Vector</code> of <code>Vectors</code>, <code>rowData</code>,
      * with column names, <code>columnNames</code>.  The
@@ -668,7 +668,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this(new DefaultTableModel(rowData, columnNames));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JTable</code> to display the values in the two dimensional array,
      * <code>rowData</code>, with column names, <code>columnNames</code>.
      * <code>rowData</code> is an array of rows, so the value of the cell at row 1,
@@ -695,7 +695,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Calls the <code>configureEnclosingScrollPane</code> method.
      *
      * @see #configureEnclosingScrollPane
@@ -705,7 +705,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         configureEnclosingScrollPane();
     }
 
-    /**
+    /** {@collect.stats}
      * If this <code>JTable</code> is the <code>viewportView</code> of an enclosing <code>JScrollPane</code>
      * (the usual situation), configure this <code>ScrollPane</code> by, amongst other things,
      * installing the table's <code>tableHeader</code> as the <code>columnHeaderView</code> of the scroll pane.
@@ -738,7 +738,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is a sub-part of configureEnclosingScrollPane() that configures
      * anything on the scrollpane that may change when the look and feel
      * changes. It needed to be split out from configureEnclosingScrollPane() so
@@ -794,7 +794,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calls the <code>unconfigureEnclosingScrollPane</code> method.
      *
      * @see #unconfigureEnclosingScrollPane
@@ -807,7 +807,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         super.removeNotify();
     }
 
-    /**
+    /** {@collect.stats}
      * Reverses the effect of <code>configureEnclosingScrollPane</code>
      * by replacing the <code>columnHeaderView</code> of the enclosing
      * scroll pane with <code>null</code>. <code>JTable</code>'s
@@ -859,7 +859,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Static Methods
 //
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>new JScrollPane(aTable)</code>.
      *
      * @deprecated As of Swing version 1.0.2,
@@ -874,7 +874,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Table Attributes
 //
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>tableHeader</code> working with this <code>JTable</code> to <code>newHeader</code>.
      * It is legal to have a <code>null</code> <code>tableHeader</code>.
      *
@@ -899,7 +899,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>tableHeader</code> used by this <code>JTable</code>.
      *
      * @return  the <code>tableHeader</code> used by this table
@@ -909,7 +909,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return tableHeader;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the height, in pixels, of all cells to <code>rowHeight</code>,
      * revalidates, and repaints.
      * The height of the cells will be equal to the row height minus
@@ -938,7 +938,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("rowHeight", old, rowHeight);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of a table row, in pixels.
      * The default row height is 16.0.
      *
@@ -956,7 +956,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return rowModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the height for <code>row</code> to <code>rowHeight</code>,
      * revalidates, and repaints. The height of the cells in this row
      * will be equal to the row height minus the row margin.
@@ -982,7 +982,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         resizeAndRepaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height, in pixels, of the cells in <code>row</code>.
      * @param   row              the row whose height is to be returned
      * @return the height, in pixels, of the cells in the row
@@ -992,7 +992,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return (rowModel == null) ? getRowHeight() : rowModel.getSize(row);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the amount of empty space between cells in adjacent rows.
      *
      * @param  rowMargin  the number of pixels between cells in a row
@@ -1008,7 +1008,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("rowMargin", old, rowMargin);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the amount of empty space, in pixels, between cells. Equivalent to:
      * <code>getIntercellSpacing().height</code>.
      * @return the number of pixels between cells in a row
@@ -1019,7 +1019,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return rowMargin;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>rowMargin</code> and the <code>columnMargin</code> --
      * the height and width of the space between cells -- to
      * <code>intercellSpacing</code>.
@@ -1040,7 +1040,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         resizeAndRepaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal and vertical space between cells.
      * The default spacing is (1, 1), which provides room to draw the grid.
      *
@@ -1051,7 +1051,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return new Dimension(getColumnModel().getColumnMargin(), rowMargin);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the color used to draw grid lines to <code>gridColor</code> and redisplays.
      * The default color is look and feel dependent.
      *
@@ -1073,7 +1073,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color used to draw grid lines.
      * The default color is look and feel dependent.
      *
@@ -1084,7 +1084,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return gridColor;
     }
 
-    /**
+    /** {@collect.stats}
      *  Sets whether the table draws grid lines around cells.
      *  If <code>showGrid</code> is true it does; if it is false it doesn't.
      *  There is no <code>getShowGrid</code> method as this state is held
@@ -1106,7 +1106,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      *  Sets whether the table draws horizontal lines between cells.
      *  If <code>showHorizontalLines</code> is true it does; if it is false it doesn't.
      *
@@ -1127,7 +1127,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      *  Sets whether the table draws vertical lines between cells.
      *  If <code>showVerticalLines</code> is true it does; if it is false it doesn't.
      *
@@ -1147,7 +1147,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the table draws horizontal lines between cells, false if it
      * doesn't. The default is true.
      *
@@ -1159,7 +1159,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return showHorizontalLines;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the table draws vertical lines between cells, false if it
      * doesn't. The default is true.
      *
@@ -1171,7 +1171,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return showVerticalLines;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the table's auto resize mode when the table is resized.  For further
      * information on how the different resize modes work, see
      * {@link #doLayout}.
@@ -1210,7 +1210,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the auto resize mode of the table.  The default mode
      * is AUTO_RESIZE_SUBSEQUENT_COLUMNS.
      *
@@ -1223,7 +1223,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return autoResizeMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this table's <code>autoCreateColumnsFromModel</code> flag.
      * This method calls <code>createDefaultColumnsFromModel</code> if
      * <code>autoCreateColumnsFromModel</code> changes from false to true.
@@ -1246,7 +1246,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the table will create default columns from the model.
      * If true, <code>setModel</code> will clear any existing columns and
      * create new columns from the new model.  Also, if the event in
@@ -1262,7 +1262,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return autoCreateColumnsFromModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates default columns for the table from
      * the data model using the <code>getColumnCount</code> method
      * defined in the <code>TableModel</code> interface.
@@ -1289,7 +1289,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a default cell renderer to be used if no renderer has been set in
      * a <code>TableColumn</code>. If renderer is <code>null</code>,
      * removes the default renderer for this column class.
@@ -1309,7 +1309,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cell renderer to be used when no renderer has been set in
      * a <code>TableColumn</code>. During the rendering of cells the renderer is fetched from
      * a <code>Hashtable</code> of entries according to the class of the cells in the column. If
@@ -1339,7 +1339,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a default cell editor to be used if no editor has been set in
      * a <code>TableColumn</code>. If no editing is required in a table, or a
      * particular column in a table, uses the <code>isCellEditable</code>
@@ -1363,7 +1363,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the editor to be used when no editor has been set in
      * a <code>TableColumn</code>. During the editing of cells the editor is fetched from
      * a <code>Hashtable</code> of entries according to the class of the cells in the column. If
@@ -1392,7 +1392,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Turns on or off automatic drag handling. In order to enable automatic
      * drag handling, this property should be set to {@code true}, and the
      * table's {@code TransferHandler} needs to be {@code non-null}.
@@ -1433,7 +1433,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         dragEnabled = b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not automatic drag handling is enabled.
      *
      * @return the value of the {@code dragEnabled} property
@@ -1444,7 +1444,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return dragEnabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the drop mode for this component. For backward compatibility,
      * the default for this property is <code>DropMode.USE_SELECTION</code>.
      * Usage of one of the other modes is recommended, however, for an
@@ -1495,7 +1495,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         throw new IllegalArgumentException(dropMode + ": Unsupported drop mode for table");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the drop mode for this component.
      *
      * @return the drop mode for this component
@@ -1506,7 +1506,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return dropMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates a drop location in this component, representing where a
      * drop at the given point should insert data.
      *
@@ -1689,7 +1689,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return location;
     }
 
-    /**
+    /** {@collect.stats}
      * Called to set or clear the drop location during a DnD operation.
      * In some cases, the component may need to use it's internal selection
      * temporarily to indicate the drop location. To help facilitate this,
@@ -1788,7 +1788,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return retVal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location that this component should visually indicate
      * as the drop location during a DnD operation over the component,
      * or {@code null} if no location is to currently be shown.
@@ -1810,7 +1810,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return dropLocation;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies whether a {@code RowSorter} should be created for the
      * table whenever its model changes.
      * <p>
@@ -1839,7 +1839,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                            autoCreateRowSorter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if whenever the model changes, a new
      * {@code RowSorter} should be created and installed
      * as the table's sorter; otherwise, returns {@code false}.
@@ -1852,7 +1852,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return autoCreateRowSorter;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies whether the selection should be updated after sorting.
      * If true, on sorting the selection is reset such that
      * the same rows, in terms of the model, remain selected.  The default
@@ -1872,7 +1872,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the selection should be updated after sorting.
      *
      * @return whether to update the selection on a sort
@@ -1882,7 +1882,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return updateSelectionOnSort;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>RowSorter</code>.  <code>RowSorter</code> is used
      * to provide sorting and filtering to a <code>JTable</code>.
      * <p>
@@ -1913,7 +1913,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("sorter", oldRowSorter, sorter);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object responsible for sorting.
      *
      * @return the object responsible for sorting
@@ -1926,7 +1926,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 //
 // Selection methods
 //
-    /**
+    /** {@collect.stats}
      * Sets the table's selection mode to allow only single selections, a single
      * contiguous interval, or multiple intervals.
      * <P>
@@ -1958,7 +1958,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         getColumnModel().getSelectionModel().setSelectionMode(selectionMode);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the rows in this model can be selected.
      *
      * @param rowSelectionAllowed   true if this model will allow row selection
@@ -1977,7 +1977,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("rowSelectionAllowed", old, rowSelectionAllowed);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if rows can be selected.
      *
      * @return true if rows can be selected, otherwise false
@@ -1987,7 +1987,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return rowSelectionAllowed;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the columns in this model can be selected.
      *
      * @param columnSelectionAllowed   true if this model will allow column selection
@@ -2006,7 +2006,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("columnSelectionAllowed", old, columnSelectionAllowed);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if columns can be selected.
      *
      * @return true if columns can be selected, otherwise false
@@ -2016,7 +2016,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel.getColumnSelectionAllowed();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether this table allows both a column selection and a
      * row selection to exist simultaneously. When set,
      * the table treats the intersection of the row and column selection
@@ -2044,7 +2044,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("cellSelectionEnabled", old, cellSelectionEnabled);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if both row and column selection models are enabled.
      * Equivalent to <code>getRowSelectionAllowed() &&
      * getColumnSelectionAllowed()</code>.
@@ -2057,7 +2057,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getRowSelectionAllowed() && getColumnSelectionAllowed();
     }
 
-    /**
+    /** {@collect.stats}
      *  Selects all rows, columns, and cells in the table.
      */
     public void selectAll() {
@@ -2096,7 +2096,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deselects all selected columns and rows.
      */
     public void clearSelection() {
@@ -2138,7 +2138,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return col;
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the rows from <code>index0</code> to <code>index1</code>,
      * inclusive.
      *
@@ -2152,7 +2152,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         selectionModel.setSelectionInterval(boundRow(index0), boundRow(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Selects the columns from <code>index0</code> to <code>index1</code>,
      * inclusive.
      *
@@ -2166,7 +2166,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         columnModel.getSelectionModel().setSelectionInterval(boundColumn(index0), boundColumn(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the rows from <code>index0</code> to <code>index1</code>, inclusive, to
      * the current selection.
      *
@@ -2179,7 +2179,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         selectionModel.addSelectionInterval(boundRow(index0), boundRow(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the columns from <code>index0</code> to <code>index1</code>,
      * inclusive, to the current selection.
      *
@@ -2193,7 +2193,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         columnModel.getSelectionModel().addSelectionInterval(boundColumn(index0), boundColumn(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Deselects the rows from <code>index0</code> to <code>index1</code>, inclusive.
      *
      * @exception IllegalArgumentException      if <code>index0</code> or
@@ -2206,7 +2206,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         selectionModel.removeSelectionInterval(boundRow(index0), boundRow(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Deselects the columns from <code>index0</code> to <code>index1</code>, inclusive.
      *
      * @exception IllegalArgumentException      if <code>index0</code> or
@@ -2219,7 +2219,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         columnModel.getSelectionModel().removeSelectionInterval(boundColumn(index0), boundColumn(index1));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first selected row, -1 if no row is selected.
      * @return the index of the first selected row
      */
@@ -2227,7 +2227,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return selectionModel.getMinSelectionIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first selected column,
      * -1 if no column is selected.
      * @return the index of the first selected column
@@ -2236,7 +2236,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel.getSelectionModel().getMinSelectionIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the indices of all selected rows.
      *
      * @return an array of integers containing the indices of all selected rows,
@@ -2263,7 +2263,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return rv;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the indices of all selected columns.
      *
      * @return an array of integers containing the indices of all selected columns,
@@ -2274,7 +2274,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel.getSelectedColumns();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of selected rows.
      *
      * @return the number of selected rows, 0 if no rows are selected
@@ -2292,7 +2292,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of selected columns.
      *
      * @return the number of selected columns, 0 if no columns are selected
@@ -2301,7 +2301,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel.getSelectedColumnCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified index is in the valid range of rows,
      * and the row at that index is selected.
      *
@@ -2312,7 +2312,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return selectionModel.isSelectedIndex(row);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified index is in the valid range of columns,
      * and the column at that index is selected.
      *
@@ -2324,7 +2324,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel.getSelectionModel().isSelectedIndex(column);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified indices are in the valid range of rows
      * and columns and the cell at the specified position is selected.
      * @param row   the row being queried
@@ -2377,7 +2377,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the selection models of the table, depending on the state of the
      * two flags: <code>toggle</code> and <code>extend</code>. Most changes
      * to the selection that are the result of keyboard or mouse events received
@@ -2455,7 +2455,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the foreground color for selected cells.
      *
      * @return the <code>Color</code> object for the foreground property
@@ -2466,7 +2466,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return selectionForeground;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the foreground color for selected cells.  Cell renderers
      * can use this color to render text and graphics for selected
      * cells.
@@ -2497,7 +2497,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the background color for selected cells.
      *
      * @return the <code>Color</code> used for the background of selected list items
@@ -2508,7 +2508,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return selectionBackground;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color for selected cells.  Cell renderers
      * can use this color to the fill selected cells.
      * <p>
@@ -2538,7 +2538,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableColumn</code> object for the column in the table
      * whose identifier is equal to <code>identifier</code>, when compared using
      * <code>equals</code>.
@@ -2558,7 +2558,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Informally implement the TableModel interface.
 //
 
-    /**
+    /** {@collect.stats}
      * Maps the index of the column in the view at
      * <code>viewColumnIndex</code> to the index of the column
      * in the table model.  Returns the index of the corresponding
@@ -2577,7 +2577,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getColumnModel().getColumn(viewColumnIndex).getModelIndex();
     }
 
-    /**
+    /** {@collect.stats}
      * Maps the index of the column in the table model at
      * <code>modelColumnIndex</code> to the index of the column
      * in the view.  Returns the index of the
@@ -2603,7 +2603,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Maps the index of the row in terms of the
      * <code>TableModel</code> to the view.  If the contents of the
      * model are not sorted the model and view indices are the same.
@@ -2624,7 +2624,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return modelRowIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Maps the index of the row in terms of the view to the
      * underlying <code>TableModel</code>.  If the contents of the
      * model are not sorted the model and view indices are the same.
@@ -2646,7 +2646,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return viewRowIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows that can be shown in the
      * <code>JTable</code>, given unlimited space.  If a
      * <code>RowSorter</code> with a filter has been specified, the
@@ -2664,7 +2664,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getModel().getRowCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the column model. Note that this may
      * be different from the number of columns in the table model.
      *
@@ -2676,7 +2676,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getColumnModel().getColumnCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the column appearing in the view at
      * column position <code>column</code>.
      *
@@ -2688,7 +2688,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getModel().getColumnName(convertColumnIndexToModel(column));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of the column appearing in the view at
      * column position <code>column</code>.
      *
@@ -2700,7 +2700,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getModel().getColumnClass(convertColumnIndexToModel(column));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cell value at <code>row</code> and <code>column</code>.
      * <p>
      * <b>Note</b>: The column is specified in the table view's display
@@ -2720,7 +2720,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                                      convertColumnIndexToModel(column));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value for the cell in the table model at <code>row</code>
      * and <code>column</code>.
      * <p>
@@ -2744,7 +2744,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               convertColumnIndexToModel(column));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the cell at <code>row</code> and <code>column</code>
      * is editable.  Otherwise, invoking <code>setValueAt</code> on the cell
      * will have no effect.
@@ -2771,7 +2771,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Adding and removing columns in the view
 //
 
-    /**
+    /** {@collect.stats}
      *  Appends <code>aColumn</code> to the end of the array of columns held by
      *  this <code>JTable</code>'s column model.
      *  If the column name of <code>aColumn</code> is <code>null</code>,
@@ -2806,7 +2806,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         getColumnModel().addColumn(aColumn);
     }
 
-    /**
+    /** {@collect.stats}
      *  Removes <code>aColumn</code> from this <code>JTable</code>'s
      *  array of columns.  Note: this method does not remove the column
      *  of data from the model; it just removes the <code>TableColumn</code>
@@ -2819,7 +2819,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         getColumnModel().removeColumn(aColumn);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the column <code>column</code> to the position currently
      * occupied by the column <code>targetColumn</code> in the view.
      * The old column at <code>targetColumn</code> is
@@ -2836,7 +2836,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Cover methods for various models and helper methods
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the column that <code>point</code> lies in,
      * or -1 if the result is not in the range
      * [0, <code>getColumnCount()</code>-1].
@@ -2855,7 +2855,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return getColumnModel().getColumnIndexAtX(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the row that <code>point</code> lies in,
      * or -1 if the result is not in the range
      * [0, <code>getRowCount()</code>-1].
@@ -2880,7 +2880,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle for the cell that lies at the intersection of
      * <code>row</code> and <code>column</code>.
      * If <code>includeSpacing</code> is true then the value returned
@@ -2989,7 +2989,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Causes this table to lay out its rows and columns.  Overridden so
      * that columns can be resized to accomodate a change in the size of
      * a containing parent.
@@ -3172,7 +3172,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                                      : tableHeader.getResizingColumn();
     }
 
-    /**
+    /** {@collect.stats}
      * Sizes the table columns to fit the available space.
      * @deprecated As of Swing version 1.0.3,
      * replaced by <code>doLayout()</code>.
@@ -3187,7 +3187,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setAutoResizeMode(oldAutoResizeMode);
     }
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.4.  Please use the
      * <code>doLayout()</code> method instead.
      * @param resizingColumn    the column whose resizing made this adjustment
@@ -3366,7 +3366,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>JComponent</code>'s <code>getToolTipText</code>
      * method in order to allow the renderer's tips to be used
      * if it has text set.
@@ -3424,7 +3424,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Editing Support
 //
 
-    /**
+    /** {@collect.stats}
      * Sets whether editors in this JTable get the keyboard focus
      * when an editor is activated as a result of the JTable
      * forwarding keyboard events for a cell.
@@ -3443,7 +3443,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         this.surrendersFocusOnKeystroke = surrendersFocusOnKeystroke;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the editor should get the focus
      * when keystrokes cause the editor to be activated
      *
@@ -3458,7 +3458,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return surrendersFocusOnKeystroke;
     }
 
-    /**
+    /** {@collect.stats}
      * Programmatically starts editing the cell at <code>row</code> and
      * <code>column</code>, if those indices are in the valid range, and
      * the cell at those indices is editable.
@@ -3474,7 +3474,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return editCellAt(row, column, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Programmatically starts editing the cell at <code>row</code> and
      * <code>column</code>, if those indices are in the valid range, and
      * the cell at those indices is editable.
@@ -3533,7 +3533,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if a cell is being edited.
      *
      * @return  true if the table is editing a cell
@@ -3544,7 +3544,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return (cellEditor == null)? false : true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component that is handling the editing session.
      * If nothing is being edited, returns null.
      *
@@ -3554,7 +3554,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return editorComp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the column that contains the cell currently
      * being edited.  If nothing is being edited, returns -1.
      *
@@ -3566,7 +3566,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return editingColumn;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the row that contains the cell currently
      * being edited.  If nothing is being edited, returns -1.
      *
@@ -3582,7 +3582,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Managing TableUI
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return the <code>TableUI</code> object that renders this component
@@ -3591,7 +3591,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return (TableUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component and repaints.
      *
      * @param ui  the TableUI L&F object
@@ -3609,7 +3609,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIManager</code> that the L&F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
@@ -3649,7 +3649,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setUI((TableUI)UIManager.getUI(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the suffix used to construct the name of the L&F class used to
      * render this component.
      *
@@ -3666,7 +3666,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Managing models
 //
 
-    /**
+    /** {@collect.stats}
      * Sets the data model for this table to <code>newModel</code> and registers
      * with it for listener notifications from the new data model.
      *
@@ -3699,7 +3699,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableModel</code> that provides the data displayed by this
      * <code>JTable</code>.
      *
@@ -3710,7 +3710,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return dataModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the column model for this table to <code>newModel</code> and registers
      * for listener notifications from the new column model. Also sets
      * the column model of the <code>JTableHeader</code> to <code>columnModel</code>.
@@ -3744,7 +3744,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableColumnModel</code> that contains all column information
      * of this table.
      *
@@ -3755,7 +3755,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return columnModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the row selection model for this table to <code>newModel</code>
      * and registers for listener notifications from the new selection model.
      *
@@ -3786,7 +3786,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ListSelectionModel</code> that is used to maintain row
      * selection state.
      *
@@ -3802,7 +3802,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // RowSorterListener
 //
 
-    /**
+    /** {@collect.stats}
      * <code>RowSorterListener</code> notification that the
      * <code>RowSorter</code> has changed in some way.
      *
@@ -3826,7 +3826,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     }
 
 
-    /**
+    /** {@collect.stats}
      * SortManager provides support for managing the selection and variable
      * row heights when sorting is enabled. This information is encapsulated
      * into a class to avoid bulking up JTable.
@@ -3854,7 +3854,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             sorter.addRowSorterListener(JTable.this);
         }
 
-        /**
+        /** {@collect.stats}
          * Disposes any resources used by this SortManager.
          */
         public void dispose() {
@@ -3863,7 +3863,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the height for a row at a specified index.
          */
         public void setViewRowHeight(int viewIndex, int rowHeight) {
@@ -3874,7 +3874,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             modelRowSizes.setSize(convertRowIndexToModel(viewIndex),rowHeight);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the underlying model has completely changed.
          */
         public void allChanged() {
@@ -3883,7 +3883,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             modelRowSizes = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the selection, on the view, has changed.
          */
         public void viewSelectionChanged(ListSelectionEvent e) {
@@ -3892,7 +3892,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when either the table model has changed, or the RowSorter
          * has changed. This is invoked prior to notifying the sorter of the
          * change.
@@ -3904,7 +3904,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the internal cache of the selection based on the change.
          */
         private void cacheSelection(RowSorterEvent sortEvent,
@@ -3971,7 +3971,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                         selectionModel.getLeadSelectionIndex());
         }
 
-        /**
+        /** {@collect.stats}
          * Inovked when either the table has changed or the sorter has changed
          * and after the sorter has been notified. If necessary this will
          * reapply the selection and variable row heights.
@@ -4002,7 +4002,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the variable row heights in terms of the view from
          * that of the variable row heights in terms of the model.
          */
@@ -4018,7 +4018,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Restores the selection from that in terms of the model.
          */
         private void restoreSelection(ModelChange change) {
@@ -4057,7 +4057,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     }
 
 
-    /**
+    /** {@collect.stats}
      * ModelChange is used when sorting to restore state, it corresponds
      * to data from a TableModelEvent.  The values are precalculated as
      * they are used extensively.
@@ -4098,7 +4098,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when <code>sorterChanged</code> is invoked, or
      * when <code>tableChanged</code> is invoked and sorting is enabled.
      */
@@ -4153,7 +4153,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the sort of sorted rows in response to a TableModelEvent.
      */
     private void repaintSortedRows(ModelChange change) {
@@ -4191,7 +4191,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Restores the selection after a model event/sort order changes.
      * All coordinates are in terms of the model.
      */
@@ -4223,7 +4223,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         selectionModel.setValueIsAdjusting(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Restores the editing row after a model event/sort order change.
      *
      * @param editingRow new index of the editingRow, in terms of the view
@@ -4249,7 +4249,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies the sorter of a change in the underlying model.
      */
     private void notifySorter(ModelChange change) {
@@ -4284,7 +4284,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a model index to view index.  This is called when the
      * sorter or model changes and sorting is enabled.
      *
@@ -4324,7 +4324,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return sortManager.sorter.convertRowIndexToView(modelIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the selection to model coordinates.  This is used when
      * the model changes or the sorter changes.
      */
@@ -4355,7 +4355,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Implementing TableModelListener interface
 //
 
-    /**
+    /** {@collect.stats}
      * Invoked when this table's <code>TableModel</code> generates
      * a <code>TableModelEvent</code>.
      * The <code>TableModelEvent</code> should be constructed in the
@@ -4532,7 +4532,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Implementing TableColumnModelListener interface
 //
 
-    /**
+    /** {@collect.stats}
      * Invoked when a column is added to the table column model.
      * <p>
      * Application code will not use these methods explicitly, they
@@ -4548,7 +4548,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         resizeAndRepaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a column is removed from the table column model.
      * <p>
      * Application code will not use these methods explicitly, they
@@ -4564,7 +4564,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         resizeAndRepaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a column is repositioned. If a cell is being
      * edited, then editing is stopped and the cell is redrawn.
      * <p>
@@ -4582,7 +4582,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a column is moved due to a margin change.
      * If a cell is being edited, then editing is stopped and the cell
      * is redrawn.
@@ -4610,7 +4610,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return Math.min(b, Math.max(i, a));
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the selection model of the <code>TableColumnModel</code>
      * is changed.
      * <p>
@@ -4671,7 +4671,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Implementing ListSelectionListener interface
 //
 
-    /**
+    /** {@collect.stats}
      * Invoked when the row selection changes -- repaints to show the new
      * selection.
      * <p>
@@ -4710,7 +4710,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Implementing the CellEditorListener interface
 //
 
-    /**
+    /** {@collect.stats}
      * Invoked when editing is finished. The changes are saved and the
      * editor is discarded.
      * <p>
@@ -4730,7 +4730,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when editing is canceled. The editor object is discarded
      * and the cell is rendered once again.
      * <p>
@@ -4748,7 +4748,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Implementing the Scrollable interface
 //
 
-    /**
+    /** {@collect.stats}
      * Sets the preferred size of the viewport for this table.
      *
      * @param size  a <code>Dimension</code> object specifying the <code>preferredSize</code> of a
@@ -4761,7 +4761,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         preferredViewportSize = size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the viewport for this table.
      *
      * @return a <code>Dimension</code> object containing the <code>preferredSize</code> of the <code>JViewport</code>
@@ -4772,7 +4772,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return preferredViewportSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the scroll increment (in pixels) that completely exposes one new
      * row or column (depending on the orientation).
      * <p>
@@ -4874,7 +4874,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>visibleRect.height</code> or
      * <code>visibleRect.width</code>,
      * depending on this table's orientation.  Note that as of Swing 1.1.1
@@ -4922,7 +4922,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called to get the block increment for upward scrolling in cases of
      * horizontal scrolling, or for vertical scrolling of a table with
      * variable row heights.
@@ -5012,7 +5012,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return Math.abs(visibleLeadingEdge - newLeadingEdge);
     }
 
-    /**
+    /** {@collect.stats}
      * Called to get the block increment for downward scrolling in cases of
      * horizontal scrolling, or for vertical scrolling of a table with
      * variable row heights.
@@ -5182,7 +5182,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false if <code>autoResizeMode</code> is set to
      * <code>AUTO_RESIZE_OFF</code>, which indicates that the
      * width of the viewport does not determine the width
@@ -5196,7 +5196,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return !(autoResizeMode == AUTO_RESIZE_OFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code false} to indicate that the height of the viewport does
      * not determine the height of the table, unless
      * {@code getFillsViewportHeight} is {@code true} and the preferred height
@@ -5215,7 +5215,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                && (((JViewport)getParent()).getHeight() > getPreferredSize().height);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not this table is always made large enough
      * to fill the height of an enclosing viewport. If the preferred
      * height of the table is smaller than the viewport, then the table
@@ -5241,7 +5241,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("fillsViewportHeight", old, fillsViewportHeight);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not this table is always made large enough
      * to fill the height of an enclosing viewport.
      *
@@ -5317,7 +5317,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setLazyValue(defaultRenderersByColumnClass, c, s);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates default cell renderers for objects, numbers, doubles, dates,
      * booleans, and icons.
      * @see javax.swing.table.DefaultTableCellRenderer
@@ -5347,7 +5347,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setLazyRenderer(Boolean.class, "javax.swing.JTable$BooleanRenderer");
     }
 
-    /**
+    /** {@collect.stats}
      * Default Renderers
      **/
     static class NumberRenderer extends DefaultTableCellRenderer.UIResource {
@@ -5426,7 +5426,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setLazyValue(defaultEditorsByColumnClass, c, s);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates default cell editors for objects, numbers, and boolean values.
      * @see DefaultCellEditor
      */
@@ -5443,7 +5443,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setLazyEditor(Boolean.class, "javax.swing.JTable$BooleanEditor");
     }
 
-    /**
+    /** {@collect.stats}
      * Default Editors
      */
     static class GenericEditor extends DefaultCellEditor {
@@ -5524,7 +5524,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes table properties to their default values.
      */
     protected void initializeLocalVars() {
@@ -5554,7 +5554,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         setAutoscrolls(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default table model object, which is
      * a <code>DefaultTableModel</code>.  A subclass can override this
      * method to return a different table model object.
@@ -5566,7 +5566,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return new DefaultTableModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default column model object, which is
      * a <code>DefaultTableColumnModel</code>.  A subclass can override this
      * method to return a different column model object.
@@ -5578,7 +5578,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return new DefaultTableColumnModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default selection model object, which is
      * a <code>DefaultListSelectionModel</code>.  A subclass can override this
      * method to return a different selection model object.
@@ -5590,7 +5590,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return new DefaultListSelectionModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default table header object, which is
      * a <code>JTableHeader</code>.  A subclass can override this
      * method to return a different table header object.
@@ -5602,7 +5602,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return new JTableHeader(columnModel);
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>revalidate</code> followed by <code>repaint</code>.
      */
     protected void resizeAndRepaint() {
@@ -5610,7 +5610,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the active cell editor, which is {@code null} if the table
      * is not currently editing.
      *
@@ -5623,7 +5623,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return cellEditor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the active cell editor.
      *
      * @param anEditor the active cell editor
@@ -5638,7 +5638,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         firePropertyChange("tableCellEditor", oldEditor, anEditor);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>editingColumn</code> variable.
      * @param aColumn  the column of the cell to be edited
      *
@@ -5648,7 +5648,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         editingColumn = aColumn;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>editingRow</code> variable.
      * @param aRow  the row of the cell to be edited
      *
@@ -5658,7 +5658,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         editingRow = aRow;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an appropriate renderer for the cell specified by this row and
      * column. If the <code>TableColumn</code> for this column has a non-null
      * renderer, returns that.  If not, finds the class of the data in
@@ -5689,7 +5689,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return renderer;
     }
 
-    /**
+    /** {@collect.stats}
      * Prepares the renderer by querying the data model for the
      * value and selection state
      * of the cell at <code>row</code>, <code>column</code>.
@@ -5738,7 +5738,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                                                       row, column);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an appropriate editor for the cell specified by
      * <code>row</code> and <code>column</code>. If the
      * <code>TableColumn</code> for this column has a non-null editor,
@@ -5769,7 +5769,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Prepares the editor by querying the data model for the value and
      * selection state of the cell at <code>row</code>, <code>column</code>.
      * <p>
@@ -5799,7 +5799,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return comp;
     }
 
-    /**
+    /** {@collect.stats}
      * Discards the editor object and frees the real estate it used for
      * cell rendering.
      */
@@ -5837,7 +5837,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Serialization
 //
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -5882,7 +5882,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this table. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -5982,7 +5982,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Printing Support
 /////////////////
 
-    /**
+    /** {@collect.stats}
      * A convenience method that displays a printing dialog, and then prints
      * this <code>JTable</code> in mode <code>PrintMode.FIT_WIDTH</code>,
      * with no header or footer text. A modal progress dialog, with an abort
@@ -6007,7 +6007,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return print(PrintMode.FIT_WIDTH);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method that displays a printing dialog, and then prints
      * this <code>JTable</code> in the given printing mode,
      * with no header or footer text. A modal progress dialog, with an abort
@@ -6033,7 +6033,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return print(printMode, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method that displays a printing dialog, and then prints
      * this <code>JTable</code> in the given printing mode,
      * with the specified header and footer text. A modal progress dialog,
@@ -6069,7 +6069,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                      showDialogs, null, showDialogs);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this table, as specified by the fully featured
      * {@link #print(JTable.PrintMode, MessageFormat, MessageFormat,
      * boolean, PrintRequestAttributeSet, boolean, PrintService) print}
@@ -6119,7 +6119,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                      null);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>JTable</code>. Takes steps that the majority of
      * developers would take in order to print a <code>JTable</code>.
      * In short, it prepares the table, calls <code>getPrintable</code> to
@@ -6335,7 +6335,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a <code>Printable</code> for use in printing this JTable.
      * <p>
      * This method is meant for those wishing to customize the default
@@ -6444,26 +6444,26 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     }
 
 
-    /**
+    /** {@collect.stats}
      * A <code>Printable</code> implementation that wraps another
      * <code>Printable</code>, making it safe for printing on another thread.
      */
     private class ThreadSafePrintable implements Printable {
 
-        /** The delegate <code>Printable</code>. */
+        /** {@collect.stats} The delegate <code>Printable</code>. */
         private Printable printDelegate;
 
-        /**
+        /** {@collect.stats}
          * To communicate any return value when delegating.
          */
         private int retVal;
 
-        /**
+        /** {@collect.stats}
          * To communicate any <code>Throwable</code> when delegating.
          */
         private Throwable retThrowable;
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>ThreadSafePrintable</code> around the given
          * delegate.
          *
@@ -6473,7 +6473,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             this.printDelegate = printDelegate;
         }
 
-        /**
+        /** {@collect.stats}
          * Prints the specified page into the given {@link Graphics}
          * context, in the specified format.
          * <p>
@@ -6548,7 +6548,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JTable.
      * For tables, the AccessibleContext takes the form of an
      * AccessibleJTable.
@@ -6568,7 +6568,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     // *** should also implement AccessibleSelection?
     // *** and what's up with keyboard navigation/manipulation?
     //
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JTable</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to table user-interface elements.
@@ -6590,7 +6590,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         int lastSelectedRow;
         int lastSelectedCol;
 
-        /**
+        /** {@collect.stats}
          * AccessibleJTable constructor
          *
          * @since 1.5
@@ -6610,7 +6610,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
     // Listeners to track model, etc. changes to as to re-place the other
     // listeners
 
-        /**
+        /** {@collect.stats}
          * Track changes to selection model, column model, etc. so as to
          * be able to re-place listeners on those in order to pass on
          * information to the Accessibility PropertyChange mechanism
@@ -6733,7 +6733,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to the table contents
          */
         public void tableChanged(TableModelEvent e) {
@@ -6760,7 +6760,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to the table contents (row insertions)
          */
         public void tableRowsInserted(TableModelEvent e) {
@@ -6785,7 +6785,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, change);
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to the table contents (row deletions)
          */
         public void tableRowsDeleted(TableModelEvent e) {
@@ -6810,7 +6810,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, change);
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to the table contents (column insertions)
          */
         public void columnAdded(TableColumnModelEvent e) {
@@ -6830,7 +6830,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, change);
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to the table contents (column deletions)
          */
         public void columnRemoved(TableColumnModelEvent e) {
@@ -6849,7 +6849,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, change);
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes of a column repositioning.
          *
          * @see TableColumnModelListener
@@ -6881,7 +6881,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, change2);
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes of a column moving due to margin changes.
          *
          * @see TableColumnModelListener
@@ -6891,7 +6891,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, null);
         }
 
-        /**
+        /** {@collect.stats}
          * Track that the selection model of the TableColumnModel changed.
          *
          * @see TableColumnModelListener
@@ -6900,7 +6900,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             // we should now re-place our TableColumn listener
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to a cell's contents.
          *
          * Invoked when editing is finished. The changes are saved, the
@@ -6915,7 +6915,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                               null, null);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when editing is canceled. The editor object is discarded
          * and the cell is rendered once again.
          *
@@ -6925,7 +6925,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             // nothing to report, 'cause nothing changed
         }
 
-        /**
+        /** {@collect.stats}
          * Track changes to table cell selections
          */
         public void valueChanged(ListSelectionEvent e) {
@@ -6951,7 +6951,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
     // AccessibleContext support
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleSelection associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -6963,7 +6963,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -6974,7 +6974,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return AccessibleRole.TABLE;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>Accessible</code> child, if one exists,
          * contained at the local coordinate <code>Point</code>.
          *
@@ -7004,7 +7004,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement <code>Accessible</code>,
          * then this method should return the number of children of this object.
@@ -7015,7 +7015,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return (JTable.this.getColumnCount() * JTable.this.getRowCount());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the nth <code>Accessible</code> child of the object.
          *
          * @param i zero-based index of child
@@ -7046,7 +7046,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
     // AccessibleSelection support
 
-        /**
+        /** {@collect.stats}
          * Returns the number of <code>Accessible</code> children
          * currently selected.
          * If no children are selected, the return value will be 0.
@@ -7082,7 +7082,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an <code>Accessible</code> representing the
          * specified selected child in the object.  If there
          * isn't a selection, or there are fewer children selected
@@ -7213,7 +7213,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return (Accessible) null;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the current child of this object is selected.
          *
          * @param i the zero-based index of the child in this
@@ -7227,7 +7227,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.isCellSelected(row, column);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the specified <code>Accessible</code> child of the
          * object to the object's selection.  If the object supports
          * multiple selections, the specified child is added to
@@ -7248,7 +7248,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             JTable.this.changeSelection(row, column, true, false);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the specified child of the object from the object's
          * selection.  If the specified item isn't currently selected, this
          * method has no effect.
@@ -7268,7 +7268,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Clears the selection in the object, so that no children in the
          * object are selected.
          */
@@ -7276,7 +7276,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             JTable.this.clearSelection();
         }
 
-        /**
+        /** {@collect.stats}
          * Causes every child of the object to be selected, but only
          * if the <code>JTable</code> supports multiple selections,
          * and if individual cell selection is enabled.
@@ -7289,7 +7289,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
         // begin AccessibleExtendedTable implementation -------------
 
-        /**
+        /** {@collect.stats}
          * Returns the row number of an index in the table.
          *
          * @param index the zero-based index in the table
@@ -7301,7 +7301,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return getAccessibleRowAtIndex(index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the column number of an index in the table.
          *
          * @param index the zero-based index in the table
@@ -7313,7 +7313,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return getAccessibleColumnAtIndex(index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index at a row and column in the table.
          *
          * @param r zero-based row of the table
@@ -7335,7 +7335,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         private Accessible [] rowDescription;
         private Accessible [] columnDescription;
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>AccessibleTable</code> associated with this
          * object.  In the implementation of the Java Accessibility
          * API for this class, return this object, which is responsible
@@ -7349,7 +7349,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the caption for the table.
          *
          * @return the caption for the table
@@ -7359,7 +7359,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return this.caption;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the caption for the table.
          *
          * @param a the caption for the table
@@ -7372,7 +7372,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                                oldCaption, this.caption);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the summary description of the table.
          *
          * @return the summary description of the table
@@ -7382,7 +7382,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return this.summary;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the summary description of the table.
          *
          * @param a the summary description of the table
@@ -7426,7 +7426,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return getAccessibleChild((r * getAccessibleColumnCount()) + c);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of rows occupied by the <code>Accessible</code>
          * at a specified row and column in the table.
          *
@@ -7438,7 +7438,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of columns occupied by the
          * <code>Accessible</code> at a given (row, column).
          *
@@ -7450,7 +7450,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row headers as an <code>AccessibleTable</code>.
          *
          * @return an <code>AccessibleTable</code> representing the row
@@ -7462,7 +7462,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the row headers as an <code>AccessibleTable</code>.
          *
          * @param a an <code>AccessibleTable</code> representing the row
@@ -7473,7 +7473,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             // row headers are not supported
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the column headers as an <code>AccessibleTable</code>.
          *
          *  @return an <code>AccessibleTable</code> representing the column
@@ -7498,7 +7498,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 this.headerModel = header.getColumnModel();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the caption for the table.
              *
              * @return the caption for the table
@@ -7506,35 +7506,35 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             public Accessible getAccessibleCaption() { return null; }
 
 
-            /**
+            /** {@collect.stats}
              * Sets the caption for the table.
              *
              * @param a the caption for the table
              */
             public void setAccessibleCaption(Accessible a) {}
 
-            /**
+            /** {@collect.stats}
              * Returns the summary description of the table.
              *
              * @return the summary description of the table
              */
             public Accessible getAccessibleSummary() { return null; }
 
-            /**
+            /** {@collect.stats}
              * Sets the summary description of the table
              *
              * @param a the summary description of the table
              */
             public void setAccessibleSummary(Accessible a) {}
 
-            /**
+            /** {@collect.stats}
              * Returns the number of rows in the table.
              *
              * @return the number of rows in the table
              */
             public int getAccessibleRowCount() { return 1; }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of columns in the table.
              *
              * @return the number of columns in the table
@@ -7543,7 +7543,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return headerModel.getColumnCount();
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the Accessible at a specified row and column
              * in the table.
              *
@@ -7570,7 +7570,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                                                       component);
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of rows occupied by the Accessible at
              * a specified row and column in the table.
              *
@@ -7579,7 +7579,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public int getAccessibleRowExtentAt(int r, int c) { return 1; }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of columns occupied by the Accessible at
              * a specified row and column in the table.
              *
@@ -7588,7 +7588,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public int getAccessibleColumnExtentAt(int r, int c) { return 1; }
 
-            /**
+            /** {@collect.stats}
              * Returns the row headers as an AccessibleTable.
              *
              * @return an AccessibleTable representing the row
@@ -7596,7 +7596,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public AccessibleTable getAccessibleRowHeader() { return null; }
 
-            /**
+            /** {@collect.stats}
              * Sets the row headers.
              *
              * @param table an AccessibleTable representing the
@@ -7604,7 +7604,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public void setAccessibleRowHeader(AccessibleTable table) {}
 
-            /**
+            /** {@collect.stats}
              * Returns the column headers as an AccessibleTable.
              *
              * @return an AccessibleTable representing the column
@@ -7612,7 +7612,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public AccessibleTable getAccessibleColumnHeader() { return null; }
 
-            /**
+            /** {@collect.stats}
              * Sets the column headers.
              *
              * @param table an AccessibleTable representing the
@@ -7621,7 +7621,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public void setAccessibleColumnHeader(AccessibleTable table) {}
 
-            /**
+            /** {@collect.stats}
              * Returns the description of the specified row in the table.
              *
              * @param r zero-based row of the table
@@ -7630,7 +7630,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public Accessible getAccessibleRowDescription(int r) { return null; }
 
-            /**
+            /** {@collect.stats}
              * Sets the description text of the specified row of the table.
              *
              * @param r zero-based row of the table
@@ -7639,7 +7639,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public void setAccessibleRowDescription(int r, Accessible a) {}
 
-            /**
+            /** {@collect.stats}
              * Returns the description text of the specified column in the table.
              *
              * @param c zero-based column of the table
@@ -7648,7 +7648,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public Accessible getAccessibleColumnDescription(int c) { return null; }
 
-            /**
+            /** {@collect.stats}
              * Sets the description text of the specified column in the table.
              *
              * @param c zero-based column of the table
@@ -7657,7 +7657,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public void setAccessibleColumnDescription(int c, Accessible a) {}
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the accessible at
              * a specified row and column is selected.
              *
@@ -7670,7 +7670,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public boolean isAccessibleSelected(int r, int c) { return false; }
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the specified row
              * is selected.
              *
@@ -7681,7 +7681,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public boolean isAccessibleRowSelected(int r) { return false; }
 
-            /**
+            /** {@collect.stats}
              * Returns a boolean value indicating whether the specified column
              * is selected.
              *
@@ -7692,7 +7692,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public boolean isAccessibleColumnSelected(int c) { return false; }
 
-            /**
+            /** {@collect.stats}
              * Returns the selected rows in a table.
              *
              * @return an array of selected rows where each element is a
@@ -7701,7 +7701,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
              */
             public int [] getSelectedAccessibleRows() { return new int[0]; }
 
-            /**
+            /** {@collect.stats}
              * Returns the selected columns in a table.
              *
              * @return an array of selected columns where each element is a
@@ -7712,7 +7712,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
         }
 
 
-        /**
+        /** {@collect.stats}
          * Sets the column headers as an <code>AccessibleTable</code>.
          *
          * @param a an <code>AccessibleTable</code> representing the
@@ -7723,7 +7723,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             // XXX not implemented
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the description of the specified row in the table.
          *
          * @param r zero-based row of the table
@@ -7741,7 +7741,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the description text of the specified row of the table.
          *
          * @param r zero-based row of the table
@@ -7759,7 +7759,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             rowDescription[r] = a;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the description of the specified column in the table.
          *
          * @param c zero-based column of the table
@@ -7777,7 +7777,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the description text of the specified column of the table.
          *
          * @param c zero-based column of the table
@@ -7795,7 +7795,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             columnDescription[c] = a;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a boolean value indicating whether the accessible at a
          * given (row, column) is selected.
          *
@@ -7809,7 +7809,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.isCellSelected(r, c);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a boolean value indicating whether the specified row
          * is selected.
          *
@@ -7822,7 +7822,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.isRowSelected(r);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a boolean value indicating whether the specified column
          * is selected.
          *
@@ -7835,7 +7835,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.isColumnSelected(c);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the selected rows in a table.
          *
          * @return an array of selected rows where each element is a
@@ -7846,7 +7846,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.getSelectedRows();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the selected columns in a table.
          *
          * @return an array of selected columns where each element is a
@@ -7857,7 +7857,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             return JTable.this.getSelectedColumns();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the row at a given index into the table.
          *
          * @param i zero-based index into the table
@@ -7873,7 +7873,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the column at a given index into the table.
          *
          * @param i zero-based index into the table
@@ -7889,7 +7889,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index at a given (row, column) in the table.
          *
          * @param r zero-based row of the table
@@ -7903,7 +7903,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
         // end of AccessibleTable implementation --------------------
 
-        /**
+        /** {@collect.stats}
          * The class provides an implementation of the Java Accessibility
          * API appropriate to table cells.
          */
@@ -7915,7 +7915,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             private int column;
             private int index;
 
-            /**
+            /** {@collect.stats}
              *  Constructs an <code>AccessibleJTableHeaderEntry</code>.
              * @since 1.4
              */
@@ -7927,7 +7927,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 this.setAccessibleParent(parent);
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleContext</code> associated with this
              * component. In the implementation of the Java Accessibility
              * API for this class, return this object, which is its own
@@ -7939,7 +7939,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return this;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the AccessibleContext for the table cell renderer.
              *
              * @return the <code>AccessibleContext</code> for the table
@@ -7964,7 +7964,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the table cell renderer component.
              *
              * @return the table cell renderer component if one exists;
@@ -7985,7 +7985,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
         // AccessibleContext methods
 
-            /**
+            /** {@collect.stats}
              * Gets the accessible name of this object.
              *
              * @return the localized name of the object; <code>null</code>
@@ -8008,7 +8008,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the localized accessible name of this object.
              *
              * @param s the new localized name of the object
@@ -8025,7 +8025,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             //
             // *** should check toolTip text for desc. (needs MouseEvent)
             //
-            /**
+            /** {@collect.stats}
              * Gets the accessible description of this object.
              *
              * @return the localized description of the object;
@@ -8041,7 +8041,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the accessible description of this object.
              *
              * @param s the new localized description of the object
@@ -8055,7 +8055,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.
              *
              * @return an instance of <code>AccessibleRole</code>
@@ -8071,7 +8071,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the state set of this object.
              *
              * @return an instance of <code>AccessibleStateSet</code>
@@ -8109,7 +8109,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return as;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Accessible</code> parent of this object.
              *
              * @return the Accessible parent of this object;
@@ -8120,7 +8120,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return parent;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the index of this object in its accessible parent.
              *
              * @return the index of this object in its parent; -1 if this
@@ -8131,7 +8131,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return index;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of accessible children in the object.
              *
              * @return the number of accessible children in the object
@@ -8145,7 +8145,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the specified <code>Accessible</code> child of the
              * object.
              *
@@ -8163,7 +8163,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the locale of the component. If the component
              * does not have a locale, then the locale of its parent
              * is returned.
@@ -8186,7 +8186,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Adds a <code>PropertyChangeListener</code> to the listener list.
              * The listener is registered for all properties.
              *
@@ -8202,7 +8202,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Removes a <code>PropertyChangeListener</code> from the
              * listener list. This removes a <code>PropertyChangeListener</code>
              * that was registered for all properties.
@@ -8219,7 +8219,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleAction</code> associated with this
              * object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -8229,7 +8229,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleAction();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleComponent</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -8240,7 +8240,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return this; // to override getBounds()
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleSelection</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -8251,7 +8251,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleSelection();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleText</code> associated with this
              * object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -8261,7 +8261,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleText();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleValue</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -8274,7 +8274,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
         // AccessibleComponent methods
 
-            /**
+            /** {@collect.stats}
              * Gets the background color of this object.
              *
              * @return the background color, if supported, of the object;
@@ -8294,7 +8294,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the background color of this object.
              *
              * @param c the new <code>Color</code> for the background
@@ -8311,7 +8311,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the foreground color of this object.
              *
              * @return the foreground color, if supported, of the object;
@@ -8331,7 +8331,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the foreground color of this object.
              *
              * @param c the new <code>Color</code> for the foreground
@@ -8348,7 +8348,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Cursor</code> of this object.
              *
              * @return the <code>Cursor</code>, if supported,
@@ -8373,7 +8373,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the <code>Cursor</code> of this object.
              *
              * @param c the new <code>Cursor</code> for the object
@@ -8390,7 +8390,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Font</code> of this object.
              *
              * @return the <code>Font</code>,if supported,
@@ -8410,7 +8410,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the <code>Font</code> of this object.
              *
              * @param f the new <code>Font</code> for the object
@@ -8427,7 +8427,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>FontMetrics</code> of this object.
              *
              * @param f the <code>Font</code>
@@ -8449,7 +8449,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if the object is enabled.
              *
              * @return true if object is enabled; otherwise, false
@@ -8468,7 +8468,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the enabled state of the object.
              *
              * @param b if true, enables this object; otherwise, disables it
@@ -8485,7 +8485,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if this object is visible.  Note: this means that the
              * object intends to be visible; however, it may not in fact be
              * showing on the screen because one of the objects that this object
@@ -8508,7 +8508,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the visible state of the object.
              *
              * @param b if true, shows this object; otherwise, hides it
@@ -8525,7 +8525,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if the object is showing.  This is determined
              * by checking the visibility of the object and ancestors
              * of the object.  Note: this will return true even if the
@@ -8555,7 +8555,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Checks whether the specified point is within this
              * object's bounds, where the point's x and y coordinates
              * are defined to be relative to the coordinate system of
@@ -8582,7 +8582,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the location of the object on the screen.
              *
              * @return location of object on screen -- can be
@@ -8599,7 +8599,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the location of the object relative to the parent
              * in the form of a point specifying the object's
              * top-left corner in the screen's coordinate space.
@@ -8619,7 +8619,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the location of the object relative to the parent.
              */
             public void setLocation(Point p) {
@@ -8733,7 +8733,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
         // Begin AccessibleJTableHeader ========== // TIGER - 4715503
 
-        /**
+        /** {@collect.stats}
          * This class implements accessibility for JTable header cells.
          */
         private class AccessibleJTableHeaderCell extends AccessibleContext
@@ -8744,7 +8744,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             private JTableHeader parent;
             private Component rendererComponent;
 
-            /**
+            /** {@collect.stats}
              * Constructs an <code>AccessibleJTableHeaderEntry</code> instance.
              *
              * @param row header cell row index
@@ -8762,7 +8762,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 this.setAccessibleParent(parent);
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleContext</code> associated with this
              * component. In the implementation of the Java Accessibility
              * API for this class, return this object, which is its own
@@ -8791,7 +8791,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
             // AccessibleContext methods ==========
 
-            /**
+            /** {@collect.stats}
              * Gets the accessible name of this object.
              *
              * @return the localized name of the object; <code>null</code>
@@ -8812,7 +8812,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the localized accessible name of this object.
              *
              * @param s the new localized name of the object
@@ -8826,7 +8826,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the accessible description of this object.
              *
              * @return the localized description of the object;
@@ -8842,7 +8842,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the accessible description of this object.
              *
              * @param s the new localized description of the object
@@ -8856,7 +8856,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.
              *
              * @return an instance of <code>AccessibleRole</code>
@@ -8872,7 +8872,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the state set of this object.
              *
              * @return an instance of <code>AccessibleStateSet</code>
@@ -8910,7 +8910,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return as;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Accessible</code> parent of this object.
              *
              * @return the Accessible parent of this object;
@@ -8921,7 +8921,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return parent;
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the index of this object in its accessible parent.
              *
              * @return the index of this object in its parent; -1 if this
@@ -8932,7 +8932,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return column;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of accessible children in the object.
              *
              * @return the number of accessible children in the object
@@ -8946,7 +8946,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the specified <code>Accessible</code> child of the
              * object.
              *
@@ -8964,7 +8964,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the locale of the component. If the component
              * does not have a locale, then the locale of its parent
              * is returned.
@@ -8987,7 +8987,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Adds a <code>PropertyChangeListener</code> to the listener list.
              * The listener is registered for all properties.
              *
@@ -9003,7 +9003,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Removes a <code>PropertyChangeListener</code> from the
              * listener list. This removes a <code>PropertyChangeListener</code>
              * that was registered for all properties.
@@ -9020,7 +9020,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleAction</code> associated with this
              * object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -9030,7 +9030,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleAction();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleComponent</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -9041,7 +9041,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return this; // to override getBounds()
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleSelection</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -9052,7 +9052,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleSelection();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleText</code> associated with this
              * object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -9062,7 +9062,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return getCurrentAccessibleContext().getAccessibleText();
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>AccessibleValue</code> associated with
              * this object if one exists.  Otherwise returns <code>null</code>.
              *
@@ -9075,7 +9075,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
 
             // AccessibleComponent methods ==========
 
-            /**
+            /** {@collect.stats}
              * Gets the background color of this object.
              *
              * @return the background color, if supported, of the object;
@@ -9095,7 +9095,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the background color of this object.
              *
              * @param c the new <code>Color</code> for the background
@@ -9112,7 +9112,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the foreground color of this object.
              *
              * @return the foreground color, if supported, of the object;
@@ -9132,7 +9132,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the foreground color of this object.
              *
              * @param c the new <code>Color</code> for the foreground
@@ -9149,7 +9149,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Cursor</code> of this object.
              *
              * @return the <code>Cursor</code>, if supported,
@@ -9174,7 +9174,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the <code>Cursor</code> of this object.
              *
              * @param c the new <code>Cursor</code> for the object
@@ -9191,7 +9191,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>Font</code> of this object.
              *
              * @return the <code>Font</code>,if supported,
@@ -9211,7 +9211,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the <code>Font</code> of this object.
              *
              * @param f the new <code>Font</code> for the object
@@ -9228,7 +9228,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the <code>FontMetrics</code> of this object.
              *
              * @param f the <code>Font</code>
@@ -9250,7 +9250,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if the object is enabled.
              *
              * @return true if object is enabled; otherwise, false
@@ -9269,7 +9269,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the enabled state of the object.
              *
              * @param b if true, enables this object; otherwise, disables it
@@ -9286,7 +9286,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if this object is visible.  Note: this means that the
              * object intends to be visible; however, it may not in fact be
              * showing on the screen because one of the objects that this object
@@ -9309,7 +9309,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the visible state of the object.
              *
              * @param b if true, shows this object; otherwise, hides it
@@ -9326,7 +9326,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Determines if the object is showing.  This is determined
              * by checking the visibility of the object and ancestors
              * of the object.  Note: this will return true even if the
@@ -9356,7 +9356,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Checks whether the specified point is within this
              * object's bounds, where the point's x and y coordinates
              * are defined to be relative to the coordinate system of
@@ -9383,7 +9383,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the location of the object on the screen.
              *
              * @return location of object on screen -- can be
@@ -9400,7 +9400,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the location of the object relative to the parent
              * in the form of a point specifying the object's
              * top-left corner in the screen's coordinate space.
@@ -9420,7 +9420,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the location of the object relative to the parent.
              * @param p the new position for the top-left corner
              * @see #getLocation
@@ -9428,7 +9428,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
             public void setLocation(Point p) {
             }
 
-            /**
+            /** {@collect.stats}
              * Gets the bounds of this object in the form of a Rectangle object.
              * The bounds specify this object's width, height, and location
              * relative to its parent.
@@ -9445,7 +9445,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Sets the bounds of this object in the form of a Rectangle object.
              * The bounds specify this object's width, height, and location
              * relative to its parent.
@@ -9465,7 +9465,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the size of this object in the form of a Dimension object.
              * The height field of the Dimension object contains this object's
              * height, and the width field of the Dimension object contains this
@@ -9485,7 +9485,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 return null;
             }
 
-            /**
+            /** {@collect.stats}
              * Resizes this object so that it has width and height.
              *
              * @param d The dimension specifying the new size of the object.
@@ -9503,7 +9503,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the Accessible child, if one exists, contained at the local
              * coordinate Point.
              *
@@ -9520,7 +9520,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Returns whether this object can accept focus or not.   Objects that
              * can accept focus will also have the AccessibleState.FOCUSABLE state
              * set in their AccessibleStateSets.
@@ -9545,7 +9545,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Requests focus for this object.  If this object cannot accept focus,
              * nothing will happen.  Otherwise, the object will attempt to take
              * focus.
@@ -9563,7 +9563,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Adds the specified focus listener to receive focus events from this
              * component.
              *
@@ -9582,7 +9582,7 @@ public class JTable extends JComponent implements TableModelListener, Scrollable
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * Removes the specified focus listener so it no longer receives focus
              * events from this component.
              *

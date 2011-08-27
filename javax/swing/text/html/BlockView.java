@@ -31,7 +31,7 @@ import javax.swing.border.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * A view implementation to display a block (as a box)
  * with CSS specifications.
  *
@@ -39,7 +39,7 @@ import javax.swing.text.*;
  */
 public class BlockView extends BoxView  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents an
      * html box.  This can be used for a number
      * of elements.
@@ -51,7 +51,7 @@ public class BlockView extends BoxView  {
         super(elem, axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the parent view for this view.  This is
      * guaranteed to be called before any other methods if the
      * parent view is functioning properly.
@@ -75,7 +75,7 @@ public class BlockView extends BoxView  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements of the block along the major
      * axis (i.e. the axis along with it tiles).  This is implemented
      * to provide the superclass behavior and then adjust it if the
@@ -104,7 +104,7 @@ public class BlockView extends BoxView  {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements of the block along the minor
      * axis (i.e. the axis orthoginal to the axis along with it tiles).
      * This is implemented
@@ -193,7 +193,7 @@ public class BlockView extends BoxView  {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the given requirements to the CSS width or height if
      * it is specified along the applicable axis.  Return true if the
      * size is exactly specified, false if the span is not specified
@@ -216,7 +216,7 @@ public class BlockView extends BoxView  {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs layout for the minor axis of the box (i.e. the
      * axis orthoginal to the axis that it represents). The results
      * of the layout (the offset and span for each children) are
@@ -266,7 +266,7 @@ public class BlockView extends BoxView  {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.  This is implemented to delegate to the css box
      * painter to paint the border and background prior to the
@@ -282,7 +282,7 @@ public class BlockView extends BoxView  {
         super.paint(g, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -295,7 +295,7 @@ public class BlockView extends BoxView  {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the resize weight.
      *
      * @param axis may be either X_AXIS or Y_AXIS
@@ -313,7 +313,7 @@ public class BlockView extends BoxView  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the alignment.
      *
      * @param axis may be either X_AXIS or Y_AXIS
@@ -346,7 +346,7 @@ public class BlockView extends BoxView  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -362,7 +362,7 @@ public class BlockView extends BoxView  {
         return super.getPreferredSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.
      *
@@ -378,7 +378,7 @@ public class BlockView extends BoxView  {
         return super.getMinimumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.
      *
@@ -394,7 +394,7 @@ public class BlockView extends BoxView  {
         return super.getMaximumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Update any cached values that come from attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -422,7 +422,7 @@ public class BlockView extends BoxView  {
         return doc.getStyleSheet();
     }
 
-    /**
+    /** {@collect.stats}
      * Constrains <code>want</code> to fit in the minimum size specified
      * by <code>min</code>.
      */

@@ -31,7 +31,7 @@ import java.io.Writer;
 import javax.sql.RowSetWriter;
 import javax.sql.rowset.*;
 
-/**
+/** {@collect.stats}
  * A specialized interface that facilitates an extension of the
  * <code>SyncProvider</code> abstract class for XML orientated
  * synchronization providers.
@@ -47,7 +47,7 @@ import javax.sql.rowset.*;
  */
 public interface XmlWriter extends RowSetWriter {
 
-  /**
+  /** {@collect.stats}
    * Writes the given <code>WebRowSet</code> object to the specified
    * <code>java.io.Writer</code> output stream as an XML document.
    * This document includes the rowset's data, metadata, and properties

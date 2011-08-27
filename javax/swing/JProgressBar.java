@@ -41,7 +41,7 @@ import javax.accessibility.*;
 import javax.swing.plaf.ProgressBarUI;
 
 
-/**
+/** {@collect.stats}
  * A component that visually displays the progress of some task.  As the task
  * progresses towards completion, the progress bar displays the
  * task's percentage of completion.
@@ -131,12 +131,12 @@ import javax.swing.plaf.ProgressBarUI;
  */
 public class JProgressBar extends JComponent implements SwingConstants, Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      */
     private static final String uiClassID = "ProgressBarUI";
 
-    /**
+    /** {@collect.stats}
      * Whether the progress bar is horizontal or vertical.
      * The default is <code>HORIZONTAL</code>.
      *
@@ -144,7 +144,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected int orientation;
 
-    /**
+    /** {@collect.stats}
      * Whether to display a border around the progress bar.
      * The default is <code>true</code>.
      *
@@ -152,14 +152,14 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected boolean paintBorder;
 
-    /**
+    /** {@collect.stats}
      * The object that holds the data for the progress bar.
      *
      * @see #setModel
      */
     protected BoundedRangeModel model;
 
-    /**
+    /** {@collect.stats}
      * An optional string that can be displayed on the progress bar.
      * The default is <code>null</code>. Setting this to a non-<code>null</code>
      * value does not imply that the string will be displayed.
@@ -170,7 +170,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected String progressString;
 
-    /**
+    /** {@collect.stats}
      * Whether to display a string of text on the progress bar.
      * The default is <code>false</code>.
      * Setting this to <code>true</code> causes a textual
@@ -185,20 +185,20 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected boolean paintString;
 
-    /**
+    /** {@collect.stats}
      * The default minimum for a progress bar is 0.
      */
     static final private int defaultMinimum = 0;
-    /**
+    /** {@collect.stats}
      * The default maximum for a progress bar is 100.
      */
     static final private int defaultMaximum = 100;
-    /**
+    /** {@collect.stats}
      * The default orientation for a progress bar is <code>HORIZONTAL</code>.
      */
     static final private int defaultOrientation = HORIZONTAL;
 
-    /**
+    /** {@collect.stats}
      * Only one <code>ChangeEvent</code> is needed per instance since the
      * event's only interesting property is the immutable source, which
      * is the progress bar.
@@ -209,7 +209,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected transient ChangeEvent changeEvent = null;
 
-    /**
+    /** {@collect.stats}
      * Listens for change events sent by the progress bar's model,
      * redispatching them
      * to change-event listeners registered upon
@@ -219,12 +219,12 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     protected ChangeListener changeListener = null;
 
-    /**
+    /** {@collect.stats}
      * Format used when displaying percent complete.
      */
     private transient Format format;
 
-    /**
+    /** {@collect.stats}
      * Whether the progress bar is indeterminate (<code>true</code>) or
      * normal (<code>false</code>); the default is <code>false</code>.
      *
@@ -234,7 +234,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     private boolean indeterminate;
 
 
-   /**
+   /** {@collect.stats}
      * Creates a horizontal progress bar
      * that displays a border but no progress string.
      * The initial and minimum values are 0,
@@ -251,7 +251,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         this(defaultOrientation);
     }
 
-   /**
+   /** {@collect.stats}
      * Creates a progress bar with the specified orientation,
      * which can be
      * either {@code SwingConstants.VERTICAL} or
@@ -275,7 +275,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a horizontal progress bar
      * with the specified minimum and maximum.
      * Sets the initial value of the progress bar to the specified minimum.
@@ -302,7 +302,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a progress bar using the specified orientation,
      * minimum, and maximum.
      * By default, a border is painted but a progress string is not.
@@ -341,7 +341,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a horizontal progress bar
      * that uses the specified model
      * to hold the progress bar's data.
@@ -368,7 +368,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns {@code SwingConstants.VERTICAL} or
      * {@code SwingConstants.HORIZONTAL}, depending on the orientation
      * of the progress bar. The default orientation is
@@ -382,7 +382,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-   /**
+   /** {@collect.stats}
      * Sets the progress bar's orientation to <code>newOrientation</code>,
      * which must be {@code SwingConstants.VERTICAL} or
      * {@code SwingConstants.HORIZONTAL}. The default orientation
@@ -427,7 +427,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>stringPainted</code> property.
      *
      * @return the value of the <code>stringPainted</code> property
@@ -439,7 +439,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the <code>stringPainted</code> property,
      * which determines whether the progress bar
      * should render a progress string.
@@ -469,7 +469,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code String} representation of the current progress.
      * By default, this returns a simple percentage {@code String} based on
      * the value returned from {@code getPercentComplete}.  An example
@@ -490,7 +490,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the progress string. By default,
      * this string is <code>null</code>, implying the built-in behavior of
      * using a simple percent string.
@@ -518,7 +518,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the percent complete for the progress bar.
      * Note that this number is between 0.0 and 1.0.
      *
@@ -531,7 +531,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return pc;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>borderPainted</code> property.
      *
      * @return the value of the <code>borderPainted</code> property
@@ -543,7 +543,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return paintBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>borderPainted</code> property, which is
      * <code>true</code> if the progress bar should paint its border.
      * The default value for this property is <code>true</code>.
@@ -568,7 +568,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the progress bar's border if the <code>borderPainted</code>
      * property is <code>true</code>.
      *
@@ -585,7 +585,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the look-and-feel object that renders this component.
      *
      * @return the <code>ProgressBarUI</code> object that renders this component
@@ -594,7 +594,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return (ProgressBarUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the look-and-feel object that renders this component.
      *
      * @param ui  a <code>ProgressBarUI</code> object
@@ -610,7 +610,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -620,7 +620,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the look-and-feel class that renders this component.
      *
      * @return the string "ProgressBarUI"
@@ -653,7 +653,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses that want to handle change events
      * from the model differently
      * can override this to return
@@ -672,7 +672,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return new ModelListener();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified <code>ChangeListener</code> to the progress bar.
      *
      * @param l the <code>ChangeListener</code> to add
@@ -681,7 +681,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the progress bar.
      *
      * @param l the <code>ChangeListener</code> to remove
@@ -690,7 +690,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this progress bar with <code>addChangeListener</code>.
      *
@@ -703,7 +703,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Send a {@code ChangeEvent}, whose source is this {@code JProgressBar}, to
      * all {@code ChangeListener}s that have registered interest in
      * {@code ChangeEvent}s.
@@ -732,7 +732,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data model used by this progress bar.
      *
      * @return the <code>BoundedRangeModel</code> currently in use
@@ -743,7 +743,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return model;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data model used by the <code>JProgressBar</code>.
      * Note that the {@code BoundedRangeModel}'s {@code extent} is not used,
      * and is set to {@code 0}.
@@ -790,7 +790,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
 
     /* All of the model methods are implemented by delegation. */
 
-    /**
+    /** {@collect.stats}
      * Returns the progress bar's current {@code value}
      * from the <code>BoundedRangeModel</code>.
      * The value is always between the
@@ -802,7 +802,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     public int getValue() { return getModel().getValue(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the progress bar's {@code minimum} value
      * from the <code>BoundedRangeModel</code>.
      *
@@ -812,7 +812,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     public int getMinimum() { return getModel().getMinimum(); }
 
-    /**
+    /** {@collect.stats}
      * Returns the progress bar's {@code maximum} value
      * from the <code>BoundedRangeModel</code>.
      *
@@ -822,7 +822,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     public int getMaximum() { return getModel().getMaximum(); }
 
-    /**
+    /** {@collect.stats}
      * Sets the progress bar's current value to {@code n}.  This method
      * forwards the new value to the model.
      * <p>
@@ -855,7 +855,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the progress bar's minimum value
      * (stored in the progress bar's data model) to <code>n</code>.
      * <p>
@@ -877,7 +877,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     public void setMinimum(int n) { getModel().setMinimum(n); }
 
-    /**
+    /** {@collect.stats}
      * Sets the progress bar's maximum value
      * (stored in the progress bar's data model) to <code>n</code>.
      * <p>
@@ -898,7 +898,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
      */
     public void setMaximum(int n) { getModel().setMaximum(n); }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>indeterminate</code> property of the progress bar,
      * which determines whether the progress bar is in determinate
      * or indeterminate mode.
@@ -935,7 +935,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         firePropertyChange("indeterminate", oldValue, indeterminate);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>indeterminate</code> property.
      *
      * @return the value of the <code>indeterminate</code> property
@@ -952,7 +952,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -968,7 +968,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JProgressBar</code>.
      * This method is intended to be used only for debugging purposes. The
      * content and format of the returned string may vary between
@@ -1001,7 +1001,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>JProgressBar</code>. For progress bars, the
      * <code>AccessibleContext</code> takes the form of an
@@ -1021,7 +1021,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JProgressBar</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to progress bar user-interface
@@ -1039,7 +1039,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
     protected class AccessibleJProgressBar extends AccessibleJComponent
         implements AccessibleValue {
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleState containing the current state
@@ -1059,7 +1059,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return states;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1069,7 +1069,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return AccessibleRole.PROGRESS_BAR;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the <code>AccessibleValue</code> associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * returns this object, which is responsible for implementing the
@@ -1081,7 +1081,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the accessible value of this object.
          *
          * @return the current value of this object
@@ -1090,7 +1090,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return new Integer(getValue());
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the value of this object as a <code>Number</code>.
          *
          * @return <code>true</code> if the value was set
@@ -1104,7 +1104,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the minimum accessible value of this object.
          *
          * @return the minimum value of this object
@@ -1113,7 +1113,7 @@ public class JProgressBar extends JComponent implements SwingConstants, Accessib
             return new Integer(getMinimum());
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the maximum accessible value of this object.
          *
          * @return the maximum value of this object

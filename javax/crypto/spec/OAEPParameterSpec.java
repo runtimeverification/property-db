@@ -29,7 +29,7 @@ import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used with OAEP Padding,
  * as defined in the
  * <a href="http://www.ietf.org/rfc/rfc3447.txt">PKCS #1</a>
@@ -81,19 +81,19 @@ public class OAEPParameterSpec implements AlgorithmParameterSpec {
     private AlgorithmParameterSpec mgfSpec = MGF1ParameterSpec.SHA1;
     private PSource pSrc = PSource.PSpecified.DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * The OAEP parameter set with all default values.
      */
     public static final OAEPParameterSpec DEFAULT = new OAEPParameterSpec();
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for OAEP padding as defined in
      * the PKCS #1 standard using the default values.
      */
     private OAEPParameterSpec() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for OAEP padding as defined in
      * the PKCS #1 standard using the specified message digest
      * algorithm <code>mdName</code>, mask generation function
@@ -130,7 +130,7 @@ public class OAEPParameterSpec implements AlgorithmParameterSpec {
         this.pSrc =  pSrc;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the message digest algorithm name.
      *
      * @return the message digest algorithm name.
@@ -139,7 +139,7 @@ public class OAEPParameterSpec implements AlgorithmParameterSpec {
         return mdName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the mask generation function algorithm name.
      *
      * @return the mask generation function algorithm name.
@@ -148,7 +148,7 @@ public class OAEPParameterSpec implements AlgorithmParameterSpec {
         return mgfName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parameters for the mask generation function.
      *
      * @return the parameters for the mask generation function.
@@ -157,7 +157,7 @@ public class OAEPParameterSpec implements AlgorithmParameterSpec {
         return mgfSpec;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the source of encoding input P.
      *
      * @return the source of encoding input P.

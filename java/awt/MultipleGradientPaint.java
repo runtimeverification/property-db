@@ -30,7 +30,7 @@ import java.awt.image.ColorModel;
 import java.lang.ref.SoftReference;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * This is the superclass for Paints which use a multiple color
  * gradient to fill in their raster.  It provides storage for variables and
  * enumerated values common to
@@ -41,63 +41,63 @@ import java.util.Arrays;
  */
 public abstract class MultipleGradientPaint implements Paint {
 
-    /** The method to use when painting outside the gradient bounds.
+    /** {@collect.stats} The method to use when painting outside the gradient bounds.
      * @since 1.6
      */
     public static enum CycleMethod {
-        /**
+        /** {@collect.stats}
          * Use the terminal colors to fill the remaining area.
          */
         NO_CYCLE,
 
-        /**
+        /** {@collect.stats}
          * Cycle the gradient colors start-to-end, end-to-start
          * to fill the remaining area.
          */
         REFLECT,
 
-        /**
+        /** {@collect.stats}
          * Cycle the gradient colors start-to-end, start-to-end
          * to fill the remaining area.
          */
         REPEAT
     }
 
-    /** The color space in which to perform the gradient interpolation.
+    /** {@collect.stats} The color space in which to perform the gradient interpolation.
      * @since 1.6
      */
     public static enum ColorSpaceType {
-        /**
+        /** {@collect.stats}
          * Indicates that the color interpolation should occur in sRGB space.
          */
         SRGB,
 
-        /**
+        /** {@collect.stats}
          * Indicates that the color interpolation should occur in linearized
          * RGB space.
          */
         LINEAR_RGB
     }
 
-    /** The transparency of this paint object. */
+    /** {@collect.stats} The transparency of this paint object. */
     final int transparency;
 
-    /** Gradient keyframe values in the range 0 to 1. */
+    /** {@collect.stats} Gradient keyframe values in the range 0 to 1. */
     final float[] fractions;
 
-    /** Gradient colors. */
+    /** {@collect.stats} Gradient colors. */
     final Color[] colors;
 
-    /** Transform to apply to gradient. */
+    /** {@collect.stats} Transform to apply to gradient. */
     final AffineTransform gradientTransform;
 
-    /** The method to use when painting outside the gradient bounds. */
+    /** {@collect.stats} The method to use when painting outside the gradient bounds. */
     final CycleMethod cycleMethod;
 
-    /** The color space in which to perform the gradient interpolation. */
+    /** {@collect.stats} The color space in which to perform the gradient interpolation. */
     final ColorSpaceType colorSpace;
 
-    /**
+    /** {@collect.stats}
      * The following fields are used only by MultipleGradientPaintContext
      * to cache certain values that remain constant and do not need to be
      * recalculated for each context created from this paint instance.
@@ -109,7 +109,7 @@ public abstract class MultipleGradientPaint implements Paint {
     SoftReference<int[]> gradient;
     int fastGradientArraySize;
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor.
      *
      * @param fractions numbers ranging from 0.0 to 1.0 specifying the
@@ -239,7 +239,7 @@ public abstract class MultipleGradientPaint implements Paint {
         this.transparency = opaque ? OPAQUE : TRANSLUCENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of floats used by this gradient
      * to calculate color distribution.
      * The returned array always has 0 as its first value and 1 as its
@@ -252,7 +252,7 @@ public abstract class MultipleGradientPaint implements Paint {
         return Arrays.copyOf(fractions, fractions.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of colors used by this gradient.
      * The first color maps to the first value in the fractions array,
      * and the last color maps to the last value in the fractions array.
@@ -263,7 +263,7 @@ public abstract class MultipleGradientPaint implements Paint {
         return Arrays.copyOf(colors, colors.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumerated type which specifies cycling behavior.
      *
      * @return the enumerated type which specifies cycling behavior
@@ -272,7 +272,7 @@ public abstract class MultipleGradientPaint implements Paint {
         return cycleMethod;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumerated type which specifies color space for
      * interpolation.
      *
@@ -283,7 +283,7 @@ public abstract class MultipleGradientPaint implements Paint {
         return colorSpace;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the transform applied to the gradient.
      *
      * @return a copy of the transform applied to the gradient
@@ -292,7 +292,7 @@ public abstract class MultipleGradientPaint implements Paint {
         return new AffineTransform(gradientTransform);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the transparency mode for this Paint object.
      *
      * @return an integer value representing the transparency mode for

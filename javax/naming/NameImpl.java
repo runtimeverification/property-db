@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.NoSuchElementException;
 
-/**
+/** {@collect.stats}
   * The implementation class for CompoundName and CompositeName.
   * This class is package private.
   *
@@ -498,7 +498,7 @@ class NameImpl {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
       * Compares obj to this NameImpl to determine ordering.
       * Takes into account syntactic properties such as
       * elimination of blanks, case-ignore, etc, if relevant.

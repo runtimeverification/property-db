@@ -28,14 +28,14 @@ package javax.sql;
 import java.sql.SQLException;
 import java.io.PrintWriter;
 
-/**
+/** {@collect.stats}
  * Interface that defines the methods which are common between <code>DataSource</code>,
  * <code>XADataSource</code> and <code>ConnectionPoolDataSource</code>.
  *<p>
  */
 public interface CommonDataSource {
 
-  /**
+  /** {@collect.stats}
    * <p>Retrieves the log writer for this <code>DataSource</code>
    * object.
    *
@@ -58,7 +58,7 @@ public interface CommonDataSource {
    */
   java.io.PrintWriter getLogWriter() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * <p>Sets the log writer for this <code>DataSource</code>
    * object to the given <code>java.io.PrintWriter</code> object.
    *
@@ -80,7 +80,7 @@ public interface CommonDataSource {
    */
   void setLogWriter(java.io.PrintWriter out) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * <p>Sets the maximum time in seconds that this data source will wait
    * while attempting to connect to a database.  A value of zero
    * specifies that the timeout is the default system timeout
@@ -95,7 +95,7 @@ public interface CommonDataSource {
    */
   void setLoginTimeout(int seconds) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Gets the maximum time in seconds that this data source can wait
    * while attempting to connect to a database.  A value of zero
    * means that the timeout is the default system timeout

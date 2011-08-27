@@ -28,7 +28,7 @@ package javax.imageio;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 
-/**
+/** {@collect.stats}
  * A class describing how a stream is to be decoded.  Instances of
  * this class or its subclasses are used to supply prescriptive
  * "how-to" information to instances of <code>ImageReader</code>.
@@ -129,7 +129,7 @@ import java.awt.image.BufferedImage;
  */
 public class ImageReadParam extends IIOParam {
 
-    /**
+    /** {@collect.stats}
      * <code>true</code> if this <code>ImageReadParam</code> allows
      * the source rendering dimensions to be set.  By default, the
      * value is <code>false</code>.  Subclasses must set this value
@@ -141,7 +141,7 @@ public class ImageReadParam extends IIOParam {
      */
     protected boolean canSetSourceRenderSize = false;
 
-    /**
+    /** {@collect.stats}
      * The desired rendering width and height of the source, if
      * <code>canSetSourceRenderSize</code> is <code>true</code>, or
      * <code>null</code>.
@@ -151,21 +151,21 @@ public class ImageReadParam extends IIOParam {
      */
     protected Dimension sourceRenderSize = null;
 
-    /**
+    /** {@collect.stats}
      * The current destination <code>BufferedImage</code>, or
      * <code>null</code> if none has been set.  By default, the value
      * is <code>null</code>.
      */
     protected BufferedImage destination = null;
 
-    /**
+    /** {@collect.stats}
      * The set of destination bands to be used, as an array of
      * <code>int</code>s.  By default, the value is <code>null</code>,
      * indicating all destination bands should be written in order.
      */
     protected int[] destinationBands = null;
 
-    /**
+    /** {@collect.stats}
      * The minimum index of a progressive pass to read from the
      * source.  By default, the value is set to 0, which indicates
      * that passes starting with the first available pass should be
@@ -176,7 +176,7 @@ public class ImageReadParam extends IIOParam {
      */
     protected int minProgressivePass = 0;
 
-    /**
+    /** {@collect.stats}
      * The maximum number of progressive passes to read from the
      * source.  By default, the value is set to
      * <code>Integer.MAX_VALUE</code>, which indicates that passes up
@@ -190,7 +190,7 @@ public class ImageReadParam extends IIOParam {
      */
     protected int numProgressivePasses = Integer.MAX_VALUE;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageReadParam</code>.
      */
     public ImageReadParam() {}
@@ -201,7 +201,7 @@ public class ImageReadParam extends IIOParam {
         setDestination(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Supplies a <code>BufferedImage</code> to be used as the
      * destination for decoded pixel data.  The currently set image
      * will be written to by the <code>read</code>,
@@ -232,7 +232,7 @@ public class ImageReadParam extends IIOParam {
         this.destination = destination;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>BufferedImage</code> currently set by the
      * <code>setDestination</code> method, or <code>null</code>
      * if none is set.
@@ -245,7 +245,7 @@ public class ImageReadParam extends IIOParam {
         return destination;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the indices of the destination bands where data
      * will be placed.  Duplicate indices are not allowed.
      *
@@ -298,7 +298,7 @@ public class ImageReadParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of band indices where data will be placed.
      * If no value has been set, <code>null</code> is returned to
      * indicate that all destination bands will be used.
@@ -316,7 +316,7 @@ public class ImageReadParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this reader allows the source
      * image to be rendered at an arbitrary size as part of the
      * decoding process, by means of the
@@ -334,7 +334,7 @@ public class ImageReadParam extends IIOParam {
         return canSetSourceRenderSize;
     }
 
-    /**
+    /** {@collect.stats}
      * If the image is able to be rendered at an arbitrary size, sets
      * the source width and height to the supplied values.  Note that
      * the values returned from the <code>getWidth</code> and
@@ -386,7 +386,7 @@ public class ImageReadParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the width and height of the source image as it
      * will be rendered during decoding, if they have been set via the
      * <code>setSourceRenderSize</code> method.  A
@@ -402,7 +402,7 @@ public class ImageReadParam extends IIOParam {
             null : (Dimension)sourceRenderSize.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the range of progressive passes that will be decoded.
      * Passes outside of this range will be ignored.
      *
@@ -459,7 +459,7 @@ public class ImageReadParam extends IIOParam {
         this.numProgressivePasses = numPasses;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first progressive pass that will be
      * decoded. If no value has been set, 0 will be returned (which is
      * the correct value).
@@ -473,7 +473,7 @@ public class ImageReadParam extends IIOParam {
         return minProgressivePass;
     }
 
-    /**
+    /** {@collect.stats}
      * If <code>getSourceNumProgressivePasses</code> is equal to
      * <code>Integer.MAX_VALUE</code>, returns
      * <code>Integer.MAX_VALUE</code>.  Otherwise, returns
@@ -491,7 +491,7 @@ public class ImageReadParam extends IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of the progressive passes that will be
      * decoded. If no value has been set,
      * <code>Integer.MAX_VALUE</code> will be returned (which is the

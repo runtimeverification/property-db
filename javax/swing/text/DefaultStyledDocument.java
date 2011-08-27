@@ -51,7 +51,7 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoableEdit;
 import javax.swing.SwingUtilities;
 
-/**
+/** {@collect.stats}
  * A document that can be marked up with character and paragraph
  * styles in a manner similar to the Rich Text Format.  The element
  * structure for this document represents style crossings for
@@ -75,7 +75,7 @@ import javax.swing.SwingUtilities;
  */
 public class DefaultStyledDocument extends AbstractDocument implements StyledDocument {
 
-    /**
+    /** {@collect.stats}
      * Constructs a styled document.
      *
      * @param c  the container for the content
@@ -90,7 +90,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         setLogicalStyle(0, defaultStyle);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a styled document with the default content
      * storage implementation and a shared set of styles.
      *
@@ -100,7 +100,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         this(new GapContent(BUFFER_SIZE_DEFAULT), styles);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a default styled document.  This buffers
      * input content by a size of <em>BUFFER_SIZE_DEFAULT</em>
      * and has a style context that is scoped by the lifetime
@@ -110,7 +110,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         this(new GapContent(BUFFER_SIZE_DEFAULT), new StyleContext());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the default root element.
      *
      * @return the root
@@ -120,7 +120,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return buffer.getRootElement();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize the document to reflect the given element
      * structure (i.e. the structure reported by the
      * <code>getDefaultRootElement</code> method.  If the
@@ -167,7 +167,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts new elements in bulk.  This is useful to allow
      * parsing with the document in an unlocked state and
      * prepare an element structure modification.  This method
@@ -227,7 +227,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new style into the logical style hierarchy.  Style attributes
      * resolve from bottom up so an attribute specified in a child
      * will override an attribute specified in the parent.
@@ -248,7 +248,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return styles.addStyle(nm, parent);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a named style previously added to the document.
      *
      * @param nm  the name of the style to remove
@@ -258,7 +258,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         styles.removeStyle(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a named style previously added.
      *
      * @param nm  the name of the style
@@ -270,7 +270,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
     }
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the list of of style names.
      *
      * @return all the style names
@@ -279,7 +279,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return ((StyleContext) getAttributeContext()).getStyleNames();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the logical style to use for the paragraph at the
      * given position.  If attributes aren't explicitly set
      * for character and paragraph attributes they will resolve
@@ -316,7 +316,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the logical style assigned to the paragraph
      * represented by the given position.
      *
@@ -338,7 +338,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return s;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets attributes for some part of the document.
      * A write lock is held by this operation while changes
      * are being made, and a DocumentEvent is sent to the listeners
@@ -394,7 +394,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets attributes for a paragraph.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -447,7 +447,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the paragraph element at the offset <code>pos</code>.
      * A paragraph consists of at least one child Element, which is usually
      * a leaf.
@@ -466,7 +466,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a character element based on a position.
      *
      * @param pos the position in the document >= 0
@@ -483,7 +483,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
     // --- local methods -------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Updates document structure as a result of text insertion.  This
      * will happen within a write lock.  This implementation simply
      * parses the inserted content for line breaks and builds up a set
@@ -656,7 +656,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         super.insertUpdate( chng, attr );
     }
 
-    /**
+    /** {@collect.stats}
      * This is called by insertUpdate when inserting after a new line.
      * It generates, in <code>parseBuffer</code>, ElementSpecs that will
      * position the stack in <code>paragraph</code>.<p>
@@ -730,7 +730,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return ElementSpec.OriginateDirection;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates document structure as a result of text removal.
      *
      * @param chng a description of the document change
@@ -740,7 +740,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         buffer.remove(chng.getOffset(), chng.getLength(), chng);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the root element to be used to represent the
      * default document structure.
      *
@@ -766,7 +766,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return section;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the foreground color from an attribute set.
      *
      * @param attr the attribute set
@@ -777,7 +777,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return styles.getForeground(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the background color from an attribute set.
      *
      * @param attr the attribute set
@@ -788,7 +788,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return styles.getBackground(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font from an attribute set.
      *
      * @param attr the attribute set
@@ -799,7 +799,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         return styles.getFont(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Called when any of this document's styles have changed.
      * Subclasses may wish to be intelligent about what gets damaged.
      *
@@ -824,7 +824,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a document listener for notification of any changes.
      *
      * @param listener the listener
@@ -854,7 +854,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a document listener.
      *
      * @param listener the listener
@@ -878,21 +878,21 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new instance of StyleChangeHandler.
      */
     ChangeListener createStyleChangeListener() {
         return new StyleChangeHandler(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new instance of StyleContextChangeHandler.
      */
     ChangeListener createStyleContextChangeListener() {
         return new StyleContextChangeHandler(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a ChangeListener to new styles, and removes ChangeListener from
      * old styles.
      */
@@ -952,26 +952,26 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
     // --- member variables -----------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The default size of the initial content buffer.
      */
     public static final int BUFFER_SIZE_DEFAULT = 4096;
 
     protected ElementBuffer buffer;
 
-    /** Styles listening to. */
+    /** {@collect.stats} Styles listening to. */
     private transient Vector listeningStyles;
 
-    /** Listens to Styles. */
+    /** {@collect.stats} Listens to Styles. */
     private transient ChangeListener styleChangeListener;
 
-    /** Listens to Styles. */
+    /** {@collect.stats} Listens to Styles. */
     private transient ChangeListener styleContextChangeListener;
 
-    /** Run to create a change event for the document */
+    /** {@collect.stats} Run to create a change event for the document */
     private transient ChangeUpdateRunnable updateRunnable;
 
-    /**
+    /** {@collect.stats}
      * Default root element for a document... maps out the
      * paragraphs/lines contained.
      * <p>
@@ -986,14 +986,14 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
      */
     protected class SectionElement extends BranchElement {
 
-        /**
+        /** {@collect.stats}
          * Creates a new SectionElement.
          */
         public SectionElement() {
             super(null, null);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          *
          * @return the name
@@ -1003,7 +1003,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Specification for building elements.
      * <p>
      * <strong>Warning:</strong>
@@ -1017,7 +1017,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
      */
     public static class ElementSpec {
 
-        /**
+        /** {@collect.stats}
          * A possible value for getType.  This specifies
          * that this record type is a start tag and
          * represents markup that specifies the start
@@ -1025,7 +1025,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
          */
         public static final short StartTagType = 1;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getType.  This specifies
          * that this record type is a end tag and
          * represents markup that specifies the end
@@ -1033,27 +1033,27 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
          */
         public static final short EndTagType = 2;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getType.  This specifies
          * that this record type represents content.
          */
         public static final short ContentType = 3;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getDirection.  This specifies
          * that the data associated with this record should
          * be joined to what precedes it.
          */
         public static final short JoinPreviousDirection = 4;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getDirection.  This specifies
          * that the data associated with this record should
          * be joined to what follows it.
          */
         public static final short JoinNextDirection = 5;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getDirection.  This specifies
          * that the data associated with this record should
          * be used to originate a new element.  This would be
@@ -1061,7 +1061,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
          */
         public static final short OriginateDirection = 6;
 
-        /**
+        /** {@collect.stats}
          * A possible value for getDirection.  This specifies
          * that the data associated with this record should
          * be joined to the fractured element.
@@ -1069,7 +1069,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         public static final short JoinFractureDirection = 7;
 
 
-        /**
+        /** {@collect.stats}
          * Constructor useful for markup when the markup will not
          * be stored in the document.
          *
@@ -1081,7 +1081,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             this(a, type, null, 0, 0);
         }
 
-        /**
+        /** {@collect.stats}
          * Constructor for parsing inside the document when
          * the data has already been added, but len information
          * is needed.
@@ -1095,7 +1095,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             this(a, type, null, 0, len);
         }
 
-        /**
+        /** {@collect.stats}
          * Constructor for creating a spec externally for batch
          * input of content and markup into the document.
          *
@@ -1116,7 +1116,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             this.direction = OriginateDirection;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the element type.
          *
          * @param type the type of the element (StartTagType, EndTagType,
@@ -1126,7 +1126,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             this.type = type;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the element type.
          *
          * @return  the type of the element (StartTagType, EndTagType,
@@ -1136,7 +1136,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return type;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the direction.
          *
          * @param direction the direction (JoinPreviousDirection,
@@ -1146,7 +1146,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             this.direction = direction;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the direction.
          *
          * @return the direction (JoinPreviousDirection, JoinNextDirection)
@@ -1155,7 +1155,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return direction;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the element attributes.
          *
          * @return the attribute set
@@ -1164,7 +1164,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return attr;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the array of characters.
          *
          * @return the array
@@ -1174,7 +1174,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         }
 
 
-        /**
+        /** {@collect.stats}
          * Gets the starting offset.
          *
          * @return the offset >= 0
@@ -1183,7 +1183,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return offs;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the length.
          *
          * @return the length >= 0
@@ -1192,7 +1192,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return len;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the element to a string.
          *
          * @return the string
@@ -1237,7 +1237,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         private char[] data;
     }
 
-    /**
+    /** {@collect.stats}
      * Class to manage changes to the element
      * hierarchy.
      * <p>
@@ -1252,7 +1252,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
      */
     public class ElementBuffer implements Serializable {
 
-        /**
+        /** {@collect.stats}
          * Creates a new ElementBuffer.
          *
          * @param root the root element
@@ -1264,7 +1264,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             path = new Stack();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the root element.
          *
          * @return the root element
@@ -1273,7 +1273,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return root;
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts new content.
          *
          * @param offset the starting offset >= 0
@@ -1353,7 +1353,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             insertOp = false;
         }
 
-        /**
+        /** {@collect.stats}
          * Removes content.
          *
          * @param offset the starting offset >= 0
@@ -1366,7 +1366,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             endEdits(de);
         }
 
-        /**
+        /** {@collect.stats}
          * Changes content.
          *
          * @param offset the starting offset >= 0
@@ -1379,7 +1379,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             endEdits(de);
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts an update into the document.
          *
          * @param data the elements to insert
@@ -1467,7 +1467,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the element structure in response to a removal from the
          * associated sequence in the document.  Any elements consumed by the
          * span of the removal are removed.
@@ -1476,7 +1476,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             removeElements(root, offset, offset + length);
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the element structure in response to a change in the
          * document.
          */
@@ -1574,7 +1574,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return splitEnd;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates the UndoableEdit record for the edits made
          * in the buffer.
          */
@@ -1617,7 +1617,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             */
         }
 
-        /**
+        /** {@collect.stats}
          * Initialize the buffer
          */
         void beginEdits(int offset, int length) {
@@ -1640,7 +1640,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             offsetLastIndex = offsetLastIndexOnReplace = false;
         }
 
-        /**
+        /** {@collect.stats}
          * Pushes a new element onto the stack that represents
          * the current path.
          * @param record Whether or not the push should be
@@ -1673,7 +1673,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * move the current offset forward by n.
          */
         void advance(int n) {
@@ -1775,7 +1775,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Remove the elements from <code>elem</code> in range
          * <code>rmOffs0</code>, <code>rmOffs1</code>. This uses
          * <code>canJoin</code> and <code>join</code> to handle joining
@@ -1869,7 +1869,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Can the two given elements be coelesced together
          * into one element?
          */
@@ -1903,7 +1903,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Joins the two elements carving out a hole for the
          * given removed range.
          */
@@ -1964,7 +1964,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a copy of this element, with a different
          * parent.
          *
@@ -1988,7 +1988,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return e;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a copy of this element, with a different
          * parent. Children of this element included in the
          * removal range will be discarded.
@@ -2014,7 +2014,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return e;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if a fracture needs to be performed. A fracture
          * can be thought of as moving the right part of a tree to a
          * new location, where the right part is determined by what has
@@ -2066,7 +2066,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Recreates the elements to the right of the insertion point.
          * This starts at <code>startIndex</code> in <code>changed</code>,
          * and calls duplicate to duplicate existing elements.
@@ -2182,7 +2182,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Recreates <code>toDuplicate</code>. This is called when an
          * element needs to be created as the result of an insertion. This
          * will recurse and create all the children. This is similiar to
@@ -2208,7 +2208,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return newParent;
         }
 
-        /**
+        /** {@collect.stats}
          * Splits the bottommost leaf in <code>path</code>.
          * This is called from insert when the first element is NOT content.
          */
@@ -2233,7 +2233,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
                 offsetLastIndex = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts the first content. This needs to be separate to handle
          * joining.
          */
@@ -2328,18 +2328,18 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
         transient boolean recreateLeafs; // For insert.
 
-        /** For insert, path to inserted elements. */
+        /** {@collect.stats} For insert, path to inserted elements. */
         transient ElemChanges[] insertPath;
-        /** Only for insert, set to true when the fracture has been created. */
+        /** {@collect.stats} Only for insert, set to true when the fracture has been created. */
         transient boolean createdFracture;
-        /** Parent that contains the fractured child. */
+        /** {@collect.stats} Parent that contains the fractured child. */
         transient Element fracturedParent;
-        /** Fractured child. */
+        /** {@collect.stats} Fractured child. */
         transient Element fracturedChild;
-        /** Used to indicate when fracturing that the last leaf should be
+        /** {@collect.stats} Used to indicate when fracturing that the last leaf should be
          * skipped. */
         transient boolean offsetLastIndex;
-        /** Used to indicate that the parent of the deepest leaf should
+        /** {@collect.stats} Used to indicate that the parent of the deepest leaf should
          * offset the index by 1 when adding/removing elements in an
          * insert. */
         transient boolean offsetLastIndexOnReplace;
@@ -2370,7 +2370,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
 
     }
 
-    /**
+    /** {@collect.stats}
      * An UndoableEdit used to remember AttributeSet changes to an
      * Element.
      */
@@ -2386,7 +2386,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             copy = element.getAttributes().copyAttributes();
         }
 
-        /**
+        /** {@collect.stats}
          * Redoes a change.
          *
          * @exception CannotRedoException if the change cannot be redone
@@ -2400,7 +2400,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             as.addAttributes(newAttributes);
         }
 
-        /**
+        /** {@collect.stats}
          * Undoes a change.
          *
          * @exception CannotUndoException if the change cannot be undone
@@ -2422,7 +2422,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
         protected Element element;
     }
 
-    /**
+    /** {@collect.stats}
      * UndoableEdit for changing the resolve parent of an Element.
      */
     static class StyleChangeUndoableEdit extends AbstractUndoableEdit {
@@ -2434,7 +2434,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             oldStyle = element.getResolveParent();
         }
 
-        /**
+        /** {@collect.stats}
          * Redoes a change.
          *
          * @exception CannotRedoException if the change cannot be redone
@@ -2444,7 +2444,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             element.setResolveParent(newStyle);
         }
 
-        /**
+        /** {@collect.stats}
          * Undoes a change.
          *
          * @exception CannotUndoException if the change cannot be undone
@@ -2454,15 +2454,15 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             element.setResolveParent(oldStyle);
         }
 
-        /** Element to change resolve parent of. */
+        /** {@collect.stats} Element to change resolve parent of. */
         protected AbstractElement element;
-        /** New style. */
+        /** {@collect.stats} New style. */
         protected Style newStyle;
-        /** Old style, before setting newStyle. */
+        /** {@collect.stats} Old style, before setting newStyle. */
         protected AttributeSet oldStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Base class for style change handlers with support for stale objects detection.
      */
     abstract static class AbstractChangeHandler implements ChangeListener {
@@ -2474,7 +2474,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
                 super(d, q);
             }
 
-            /**
+            /** {@collect.stats}
              * Return a reference to the style change handler object.
              */
             ChangeListener getListener() {
@@ -2482,11 +2482,11 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /** Class-specific reference queues.  */
+        /** {@collect.stats} Class-specific reference queues.  */
         private final static Map<Class, ReferenceQueue> queueMap
                 = new HashMap<Class, ReferenceQueue>();
 
-        /** A weak reference to the document object.  */
+        /** {@collect.stats} A weak reference to the document object.  */
         private DocReference doc;
 
         AbstractChangeHandler(DefaultStyledDocument d) {
@@ -2502,7 +2502,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             doc = new DocReference(d, q);
         }
 
-        /**
+        /** {@collect.stats}
          * Return a list of stale change listeners.
          *
          * A change listener becomes "stale" when its document is cleaned by GC.
@@ -2523,7 +2523,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             return staleListeners;
         }
 
-        /**
+        /** {@collect.stats}
          * The ChangeListener wrapper which guards against dead documents.
          */
         public void stateChanged(ChangeEvent e) {
@@ -2533,11 +2533,11 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
             }
         }
 
-        /** Run the actual class-specific stateChanged() method.  */
+        /** {@collect.stats} Run the actual class-specific stateChanged() method.  */
         abstract void fireStateChanged(DefaultStyledDocument d, ChangeEvent e);
     }
 
-    /**
+    /** {@collect.stats}
      * Added to all the Styles. When instances of this receive a
      * stateChanged method, styleChanged is invoked.
      */
@@ -2558,7 +2558,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
     }
 
 
-    /**
+    /** {@collect.stats}
      * Added to the StyleContext. When the StyleContext changes, this invokes
      * <code>updateStylesListeningTo</code>.
      */
@@ -2574,7 +2574,7 @@ public class DefaultStyledDocument extends AbstractDocument implements StyledDoc
     }
 
 
-    /**
+    /** {@collect.stats}
      * When run this creates a change event for the complete document
      * and fires it.
      */

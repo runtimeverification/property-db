@@ -40,7 +40,7 @@ package java.text;
 import sun.text.normalizer.NormalizerBase;
 import sun.text.normalizer.NormalizerImpl;
 
-/**
+/** {@collect.stats}
  * This class provides the method <code>normalize</code> which transforms Unicode
  * text into an equivalent composed or decomposed form, allowing for easier
  * sorting and searching of text.
@@ -114,7 +114,7 @@ public final class Normalizer {
 
    private Normalizer() {};
 
-    /**
+    /** {@collect.stats}
      * This enum provides constants of the four Unicode normalization forms
      * that are described in
      * <a href="http://www.unicode.org/unicode/reports/tr15/tr15-23.html">
@@ -125,28 +125,28 @@ public final class Normalizer {
      */
     public static enum Form {
 
-        /**
+        /** {@collect.stats}
          * Canonical decomposition.
          */
         NFD,
 
-        /**
+        /** {@collect.stats}
          * Canonical decomposition, followed by canonical composition.
          */
         NFC,
 
-        /**
+        /** {@collect.stats}
          * Compatibility decomposition.
          */
         NFKD,
 
-        /**
+        /** {@collect.stats}
          * Compatibility decomposition, followed by canonical composition.
          */
         NFKC
     }
 
-    /**
+    /** {@collect.stats}
      * Normalize a sequence of char values.
      * The sequence will be normalized according to the specified normalization
      * from.
@@ -164,7 +164,7 @@ public final class Normalizer {
         return NormalizerBase.normalize(src.toString(), form);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the given sequence of char values is normalized.
      * @param src        The sequence of char values to be checked.
      * @param form       The normalization form; one of

@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * Utility class for HTML form decoding. This class contains static methods
  * for decoding a String from the <CODE>application/x-www-form-urlencoded</CODE>
  * MIME format.
@@ -80,7 +80,7 @@ public class URLDecoder {
     // The platform default encoding
     static String dfltEncName = URLEncoder.dfltEncName;
 
-    /**
+    /** {@collect.stats}
      * Decodes a <code>x-www-form-urlencoded</code> string.
      * The platform's default encoding is used to determine what characters
      * are represented by any consecutive sequences of the form
@@ -105,7 +105,7 @@ public class URLDecoder {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a <code>application/x-www-form-urlencoded</code> string using a specific
      * encoding scheme.
      * The supplied encoding is used to determine

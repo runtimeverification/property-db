@@ -27,7 +27,7 @@ package javax.imageio.plugins.jpeg;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A class encapsulating a single JPEG quantization table.
  * The elements appear in natural order (as opposed to zig-zag order).
  * Static variables are provided for the "standard" tables taken from
@@ -85,7 +85,7 @@ public class JPEGQTable {
         50,  50,  50,  50,  50,  50,  50,  50,
     };
 
-    /**
+    /** {@collect.stats}
      * The sample luminance quantization table given in the JPEG
      * specification, table K.1. According to the specification,
      * these values produce "good" quality output.
@@ -94,7 +94,7 @@ public class JPEGQTable {
     public static final JPEGQTable
         K1Luminance = new JPEGQTable(k1, false);
 
-    /**
+    /** {@collect.stats}
      * The sample luminance quantization table given in the JPEG
      * specification, table K.1, with all elements divided by 2.
      * According to the specification, these values produce "very good"
@@ -106,7 +106,7 @@ public class JPEGQTable {
     public static final JPEGQTable
         K1Div2Luminance = new JPEGQTable(k1div2, false);
 
-    /**
+    /** {@collect.stats}
      * The sample chrominance quantization table given in the JPEG
      * specification, table K.2. According to the specification,
      * these values produce "good" quality output.
@@ -115,7 +115,7 @@ public class JPEGQTable {
     public static final JPEGQTable K2Chrominance =
         new JPEGQTable(k2, false);
 
-    /**
+    /** {@collect.stats}
      * The sample chrominance quantization table given in the JPEG
      * specification, table K.1, with all elements divided by 2.
      * According to the specification, these values produce "very good"
@@ -133,7 +133,7 @@ public class JPEGQTable {
         qTable = (copy) ? Arrays.copyOf(table, table.length) : table;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a quantization table from the argument, which must
      * contain 64 elements in natural order (not zig-zag order).
      * A copy is made of the the input array.
@@ -151,7 +151,7 @@ public class JPEGQTable {
         qTable = Arrays.copyOf(table, table.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the current quantization table as an array
      * of {@code int}s in natural (not zig-zag) order.
      * @return A copy of the current quantization table.
@@ -160,7 +160,7 @@ public class JPEGQTable {
         return Arrays.copyOf(qTable, qTable.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new quantization table where the values are multiplied
      * by <code>scaleFactor</code> and then clamped to the range 1..32767
      * (or to 1..255 if <code>forceBaseline</code> is true).
@@ -191,7 +191,7 @@ public class JPEGQTable {
         return new JPEGQTable(scaledTable);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code String} representing this quantization table.
      * @return a {@code String} representing this quantization table.
      */

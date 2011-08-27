@@ -33,7 +33,7 @@ import javax.swing.plaf.basic.BasicHTML;
 import javax.swing.text.*;
 import sun.swing.plaf.synth.*;
 
-/**
+/** {@collect.stats}
  * Wrapper for primitive graphics calls.
  *
  * @since 1.5
@@ -54,13 +54,13 @@ public class SynthGraphicsUtils {
     private Rectangle viewR = new Rectangle();
     private Insets viewSizingInsets = new Insets(0, 0, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SynthGraphicsUtils</code>.
      */
     public SynthGraphicsUtils() {
     }
 
-    /**
+    /** {@collect.stats}
      * Draws a line between the two end points.
      *
      * @param context Identifies hosting region.
@@ -77,7 +77,7 @@ public class SynthGraphicsUtils {
         g.drawLine(x1, y1, x2, y2);
     }
 
-    /**
+    /** {@collect.stats}
      * Draws a line between the two end points.
      * <p>This implementation supports only one line style key,
      * <code>"dashed"</code>. The <code>"dashed"</code> line style is applied
@@ -121,7 +121,7 @@ public class SynthGraphicsUtils {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out text and an icon returning, by reference, the location to
      * place the icon and text.
      *
@@ -159,7 +159,7 @@ public class SynthGraphicsUtils {
                       iconTextGap);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the passed in string.
      *
      * @param ss SynthContext
@@ -173,7 +173,7 @@ public class SynthGraphicsUtils {
                                           text);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum size needed to properly render an icon and text.
      *
      * @param ss SynthContext
@@ -204,7 +204,7 @@ public class SynthGraphicsUtils {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum size needed to properly render an icon and text.
      *
      * @param ss SynthContext
@@ -235,7 +235,7 @@ public class SynthGraphicsUtils {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum height of the the Font from the passed in
      * SynthContext.
      *
@@ -249,7 +249,7 @@ public class SynthGraphicsUtils {
         return (fm.getAscent() + fm.getDescent());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred size needed to properly render an icon and text.
      *
      * @param ss SynthContext
@@ -303,7 +303,7 @@ public class SynthGraphicsUtils {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints text at the specified location. This will not attempt to
      * render the text as html nor will it offset by the insets of the
      * component.
@@ -319,7 +319,7 @@ public class SynthGraphicsUtils {
         paintText(ss, g, text, bounds.x, bounds.y, mnemonicIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints text at the specified location. This will not attempt to
      * render the text as html nor will it offset by the insets of the
      * component.
@@ -342,7 +342,7 @@ public class SynthGraphicsUtils {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints an icon and text. This will render the text as html, if
      * necessary, and offset the location by the insets of the component.
      *
@@ -413,7 +413,7 @@ public class SynthGraphicsUtils {
     }
 
 
-     /**
+     /** {@collect.stats}
       * A quick note about how preferred sizes are calculated... Generally
       * speaking, SynthPopupMenuUI will run through the list of its children
       * (from top to bottom) and ask each for its preferred size.  Each menu
@@ -605,7 +605,7 @@ public class SynthGraphicsUtils {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Wraps a SynthIcon around the Icon interface, forwarding calls to
      * the SynthIcon with a given SynthContext.
      */

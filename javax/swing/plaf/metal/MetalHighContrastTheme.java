@@ -32,7 +32,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * A high contrast theme. This is used on Windows if the system property
  * awt.highContrast.on is true.
  *
@@ -180,7 +180,7 @@ class MetalHighContrastTheme extends DefaultMetalTheme {
         table.putDefaults(defaults);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this is a theme provided by the core platform.
      */
     boolean isSystemTheme() {

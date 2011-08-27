@@ -28,7 +28,7 @@ package java.nio.channels.spi;
 import java.nio.channels.*;
 
 
-/**
+/** {@collect.stats}
  * Base implementation class for selection keys.
  *
  * <p> This class tracks the validity of the key and implements cancellation.
@@ -42,7 +42,7 @@ public abstract class AbstractSelectionKey
     extends SelectionKey
 {
 
-    /**
+    /** {@collect.stats}
      * Initializes a new instance of this class.  </p>
      */
     protected AbstractSelectionKey() { }
@@ -57,7 +57,7 @@ public abstract class AbstractSelectionKey
         valid = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Cancels this key.
      *
      * <p> If this key has not yet been cancelled then it is added to its

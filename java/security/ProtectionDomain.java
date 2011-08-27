@@ -37,7 +37,7 @@ import sun.misc.SharedSecrets;
 import sun.security.util.Debug;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  *
  *<p>
  * This ProtectionDomain class encapsulates the characteristics of a domain,
@@ -85,7 +85,7 @@ public class ProtectionDomain {
 
     private static final Debug debug = Debug.getInstance("domain");
 
-    /**
+    /** {@collect.stats}
      * Creates a new ProtectionDomain with the given CodeSource and
      * Permissions. If the permissions object is not null, then
      *  <code>setReadOnly())</code> will be called on the passed in
@@ -111,7 +111,7 @@ public class ProtectionDomain {
         staticPermissions = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new ProtectionDomain qualified by the given CodeSource,
      * Permissions, ClassLoader and array of Principals. If the
      * permissions object is not null, then <code>setReadOnly()</code>
@@ -159,7 +159,7 @@ public class ProtectionDomain {
         staticPermissions = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the CodeSource of this domain.
      * @return the CodeSource of this domain which may be null.
      * @since 1.2
@@ -169,7 +169,7 @@ public class ProtectionDomain {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the ClassLoader of this domain.
      * @return the ClassLoader of this domain which may be null.
      *
@@ -180,7 +180,7 @@ public class ProtectionDomain {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of principals for this domain.
      * @return a non-null array of principals for this domain.
      * Returns a new array each time this method is called.
@@ -191,7 +191,7 @@ public class ProtectionDomain {
         return this.principals.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the static permissions granted to this domain.
      *
      * @return the static set of permissions for this domain which may be null.
@@ -202,7 +202,7 @@ public class ProtectionDomain {
         return permissions;
     }
 
-    /**
+    /** {@collect.stats}
      * Check and see if this ProtectionDomain implies the permissions
      * expressed in the Permission object.
      * <p>
@@ -246,7 +246,7 @@ public class ProtectionDomain {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert a ProtectionDomain to a String.
      */
     @Override public String toString() {
@@ -279,7 +279,7 @@ public class ProtectionDomain {
             " "+pc+"\n";
     }
 
-    /**
+    /** {@collect.stats}
      * Return true (merge policy permissions) in the following cases:
      *
      * . SecurityManager is null
@@ -408,7 +408,7 @@ public class ProtectionDomain {
         return mergedPerms;
     }
 
-    /**
+    /** {@collect.stats}
      * Used for storing ProtectionDomains as keys in a Map.
      */
     final class Key {}

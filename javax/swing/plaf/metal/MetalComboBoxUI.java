@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.beans.*;
 
 
-/**
+/** {@collect.stats}
  * Metal UI for JComboBox
  * <p>
  * <strong>Warning:</strong>
@@ -63,7 +63,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary paints the currently selected item.
      *
      * @param g Graphics to paint to
@@ -95,7 +95,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary paints the background of the currently selected item.
      *
      * @param g Graphics to paint to
@@ -134,7 +134,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -183,7 +183,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         return button;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the necessary state on the ComboBoxButton for ocean.
      */
     private void updateButtonForOcean(JButton button) {
@@ -198,7 +198,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         return new MetalPropertyChangeListener();
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <FooUI>.
@@ -229,7 +229,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.4 this method is no longer used. Do not call or
      * override. All the functionality of this method is in the
      * MetalPropertyChangeListener.
@@ -243,7 +243,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         return new MetalComboBoxLayoutManager();
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <FooUI>.
@@ -292,7 +292,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.4 this method is no
      * longer used.
      *
@@ -355,7 +355,7 @@ public class MetalComboBoxUI extends BasicComboBoxUI {
         return new Dimension( cachedMinimumSize );
     }
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <FooUI>.

@@ -34,7 +34,7 @@ import java.util.Iterator;
 import sun.awt.SunHints;
 import java.lang.ref.WeakReference;
 
-/**
+/** {@collect.stats}
  * The {@code RenderingHints} class defines and manages collections of
  * keys and associated values which allow an application to provide input
  * into the choice of algorithms used by other classes which perform
@@ -82,7 +82,7 @@ import java.lang.ref.WeakReference;
 public class RenderingHints
     implements Map<Object,Object>, Cloneable
 {
-    /**
+    /** {@collect.stats}
      * Defines the base type of all keys used along with the
      * {@link RenderingHints} class to control various
      * algorithm choices in the rendering and imaging pipelines.
@@ -143,7 +143,7 @@ public class RenderingHints
 
         private int privatekey;
 
-        /**
+        /** {@collect.stats}
          * Construct a key using the indicated private key.  Each
          * subclass of Key maintains its own unique domain of integer
          * keys.  No two objects with the same integer key and of the
@@ -158,7 +158,7 @@ public class RenderingHints
             recordIdentity(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the specified object is a valid value
          * for this Key.
          * @param val the <code>Object</code> to test for validity
@@ -167,7 +167,7 @@ public class RenderingHints
          */
         public abstract boolean isCompatibleValue(Object val);
 
-        /**
+        /** {@collect.stats}
          * Returns the private integer key that the subclass
          * instantiated this Key with.
          * @return the private integer key that the subclass
@@ -177,7 +177,7 @@ public class RenderingHints
             return privatekey;
         }
 
-        /**
+        /** {@collect.stats}
          * The hash code for all Key objects will be the same as the
          * system identity code of the object as defined by the
          * System.identityHashCode() method.
@@ -186,7 +186,7 @@ public class RenderingHints
             return super.hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * The equals method for all Key objects will return the same
          * result as the equality operator '=='.
          */
@@ -197,7 +197,7 @@ public class RenderingHints
 
     HashMap hintmap = new HashMap(7);
 
-    /**
+    /** {@collect.stats}
      * Antialiasing hint key.
      * The {@code ANTIALIASING} hint controls whether or not the
      * geometry rendering methods of a {@link Graphics2D} object
@@ -219,21 +219,21 @@ public class RenderingHints
     public static final Key KEY_ANTIALIASING =
         SunHints.KEY_ANTIALIASING;
 
-    /**
+    /** {@collect.stats}
      * Antialiasing hint value -- rendering is done with antialiasing.
      * @see #KEY_ANTIALIASING
      */
     public static final Object VALUE_ANTIALIAS_ON =
         SunHints.VALUE_ANTIALIAS_ON;
 
-    /**
+    /** {@collect.stats}
      * Antialiasing hint value -- rendering is done without antialiasing.
      * @see #KEY_ANTIALIASING
      */
     public static final Object VALUE_ANTIALIAS_OFF =
         SunHints.VALUE_ANTIALIAS_OFF;
 
-    /**
+    /** {@collect.stats}
      * Antialiasing hint value -- rendering is done with a default
      * antialiasing mode chosen by the implementation.
      * @see #KEY_ANTIALIASING
@@ -241,7 +241,7 @@ public class RenderingHints
     public static final Object VALUE_ANTIALIAS_DEFAULT =
          SunHints.VALUE_ANTIALIAS_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Rendering hint key.
      * The {@code RENDERING} hint is a general hint that provides
      * a high level recommendation as to whether to bias algorithm
@@ -260,7 +260,7 @@ public class RenderingHints
     public static final Key KEY_RENDERING =
          SunHints.KEY_RENDERING;
 
-    /**
+    /** {@collect.stats}
      * Rendering hint value -- rendering algorithms are chosen
      * with a preference for output speed.
      * @see #KEY_RENDERING
@@ -268,7 +268,7 @@ public class RenderingHints
     public static final Object VALUE_RENDER_SPEED =
          SunHints.VALUE_RENDER_SPEED;
 
-    /**
+    /** {@collect.stats}
      * Rendering hint value -- rendering algorithms are chosen
      * with a preference for output quality.
      * @see #KEY_RENDERING
@@ -276,7 +276,7 @@ public class RenderingHints
     public static final Object VALUE_RENDER_QUALITY =
          SunHints.VALUE_RENDER_QUALITY;
 
-    /**
+    /** {@collect.stats}
      * Rendering hint value -- rendering algorithms are chosen
      * by the implementation for a good tradeoff of performance
      * vs. quality.
@@ -285,7 +285,7 @@ public class RenderingHints
     public static final Object VALUE_RENDER_DEFAULT =
          SunHints.VALUE_RENDER_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Dithering hint key.
      * The {@code DITHERING} hint controls how closely to approximate
      * a color when storing into a destination with limited color
@@ -311,21 +311,21 @@ public class RenderingHints
     public static final Key KEY_DITHERING =
          SunHints.KEY_DITHERING;
 
-    /**
+    /** {@collect.stats}
      * Dithering hint value -- do not dither when rendering geometry.
      * @see #KEY_DITHERING
      */
     public static final Object VALUE_DITHER_DISABLE =
          SunHints.VALUE_DITHER_DISABLE;
 
-    /**
+    /** {@collect.stats}
      * Dithering hint value -- dither when rendering geometry, if needed.
      * @see #KEY_DITHERING
      */
     public static final Object VALUE_DITHER_ENABLE =
          SunHints.VALUE_DITHER_ENABLE;
 
-    /**
+    /** {@collect.stats}
      * Dithering hint value -- use a default for dithering chosen by
      * the implementation.
      * @see #KEY_DITHERING
@@ -333,7 +333,7 @@ public class RenderingHints
     public static final Object VALUE_DITHER_DEFAULT =
          SunHints.VALUE_DITHER_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint key.
      * The {@code TEXT_ANTIALIASING} hint can control the use of
      * antialiasing algorithms for text independently of the
@@ -364,7 +364,7 @@ public class RenderingHints
     public static final Key KEY_TEXT_ANTIALIASING =
          SunHints.KEY_TEXT_ANTIALIASING;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- text rendering is done with
      * some form of antialiasing.
      * @see #KEY_TEXT_ANTIALIASING
@@ -372,7 +372,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_ON =
          SunHints.VALUE_TEXT_ANTIALIAS_ON;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- text rendering is done without
      * any form of antialiasing.
      * @see #KEY_TEXT_ANTIALIASING
@@ -380,7 +380,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_OFF =
          SunHints.VALUE_TEXT_ANTIALIAS_OFF;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- text rendering is done according
      * to the {@link #KEY_ANTIALIASING} hint or a default chosen by the
      * implementation.
@@ -389,7 +389,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_DEFAULT =
          SunHints.VALUE_TEXT_ANTIALIAS_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- text rendering is requested to
      * use information in the font resource which specifies for each point
      * size whether to apply {@link #VALUE_TEXT_ANTIALIAS_ON} or
@@ -416,7 +416,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_GASP =
          SunHints.VALUE_TEXT_ANTIALIAS_GASP;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- request that text be displayed
      * optimised for an LCD display with subpixels in order from display
      * left to right of R,G,B such that the horizontal subpixel resolution
@@ -463,7 +463,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_LCD_HRGB =
          SunHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- request that text be displayed
      * optimised for an LCD display with subpixels in order from display
      * left to right of B,G,R such that the horizontal subpixel resolution
@@ -480,7 +480,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_LCD_HBGR =
          SunHints.VALUE_TEXT_ANTIALIAS_LCD_HBGR;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- request that text be displayed
      * optimised for an LCD display with subpixel organisation from display
      * top to bottom of R,G,B such that the vertical subpixel resolution is
@@ -498,7 +498,7 @@ public class RenderingHints
     public static final Object VALUE_TEXT_ANTIALIAS_LCD_VRGB =
          SunHints.VALUE_TEXT_ANTIALIAS_LCD_VRGB;
 
-    /**
+    /** {@collect.stats}
      * Text antialiasing hint value -- request that text be displayed
      * optimised for an LCD display with subpixel organisation from display
      * top to bottom of B,G,R such that the vertical subpixel resolution is
@@ -517,7 +517,7 @@ public class RenderingHints
          SunHints.VALUE_TEXT_ANTIALIAS_LCD_VBGR;
 
 
-    /**
+    /** {@collect.stats}
      * LCD text contrast rendering hint key.
      * The value is an <code>Integer</code> object which is used as a text
      * contrast adjustment when used in conjunction with an LCD text
@@ -548,7 +548,7 @@ public class RenderingHints
     public static final Key KEY_TEXT_LCD_CONTRAST =
         SunHints.KEY_TEXT_ANTIALIAS_LCD_CONTRAST;
 
-    /**
+    /** {@collect.stats}
      * Font fractional metrics hint key.
      * The {@code FRACTIONALMETRICS} hint controls whether the positioning
      * of individual character glyphs takes into account the sub-pixel
@@ -636,7 +636,7 @@ public class RenderingHints
     public static final Key KEY_FRACTIONALMETRICS =
          SunHints.KEY_FRACTIONALMETRICS;
 
-    /**
+    /** {@collect.stats}
      * Font fractional metrics hint value -- character glyphs are
      * positioned with advance widths rounded to pixel boundaries.
      * @see #KEY_FRACTIONALMETRICS
@@ -644,7 +644,7 @@ public class RenderingHints
     public static final Object VALUE_FRACTIONALMETRICS_OFF =
          SunHints.VALUE_FRACTIONALMETRICS_OFF;
 
-    /**
+    /** {@collect.stats}
      * Font fractional metrics hint value -- character glyphs are
      * positioned with sub-pixel accuracy.
      * @see #KEY_FRACTIONALMETRICS
@@ -652,7 +652,7 @@ public class RenderingHints
     public static final Object VALUE_FRACTIONALMETRICS_ON =
          SunHints.VALUE_FRACTIONALMETRICS_ON;
 
-    /**
+    /** {@collect.stats}
      * Font fractional metrics hint value -- character glyphs are
      * positioned with accuracy chosen by the implementation.
      * @see #KEY_FRACTIONALMETRICS
@@ -660,7 +660,7 @@ public class RenderingHints
     public static final Object VALUE_FRACTIONALMETRICS_DEFAULT =
          SunHints.VALUE_FRACTIONALMETRICS_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Interpolation hint key.
      * The {@code INTERPOLATION} hint controls how image pixels are
      * filtered or resampled during an image rendering operation.
@@ -693,7 +693,7 @@ public class RenderingHints
     public static final Key KEY_INTERPOLATION =
          SunHints.KEY_INTERPOLATION;
 
-    /**
+    /** {@collect.stats}
      * Interpolation hint value -- the color sample of the nearest
      * neighboring integer coordinate sample in the image is used.
      * Conceptually the image is viewed as a grid of unit-sized
@@ -710,7 +710,7 @@ public class RenderingHints
     public static final Object VALUE_INTERPOLATION_NEAREST_NEIGHBOR =
          SunHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR;
 
-    /**
+    /** {@collect.stats}
      * Interpolation hint value -- the color samples of the 4 nearest
      * neighboring integer coordinate samples in the image are
      * interpolated linearly to produce a color sample.
@@ -737,7 +737,7 @@ public class RenderingHints
     public static final Object VALUE_INTERPOLATION_BILINEAR =
          SunHints.VALUE_INTERPOLATION_BILINEAR;
 
-    /**
+    /** {@collect.stats}
      * Interpolation hint value -- the color samples of 9 nearby
      * integer coordinate samples in the image are interpolated using
      * a cubic function in both {@code X} and {@code Y} to produce
@@ -760,7 +760,7 @@ public class RenderingHints
     public static final Object VALUE_INTERPOLATION_BICUBIC =
          SunHints.VALUE_INTERPOLATION_BICUBIC;
 
-    /**
+    /** {@collect.stats}
      * Alpha interpolation hint key.
      * The {@code ALPHA_INTERPOLATION} hint is a general hint that
      * provides a high level recommendation as to whether to bias
@@ -785,7 +785,7 @@ public class RenderingHints
     public static final Key KEY_ALPHA_INTERPOLATION =
          SunHints.KEY_ALPHA_INTERPOLATION;
 
-    /**
+    /** {@collect.stats}
      * Alpha interpolation hint value -- alpha blending algorithms
      * are chosen with a preference for calculation speed.
      * @see #KEY_ALPHA_INTERPOLATION
@@ -793,7 +793,7 @@ public class RenderingHints
     public static final Object VALUE_ALPHA_INTERPOLATION_SPEED =
          SunHints.VALUE_ALPHA_INTERPOLATION_SPEED;
 
-    /**
+    /** {@collect.stats}
      * Alpha interpolation hint value -- alpha blending algorithms
      * are chosen with a preference for precision and visual quality.
      * @see #KEY_ALPHA_INTERPOLATION
@@ -801,7 +801,7 @@ public class RenderingHints
     public static final Object VALUE_ALPHA_INTERPOLATION_QUALITY =
          SunHints.VALUE_ALPHA_INTERPOLATION_QUALITY;
 
-    /**
+    /** {@collect.stats}
      * Alpha interpolation hint value -- alpha blending algorithms
      * are chosen by the implementation for a good tradeoff of
      * performance vs. quality.
@@ -810,7 +810,7 @@ public class RenderingHints
     public static final Object VALUE_ALPHA_INTERPOLATION_DEFAULT =
          SunHints.VALUE_ALPHA_INTERPOLATION_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Color rendering hint key.
      * The {@code COLOR_RENDERING} hint controls the accuracy of
      * approximation and conversion when storing colors into a
@@ -861,7 +861,7 @@ public class RenderingHints
     public static final Key KEY_COLOR_RENDERING =
          SunHints.KEY_COLOR_RENDERING;
 
-    /**
+    /** {@collect.stats}
      * Color rendering hint value -- perform the fastest color
      * conversion to the format of the output device.
      * @see #KEY_COLOR_RENDERING
@@ -869,7 +869,7 @@ public class RenderingHints
     public static final Object VALUE_COLOR_RENDER_SPEED =
          SunHints.VALUE_COLOR_RENDER_SPEED;
 
-    /**
+    /** {@collect.stats}
      * Color rendering hint value -- perform the color conversion
      * calculations with the highest accuracy and visual quality.
      * @see #KEY_COLOR_RENDERING
@@ -877,7 +877,7 @@ public class RenderingHints
     public static final Object VALUE_COLOR_RENDER_QUALITY =
          SunHints.VALUE_COLOR_RENDER_QUALITY;
 
-    /**
+    /** {@collect.stats}
      * Color rendering hint value -- perform color conversion
      * calculations as chosen by the implementation to represent
      * the best available tradeoff between performance and
@@ -887,7 +887,7 @@ public class RenderingHints
     public static final Object VALUE_COLOR_RENDER_DEFAULT =
          SunHints.VALUE_COLOR_RENDER_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Stroke normalization control hint key.
      * The {@code STROKE_CONTROL} hint controls whether a rendering
      * implementation should or is allowed to modify the geometry
@@ -916,7 +916,7 @@ public class RenderingHints
     public static final Key KEY_STROKE_CONTROL =
         SunHints.KEY_STROKE_CONTROL;
 
-    /**
+    /** {@collect.stats}
      * Stroke normalization control hint value -- geometry may be
      * modified or left pure depending on the tradeoffs in a given
      * implementation.
@@ -931,7 +931,7 @@ public class RenderingHints
     public static final Object VALUE_STROKE_DEFAULT =
         SunHints.VALUE_STROKE_DEFAULT;
 
-    /**
+    /** {@collect.stats}
      * Stroke normalization control hint value -- geometry should
      * be normalized to improve uniformity or spacing of lines and
      * overall aesthetics.
@@ -944,7 +944,7 @@ public class RenderingHints
     public static final Object VALUE_STROKE_NORMALIZE =
         SunHints.VALUE_STROKE_NORMALIZE;
 
-    /**
+    /** {@collect.stats}
      * Stroke normalization control hint value -- geometry should
      * be left unmodified and rendered with sub-pixel accuracy.
      *
@@ -954,7 +954,7 @@ public class RenderingHints
     public static final Object VALUE_STROKE_PURE =
         SunHints.VALUE_STROKE_PURE;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new object with keys and values initialized
      * from the specified Map object which may be null.
      * @param init a map of key/value pairs to initialize the hints
@@ -966,7 +966,7 @@ public class RenderingHints
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new object with the specified key/value pair.
      * @param key the key of the particular hint property
      * @param value the value of the hint property specified with
@@ -976,7 +976,7 @@ public class RenderingHints
         hintmap.put(key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this
      * <code>RenderingHints</code>.
      *
@@ -987,7 +987,7 @@ public class RenderingHints
         return hintmap.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this
      * <code>RenderingHints</code> contains no key-value mappings.
      *
@@ -998,7 +998,7 @@ public class RenderingHints
         return hintmap.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this <code>RenderingHints</code>
      *  contains a mapping for the specified key.
      *
@@ -1013,7 +1013,7 @@ public class RenderingHints
         return hintmap.containsKey((Key) key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this RenderingHints maps one or more keys to the
      * specified value.
      * More formally, returns <code>true</code> if and only
@@ -1035,7 +1035,7 @@ public class RenderingHints
         return hintmap.containsValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped.
      * @param   key   a rendering hint key
      * @return  the value to which the key is mapped in this object or
@@ -1049,7 +1049,7 @@ public class RenderingHints
         return hintmap.get((Key) key);
     }
 
-    /**
+    /** {@collect.stats}
      * Maps the specified <code>key</code> to the specified
      * <code>value</code> in this <code>RenderingHints</code> object.
      * Neither the key nor the value can be <code>null</code>.
@@ -1079,7 +1079,7 @@ public class RenderingHints
         return hintmap.put((Key) key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the keys and corresponding values from the specified
      * <code>RenderingHints</code> object to this
      * <code>RenderingHints</code> object. Keys that are present in
@@ -1092,7 +1092,7 @@ public class RenderingHints
         hintmap.putAll(hints.hintmap);
     }
 
-    /**
+    /** {@collect.stats}
      * Clears this <code>RenderingHints</code> object of all key/value
      * pairs.
      */
@@ -1100,7 +1100,7 @@ public class RenderingHints
         hintmap.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the key and its corresponding value from this
      * <code>RenderingHints</code> object. This method does nothing if the
      * key is not in this <code>RenderingHints</code> object.
@@ -1115,7 +1115,7 @@ public class RenderingHints
         return hintmap.remove((Key) key);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified <code>Map</code>
      * to this <code>RenderingHints</code>.  These mappings replace
      * any mappings that this <code>RenderingHints</code> had for any
@@ -1143,7 +1143,7 @@ public class RenderingHints
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Set</code> view of the Keys contained in this
      * <code>RenderingHints</code>.  The Set is backed by the
      * <code>RenderingHints</code>, so changes to the
@@ -1165,7 +1165,7 @@ public class RenderingHints
         return hintmap.keySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Collection</code> view of the values
      * contained in this <code>RenderinHints</code>.
      * The <code>Collection</code> is backed by the
@@ -1191,7 +1191,7 @@ public class RenderingHints
         return hintmap.values();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Set</code> view of the mappings contained
      * in this <code>RenderingHints</code>.  Each element in the
      * returned <code>Set</code> is a <code>Map.Entry</code>.
@@ -1212,7 +1212,7 @@ public class RenderingHints
         return Collections.unmodifiableMap(hintmap).entrySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>Object</code> with this
      * <code>RenderingHints</code> for equality.
      * Returns <code>true</code> if the specified object is also a
@@ -1241,7 +1241,7 @@ public class RenderingHints
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>RenderingHints</code>.
      * The hash code of a <code>RenderingHints</code> is defined to be
      * the sum of the hashCodes of each <code>Entry</code> in the
@@ -1261,7 +1261,7 @@ public class RenderingHints
         return hintmap.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a clone of this <code>RenderingHints</code> object
      * that has the same contents as this <code>RenderingHints</code>
      * object.
@@ -1282,7 +1282,7 @@ public class RenderingHints
         return rh;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rather long string representation of the hashmap
      * which contains the mappings of keys to values for this
      * <code>RenderingHints</code> object.

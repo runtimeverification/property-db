@@ -27,7 +27,7 @@ package javax.swing.plaf;
 
 import javax.swing.JOptionPane;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JOptionPane.
  *
  * @author Scott Violet
@@ -35,13 +35,13 @@ import javax.swing.JOptionPane;
 
 public abstract class OptionPaneUI extends ComponentUI
 {
-    /**
+    /** {@collect.stats}
      * Requests the component representing the default value to have
      * focus.
      */
     public abstract void selectInitialValue(JOptionPane op);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the user has supplied instances of Component for
      * either the options or message.
      */

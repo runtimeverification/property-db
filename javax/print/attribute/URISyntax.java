@@ -30,7 +30,7 @@ import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-/**
+/** {@collect.stats}
  * Class URISyntax is an abstract base class providing the common
  * implementation of all attributes whose value is a Uniform Resource
  * Identifier (URI). Once constructed, a URI attribute's value is immutable.
@@ -42,13 +42,13 @@ public abstract class URISyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -7842661210486401678L;
 
-    /**
+    /** {@collect.stats}
      * URI value of this URI attribute.
      * @serial
      */
     private URI uri;
 
-    /**
+    /** {@collect.stats}
      * Constructs a URI attribute with the specified URI.
      *
      * @param  uri  URI.
@@ -67,7 +67,7 @@ public abstract class URISyntax implements Serializable, Cloneable {
         return uri;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this URI attribute's URI value.
      * @return the URI.
      */
@@ -75,7 +75,7 @@ public abstract class URISyntax implements Serializable, Cloneable {
         return uri;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this URI attribute.
      *
      * @return  A hashcode value for this object.
@@ -84,7 +84,7 @@ public abstract class URISyntax implements Serializable, Cloneable {
         return uri.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this URI attribute is equivalent to the passed in
      * object.
      * To be equivalent, all of the following conditions must be true:
@@ -109,7 +109,7 @@ public abstract class URISyntax implements Serializable, Cloneable {
                this.uri.equals (((URISyntax) object).uri));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String identifying this URI attribute. The String is the
      * string representation of the attribute's underlying URI.
      *

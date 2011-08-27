@@ -36,7 +36,7 @@ import sun.awt.CausedFocusEvent;
 import sun.java2d.pipe.Region;
 
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -91,21 +91,21 @@ public interface ComponentPeer {
     void flip(BufferCapabilities.FlipContents flipAction);
     void destroyBuffers();
 
-    /**
+    /** {@collect.stats}
      * Reparents this peer to the new parent referenced by <code>newContainer</code> peer
      * Implementation depends on toolkit and container.
      * @param newContainer peer of the new parent container
      * @since 1.5
      */
     void reparent(ContainerPeer newContainer);
-    /**
+    /** {@collect.stats}
      * Returns whether this peer supports reparenting to another parent withour destroying the peer
      * @return true if appropriate reparent is supported, false otherwise
      * @since 1.5
      */
     boolean isReparentSupported();
 
-    /**
+    /** {@collect.stats}
      * Used by lightweight implementations to tell a ComponentPeer to layout
      * its sub-elements.  For instance, a lightweight Checkbox needs to layout
      * the box, as well as the text label.
@@ -115,43 +115,43 @@ public interface ComponentPeer {
 
         Rectangle getBounds();
 
-    /**
+    /** {@collect.stats}
      * Applies the shape to the native component window.
      * @since 1.7
      */
     void applyShape(Region shape);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by getPreferredSize().
      */
     Dimension           preferredSize();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by getMinimumSize().
      */
     Dimension           minimumSize();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setVisible(boolean).
      */
     void                show();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setVisible(boolean).
      */
     void                hide();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setEnabled(boolean).
      */
     void                enable();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setEnabled(boolean).
      */
     void                disable();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setBounds(int, int, int, int).
      */
     void                reshape(int x, int y, int width, int height);

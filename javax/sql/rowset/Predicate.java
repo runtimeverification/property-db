@@ -28,7 +28,7 @@ package javax.sql.rowset;
 import javax.sql.*;
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * The standard interface that provides the framework for all
  * <code>FilteredRowSet</code> objects to describe their filters.
  * <p>
@@ -106,7 +106,7 @@ import java.sql.*;
  // internalNext, Frist, Last. Discuss guidelines on how to approach this
  // and cite examples in reference implementations.
 public interface Predicate {
-    /**
+    /** {@collect.stats}
      * This method is typically called a <code>FilteredRowSet</code> object
      * internal methods (not public) that control the <code>RowSet</code> object's
      * cursor moving  from row to the next. In addition, if this internal method
@@ -119,7 +119,7 @@ public interface Predicate {
     public boolean evaluate(RowSet rs);
 
 
-    /**
+    /** {@collect.stats}
      * This method is called by a <code>FilteredRowSet</code> object
      * to check whether the value lies between the filtering criterion (or criteria
      * if multiple constraints exist) set using the <code>setFilter()</code> method.
@@ -139,7 +139,7 @@ public interface Predicate {
      */
     public boolean evaluate(Object value, int column) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * This method is called by the <code>FilteredRowSet</code> object
      * to check whether the value lies between the filtering criteria set
      * using the setFilter method.

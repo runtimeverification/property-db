@@ -30,7 +30,7 @@ import java.security.PrivilegedAction;
 import sun.misc.Unsafe;
 import sun.misc.VM;
 
-/**
+/** {@collect.stats}
  * Access to bits, native and otherwise.
  */
 

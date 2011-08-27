@@ -35,7 +35,7 @@ import sun.awt.AppContext;
 import java.util.ServiceLoader;
 import java.util.ServiceConfigurationError;
 
-/** Implementations of this class provide lookup services for
+/** {@collect.stats} Implementations of this class provide lookup services for
   * print services (typically equivalent to printers) of a particular type.
   * <p>
   * Multiple implementations may be installed concurrently.
@@ -105,7 +105,7 @@ public abstract class PrintServiceLookup {
         return registeredServices;
     }
 
-    /**
+    /** {@collect.stats}
      * Locates print services capable of printing the specified
      * {@link DocFlavor}.
      *
@@ -126,7 +126,7 @@ public abstract class PrintServiceLookup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Locates MultiDoc print Services capable of printing MultiDocs
      * containing all the specified doc flavors.
      * <P> This method is useful to help locate a service that can print
@@ -155,7 +155,7 @@ public abstract class PrintServiceLookup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Locates the default print service for this environment.
      * This may return null.
      * If multiple lookup services each specify a default, the
@@ -193,7 +193,7 @@ public abstract class PrintServiceLookup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Allows an application to explicitly register a class that
      * implements lookup services. The registration will not persist
      * across VM invocations.
@@ -226,7 +226,7 @@ public abstract class PrintServiceLookup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Allows an application to directly register an instance of a
      * class which implements a print service.
      * The lookup operations for this service will be
@@ -265,7 +265,7 @@ public abstract class PrintServiceLookup {
     }
 
 
-   /**
+   /** {@collect.stats}
     * Locates services that can be positively confirmed to support
     * the combination of attributes and DocFlavors specified.
     * This method is not called directly by applications.
@@ -288,7 +288,7 @@ public abstract class PrintServiceLookup {
     public abstract PrintService[] getPrintServices(DocFlavor flavor,
                                                     AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Not called directly by applications.
      * Implemented by a service provider, used by the static methods
      * of this class.
@@ -298,7 +298,7 @@ public abstract class PrintServiceLookup {
     public abstract PrintService[] getPrintServices() ;
 
 
-   /**
+   /** {@collect.stats}
     * Not called directly by applications.
     * <p>
     * Implemented by a service provider, used by the static methods
@@ -318,7 +318,7 @@ public abstract class PrintServiceLookup {
         getMultiDocPrintServices(DocFlavor[] flavors,
                                  AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Not called directly by applications.
      * Implemented by a service provider, and called by the print lookup
      * service

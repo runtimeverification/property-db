@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.Name;
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This interface represents an "intermediate context" for name resolution.
   *<p>
   * The Resolver interface contains methods that are implemented by contexts
@@ -51,7 +51,7 @@ import javax.naming.NamingException;
 
 public interface Resolver {
 
-    /**
+    /** {@collect.stats}
      * Partially resolves a name.  Stops at the first
      * context that is an instance of a given subtype of
      * <code>Context</code>.
@@ -74,7 +74,7 @@ public interface Resolver {
                                         Class<? extends Context> contextType)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Partially resolves a name.
      * See {@link #resolveToClass(Name, Class)} for details.
      *

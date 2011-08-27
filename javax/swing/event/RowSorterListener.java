@@ -24,7 +24,7 @@
  */
 package javax.swing.event;
 
-/**
+/** {@collect.stats}
  * <code>RowSorterListener</code>s are notified of changes to a
  * <code>RowSorter</code>.
  *
@@ -32,7 +32,7 @@ package javax.swing.event;
  * @since 1.6
  */
 public interface RowSorterListener extends java.util.EventListener {
-    /**
+    /** {@collect.stats}
      * Notification that the <code>RowSorter</code> has changed.  The event
      * describes the scope of the change.
      *

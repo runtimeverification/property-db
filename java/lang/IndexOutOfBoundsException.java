@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that an index of some sort (such as to an array, to a
  * string, or to a vector) is out of range.
  * <p>
@@ -36,7 +36,7 @@ package java.lang;
  */
 public
 class IndexOutOfBoundsException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexOutOfBoundsException</code> with no
      * detail message.
      */
@@ -44,7 +44,7 @@ class IndexOutOfBoundsException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IndexOutOfBoundsException</code> with the
      * specified detail message.
      *

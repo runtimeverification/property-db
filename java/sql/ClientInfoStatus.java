@@ -27,7 +27,7 @@ package java.sql;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * Enumeration for status of the reason that a property could not be set
  * via a call to <code>Connection.setClientInfo</code>
  * @since 1.6
@@ -35,26 +35,26 @@ import java.util.*;
 
 public enum ClientInfoStatus {
 
-    /**
+    /** {@collect.stats}
      * The client info property could not be set for some unknown reason
      * @since 1.6
      */
     REASON_UNKNOWN,
 
-    /**
+    /** {@collect.stats}
      * The client info property name specified was not a recognized property
      * name.
      * @since 1.6
      */
     REASON_UNKNOWN_PROPERTY,
 
-    /**
+    /** {@collect.stats}
      * The value specified for the client info property was not valid.
      * @since 1.6
      */
     REASON_VALUE_INVALID,
 
-    /**
+    /** {@collect.stats}
      * The value specified for the client info property was too large.
      * @since 1.6
      */

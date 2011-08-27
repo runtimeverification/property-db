@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * This interface is implemented by any class which wants to receive
  * notifications about the completion of an SSL protocol handshake
  * on a given SSL connection.
@@ -43,7 +43,7 @@ import java.util.EventListener;
  */
 public interface HandshakeCompletedListener extends EventListener
 {
-    /**
+    /** {@collect.stats}
      * This method is invoked on registered objects
      * when a SSL handshake is completed.
      *

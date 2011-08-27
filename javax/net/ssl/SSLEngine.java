@@ -29,7 +29,7 @@ import java.nio.ByteBuffer;
 import java.nio.ReadOnlyBufferException;
 
 
-/**
+/** {@collect.stats}
  * A class which enables secure communications using protocols such as
  * the Secure Sockets Layer (SSL) or
  * <A HREF="http://www.ietf.org/rfc/rfc2246.txt"> IETF RFC 2246 "Transport
@@ -373,7 +373,7 @@ public abstract class SSLEngine {
     private String peerHost = null;
     private int peerPort = -1;
 
-    /**
+    /** {@collect.stats}
      * Constructor for an <code>SSLEngine</code> providing no hints
      * for an internal session reuse strategy.
      *
@@ -383,7 +383,7 @@ public abstract class SSLEngine {
     protected SSLEngine() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor for an <code>SSLEngine</code>.
      * <P>
      * <code>SSLEngine</code> implementations may use the
@@ -407,7 +407,7 @@ public abstract class SSLEngine {
         this.peerPort = peerPort;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the host name of the peer.
      * <P>
      * Note that the value is not authenticated, and should not be
@@ -420,7 +420,7 @@ public abstract class SSLEngine {
         return peerHost;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the port number of the peer.
      * <P>
      * Note that the value is not authenticated, and should not be
@@ -433,7 +433,7 @@ public abstract class SSLEngine {
         return peerPort;
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to encode a buffer of plaintext application data into
      * SSL/TLS network data.
      * <P>
@@ -469,7 +469,7 @@ public abstract class SSLEngine {
         return wrap(new ByteBuffer [] { src }, 0, 1, dst);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to encode plaintext bytes from a sequence of data
      * buffers into SSL/TLS network data.
      * <P>
@@ -510,7 +510,7 @@ public abstract class SSLEngine {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Attempts to encode plaintext bytes from a subsequence of data
      * buffers into SSL/TLS network data.  This <i>"gathering"</i>
      * operation encodes, in a single invocation, a sequence of bytes
@@ -588,7 +588,7 @@ public abstract class SSLEngine {
     public abstract SSLEngineResult wrap(ByteBuffer [] srcs, int offset,
             int length, ByteBuffer dst) throws SSLException;
 
-    /**
+    /** {@collect.stats}
      * Attempts to decode SSL/TLS network data into a plaintext
      * application data buffer.
      * <P>
@@ -624,7 +624,7 @@ public abstract class SSLEngine {
         return unwrap(src, new ByteBuffer [] { dst }, 0, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to decode SSL/TLS network data into a sequence of plaintext
      * application data buffers.
      * <P>
@@ -664,7 +664,7 @@ public abstract class SSLEngine {
         return unwrap(src, dsts, 0, dsts.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to decode SSL/TLS network data into a subsequence of
      * plaintext application data buffers.  This <i>"scattering"</i>
      * operation decodes, in a single invocation, a sequence of bytes
@@ -748,7 +748,7 @@ public abstract class SSLEngine {
             ByteBuffer [] dsts, int offset, int length) throws SSLException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns a delegated <code>Runnable</code> task for
      * this <code>SSLEngine</code>.
      * <P>
@@ -775,7 +775,7 @@ public abstract class SSLEngine {
     public abstract Runnable getDelegatedTask();
 
 
-    /**
+    /** {@collect.stats}
      * Signals that no more inbound network data will be sent
      * to this <code>SSLEngine</code>.
      * <P>
@@ -810,7 +810,7 @@ public abstract class SSLEngine {
     public abstract void closeInbound() throws SSLException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns whether {@link #unwrap(ByteBuffer, ByteBuffer)} will
      * accept any more inbound data messages.
      *
@@ -822,7 +822,7 @@ public abstract class SSLEngine {
     public abstract boolean isInboundDone();
 
 
-    /**
+    /** {@collect.stats}
      * Signals that no more outbound application data will be sent
      * on this <code>SSLEngine</code>.
      * <P>
@@ -837,7 +837,7 @@ public abstract class SSLEngine {
     public abstract void closeOutbound();
 
 
-    /**
+    /** {@collect.stats}
      * Returns whether {@link #wrap(ByteBuffer, ByteBuffer)} will
      * produce any more outbound data messages.
      * <P>
@@ -855,7 +855,7 @@ public abstract class SSLEngine {
     public abstract boolean isOutboundDone();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the cipher suites which could be enabled for use
      * on this engine.  Normally, only a subset of these will actually
      * be enabled by default, since this list may include cipher suites which
@@ -869,7 +869,7 @@ public abstract class SSLEngine {
     public abstract String [] getSupportedCipherSuites();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the SSL cipher suites which are currently
      * enabled for use on this engine.  When an SSLEngine is first
      * created, all enabled cipher suites support a minimum quality of
@@ -887,7 +887,7 @@ public abstract class SSLEngine {
     public abstract String [] getEnabledCipherSuites();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the cipher suites enabled for use on this engine.
      * <P>
      * Each cipher suite in the <code>suites</code> parameter must have
@@ -908,7 +908,7 @@ public abstract class SSLEngine {
     public abstract void setEnabledCipherSuites(String suites []);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the protocols which could be enabled for use
      * with this <code>SSLEngine</code>.
      *
@@ -917,7 +917,7 @@ public abstract class SSLEngine {
     public abstract String [] getSupportedProtocols();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the names of the protocol versions which are currently
      * enabled for use with this <code>SSLEngine</code>.
      *
@@ -927,7 +927,7 @@ public abstract class SSLEngine {
     public abstract String [] getEnabledProtocols();
 
 
-    /**
+    /** {@collect.stats}
      * Set the protocol versions enabled for use on this engine.
      * <P>
      * The protocols must have been listed by getSupportedProtocols()
@@ -944,7 +944,7 @@ public abstract class SSLEngine {
     public abstract void setEnabledProtocols(String protocols[]);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SSLSession</code> in use in this
      * <code>SSLEngine</code>.
      * <P>
@@ -967,7 +967,7 @@ public abstract class SSLEngine {
     public abstract SSLSession getSession();
 
 
-    /**
+    /** {@collect.stats}
      * Initiates handshaking (initial or renegotiation) on this SSLEngine.
      * <P>
      * This method is not needed for the initial handshake, as the
@@ -1000,7 +1000,7 @@ public abstract class SSLEngine {
     public abstract void beginHandshake() throws SSLException;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current handshake status for this <code>SSLEngine</code>.
      *
      * @return  the current <code>SSLEngineResult.HandshakeStatus</code>.
@@ -1008,7 +1008,7 @@ public abstract class SSLEngine {
     public abstract SSLEngineResult.HandshakeStatus getHandshakeStatus();
 
 
-    /**
+    /** {@collect.stats}
      * Configures the engine to use client (or server) mode when
      * handshaking.
      * <P>
@@ -1028,7 +1028,7 @@ public abstract class SSLEngine {
     public abstract void setUseClientMode(boolean mode);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the engine is set to use client mode when
      * handshaking.
      *
@@ -1039,7 +1039,7 @@ public abstract class SSLEngine {
     public abstract boolean getUseClientMode();
 
 
-    /**
+    /** {@collect.stats}
      * Configures the engine to <i>require</i> client authentication.  This
      * option is only useful for engines in the server mode.
      * <P>
@@ -1068,7 +1068,7 @@ public abstract class SSLEngine {
     public abstract void setNeedClientAuth(boolean need);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the engine will <i>require</i> client authentication.
      * This option is only useful to engines in the server mode.
      *
@@ -1082,7 +1082,7 @@ public abstract class SSLEngine {
     public abstract boolean getNeedClientAuth();
 
 
-    /**
+    /** {@collect.stats}
      * Configures the engine to <i>request</i> client authentication.
      * This option is only useful for engines in the server mode.
      * <P>
@@ -1110,7 +1110,7 @@ public abstract class SSLEngine {
     public abstract void setWantClientAuth(boolean want);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the engine will <i>request</i> client authentication.
      * This option is only useful for engines in the server mode.
      *
@@ -1124,7 +1124,7 @@ public abstract class SSLEngine {
     public abstract boolean getWantClientAuth();
 
 
-    /**
+    /** {@collect.stats}
      * Controls whether new SSL sessions may be established by this engine.
      * If session creations are not allowed, and there are no
      * existing sessions to resume, there will be no successful
@@ -1138,7 +1138,7 @@ public abstract class SSLEngine {
     public abstract void setEnableSessionCreation(boolean flag);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if new SSL sessions may be established by this engine.
      *
      * @return  true indicates that sessions may be created; this
@@ -1148,7 +1148,7 @@ public abstract class SSLEngine {
      */
     public abstract boolean getEnableSessionCreation();
 
-    /**
+    /** {@collect.stats}
      * Returns the SSLParameters in effect for this SSLEngine.
      * The ciphersuites and protocols of the returned SSLParameters
      * are always non-null.
@@ -1168,7 +1168,7 @@ public abstract class SSLEngine {
         return params;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies SSLParameters to this engine.
      *
      * <p>This means:

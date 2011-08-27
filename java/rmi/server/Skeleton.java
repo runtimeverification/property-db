@@ -26,7 +26,7 @@ package java.rmi.server;
 
 import java.rmi.Remote;
 
-/**
+/** {@collect.stats}
  * The <code>Skeleton</code> interface is used solely by the RMI
  * implementation.
  *
@@ -43,7 +43,7 @@ import java.rmi.Remote;
  */
 @Deprecated
 public interface Skeleton {
-    /**
+    /** {@collect.stats}
      * Unmarshals arguments, calls the actual remote object implementation,
      * and marshals the return value or any exception.
      *
@@ -59,7 +59,7 @@ public interface Skeleton {
     void dispatch(Remote obj, RemoteCall theCall, int opnum, long hash)
         throws Exception;
 
-    /**
+    /** {@collect.stats}
      * Returns the operations supported by the skeleton.
      * @return operations supported by skeleton
      * @since JDK1.1

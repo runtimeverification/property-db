@@ -31,7 +31,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class PageRanges is a printing attribute class, a set of integers, that
  * identifies the range(s) of print-stream pages that the Printer object uses
  * for each copy of each document which are to be printed. Nothing is printed
@@ -111,7 +111,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
     private static final long serialVersionUID = 8639895197656148392L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new page ranges attribute with the given members. The
      * members are specified in "array form;" see class {@link
      * javax.print.attribute.SetOfIntegerSyntax SetOfIntegerSyntax} for an
@@ -135,7 +135,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         }
         myPageRanges();
     }
-    /**
+    /** {@collect.stats}
      * Construct a new  page ranges attribute with the given members in
      * string form.
      * See class {@link javax.print.attribute.SetOfIntegerSyntax
@@ -176,7 +176,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new page ranges attribute containing a single integer. That
      * is, only the one page is to be printed.
      *
@@ -193,7 +193,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new page ranges attribute containing a single range of
      * integers. That is, only those pages in the one range are to be printed.
      *
@@ -214,7 +214,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this page ranges attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -237,7 +237,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         return (super.equals(object) && object instanceof PageRanges);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -250,7 +250,7 @@ public final class PageRanges   extends SetOfIntegerSyntax
         return PageRanges.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

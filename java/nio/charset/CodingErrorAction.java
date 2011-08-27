@@ -26,7 +26,7 @@
 package java.nio.charset;
 
 
-/**
+/** {@collect.stats}
  * A typesafe enumeration for coding-error actions.
  *
  * <p> Instances of this class are used to specify how malformed-input and
@@ -48,14 +48,14 @@ public class CodingErrorAction {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Action indicating that a coding error is to be handled by dropping the
      * erroneous input and resuming the coding operation.  </p>
      */
     public static final CodingErrorAction IGNORE
         = new CodingErrorAction("IGNORE");
 
-    /**
+    /** {@collect.stats}
      * Action indicating that a coding error is to be handled by dropping the
      * erroneous input, appending the coder's replacement value to the output
      * buffer, and resuming the coding operation.  </p>
@@ -63,7 +63,7 @@ public class CodingErrorAction {
     public static final CodingErrorAction REPLACE
         = new CodingErrorAction("REPLACE");
 
-    /**
+    /** {@collect.stats}
      * Action indicating that a coding error is to be reported, either by
      * returning a {@link CoderResult} object or by throwing a {@link
      * CharacterCodingException}, whichever is appropriate for the method
@@ -72,7 +72,7 @@ public class CodingErrorAction {
     public static final CodingErrorAction REPORT
         = new CodingErrorAction("REPORT");
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this action.  </p>
      *
      * @return  A descriptive string

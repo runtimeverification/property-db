@@ -25,7 +25,7 @@
 
 package javax.print;
 
-/**
+/** {@collect.stats}
  * This interface is used by a printing application to cancel a
  * print job.  This interface extends {@link DocPrintJob}.  A
  * <code>DocPrintJob</code> implementation returned from a print
@@ -51,7 +51,7 @@ package javax.print;
 
 public interface CancelablePrintJob extends DocPrintJob {
 
-    /**
+    /** {@collect.stats}
      * Stops further processing of a print job.
      * <p>
      * If a service supports this method it cannot be concluded that

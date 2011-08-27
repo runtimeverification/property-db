@@ -36,7 +36,7 @@ import java.beans.*;
 import java.awt.event.*;
 
 
-/**
+/** {@collect.stats}
  * A Metal L&F implementation of ScrollPaneUI.
  * <p>
  * <strong>Warning:</strong>
@@ -95,7 +95,7 @@ public class MetalScrollPaneUI extends BasicScrollPaneUI
         scrollPane.removePropertyChangeListener(scrollBarSwapListener);
     }
 
-    /**
+    /** {@collect.stats}
      * If the border of the scrollpane is an instance of
      * <code>MetalBorders.ScrollPaneBorder</code>, the client property
      * <code>FREE_STANDING_PROP</code> of the scrollbars

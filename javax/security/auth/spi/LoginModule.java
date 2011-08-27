@@ -31,7 +31,7 @@ import javax.security.auth.callback.*;
 import javax.security.auth.login.*;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * <p> <code>LoginModule</code> describes the interface
  * implemented by authentication technology providers.  LoginModules
  * are plugged in under applications to provide a particular type of
@@ -128,7 +128,7 @@ import java.util.Map;
  */
 public interface LoginModule {
 
-    /**
+    /** {@collect.stats}
      * Initialize this LoginModule.
      *
      * <p> This method is called by the <code>LoginContext</code>
@@ -157,7 +157,7 @@ public interface LoginModule {
                     Map<String,?> sharedState,
                     Map<String,?> options);
 
-    /**
+    /** {@collect.stats}
      * Method to authenticate a <code>Subject</code> (phase 1).
      *
      * <p> The implementation of this method authenticates
@@ -176,7 +176,7 @@ public interface LoginModule {
      */
     boolean login() throws LoginException;
 
-    /**
+    /** {@collect.stats}
      * Method to commit the authentication process (phase 2).
      *
      * <p> This method is called if the LoginContext's
@@ -201,7 +201,7 @@ public interface LoginModule {
      */
     boolean commit() throws LoginException;
 
-    /**
+    /** {@collect.stats}
      * Method to abort the authentication process (phase 2).
      *
      * <p> This method is called if the LoginContext's
@@ -223,7 +223,7 @@ public interface LoginModule {
      */
     boolean abort() throws LoginException;
 
-    /**
+    /** {@collect.stats}
      * Method which logs out a <code>Subject</code>.
      *
      * <p>An implementation of this method might remove/destroy a Subject's

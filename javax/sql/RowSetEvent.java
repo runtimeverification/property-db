@@ -25,7 +25,7 @@
 
 package javax.sql;
 
-/**
+/** {@collect.stats}
  * An <code>Event</code> object generated when an event occurs to a
  * <code>RowSet</code> object.  A <code>RowSetEvent</code> object is
  * generated when a single row in a rowset is changed, the whole rowset
@@ -43,7 +43,7 @@ package javax.sql;
 
 public class RowSetEvent extends java.util.EventObject {
 
-  /**
+  /** {@collect.stats}
    * Constructs a <code>RowSetEvent</code> object initialized with the
    * given <code>RowSet</code> object.
    *
@@ -54,7 +54,7 @@ public class RowSetEvent extends java.util.EventObject {
   public RowSetEvent(RowSet source)
     { super(source); }
 
-  /**
+  /** {@collect.stats}
    * Private serial version unique ID to ensure serialization
    * compatibility.
    */

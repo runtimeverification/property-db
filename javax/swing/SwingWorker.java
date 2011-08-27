@@ -37,7 +37,7 @@ import java.awt.event.*;
 import sun.awt.AppContext;
 import sun.swing.AccumulativeRunnable;
 
-/**
+/** {@collect.stats}
  * An abstract class to perform lengthy GUI-interacting tasks in a
  * dedicated thread.
  *
@@ -219,60 +219,60 @@ import sun.swing.AccumulativeRunnable;
  * @since 1.6
  */
 public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
-    /**
+    /** {@collect.stats}
      * number of worker threads.
      */
     private static final int MAX_WORKER_THREADS = 10;
 
-    /**
+    /** {@collect.stats}
      * current progress.
      */
     private volatile int progress;
 
-    /**
+    /** {@collect.stats}
      * current state.
      */
     private volatile StateValue state;
 
-    /**
+    /** {@collect.stats}
      * everything is run inside this FutureTask. Also it is used as
      * a delegatee for the Future API.
      */
     private final FutureTask<T> future;
 
-    /**
+    /** {@collect.stats}
      * all propertyChangeSupport goes through this.
      */
     private final PropertyChangeSupport propertyChangeSupport;
 
-    /**
+    /** {@collect.stats}
      * handler for {@code process} mehtod.
      */
     private AccumulativeRunnable<V> doProcess;
 
-    /**
+    /** {@collect.stats}
      * handler for progress property change notifications.
      */
     private AccumulativeRunnable<Integer> doNotifyProgressChange;
 
     private final AccumulativeRunnable<Runnable> doSubmit = getDoSubmit();
 
-    /**
+    /** {@collect.stats}
      * Values for the {@code state} bound property.
      * @since 1.6
      */
     public enum StateValue {
-        /**
+        /** {@collect.stats}
          * Initial {@code SwingWorker} state.
          */
         PENDING,
-        /**
+        /** {@collect.stats}
          * {@code SwingWorker} is {@code STARTED}
          * before invoking {@code doInBackground}.
          */
         STARTED,
 
-        /**
+        /** {@collect.stats}
          * {@code SwingWorker} is {@code DONE}
          * after {@code doInBackground} method
          * is finished.
@@ -280,7 +280,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         DONE
     };
 
-    /**
+    /** {@collect.stats}
      * Constructs this {@code SwingWorker}.
      */
     public SwingWorker() {
@@ -306,7 +306,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
        doNotifyProgressChange = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Computes a result, or throws an exception if unable to do so.
      *
      * <p>
@@ -322,7 +322,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
      */
     protected abstract T doInBackground() throws Exception ;
 
-    /**
+    /** {@collect.stats}
      * Sets this {@code Future} to the result of computation unless
      * it has been cancelled.
      */
@@ -330,7 +330,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         future.run();
     }
 
-    /**
+    /** {@collect.stats}
      * Sends data chunks to the {@link #process} method. This method is to be
      * used from inside the {@code doInBackground} method to deliver
      * intermediate results
@@ -417,7 +417,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         doProcess.add(chunks);
     }
 
-    /**
+    /** {@collect.stats}
      * Receives data chunks from the {@code publish} method asynchronously on the
      * <i>Event Dispatch Thread</i>.
      *
@@ -432,7 +432,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
     protected void process(List<V> chunks) {
     }
 
-    /**
+    /** {@collect.stats}
      * Executed on the <i>Event Dispatch Thread</i> after the {@code doInBackground}
      * method is finished. The default
      * implementation does nothing. Subclasses may override this method to
@@ -447,7 +447,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
     protected void done() {
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code progress} bound property.
      * The value should be from 0 to 100.
      *
@@ -506,7 +506,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         doNotifyProgressChange.add(oldProgress, progress);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code progress} bound property.
      *
      * @return the progress bound property.
@@ -515,7 +515,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         return progress;
     }
 
-    /**
+    /** {@collect.stats}
      * Schedules this {@code SwingWorker} for execution on a <i>worker</i>
      * thread. There are a number of <i>worker</i> threads available. In the
      * event all <i>worker</i> threads are busy handling other
@@ -533,28 +533,28 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
     }
 
     // Future methods START
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public final boolean cancel(boolean mayInterruptIfRunning) {
         return future.cancel(mayInterruptIfRunning);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public final boolean isCancelled() {
         return future.isCancelled();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public final boolean isDone() {
         return future.isDone();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * <p>
      * Note: calling {@code get} on the <i>Event Dispatch Thread</i> blocks
@@ -596,7 +596,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         return future.get();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * <p>
      * Please refer to {@link #get} for more details.
@@ -609,7 +609,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
     // Future methods END
 
     // PropertyChangeSupports methods START
-    /**
+    /** {@collect.stats}
      * Adds a {@code PropertyChangeListener} to the listener list. The listener
      * is registered for all properties. The same listener object may be added
      * more than once, and will be called as many times as it is added. If
@@ -625,7 +625,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         getPropertyChangeSupport().addPropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a {@code PropertyChangeListener} from the listener list. This
      * removes a {@code PropertyChangeListener} that was registered for all
      * properties. If {@code listener} was added more than once to the same
@@ -643,7 +643,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         getPropertyChangeSupport().removePropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Reports a bound property update to any registered listeners. No event is
      * fired if {@code old} and {@code new} are equal and non-null.
      *
@@ -671,7 +671,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
             oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code PropertyChangeSupport} for this {@code SwingWorker}.
      * This method is used when flexible access to bound properties support is
      * needed.
@@ -694,7 +694,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
 
     // PropertyChangeSupports methods END
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code SwingWorker} state bound property.
      *
      * @return the current state
@@ -711,7 +711,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this {@code SwingWorker} state bound property.
      * @param the state state to set
      */
@@ -721,7 +721,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
         firePropertyChange("state", old, state);
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes {@code done} on the EDT.
      */
     private void doneEDT() {
@@ -739,7 +739,7 @@ public abstract class SwingWorker<T, V> implements RunnableFuture<T> {
     }
 
 
-    /**
+    /** {@collect.stats}
      * returns workersExecutorService.
      *
      * returns the service stored in the appContext or creates it if

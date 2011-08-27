@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import java.io.Serializable;
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * A generic implementation of SingleSelectionModel.
  * <p>
  * <strong>Warning:</strong>
@@ -50,7 +50,7 @@ Serializable {
      * of events generated here is always "this".
      */
     protected transient ChangeEvent changeEvent = null;
-    /** The collection of registered listeners */
+    /** {@collect.stats} The collection of registered listeners */
     protected EventListenerList listenerList = new EventListenerList();
 
     private int index = -1;
@@ -82,21 +82,21 @@ Serializable {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to the button.
      */
     public void addChangeListener(ChangeListener l) {
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the button.
      */
     public void removeChangeListener(ChangeListener l) {
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the change listeners
      * registered on this <code>DefaultSingleSelectionModel</code>.
      *
@@ -114,7 +114,7 @@ Serializable {
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -135,7 +135,7 @@ Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this model.

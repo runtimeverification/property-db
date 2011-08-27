@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-/**
+/** {@collect.stats}
  * Defines the interface for classes that know how to lay out
  * <code>Container</code>s.
  * <p>
@@ -41,7 +41,7 @@ package java.awt;
  * @author      Arthur van Hoff
  */
 public interface LayoutManager {
-    /**
+    /** {@collect.stats}
      * If the layout manager uses a per-component string,
      * adds the component <code>comp</code> to the layout,
      * associating it
@@ -52,13 +52,13 @@ public interface LayoutManager {
      */
     void addLayoutComponent(String name, Component comp);
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the layout.
      * @param comp the component to be removed
      */
     void removeLayoutComponent(Component comp);
 
-    /**
+    /** {@collect.stats}
      * Calculates the preferred size dimensions for the specified
      * container, given the components it contains.
      * @param parent the container to be laid out
@@ -67,7 +67,7 @@ public interface LayoutManager {
      */
     Dimension preferredLayoutSize(Container parent);
 
-    /**
+    /** {@collect.stats}
      * Calculates the minimum size dimensions for the specified
      * container, given the components it contains.
      * @param parent the component to be laid out
@@ -75,7 +75,7 @@ public interface LayoutManager {
      */
     Dimension minimumLayoutSize(Container parent);
 
-    /**
+    /** {@collect.stats}
      * Lays out the specified container.
      * @param parent the container to be laid out
      */

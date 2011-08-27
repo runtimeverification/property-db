@@ -25,7 +25,7 @@
 
 package javax.security.sasl;
 
-/**
+/** {@collect.stats}
  * Performs SASL authentication as a client.
  *<p>
  * A protocol library such as one for LDAP gets an instance of this
@@ -98,14 +98,14 @@ package javax.security.sasl;
  */
 public abstract interface SaslClient {
 
-    /**
+    /** {@collect.stats}
      * Returns the IANA-registered mechanism name of this SASL client.
      * (e.g. "CRAM-MD5", "GSSAPI").
      * @return A non-null string representing the IANA-registered mechanism name.
      */
     public abstract String getMechanismName();
 
-    /**
+    /** {@collect.stats}
      * Determines whether this mechanism has an optional initial response.
      * If true, caller should call <tt>evaluateChallenge()</tt> with an
      * empty array to get the initial response.
@@ -114,7 +114,7 @@ public abstract interface SaslClient {
      */
     public abstract boolean hasInitialResponse();
 
-    /**
+    /** {@collect.stats}
      * Evaluates the challenge data and generates a response.
      * If a challenge is received from the server during the authentication
      * process, this method is called to prepare an appropriate next
@@ -134,7 +134,7 @@ public abstract interface SaslClient {
     public abstract byte[] evaluateChallenge(byte[] challenge)
         throws SaslException;
 
-    /**
+    /** {@collect.stats}
       * Determines whether the authentication exchange has completed.
       * This method may be called at any time, but typically, it
       * will not be called until the caller has received indication
@@ -145,7 +145,7 @@ public abstract interface SaslClient {
       */
     public abstract boolean isComplete();
 
-    /**
+    /** {@collect.stats}
      * Unwraps a byte array received from the server.
      * This method can be called only after the authentication exchange has
      * completed (i.e., when <tt>isComplete()</tt> returns true) and only if
@@ -172,7 +172,7 @@ public abstract interface SaslClient {
     public abstract byte[] unwrap(byte[] incoming, int offset, int len)
         throws SaslException;
 
-    /**
+    /** {@collect.stats}
      * Wraps a byte array to be sent to the server.
      * This method can be called only after the authentication exchange has
      * completed (i.e., when <tt>isComplete()</tt> returns true) and only if
@@ -199,7 +199,7 @@ public abstract interface SaslClient {
     public abstract byte[] wrap(byte[] outgoing, int offset, int len)
         throws SaslException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the negotiated property.
      * This method can be called only after the authentication exchange has
      * completed (i.e., when <tt>isComplete()</tt> returns true); otherwise, an
@@ -214,7 +214,7 @@ public abstract interface SaslClient {
 
     public abstract Object getNegotiatedProperty(String propName);
 
-     /**
+     /** {@collect.stats}
       * Disposes of any system resources or security-sensitive information
       * the SaslClient might be using. Invoking this method invalidates
       * the SaslClient instance. This method is idempotent.

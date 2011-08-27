@@ -38,7 +38,7 @@ import java.util.concurrent.atomic.*;
 import java.util.concurrent.locks.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * An optionally-bounded {@linkplain BlockingQueue blocking queue} based on
  * linked nodes.
  * This queue orders elements FIFO (first-in-first-out).
@@ -88,41 +88,41 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
      * iterators acquire both locks.
      */
 
-    /**
+    /** {@collect.stats}
      * Linked list node class
      */
     static class Node<E> {
-        /** The item, volatile to ensure barrier separating write and read */
+        /** {@collect.stats} The item, volatile to ensure barrier separating write and read */
         volatile E item;
         Node<E> next;
         Node(E x) { item = x; }
     }
 
-    /** The capacity bound, or Integer.MAX_VALUE if none */
+    /** {@collect.stats} The capacity bound, or Integer.MAX_VALUE if none */
     private final int capacity;
 
-    /** Current number of elements */
+    /** {@collect.stats} Current number of elements */
     private final AtomicInteger count = new AtomicInteger(0);
 
-    /** Head of linked list */
+    /** {@collect.stats} Head of linked list */
     private transient Node<E> head;
 
-    /** Tail of linked list */
+    /** {@collect.stats} Tail of linked list */
     private transient Node<E> last;
 
-    /** Lock held by take, poll, etc */
+    /** {@collect.stats} Lock held by take, poll, etc */
     private final ReentrantLock takeLock = new ReentrantLock();
 
-    /** Wait queue for waiting takes */
+    /** {@collect.stats} Wait queue for waiting takes */
     private final Condition notEmpty = takeLock.newCondition();
 
-    /** Lock held by put, offer, etc */
+    /** {@collect.stats} Lock held by put, offer, etc */
     private final ReentrantLock putLock = new ReentrantLock();
 
-    /** Wait queue for waiting puts */
+    /** {@collect.stats} Wait queue for waiting puts */
     private final Condition notFull = putLock.newCondition();
 
-    /**
+    /** {@collect.stats}
      * Signals a waiting take. Called only from put/offer (which do not
      * otherwise ordinarily lock takeLock.)
      */
@@ -136,7 +136,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Signals a waiting put. Called only from take/poll.
      */
     private void signalNotFull() {
@@ -149,7 +149,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a node and links it at end of queue.
      * @param x the item
      */
@@ -157,7 +157,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         last = last.next = new Node<E>(x);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a node from head of queue,
      * @return the node
      */
@@ -169,7 +169,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Lock to prevent both puts and takes.
      */
     private void fullyLock() {
@@ -177,7 +177,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         takeLock.lock();
     }
 
-    /**
+    /** {@collect.stats}
      * Unlock to allow both puts and takes.
      */
     private void fullyUnlock() {
@@ -186,7 +186,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingQueue</tt> with a capacity of
      * {@link Integer#MAX_VALUE}.
      */
@@ -194,7 +194,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         this(Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingQueue</tt> with the given (fixed) capacity.
      *
      * @param capacity the capacity of this queue
@@ -207,7 +207,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         last = head = new Node<E>(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <tt>LinkedBlockingQueue</tt> with a capacity of
      * {@link Integer#MAX_VALUE}, initially containing the elements of the
      * given collection,
@@ -226,7 +226,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is overridden to remove the reference to collections
     // greater in size than Integer.MAX_VALUE
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this queue.
      *
      * @return the number of elements in this queue
@@ -237,7 +237,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 
     // this doc comment is a modified copy of the inherited doc comment,
     // without the reference to unlimited queues.
-    /**
+    /** {@collect.stats}
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
      * blocking. This is always equal to the initial capacity of this queue
@@ -252,7 +252,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         return capacity - count.get();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue, waiting if
      * necessary for space to become available.
      *
@@ -295,7 +295,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
             signalNotEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue, waiting if
      * necessary up to the specified wait time for space to become available.
      *
@@ -339,7 +339,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the tail of this queue if it is
      * possible to do so immediately without exceeding the queue's capacity,
      * returning <tt>true</tt> upon success and <tt>false</tt> if this queue
@@ -474,7 +474,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a single instance of the specified element from this queue,
      * if it is present.  More formally, removes an element <tt>e</tt> such
      * that <tt>o.equals(e)</tt>, if this queue contains one or more such
@@ -514,7 +514,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         return removed;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence.
      *
@@ -541,7 +541,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this queue, in
      * proper sequence; the runtime type of the returned array is that of
      * the specified array.  If the queue fits in the specified array, it
@@ -605,7 +605,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically removes all of the elements from this queue.
      * The queue will be empty after this call returns.
      */
@@ -622,7 +622,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -655,7 +655,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}
@@ -690,7 +690,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this queue in proper sequence.
      * The returned <tt>Iterator</tt> is a "weakly consistent" iterator that
      * will never throw {@link ConcurrentModificationException},
@@ -785,7 +785,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Save the state to a stream (that is, serialize it).
      *
      * @serialData The capacity is emitted (int), followed by all of
@@ -812,7 +812,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute this queue instance from a stream (that is,
      * deserialize it).
      * @param s the stream

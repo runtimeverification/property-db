@@ -31,7 +31,7 @@ import javax.naming.*;
 import java.io.*;
 import java.math.*;
 
-/**
+/** {@collect.stats}
  * The standard interface that all standard implementations of
  * <code>FilteredRowSet</code> must implement. The <code>FilteredRowSetImpl</code> class
  * provides the reference implementation which may be extended if required.
@@ -126,7 +126,7 @@ import java.math.*;
 
 public interface FilteredRowSet extends WebRowSet {
 
-   /**
+   /** {@collect.stats}
     * Applies the given <code>Predicate</code> object to this
     * <code>FilteredRowSet</code>
     * object. The filter applies controls both to inbound and outbound views,
@@ -150,7 +150,7 @@ public interface FilteredRowSet extends WebRowSet {
     */
     public void setFilter(Predicate p) throws SQLException;
 
-   /**
+   /** {@collect.stats}
     * Retrieves the active filter for this <code>FilteredRowSet</code> object.
     *
     * @return p the <code>Predicate</code> for this <code>FilteredRowSet</code>

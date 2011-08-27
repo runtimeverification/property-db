@@ -37,7 +37,7 @@ import java.awt.*;
 import java.io.*;
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * Provides the metal look and feel implementation of <code>RootPaneUI</code>.
  * <p>
  * <code>MetalRootPaneUI</code> provides support for the
@@ -65,7 +65,7 @@ import java.security.*;
  */
 public class MetalRootPaneUI extends BasicRootPaneUI
 {
-    /**
+    /** {@collect.stats}
      * Keys to lookup borders in defaults table.
      */
     private static final String[] borderKeys = new String[] {
@@ -75,58 +75,58 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         "RootPane.fileChooserDialogBorder", "RootPane.questionDialogBorder",
         "RootPane.warningDialogBorder"
     };
-    /**
+    /** {@collect.stats}
      * The amount of space (in pixels) that the cursor is changed on.
      */
     private static final int CORNER_DRAG_WIDTH = 16;
 
-    /**
+    /** {@collect.stats}
      * Region from edges that dragging is active from.
      */
     private static final int BORDER_DRAG_THICKNESS = 5;
 
-    /**
+    /** {@collect.stats}
      * Window the <code>JRootPane</code> is in.
      */
     private Window window;
 
-    /**
+    /** {@collect.stats}
      * <code>JComponent</code> providing window decorations. This will be
      * null if not providing window decorations.
      */
     private JComponent titlePane;
 
-    /**
+    /** {@collect.stats}
      * <code>MouseInputListener</code> that is added to the parent
      * <code>Window</code> the <code>JRootPane</code> is contained in.
      */
     private MouseInputListener mouseInputListener;
 
-    /**
+    /** {@collect.stats}
      * The <code>LayoutManager</code> that is set on the
      * <code>JRootPane</code>.
      */
     private LayoutManager layoutManager;
 
-    /**
+    /** {@collect.stats}
      * <code>LayoutManager</code> of the <code>JRootPane</code> before we
      * replaced it.
      */
     private LayoutManager savedOldLayout;
 
-    /**
+    /** {@collect.stats}
      * <code>JRootPane</code> providing the look and feel for.
      */
     private JRootPane root;
 
-    /**
+    /** {@collect.stats}
      * <code>Cursor</code> used to track the cursor set by the user.
      * This is initially <code>Cursor.DEFAULT_CURSOR</code>.
      */
     private Cursor lastCursor =
             Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR);
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a <code>JRootPane</code>.
      *
      * @param c the JRootPane the RootPaneUI will be created for
@@ -136,7 +136,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return new MetalRootPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes supers implementation of <code>installUI</code> to install
      * the necessary state onto the passed in <code>JRootPane</code>
      * to render the metal look and feel implementation of
@@ -160,7 +160,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Invokes supers implementation to uninstall any of its state. This will
      * also reset the <code>LayoutManager</code> of the <code>JRootPane</code>.
      * If a <code>Component</code> has been added to the <code>JRootPane</code>
@@ -180,7 +180,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         root = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the appropriate <code>Border</code> onto the
      * <code>JRootPane</code>.
      */
@@ -195,14 +195,14 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any border that may have been installed.
      */
     private void uninstallBorder(JRootPane root) {
         LookAndFeel.uninstallBorder(root);
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary Listeners on the parent <code>Window</code>,
      * if there is one.
      * <p>
@@ -228,7 +228,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the necessary Listeners on the <code>Window</code> the
      * Listeners were last installed on.
      */
@@ -239,7 +239,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the appropriate LayoutManager on the <code>JRootPane</code>
      * to render the window decorations.
      */
@@ -251,7 +251,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         root.setLayout(layoutManager);
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the previously installed <code>LayoutManager</code>.
      */
     private void uninstallLayout(JRootPane root) {
@@ -261,7 +261,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary state onto the JRootPane to render client
      * decorations. This is ONLY invoked if the <code>JRootPane</code>
      * has a decoration style other than <code>JRootPane.NONE</code>.
@@ -280,7 +280,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls any state that <code>installClientDecorations</code> has
      * installed.
      * <p>
@@ -310,7 +310,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         window = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JComponent</code> to render the window decoration
      * style.
      */
@@ -318,7 +318,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return new MetalTitlePane(root, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>MouseListener</code> that will be added to the
      * <code>Window</code> containing the <code>JRootPane</code>.
      */
@@ -326,7 +326,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return new MouseInputHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>LayoutManager</code> that will be set on the
      * <code>JRootPane</code>.
      */
@@ -334,7 +334,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return new MetalRootLayout();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the window title pane -- the JComponent used to provide a plaf a
      * way to override the native operating system's window title pane with
      * one whose look and feel are controlled by the plaf.  The plaf creates
@@ -358,7 +358,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         this.titlePane = titlePane;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JComponent</code> rendering the title pane. If this
      * returns null, it implies there is no need to render window decorations.
      *
@@ -369,7 +369,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return titlePane;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JRootPane</code> we're providing the look and
      * feel for.
      */
@@ -377,7 +377,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return root;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a property changes. <code>MetalRootPaneUI</code> is
      * primarily interested in events originating from the
      * <code>JRootPane</code> it has been installed on identifying the
@@ -426,7 +426,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * A custom layout manager that is responsible for the layout of
      * layeredPane, glassPane, menuBar and titlePane, if one has been
      * installed.
@@ -434,7 +434,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
     // NOTE: Ideally this would extends JRootPane.RootLayout, but that
     //       would force this to be non-static.
     private static class MetalRootLayout implements LayoutManager2 {
-        /**
+        /** {@collect.stats}
          * Returns the amount of space the layout would like to have.
          *
          * @param the Container for which this layout manager is being used
@@ -486,7 +486,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
                                  cpHeight + mbHeight + tpWidth + i.top + i.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum amount of space the layout needs.
          *
          * @param the Container for which this layout manager is being used
@@ -537,7 +537,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
                                  cpHeight + mbHeight + tpWidth + i.top + i.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum amount of space the layout can use.
          *
          * @param the Container for which this layout manager is being used
@@ -600,7 +600,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
             return new Dimension(maxWidth, maxHeight);
         }
 
-        /**
+        /** {@collect.stats}
          * Instructs the layout manager to perform the layout for the specified
          * container.
          *
@@ -656,7 +656,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Maps from positions to cursor type. Refer to calculateCorner and
      * calculatePosition for details of this.
      */
@@ -670,38 +670,38 @@ public class MetalRootPaneUI extends BasicRootPaneUI
              Cursor.SE_RESIZE_CURSOR, Cursor.SE_RESIZE_CURSOR
     };
 
-    /**
+    /** {@collect.stats}
      * MouseInputHandler is responsible for handling resize/moving of
      * the Window. It sets the cursor directly on the Window when then
      * mouse moves over a hot spot.
      */
     private class MouseInputHandler implements MouseInputListener {
-        /**
+        /** {@collect.stats}
          * Set to true if the drag operation is moving the window.
          */
         private boolean isMovingWindow;
 
-        /**
+        /** {@collect.stats}
          * Used to determine the corner the resize is occuring from.
          */
         private int dragCursor;
 
-        /**
+        /** {@collect.stats}
          * X location the mouse went down on for a drag operation.
          */
         private int dragOffsetX;
 
-        /**
+        /** {@collect.stats}
          * Y location the mouse went down on for a drag operation.
          */
         private int dragOffsetY;
 
-        /**
+        /** {@collect.stats}
          * Width of the window when the drag started.
          */
         private int dragWidth;
 
-        /**
+        /** {@collect.stats}
          * Height of the window when the drag started.
          */
         private int dragHeight;
@@ -932,7 +932,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the corner that contains the point <code>x</code>,
          * <code>y</code>, or -1 if the position doesn't match a corner.
          */
@@ -949,7 +949,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
             return yPosition * 5 + xPosition;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Cursor to render for the specified corner. This returns
          * 0 if the corner doesn't map to a valid Cursor
          */
@@ -960,7 +960,7 @@ public class MetalRootPaneUI extends BasicRootPaneUI
             return cursorMapping[corner];
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an integer indicating the position of <code>spot</code>
          * in <code>width</code>. The return value will be:
          * 0 if < BORDER_DRAG_THICKNESS

@@ -30,7 +30,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * Describes a constructor exposed by an MBean.  Instances of this
  * class are immutable.  Subclasses may be mutable but this is not
  * recommended.
@@ -45,15 +45,15 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
     static final MBeanConstructorInfo[] NO_CONSTRUCTORS =
         new MBeanConstructorInfo[0];
 
-    /** @see MBeanInfo#arrayGettersSafe */
+    /** {@collect.stats} @see MBeanInfo#arrayGettersSafe */
     private final transient boolean arrayGettersSafe;
 
-    /**
+    /** {@collect.stats}
      * @serial The signature of the method, that is, the class names of the arguments.
      */
     private final MBeanParameterInfo[] signature;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanConstructorInfo</CODE> object.  The
      * {@link Descriptor} of the constructed object will include
      * fields contributed by any annotations on the {@code
@@ -70,7 +70,7 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
              Introspector.descriptorForElement(constructor));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanConstructorInfo</CODE> object.
      *
      * @param name The name of the constructor.
@@ -85,7 +85,7 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
         this(name, description, signature, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>MBeanConstructorInfo</CODE> object.
      *
      * @param name The name of the constructor.
@@ -115,7 +115,7 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
     }
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a shallow clone of this instance.  The clone is
      * obtained by simply calling <tt>super.clone()</tt>, thus calling
      * the default native shallow cloning mechanism implemented by
@@ -134,7 +134,7 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
          }
      }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the list of parameters for this constructor.  Each
      * parameter is described by an <CODE>MBeanParameterInfo</CODE>
      * object.</p>
@@ -171,7 +171,7 @@ public class MBeanConstructorInfo extends MBeanFeatureInfo implements Cloneable 
             "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this MBeanConstructorInfo to another.
      *
      * @param o the object to compare to.

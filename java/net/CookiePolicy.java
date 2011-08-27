@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * CookiePolicy implementations decide which cookies should be accepted
  * and which should be rejected. Three pre-defined policy implementations
  * are provided, namely ACCEPT_ALL, ACCEPT_NONE and ACCEPT_ORIGINAL_SERVER.
@@ -36,7 +36,7 @@ package java.net;
  * @since 1.6
  */
 public interface CookiePolicy {
-    /**
+    /** {@collect.stats}
      * One pre-defined policy which accepts all cookies.
      */
     public static final CookiePolicy ACCEPT_ALL = new CookiePolicy(){
@@ -45,7 +45,7 @@ public interface CookiePolicy {
         }
     };
 
-    /**
+    /** {@collect.stats}
      * One pre-defined policy which accepts no cookies.
      */
     public static final CookiePolicy ACCEPT_NONE = new CookiePolicy(){
@@ -54,7 +54,7 @@ public interface CookiePolicy {
         }
     };
 
-    /**
+    /** {@collect.stats}
      * One pre-defined policy which only accepts cookies from original server.
      */
     public static final CookiePolicy ACCEPT_ORIGINAL_SERVER  = new CookiePolicy(){
@@ -64,7 +64,7 @@ public interface CookiePolicy {
     };
 
 
-    /**
+    /** {@collect.stats}
      * Will be called to see whether or not this cookie should be accepted.
      *
      * @param uri       the URI to consult accept policy with

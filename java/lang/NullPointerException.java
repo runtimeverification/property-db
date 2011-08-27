@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when an application attempts to use <code>null</code> in a
  * case where an object is required. These include:
  * <ul>
@@ -46,14 +46,14 @@ package java.lang;
  */
 public
 class NullPointerException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NullPointerException</code> with no detail message.
      */
     public NullPointerException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NullPointerException</code> with the specified
      * detail message.
      *

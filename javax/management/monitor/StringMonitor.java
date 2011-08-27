@@ -31,7 +31,7 @@ import javax.management.ObjectName;
 import javax.management.MBeanNotificationInfo;
 import static javax.management.monitor.MonitorNotification.*;
 
-/**
+/** {@collect.stats}
  * Defines a monitor MBean designed to observe the values of a string
  * attribute.
  * <P>
@@ -86,20 +86,20 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * String to compare with the observed attribute.
      * <BR>The default value is an empty character sequence.
      */
     private String stringToCompare = "";
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the string monitor notifies when matching
      * the string to compare.
      * <BR>The default value is set to <CODE>false</CODE>.
      */
     private boolean notifyMatch = false;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the string monitor notifies when differing
      * from the string to compare.
      * <BR>The default value is set to <CODE>false</CODE>.
@@ -134,7 +134,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public StringMonitor() {
@@ -146,7 +146,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Starts the string monitor.
      */
     public synchronized void start() {
@@ -165,7 +165,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         doStart();
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the string monitor.
      */
     public synchronized void stop() {
@@ -175,7 +175,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge of the specified object, if this object is
      * contained in the set of observed MBeans, or <code>null</code> otherwise.
      *
@@ -189,7 +189,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return (String) super.getDerivedGauge(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the specified object, if
      * this object is contained in the set of observed MBeans, or
      * <code>0</code> otherwise.
@@ -205,7 +205,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return super.getDerivedGaugeTimeStamp(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the derived gauge of the first object in the set of
      * observed MBeans.
      *
@@ -223,7 +223,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the first object in the set
      * of observed MBeans.
      *
@@ -241,7 +241,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the string to compare with the observed attribute common
      * to all observed MBeans.
      *
@@ -253,7 +253,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return stringToCompare;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the string to compare with the observed attribute common
      * to all observed MBeans.
      *
@@ -284,7 +284,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the matching notification's on/off switch value common to
      * all observed MBeans.
      *
@@ -297,7 +297,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return notifyMatch;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the matching notification's on/off switch value common to
      * all observed MBeans.
      *
@@ -311,7 +311,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         notifyMatch = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the differing notification's on/off switch value common to
      * all observed MBeans.
      *
@@ -324,7 +324,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return notifyDiffer;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the differing notification's on/off switch value common to
      * all observed MBeans.
      *
@@ -338,7 +338,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         notifyDiffer = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <CODE>NotificationInfo</CODE> object containing the name of
      * the Java class of the notification and the notification types sent by
      * the string monitor.
@@ -354,7 +354,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Factory method for ObservedObject creation.
      *
      * @since 1.6
@@ -367,7 +367,7 @@ public class StringMonitor extends Monitor implements StringMonitorMBean {
         return smo;
     }
 
-    /**
+    /** {@collect.stats}
      * Check that the type of the supplied observed attribute
      * value is one of the value types supported by this monitor.
      */

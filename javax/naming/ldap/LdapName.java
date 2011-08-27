@@ -40,7 +40,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class represents a distinguished name as specified by
  * <a href="http://ietf.org//rfc/rfc2253.txt">RFC 2253</a>.
  * A distinguished name, or DN, is composed of an ordered list of
@@ -110,7 +110,7 @@ public class LdapName implements Name {
     private transient String unparsed;  // if non-null, the DN in unparsed form
     private static final long serialVersionUID = -1595520034788997356L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an LDAP name from the given distinguished name.
      *
      * @param name  This is a non-null distinguished name formatted
@@ -125,7 +125,7 @@ public class LdapName implements Name {
         parse();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an LDAP name given its parsed RDN components.
      * <p>
      * The indexing of RDNs in the list follows the numbering of
@@ -171,7 +171,7 @@ public class LdapName implements Name {
         this.rdns = new ArrayList(sList);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of components in this LDAP name.
      * @return The non-negative number of components in this LDAP name.
      */
@@ -179,7 +179,7 @@ public class LdapName implements Name {
         return rdns.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this LDAP name is empty.
      * An empty name is one with zero components.
      * @return true if this LDAP name is empty, false otherwise.
@@ -188,7 +188,7 @@ public class LdapName implements Name {
         return rdns.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the components of this name as an enumeration
      * of strings. The effect of updates to this name on this enumeration
      * is undefined. If the name has zero components, an empty (non-null)
@@ -213,7 +213,7 @@ public class LdapName implements Name {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a component of this LDAP name as a string.
      * @param  posn The 0-based index of the component to retrieve.
      *              Must be in the range [0,size()).
@@ -225,7 +225,7 @@ public class LdapName implements Name {
         return rdns.get(posn).toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves an RDN of this LDAP name as an Rdn.
      * @param   posn The 0-based index of the RDN to retrieve.
      *          Must be in the range [0,size()).
@@ -237,7 +237,7 @@ public class LdapName implements Name {
         return (Rdn) rdns.get(posn);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a name whose components consist of a prefix of the
      * components of this LDAP name.
      * Subsequent changes to this name will not affect the name
@@ -259,7 +259,7 @@ public class LdapName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a name whose components consist of a suffix of the
      * components in this LDAP name.
      * Subsequent changes to this name do not affect the name that is
@@ -283,7 +283,7 @@ public class LdapName implements Name {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this LDAP name starts with a specified LDAP name
      * prefix.
      * A name <tt>n</tt> is a prefix if it is equal to
@@ -306,7 +306,7 @@ public class LdapName implements Name {
                 matches(0, len2, n));
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the specified RDN sequence forms a prefix of this
      * LDAP name.  Returns true if this LdapName is at least as long as rdns,
      * and for every position p in the range [0, rdns.size()) the component
@@ -327,7 +327,7 @@ public class LdapName implements Name {
                 doesListMatch(0, len2, rdns));
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this LDAP name ends with a specified
      * LDAP name suffix.
      * A name <tt>n</tt> is a suffix if it is equal to
@@ -349,7 +349,7 @@ public class LdapName implements Name {
                 matches(len1 - len2, len1, n));
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the specified RDN sequence forms a suffix of this
      * LDAP name.  Returns true if this LdapName is at least as long as rdns,
      * and for every position p in the range [size() - rdns.size(), size())
@@ -407,7 +407,7 @@ public class LdapName implements Name {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the components of a name -- in order -- to the end of this name.
      *
      * @param   suffix The non-null components to add.
@@ -422,7 +422,7 @@ public class LdapName implements Name {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the RDNs of a name -- in order -- to the end of this name.
      *
      * @param   suffixRdns The non-null suffix <tt>Rdn</tt>s to add.
@@ -432,7 +432,7 @@ public class LdapName implements Name {
         return addAll(size(), suffixRdns);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the components of a name -- in order -- at a specified position
      * within this name. Components of this LDAP name at or after the
      * index (if any) of the first new component are shifted up
@@ -467,7 +467,7 @@ public class LdapName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the RDNs of a name -- in order -- at a specified position
      * within this name. RDNs of this LDAP name at or after the
      * index (if any) of the first new RDN are shifted up (away from index 0) to
@@ -494,7 +494,7 @@ public class LdapName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a single component to the end of this LDAP name.
      *
      * @param comp      The non-null component to add.
@@ -507,7 +507,7 @@ public class LdapName implements Name {
         return add(size(), comp);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a single RDN to the end of this LDAP name.
      *
      * @param comp      The non-null RDN to add.
@@ -519,7 +519,7 @@ public class LdapName implements Name {
         return add(size(), comp);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a single component at a specified position within this
      * LDAP name.
      * Components of this LDAP name at or after the index (if any) of the new
@@ -543,7 +543,7 @@ public class LdapName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a single RDN at a specified position within this
      * LDAP name.
      * RDNs of this LDAP name at or after the index (if any) of the new
@@ -567,7 +567,7 @@ public class LdapName implements Name {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a component from this LDAP name.
      * The component of this name at the specified position is removed.
      * Components with indexes greater than this position (if any)
@@ -587,7 +587,7 @@ public class LdapName implements Name {
         return rdns.remove(posn).toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the list of relative distinguished names.
      * The contents of the list are unmodifiable.
      * The indexing of RDNs in the returned list follows the numbering of
@@ -601,7 +601,7 @@ public class LdapName implements Name {
         return Collections.unmodifiableList(rdns);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a new copy of this name.
      * Subsequent changes to the components of this name will not
      * affect the new copy, and vice versa.
@@ -612,7 +612,7 @@ public class LdapName implements Name {
         return new LdapName(unparsed, rdns, 0, rdns.size());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this LDAP name in a format
      * defined by <a href="http://ietf.org/rfc/rfc2253.txt">RFC 2253</a>
      * and described in the class description. If the name has zero
@@ -637,7 +637,7 @@ public class LdapName implements Name {
         return unparsed;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether two LDAP names are equal.
      * If obj is null or not an LDAP name, false is returned.
      * <p>
@@ -681,7 +681,7 @@ public class LdapName implements Name {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this LdapName with the specified Object for order.
      * Returns a negative integer, zero, or a positive integer as this
      * Name is less than, equal to, or greater than the given Object.
@@ -738,7 +738,7 @@ public class LdapName implements Name {
         return (rdns.size() - that.rdns.size());        // longer DN wins
     }
 
-    /**
+    /** {@collect.stats}
      * Computes the hash code of this LDAP name.
      * The hash code is the sum of the hash codes of individual RDNs
      * of this  name.
@@ -758,7 +758,7 @@ public class LdapName implements Name {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes only the unparsed DN, for compactness and to avoid
      * any implementation dependency.
      *

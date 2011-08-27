@@ -37,7 +37,7 @@
  */
 
 package java.text;
-/**
+/** {@collect.stats}
  * CollationRules contains the default en_US collation rules as a base
  * for building other collation tables.
  * <p>Note that decompositions are done before these rules are used,

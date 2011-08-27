@@ -42,7 +42,7 @@ import java.security.SecurityPermission;
 
 import sun.security.jca.GetInstance;
 
-/**
+/** {@collect.stats}
  * A Configuration object is responsible for specifying which LoginModules
  * should be used for a particular application, and in what order the
  * LoginModules should be invoked.
@@ -213,13 +213,13 @@ public abstract class Configuration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected Configuration() { }
 
-    /**
+    /** {@collect.stats}
      * Get the installed login Configuration.
      *
      * <p>
@@ -288,7 +288,7 @@ public abstract class Configuration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Set the login <code>Configuration</code>.
      *
      * <p>
@@ -307,7 +307,7 @@ public abstract class Configuration {
         Configuration.configuration = configuration;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Configuration object of the specified type.
      *
      * <p> This method traverses the list of registered security providers,
@@ -363,7 +363,7 @@ public abstract class Configuration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Configuration object of the specified type.
      *
      * <p> A new Configuration object encapsulating the
@@ -431,7 +431,7 @@ public abstract class Configuration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a Configuration object of the specified type.
      *
      * <p> A new Configuration object encapsulating the
@@ -501,7 +501,7 @@ public abstract class Configuration {
         throw nsae;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the Provider of this Configuration.
      *
      * <p> This Configuration instance will only have a Provider if it
@@ -516,7 +516,7 @@ public abstract class Configuration {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the type of this Configuration.
      *
      * <p> This Configuration instance will only have a type if it
@@ -531,7 +531,7 @@ public abstract class Configuration {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return Configuration parameters.
      *
      * <p> This Configuration instance will only have parameters if it
@@ -546,7 +546,7 @@ public abstract class Configuration {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve the AppConfigurationEntries for the specified <i>name</i>
      * from this Configuration.
      *
@@ -561,7 +561,7 @@ public abstract class Configuration {
     public abstract AppConfigurationEntry[] getAppConfigurationEntry
                                                         (String name);
 
-    /**
+    /** {@collect.stats}
      * Refresh and reload the Configuration.
      *
      * <p> This method causes this Configuration object to refresh/reload its
@@ -578,7 +578,7 @@ public abstract class Configuration {
      */
     public void refresh() { }
 
-    /**
+    /** {@collect.stats}
      * This subclass is returned by the getInstance calls.  All Configuration
      * calls are delegated to the underlying ConfigurationSpi.
      */
@@ -612,7 +612,7 @@ public abstract class Configuration {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This represents a marker interface for Configuration parameters.
      *
      * @since 1.6

@@ -29,7 +29,7 @@ package javax.swing.event;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * The listener that's notified when a lists selection value
  * changes.
  *
@@ -40,7 +40,7 @@ import java.util.EventListener;
 
 public interface ListSelectionListener extends EventListener
 {
-  /**
+  /** {@collect.stats}
    * Called whenever the value of the selection changes.
    * @param e the event that characterizes the change.
    */

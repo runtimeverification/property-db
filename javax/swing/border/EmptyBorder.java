@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.awt.Component;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A class which provides an empty, transparent border which
  * takes up space but does no drawing.
  * <p>
@@ -49,7 +49,7 @@ public class EmptyBorder extends AbstractBorder implements Serializable
 {
     protected int left, right, top, bottom;
 
-    /**
+    /** {@collect.stats}
      * Creates an empty border with the specified insets.
      * @param top the top inset of the border
      * @param left the left inset of the border
@@ -63,7 +63,7 @@ public class EmptyBorder extends AbstractBorder implements Serializable
         this.left = left;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty border with the specified insets.
      * @param borderInsets the insets of the border
      */
@@ -74,13 +74,13 @@ public class EmptyBorder extends AbstractBorder implements Serializable
         this.left = borderInsets.left;
     }
 
-    /**
+    /** {@collect.stats}
      * Does no drawing by default.
      */
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      * @since 1.3
@@ -89,7 +89,7 @@ public class EmptyBorder extends AbstractBorder implements Serializable
         return getBorderInsets();
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -102,7 +102,7 @@ public class EmptyBorder extends AbstractBorder implements Serializable
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @since 1.3
      */
@@ -110,7 +110,7 @@ public class EmptyBorder extends AbstractBorder implements Serializable
         return new Insets(top, left, bottom, right);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      * Returns false by default.
      */

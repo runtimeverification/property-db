@@ -27,7 +27,7 @@ package java.security.interfaces;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * The interface to an RSA public key.
  *
  * @author Jan Luehe
@@ -38,7 +38,7 @@ public interface RSAPublicKey extends java.security.PublicKey, RSAKey
 {
     static final long serialVersionUID = -8727434096241101194L;
 
-    /**
+    /** {@collect.stats}
      * Returns the public exponent.
      *
      * @return the public exponent

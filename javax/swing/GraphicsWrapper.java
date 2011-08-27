@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * A private interface to access clip bounds in wrapped Graphics objects.
  *
  * @author Thomas Ball

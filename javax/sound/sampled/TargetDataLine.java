@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A target data line is a type of <code>{@link DataLine}</code> from which
  * audio data can be read.  The most common example is a data line that gets
  * its data from an audio capture device.  (The device is implemented as a
@@ -59,7 +59,7 @@ package javax.sound.sampled;
 public interface TargetDataLine extends DataLine {
 
 
-    /**
+    /** {@collect.stats}
      * Opens the line with the specified format and requested buffer size,
      * causing the line to acquire any required system resources and become
      * operational.
@@ -102,7 +102,7 @@ public interface TargetDataLine extends DataLine {
     public void open(AudioFormat format, int bufferSize) throws LineUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Opens the line with the specified format, causing the line to acquire any
      * required system resources and become operational.
      *
@@ -140,7 +140,7 @@ public interface TargetDataLine extends DataLine {
     public void open(AudioFormat format) throws LineUnavailableException;
 
 
-    /**
+    /** {@collect.stats}
      * Reads audio data from the data line's input buffer.   The requested
      * number of bytes is read into the specified array, starting at
      * the specified offset into the array in bytes.  This method blocks until
@@ -181,7 +181,7 @@ public interface TargetDataLine extends DataLine {
      */
     public int read(byte[] b, int off, int len);
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of sample frames of audio data that can be read from
      * the target data line without blocking.  Note that the return value
      * measures sample frames, not bytes.

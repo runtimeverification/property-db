@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import java.io.Serializable;
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The abstract definition for the data model that provides
  * a <code>List</code> with its contents.
  * <p>
@@ -49,7 +49,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     protected EventListenerList listenerList = new EventListenerList();
 
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list that's notified each time a change
      * to the data model occurs.
      *
@@ -60,7 +60,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from the list that's notified each time a
      * change to the data model occurs.
      *
@@ -71,7 +71,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the list data listeners
      * registered on this <code>AbstractListModel</code>.
      *
@@ -90,7 +90,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>AbstractListModel</code> subclasses must call this method
      * <b>after</b>
      * one or more elements of the list change.  The changed elements
@@ -120,7 +120,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>AbstractListModel</code> subclasses must call this method
      * <b>after</b>
      * one or more elements are added to the model.  The new elements
@@ -150,7 +150,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>AbstractListModel</code> subclasses must call this method
      * <b>after</b> one or more elements are removed from the model.
      * <code>index0</code> and <code>index1</code> are the end points
@@ -180,7 +180,7 @@ public abstract class AbstractListModel implements ListModel, Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this model.

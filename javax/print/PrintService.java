@@ -34,7 +34,7 @@ import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.event.PrintServiceAttributeListener;
 
 
-/**
+/** {@collect.stats}
  * Interface PrintService is the factory for a DocPrintJob. A PrintService
  * describes the capabilities of a Printer and can be queried regarding
  * a printer's supported attributes.
@@ -60,7 +60,7 @@ import javax.print.event.PrintServiceAttributeListener;
  */
 public interface PrintService {
 
-    /** Returns a String name for this print service which may be used
+    /** {@collect.stats} Returns a String name for this print service which may be used
       * by applications to request a particular print service.
       * In a suitable context, such as a name service, this name must be
       * unique.
@@ -72,14 +72,14 @@ public interface PrintService {
       */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a PrintJob capable of handling data from
      * any of the supported document flavors.
      * @return a DocPrintJob object
      */
     public DocPrintJob createPrintJob();
 
-    /**
+    /** {@collect.stats}
      * Registers a listener for events on this PrintService.
      * @param listener  a PrintServiceAttributeListener, which
      *        monitors the status of a print service
@@ -88,7 +88,7 @@ public interface PrintService {
     public void addPrintServiceAttributeListener(
                                        PrintServiceAttributeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Removes the print-service listener from this print service.
      * This means the listener is no longer interested in
      * <code>PrintService</code> events.
@@ -98,7 +98,7 @@ public interface PrintService {
     public void removePrintServiceAttributeListener(
                                        PrintServiceAttributeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Obtains this print service's set of printer description attributes
      * giving this Print Service's status. The returned attribute set object
      * is unmodifiable. The returned attribute set object is a "snapshot" of
@@ -115,7 +115,7 @@ public interface PrintService {
      */
     public PrintServiceAttributeSet getAttributes();
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the single specified service attribute.
      * This may be useful to clients which only need the value of one
      * attribute and want to minimise overhead.
@@ -132,7 +132,7 @@ public interface PrintService {
     public <T extends PrintServiceAttribute>
         T getAttribute(Class<T> category);
 
-    /**
+    /** {@collect.stats}
      * Determines the print data formats a client can specify when setting
      * up a job for this <code>PrintService</code>. A print data format is
      * designated by a "doc
@@ -149,7 +149,7 @@ public interface PrintService {
      */
     public DocFlavor[] getSupportedDocFlavors();
 
-    /**
+    /** {@collect.stats}
      * Determines if this print service supports a specific
      * <code>DocFlavor</code>.  This is a convenience method to determine
      * if the <code>DocFlavor</code> would be a member of the result of
@@ -168,7 +168,7 @@ public interface PrintService {
     public boolean isDocFlavorSupported(DocFlavor flavor);
 
 
-    /**
+    /** {@collect.stats}
      * Determines the printing attribute categories a client can specify
      * when setting up a job for this print service.
      * A printing attribute category is
@@ -194,7 +194,7 @@ public interface PrintService {
      */
     public Class<?>[] getSupportedAttributeCategories();
 
-    /**
+    /** {@collect.stats}
      * Determines whether a client can specify the given printing
      * attribute category when setting up a job for this print service. A
      * printing attribute category is designated by a <code>Class</code>
@@ -233,7 +233,7 @@ public interface PrintService {
     public boolean
         isAttributeCategorySupported(Class<? extends Attribute> category);
 
-    /**
+    /** {@collect.stats}
      * Determines this print service's default printing attribute value in
      * the given category. A printing attribute value is an instance of
      * a class that implements interface
@@ -277,7 +277,7 @@ public interface PrintService {
     public Object
         getDefaultAttributeValue(Class<? extends Attribute> category);
 
-    /**
+    /** {@collect.stats}
      * Determines the printing attribute values a client can specify in
      * the given category when setting up a job for this print service. A
      * printing
@@ -355,7 +355,7 @@ public interface PrintService {
                                     DocFlavor flavor,
                                     AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Determines whether a client can specify the given printing
      * attribute
      * value when setting up a job for this Print Service. A printing
@@ -401,7 +401,7 @@ public interface PrintService {
                                              AttributeSet attributes);
 
 
-    /**
+    /** {@collect.stats}
      * Identifies the attributes that are unsupported for a print request
      * in the context of a particular DocFlavor.
      * This method is useful for validating a potential print job and
@@ -445,7 +445,7 @@ public interface PrintService {
     public AttributeSet getUnsupportedAttributes(DocFlavor flavor,
                                            AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Returns a factory for UI components which allow users to interact
      * with the service in various roles.
      * Services which do not provide any UI should return null.
@@ -458,7 +458,7 @@ public interface PrintService {
      */
     public ServiceUIFactory getServiceUIFactory();
 
-    /**
+    /** {@collect.stats}
      * Determines if two services are referring to the same underlying
      * service.  Objects encapsulating a print service may not exhibit
      * equality of reference even though they refer to the same underlying
@@ -478,7 +478,7 @@ public interface PrintService {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * This method should be implemented consistently with
      * <code>equals(Object)</code>.
      * @return hash code of this object.

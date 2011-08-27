@@ -28,7 +28,7 @@ package javax.management.loading;
 import java.net.URL;
 import java.net.URLStreamHandlerFactory;
 
-/**
+/** {@collect.stats}
  * An MLet that is not added to the {@link ClassLoaderRepository}.
  * This class acts exactly like its parent class, {@link MLet}, with
  * one exception.  When a PrivateMLet is registered in an MBean
@@ -41,7 +41,7 @@ import java.net.URLStreamHandlerFactory;
 public class PrivateMLet extends MLet implements PrivateClassLoader {
     private static final long serialVersionUID = 2503458973393711979L;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new PrivateMLet for the specified URLs using the
       * default delegation parent ClassLoader.  The URLs will be
       * searched in the order specified for classes and resources
@@ -57,7 +57,7 @@ public class PrivateMLet extends MLet implements PrivateClassLoader {
         super(urls, delegateToCLR);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new PrivateMLet for the given URLs. The URLs will
       * be searched in the order specified for classes and resources
       * after first searching in the specified parent class loader.
@@ -75,7 +75,7 @@ public class PrivateMLet extends MLet implements PrivateClassLoader {
         super(urls, parent, delegateToCLR);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new PrivateMLet for the specified URLs, parent
       * class loader, and URLStreamHandlerFactory. The parent argument
       * will be used as the parent class loader for delegation. The

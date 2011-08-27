@@ -28,7 +28,7 @@ package java.lang;
 import sun.misc.FloatingDecimal;
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * A mutable sequence of characters.
  * <p>
  * Implements a modifiable string. At any point in time it contains some
@@ -39,30 +39,30 @@ import java.util.Arrays;
  * @since       1.5
  */
 abstract class AbstractStringBuilder implements Appendable, CharSequence {
-    /**
+    /** {@collect.stats}
      * The value is used for character storage.
      */
     char value[];
 
-    /**
+    /** {@collect.stats}
      * The count is the number of characters used.
      */
     int count;
 
-    /**
+    /** {@collect.stats}
      * This no-arg constructor is necessary for serialization of subclasses.
      */
     AbstractStringBuilder() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an AbstractStringBuilder of the specified capacity.
      */
     AbstractStringBuilder(int capacity) {
         value = new char[capacity];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length (character count).
      *
      * @return  the length of the sequence of characters currently
@@ -72,7 +72,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current capacity. The capacity is the amount of storage
      * available for newly inserted characters, beyond which an allocation
      * will occur.
@@ -83,7 +83,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return value.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that the capacity is at least equal to the specified minimum.
      * If the current capacity is less than the argument, then a new internal
      * array is allocated with greater capacity. The new capacity is the
@@ -103,7 +103,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This implements the expansion semantics of ensureCapacity with no
      * size check or synchronization.
      */
@@ -117,7 +117,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         value = Arrays.copyOf(value, newCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Attempts to reduce storage used for the character sequence.
      * If the buffer is larger than necessary to hold its current sequence of
      * characters, then it may be resized to become more space efficient.
@@ -130,7 +130,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the length of the character sequence.
      * The sequence is changed to a new character sequence
      * whose length is specified by the argument. For every nonnegative
@@ -169,7 +169,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>char</code> value in this sequence at the specified index.
      * The first <code>char</code> value is at index <code>0</code>, the next at index
      * <code>1</code>, and so on, as in array indexing.
@@ -192,7 +192,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return value[index];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character (Unicode code point) at the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>0</code> to
@@ -220,7 +220,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return Character.codePointAt(value, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character (Unicode code point) before the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>1</code> to {@link
@@ -249,7 +249,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return Character.codePointBefore(value, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of Unicode code points in the specified text
      * range of this sequence. The text range begins at the specified
      * <code>beginIndex</code> and extends to the <code>char</code> at
@@ -276,7 +276,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return Character.codePointCountImpl(value, beginIndex, endIndex-beginIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index within this sequence that is offset from the
      * given <code>index</code> by <code>codePointOffset</code> code
      * points. Unpaired surrogates within the text range given by
@@ -303,7 +303,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
                                                 index, codePointOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Characters are copied from this sequence into the
      * destination character array <code>dst</code>. The first character to
      * be copied is at index <code>srcBegin</code>; the last character to
@@ -345,7 +345,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         System.arraycopy(value, srcBegin, dst, dstBegin, srcEnd - srcBegin);
     }
 
-    /**
+    /** {@collect.stats}
      * The character at the specified index is set to <code>ch</code>. This
      * sequence is altered to represent a new character sequence that is
      * identical to the old character sequence, except that it contains the
@@ -365,7 +365,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         value[index] = ch;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>Object</code>
      * argument.
      * <p>
@@ -380,7 +380,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return append(String.valueOf(obj));
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the specified string to this character sequence.
      * <p>
      * The characters of the <code>String</code> argument are appended, in
@@ -434,7 +434,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this.append(s, 0, s.length());
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a subsequence of the specified <code>CharSequence</code> to this
      * sequence.
      * <p>
@@ -482,7 +482,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>char</code> array
      * argument to this sequence.
      * <p>
@@ -507,7 +507,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of a subarray of the
      * <code>char</code> array argument to this sequence.
      * <p>
@@ -535,7 +535,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>boolean</code>
      * argument to the sequence.
      * <p>
@@ -568,7 +568,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>char</code>
      * argument to this sequence.
      * <p>
@@ -591,7 +591,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>int</code>
      * argument to this sequence.
      * <p>
@@ -617,7 +617,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>long</code>
      * argument to this sequence.
      * <p>
@@ -643,7 +643,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>float</code>
      * argument to this sequence.
      * <p>
@@ -659,7 +659,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>double</code>
      * argument to this sequence.
      * <p>
@@ -675,7 +675,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the characters in a substring of this sequence.
      * The substring begins at the specified <code>start</code> and extends to
      * the character at index <code>end - 1</code> or to the end of the
@@ -704,7 +704,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the string representation of the <code>codePoint</code>
      * argument to this sequence.
      *
@@ -744,7 +744,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>char</code> at the specified position in this
      * sequence. This sequence is shortened by one <code>char</code>.
      *
@@ -769,7 +769,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the characters in a substring of this sequence
      * with characters in the specified <code>String</code>. The substring
      * begins at the specified <code>start</code> and extends to the character
@@ -809,7 +809,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>String</code> that contains a subsequence of
      * characters currently contained in this character sequence. The
      * substring begins at the specified index and extends to the end of
@@ -824,7 +824,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return substring(start, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new character sequence that is a subsequence of this sequence.
      *
      * <p> An invocation of this method of the form
@@ -854,7 +854,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return substring(start, end);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>String</code> that contains a subsequence of
      * characters currently contained in this sequence. The
      * substring begins at the specified <code>start</code> and
@@ -878,7 +878,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return new String(value, start, end - start);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of a subarray of the <code>str</code>
      * array argument into this sequence. The subarray begins at the
      * specified <code>offset</code> and extends <code>len</code> <code>char</code>s.
@@ -917,7 +917,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>Object</code>
      * argument into this character sequence.
      * <p>
@@ -939,7 +939,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(obj));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string into this character sequence.
      * <p>
      * The characters of the <code>String</code> argument are inserted, in
@@ -985,7 +985,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>char</code> array
      * argument into this sequence.
      * <p>
@@ -1019,7 +1019,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified <code>CharSequence</code> into this sequence.
      * <p>
      * The characters of the <code>CharSequence</code> argument are inserted,
@@ -1046,7 +1046,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this.insert(dstOffset, s, 0, s.length());
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a subsequence of the specified <code>CharSequence</code> into
      * this sequence.
      * <p>
@@ -1114,7 +1114,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>boolean</code>
      * argument into this sequence.
      * <p>
@@ -1136,7 +1136,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>char</code>
      * argument into this sequence.
      * <p>
@@ -1169,7 +1169,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the second <code>int</code>
      * argument into this sequence.
      * <p>
@@ -1191,7 +1191,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>long</code>
      * argument into this sequence.
      * <p>
@@ -1213,7 +1213,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(l));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>float</code>
      * argument into this sequence.
      * <p>
@@ -1235,7 +1235,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(f));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the string representation of the <code>double</code>
      * argument into this sequence.
      * <p>
@@ -1257,7 +1257,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return insert(offset, String.valueOf(d));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index within this string of the first occurrence of the
      * specified substring. The integer returned is the smallest value
      * <i>k</i> such that:
@@ -1278,7 +1278,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return indexOf(str, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index within this string of the first occurrence of the
      * specified substring, starting at the specified index.  The integer
      * returned is the smallest value <tt>k</tt> for which:
@@ -1300,7 +1300,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
                               str.toCharArray(), 0, str.length(), fromIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index within this string of the rightmost occurrence
      * of the specified substring.  The rightmost empty string "" is
      * considered to occur at the index value <code>this.length()</code>.
@@ -1322,7 +1322,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return lastIndexOf(str, count);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index within this string of the last occurrence of the
      * specified substring. The integer returned is the largest value <i>k</i>
      * such that:
@@ -1344,7 +1344,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
                               str.toCharArray(), 0, str.length(), fromIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes this character sequence to be replaced by the reverse of
      * the sequence. If there are any surrogate pairs included in the
      * sequence, these are treated as single characters for the
@@ -1395,7 +1395,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the data in this sequence.
      * A new <code>String</code> object is allocated and initialized to
      * contain the character sequence currently represented by this
@@ -1407,7 +1407,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      */
     public abstract String toString();
 
-    /**
+    /** {@collect.stats}
      * Needed by <tt>String</tt> for the contentEquals method.
      */
     final char[] getValue() {

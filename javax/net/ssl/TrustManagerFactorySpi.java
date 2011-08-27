@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>TrustManagerFactory</code> class.
  *
@@ -40,7 +40,7 @@ import java.security.*;
  * @see TrustManager
  */
 public abstract class TrustManagerFactorySpi {
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of certificate
      * authorities and related trust material.
      *
@@ -50,7 +50,7 @@ public abstract class TrustManagerFactorySpi {
      */
     protected abstract void engineInit(KeyStore ks) throws KeyStoreException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of provider-specific
      * key material.
      * <P>
@@ -71,7 +71,7 @@ public abstract class TrustManagerFactorySpi {
     protected abstract void engineInit(ManagerFactoryParameters spec)
         throws InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Returns one trust manager for each type of trust material.
      *
      * @return the trust managers

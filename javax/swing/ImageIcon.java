@@ -40,7 +40,7 @@ import sun.awt.AppContext;
 import java.lang.reflect.Field;
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * An implementation of the Icon interface that paints Icons
  * from Images. Images that are created from a URL, filename or byte array
  * are preloaded using MediaTracker to monitor the loaded state
@@ -125,7 +125,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         );
     }
 
-    /**
+    /** {@collect.stats}
      * Id used in loading images from MediaTracker.
      */
     private static int mediaTrackerID;
@@ -135,7 +135,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
     int width = -1;
     int height = -1;
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from the specified file. The image will
      * be preloaded by using MediaTracker to monitor the loading state
      * of the image.
@@ -153,7 +153,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from the specified file. The image will
      * be preloaded by using MediaTracker to monitor the loading state
      * of the image. The specified String can be a file name or a
@@ -173,7 +173,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         this(filename, filename);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from the specified URL. The image will
      * be preloaded by using MediaTracker to monitor the loaded state
      * of the image.
@@ -191,7 +191,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from the specified URL. The image will
      * be preloaded by using MediaTracker to monitor the loaded state
      * of the image.
@@ -204,7 +204,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         this(location, location.toExternalForm());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from the image.
      * @param image the image
      * @param description a brief textual description of the image
@@ -214,7 +214,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         this.description = description;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from an image object.
      * If the image has a "comment" property that is a string,
      * then the string is used as the description of this icon.
@@ -231,7 +231,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from an array of bytes which were
      * read from an image file containing a supported image format,
      * such as GIF, JPEG, or (as of 1.3) PNG.
@@ -253,7 +253,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an ImageIcon from an array of bytes which were
      * read from an image file containing a supported image format,
      * such as GIF, JPEG, or (as of 1.3) PNG.
@@ -281,13 +281,13 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an uninitialized image icon.
      */
     public ImageIcon() {
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the image, returning only when the image is loaded.
      * @param image the image
      */
@@ -310,7 +310,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an ID to use with the MediaTracker in loading an image.
      */
     private int getNextID() {
@@ -319,7 +319,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the MediaTracker for the current AppContext, creating a new
      * MediaTracker if necessary.
      */
@@ -340,7 +340,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return (MediaTracker) trackerObj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the status of the image loading operation.
      * @return the loading status as defined by java.awt.MediaTracker
      * @see java.awt.MediaTracker#ABORTED
@@ -351,7 +351,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return loadStatus;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this icon's <code>Image</code>.
      * @return the <code>Image</code> object for this <code>ImageIcon</code>
      */
@@ -359,7 +359,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the image displayed by this icon.
      * @param image the image
      */
@@ -368,7 +368,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         loadImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the description of the image.  This is meant to be a brief
      * textual description of the object.  For example, it might be
      * presented to a blind user to give an indication of the purpose
@@ -381,7 +381,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the description of the image.  This is meant to be a brief
      * textual description of the object.  For example, it might be
      * presented to a blind user to give an indication of the purpose
@@ -392,7 +392,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         this.description = description;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the icon.
      * The top-left corner of the icon is drawn at
      * the point (<code>x</code>, <code>y</code>)
@@ -415,7 +415,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the width of the icon.
      *
      * @return the width in pixels of this icon
@@ -424,7 +424,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the height of the icon.
      *
      * @return the height in pixels of this icon
@@ -433,7 +433,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return height;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the image observer for the image.  Set this
      * property if the ImageIcon contains an animated GIF, so
      * the observer is notified to update its display.
@@ -450,7 +450,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         imageObserver = observer;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the image observer for the image.
      *
      * @return the image observer, which may be null
@@ -459,7 +459,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return imageObserver;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this image.
      *
      * @return a string representing this image
@@ -516,13 +516,13 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         s.writeObject(pixels);
     }
 
-    /**
+    /** {@collect.stats}
      * --- Accessibility Support ---
      */
 
     private AccessibleImageIcon accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this ImageIcon.
      * For image icons, the AccessibleContext takes the form of an
      * AccessibleImageIcon.
@@ -542,7 +542,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>ImageIcon</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to image icon user-interface
@@ -565,7 +565,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
          * AccessibleContest implementation -----------------
          */
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -576,7 +576,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return AccessibleRole.ICON;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current
@@ -587,7 +587,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the Accessible parent of this object.  If the parent of this
          * object implements Accessible, this method should simply return
          * getParent().
@@ -599,7 +599,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the index of this object in its accessible parent.
          *
          * @return the index of this object in its parent; -1 if this
@@ -610,7 +610,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement Accessible, than this
          * method should return the number of children of this object.
@@ -621,7 +621,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the nth Accessible child of the object.
          *
          * @param i zero-based index of child
@@ -631,7 +631,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the locale of this object.
          *
          * @return the locale of this object
@@ -644,7 +644,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
          * AccessibleIcon implementation -----------------
          */
 
-        /**
+        /** {@collect.stats}
          * Gets the description of the icon.  This is meant to be a brief
          * textual description of the object.  For example, it might be
          * presented to a blind user to give an indication of the purpose
@@ -656,7 +656,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return ImageIcon.this.getDescription();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the description of the icon.  This is meant to be a brief
          * textual description of the object.  For example, it might be
          * presented to a blind user to give an indication of the purpose
@@ -668,7 +668,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             ImageIcon.this.setDescription(description);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the height of the icon.
          *
          * @return the height of the icon
@@ -677,7 +677,7 @@ public class ImageIcon implements Icon, Serializable, Accessible {
             return ImageIcon.this.height;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the width of the icon.
          *
          * @return the width of the icon

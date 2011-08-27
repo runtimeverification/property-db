@@ -32,7 +32,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
+/** {@collect.stats}
  * <p>Base class used to maintain a strongly typed enumeration.  This is
  * the superclass of {@link AccessibleState} and {@link AccessibleRole}.
  * <p>The toDisplayString method allows you to obtain the localized string
@@ -56,14 +56,14 @@ public abstract class AccessibleBundle {
     public AccessibleBundle() {
     }
 
-    /**
+    /** {@collect.stats}
      * The locale independent name of the state.  This is a programmatic
      * name that is not intended to be read by humans.
      * @see #toDisplayString
      */
     protected String key = null;
 
-    /**
+    /** {@collect.stats}
      * Obtains the key as a localized string.
      * If a localized string cannot be found for the key, the
      * locale independent key stored in the role will be returned.
@@ -94,7 +94,7 @@ public abstract class AccessibleBundle {
         return key;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the key as a localized string.
      * If a localized string cannot be found for the key, the
      * locale independent key stored in the role will be returned.
@@ -106,7 +106,7 @@ public abstract class AccessibleBundle {
         return toDisplayString(defaultResourceBundleName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets localized string describing the key using the default locale.
      * @return a localized String describing the key for the default locale
      */
@@ -114,7 +114,7 @@ public abstract class AccessibleBundle {
         return toDisplayString(Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets localized string describing the key using the default locale.
      * @return a localized String describing the key using the default locale
      * @see #toDisplayString

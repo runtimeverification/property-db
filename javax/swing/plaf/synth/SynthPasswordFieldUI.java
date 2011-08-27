@@ -30,7 +30,7 @@ import javax.swing.*;
 import javax.swing.text.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * Provides the Synth look and feel for a password field.
  * The only difference from the standard text field is that
  * the view of the text is simply a string of the echo
@@ -41,7 +41,7 @@ import javax.swing.plaf.*;
  */
 class SynthPasswordFieldUI extends SynthTextFieldUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JPasswordField.
      *
      * @param c the JPasswordField
@@ -51,7 +51,7 @@ class SynthPasswordFieldUI extends SynthTextFieldUI {
         return new SynthPasswordFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to look up properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -62,7 +62,7 @@ class SynthPasswordFieldUI extends SynthTextFieldUI {
         return "PasswordField";
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view (PasswordView) for an element.
      *
      * @param elem the element

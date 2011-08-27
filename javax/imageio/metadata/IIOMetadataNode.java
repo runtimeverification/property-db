@@ -86,21 +86,21 @@ class IIONamedNodeMap implements NamedNodeMap {
                                "This NamedNodeMap is read-only!");
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>getNamedItem(localName)</code>.
      */
     public Node getNamedItemNS(String namespaceURI, String localName) {
         return getNamedItem(localName);
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>setNamedItem(arg)</code>.
      */
     public Node setNamedItemNS(Node arg) {
         return setNamedItem(arg);
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>removeNamedItem(localName)</code>.
      */
     public Node removeNamedItemNS(String namespaceURI, String localName) {
@@ -242,7 +242,7 @@ class IIOAttr extends IIOMetadataNode implements Attr {
 
 }
 
-/**
+/** {@collect.stats}
  * A class representing a node in a meta-data tree, which implements
  * the <a
  * href="../../../../api/org/w3c/dom/Element.html">
@@ -267,69 +267,69 @@ class IIOAttr extends IIOMetadataNode implements Attr {
  */
 public class IIOMetadataNode implements Element, NodeList {
 
-    /**
+    /** {@collect.stats}
      * The name of the node as a <code>String</code>.
      */
     private String nodeName = null;
 
-    /**
+    /** {@collect.stats}
      * The value of the node as a <code>String</code>.  The Image I/O
      * API typically does not make use of the node value.
      */
     private String nodeValue = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>Object</code> value associated with this node.
      */
     private Object userObject = null;
 
-    /**
+    /** {@collect.stats}
      * The parent node of this node, or <code>null</code> if this node
      * forms the root of its own tree.
      */
     private IIOMetadataNode parent = null;
 
-    /**
+    /** {@collect.stats}
      * The number of child nodes.
      */
     private int numChildren = 0;
 
-    /**
+    /** {@collect.stats}
      * The first (leftmost) child node of this node, or
      * <code>null</code> if this node is a leaf node.
      */
     private IIOMetadataNode firstChild = null;
 
-    /**
+    /** {@collect.stats}
      * The last (rightmost) child node of this node, or
      * <code>null</code> if this node is a leaf node.
      */
     private IIOMetadataNode lastChild = null;
 
-    /**
+    /** {@collect.stats}
      * The next (right) sibling node of this node, or
      * <code>null</code> if this node is its parent's last child node.
      */
     private IIOMetadataNode nextSibling = null;
 
-    /**
+    /** {@collect.stats}
      * The previous (left) sibling node of this node, or
      * <code>null</code> if this node is its parent's first child node.
      */
     private IIOMetadataNode previousSibling = null;
 
-    /**
+    /** {@collect.stats}
      * A <code>List</code> of <code>IIOAttr</code> nodes representing
      * attributes.
      */
     private List attributes = new ArrayList();
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <code>IIOMetadataNode</code>.
      */
     public IIOMetadataNode() {}
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOMetadataNode</code> with a given node
      * name.
      *
@@ -339,7 +339,7 @@ public class IIOMetadataNode implements Element, NodeList {
         this.nodeName = nodeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Check that the node is either <code>null</code> or an
      * <code>IIOMetadataNode</code>.
      */
@@ -355,7 +355,7 @@ public class IIOMetadataNode implements Element, NodeList {
 
     // Methods from Node
 
-    /**
+    /** {@collect.stats}
      * Returns the node name associated with this node.
      *
      * @return the node name, as a <code>String</code>.
@@ -372,7 +372,7 @@ public class IIOMetadataNode implements Element, NodeList {
         this.nodeValue = nodeValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the node type, which is always
      * <code>ELEMENT_NODE</code>.
      *
@@ -382,7 +382,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return ELEMENT_NODE;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parent of this node.  A <code>null</code> value
      * indicates that the node is the root of its own tree.  To add a
      * node to an existing tree, use one of the
@@ -403,7 +403,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first child of this node, or <code>null</code> if
      * the node has no children.
      *
@@ -414,7 +414,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return firstChild;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last child of this node, or <code>null</code> if
      * the node has no children.
      *
@@ -425,7 +425,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return lastChild;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the previous sibling of this node, or <code>null</code>
      * if this node has no previous sibling.
      *
@@ -436,7 +436,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return previousSibling;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next sibling of this node, or <code>null</code> if
      * the node has no next sibling.
      *
@@ -451,7 +451,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return new IIONamedNodeMap(attributes);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>null</code>, since <code>IIOMetadataNode</code>s
      * do not belong to any <code>Document</code>.
      *
@@ -461,7 +461,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the node <code>newChild</code> before the existing
      * child node <code>refChild</code>. If <code>refChild</code> is
      * <code>null</code>, insert <code>newChild</code> at the end of
@@ -520,7 +520,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return newChildNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the child node <code>oldChild</code> with
      * <code>newChild</code> in the list of children, and returns the
      * <code>oldChild</code> node.
@@ -573,7 +573,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return oldChildNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the child node indicated by <code>oldChild</code> from
      * the list of children, and returns it.
      *
@@ -617,7 +617,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return oldChildNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the node <code>newChild</code> to the end of the list of
      * children of this node.
      *
@@ -638,7 +638,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return insertBefore(newChild, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this node has child nodes.
      *
      * @return <code>true</code> if this node has children.
@@ -647,7 +647,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return numChildren > 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a duplicate of this node.  The duplicate node has no
      * parent (<code>getParentNode</code> returns <code>null</code>).
      * If a shallow clone is being performed (<code>deep</code> is
@@ -677,14 +677,14 @@ public class IIOMetadataNode implements Element, NodeList {
         return newNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Does nothing, since <code>IIOMetadataNode</code>s do not
      * contain <code>Text</code> children.
      */
     public void normalize() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since DOM features are not
      * supported.
      *
@@ -697,14 +697,14 @@ public class IIOMetadataNode implements Element, NodeList {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>null</code>, since namespaces are not supported.
      */
     public String getNamespaceURI() throws DOMException {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>null</code>, since namespaces are not supported.
      *
      * @return <code>null</code>.
@@ -715,7 +715,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Does nothing, since namespaces are not supported.
      *
      * @param prefix a <code>String</code>, which is ignored.
@@ -725,7 +725,7 @@ public class IIOMetadataNode implements Element, NodeList {
     public void setPrefix(String prefix) {
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>getNodeName</code>.
      *
      * @return the node name, as a <code>String</code>.
@@ -748,7 +748,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return attr.getValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>getAttribute(localName)</code>.
      *
      * @see #setAttributeNS
@@ -775,7 +775,7 @@ public class IIOMetadataNode implements Element, NodeList {
         attributes.add(new IIOAttr(this, name, value));
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>setAttribute(qualifiedName, value)</code>.
      *
      * @see #getAttributeNS
@@ -807,7 +807,7 @@ public class IIOMetadataNode implements Element, NodeList {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>removeAttribute(localName)</code>.
      */
     public void removeAttributeNS(String namespaceURI,
@@ -820,7 +820,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return (Attr)node;
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>getAttributeNode(localName)</code>.
      *
      * @see #setAttributeNodeNS
@@ -861,7 +861,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return oldAttr;
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>setAttributeNode(newAttr)</code>.
      *
      * @see #getAttributeNodeNS
@@ -893,7 +893,7 @@ public class IIOMetadataNode implements Element, NodeList {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>getElementsByTagName(localName)</code>.
      */
     public NodeList getElementsByTagNameNS(String namespaceURI,
@@ -909,7 +909,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return getAttributeNode(name) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Equivalent to <code>hasAttribute(localName)</code>.
      */
     public boolean hasAttributeNS(String namespaceURI,
@@ -935,7 +935,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return child;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Object</code> value associated with this node.
      *
      * @return the user <code>Object</code>.
@@ -946,7 +946,7 @@ public class IIOMetadataNode implements Element, NodeList {
         return userObject;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value associated with this node.
      *
      * @param userObject the user <code>Object</code>.

@@ -36,7 +36,7 @@ import java.util.Collection;
 //
 
 
-/**
+/** {@collect.stats}
  * The <tt>TabularData</tt> interface specifies the behavior of a specific type of complex <i>open data</i> objects
  * which represent <i>tabular data</i> structures.
  *
@@ -48,7 +48,7 @@ public interface TabularData /*extends Map*/ {
     /* *** TabularData specific information methods *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>tabular type</i> describing this
      * <tt>TabularData</tt> instance.
      *
@@ -57,7 +57,7 @@ public interface TabularData /*extends Map*/ {
     public TabularType getTabularType();
 
 
-    /**
+    /** {@collect.stats}
      * Calculates the index that would be used in this <tt>TabularData</tt> instance to refer to the specified
      * composite data <var>value</var> parameter if it were added to this instance.
      * This method checks for the type validity of the specified <var>value</var>,
@@ -82,7 +82,7 @@ public interface TabularData /*extends Map*/ {
 
     /* *** Content information query methods *** */
 
-    /**
+    /** {@collect.stats}
      * Returns the number of <tt>CompositeData</tt> values (ie the
      * number of rows) contained in this <tt>TabularData</tt>
      * instance.
@@ -91,7 +91,7 @@ public interface TabularData /*extends Map*/ {
      */
     public int size() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if the number of <tt>CompositeData</tt>
      * values (ie the number of rows) contained in this
      * <tt>TabularData</tt> instance is zero.
@@ -100,7 +100,7 @@ public interface TabularData /*extends Map*/ {
      */
     public boolean isEmpty() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains a <tt>CompositeData</tt> value
      * (ie a row) whose index is the specified <var>key</var>. If <var>key</var> is <tt>null</tt> or does not conform to
      * this <tt>TabularData</tt> instance's <tt>TabularType</tt> definition, this method simply returns <tt>false</tt>.
@@ -111,7 +111,7 @@ public interface TabularData /*extends Map*/ {
      */
     public boolean containsKey(Object[] key) ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>TabularData</tt> instance contains the specified
      * <tt>CompositeData</tt> value. If <var>value</var> is <tt>null</tt> or does not conform to
      * this <tt>TabularData</tt> instance's row type definition, this method simply returns <tt>false</tt>.
@@ -122,7 +122,7 @@ public interface TabularData /*extends Map*/ {
      */
     public boolean containsValue(CompositeData value) ;
 
-    /**
+    /** {@collect.stats}
      * Returns the <tt>CompositeData</tt> value whose index is
      * <var>key</var>, or <tt>null</tt> if there is no value mapping
      * to <var>key</var>, in this <tt>TabularData</tt> instance.
@@ -145,7 +145,7 @@ public interface TabularData /*extends Map*/ {
     /* *** Content modification operations (one element at a time) *** */
 
 
-    /**
+    /** {@collect.stats}
      * Adds <var>value</var> to this <tt>TabularData</tt> instance.
      * The composite type of <var>value</var> must be the same as this
      * instance's row type (ie the composite type returned by
@@ -171,7 +171,7 @@ public interface TabularData /*extends Map*/ {
      */
     public void put(CompositeData value) ;
 
-    /**
+    /** {@collect.stats}
      * Removes the <tt>CompositeData</tt> value whose index is <var>key</var> from this <tt>TabularData</tt> instance,
      * and returns the removed value, or returns <tt>null</tt> if there is no value whose index is <var>key</var>.
      *
@@ -194,7 +194,7 @@ public interface TabularData /*extends Map*/ {
     /* ***   Content modification bulk operations   *** */
 
 
-    /**
+    /** {@collect.stats}
      * Add all the elements in <var>values</var> to this <tt>TabularData</tt> instance.
      * If any  element in <var>values</var> does not satisfy the constraints defined in {@link #put(CompositeData) <tt>put</tt>},
      * or if any two elements in <var>values</var> have the same index calculated according to this <tt>TabularData</tt>
@@ -214,7 +214,7 @@ public interface TabularData /*extends Map*/ {
      */
     public void putAll(CompositeData[] values) ;
 
-    /**
+    /** {@collect.stats}
      * Removes all <tt>CompositeData</tt> values (ie rows) from this <tt>TabularData</tt> instance.
      */
     public void clear();
@@ -225,7 +225,7 @@ public interface TabularData /*extends Map*/ {
     /* ***   Collection views of the keys and values   *** */
 
 
-    /**
+    /** {@collect.stats}
      * Returns a set view of the keys (ie the index values) of the
      * {@code CompositeData} values (ie the rows) contained in this
      * {@code TabularData} instance. The returned {@code Set} is a
@@ -238,7 +238,7 @@ public interface TabularData /*extends Map*/ {
      */
     public Set<?> keySet();
 
-    /**
+    /** {@collect.stats}
      * Returns a collection view of the {@code CompositeData} values
      * (ie the rows) contained in this {@code TabularData} instance.
      * The returned {@code Collection} is a {@code Collection<CompositeData>}
@@ -256,7 +256,7 @@ public interface TabularData /*extends Map*/ {
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>TabularData</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -275,7 +275,7 @@ public interface TabularData /*extends Map*/ {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>TabularData</code> instance.
      * <p>
      * The hash code of a <code>TabularData</code> instance is the sum of the hash codes
@@ -291,7 +291,7 @@ public interface TabularData /*extends Map*/ {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>TabularData</code> instance.
      * <p>
      * The string representation consists of the name of the implementing class,

@@ -25,7 +25,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * Signals that an account was not found.
  *
  * <p> This exception may be thrown by a LoginModule if it is unable
@@ -37,7 +37,7 @@ public class AccountNotFoundException extends AccountException {
 
     private static final long serialVersionUID = 1498349563916294614L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountNotFoundException with no detail message.
      * A detail message is a String that describes this particular exception.
      */
@@ -45,7 +45,7 @@ public class AccountNotFoundException extends AccountException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountNotFoundException with the specified
      * detail message. A detail message is a String that describes
      * this particular exception.

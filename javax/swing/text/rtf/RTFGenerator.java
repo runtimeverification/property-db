@@ -33,7 +33,7 @@ import java.io.IOException;
 
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Generates an RTF output stream (java.io.OutputStream) from rich text
  * (handed off through a series of LTTextAcceptor calls).  Can be used to
  * generate RTF from any object which knows how to write to a text acceptor
@@ -74,7 +74,7 @@ class RTFGenerator extends Object
 
     int[] outputConversion;
 
-    /** The default color, used for text without an explicit color
+    /** {@collect.stats} The default color, used for text without an explicit color
      *  attribute. */
     static public final Color defaultRTFColor = Color.black;
 
@@ -961,7 +961,7 @@ String approximationForUnicode(char ch)
     return "?";
 }
 
-/** Takes a translation table (a 256-element array of characters)
+/** {@collect.stats} Takes a translation table (a 256-element array of characters)
  * and creates an output conversion table for use by
  * convertCharacter(). */
     /* Not very efficient at all. Could be changed to sort the table
@@ -988,7 +988,7 @@ static int[] outputConversionForName(String name)
     return outputConversionFromTranslationTable(table);
 }
 
-/** Takes a char and a conversion table (an int[] in the current
+/** {@collect.stats} Takes a char and a conversion table (an int[] in the current
  * implementation, but conversion tables should be treated as an opaque
  * type) and returns the
  * corresponding byte value (as an int, since bytes are signed).

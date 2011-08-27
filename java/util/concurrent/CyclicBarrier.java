@@ -36,7 +36,7 @@
 package java.util.concurrent;
 import java.util.concurrent.locks.*;
 
-/**
+/** {@collect.stats}
  * A synchronization aid that allows a set of threads to all wait for
  * each other to reach a common barrier point.  CyclicBarriers are
  * useful in programs involving a fixed sized party of threads that
@@ -130,7 +130,7 @@ import java.util.concurrent.locks.*;
  * @author Doug Lea
  */
 public class CyclicBarrier {
-    /**
+    /** {@collect.stats}
      * Each use of the barrier is represented as a generation instance.
      * The generation changes whenever the barrier is tripped, or
      * is reset. There can be many generations associated with threads
@@ -145,25 +145,25 @@ public class CyclicBarrier {
         boolean broken = false;
     }
 
-    /** The lock for guarding barrier entry */
+    /** {@collect.stats} The lock for guarding barrier entry */
     private final ReentrantLock lock = new ReentrantLock();
-    /** Condition to wait on until tripped */
+    /** {@collect.stats} Condition to wait on until tripped */
     private final Condition trip = lock.newCondition();
-    /** The number of parties */
+    /** {@collect.stats} The number of parties */
     private final int parties;
     /* The command to run when tripped */
     private final Runnable barrierCommand;
-    /** The current generation */
+    /** {@collect.stats} The current generation */
     private Generation generation = new Generation();
 
-    /**
+    /** {@collect.stats}
      * Number of parties still waiting. Counts down from parties to 0
      * on each generation.  It is reset to parties on each new
      * generation or when broken.
      */
     private int count;
 
-    /**
+    /** {@collect.stats}
      * Updates state on barrier trip and wakes up everyone.
      * Called only while holding lock.
      */
@@ -175,7 +175,7 @@ public class CyclicBarrier {
         generation = new Generation();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets current barrier generation as broken and wakes up everyone.
      * Called only while holding lock.
      */
@@ -185,7 +185,7 @@ public class CyclicBarrier {
         trip.signalAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Main barrier code, covering the various policies.
      */
     private int dowait(boolean timed, long nanos)
@@ -255,7 +255,7 @@ public class CyclicBarrier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <tt>CyclicBarrier</tt> that will trip when the
      * given number of parties (threads) are waiting upon it, and which
      * will execute the given barrier action when the barrier is tripped,
@@ -274,7 +274,7 @@ public class CyclicBarrier {
         this.barrierCommand = barrierAction;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <tt>CyclicBarrier</tt> that will trip when the
      * given number of parties (threads) are waiting upon it, and
      * does not perform a predefined action when the barrier is tripped.
@@ -287,7 +287,7 @@ public class CyclicBarrier {
         this(parties, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of parties required to trip this barrier.
      *
      * @return the number of parties required to trip this barrier
@@ -296,7 +296,7 @@ public class CyclicBarrier {
         return parties;
     }
 
-    /**
+    /** {@collect.stats}
      * Waits until all {@linkplain #getParties parties} have invoked
      * <tt>await</tt> on this barrier.
      *
@@ -358,7 +358,7 @@ public class CyclicBarrier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Waits until all {@linkplain #getParties parties} have invoked
      * <tt>await</tt> on this barrier, or the specified waiting time elapses.
      *
@@ -427,7 +427,7 @@ public class CyclicBarrier {
         return dowait(true, unit.toNanos(timeout));
     }
 
-    /**
+    /** {@collect.stats}
      * Queries if this barrier is in a broken state.
      *
      * @return {@code true} if one or more parties broke out of this
@@ -445,7 +445,7 @@ public class CyclicBarrier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the barrier to its initial state.  If any parties are
      * currently waiting at the barrier, they will return with a
      * {@link BrokenBarrierException}. Note that resets <em>after</em>
@@ -465,7 +465,7 @@ public class CyclicBarrier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of parties currently waiting at the barrier.
      * This method is primarily useful for debugging and assertions.
      *

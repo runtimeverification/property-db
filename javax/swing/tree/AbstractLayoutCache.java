@@ -30,7 +30,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * <strong>Warning:</strong>
  * Serialized objects of this class will not be compatible with
  * future Swing releases. The current serialization support is
@@ -44,29 +44,29 @@ import java.util.Enumeration;
  */
 
 public abstract class AbstractLayoutCache implements RowMapper {
-    /** Object responsible for getting the size of a node. */
+    /** {@collect.stats} Object responsible for getting the size of a node. */
     protected NodeDimensions     nodeDimensions;
 
-    /** Model providing information. */
+    /** {@collect.stats} Model providing information. */
     protected TreeModel          treeModel;
 
-    /** Selection model. */
+    /** {@collect.stats} Selection model. */
     protected TreeSelectionModel treeSelectionModel;
 
-    /**
+    /** {@collect.stats}
      * True if the root node is displayed, false if its children are
      * the highest visible nodes.
      */
     protected boolean            rootVisible;
 
-    /**
+    /** {@collect.stats}
       * Height to use for each row.  If this is <= 0 the renderer will be
       * used to determine the height for each row.
       */
     protected int                rowHeight;
 
 
-    /**
+    /** {@collect.stats}
      * Sets the renderer that is responsible for drawing nodes in the tree
      * and which is threfore responsible for calculating the dimensions of
      * individual nodes.
@@ -77,7 +77,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         this.nodeDimensions = nd;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object that renders nodes in the tree, and which is
      * responsible for calculating the dimensions of individual nodes.
      *
@@ -87,7 +87,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return nodeDimensions;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TreeModel</code> that will provide the data.
      *
      * @param newModel the <code>TreeModel</code> that is to
@@ -97,7 +97,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         treeModel = newModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TreeModel</code> that is providing the data.
      *
      * @return the <code>TreeModel</code> that is providing the data
@@ -106,7 +106,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return treeModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the root node from
      * the <code>TreeModel</code> is visible.
      *
@@ -121,7 +121,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         this.rootVisible = rootVisible;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the root node of the tree is displayed.
      *
      * @return true if the root node of the tree is displayed
@@ -131,7 +131,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return rootVisible;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the height of each cell.  If the specified value
      * is less than or equal to zero the current cell renderer is
      * queried for each row's height.
@@ -145,7 +145,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         this.rowHeight = rowHeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the height of each row.  If the returned value is less than
      * or equal to 0 the height for each row is determined by the
      * renderer.
@@ -154,7 +154,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return rowHeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TreeSelectionModel</code> used to manage the
      * selection to new LSM.
      *
@@ -168,7 +168,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
             treeSelectionModel.setRowMapper(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model used to maintain the selection.
      *
      * @return the <code>treeSelectionModel</code>
@@ -177,7 +177,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return treeSelectionModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred height.
      *
      * @return the preferred height
@@ -196,7 +196,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the preferred width for the passed in region.
      * The region is defined by the path closest to
      * <code>(bounds.x, bounds.y)</code> and
@@ -261,12 +261,12 @@ public abstract class AbstractLayoutCache implements RowMapper {
     // Abstract methods that must be implemented to be concrete.
     //
 
-    /**
+    /** {@collect.stats}
       * Returns true if the value identified by row is currently expanded.
       */
     public abstract boolean isExpanded(TreePath path);
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle giving the bounds needed to draw path.
      *
      * @param path     a <code>TreePath</code> specifying a node
@@ -276,7 +276,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract Rectangle getBounds(TreePath path, Rectangle placeIn);
 
-    /**
+    /** {@collect.stats}
       * Returns the path for passed in row.  If row is not visible
       * <code>null</code> is returned.
       *
@@ -285,7 +285,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
       */
     public abstract TreePath getPathForRow(int row);
 
-    /**
+    /** {@collect.stats}
       * Returns the row that the last item identified in path is visible
       * at.  Will return -1 if any of the elements in path are not
       * currently visible.
@@ -296,7 +296,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
       */
     public abstract int getRowForPath(TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Returns the path to the node that is closest to x,y.  If
       * there is nothing currently visible this will return <code>null</code>,
       * otherwise it'll always return a valid path.
@@ -310,7 +310,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
       */
     public abstract TreePath getPathClosestTo(int x, int y);
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumerator</code> that increments over the visible
      * paths starting at the passed in location. The ordering of the
      * enumeration is based on how the paths are displayed.
@@ -323,7 +323,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract Enumeration<TreePath> getVisiblePathsFrom(TreePath path);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of visible children for row.
      *
      * @param path  the path being queried
@@ -331,7 +331,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract int getVisibleChildCount(TreePath path);
 
-    /**
+    /** {@collect.stats}
      * Marks the path <code>path</code> expanded state to
      * <code>isExpanded</code>.
      *
@@ -340,7 +340,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract void setExpandedState(TreePath path, boolean isExpanded);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the path is expanded, and visible.
      *
      * @param path  the path being queried
@@ -348,20 +348,20 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract boolean getExpandedState(TreePath path);
 
-    /**
+    /** {@collect.stats}
      * Number of rows being displayed.
      *
      * @return the number of rows being displayed
      */
     public abstract int getRowCount();
 
-    /**
+    /** {@collect.stats}
      * Informs the <code>TreeState</code> that it needs to recalculate
      * all the sizes it is referencing.
      */
     public abstract void invalidateSizes();
 
-    /**
+    /** {@collect.stats}
      * Instructs the <code>LayoutCache</code> that the bounds for
      * <code>path</code> are invalid, and need to be updated.
      *
@@ -375,7 +375,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
     // the model, it is up to some other object to forward these methods.
     //
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Invoked after a node (or a set of siblings) has changed in some
      * way. The node(s) have not changed locations in the tree or
@@ -392,7 +392,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract void treeNodesChanged(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been inserted into the tree.</p>
      *
      * <p>e.path() returns the parent of the new nodes</p>
@@ -403,7 +403,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract void treeNodesInserted(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been removed from the tree.  Note that
      * if a subtree is removed from the tree, this method may only be
      * invoked once for the root of the removed subtree, not once for
@@ -417,7 +417,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
      */
     public abstract void treeNodesRemoved(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after the tree has drastically changed structure from a
      * given node down.  If the path returned by <code>e.getPath()</code>
      * is of length one and the first element does not identify the
@@ -435,7 +435,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
     // RowMapper
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the rows that the <code>TreePath</code> instances in
      * <code>path</code> are being displayed at.
      * This method should return an array of the same length as that passed
@@ -466,7 +466,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
     // convenience methods.
     //
 
-    /**
+    /** {@collect.stats}
      * Returns, by reference in <code>placeIn</code>,
      * the size needed to represent <code>value</code>.
      * If <code>inPlace</code> is <code>null</code>, a newly created
@@ -494,7 +494,7 @@ public abstract class AbstractLayoutCache implements RowMapper {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns true if the height of each row is a fixed size.
       */
     protected boolean isFixedRowHeight() {
@@ -502,12 +502,12 @@ public abstract class AbstractLayoutCache implements RowMapper {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used by <code>AbstractLayoutCache</code> to determine the size
      * and x origin of a particular node.
      */
     static public abstract class NodeDimensions {
-        /**
+        /** {@collect.stats}
          * Returns, by reference in bounds, the size and x origin to
          * place value at. The calling method is responsible for determining
          * the Y location. If bounds is <code>null</code>, a newly created

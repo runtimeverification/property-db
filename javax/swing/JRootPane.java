@@ -37,7 +37,7 @@ import javax.swing.border.*;
 import sun.security.action.GetBooleanAction;
 
 
-/**
+/** {@collect.stats}
  * A lightweight container used behind the scenes by
  * <code>JFrame</code>, <code>JDialog</code>, <code>JWindow</code>,
  * <code>JApplet</code>, and <code>JInternalFrame</code>.
@@ -202,19 +202,19 @@ public class JRootPane extends JComponent implements Accessible {
 
     private static final String uiClassID = "RootPaneUI";
 
-    /**
+    /** {@collect.stats}
      * Whether or not we should dump the stack when true double buffering
      * is disabled. Default is false.
      */
     private static final boolean LOG_DISABLE_TRUE_DOUBLE_BUFFERING;
 
-    /**
+    /** {@collect.stats}
      * Whether or not we should ignore requests to disable true double
      * buffering. Default is false.
      */
     private static final boolean IGNORE_DISABLE_TRUE_DOUBLE_BUFFERING;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should not provide any sort of
      * Window decorations.
@@ -223,7 +223,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int NONE = 0;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Frame.
@@ -232,7 +232,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int FRAME = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog.
@@ -241,7 +241,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int PLAIN_DIALOG = 2;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to display an informational message.
@@ -250,7 +250,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int INFORMATION_DIALOG = 3;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to display an error message.
@@ -259,7 +259,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int ERROR_DIALOG = 4;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to display a <code>JColorChooser</code>.
@@ -268,7 +268,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int COLOR_CHOOSER_DIALOG = 5;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to display a <code>JFileChooser</code>.
@@ -277,7 +277,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int FILE_CHOOSER_DIALOG = 6;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to present a question to the user.
@@ -286,7 +286,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public static final int QUESTION_DIALOG = 7;
 
-    /**
+    /** {@collect.stats}
      * Constant used for the windowDecorationStyle property. Indicates that
      * the <code>JRootPane</code> should provide decorations appropriate for
      * a Dialog used to display a warning message.
@@ -297,26 +297,26 @@ public class JRootPane extends JComponent implements Accessible {
 
     private int windowDecorationStyle;
 
-    /** The menu bar. */
+    /** {@collect.stats} The menu bar. */
     protected JMenuBar menuBar;
 
-    /** The content pane. */
+    /** {@collect.stats} The content pane. */
     protected Container contentPane;
 
-    /** The layered pane that manages the menu bar and content pane. */
+    /** {@collect.stats} The layered pane that manages the menu bar and content pane. */
     protected JLayeredPane layeredPane;
 
-    /**
+    /** {@collect.stats}
      * The glass pane that overlays the menu bar and content pane,
      *  so it can intercept mouse movements and such.
      */
     protected Component glassPane;
-    /**
+    /** {@collect.stats}
      * The button that gets activated when the pane has the focus and
      * a UI-specific action like pressing the <b>Enter</b> key occurs.
      */
     protected JButton defaultButton;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this unusable field is no longer used.
      * To override the default button you should replace the <code>Action</code>
      * in the <code>JRootPane</code>'s <code>ActionMap</code>. Please refer to
@@ -327,7 +327,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     @Deprecated
     protected DefaultAction defaultPressAction;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this unusable field is no longer used.
      * To override the default button you should replace the <code>Action</code>
      * in the <code>JRootPane</code>'s <code>ActionMap</code>. Please refer to
@@ -339,7 +339,7 @@ public class JRootPane extends JComponent implements Accessible {
     @Deprecated
     protected DefaultAction defaultReleaseAction;
 
-    /**
+    /** {@collect.stats}
      * Whether or not true double buffering should be used.  This is typically
      * true, but may be set to false in special situations.  For example,
      * heavy weight popups (backed by a window) set this to false.
@@ -355,7 +355,7 @@ public class JRootPane extends JComponent implements Accessible {
                                    "swing.ignoreDoubleBufferingDisable"));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JRootPane</code>, setting up its
      * <code>glassPane</code>, <code>layeredPane</code>,
      * and <code>contentPane</code>.
@@ -369,7 +369,7 @@ public class JRootPane extends JComponent implements Accessible {
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -380,7 +380,7 @@ public class JRootPane extends JComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a constant identifying the type of Window decorations the
      * <code>JRootPane</code> is providing.
      *
@@ -396,7 +396,7 @@ public class JRootPane extends JComponent implements Accessible {
         return windowDecorationStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the type of Window decorations (such as borders, widgets for
      * closing a Window, title ...) the <code>JRootPane</code> should
      * provide. The default is to provide no Window decorations
@@ -445,7 +445,7 @@ public class JRootPane extends JComponent implements Accessible {
                             windowDecorationStyle);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return <code>LabelUI</code> object
@@ -455,7 +455,7 @@ public class JRootPane extends JComponent implements Accessible {
         return (RootPaneUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the <code>LabelUI</code> L&F object
@@ -473,7 +473,7 @@ public class JRootPane extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -483,7 +483,7 @@ public class JRootPane extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the L&F class
      * that renders this component.
      *
@@ -496,7 +496,7 @@ public class JRootPane extends JComponent implements Accessible {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
       * Called by the constructor methods to create the default
       * <code>layeredPane</code>.
       * Bt default it creates a new <code>JLayeredPane</code>.
@@ -508,7 +508,7 @@ public class JRootPane extends JComponent implements Accessible {
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructor methods to create the default
      * <code>contentPane</code>.
      * By default this method creates a new <code>JComponent</code> add sets a
@@ -533,7 +533,7 @@ public class JRootPane extends JComponent implements Accessible {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
       * Called by the constructor methods to create the default
       * <code>glassPane</code>.
       * By default this method creates a new <code>JComponent</code>
@@ -548,7 +548,7 @@ public class JRootPane extends JComponent implements Accessible {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructor methods to create the default
      * <code>layoutManager</code>.
      * @return the default <code>layoutManager</code>.
@@ -557,7 +557,7 @@ public class JRootPane extends JComponent implements Accessible {
         return new RootLayout();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds or changes the menu bar used in the layered pane.
      * @param menu the <code>JMenuBar</code> to add
      */
@@ -570,7 +570,7 @@ public class JRootPane extends JComponent implements Accessible {
             layeredPane.add(menuBar, JLayeredPane.FRAME_CONTENT_LAYER);
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies the menu bar value.
      * @deprecated As of Swing version 1.0.3
      *  replaced by <code>setJMenuBar(JMenuBar menu)</code>.
@@ -586,13 +586,13 @@ public class JRootPane extends JComponent implements Accessible {
             layeredPane.add(menuBar, JLayeredPane.FRAME_CONTENT_LAYER);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu bar from the layered pane.
      * @return the <code>JMenuBar</code> used in the pane
      */
     public JMenuBar getJMenuBar() { return menuBar; }
 
-    /**
+    /** {@collect.stats}
      * Returns the menu bar value.
      * @deprecated As of Swing version 1.0.3
      *  replaced by <code>getJMenuBar()</code>.
@@ -601,7 +601,7 @@ public class JRootPane extends JComponent implements Accessible {
     @Deprecated
     public JMenuBar getMenuBar() { return menuBar; }
 
-    /**
+    /** {@collect.stats}
      * Sets the content pane -- the container that holds the components
      * parented by the root pane.
      * <p>
@@ -624,7 +624,7 @@ public class JRootPane extends JComponent implements Accessible {
         layeredPane.add(contentPane, JLayeredPane.FRAME_CONTENT_LAYER);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the content pane -- the container that holds the components
      * parented by the root pane.
      *
@@ -633,7 +633,7 @@ public class JRootPane extends JComponent implements Accessible {
     public Container getContentPane() { return contentPane; }
 
 // PENDING(klobad) Should this reparent the contentPane and MenuBar?
-    /**
+    /** {@collect.stats}
      * Sets the layered pane for the root pane. The layered pane
      * typically holds a content pane and an optional <code>JMenuBar</code>.
      *
@@ -650,7 +650,7 @@ public class JRootPane extends JComponent implements Accessible {
 
         this.add(layeredPane, -1);
     }
-    /**
+    /** {@collect.stats}
      * Gets the layered pane used by the root pane. The layered pane
      * typically holds a content pane and an optional <code>JMenuBar</code>.
      *
@@ -658,7 +658,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     public JLayeredPane getLayeredPane() { return layeredPane; }
 
-    /**
+    /** {@collect.stats}
      * Sets a specified <code>Component</code> to be the glass pane for this
      * root pane.  The glass pane should normally be a lightweight,
      * transparent component, because it will be made visible when
@@ -702,7 +702,7 @@ public class JRootPane extends JComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current glass pane for this <code>JRootPane</code>.
      * @return the current glass pane
      * @see #setGlassPane
@@ -711,7 +711,7 @@ public class JRootPane extends JComponent implements Accessible {
         return glassPane;
     }
 
-    /**
+    /** {@collect.stats}
      * If a descendant of this <code>JRootPane</code> calls
      * <code>revalidate</code>, validate from here on down.
      *<p>
@@ -727,7 +727,7 @@ public class JRootPane extends JComponent implements Accessible {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>glassPane</code> and <code>contentPane</code>
      * have the same bounds, which means <code>JRootPane</code>
      * does not tiles its children and this should return false.
@@ -743,7 +743,7 @@ public class JRootPane extends JComponent implements Accessible {
         return !glassPane.isVisible();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void addNotify() {
@@ -751,7 +751,7 @@ public class JRootPane extends JComponent implements Accessible {
         enableEvents(AWTEvent.KEY_EVENT_MASK);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void removeNotify() {
@@ -759,7 +759,7 @@ public class JRootPane extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>defaultButton</code> property,
      * which determines the current default button for this <code>JRootPane</code>.
      * The default button is the button which will be activated
@@ -796,7 +796,7 @@ public class JRootPane extends JComponent implements Accessible {
         firePropertyChange("defaultButton", oldDefault, defaultButton);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>defaultButton</code> property.
      * @return the <code>JButton</code> which is currently the default button
      * @see #setDefaultButton
@@ -856,7 +856,7 @@ public class JRootPane extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overridden to enforce the position of the glass component as
      * the zero child.
      *
@@ -881,7 +881,7 @@ public class JRootPane extends JComponent implements Accessible {
 ///////////////////////////////////////////////////////////////////////////////
 
 
-    /**
+    /** {@collect.stats}
      * A custom layout manager that is responsible for the layout of
      * layeredPane, glassPane, and menuBar.
      * <p>
@@ -896,7 +896,7 @@ public class JRootPane extends JComponent implements Accessible {
      */
     protected class RootLayout implements LayoutManager2, Serializable
     {
-        /**
+        /** {@collect.stats}
          * Returns the amount of space the layout would like to have.
          *
          * @param parent the Container for which this layout manager
@@ -921,7 +921,7 @@ public class JRootPane extends JComponent implements Accessible {
                                         rd.height + mbd.height + i.top + i.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum amount of space the layout needs.
          *
          * @param parent the Container for which this layout manager
@@ -945,7 +945,7 @@ public class JRootPane extends JComponent implements Accessible {
                         rd.height + mbd.height + i.top + i.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the maximum amount of space the layout can use.
          *
          * @param target the Container for which this layout manager
@@ -971,7 +971,7 @@ public class JRootPane extends JComponent implements Accessible {
                                          rd.height + mbd.height + i.top + i.bottom);
         }
 
-        /**
+        /** {@collect.stats}
          * Instructs the layout manager to perform the layout for the specified
          * container.
          *
@@ -1011,7 +1011,7 @@ public class JRootPane extends JComponent implements Accessible {
         public void invalidateLayout(Container target) {}
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JRootPane</code>.
      * This method is intended to be used only for debugging purposes,
      * and the content and format of the returned string may vary between
@@ -1028,7 +1028,7 @@ public class JRootPane extends JComponent implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>JRootPane</code>. For root panes, the
      * <code>AccessibleContext</code> takes the form of an
@@ -1045,7 +1045,7 @@ public class JRootPane extends JComponent implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JRootPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to root pane user-interface elements.
@@ -1060,7 +1060,7 @@ public class JRootPane extends JComponent implements Accessible {
      * Please see {@link java.beans.XMLEncoder}.
      */
     protected class AccessibleJRootPane extends AccessibleJComponent {
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of
@@ -1070,7 +1070,7 @@ public class JRootPane extends JComponent implements Accessible {
             return AccessibleRole.ROOT_PANE;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children of the object.
          *
          * @return the number of accessible children of the object.
@@ -1079,7 +1079,7 @@ public class JRootPane extends JComponent implements Accessible {
             return super.getAccessibleChildrenCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specified Accessible child of the object.  The Accessible
          * children of an Accessible object are zero-based, so the first child
          * of an Accessible child is at index 0, the second child is at index 1,

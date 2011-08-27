@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/**
+/** {@collect.stats}
  * An abstract adapter class for receiving ancestor moved and resized events.
  * The methods in this class are empty. This class exists as a
  * convenience for creating listener objects.
@@ -49,12 +49,12 @@ package java.awt.event;
  */
 public abstract class HierarchyBoundsAdapter implements HierarchyBoundsListener
 {
-    /**
+    /** {@collect.stats}
      * Called when an ancestor of the source is moved.
      */
     public void ancestorMoved(HierarchyEvent e) {}
 
-    /**
+    /** {@collect.stats}
      * Called when an ancestor of the source is resized.
      */
     public void ancestorResized(HierarchyEvent e) {}

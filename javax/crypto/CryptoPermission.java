@@ -33,7 +33,7 @@ import java.util.Vector;
 
 import javax.crypto.spec.*;
 
-/**
+/** {@collect.stats}
  * The CryptoPermission class extends the
  * java.security.Permission class. A
  * CryptoPermission object is used to represent
@@ -59,7 +59,7 @@ class CryptoPermission extends java.security.Permission {
 
     static final String ALG_NAME_WILDCARD = "*";
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name.
      *
      * This constructor implies that the given algorithm can be
@@ -72,7 +72,7 @@ class CryptoPermission extends java.security.Permission {
         this.alg = alg;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name and a maximum
      * key size.
      *
@@ -90,7 +90,7 @@ class CryptoPermission extends java.security.Permission {
         this.maxKeySize = maxKeySize;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name, a maximum
      * key size, and an AlgorithmParameterSpec object.
      *
@@ -117,7 +117,7 @@ class CryptoPermission extends java.security.Permission {
         this.algParamSpec = algParamSpec;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name and the name of
      * an exemption mechanism.
      *
@@ -136,7 +136,7 @@ class CryptoPermission extends java.security.Permission {
         this.exemptionMechanism = exemptionMechanism;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name, a maximum key
      * size, and the name of an exemption mechanism.
      *
@@ -160,7 +160,7 @@ class CryptoPermission extends java.security.Permission {
         this.maxKeySize = maxKeySize;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes an algorithm name, a maximum key
      * size, the name of an exemption mechanism, and an
      * AlgorithmParameterSpec object.
@@ -192,7 +192,7 @@ class CryptoPermission extends java.security.Permission {
         this.algParamSpec = algParamSpec;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the specified permission is "implied" by
      * this object.
      * <p>
@@ -244,7 +244,7 @@ class CryptoPermission extends java.security.Permission {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two CryptoPermission objects for equality. Checks that
      * <code>obj</code> is a CryptoPermission, and has the same
      * algorithm name,
@@ -277,7 +277,7 @@ class CryptoPermission extends java.security.Permission {
                              that.algParamSpec));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -296,7 +296,7 @@ class CryptoPermission extends java.security.Permission {
         return retval;
     }
 
-    /**
+    /** {@collect.stats}
      * There is no action defined for a CryptoPermission
      * onject.
      */
@@ -305,7 +305,7 @@ class CryptoPermission extends java.security.Permission {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new PermissionCollection object for storing
      * CryptoPermission objects.
      *
@@ -317,7 +317,7 @@ class CryptoPermission extends java.security.Permission {
         return new CryptoPermissionCollection();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name associated with
      * this CryptoPermission object.
      */
@@ -325,7 +325,7 @@ class CryptoPermission extends java.security.Permission {
         return alg;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the exemption mechanism name
      * associated with this CryptoPermission
      * object.
@@ -334,7 +334,7 @@ class CryptoPermission extends java.security.Permission {
         return exemptionMechanism;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum allowable key size associated
      * with this CryptoPermission object.
      */
@@ -342,7 +342,7 @@ class CryptoPermission extends java.security.Permission {
         return maxKeySize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if there is a limitation on the
      * AlgorithmParameterSpec associated with this
      * CryptoPermission object and false if otherwise.
@@ -351,7 +351,7 @@ class CryptoPermission extends java.security.Permission {
         return checkParam;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the AlgorithmParameterSpec
      * associated with this CryptoPermission
      * object.
@@ -360,7 +360,7 @@ class CryptoPermission extends java.security.Permission {
         return algParamSpec;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing this CryptoPermission.  The convention is to
      * specify the class name, the algorithm name, the maximum allowable
      * key size, and the name of the exemption mechanism, in the following
@@ -460,7 +460,7 @@ class CryptoPermission extends java.security.Permission {
     }
 }
 
-/**
+/** {@collect.stats}
  * A CryptoPermissionCollection stores a set of CryptoPermission
  * permissions.
  *
@@ -477,7 +477,7 @@ implements Serializable {
 
     private Vector permissions;
 
-    /**
+    /** {@collect.stats}
      * Creates an empty CryptoPermissionCollection
      * object.
      */
@@ -485,7 +485,7 @@ implements Serializable {
         permissions = new Vector(3);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the CryptoPermissionCollection.
      *
      * @param permission the Permission object to add.
@@ -505,7 +505,7 @@ implements Serializable {
         permissions.addElement(permission);
     }
 
-    /**
+    /** {@collect.stats}
       * Check and see if this CryptoPermission object implies
       * the given Permission object.
      *
@@ -531,7 +531,7 @@ implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the CryptoPermission objects
      * in the container.
      *

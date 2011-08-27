@@ -27,7 +27,7 @@ package javax.security.auth.callback;
 
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>LanguageCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to retrieve the <code>Locale</code>
@@ -39,18 +39,18 @@ public class LanguageCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = 2019050433478903213L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private Locale locale;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>LanguageCallback</code>.
      */
     public LanguageCallback() { }
 
-    /**
+    /** {@collect.stats}
      * Set the retrieved <code>Locale</code>.
      *
      * <p>
@@ -63,7 +63,7 @@ public class LanguageCallback implements Callback, java.io.Serializable {
         this.locale = locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the retrieved <code>Locale</code>.
      *
      * <p>

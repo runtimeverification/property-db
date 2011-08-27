@@ -29,7 +29,7 @@ import java.io.IOException;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
-/**
+/** {@collect.stats}
  * The service provider interface (SPI) for <code>ImageReader</code>s.
  * For more information on service provider classes, see the class comment
  * for the <code>IIORegistry</code> class.
@@ -73,7 +73,7 @@ import javax.imageio.stream.ImageInputStream;
  */
 public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
 
-    /**
+    /** {@collect.stats}
      * A single-element array, initially containing
      * <code>ImageInputStream.class</code>, to be returned from
      * <code>getInputTypes</code>.
@@ -81,26 +81,26 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
     public static final Class[] STANDARD_INPUT_TYPE =
         { ImageInputStream.class };
 
-    /**
+    /** {@collect.stats}
      * An array of <code>Class</code> objects to be returned from
      * <code>getInputTypes</code>, initially <code>null</code>.
      */
     protected Class[] inputTypes = null;
 
-    /**
+    /** {@collect.stats}
      * An array of strings to be returned from
      * <code>getImageWriterSpiNames</code>, initially
      * <code>null</code>.
      */
     protected String[] writerSpiNames = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>Class</code> of the reader, initially
      * <code>null</code>.
      */
     private Class readerClass = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>ImageReaderSpi</code>.  It is up to
      * the subclass to initialize instance variables and/or override
      * method implementations in order to provide working versions of
@@ -109,7 +109,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
     protected ImageReaderSpi() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageReaderSpi</code> with a given
      * set of values.
      *
@@ -238,7 +238,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Class</code> objects indicating what
      * types of objects may be used as arguments to the reader's
      * <code>setInput</code> method.
@@ -255,7 +255,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
         return (Class[])inputTypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the supplied source object appears
      * to be of the format supported by this reader.  Returning
      * <code>true</code> from this method does not guarantee that
@@ -298,7 +298,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
      */
     public abstract boolean canDecodeInput(Object source) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageReader</code>
      * implementation associated with this service provider.
      * The returned object will initially be in an initial state
@@ -317,7 +317,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
         return createReaderInstance(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageReader</code>
      * implementation associated with this service provider.
      * The returned object will initially be in an initial state
@@ -345,7 +345,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
     public abstract ImageReader createReaderInstance(Object extension)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageReader</code> object
      * passed in is an instance of the <code>ImageReader</code>
      * associated with this service provider.
@@ -370,7 +370,7 @@ public abstract class ImageReaderSpi extends ImageReaderWriterSpi {
         return name.equals(pluginClassName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the fully
      * qualified names of all the <code>ImageWriterSpi</code> classes
      * that can understand the internal metadata representation used

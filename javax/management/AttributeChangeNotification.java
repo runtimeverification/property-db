@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * Provides definitions of the attribute change notifications sent by MBeans.
  * <P>
  * It's up to the MBean owning the attribute of interest to create and send
@@ -54,35 +54,35 @@ public class AttributeChangeNotification extends javax.management.Notification {
     /* Serial version */
     private static final long serialVersionUID = 535176054565814134L;
 
-    /**
+    /** {@collect.stats}
      * Notification type which indicates that the observed MBean attribute value has changed.
      * <BR>The value of this type string is <CODE>jmx.attribute.change</CODE>.
      */
     public static final String ATTRIBUTE_CHANGE = "jmx.attribute.change";
 
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean attribute name.
      */
     private String attributeName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean attribute type.
      */
     private String attributeType = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean attribute old value.
      */
     private Object oldValue = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The MBean attribute new value.
      */
     private Object newValue = null;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an attribute change notification object.
      * In addition to the information common to all notification, the caller must supply the name and type
      * of the attribute, as well as its old and new values.
@@ -107,7 +107,7 @@ public class AttributeChangeNotification extends javax.management.Notification {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the name of the attribute which has changed.
      *
      * @return A String containing the name of the attribute.
@@ -116,7 +116,7 @@ public class AttributeChangeNotification extends javax.management.Notification {
         return attributeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the type of the attribute which has changed.
      *
      * @return A String containing the type of the attribute.
@@ -125,7 +125,7 @@ public class AttributeChangeNotification extends javax.management.Notification {
         return attributeType;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the old value of the attribute which has changed.
      *
      * @return An Object containing the old value of the attribute.
@@ -134,7 +134,7 @@ public class AttributeChangeNotification extends javax.management.Notification {
         return oldValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the new value of the attribute which has changed.
      *
      * @return An Object containing the new value of the attribute.

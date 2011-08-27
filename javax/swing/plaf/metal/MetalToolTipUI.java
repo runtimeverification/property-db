@@ -37,7 +37,7 @@ import javax.swing.plaf.basic.BasicHTML;
 import javax.swing.text.View;
 
 
-/**
+/** {@collect.stats}
  * A Metal L&F extension of BasicToolTipUI.
  * <p>
  * <strong>Warning:</strong>

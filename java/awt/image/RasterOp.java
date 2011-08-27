@@ -29,7 +29,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.Point2D;
 import java.awt.RenderingHints;
 
-/**
+/** {@collect.stats}
  * This interface describes single-input/single-output
  * operations performed on Raster objects.  It is implemented by such
  * classes as AffineTransformOp, ConvolveOp, and LookupOp.  The Source
@@ -50,7 +50,7 @@ import java.awt.RenderingHints;
  * @see RescaleOp
  */
 public interface RasterOp {
-    /**
+    /** {@collect.stats}
      * Performs a single-input/single-output operation from a source Raster
      * to a destination Raster.  If the destination Raster is null, a
      * new Raster will be created.  The IllegalArgumentException may be thrown
@@ -63,7 +63,7 @@ public interface RasterOp {
      */
     public WritableRaster filter(Raster src, WritableRaster dest);
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box of the filtered destination Raster.
      * The IllegalArgumentException may be thrown if the source Raster
      * is incompatible with the types of Rasters allowed
@@ -75,7 +75,7 @@ public interface RasterOp {
      */
     public Rectangle2D getBounds2D(Raster src);
 
-    /**
+    /** {@collect.stats}
      * Creates a zeroed destination Raster with the correct size and number of
      * bands.
      * The IllegalArgumentException may be thrown if the source Raster
@@ -87,7 +87,7 @@ public interface RasterOp {
      */
     public WritableRaster createCompatibleDestRaster(Raster src);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the destination point given a
      * point in the source Raster.  If dstPt is non-null, it
      * will be used to hold the return value.
@@ -97,7 +97,7 @@ public interface RasterOp {
      */
     public Point2D getPoint2D(Point2D srcPt, Point2D dstPt);
 
-    /**
+    /** {@collect.stats}
      * Returns the rendering hints for this RasterOp.  Returns
      * null if no hints have been set.
      * @return the <code>RenderingHints</code> object of this

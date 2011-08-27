@@ -30,7 +30,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * Format a LogRecord into a standard XML format.
  * <p>
  * The DTD specification is provided as Appendix A to the
@@ -91,7 +91,7 @@ public class XMLFormatter extends Formatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Format the given message to XML.
      * <p>
      * This method can be overridden in a subclass.
@@ -217,7 +217,7 @@ public class XMLFormatter extends Formatter {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the header string for a set of XML formatted records.
      *
      * @param   h  The target handler (can be null)
@@ -256,7 +256,7 @@ public class XMLFormatter extends Formatter {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the tail string for a set of XML formatted records.
      *
      * @param   h  The target handler (can be null)

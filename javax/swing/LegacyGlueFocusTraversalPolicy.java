@@ -33,7 +33,7 @@ import java.util.HashSet;
 import java.io.*;
 
 
-/**
+/** {@collect.stats}
  * A FocusTraversalPolicy which provides support for legacy applications which
  * handle focus traversal via JComponent.setNextFocusableComponent or by
  * installing a custom DefaultFocusManager. If a specific traversal has not

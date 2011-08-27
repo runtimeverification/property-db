@@ -55,7 +55,7 @@ import sun.misc.VM;
 import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 
-/**
+/** {@collect.stats}
  * A class loader is an object that is responsible for loading classes. The
  * class <tt>ClassLoader</tt> is an abstract class.  Given the <a
  * href="#name">binary name</a> of a class, a class loader should attempt to
@@ -201,7 +201,7 @@ public abstract class ClassLoader {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new class loader using the specified parent class loader for
      * delegation.
      *
@@ -224,7 +224,7 @@ public abstract class ClassLoader {
 	this(checkCreateClassLoader(), parent);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new class loader using the <tt>ClassLoader</tt> returned by
      * the method {@link #getSystemClassLoader()
      * <tt>getSystemClassLoader()</tt>} as the parent class loader.
@@ -246,7 +246,7 @@ public abstract class ClassLoader {
 
     // -- Class --
 
-    /**
+    /** {@collect.stats}
      * Loads the class with the specified <a href="#name">binary name</a>.
      * This method searches for classes in the same manner as the {@link
      * #loadClass(String, boolean)} method.  It is invoked by the Java virtual
@@ -266,7 +266,7 @@ public abstract class ClassLoader {
         return loadClass(name, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the class with the specified <a href="#name">binary name</a>.  The
      * default implementation of this method searches for classes in the
      * following order:
@@ -351,7 +351,7 @@ public abstract class ClassLoader {
         domains.add(pd);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the class with the specified <a href="#name">binary name</a>.
      * This method should be overridden by class loader implementations that
      * follow the delegation model for loading classes, and will be invoked by
@@ -373,7 +373,7 @@ public abstract class ClassLoader {
         throw new ClassNotFoundException(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.  This method
      * is deprecated in favor of the version that takes a <a
@@ -415,7 +415,7 @@ public abstract class ClassLoader {
         return defineClass(null, b, off, len, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.
      *
@@ -555,7 +555,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts an array of bytes into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
      * <tt>null</tt>, then a default domain will be assigned to the class as
@@ -640,7 +640,7 @@ public abstract class ClassLoader {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a {@link java.nio.ByteBuffer <tt>ByteBuffer</tt>}
      * into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
@@ -790,7 +790,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * check to make sure the certs for the new class (certs) are the same as
      * the certs for the first class inserted in the package (pcerts)
      */
@@ -835,7 +835,7 @@ public abstract class ClassLoader {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Links the specified class.  This (misleadingly named) method may be
      * used by a class loader to link a class.  If the class <tt>c</tt> has
      * already been linked, then this method simply returns. Otherwise, the
@@ -858,7 +858,7 @@ public abstract class ClassLoader {
 
     private native void resolveClass0(Class c);
 
-    /**
+    /** {@collect.stats}
      * Finds a class with the specified <a href="#name">binary name</a>,
      * loading it if necessary.
      *
@@ -903,7 +903,7 @@ public abstract class ClassLoader {
     private native Class findBootstrapClass(String name)
         throws ClassNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns the class with the given <a href="#name">binary name</a> if this
      * loader has been recorded by the Java virtual machine as an initiating
      * loader of a class with that <a href="#name">binary name</a>.  Otherwise
@@ -925,7 +925,7 @@ public abstract class ClassLoader {
 
     private native final Class findLoadedClass0(String name);
 
-    /**
+    /** {@collect.stats}
      * Sets the signers of a class.  This should be invoked after defining a
      * class.  </p>
      *
@@ -944,7 +944,7 @@ public abstract class ClassLoader {
 
     // -- Resource --
 
-    /**
+    /** {@collect.stats}
      * Finds the resource with the given name.  A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
      * that is independent of the location of the code.
@@ -979,7 +979,7 @@ public abstract class ClassLoader {
         return url;
     }
 
-    /**
+    /** {@collect.stats}
      * Finds all the resources with the given name. A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
      * that is independent of the location of the code.
@@ -1017,7 +1017,7 @@ public abstract class ClassLoader {
         return new CompoundEnumeration(tmp);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the resource with the given name. Class loader implementations
      * should override this method to specify where to find resources.  </p>
      *
@@ -1033,7 +1033,7 @@ public abstract class ClassLoader {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of {@link java.net.URL <tt>URL</tt>} objects
      * representing all the resources with the given name. Class loader
      * implementations should override this method to specify where to load
@@ -1054,7 +1054,7 @@ public abstract class ClassLoader {
         return new CompoundEnumeration(new Enumeration[0]);
     }
 
-    /**
+    /** {@collect.stats}
      * Find a resource of the specified name from the search path used to load
      * classes.  This method locates the resource through the system class
      * loader (see {@link #getSystemClassLoader()}).  </p>
@@ -1075,7 +1075,7 @@ public abstract class ClassLoader {
         return system.getResource(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds all resources of the specified name from the search path used to
      * load classes.  The resources thus found are returned as an
      * {@link java.util.Enumeration <tt>Enumeration</tt>} of {@link
@@ -1105,7 +1105,7 @@ public abstract class ClassLoader {
         return system.getResources(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Find resources from the VM's built-in classloader.
      */
     private static URL getBootstrapResource(String name) {
@@ -1114,7 +1114,7 @@ public abstract class ClassLoader {
         return res != null ? res.getURL() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Find resources from the VM's built-in classloader.
      */
     private static Enumeration getBootstrapResources(String name)
@@ -1141,7 +1141,7 @@ public abstract class ClassLoader {
 
     private static URLClassPath bootstrapClassPath;
 
-    /**
+    /** {@collect.stats}
      * Returns an input stream for reading the specified resource.
      *
      * <p> The search order is described in the documentation for {@link
@@ -1164,7 +1164,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Open for reading, a resource of the specified name from the search path
      * used to load classes.  This method locates the resource through the
      * system class loader (see {@link #getSystemClassLoader()}).  </p>
@@ -1189,7 +1189,7 @@ public abstract class ClassLoader {
 
     // -- Hierarchy --
 
-    /**
+    /** {@collect.stats}
      * Returns the parent class loader for delegation. Some implementations may
      * use <tt>null</tt> to represent the bootstrap class loader. This method
      * will return <tt>null</tt> in such implementations if this class loader's
@@ -1227,7 +1227,7 @@ public abstract class ClassLoader {
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the system class loader for delegation.  This is the default
      * delegation parent for new <tt>ClassLoader</tt> instances, and is
      * typically the class loader used to start the application.
@@ -1365,7 +1365,7 @@ public abstract class ClassLoader {
 
     // -- Package --
 
-    /**
+    /** {@collect.stats}
      * Defines a package by name in this <tt>ClassLoader</tt>.  This allows
      * class loaders to define the packages for their classes. Packages must
      * be created before the class is defined, and package names must be
@@ -1425,7 +1425,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <tt>Package</tt> that has been defined by this class loader
      * or any of its ancestors.  </p>
      *
@@ -1454,7 +1454,7 @@ public abstract class ClassLoader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all of the <tt>Packages</tt> defined by this class loader and
      * its ancestors.  </p>
      *
@@ -1488,7 +1488,7 @@ public abstract class ClassLoader {
 
     // -- Native library access --
 
-    /**
+    /** {@collect.stats}
      * Returns the absolute path name of a native library.  The VM invokes this
      * method to locate the native libraries that belong to classes loaded with
      * this class loader. If this method returns <tt>null</tt>, the VM
@@ -1509,7 +1509,7 @@ public abstract class ClassLoader {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The inner class NativeLibrary denotes a loaded native library instance.
      * Every classloader contains a vector of loaded native libraries in the
      * private field <tt>nativeLibraries</tt>.  The native libraries loaded
@@ -1796,7 +1796,7 @@ public abstract class ClassLoader {
     // have been invoked.
     Map classAssertionStatus = null;
 
-    /**
+    /** {@collect.stats}
      * Sets the default assertion status for this class loader.  This setting
      * determines whether classes loaded by this class loader and initialized
      * in the future will have assertions enabled or disabled by default.
@@ -1818,7 +1818,7 @@ public abstract class ClassLoader {
         defaultAssertionStatus = enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the package default assertion status for the named package.  The
      * package default assertion status determines the assertion status for
      * classes initialized in the future that belong to the named package or
@@ -1864,7 +1864,7 @@ public abstract class ClassLoader {
         packageAssertionStatus.put(packageName, Boolean.valueOf(enabled));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the desired assertion status for the named top-level class in this
      * class loader and any nested classes contained therein.  This setting
      * takes precedence over the class loader's default assertion status, and
@@ -1895,7 +1895,7 @@ public abstract class ClassLoader {
         classAssertionStatus.put(className, Boolean.valueOf(enabled));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the default assertion status for this class loader to
      * <tt>false</tt> and discards any package defaults or class assertion
      * status settings associated with the class loader.  This method is
@@ -1916,7 +1916,7 @@ public abstract class ClassLoader {
         defaultAssertionStatus = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the assertion status that would be assigned to the specified
      * class if it were to be initialized at the time this method is invoked.
      * If the named class has had its assertion status set, the most recent

@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * This exception, designed for use by the JCA/JCE engine classes,
  * is thrown when an invalid parameter is passed
  * to a method.
@@ -37,7 +37,7 @@ public class InvalidParameterException extends IllegalArgumentException {
 
     private static final long serialVersionUID = -857968536935667808L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidParameterException with no detail message.
      * A detail message is a String that describes this particular
      * exception.
@@ -46,7 +46,7 @@ public class InvalidParameterException extends IllegalArgumentException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidParameterException with the specified
      * detail message.  A detail message is a String that describes
      * this particular exception.

@@ -28,7 +28,7 @@ import java.util.Vector;
 import java.io.Serializable;
 import javax.swing.undo.UndoableEdit;
 
-/**
+/** {@collect.stats}
  * An implementation of a gapped buffer similar to that used by
  * emacs.  The underlying storage is a java array of some type,
  * which is known only by the subclass of this class.  The array
@@ -44,14 +44,14 @@ import javax.swing.undo.UndoableEdit;
 abstract class GapVector implements Serializable {
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new GapVector object.  Initial size defaults to 10.
      */
     public GapVector() {
         this(10);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new GapVector object, with the initial
      * size specified.
      *
@@ -63,18 +63,18 @@ abstract class GapVector implements Serializable {
         g1 = initialLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Allocate an array to store items of the type
      * appropriate (which is determined by the subclass).
      */
     protected abstract Object allocateArray(int len);
 
-    /**
+    /** {@collect.stats}
      * Get the length of the allocated array
      */
     protected abstract int getArrayLength();
 
-    /**
+    /** {@collect.stats}
      * Access to the array.  The actual type
      * of the array is known only by the subclass.
      */
@@ -82,14 +82,14 @@ abstract class GapVector implements Serializable {
         return array;
     }
 
-    /**
+    /** {@collect.stats}
      * Access to the start of the gap.
      */
     protected final int getGapStart() {
         return g0;
     }
 
-    /**
+    /** {@collect.stats}
      * Access to the end of the gap.
      */
     protected final int getGapEnd() {
@@ -98,17 +98,17 @@ abstract class GapVector implements Serializable {
 
     // ---- variables -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * The array of items.  The type is determined by the subclass.
      */
     private Object array;
 
-    /**
+    /** {@collect.stats}
      * start of gap in the array
      */
     private int g0;
 
-    /**
+    /** {@collect.stats}
      * end of gap in the array
      */
     private int g1;
@@ -116,7 +116,7 @@ abstract class GapVector implements Serializable {
 
     // --- gap management -------------------------------
 
-    /**
+    /** {@collect.stats}
      * Replace the given logical position in the storage with
      * the given new items.  This will move the gap to the area
      * being changed if the gap is not currently located at the
@@ -146,7 +146,7 @@ abstract class GapVector implements Serializable {
         System.arraycopy(addItems, addOffset, array, position, addSize);
     }
 
-    /**
+    /** {@collect.stats}
      * Delete nItems at position.  Squeezes any marks
      * within the deleted area to position.  This moves
      * the gap to the best place by minimizing it's
@@ -180,7 +180,7 @@ abstract class GapVector implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Make space for the given number of items at the given
      * location.
      *
@@ -206,7 +206,7 @@ abstract class GapVector implements Serializable {
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * resize the underlying storage array to the
      * given new size
      */
@@ -216,7 +216,7 @@ abstract class GapVector implements Serializable {
         array = narray;
     }
 
-    /**
+    /** {@collect.stats}
      * Make the gap bigger, moving any necessary data and updating
      * the appropriate marks
      */
@@ -235,7 +235,7 @@ abstract class GapVector implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates a new size of the storage array depending on required
      * capacity.
      * @param reqSize the size which is necessary for new content
@@ -245,7 +245,7 @@ abstract class GapVector implements Serializable {
         return (reqSize + 1) * 2;
     }
 
-    /**
+    /** {@collect.stats}
      * Move the start of the gap to a new location,
      * without changing the size of the gap.  This
      * moves the data in the array and updates the
@@ -272,7 +272,7 @@ abstract class GapVector implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the gap end downward.  This doesn't move
      * any data, but it does update any marks affected
      * by the boundary change.  All marks from the old
@@ -284,7 +284,7 @@ abstract class GapVector implements Serializable {
         g0 = newGapStart;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the gap end upward.  This doesn't move
      * any data, but it does update any marks affected
      * by the boundary change. All marks from the old

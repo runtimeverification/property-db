@@ -27,7 +27,7 @@ package javax.swing.plaf;
 import javax.swing.*;
 import java.awt.event.*;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JMenuItem.
  *
  * @author Georges Saab

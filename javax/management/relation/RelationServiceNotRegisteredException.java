@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * This exception is raised when an access is done to the Relation Service and
  * that one is not registered.
  *
@@ -36,14 +36,14 @@ public class RelationServiceNotRegisteredException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = 8454744887157122910L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public RelationServiceNotRegisteredException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

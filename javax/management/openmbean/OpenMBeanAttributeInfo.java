@@ -35,7 +35,7 @@ package javax.management.openmbean;
 //
 
 
-/**
+/** {@collect.stats}
  * <p>Describes an attribute of an open MBean.</p>
  *
  * <p>This interface declares the same methods as the class {@link
@@ -52,7 +52,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
     // Re-declares the methods that are in class MBeanAttributeInfo of JMX 1.0
     // (these will be removed when MBeanAttributeInfo is made a parent interface of this interface)
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if the attribute described by this <tt>OpenMBeanAttributeInfo</tt> instance is readable,
      * <tt>false</tt> otherwise.
      *
@@ -60,7 +60,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
      */
     public boolean isReadable() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if the attribute described by this <tt>OpenMBeanAttributeInfo</tt> instance is writable,
      * <tt>false</tt> otherwise.
      *
@@ -68,7 +68,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
      */
     public boolean isWritable() ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if the attribute described by this <tt>OpenMBeanAttributeInfo</tt> instance
      * is accessed through a <tt>is<i>XXX</i></tt> getter (applies only to <tt>boolean</tt> and <tt>Boolean</tt> values),
      * <tt>false</tt> otherwise.
@@ -81,7 +81,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
     // commodity methods
     //
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this <code>OpenMBeanAttributeInfo</code> instance for equality.
      * <p>
      * Returns <tt>true</tt> if and only if all of the following statements are true:
@@ -102,7 +102,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
      */
     public boolean equals(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>OpenMBeanAttributeInfo</code> instance.
      * <p>
      * The hash code of an <code>OpenMBeanAttributeInfo</code> instance is the sum of the hash codes
@@ -119,7 +119,7 @@ public interface OpenMBeanAttributeInfo extends OpenMBeanParameterInfo {
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>OpenMBeanAttributeInfo</code> instance.
      * <p>
      * The string representation consists of the name of this class (ie <code>javax.management.openmbean.OpenMBeanAttributeInfo</code>),

@@ -29,7 +29,7 @@ import java.awt.Insets;
 import javax.swing.JMenuBar;
 
 import javax.swing.JMenu;
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JMenuBar.
  *
  * @author Georges Saab

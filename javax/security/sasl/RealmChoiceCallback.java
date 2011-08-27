@@ -27,7 +27,7 @@ package javax.security.sasl;
 
 import javax.security.auth.callback.ChoiceCallback;
 
-/**
+/** {@collect.stats}
   * This callback is used by <tt>SaslClient</tt> and <tt>SaslServer</tt>
   * to obtain a realm given a list of realm choices.
   *
@@ -38,7 +38,7 @@ import javax.security.auth.callback.ChoiceCallback;
   */
 public class RealmChoiceCallback extends ChoiceCallback {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>RealmChoiceCallback</tt> with a prompt, a list of
      * choices and a default choice.
      *

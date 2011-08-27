@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * The TerminalFactorySpi class defines the service provider interface.
  * Applications do not access this class directly, instead see
  * {@linkplain TerminalFactory}.
@@ -81,7 +81,7 @@ import java.util.*;
  */
 public abstract class TerminalFactorySpi {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TerminalFactorySpi object.
      *
      * <p>This class is part of the service provider interface and not accessed
@@ -101,7 +101,7 @@ public abstract class TerminalFactorySpi {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the CardTerminals created by this factory.
      *
      * @return the CardTerminals created by this factory.

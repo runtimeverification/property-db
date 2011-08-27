@@ -28,7 +28,7 @@ package javax.crypto;
 import java.security.*;
 import java.security.spec.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>SecretKeyFactory</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -53,7 +53,7 @@ import java.security.spec.*;
 
 public abstract class SecretKeyFactorySpi {
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>SecretKey</code> object from the
      * provided key specification (key material).
      *
@@ -67,7 +67,7 @@ public abstract class SecretKeyFactorySpi {
     protected abstract SecretKey engineGenerateSecret(KeySpec keySpec)
         throws InvalidKeySpecException;
 
-    /**
+    /** {@collect.stats}
      * Returns a specification (key material) of the given key
      * object in the requested format.
      *
@@ -91,7 +91,7 @@ public abstract class SecretKeyFactorySpi {
     protected abstract KeySpec engineGetKeySpec(SecretKey key, Class keySpec)
         throws InvalidKeySpecException;
 
-    /**
+    /** {@collect.stats}
      * Translates a key object, whose provider may be unknown or
      * potentially untrusted, into a corresponding key object of this
      * secret-key factory.

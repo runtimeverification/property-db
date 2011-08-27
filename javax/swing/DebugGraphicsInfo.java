@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.util.*;
 
-/** Class used by DebugGraphics for maintaining information about how
+/** {@collect.stats} Class used by DebugGraphics for maintaining information about how
   * to render graphics calls.
   *
   * @author Dave Karlton

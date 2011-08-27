@@ -32,7 +32,7 @@ import javax.swing.Action;
 import javax.swing.text.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * This is the default implementation of RTF editing
  * functionality.  The RTF support was not written by the
  * Swing team.  In the future we hope to improve the support
@@ -42,14 +42,14 @@ import javax.swing.*;
  */
 public class RTFEditorKit extends StyledEditorKit {
 
-    /**
+    /** {@collect.stats}
      * Constructs an RTFEditorKit.
      */
     public RTFEditorKit() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the MIME type of the data that this
      * kit represents support for.  This kit supports
      * the type <code>text/rtf</code>.
@@ -60,7 +60,7 @@ public class RTFEditorKit extends StyledEditorKit {
         return "text/rtf";
     }
 
-    /**
+    /** {@collect.stats}
      * Insert content from the given stream which is expected
      * to be in a format appropriate for this kind of content
      * handler.
@@ -87,7 +87,7 @@ public class RTFEditorKit extends StyledEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write content from a document to the given stream
      * in a format appropriate for this kind of content handler.
      *
@@ -108,7 +108,7 @@ public class RTFEditorKit extends StyledEditorKit {
             RTFGenerator.writeDocument(doc, out);
     }
 
-    /**
+    /** {@collect.stats}
      * Insert content from the given stream, which will be
      * treated as plain text.
      *
@@ -133,7 +133,7 @@ public class RTFEditorKit extends StyledEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write content from a document to the given stream
      * as plain text.
      *

@@ -25,7 +25,7 @@
 
 package javax.sound.midi;
 
-/**
+/** {@collect.stats}
  * A <code>SysexMessage</code> object represents a MIDI system exclusive message.
  * <p>
  * When a system exclusive message is read from a MIDI file, it always has
@@ -78,14 +78,14 @@ public class SysexMessage extends MidiMessage {
     // Status byte defines
 
 
-    /**
+    /** {@collect.stats}
      * Status byte for System Exclusive message (0xF0, or 240).
      * @see MidiMessage#getStatus
      */
     public static final int SYSTEM_EXCLUSIVE                    = 0xF0; // 240
 
 
-    /**
+    /** {@collect.stats}
      * Status byte for Special System Exclusive message (0xF7, or 247), which is used
      * in MIDI files.  It has the same value as END_OF_EXCLUSIVE, which
      * is used in the real-time "MIDI wire" protocol.
@@ -105,7 +105,7 @@ public class SysexMessage extends MidiMessage {
     //protected byte[] data = null;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SysexMessage</code>. The
      * contents of the new message are guaranteed to specify
      * a valid MIDI message.  Subsequently, you may set the
@@ -121,7 +121,7 @@ public class SysexMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SysexMessage</code>.
      * @param data an array of bytes containing the complete message.
      * The message data may be changed using the <code>setMessage</code>
@@ -133,7 +133,7 @@ public class SysexMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the data for the system exclusive message.   The
      * first byte of the data array must be a valid system
      * exclusive status byte (0xF0 or 0xF7).
@@ -150,7 +150,7 @@ public class SysexMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the data for the system exclusive message.
      * @param status the status byte for the message (0xF0 or 0xF7)
      * @param data the system exclusive message data
@@ -177,7 +177,7 @@ public class SysexMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a copy of the data for the system exclusive message.
      * The returned array of bytes does not include the status byte.
      * @return array containing the system exclusive message data.
@@ -189,7 +189,7 @@ public class SysexMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object of the same class and with the same contents
      * as this object.
      * @return a clone of this instance

@@ -27,7 +27,7 @@ package java.awt;
 
 import java.awt.geom.Point2D;
 
-/**
+/** {@collect.stats}
  * A point representing a location in {@code (x,y)} coordinate space,
  * specified in integer precision.
  *
@@ -35,7 +35,7 @@ import java.awt.geom.Point2D;
  * @since       1.0
  */
 public class Point extends Point2D implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * The X coordinate of this <code>Point</code>.
      * If no X coordinate is set it will default to 0.
      *
@@ -46,7 +46,7 @@ public class Point extends Point2D implements java.io.Serializable {
      */
     public int x;
 
-    /**
+    /** {@collect.stats}
      * The Y coordinate of this <code>Point</code>.
      * If no Y coordinate is set it will default to 0.
      *
@@ -62,7 +62,7 @@ public class Point extends Point2D implements java.io.Serializable {
      */
     private static final long serialVersionUID = -5276940640259749850L;
 
-    /**
+    /** {@collect.stats}
      * Constructs and initializes a point at the origin
      * (0,&nbsp;0) of the coordinate space.
      * @since       1.1
@@ -71,7 +71,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this(0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs and initializes a point with the same location as
      * the specified <code>Point</code> object.
      * @param       p a point
@@ -81,7 +81,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this(p.x, p.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs and initializes a point at the specified
      * {@code (x,y)} location in the coordinate space.
      * @param x the X coordinate of the newly constructed <code>Point</code>
@@ -93,7 +93,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this.y = y;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -101,7 +101,7 @@ public class Point extends Point2D implements java.io.Serializable {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -109,7 +109,7 @@ public class Point extends Point2D implements java.io.Serializable {
         return y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of this point.
      * This method is included for completeness, to parallel the
      * <code>getLocation</code> method of <code>Component</code>.
@@ -123,7 +123,7 @@ public class Point extends Point2D implements java.io.Serializable {
         return new Point(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the location of the point to the specified location.
      * This method is included for completeness, to parallel the
      * <code>setLocation</code> method of <code>Component</code>.
@@ -136,7 +136,7 @@ public class Point extends Point2D implements java.io.Serializable {
         setLocation(p.x, p.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Changes the point to have the specified location.
      * <p>
      * This method is included for completeness, to parallel the
@@ -153,7 +153,7 @@ public class Point extends Point2D implements java.io.Serializable {
         move(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the location of this point to the specified double coordinates.
      * The double values will be rounded to integer values.
      * Any number smaller than <code>Integer.MIN_VALUE</code>
@@ -170,7 +170,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this.y = (int) Math.floor(y+0.5);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves this point to the specified location in the
      * {@code (x,y)} coordinate plane. This method
      * is identical with <code>setLocation(int,&nbsp;int)</code>.
@@ -183,7 +183,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this.y = y;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates this point, at location {@code (x,y)},
      * by {@code dx} along the {@code x} axis and {@code dy}
      * along the {@code y} axis so that it now represents the point
@@ -199,7 +199,7 @@ public class Point extends Point2D implements java.io.Serializable {
         this.y += dy;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not two points are equal. Two instances of
      * <code>Point2D</code> are equal if the values of their
      * <code>x</code> and <code>y</code> member fields, representing
@@ -217,7 +217,7 @@ public class Point extends Point2D implements java.io.Serializable {
         return super.equals(obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this point and its location
      * in the {@code (x,y)} coordinate space. This method is
      * intended to be used only for debugging purposes, and the content

@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * Defines the interface for an object that listens
  * to changes in a TreeModel.
  * For further information and examples see
@@ -40,7 +40,7 @@ import java.util.EventListener;
  */
 public interface TreeModelListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after a node (or a set of siblings) has changed in some
      * way. The node(s) have not changed locations in the tree or
      * altered their children arrays, but other attributes have
@@ -57,7 +57,7 @@ public interface TreeModelListener extends EventListener {
      */
     void treeNodesChanged(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been inserted into the tree.</p>
      *
      * <p>Use <code>e.getPath()</code>
@@ -68,7 +68,7 @@ public interface TreeModelListener extends EventListener {
      */
     void treeNodesInserted(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after nodes have been removed from the tree.  Note that
      * if a subtree is removed from the tree, this method may only be
      * invoked once for the root of the removed subtree, not once for
@@ -82,7 +82,7 @@ public interface TreeModelListener extends EventListener {
      */
     void treeNodesRemoved(TreeModelEvent e);
 
-    /**
+    /** {@collect.stats}
      * <p>Invoked after the tree has drastically changed structure from a
      * given node down.  If the path returned by e.getPath() is of length
      * one and the first element does not identify the current root node

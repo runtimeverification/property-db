@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving internal frame events.
  * This class is functionally equivalent to the WindowListener class
  * in the AWT.
@@ -42,44 +42,44 @@ import java.util.EventListener;
  * @author Thomas Ball
  */
 public interface InternalFrameListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked when a internal frame has been opened.
      * @see javax.swing.JInternalFrame#show
      */
     public void internalFrameOpened(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame is in the process of being closed.
      * The close operation can be overridden at this point.
      * @see javax.swing.JInternalFrame#setDefaultCloseOperation
      */
     public void internalFrameClosing(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame has been closed.
      * @see javax.swing.JInternalFrame#setClosed
      */
     public void internalFrameClosed(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame is iconified.
      * @see javax.swing.JInternalFrame#setIcon
      */
     public void internalFrameIconified(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame is de-iconified.
      * @see javax.swing.JInternalFrame#setIcon
      */
     public void internalFrameDeiconified(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame is activated.
      * @see javax.swing.JInternalFrame#setSelected
      */
     public void internalFrameActivated(InternalFrameEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when an internal frame is de-activated.
      * @see javax.swing.JInternalFrame#setSelected
      */

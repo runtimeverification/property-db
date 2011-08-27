@@ -35,7 +35,7 @@ import javax.swing.border.*;
 import javax.swing.event.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * CommentView subclasses HiddenTagView to contain a JTextArea showing
  * a comment. When the textarea is edited the comment is
  * reset. As this inherits from EditableView if the JTextComponent is
@@ -73,7 +73,7 @@ class CommentView extends HiddenTagView {
     void resetBorder() {
     }
 
-    /**
+    /** {@collect.stats}
      * This is subclassed to put the text on the Comment attribute of
      * the Element's AttributeSet.
      */

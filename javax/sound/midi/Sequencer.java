@@ -29,7 +29,7 @@ import java.io.InputStream;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * A hardware or software device that plays back a MIDI
  * <code>{@link Sequence sequence}</code> is known as a <em>sequencer</em>.
  * A MIDI sequence contains lists of time-stamped MIDI data, such as
@@ -70,7 +70,7 @@ import java.io.IOException;
 public interface Sequencer extends MidiDevice {
 
 
-    /**
+    /** {@collect.stats}
      * A value indicating that looping should continue
      * indefinitely rather than complete after a specific
      * number of loops.
@@ -82,7 +82,7 @@ public interface Sequencer extends MidiDevice {
 
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current sequence on which the sequencer operates.
      *
      * <p>This method can be called even if the
@@ -95,7 +95,7 @@ public interface Sequencer extends MidiDevice {
     public void setSequence(Sequence sequence) throws InvalidMidiDataException;
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current sequence on which the sequencer operates.
      * The stream must point to MIDI file data.
      *
@@ -110,7 +110,7 @@ public interface Sequencer extends MidiDevice {
     public void setSequence(InputStream stream) throws IOException, InvalidMidiDataException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the sequence on which the Sequencer is currently operating.
      *
      * <p>This method can be called even if the
@@ -121,7 +121,7 @@ public interface Sequencer extends MidiDevice {
     public Sequence getSequence();
 
 
-    /**
+    /** {@collect.stats}
      * Starts playback of the MIDI data in the currently
      * loaded sequence.
      * Playback will begin from the current position.
@@ -148,7 +148,7 @@ public interface Sequencer extends MidiDevice {
     public void start();
 
 
-    /**
+    /** {@collect.stats}
      * Stops recording, if active, and playback of the currently loaded sequence,
      * if any.
      *
@@ -161,7 +161,7 @@ public interface Sequencer extends MidiDevice {
     public void stop();
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the Sequencer is currently running.  The default is <code>false</code>.
      * The Sequencer starts running when either <code>{@link #start}</code> or <code>{@link #startRecording}</code>
      * is called.  <code>isRunning</code> then returns <code>true</code> until playback of the
@@ -171,7 +171,7 @@ public interface Sequencer extends MidiDevice {
     public boolean isRunning();
 
 
-    /**
+    /** {@collect.stats}
      * Starts recording and playback of MIDI data.  Data is recorded to all enabled tracks,
      * on the channel(s) for which they were enabled.  Recording begins at the current position
      * of the sequencer.   Any events already in the track are overwritten for the duration
@@ -192,7 +192,7 @@ public interface Sequencer extends MidiDevice {
     public void startRecording();
 
 
-    /**
+    /** {@collect.stats}
      * Stops recording, if active.  Playback of the current sequence continues.
      *
      * @throws IllegalStateException if the <code>Sequencer</code> is
@@ -204,7 +204,7 @@ public interface Sequencer extends MidiDevice {
     public void stopRecording();
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the Sequencer is currently recording.  The default is <code>false</code>.
      * The Sequencer begins recording when <code>{@link #startRecording}</code> is called,
      * and then returns <code>true</code> until <code>{@link #stop}</code> or <code>{@link #stopRecording}</code>
@@ -214,7 +214,7 @@ public interface Sequencer extends MidiDevice {
     public boolean isRecording();
 
 
-    /**
+    /** {@collect.stats}
      * Prepares the specified track for recording events received on a particular channel.
      * Once enabled, a track will receive events when recording is active.
      * @param track the track to which events will be recorded
@@ -226,7 +226,7 @@ public interface Sequencer extends MidiDevice {
     public void recordEnable(Track track, int channel);
 
 
-    /**
+    /** {@collect.stats}
      * Disables recording to the specified track.  Events will no longer be recorded
      * into this track.
      * @param track the track to disable for recording, or <code>null</code> to disable
@@ -235,7 +235,7 @@ public interface Sequencer extends MidiDevice {
     public void recordDisable(Track track);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current tempo, expressed in beats per minute.  The
      * actual tempo of playback is the product of the returned value
      * and the tempo factor.
@@ -249,7 +249,7 @@ public interface Sequencer extends MidiDevice {
     public float getTempoInBPM();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the tempo in beats per minute.   The actual tempo of playback
      * is the product of the specified value and the tempo factor.
      *
@@ -261,7 +261,7 @@ public interface Sequencer extends MidiDevice {
     public void setTempoInBPM(float bpm);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current tempo, expressed in microseconds per quarter
      * note.  The actual tempo of playback is the product of the returned
      * value and the tempo factor.
@@ -274,7 +274,7 @@ public interface Sequencer extends MidiDevice {
     public float getTempoInMPQ();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the tempo in microseconds per quarter note.  The actual tempo
      * of playback is the product of the specified value and the tempo
      * factor.
@@ -287,7 +287,7 @@ public interface Sequencer extends MidiDevice {
     public void setTempoInMPQ(float mpq);
 
 
-    /**
+    /** {@collect.stats}
      * Scales the sequencer's actual playback tempo by the factor provided.
      * The default is 1.0.  A value of 1.0 represents the natural rate (the
      * tempo specified in the sequence), 2.0 means twice as fast, etc.
@@ -305,7 +305,7 @@ public interface Sequencer extends MidiDevice {
     public void setTempoFactor(float factor);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current tempo factor for the sequencer.  The default is
      * 1.0.
      *
@@ -315,7 +315,7 @@ public interface Sequencer extends MidiDevice {
     public float getTempoFactor();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the current sequence, expressed in MIDI ticks,
      * or 0 if no sequence is set.
      * @return length of the sequence in ticks
@@ -323,7 +323,7 @@ public interface Sequencer extends MidiDevice {
     public long getTickLength();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current position in the sequence, expressed in MIDI
      * ticks.  (The duration of a tick in seconds is determined both by
      * the tempo and by the timing resolution stored in the
@@ -335,7 +335,7 @@ public interface Sequencer extends MidiDevice {
     public long getTickPosition();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current sequencer position in MIDI ticks
      * @param tick the desired tick position
      * @see #getTickPosition
@@ -343,7 +343,7 @@ public interface Sequencer extends MidiDevice {
     public void setTickPosition(long tick);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the current sequence, expressed in microseconds,
      * or 0 if no sequence is set.
      * @return length of the sequence in microseconds.
@@ -351,7 +351,7 @@ public interface Sequencer extends MidiDevice {
     public long getMicrosecondLength();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current position in the sequence, expressed in
      * microseconds.
      * @return the current position in microseconds
@@ -360,7 +360,7 @@ public interface Sequencer extends MidiDevice {
     public long getMicrosecondPosition();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current position in the sequence, expressed in microseconds
      * @param microseconds desired position in microseconds
      * @see #getMicrosecondPosition
@@ -368,7 +368,7 @@ public interface Sequencer extends MidiDevice {
     public void setMicrosecondPosition(long microseconds);
 
 
-    /**
+    /** {@collect.stats}
      * Sets the source of timing information used by this sequencer.
      * The sequencer synchronizes to the master, which is the internal clock,
      * MIDI clock, or MIDI time code, depending on the value of
@@ -386,7 +386,7 @@ public interface Sequencer extends MidiDevice {
     public void setMasterSyncMode(SyncMode sync);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current master synchronization mode for this sequencer.
      *
      * @return the current master synchronization mode
@@ -397,7 +397,7 @@ public interface Sequencer extends MidiDevice {
     public SyncMode getMasterSyncMode();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of master synchronization modes supported by this
      * sequencer.
      *
@@ -412,7 +412,7 @@ public interface Sequencer extends MidiDevice {
     public SyncMode[] getMasterSyncModes();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the slave synchronization mode for the sequencer.
      * This indicates the type of timing information sent by the sequencer
      * to its receiver.  The <code>sync</code> argument must be one
@@ -429,7 +429,7 @@ public interface Sequencer extends MidiDevice {
     public void setSlaveSyncMode(SyncMode sync);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current slave synchronization mode for this sequencer.
      *
      * @return the current slave synchronization mode
@@ -440,7 +440,7 @@ public interface Sequencer extends MidiDevice {
     public SyncMode getSlaveSyncMode();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of slave synchronization modes supported by the sequencer.
      *
      * @return the available slave synchronization modes
@@ -452,7 +452,7 @@ public interface Sequencer extends MidiDevice {
     public SyncMode[] getSlaveSyncModes();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the mute state for a track.  This method may fail for a number
      * of reasons.  For example, the track number specified may not be valid
      * for the current sequence, or the sequencer may not support this functionality.
@@ -468,7 +468,7 @@ public interface Sequencer extends MidiDevice {
     public void setTrackMute(int track, boolean mute);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current mute state for a track.  The default mute
      * state for all tracks which have not been muted is false.  In any
      * case where the specified track has not been muted, this method should
@@ -481,7 +481,7 @@ public interface Sequencer extends MidiDevice {
      */
     public boolean getTrackMute(int track);
 
-    /**
+    /** {@collect.stats}
      * Sets the solo state for a track.  If <code>solo</code> is <code>true</code>
      * only this track and other solo'd tracks will sound. If <code>solo</code>
      * is <code>false</code> then only other solo'd tracks will sound, unless no
@@ -502,7 +502,7 @@ public interface Sequencer extends MidiDevice {
     public void setTrackSolo(int track, boolean solo);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the current solo state for a track.  The default mute
      * state for all tracks which have not been solo'd is false.  In any
      * case where the specified track has not been solo'd, this method should
@@ -516,7 +516,7 @@ public interface Sequencer extends MidiDevice {
     public boolean getTrackSolo(int track);
 
 
-    /**
+    /** {@collect.stats}
      * Registers a meta-event listener to receive
      * notification whenever a meta-event is encountered in the sequence
      * and processed by the sequencer. This method can fail if, for
@@ -534,7 +534,7 @@ public interface Sequencer extends MidiDevice {
     public boolean addMetaEventListener(MetaEventListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * Removes the specified meta-event listener from this sequencer's
      * list of registered listeners, if in fact the listener is registered.
      *
@@ -544,7 +544,7 @@ public interface Sequencer extends MidiDevice {
     public void removeMetaEventListener(MetaEventListener listener);
 
 
-    /**
+    /** {@collect.stats}
      * Registers a controller event listener to receive notification
      * whenever the sequencer processes a control-change event of the
      * requested type or types.  The types are specified by the
@@ -576,7 +576,7 @@ public interface Sequencer extends MidiDevice {
     public int[] addControllerEventListener(ControllerEventListener listener, int[] controllers);
 
 
-    /**
+    /** {@collect.stats}
      * Removes a controller event listener's interest in one or more
      * types of controller event. The <code>controllers</code> argument
      * is an array of MIDI numbers corresponding to the  controllers for
@@ -600,7 +600,7 @@ public interface Sequencer extends MidiDevice {
     public int[] removeControllerEventListener(ControllerEventListener listener, int[] controllers);
 
 
-    /**
+    /** {@collect.stats}
      * Sets the first MIDI tick that will be
      * played in the loop. If the loop count is
      * greater than 0, playback will jump to this
@@ -632,7 +632,7 @@ public interface Sequencer extends MidiDevice {
     public void setLoopStartPoint(long tick);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the start position of the loop,
      * in MIDI ticks.
      *
@@ -644,7 +644,7 @@ public interface Sequencer extends MidiDevice {
     public long getLoopStartPoint();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the last MIDI tick that will be played in
      * the loop. If the loop count is 0, the loop end
      * point has no effect and playback continues to
@@ -677,7 +677,7 @@ public interface Sequencer extends MidiDevice {
     public void setLoopEndPoint(long tick);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the end position of the loop,
      * in MIDI ticks.
      *
@@ -690,7 +690,7 @@ public interface Sequencer extends MidiDevice {
     public long getLoopEndPoint();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the number of repetitions of the loop for
      * playback.
      * When the playback position reaches the loop end point,
@@ -732,7 +732,7 @@ public interface Sequencer extends MidiDevice {
     public void setLoopCount(int count);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of repetitions for
      * playback.
      *
@@ -745,7 +745,7 @@ public interface Sequencer extends MidiDevice {
      */
     public int getLoopCount();
 
-    /**
+    /** {@collect.stats}
      * A <code>SyncMode</code> object represents one of the ways in which
      * a MIDI sequencer's notion of time can be synchronized with a master
      * or slave device.
@@ -772,12 +772,12 @@ public interface Sequencer extends MidiDevice {
      */
     public static class SyncMode {
 
-        /**
+        /** {@collect.stats}
          * Synchronization mode name.
          */
         private String name;
 
-        /**
+        /** {@collect.stats}
          * Constructs a synchronization mode.
          * @param name name of the synchronization mode
          */
@@ -787,7 +787,7 @@ public interface Sequencer extends MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Determines whether two objects are equal.
          * Returns <code>true</code> if the objects are identical
          * @param obj the reference object with which to compare
@@ -800,7 +800,7 @@ public interface Sequencer extends MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashcode method.
          */
         public final int hashCode() {
@@ -809,7 +809,7 @@ public interface Sequencer extends MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Provides this synchronization mode's name as the string
          * representation of the mode.
          * @return the name of this synchronization mode
@@ -820,7 +820,7 @@ public interface Sequencer extends MidiDevice {
         }
 
 
-        /**
+        /** {@collect.stats}
          * A master synchronization mode that makes the sequencer get
          * its timing information from its internal clock.  This is not
          * a legal slave sync mode.
@@ -828,7 +828,7 @@ public interface Sequencer extends MidiDevice {
         public static final SyncMode INTERNAL_CLOCK             = new SyncMode("Internal Clock");
 
 
-        /**
+        /** {@collect.stats}
          * A master or slave synchronization mode that specifies the
          * use of MIDI clock
          * messages.  If this mode is used as the master sync mode,
@@ -842,7 +842,7 @@ public interface Sequencer extends MidiDevice {
         public static final SyncMode MIDI_SYNC                  = new SyncMode("MIDI Sync");
 
 
-        /**
+        /** {@collect.stats}
          * A master or slave synchronization mode that specifies the
          * use of MIDI Time Code.
          * If this mode is used as the master sync mode,
@@ -857,7 +857,7 @@ public interface Sequencer extends MidiDevice {
         public static final SyncMode MIDI_TIME_CODE             = new SyncMode("MIDI Time Code");
 
 
-        /**
+        /** {@collect.stats}
          * A slave synchronization mode indicating that no timing information
          * should be sent to the receiver.  This is not a legal master sync
          * mode.

@@ -25,7 +25,7 @@
 
 package javax.print.event;
 
-/**
+/** {@collect.stats}
  *
  * Class PrintEvent is the super class of all Print Service API events.
  */
@@ -34,7 +34,7 @@ public class PrintEvent extends java.util.EventObject {
 
     private static final long serialVersionUID = 2286914924430763847L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a PrintEvent object.
      * @param source is the source of the event
      * @throws IllegalArgumentException if <code>source</code> is
@@ -44,7 +44,7 @@ public class PrintEvent extends java.util.EventObject {
         super(source);
     }
 
-    /**
+    /** {@collect.stats}
      * @return a message describing the event
      */
     public String toString() {

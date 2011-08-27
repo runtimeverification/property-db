@@ -29,7 +29,7 @@ package javax.management.monitor;
 //
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * Exposes the remote management interface of the counter monitor MBean.
  *
  *
@@ -40,7 +40,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge.
      *
      * @return The derived gauge.
@@ -49,7 +49,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
     @Deprecated
     public Number getDerivedGauge();
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp.
      *
      * @return The derived gauge timestamp.
@@ -58,7 +58,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
     @Deprecated
     public long getDerivedGaugeTimeStamp();
 
-    /**
+    /** {@collect.stats}
      * Gets the threshold value.
      *
      * @return The threshold value.
@@ -70,7 +70,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
     @Deprecated
     public Number getThreshold();
 
-    /**
+    /** {@collect.stats}
      * Sets the threshold value.
      *
      * @see #getThreshold()
@@ -82,7 +82,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
     @Deprecated
     public void setThreshold(Number value) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge for the specified MBean.
      *
      * @param object the MBean for which the derived gauge is to be returned
@@ -92,7 +92,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public Number getDerivedGauge(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp for the specified MBean.
      *
      * @param object the MBean for which the derived gauge timestamp is to be returned
@@ -102,7 +102,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public long getDerivedGaugeTimeStamp(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the threshold value for the specified MBean.
      *
      * @param object the MBean for which the threshold value is to be returned
@@ -114,7 +114,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public Number getThreshold(ObjectName object);
 
-    /**
+    /** {@collect.stats}
      * Gets the initial threshold value common to all observed objects.
      *
      * @return The initial threshold value.
@@ -124,7 +124,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public Number getInitThreshold();
 
-    /**
+    /** {@collect.stats}
      * Sets the initial threshold value common to all observed MBeans.
      *
      * @param value The initial threshold value.
@@ -136,7 +136,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public void setInitThreshold(Number value) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the offset value.
      *
      * @see #setOffset(Number)
@@ -145,7 +145,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public Number getOffset();
 
-    /**
+    /** {@collect.stats}
      * Sets the offset value.
      *
      * @param value The offset value.
@@ -156,7 +156,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public void setOffset(Number value) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the modulus value.
      *
      * @return The modulus value.
@@ -165,7 +165,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public Number getModulus();
 
-    /**
+    /** {@collect.stats}
      * Sets the modulus value.
      *
      * @param value The modulus value.
@@ -176,7 +176,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public void setModulus(Number value) throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Gets the notification's on/off switch value.
      *
      * @return <CODE>true</CODE> if the counter monitor notifies when
@@ -186,7 +186,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public boolean getNotify();
 
-    /**
+    /** {@collect.stats}
      * Sets the notification's on/off switch value.
      *
      * @param value The notification's on/off switch value.
@@ -195,7 +195,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public void setNotify(boolean value);
 
-    /**
+    /** {@collect.stats}
      * Gets the difference mode flag value.
      *
      * @return <CODE>true</CODE> if the difference mode is used,
@@ -205,7 +205,7 @@ public interface CounterMonitorMBean extends MonitorMBean {
      */
     public boolean getDifferenceMode();
 
-    /**
+    /** {@collect.stats}
      * Sets the difference mode flag value.
      *
      * @param value The difference mode flag value.

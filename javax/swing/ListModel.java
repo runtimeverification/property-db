@@ -27,7 +27,7 @@ package javax.swing;
 
 import javax.swing.event.ListDataListener;
 
-/**
+/** {@collect.stats}
  * This interface defines the methods components like JList use
  * to get the value of each cell in a list and the length of the list.
  * Logically the model is a vector, indices vary from 0 to
@@ -40,27 +40,27 @@ import javax.swing.event.ListDataListener;
  */
 public interface ListModel
 {
-  /**
+  /** {@collect.stats}
    * Returns the length of the list.
    * @return the length of the list
    */
   int getSize();
 
-  /**
+  /** {@collect.stats}
    * Returns the value at the specified index.
    * @param index the requested index
    * @return the value at <code>index</code>
    */
   Object getElementAt(int index);
 
-  /**
+  /** {@collect.stats}
    * Adds a listener to the list that's notified each time a change
    * to the data model occurs.
    * @param l the <code>ListDataListener</code> to be added
    */
   void addListDataListener(ListDataListener l);
 
-  /**
+  /** {@collect.stats}
    * Removes a listener from the list that's notified each time a
    * change to the data model occurs.
    * @param l the <code>ListDataListener</code> to be removed

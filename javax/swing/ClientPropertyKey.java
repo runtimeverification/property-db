@@ -25,7 +25,7 @@
 
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * An enumeration for keys used as client properties within the Swing
  * implementation.
  * <p>
@@ -57,36 +57,36 @@ package javax.swing;
  */
 enum ClientPropertyKey {
 
-    /**
+    /** {@collect.stats}
      * Key used by JComponent for storing InputVerifier.
      */
     JComponent_INPUT_VERIFIER(true),
 
-    /**
+    /** {@collect.stats}
      * Key used by JComponent for storing TransferHandler.
      */
     JComponent_TRANSFER_HANDLER(true),
 
-    /**
+    /** {@collect.stats}
      * Key used by JComponent for storing AncestorNotifier.
      */
     JComponent_ANCESTOR_NOTIFIER(true),
 
-    /**
+    /** {@collect.stats}
      * Key used by PopupFactory to force heavy weight popups for a
      * component.
      */
     PopupFactory_FORCE_HEAVYWEIGHT_POPUP(true);
 
 
-    /**
+    /** {@collect.stats}
      * Whether or not a {@code NotSerializableException} should be thrown
      * during serialization, when the value associated with this key does
      * not implement {@code Serializable}.
      */
     private final boolean reportValueNotSerializable;
 
-    /**
+    /** {@collect.stats}
      * Constructs a key with the {@code reportValueNotSerializable} property
      * set to {@code false}.
      */
@@ -94,7 +94,7 @@ enum ClientPropertyKey {
         this(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a key with the {@code reportValueNotSerializable} property
      * set to the given value.
      */
@@ -102,7 +102,7 @@ enum ClientPropertyKey {
         this.reportValueNotSerializable = reportValueNotSerializable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not a {@code NotSerializableException} should be thrown
      * during serialization, when the value associated with this key does
      * not implement {@code Serializable}.

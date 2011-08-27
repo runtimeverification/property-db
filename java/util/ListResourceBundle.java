@@ -42,7 +42,7 @@ package java.util;
 
 import sun.util.ResourceBundleEnumeration;
 
-/**
+/** {@collect.stats}
  * <code>ListResourceBundle</code> is an abstract subclass of
  * <code>ResourceBundle</code> that manages resources for a locale
  * in a convenient and easy to use list. See <code>ResourceBundle</code> for
@@ -110,7 +110,7 @@ import sun.util.ResourceBundleEnumeration;
  * @since JDK1.1
  */
 public abstract class ListResourceBundle extends ResourceBundle {
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
@@ -129,7 +129,7 @@ public abstract class ListResourceBundle extends ResourceBundle {
         return lookup.get(key); // this class ignores locales
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of the keys contained in
      * this <code>ResourceBundle</code> and its parent bundles.
      *
@@ -148,7 +148,7 @@ public abstract class ListResourceBundle extends ResourceBundle {
                 (parent != null) ? parent.getKeys() : null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Set</code> of the keys contained
      * <em>only</em> in this <code>ResourceBundle</code>.
      *
@@ -164,7 +164,7 @@ public abstract class ListResourceBundle extends ResourceBundle {
         return lookup.keySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array in which each item is a pair of objects in an
      * <code>Object</code> array. The first element of each pair is
      * the key, which must be a <code>String</code>, and the second
@@ -178,7 +178,7 @@ public abstract class ListResourceBundle extends ResourceBundle {
 
     // ==================privates====================
 
-    /**
+    /** {@collect.stats}
      * We lazily load the lookup hashtable.  This function does the
      * loading.
      */

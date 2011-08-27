@@ -35,7 +35,7 @@ import javax.swing.plaf.*;
 import javax.swing.plaf.basic.BasicSeparatorUI;
 
 
-/**
+/** {@collect.stats}
  * A Metal L&F implementation of SeparatorUI.  This implementation
  * is a "combined" view/controller.
  * <p>

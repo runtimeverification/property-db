@@ -32,7 +32,7 @@ import javax.management.ObjectName;
 import static javax.management.monitor.Monitor.NumericalType.*;
 import static javax.management.monitor.MonitorNotification.*;
 
-/**
+/** {@collect.stats}
  * Defines a monitor MBean designed to observe the values of a gauge attribute.
  *
  * <P> A gauge monitor observes an attribute that is continuously
@@ -137,21 +137,21 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Gauge high threshold.
      *
      * <BR>The default value is a null Integer object.
      */
     private Number highThreshold = INTEGER_ZERO;
 
-    /**
+    /** {@collect.stats}
      * Gauge low threshold.
      *
      * <BR>The default value is a null Integer object.
      */
     private Number lowThreshold = INTEGER_ZERO;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the gauge monitor notifies when exceeding
      * the high threshold.
      *
@@ -159,7 +159,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      */
     private boolean notifyHigh = false;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the gauge monitor notifies when exceeding
      * the low threshold.
      *
@@ -167,7 +167,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      */
     private boolean notifyLow = false;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating if the gauge difference mode is used.  If the
      * gauge difference mode is used, the derived gauge is the
      * difference between two consecutive observed values.  Otherwise,
@@ -207,7 +207,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public GaugeMonitor() {
@@ -219,7 +219,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Starts the gauge monitor.
      */
     public synchronized void start() {
@@ -239,7 +239,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         doStart();
     }
 
-    /**
+    /** {@collect.stats}
      * Stops the gauge monitor.
      */
     public synchronized void stop() {
@@ -249,7 +249,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge of the specified object, if this object is
      * contained in the set of observed MBeans, or <code>null</code> otherwise.
      *
@@ -263,7 +263,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return (Number) super.getDerivedGauge(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the specified object, if
      * this object is contained in the set of observed MBeans, or
      * <code>0</code> otherwise.
@@ -279,7 +279,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return super.getDerivedGaugeTimeStamp(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the derived gauge of the first object in the set of
      * observed MBeans.
      *
@@ -297,7 +297,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the derived gauge timestamp of the first object in the set
      * of observed MBeans.
      *
@@ -315,7 +315,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the high threshold value common to all observed MBeans.
      *
      * @return The high threshold value.
@@ -326,7 +326,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return highThreshold;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the low threshold value common to all observed MBeans.
      *
      * @return The low threshold value.
@@ -337,7 +337,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return lowThreshold;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the high and the low threshold values common to all
      * observed MBeans.
      *
@@ -386,7 +386,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the high notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -399,7 +399,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return notifyHigh;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the high notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -413,7 +413,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         notifyHigh = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the low notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -426,7 +426,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return notifyLow;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the low notification's on/off switch value common to all
      * observed MBeans.
      *
@@ -440,7 +440,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         notifyLow = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the difference mode flag value common to all observed MBeans.
      *
      * @return <CODE>true</CODE> if the difference mode is used,
@@ -452,7 +452,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return differenceMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the difference mode flag value common to all observed MBeans.
      *
      * @param value The difference mode flag value.
@@ -474,7 +474,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         }
     }
 
-   /**
+   /** {@collect.stats}
      * Returns a <CODE>NotificationInfo</CODE> object containing the
      * name of the Java class of the notification and the notification
      * types sent by the gauge monitor.
@@ -490,7 +490,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Updates the derived gauge attribute of the observed object.
      *
      * @param scanGauge The value of the observed attribute.
@@ -534,7 +534,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return is_derived_gauge_valid;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the notification attribute of the observed object
      * and notifies the listeners only once if the notify flag
      * is set to <CODE>true</CODE>.
@@ -625,7 +625,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the derived gauge when the differenceMode flag is set to
      * <CODE>true</CODE>.  Both integer and floating-point types are
      * allowed.
@@ -672,7 +672,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         o.setDerivedGauge(der);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the first specified Number is greater than or equal to
      * the last.  Both integer and floating-point types are allowed.
      *
@@ -705,7 +705,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the first specified Number is strictly greater than the last.
      * Both integer and floating-point types are allowed.
      *
@@ -746,7 +746,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Factory method for ObservedObject creation.
      *
      * @since 1.6
@@ -760,7 +760,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return gmo;
     }
 
-    /**
+    /** {@collect.stats}
      * This method globally sets the derived gauge type for the given
      * "object" and "attribute" after checking that the type of the
      * supplied observed attribute value is one of the value types
@@ -852,7 +852,7 @@ public class GaugeMonitor extends Monitor implements GaugeMonitorMBean {
         return alarm;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if the threshold high and threshold low are both of the
      * same type as the gauge.  Both integer and floating-point types
      * are allowed.

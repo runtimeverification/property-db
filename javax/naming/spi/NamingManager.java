@@ -35,7 +35,7 @@ import com.sun.naming.internal.VersionHelper;
 import com.sun.naming.internal.ResourceManager;
 import com.sun.naming.internal.FactoryEnumeration;
 
-/**
+/** {@collect.stats}
  * This class contains methods for creating context objects
  * and objects referred to by location information in the naming
  * or directory service.
@@ -75,12 +75,12 @@ public class NamingManager {
 
 // --------- object factory stuff
 
-    /**
+    /** {@collect.stats}
      * Package-private; used by DirectoryManager and NamingManager.
      */
     private static ObjectFactoryBuilder object_factory_builder = null;
 
-    /**
+    /** {@collect.stats}
      * The ObjectFactoryBuilder determines the policy used when
      * trying to load object factories.
      * See getObjectInstance() and class ObjectFactory for a description
@@ -117,7 +117,7 @@ public class NamingManager {
         object_factory_builder = builder;
     }
 
-    /**
+    /** {@collect.stats}
      * Used for accessing object factory builder.
      */
     static synchronized ObjectFactoryBuilder getObjectFactoryBuilder() {
@@ -125,7 +125,7 @@ public class NamingManager {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the ObjectFactory for the object identified by a reference,
      * using the reference's factory class name and factory codebase
      * to load in the factory's class.
@@ -164,7 +164,7 @@ public class NamingManager {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates an object using the factories specified in the
      * <tt>Context.OBJECT_FACTORIES</tt> property of the environment
      * or of the provider resource file associated with <tt>nameCtx</tt>.
@@ -199,7 +199,7 @@ public class NamingManager {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of an object for the specified object
      * and environment.
      * <p>
@@ -405,7 +405,7 @@ public class NamingManager {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves a context identified by <code>obj</code>, using the specified
      * environment.
      * Used by ContinuationContext.
@@ -476,9 +476,9 @@ public class NamingManager {
     }
 
 
-    /***************** URL Context implementations ***************/
+    /** {@collect.stats}*************** URL Context implementations ***************/
 
-    /**
+    /** {@collect.stats}
      * Creates a context for the given URL scheme id.
      * <p>
      * The resulting context is for resolving URLs of the
@@ -557,7 +557,7 @@ public class NamingManager {
 
     private static final String defaultPkgPrefix = "com.sun.jndi.url";
 
-    /**
+    /** {@collect.stats}
      * Creates an object for the given URL scheme id using
      * the supplied urlInfo.
      * <p>
@@ -613,7 +613,7 @@ public class NamingManager {
 // ------------ Initial Context Factory Stuff
     private static InitialContextFactoryBuilder initctx_factory_builder = null;
 
-    /**
+    /** {@collect.stats}
      * Use this method for accessing initctx_factory_builder while
      * inside an unsynchronized method.
      */
@@ -622,7 +622,7 @@ public class NamingManager {
         return initctx_factory_builder;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an initial context using the specified environment
      * properties.
      *<p>
@@ -685,7 +685,7 @@ public class NamingManager {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the InitialContextFactory builder to be builder.
      *
      *<p>
@@ -716,7 +716,7 @@ public class NamingManager {
             initctx_factory_builder = builder;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether an initial context factory builder has
      * been set.
      * @return true if an initial context factory builder has
@@ -729,7 +729,7 @@ public class NamingManager {
 
 // -----  Continuation Context Stuff
 
-    /**
+    /** {@collect.stats}
      * Constant that holds the name of the environment property into
      * which <tt>getContinuationContext()</tt> stores the value of its
      * <tt>CannotProceedException</tt> parameter.
@@ -744,7 +744,7 @@ public class NamingManager {
      */
     public static final String CPE = "java.naming.spi.CannotProceedException";
 
-    /**
+    /** {@collect.stats}
      * Creates a context in which to continue a context operation.
      *<p>
      * In performing an operation on a name that spans multiple
@@ -789,7 +789,7 @@ public class NamingManager {
 
 // ------------ State Factory Stuff
 
-    /**
+    /** {@collect.stats}
      * Retrieves the state of an object for binding.
      * <p>
      * Service providers that implement the <tt>DirContext</tt> interface

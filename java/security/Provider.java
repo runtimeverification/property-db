@@ -34,7 +34,7 @@ import java.lang.reflect.*;
 import java.security.cert.CertStoreParameters;
 import javax.security.auth.login.Configuration;
 
-/**
+/** {@collect.stats}
  * This class represents a "provider" for the
  * Java Security API, where a provider implements some or all parts of
  * Java Security. Services that a provider may implement include:
@@ -93,21 +93,21 @@ public abstract class Provider extends Properties {
         sun.security.util.Debug.getInstance
         ("provider", "Provider");
 
-    /**
+    /** {@collect.stats}
      * The provider name.
      *
      * @serial
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * A description of the provider and its services.
      *
      * @serial
      */
     private String info;
 
-    /**
+    /** {@collect.stats}
      * The provider version number.
      *
      * @serial
@@ -120,7 +120,7 @@ public abstract class Provider extends Properties {
 
     private transient boolean initialized;
 
-    /**
+    /** {@collect.stats}
      * Constructs a provider with the specified name, version number,
      * and information.
      *
@@ -138,7 +138,7 @@ public abstract class Provider extends Properties {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this provider.
      *
      * @return the name of this provider.
@@ -147,7 +147,7 @@ public abstract class Provider extends Properties {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the version number for this provider.
      *
      * @return the version number for this provider.
@@ -156,7 +156,7 @@ public abstract class Provider extends Properties {
         return version;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a human-readable description of the provider and its
      * services.  This may return an HTML page, with relevant links.
      *
@@ -166,7 +166,7 @@ public abstract class Provider extends Properties {
         return info;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string with the name and the version number
      * of this provider.
      *
@@ -183,7 +183,7 @@ public abstract class Provider extends Properties {
      * permissions.
      */
 
-    /**
+    /** {@collect.stats}
      * Clears this provider so that it no longer contains the properties
      * used to look up facilities implemented by the provider.
      *
@@ -212,7 +212,7 @@ public abstract class Provider extends Properties {
         implClear();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a property list (key and element pairs) from the input stream.
      *
      * @param inStream   the input stream.
@@ -230,7 +230,7 @@ public abstract class Provider extends Properties {
         implPutAll(tempProperties);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified Map to this provider.
      * These mappings will replace any properties that this provider had
      * for any of the keys currently in the specified Map.
@@ -245,7 +245,7 @@ public abstract class Provider extends Properties {
         implPutAll(t);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Set view of the property entries contained
      * in this Provider.
      *
@@ -272,7 +272,7 @@ public abstract class Provider extends Properties {
         return entrySet;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Set view of the property keys contained in
      * this provider.
      *
@@ -283,7 +283,7 @@ public abstract class Provider extends Properties {
         return Collections.unmodifiableSet(super.keySet());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Collection view of the property values
      * contained in this provider.
      *
@@ -294,7 +294,7 @@ public abstract class Provider extends Properties {
         return Collections.unmodifiableCollection(super.values());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>key</code> property to have the specified
      * <code>value</code>.
      *
@@ -331,7 +331,7 @@ public abstract class Provider extends Properties {
         return implPut(key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>key</code> property (and its corresponding
      * <code>value</code>).
      *
@@ -448,7 +448,7 @@ public abstract class Provider extends Properties {
         putAll(copy);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified Map to this provider.
      * Internal method to be called AFTER the security check has been
      * performed.
@@ -536,7 +536,7 @@ public abstract class Provider extends Properties {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Ensure all the legacy String properties are fully parsed into
      * service objects.
      */
@@ -557,7 +557,7 @@ public abstract class Provider extends Properties {
         legacyChanged = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Remove all invalid services from the Map. Invalid services can only
      * occur if the legacy properties are inconsistent or incomplete.
      */
@@ -656,7 +656,7 @@ public abstract class Provider extends Properties {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the service describing this Provider's implementation of the
      * specified type of this algorithm or alias. If no such
      * implementation exists, this method returns null. If there are two
@@ -703,7 +703,7 @@ public abstract class Provider extends Properties {
     private static volatile ServiceKey previousKey =
                                             new ServiceKey("", "", false);
 
-    /**
+    /** {@collect.stats}
      * Get an unmodifiable Set of all services supported by
      * this Provider.
      *
@@ -732,7 +732,7 @@ public abstract class Provider extends Properties {
         return serviceSet;
     }
 
-    /**
+    /** {@collect.stats}
      * Add a service. If a service of the same type with the same algorithm
      * name exists and it was added using {@link #putService putService()},
      * it is replaced by the new service.
@@ -789,7 +789,7 @@ public abstract class Provider extends Properties {
         putPropertyStrings(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Put the string properties for this Service in this Provider's
      * Hashtable.
      */
@@ -807,7 +807,7 @@ public abstract class Provider extends Properties {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove the string properties for this Service from this Provider's
      * Hashtable.
      */
@@ -825,7 +825,7 @@ public abstract class Provider extends Properties {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Remove a service previously added using
      * {@link #putService putService()}. The specified service is removed from
      * this provider. It will no longer be returned by
@@ -1003,7 +1003,7 @@ public abstract class Provider extends Properties {
         return (e == null) ? s : e.name;
     }
 
-    /**
+    /** {@collect.stats}
      * The description of a security service. It encapsulates the properties
      * of a service and contains a factory method to obtain new implementation
      * instances of this service.
@@ -1084,7 +1084,7 @@ public abstract class Provider extends Properties {
             attributes.put(new UString(type), value);
         }
 
-        /**
+        /** {@collect.stats}
          * Construct a new service.
          *
          * @param provider the provider that offers this service
@@ -1124,7 +1124,7 @@ public abstract class Provider extends Properties {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the type of this service. For example, <code>MessageDigest</code>.
          *
          * @return the type of this service
@@ -1133,7 +1133,7 @@ public abstract class Provider extends Properties {
             return type;
         }
 
-        /**
+        /** {@collect.stats}
          * Return the name of the algorithm of this service. For example,
          * <code>SHA-1</code>.
          *
@@ -1143,7 +1143,7 @@ public abstract class Provider extends Properties {
             return algorithm;
         }
 
-        /**
+        /** {@collect.stats}
          * Return the Provider of this service.
          *
          * @return the Provider of this service
@@ -1152,7 +1152,7 @@ public abstract class Provider extends Properties {
             return provider;
         }
 
-        /**
+        /** {@collect.stats}
          * Return the name of the class implementing this service.
          *
          * @return the name of the class implementing this service
@@ -1166,7 +1166,7 @@ public abstract class Provider extends Properties {
             return aliases;
         }
 
-        /**
+        /** {@collect.stats}
          * Return the value of the specified attribute or null if this
          * attribute is not set for this Service.
          *
@@ -1184,7 +1184,7 @@ public abstract class Provider extends Properties {
             return attributes.get(new UString(name));
         }
 
-        /**
+        /** {@collect.stats}
          * Return a new instance of the implementation described by this
          * service. The security provider framework uses this method to
          * construct implementations. Applications will typically not need
@@ -1288,7 +1288,7 @@ public abstract class Provider extends Properties {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Generic code path for unknown engine types. Call the
          * no-args constructor if constructorParameter is null, otherwise
          * use the first matching constructor.
@@ -1320,7 +1320,7 @@ public abstract class Provider extends Properties {
                 + argClass.getName() + " found in class " + className);
         }
 
-        /**
+        /** {@collect.stats}
          * Test whether this Service can use the specified parameter.
          * Returns false if this service cannot use the parameter. Returns
          * true if this service can use the parameter, if a fast test is
@@ -1378,7 +1378,7 @@ public abstract class Provider extends Properties {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Return whether this service has its Supported* properties for
          * keys defined. Parses the attributes if not yet initialized.
          */
@@ -1460,7 +1460,7 @@ public abstract class Provider extends Properties {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Return a String representation of this service.
          *
          * @return a String representation of this service.

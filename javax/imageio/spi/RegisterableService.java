@@ -25,7 +25,7 @@
 
 package javax.imageio.spi;
 
-/**
+/** {@collect.stats}
  * An optional interface that may be provided by service provider
  * objects that will be registered with a
  * <code>ServiceRegistry</code>.  If this interface is present,
@@ -36,7 +36,7 @@ package javax.imageio.spi;
  */
 public interface RegisterableService {
 
-    /**
+    /** {@collect.stats}
      * Called when an object implementing this interface is added to
      * the given <code>category</code> of the given
      * <code>registry</code>.  The object may already be registered
@@ -49,7 +49,7 @@ public interface RegisterableService {
      */
     void onRegistration(ServiceRegistry registry, Class<?> category);
 
-    /**
+    /** {@collect.stats}
      * Called when an object implementing this interface is removed
      * from the given <code>category</code> of the given
      * <code>registry</code>.  The object may still be registered

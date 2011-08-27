@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 
-/**
+/** {@collect.stats}
  * This class is used for parsing URLs.
  *
  * @since 1.5
@@ -53,12 +53,12 @@ class MLetParser {
   * ------------------------------------------
   */
 
-    /**
+    /** {@collect.stats}
      * The current character
      */
     private int c;
 
-    /**
+    /** {@collect.stats}
      * Tag to parse.
      */
     private static String tag = "mlet";
@@ -70,7 +70,7 @@ class MLetParser {
   * ------------------------------------------
   */
 
-    /**
+    /** {@collect.stats}
      * Create an MLet parser object
      */
     public MLetParser() {
@@ -82,7 +82,7 @@ class MLetParser {
      * ------------------------------------------
      */
 
-    /**
+    /** {@collect.stats}
      * Scan spaces.
      */
     public void skipSpace(Reader in) throws IOException {
@@ -91,7 +91,7 @@ class MLetParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Scan identifier
      */
     public String scanIdentifier(Reader in) throws IOException {
@@ -108,7 +108,7 @@ class MLetParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Scan tag
      */
     public Map<String,String> scanTag(Reader in) throws IOException {
@@ -148,7 +148,7 @@ class MLetParser {
         return atts;
     }
 
-    /**
+    /** {@collect.stats}
      * Scan an html file for <mlet> tags
      */
     public List<MLetContent> parse(URL url) throws IOException {
@@ -259,7 +259,7 @@ class MLetParser {
         return mlets;
     }
 
-    /**
+    /** {@collect.stats}
      * Parse the document pointed by the URL urlname
      */
     public List<MLetContent> parseURL(String urlname) throws IOException {

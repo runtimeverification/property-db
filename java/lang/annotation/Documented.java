@@ -25,7 +25,7 @@
 
 package java.lang.annotation;
 
-/**
+/** {@collect.stats}
  * Indicates that annotations with a type are to be documented by javadoc
  * and similar tools by default.  This type should be used to annotate the
  * declarations of types whose annotations affect the use of annotated

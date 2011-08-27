@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 
-/**
+/** {@collect.stats}
  * A channel that can write bytes from a sequence of buffers.
  *
  * <p> A <i>gathering</i> write operation writes, in a single invocation, a
@@ -50,7 +50,7 @@ public interface GatheringByteChannel
     extends WritableByteChannel
 {
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of bytes to this channel from a subsequence of the
      * given buffers.
      *
@@ -128,7 +128,7 @@ public interface GatheringByteChannel
         throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of bytes to this channel from the given buffers.
      *
      * <p> An invocation of this method of the form <tt>c.write(srcs)</tt>

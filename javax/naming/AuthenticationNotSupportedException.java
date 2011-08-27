@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when
   * the particular flavor of authentication requested is not supported.
   * For example, if the program
@@ -53,7 +53,7 @@ package javax.naming;
   */
 
 public class AuthenticationNotSupportedException extends NamingSecurityException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of AuthenticationNotSupportedException using
      * an explanation. All other fields default to null.
      *
@@ -65,7 +65,7 @@ public class AuthenticationNotSupportedException extends NamingSecurityException
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of AuthenticationNotSupportedException
       * all name resolution fields and explanation initialized to null.
       */
@@ -73,7 +73,7 @@ public class AuthenticationNotSupportedException extends NamingSecurityException
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -7149033933259492300L;

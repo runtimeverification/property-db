@@ -27,7 +27,7 @@ package java.util;
 
 import java.lang.*;
 
-/**
+/** {@collect.stats}
  * The string tokenizer class allows an application to break a
  * string into tokens. The tokenization method is much simpler than
  * the one used by the <code>StreamTokenizer</code> class. The
@@ -109,7 +109,7 @@ class StringTokenizer implements Enumeration<Object> {
     private boolean retDelims;
     private boolean delimsChanged;
 
-    /**
+    /** {@collect.stats}
      * maxDelimCodePoint stores the value of the delimiter character with the
      * highest value. It is used to optimize the detection of delimiter
      * characters.
@@ -121,7 +121,7 @@ class StringTokenizer implements Enumeration<Object> {
      */
     private int maxDelimCodePoint;
 
-    /**
+    /** {@collect.stats}
      * If delimiters include any surrogates (including surrogate
      * pairs), hasSurrogates is true and the tokenizer uses the
      * different code path. This is because String.indexOf(int)
@@ -129,14 +129,14 @@ class StringTokenizer implements Enumeration<Object> {
      */
     private boolean hasSurrogates = false;
 
-    /**
+    /** {@collect.stats}
      * When hasSurrogates is true, delimiters are converted to code
      * points and isDelimiter(int) is used to determine if the given
      * codepoint is a delimiter.
      */
     private int[] delimiterCodePoints;
 
-    /**
+    /** {@collect.stats}
      * Set maxDelimCodePoint to the highest char in the delimiter set.
      */
     private void setMaxDelimCodePoint() {
@@ -169,7 +169,7 @@ class StringTokenizer implements Enumeration<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a string tokenizer for the specified string. All
      * characters in the <code>delim</code> argument are the delimiters
      * for separating tokens.
@@ -202,7 +202,7 @@ class StringTokenizer implements Enumeration<Object> {
         setMaxDelimCodePoint();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a string tokenizer for the specified string. The
      * characters in the <code>delim</code> argument are the delimiters
      * for separating tokens. Delimiter characters themselves will not
@@ -221,7 +221,7 @@ class StringTokenizer implements Enumeration<Object> {
         this(str, delim, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a string tokenizer for the specified string. The
      * tokenizer uses the default delimiter set, which is
      * <code>"&nbsp;&#92;t&#92;n&#92;r&#92;f"</code>: the space character,
@@ -236,7 +236,7 @@ class StringTokenizer implements Enumeration<Object> {
         this(str, " \t\n\r\f", false);
     }
 
-    /**
+    /** {@collect.stats}
      * Skips delimiters starting from the specified position. If retDelims
      * is false, returns the index of the first non-delimiter character at or
      * after startPos. If retDelims is true, startPos is returned.
@@ -263,7 +263,7 @@ class StringTokenizer implements Enumeration<Object> {
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * Skips ahead from startPos and returns the index of the next delimiter
      * character encountered, or maxPosition if no such delimiter is found.
      */
@@ -305,7 +305,7 @@ class StringTokenizer implements Enumeration<Object> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if there are more tokens available from this tokenizer's string.
      * If this method returns <tt>true</tt>, then a subsequent call to
      * <tt>nextToken</tt> with no argument will successfully return a token.
@@ -324,7 +324,7 @@ class StringTokenizer implements Enumeration<Object> {
         return (newPosition < maxPosition);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next token from this string tokenizer.
      *
      * @return     the next token from this string tokenizer.
@@ -352,7 +352,7 @@ class StringTokenizer implements Enumeration<Object> {
         return str.substring(start, currentPosition);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next token in this string tokenizer's string. First,
      * the set of characters considered to be delimiters by this
      * <tt>StringTokenizer</tt> object is changed to be the characters in
@@ -377,7 +377,7 @@ class StringTokenizer implements Enumeration<Object> {
         return nextToken();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the same value as the <code>hasMoreTokens</code>
      * method. It exists so that this class can implement the
      * <code>Enumeration</code> interface.
@@ -391,7 +391,7 @@ class StringTokenizer implements Enumeration<Object> {
         return hasMoreTokens();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the same value as the <code>nextToken</code> method,
      * except that its declared return value is <code>Object</code> rather than
      * <code>String</code>. It exists so that this class can implement the
@@ -407,7 +407,7 @@ class StringTokenizer implements Enumeration<Object> {
         return nextToken();
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the number of times that this tokenizer's
      * <code>nextToken</code> method can be called before it generates an
      * exception. The current position is not advanced.

@@ -35,7 +35,7 @@ import javax.swing.text.*;
 import javax.swing.event.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * A text component that can be marked up with attributes that are
  * represented graphically.
  * You can find how-to information and examples of using text panes in
@@ -81,7 +81,7 @@ import javax.swing.plaf.*;
  */
 public class JTextPane extends JEditorPane {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JTextPane</code>.  A new instance of
      * <code>StyledEditorKit</code> is
      * created and set, and the document model set to <code>null</code>.
@@ -98,7 +98,7 @@ public class JTextPane extends JEditorPane {
         setEditorKit(editorKit);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JTextPane</code>, with a specified document model.
      * A new instance of <code>javax.swing.text.StyledEditorKit</code>
      *  is created and set.
@@ -110,7 +110,7 @@ public class JTextPane extends JEditorPane {
         setStyledDocument(doc);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the class ID for the UI.
      *
      * @return the string "TextPaneUI"
@@ -122,7 +122,7 @@ public class JTextPane extends JEditorPane {
         return uiClassID;
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the editor with a text document.  This
      * must be a <code>StyledDocument</code>.
      *
@@ -139,7 +139,7 @@ public class JTextPane extends JEditorPane {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Associates the editor with a text document.
      * The currently registered factory is used to build a view for
      * the document, which gets displayed by the editor.
@@ -150,7 +150,7 @@ public class JTextPane extends JEditorPane {
         super.setDocument(doc);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the model associated with the editor.
      *
      * @return the model
@@ -159,7 +159,7 @@ public class JTextPane extends JEditorPane {
         return (StyledDocument) getDocument();
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the currently selected content with new content
      * represented by the given string.  If there is no selection
      * this amounts to an insert of the given text.  If there
@@ -208,7 +208,7 @@ public class JTextPane extends JEditorPane {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a component into the document as a replacement
      * for the currently selected content.  If there is no
      * selection the component is effectively inserted at the
@@ -245,7 +245,7 @@ public class JTextPane extends JEditorPane {
         inputAttributes.removeAttributes(inputAttributes);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts an icon into the document as a replacement
      * for the currently selected content.  If there is no
      * selection the icon is effectively inserted at the
@@ -269,7 +269,7 @@ public class JTextPane extends JEditorPane {
         inputAttributes.removeAttributes(inputAttributes);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new style into the logical style hierarchy.  Style attributes
      * resolve from bottom up so an attribute specified in a child
      * will override an attribute specified in the parent.
@@ -291,7 +291,7 @@ public class JTextPane extends JEditorPane {
         return doc.addStyle(nm, parent);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a named non-<code>null</code> style previously added to
      * the document.
      *
@@ -302,7 +302,7 @@ public class JTextPane extends JEditorPane {
         doc.removeStyle(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a named non-<code>null</code> style previously added.
      *
      * @param nm  the name of the style
@@ -313,7 +313,7 @@ public class JTextPane extends JEditorPane {
         return doc.getStyle(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the logical style to use for the paragraph at the
      * current caret position.  If attributes aren't explicitly set
      * for character and paragraph attributes they will resolve
@@ -334,7 +334,7 @@ public class JTextPane extends JEditorPane {
         doc.setLogicalStyle(getCaretPosition(), s);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the logical style assigned to the paragraph represented
      * by the current position of the caret, or <code>null</code>.
      *
@@ -345,7 +345,7 @@ public class JTextPane extends JEditorPane {
         return doc.getLogicalStyle(getCaretPosition());
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the character attributes in effect at the
      * current location of the caret, or <code>null</code>.
      *
@@ -360,7 +360,7 @@ public class JTextPane extends JEditorPane {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the given attributes to character
      * content.  If there is a selection, the attributes
      * are applied to the selection range.  If there
@@ -391,7 +391,7 @@ public class JTextPane extends JEditorPane {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current paragraph attributes in effect
      * at the location of the caret, or <code>null</code> if none.
      *
@@ -406,7 +406,7 @@ public class JTextPane extends JEditorPane {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the given attributes to paragraphs.  If
      * there is a selection, the attributes are applied
      * to the paragraphs that intersect the selection.
@@ -428,7 +428,7 @@ public class JTextPane extends JEditorPane {
         doc.setParagraphAttributes(p0, p1 - p0, attr, replace);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input attributes for the pane.
      *
      * @return the attributes
@@ -437,7 +437,7 @@ public class JTextPane extends JEditorPane {
         return getStyledEditorKit().getInputAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the editor kit.
      *
      * @return the editor kit
@@ -446,14 +446,14 @@ public class JTextPane extends JEditorPane {
         return (StyledEditorKit) getEditorKit();
     }
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "TextPaneUI";
 
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -474,7 +474,7 @@ public class JTextPane extends JEditorPane {
 
     // --- JEditorPane ------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Creates the <code>EditorKit</code> to use by default.  This
      * is implemented to return <code>javax.swing.text.StyledEditorKit</code>.
      *
@@ -484,7 +484,7 @@ public class JTextPane extends JEditorPane {
         return new StyledEditorKit();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the currently installed kit for handling
      * content.  This is the bound property that
      * establishes the content type of the editor.
@@ -501,7 +501,7 @@ public class JTextPane extends JEditorPane {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JTextPane</code>.
      * This method
      * is intended to be used only for debugging purposes, and the

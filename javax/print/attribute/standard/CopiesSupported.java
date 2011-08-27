@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.SetOfIntegerSyntax;
 import javax.print.attribute.SupportedValuesAttribute;
 
-/**
+/** {@collect.stats}
  * Class CopiesSupported is a printing attribute class, a set of integers, that
  * gives the supported values for a {@link Copies Copies} attribute. It is
  * restricted to a single contiguous range of integers; multiple non-overlapping
@@ -49,7 +49,7 @@ public final class CopiesSupported extends SetOfIntegerSyntax
 
     private static final long serialVersionUID = 6927711687034846001L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new copies supported attribute containing a single integer.
      * That is, only the one value of Copies is supported.
      *
@@ -65,7 +65,7 @@ public final class CopiesSupported extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new copies supported attribute containing a single range of
      * integers. That is, only those values of Copies in the one range are
      * supported.
@@ -88,7 +88,7 @@ public final class CopiesSupported extends SetOfIntegerSyntax
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this copies supported attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions must
      * be true:
@@ -111,7 +111,7 @@ public final class CopiesSupported extends SetOfIntegerSyntax
         return super.equals (object) && object instanceof CopiesSupported;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -125,7 +125,7 @@ public final class CopiesSupported extends SetOfIntegerSyntax
         return CopiesSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

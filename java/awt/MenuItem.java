@@ -33,7 +33,7 @@ import java.io.IOException;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * All items in a menu must belong to the class
  * <code>MenuItem</code>, or one of its subclasses.
  * <p>
@@ -78,7 +78,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A value to indicate whether a menu item is enabled
      * or not.  If it is enabled, <code>enabled</code> will
      * be set to true.  Else <code>enabled</code> will
@@ -90,7 +90,7 @@ public class MenuItem extends MenuComponent implements Accessible {
      */
     boolean enabled = true;
 
-    /**
+    /** {@collect.stats}
      * <code>label</code> is the label of a menu item.
      * It can be any string.
      *
@@ -100,7 +100,7 @@ public class MenuItem extends MenuComponent implements Accessible {
      */
     String label;
 
-    /**
+    /** {@collect.stats}
      * This field indicates the command tha has been issued
      * by a  particular menu item.
      * By default the <code>actionCommand</code>
@@ -113,7 +113,7 @@ public class MenuItem extends MenuComponent implements Accessible {
      */
     String actionCommand;
 
-    /**
+    /** {@collect.stats}
      * The eventMask is ONLY set by subclasses via enableEvents.
      * The mask should NOT be set when listeners are registered
      * so that we can distinguish the difference between when
@@ -125,7 +125,7 @@ public class MenuItem extends MenuComponent implements Accessible {
 
     transient ActionListener actionListener;
 
-    /**
+    /** {@collect.stats}
      * A sequence of key stokes that ia associated with
      * a menu item.
      * Note :in 1.1.2 you must use setActionCommand()
@@ -147,7 +147,7 @@ public class MenuItem extends MenuComponent implements Accessible {
      */
     private static final long serialVersionUID = -21757335363267194L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new MenuItem with an empty label and no keyboard
      * shortcut.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -159,7 +159,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         this("", null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new MenuItem with the specified label
      * and no keyboard shortcut. Note that use of "-" in
      * a label is reserved to indicate a separator between
@@ -175,7 +175,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         this(label, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a menu item with an associated keyboard shortcut.
      * Note that use of "-" in a label is reserved to indicate
      * a separator between menu items. By default, all menu
@@ -193,7 +193,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         this.shortcut = s;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this MenuComponent.  Called by getName() when
      * the name is null.
      */
@@ -203,7 +203,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the menu item's peer.  The peer allows us to modify the
      * appearance of the menu item without changing its functionality.
      */
@@ -214,7 +214,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the label for this menu item.
      * @return  the label of this menu item, or <code>null</code>
                        if this menu item has no label.
@@ -225,7 +225,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return label;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the label for this menu item to the specified label.
      * @param     label   the new label, or <code>null</code> for no label.
      * @see       java.awt.MenuItem#getLabel
@@ -239,7 +239,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether this menu item is enabled.
      * @see        java.awt.MenuItem#setEnabled
      * @since      JDK1.0
@@ -248,7 +248,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not this menu item can be chosen.
      * @param      b  if <code>true</code>, enables this menu item;
      *                       if <code>false</code>, disables it.
@@ -259,7 +259,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         enable(b);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -272,7 +272,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -285,7 +285,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>setEnabled(boolean)</code>.
      */
@@ -298,7 +298,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>MenuShortcut</code> object associated with this
      * menu item,
      * @return      the menu shortcut associated with this menu item,
@@ -310,7 +310,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return shortcut;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the <code>MenuShortcut</code> object associated with this
      * menu item. If a menu shortcut is already associated with
      * this menu item, it is replaced.
@@ -327,7 +327,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Delete any <code>MenuShortcut</code> object associated
      * with this menu item.
      * @since      JDK1.1
@@ -416,7 +416,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return (s.equals(shortcut)) ? this : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables event delivery to this menu item for events
      * to be defined by the specified event mask parameter
      * <p>
@@ -437,7 +437,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Disables event delivery to this menu item for events
      * defined by the specified event mask parameter.
      *
@@ -451,7 +451,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         eventMask &= ~eventsToDisable;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the command name of the action event that is fired
      * by this menu item.
      * <p>
@@ -466,7 +466,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         actionCommand = command;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the command name of the action event that is fired
      * by this menu item.
      * @see         java.awt.MenuItem#setActionCommand
@@ -481,7 +481,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return (actionCommand == null? label : actionCommand);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified action listener to receive action events
      * from this menu item.
      * If l is null, no exception is thrown and no action is performed.
@@ -503,7 +503,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified action listener so it no longer receives
      * action events from this menu item.
      * If l is null, no exception is thrown and no action is performed.
@@ -524,7 +524,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         actionListener = AWTEventMulticaster.remove(actionListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the action listeners
      * registered on this menu item.
      *
@@ -542,7 +542,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return (ActionListener[])(getListeners(ActionListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>MenuItem</code>.
@@ -583,7 +583,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return AWTEventMulticaster.getListeners(l, listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes events on this menu item. If the event is an
      * instance of <code>ActionEvent</code>, it invokes
      * <code>processActionEvent</code>, another method
@@ -616,7 +616,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return super.eventEnabled(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes action events occurring on this menu item,
      * by dispatching them to any registered
      * <code>ActionListener</code> objects.
@@ -645,7 +645,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this <code>MenuItem</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -666,14 +666,14 @@ public class MenuItem extends MenuComponent implements Accessible {
     /* Serialization support.
      */
 
-    /**
+    /** {@collect.stats}
      * Menu item serialized data version.
      *
      * @serial
      */
     private int menuItemSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * a list of serializable <code>ActionListeners</code>
      * as optional data. The non-serializable listeners are
@@ -699,7 +699,7 @@ public class MenuItem extends MenuComponent implements Accessible {
       s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code> and if it
      * isn't <code>null</code> adds a listener to receive
      * action events fired by the <code>Menu</code> Item.
@@ -731,7 +731,7 @@ public class MenuItem extends MenuComponent implements Accessible {
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -741,7 +741,7 @@ public class MenuItem extends MenuComponent implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this MenuItem.
      * For menu items, the AccessibleContext takes the form of an
      * AccessibleAWTMenuItem.
@@ -758,7 +758,7 @@ public class MenuItem extends MenuComponent implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class of MenuItem used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -777,7 +777,7 @@ public class MenuItem extends MenuComponent implements Accessible {
          */
         private static final long serialVersionUID = -217847831945965825L;
 
-        /**
+        /** {@collect.stats}
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -795,7 +795,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -805,7 +805,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return AccessibleRole.MENU_ITEM;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleAction associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -817,7 +817,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleValue associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -829,7 +829,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of Actions available in this object.  The
          * default behavior of a menu item is to have one action.
          *
@@ -839,7 +839,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Return a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -853,7 +853,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Perform the specified Action on the object
          *
          * @param i zero-based index of actions
@@ -874,7 +874,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the value of this object as a Number.
          *
          * @return An Integer of 0 if this isn't selected or an Integer of 1 if
@@ -885,7 +885,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return Integer.valueOf(0);
         }
 
-        /**
+        /** {@collect.stats}
          * Set the value of this object as a Number.
          *
          * @return True if the value was set.
@@ -894,7 +894,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the minimum value of this object as a Number.
          *
          * @return An Integer of 0.
@@ -903,7 +903,7 @@ public class MenuItem extends MenuComponent implements Accessible {
             return Integer.valueOf(0);
         }
 
-        /**
+        /** {@collect.stats}
          * Get the maximum value of this object as a Number.
          *
          * @return An Integer of 0.

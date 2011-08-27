@@ -30,7 +30,7 @@ import java.io.ObjectInput;
 import java.io.StreamCorruptedException;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * <code>RemoteCall</code> is an abstraction used solely by the RMI runtime
  * (in conjunction with stubs and skeletons of remote objects) to carry out a
  * call to a remote object.  The <code>RemoteCall</code> interface is
@@ -46,7 +46,7 @@ import java.io.IOException;
 @Deprecated
 public interface RemoteCall {
 
-    /**
+    /** {@collect.stats}
      * Return the output stream the stub/skeleton should put arguments/results
      * into.
      *
@@ -58,7 +58,7 @@ public interface RemoteCall {
     @Deprecated
     ObjectOutput getOutputStream()  throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Release the output stream; in some transports this would release
      * the stream.
      *
@@ -69,7 +69,7 @@ public interface RemoteCall {
     @Deprecated
     void releaseOutputStream()  throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Get the InputStream that the stub/skeleton should get
      * results/arguments from.
      *
@@ -82,7 +82,7 @@ public interface RemoteCall {
     ObjectInput getInputStream()  throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Release the input stream. This would allow some transports to release
      * the channel early.
      *
@@ -93,7 +93,7 @@ public interface RemoteCall {
     @Deprecated
     void releaseInputStream() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns an output stream (may put out header information
      * relating to the success of the call). Should only succeed
      * once per remote call.
@@ -110,7 +110,7 @@ public interface RemoteCall {
     ObjectOutput getResultStream(boolean success) throws IOException,
         StreamCorruptedException;
 
-    /**
+    /** {@collect.stats}
      * Do whatever it takes to execute the call.
      *
      * @exception java.lang.Exception if a general exception occurs.
@@ -120,7 +120,7 @@ public interface RemoteCall {
     @Deprecated
     void executeCall() throws Exception;
 
-    /**
+    /** {@collect.stats}
      * Allow cleanup after the remote call has completed.
      *
      * @exception java.io.IOException if an I/O error occurs.

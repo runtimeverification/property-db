@@ -35,7 +35,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * <code>JPanel</code> is a generic lightweight container.
  * For examples and task-oriented documentation for JPanel, see
  * <a
@@ -64,13 +64,13 @@ import java.io.IOException;
  */
 public class JPanel extends JComponent implements Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "PanelUI";
 
-    /**
+    /** {@collect.stats}
      * Creates a new JPanel with the specified layout manager and buffering
      * strategy.
      *
@@ -86,7 +86,7 @@ public class JPanel extends JComponent implements Accessible
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new buffered JPanel with the specified layout manager
      *
      * @param layout  the LayoutManager to use
@@ -95,7 +95,7 @@ public class JPanel extends JComponent implements Accessible
         this(layout, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JPanel</code> with <code>FlowLayout</code>
      * and the specified buffering strategy.
      * If <code>isDoubleBuffered</code> is true, the <code>JPanel</code>
@@ -109,7 +109,7 @@ public class JPanel extends JComponent implements Accessible
         this(new FlowLayout(), isDoubleBuffered);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>JPanel</code> with a double buffer
      * and a flow layout.
      */
@@ -117,7 +117,7 @@ public class JPanel extends JComponent implements Accessible
         this(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property with a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -126,7 +126,7 @@ public class JPanel extends JComponent implements Accessible
         setUI((PanelUI)UIManager.getUI(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the look and feel (L&F) object that renders this component.
      *
      * @return the PanelUI object that renders this component
@@ -137,7 +137,7 @@ public class JPanel extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the look and feel (L&F) object that renders this component.
      *
      * @param ui  the PanelUI L&F object
@@ -153,7 +153,7 @@ public class JPanel extends JComponent implements Accessible
         super.setUI(ui);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the L&F class
      * that renders this component.
      *
@@ -169,7 +169,7 @@ public class JPanel extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -185,7 +185,7 @@ public class JPanel extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JPanel. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -202,7 +202,7 @@ public class JPanel extends JComponent implements Accessible
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JPanel.
      * For JPanels, the AccessibleContext takes the form of an
      * AccessibleJPanel.
@@ -218,7 +218,7 @@ public class JPanel extends JComponent implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JPanel</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to panel user-interface
@@ -235,7 +235,7 @@ public class JPanel extends JComponent implements Accessible
      */
     protected class AccessibleJPanel extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

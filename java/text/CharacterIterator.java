@@ -41,7 +41,7 @@
 package java.text;
 
 
-/**
+/** {@collect.stats}
  * This interface defines a protocol for bidirectional iteration over text.
  * The iterator iterates over a bounded sequence of characters.  Characters
  * are indexed with values beginning with the value returned by getBeginIndex() and
@@ -105,14 +105,14 @@ package java.text;
 public interface CharacterIterator extends Cloneable
 {
 
-    /**
+    /** {@collect.stats}
      * Constant that is returned when the iterator has reached either the end
      * or the beginning of the text. The value is '\\uFFFF', the "not a
      * character" value which should not occur in any valid Unicode string.
      */
     public static final char DONE = '\uFFFF';
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getBeginIndex() and returns the character at that
      * position.
      * @return the first character in the text, or DONE if the text is empty
@@ -120,7 +120,7 @@ public interface CharacterIterator extends Cloneable
      */
     public char first();
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getEndIndex()-1 (getEndIndex() if the text is empty)
      * and returns the character at that position.
      * @return the last character in the text, or DONE if the text is empty
@@ -128,7 +128,7 @@ public interface CharacterIterator extends Cloneable
      */
     public char last();
 
-    /**
+    /** {@collect.stats}
      * Gets the character at the current position (as returned by getIndex()).
      * @return the character at the current position or DONE if the current
      * position is off the end of the text.
@@ -136,7 +136,7 @@ public interface CharacterIterator extends Cloneable
      */
     public char current();
 
-    /**
+    /** {@collect.stats}
      * Increments the iterator's index by one and returns the character
      * at the new index.  If the resulting index is greater or equal
      * to getEndIndex(), the current index is reset to getEndIndex() and
@@ -146,7 +146,7 @@ public interface CharacterIterator extends Cloneable
      */
     public char next();
 
-    /**
+    /** {@collect.stats}
      * Decrements the iterator's index by one and returns the character
      * at the new index. If the current index is getBeginIndex(), the index
      * remains at getBeginIndex() and a value of DONE is returned.
@@ -155,7 +155,7 @@ public interface CharacterIterator extends Cloneable
      */
     public char previous();
 
-    /**
+    /** {@collect.stats}
      * Sets the position to the specified position in the text and returns that
      * character.
      * @param position the position within the text.  Valid values range from
@@ -165,26 +165,26 @@ public interface CharacterIterator extends Cloneable
      */
     public char setIndex(int position);
 
-    /**
+    /** {@collect.stats}
      * Returns the start index of the text.
      * @return the index at which the text begins.
      */
     public int getBeginIndex();
 
-    /**
+    /** {@collect.stats}
      * Returns the end index of the text.  This index is the index of the first
      * character following the end of the text.
      * @return the index after the last character in the text
      */
     public int getEndIndex();
 
-    /**
+    /** {@collect.stats}
      * Returns the current index.
      * @return the current index.
      */
     public int getIndex();
 
-    /**
+    /** {@collect.stats}
      * Create a copy of this iterator
      * @return A copy of this
      */

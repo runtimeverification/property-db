@@ -34,7 +34,7 @@ import javax.management.MBeanException;
 import javax.management.RuntimeOperationsException;
 import javax.management.InstanceNotFoundException;
 
-/**
+/** {@collect.stats}
  *  This class is the interface to be implemented by MBeans that are meant to be
  *  persistent.  MBeans supporting this interface should call the load method during
  *  construction in order to prime the MBean from the persistent store.
@@ -46,7 +46,7 @@ import javax.management.InstanceNotFoundException;
 public interface PersistentMBean {
 
 
-    /**
+    /** {@collect.stats}
      * Instantiates thisMBean instance with the data found for
      * the MBean in the persistent store.  The data loaded could include
      * attribute and operation values.
@@ -62,7 +62,7 @@ public interface PersistentMBean {
     public void load()
     throws MBeanException, RuntimeOperationsException, InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Captures the current state of this MBean instance and
      * writes it out to the persistent store.  The state stored could include
      * attribute and operation values. If one of these methods of persistence is

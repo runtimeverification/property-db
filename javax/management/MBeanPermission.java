@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.security.Permission;
 
-/**
+/** {@collect.stats}
  * <p>Permission controlling access to MBeanServer operations.  If a
  * security manager has been set using {@link
  * System#setSecurityManager}, most operations on the MBean Server
@@ -164,7 +164,7 @@ public class MBeanPermission extends Permission {
 
     private static final long serialVersionUID = -2416928705275160661L;
 
-    /**
+    /** {@collect.stats}
      * Actions list.
      */
     private static final int AddNotificationListener    = 0x00001;
@@ -185,12 +185,12 @@ public class MBeanPermission extends Permission {
     private static final int SetAttribute               = 0x08000;
     private static final int UnregisterMBean            = 0x10000;
 
-    /**
+    /** {@collect.stats}
      * No actions.
      */
     private static final int NONE = 0x00000;
 
-    /**
+    /** {@collect.stats}
      * All actions.
      */
     private static final int ALL =
@@ -212,41 +212,41 @@ public class MBeanPermission extends Permission {
         SetAttribute               |
         UnregisterMBean;
 
-    /**
+    /** {@collect.stats}
      * The actions string.
      */
     private String actions;
 
-    /**
+    /** {@collect.stats}
      * The actions mask.
      */
     private transient int mask;
 
-    /**
+    /** {@collect.stats}
      * The classname prefix that must match.  If null, is implied by any
      * classNamePrefix but does not imply any non-null classNamePrefix.
      */
     private transient String classNamePrefix;
 
-    /**
+    /** {@collect.stats}
      * True if classNamePrefix must match exactly.  Otherwise, the
      * className being matched must start with classNamePrefix.
      */
     private transient boolean classNameExactMatch;
 
-    /**
+    /** {@collect.stats}
      * The member that must match.  If null, is implied by any member
      * but does not imply any non-null member.
      */
     private transient String member;
 
-    /**
+    /** {@collect.stats}
      * The objectName that must match.  If null, is implied by any
      * objectName but does not imply any non-null objectName.
      */
     private transient ObjectName objectName;
 
-    /**
+    /** {@collect.stats}
      * Parse <code>actions</code> parameter.
      */
     private void parseActions() {
@@ -269,7 +269,7 @@ public class MBeanPermission extends Permission {
         this.mask = mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Parse <code>name</code> parameter.
      */
     private void parseName() {
@@ -344,7 +344,7 @@ public class MBeanPermission extends Permission {
         setClassName(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Assign fields based on className, member, and objectName
      * parameters.
      */
@@ -381,7 +381,7 @@ public class MBeanPermission extends Permission {
             this.member = member;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Create a new MBeanPermission object with the specified target name
      * and actions.</p>
      *
@@ -408,7 +408,7 @@ public class MBeanPermission extends Permission {
         parseActions();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Create a new MBeanPermission object with the specified target name
      * (class name, member, object name) and actions.</p>
      *
@@ -469,7 +469,7 @@ public class MBeanPermission extends Permission {
             return name.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the "canonical string representation" of the actions. That is,
      * this method always returns present actions in alphabetical order.
      *
@@ -483,7 +483,7 @@ public class MBeanPermission extends Permission {
         return actions;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the "canonical string representation"
      * of the actions from the mask.
      */
@@ -595,7 +595,7 @@ public class MBeanPermission extends Permission {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -604,7 +604,7 @@ public class MBeanPermission extends Permission {
         return this.getName().hashCode() + this.getActions().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Converts an action String to an integer action mask.
      *
      * @param action the action string.
@@ -981,7 +981,7 @@ public class MBeanPermission extends Permission {
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Checks if this MBeanPermission object "implies" the
      * specified permission.</p>
      *
@@ -1125,7 +1125,7 @@ public class MBeanPermission extends Permission {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two MBeanPermission objects for equality. Checks
      * that <i>obj</i> is an MBeanPermission, and has the same
      * name and actions as this object.
@@ -1147,7 +1147,7 @@ public class MBeanPermission extends Permission {
             (this.getName().equals(that.getName()));
     }
 
-    /**
+    /** {@collect.stats}
      * Deserialize this object based on its name and actions.
      */
     private void readObject(ObjectInputStream in)

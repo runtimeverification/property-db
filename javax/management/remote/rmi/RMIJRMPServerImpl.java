@@ -39,7 +39,7 @@ import javax.security.auth.Subject;
 
 import com.sun.jmx.remote.internal.RMIExporter;
 
-/**
+/** {@collect.stats}
  * <p>An {@link RMIServer} object that is exported through JRMP and that
  * creates client connections as RMI objects exported through JRMP.
  * User code does not usually reference this class directly.</p>
@@ -49,7 +49,7 @@ import com.sun.jmx.remote.internal.RMIExporter;
  * @since 1.5
  */
 public class RMIJRMPServerImpl extends RMIServerImpl {
-    /**
+    /** {@collect.stats}
      * <p>Creates a new {@link RMIServer} object that will be exported
      * on the given port using the given socket factories.</p>
      *
@@ -115,7 +115,7 @@ public class RMIJRMPServerImpl extends RMIServerImpl {
         return "rmi";
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a serializable stub for this {@link RMIServer} object.</p>
      *
      * @return a serializable stub.
@@ -127,7 +127,7 @@ public class RMIJRMPServerImpl extends RMIServerImpl {
         return RemoteObject.toStub(this);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new client connection as an RMI object exported
      * through JRMP. The port and socket factories for the new
      * {@link RMIConnection} object are the ones supplied
@@ -162,7 +162,7 @@ public class RMIJRMPServerImpl extends RMIServerImpl {
         unexport(client, true);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Called by {@link #close()} to close the connector server by
      * unexporting this object.  After returning from this method, the
      * connector server must not accept any new connections.</p>

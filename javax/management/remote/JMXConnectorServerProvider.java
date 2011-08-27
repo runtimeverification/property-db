@@ -30,7 +30,7 @@ import java.util.Map;
 
 import javax.management.MBeanServer;
 
-/**
+/** {@collect.stats}
  * <p>A provider for creating JMX API connector servers using a given
  * protocol.  Instances of this interface are created by {@link
  * JMXConnectorServerFactory} as part of its {@link
@@ -40,7 +40,7 @@ import javax.management.MBeanServer;
  * @since 1.5
  */
 public interface JMXConnectorServerProvider {
-    /**
+    /** {@collect.stats}
      * <p>Creates a new connector server at the given address.  Each
      * successful call to this method produces a different
      * <code>JMXConnectorServer</code> object.</p>

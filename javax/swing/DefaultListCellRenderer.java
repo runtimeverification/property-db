@@ -37,7 +37,7 @@ import java.io.Serializable;
 import sun.swing.DefaultLookup;
 
 
-/**
+/** {@collect.stats}
  * Renders an item in a list.
  * <p>
  * <strong><a name="override">Implementation Note:</a></strong>
@@ -74,7 +74,7 @@ public class DefaultListCellRenderer extends JLabel
     implements ListCellRenderer, Serializable
 {
 
-   /**
+   /** {@collect.stats}
     * An empty <code>Border</code>. This field might not be used. To change the
     * <code>Border</code> used by this renderer override the
     * <code>getListCellRendererComponent</code> method and set the border
@@ -84,7 +84,7 @@ public class DefaultListCellRenderer extends JLabel
     private static final Border DEFAULT_NO_FOCUS_BORDER = new EmptyBorder(1, 1, 1, 1);
     protected static Border noFocusBorder = DEFAULT_NO_FOCUS_BORDER;
 
-    /**
+    /** {@collect.stats}
      * Constructs a default renderer object for an item
      * in a list.
      */
@@ -170,7 +170,7 @@ public class DefaultListCellRenderer extends JLabel
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -194,7 +194,7 @@ public class DefaultListCellRenderer extends JLabel
         return !colorMatch && super.isOpaque();
     }
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -202,7 +202,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void validate() {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -212,7 +212,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void invalidate() {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -222,14 +222,14 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void repaint() {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
     */
     @Override
     public void revalidate() {}
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -237,7 +237,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void repaint(long tm, int x, int y, int width, int height) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -245,7 +245,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void repaint(Rectangle r) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -262,7 +262,7 @@ public class DefaultListCellRenderer extends JLabel
         }
     }
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -270,7 +270,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, byte oldValue, byte newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -278,7 +278,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, char oldValue, char newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -286,7 +286,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, short oldValue, short newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -294,7 +294,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, int oldValue, int newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -302,7 +302,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, long oldValue, long newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -310,7 +310,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, float oldValue, float newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -318,7 +318,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, double oldValue, double newValue) {}
 
-   /**
+   /** {@collect.stats}
     * Overridden for performance reasons.
     * See the <a href="#override">Implementation Note</a>
     * for more information.
@@ -326,7 +326,7 @@ public class DefaultListCellRenderer extends JLabel
     @Override
     public void firePropertyChange(String propertyName, boolean oldValue, boolean newValue) {}
 
-    /**
+    /** {@collect.stats}
      * A subclass of DefaultListCellRenderer that implements UIResource.
      * DefaultListCellRenderer doesn't implement UIResource
      * directly so that applications can safely override the

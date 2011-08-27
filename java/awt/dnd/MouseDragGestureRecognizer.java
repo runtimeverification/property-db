@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-/**
+/** {@collect.stats}
  * This abstract subclass of <code>DragGestureRecognizer</code>
  * defines a <code>DragGestureRecognizer</code>
  * for mouse-based gestures.
@@ -66,7 +66,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     private static final long serialVersionUID = 6220099344182281120L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new <code>MouseDragGestureRecognizer</code>
      * given the <code>DragSource</code> for the
      * <code>Component</code> c, the <code>Component</code>
@@ -86,7 +86,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         super(ds, c, act, dgl);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new <code>MouseDragGestureRecognizer</code>
      * given the <code>DragSource</code> for
      * the <code>Component</code> c,
@@ -102,7 +102,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         this(ds, c, act, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new <code>MouseDragGestureRecognizer</code>
      * given the <code>DragSource</code> for the
      * <code>Component</code> c, and the
@@ -116,7 +116,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         this(ds, c, DnDConstants.ACTION_NONE);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new <code>MouseDragGestureRecognizer</code>
      * given the <code>DragSource</code> for the <code>Component</code>.
      * <P>
@@ -127,7 +127,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         this(ds, null);
     }
 
-    /**
+    /** {@collect.stats}
      * register this DragGestureRecognizer's Listeners with the Component
      */
 
@@ -136,7 +136,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         component.addMouseMotionListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * unregister this DragGestureRecognizer's Listeners with the Component
      *
      * subclasses must override this method
@@ -148,7 +148,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
         component.removeMouseMotionListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse has been clicked on a component.
      * <P>
      * @param e the <code>MouseEvent</code>
@@ -156,7 +156,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mouseClicked(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a mouse button has been
      * pressed on a <code>Component</code>.
      * <P>
@@ -165,7 +165,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mousePressed(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a mouse button has been released on a component.
      * <P>
      * @param e the <code>MouseEvent</code>
@@ -173,7 +173,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mouseReleased(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse enters a component.
      * <P>
      * @param e the <code>MouseEvent</code>
@@ -181,7 +181,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mouseEntered(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse exits a component.
      * <P>
      * @param e the <code>MouseEvent</code>
@@ -189,7 +189,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mouseExited(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when a mouse button is pressed on a component.
      * <P>
      * @param e the <code>MouseEvent</code>
@@ -197,7 +197,7 @@ public abstract class MouseDragGestureRecognizer extends DragGestureRecognizer i
 
     public void mouseDragged(MouseEvent e) { }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse button has been moved on a component
      * (with no buttons no down).
      * <P>

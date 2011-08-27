@@ -33,7 +33,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * This class creates a labeled button. The application can cause
  * some action to happen when the button is pushed. This image
  * depicts three views of a "<code>Quit</code>" button as it appears
@@ -86,7 +86,7 @@ import javax.accessibility.*;
  */
 public class Button extends Component implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * The button's label.  This value may be null.
      * @serial
      * @see #getLabel()
@@ -94,7 +94,7 @@ public class Button extends Component implements Accessible {
      */
     String label;
 
-    /**
+    /** {@collect.stats}
      * The action to be performed once a button has been
      * pressed.  This value may be null.
      * @serial
@@ -122,13 +122,13 @@ public class Button extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs for fields that may be
      * accessed from C.
      */
     private static native void initIDs();
 
-    /**
+    /** {@collect.stats}
      * Constructs a button with an empty string for its label.
      *
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
@@ -139,7 +139,7 @@ public class Button extends Component implements Accessible {
         this("");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a button with the specified label.
      *
      * @param label  a string label for the button, or
@@ -153,7 +153,7 @@ public class Button extends Component implements Accessible {
         this.label = label;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -163,7 +163,7 @@ public class Button extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the peer of the button.  The button's peer allows the
      * application to change the look of the button without changing
      * its functionality.
@@ -179,7 +179,7 @@ public class Button extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the label of this button.
      *
      * @return    the button's label, or <code>null</code>
@@ -190,7 +190,7 @@ public class Button extends Component implements Accessible {
         return label;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the button's label to be the specified string.
      *
      * @param     label   the new label, or <code>null</code>
@@ -218,7 +218,7 @@ public class Button extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the command name for the action event fired
      * by this button. By default this action command is
      * set to match the label of the button.
@@ -234,7 +234,7 @@ public class Button extends Component implements Accessible {
         actionCommand = command;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the command name of the action event fired by this button.
      * If the command name is <code>null</code> (default) then this method
      * returns the label of the button.
@@ -243,7 +243,7 @@ public class Button extends Component implements Accessible {
         return (actionCommand == null? label : actionCommand);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified action listener to receive action events from
      * this button. Action events occur when a user presses or releases
      * the mouse over this button.
@@ -265,7 +265,7 @@ public class Button extends Component implements Accessible {
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified action listener so that it no longer
      * receives action events from this button. Action events occur
      * when a user presses or releases the mouse over this button.
@@ -286,7 +286,7 @@ public class Button extends Component implements Accessible {
         actionListener = AWTEventMulticaster.remove(actionListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the action listeners
      * registered on this button.
      *
@@ -303,7 +303,7 @@ public class Button extends Component implements Accessible {
         return (ActionListener[]) (getListeners(ActionListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>Button</code>.
@@ -358,7 +358,7 @@ public class Button extends Component implements Accessible {
         return super.eventEnabled(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes events on this button. If an event is
      * an instance of <code>ActionEvent</code>, this method invokes
      * the <code>processActionEvent</code> method. Otherwise,
@@ -380,7 +380,7 @@ public class Button extends Component implements Accessible {
         super.processEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes action events occurring on this button
      * by dispatching them to any registered
      * <code>ActionListener</code> objects.
@@ -410,7 +410,7 @@ public class Button extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this <code>Button</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -433,7 +433,7 @@ public class Button extends Component implements Accessible {
      */
     private int buttonSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * a list of serializable <code>ActionListeners</code>
      * as optional data.  The non-serializable
@@ -461,7 +461,7 @@ public class Button extends Component implements Accessible {
       s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code> and if
      * it isn't <code>null</code> adds a listener to
      * receive action events fired by the button.
@@ -500,7 +500,7 @@ public class Button extends Component implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with
      * this <code>Button</code>. For buttons, the
      * <code>AccessibleContext</code> takes the form of an
@@ -522,7 +522,7 @@ public class Button extends Component implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Button</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to button user-interface elements.
@@ -536,7 +536,7 @@ public class Button extends Component implements Accessible {
          */
         private static final long serialVersionUID = -5932203980244017102L;
 
-        /**
+        /** {@collect.stats}
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -554,7 +554,7 @@ public class Button extends Component implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleAction associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -566,7 +566,7 @@ public class Button extends Component implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleValue associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -578,7 +578,7 @@ public class Button extends Component implements Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of Actions available in this object.  The
          * default behavior of a button is to have one action - toggle
          * the button.
@@ -589,7 +589,7 @@ public class Button extends Component implements Accessible {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Return a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -603,7 +603,7 @@ public class Button extends Component implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Perform the specified Action on the object
          *
          * @param i zero-based index of actions
@@ -622,7 +622,7 @@ public class Button extends Component implements Accessible {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the value of this object as a Number.
          *
          * @return An Integer of 0 if this isn't selected or an Integer of 1 if
@@ -633,7 +633,7 @@ public class Button extends Component implements Accessible {
             return Integer.valueOf(0);
         }
 
-        /**
+        /** {@collect.stats}
          * Set the value of this object as a Number.
          *
          * @return True if the value was set.
@@ -642,7 +642,7 @@ public class Button extends Component implements Accessible {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the minimum value of this object as a Number.
          *
          * @return An Integer of 0.
@@ -651,7 +651,7 @@ public class Button extends Component implements Accessible {
             return Integer.valueOf(0);
         }
 
-        /**
+        /** {@collect.stats}
          * Get the maximum value of this object as a Number.
          *
          * @return An Integer of 0.
@@ -660,7 +660,7 @@ public class Button extends Component implements Accessible {
             return Integer.valueOf(0);
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

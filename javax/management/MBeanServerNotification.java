@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Represents a notification emitted by the MBean server through the MBeanServerDelegate MBean.
  * The MBean Server emits the following types of notifications: MBean registration, MBean
  * de-registration.
@@ -44,24 +44,24 @@ package javax.management;
      /* Serial version */
      private static final long serialVersionUID = 2876477500475969677L;
 
-     /**
+     /** {@collect.stats}
       * Notification type denoting that an MBean has been registered. Value is "JMX.mbean.registered".
       */
      public static final String REGISTRATION_NOTIFICATION = "JMX.mbean.registered" ;
 
-     /**
+     /** {@collect.stats}
       * Notification type denoting that an MBean has been unregistered. Value is "JMX.mbean.unregistered".
       */
      public static final String UNREGISTRATION_NOTIFICATION = "JMX.mbean.unregistered" ;
 
 
-     /**
+     /** {@collect.stats}
       * @serial The object names of the MBeans concerned by this notification
       */
      private final ObjectName objectName;
 
 
-     /**
+     /** {@collect.stats}
       * Creates an MBeanServerNotification object specifying object names of
       * the MBeans that caused the notification and the specified notification type.
       *
@@ -81,7 +81,7 @@ package javax.management;
          this.objectName =  objectName ;
      }
 
-     /**
+     /** {@collect.stats}
       * Returns the  object name of the MBean that caused the notification.
       *
       * @return the object name of the MBean that caused the notification.

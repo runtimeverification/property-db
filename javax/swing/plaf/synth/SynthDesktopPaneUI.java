@@ -41,7 +41,7 @@ import java.awt.*;
 import java.util.Vector;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth L&F for a desktop.
  *
  * @author Joshua Outwater

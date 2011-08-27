@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * A <code>ConnectException</code> is thrown if a connection is refused
  * to the remote host for a remote method call.
  *
@@ -37,7 +37,7 @@ public class ConnectException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
      private static final long serialVersionUID = 4863550261346652506L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ConnectException</code> with the specified
      * detail message.
      *
@@ -48,7 +48,7 @@ public class ConnectException extends RemoteException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ConnectException</code> with the specified
      * detail message and nested exception.
      *

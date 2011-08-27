@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Icon;
 
-/**
+/** {@collect.stats}
  * Implements the bumps used throughout the Metal Look and Feel.
  *
  * @author Tom Santos
@@ -63,7 +63,7 @@ class MetalBumps implements Icon {
     private static final Object METAL_BUMPS = new Object();
     protected BumpBuffer buffer;
 
-    /**
+    /** {@collect.stats}
      * Creates MetalBumps of the specified size with the specified colors.
      * If <code>newBackColor</code> is null, the background will be
      * transparent.
@@ -188,7 +188,7 @@ class BumpBuffer {
                backColor.equals( aBackColor );
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Image containing the bumps appropriate for the passed in
      * <code>GraphicsConfiguration</code>.
      */
@@ -196,7 +196,7 @@ class BumpBuffer {
         return image;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the bumps into the current image.
      */
     private void fillBumpBuffer() {
@@ -223,7 +223,7 @@ class BumpBuffer {
         g.dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the image appropriate for the passed in
      * <code>GraphicsConfiguration</code>, which may be null.
      */

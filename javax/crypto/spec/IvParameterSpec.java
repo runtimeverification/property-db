@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies an <i>initialization vector</i> (IV).
  * Examples which use IVs are ciphers in feedback mode,
  * e.g., DES in CBC mode and RSA ciphers with OAEP encoding
@@ -41,7 +41,7 @@ public class IvParameterSpec implements AlgorithmParameterSpec {
 
     private byte[] iv;
 
-    /**
+    /** {@collect.stats}
      * Creates an IvParameterSpec object using the bytes in <code>iv</code>
      * as the IV.
      *
@@ -53,7 +53,7 @@ public class IvParameterSpec implements AlgorithmParameterSpec {
         this(iv, 0, iv.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an IvParameterSpec object using the first <code>len</code>
      * bytes in <code>iv</code>, beginning at <code>offset</code>
      * inclusive, as the IV.
@@ -87,7 +87,7 @@ public class IvParameterSpec implements AlgorithmParameterSpec {
         System.arraycopy(iv, offset, this.iv, 0, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initialization vector (IV).
      *
      * @return the initialization vector (IV). Returns a new array

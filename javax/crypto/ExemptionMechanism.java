@@ -37,7 +37,7 @@ import java.security.spec.AlgorithmParameterSpec;
 
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class provides the functionality of an exemption mechanism, examples
  * of which are <i>key recovery</i>, <i>key weakening</i>, and
  * <i>key escrow</i>.
@@ -69,7 +69,7 @@ public class ExemptionMechanism {
     // Store away the key at init() time for later comparison.
     private Key keyStored = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a ExemptionMechanism object.
      *
      * @param exmechSpi the delegate
@@ -84,7 +84,7 @@ public class ExemptionMechanism {
         this.mechanism = mechanism;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the exemption mechanism name of this
      * <code>ExemptionMechanism</code> object.
      *
@@ -99,7 +99,7 @@ public class ExemptionMechanism {
         return this.mechanism;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ExemptionMechanism</code> object that implements the
      * specified exemption mechanism algorithm.
      *
@@ -140,7 +140,7 @@ public class ExemptionMechanism {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ExemptionMechanism</code> object that implements the
      * specified exemption mechanism algorithm.
      *
@@ -187,7 +187,7 @@ public class ExemptionMechanism {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ExemptionMechanism</code> object that implements the
      * specified exemption mechanism algorithm.
      *
@@ -227,7 +227,7 @@ public class ExemptionMechanism {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>ExemptionMechanism</code> object.
      *
      * @return the provider of this <code>ExemptionMechanism</code> object.
@@ -236,7 +236,7 @@ public class ExemptionMechanism {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the result blob has been generated successfully by this
      * exemption mechanism.
      *
@@ -265,7 +265,7 @@ public class ExemptionMechanism {
         return ret;
      }
 
-    /**
+    /** {@collect.stats}
      * Returns the length in bytes that an output buffer would need to be in
      * order to hold the result of the next
      * {@link #genExemptionBlob(byte[]) genExemptionBlob}
@@ -294,7 +294,7 @@ public class ExemptionMechanism {
         return exmechSpi.engineGetOutputSize(inputLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key.
      *
      * <p>If this exemption mechanism requires any algorithm parameters
@@ -321,7 +321,7 @@ public class ExemptionMechanism {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key and a set of algorithm
      * parameters.
      *
@@ -353,7 +353,7 @@ public class ExemptionMechanism {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key and a set of algorithm
      * parameters.
      *
@@ -385,7 +385,7 @@ public class ExemptionMechanism {
         initialized = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the exemption mechanism key blob.
      *
      * @return the new buffer with the result key blob.
@@ -406,7 +406,7 @@ public class ExemptionMechanism {
         return blob;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the exemption mechanism key blob, and stores the result in
      * the <code>output</code> buffer.
      *
@@ -439,7 +439,7 @@ public class ExemptionMechanism {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the exemption mechanism key blob, and stores the result in
      * the <code>output</code> buffer, starting at <code>outputOffset</code>
      * inclusive.
@@ -475,7 +475,7 @@ public class ExemptionMechanism {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that the key stored away by this ExemptionMechanism
      * object will be wiped out when there are no more references to it.
      */

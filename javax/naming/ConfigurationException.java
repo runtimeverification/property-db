@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when there is a configuration problem.
   * This can arise when installation of a provider was
   * not done correctly, or if there are configuration problems with the
@@ -45,7 +45,7 @@ package javax.naming;
   * @since 1.3
   */
 public class ConfigurationException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of ConfigurationException using an
      * explanation. All other fields default to null.
      *
@@ -57,7 +57,7 @@ public class ConfigurationException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ConfigurationException with
       * all name resolution fields and explanation initialized to null.
       */
@@ -65,7 +65,7 @@ public class ConfigurationException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -2535156726228855704L;

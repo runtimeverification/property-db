@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when an unknown conversion is given.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to
@@ -40,7 +40,7 @@ public class UnknownFormatConversionException extends IllegalFormatException {
 
     private String s;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class with the unknown conversion.
      *
      * @param  s
@@ -52,7 +52,7 @@ public class UnknownFormatConversionException extends IllegalFormatException {
         this.s = s;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unknown conversion.
      *
      * @return  The unknown conversion.

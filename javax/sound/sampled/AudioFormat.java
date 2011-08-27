@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * <code>AudioFormat</code> is the class that specifies a particular arrangement of data in a sound stream.
  * By examing the information stored in the audio format, you can discover how to interpret the bits in the
  * binary sound data.
@@ -126,47 +126,47 @@ public class AudioFormat {
     // INSTANCE VARIABLES
 
 
-    /**
+    /** {@collect.stats}
      * The audio encoding technique used by this format.
      */
     protected Encoding encoding;
 
-    /**
+    /** {@collect.stats}
      * The number of samples played or recorded per second, for sounds that have this format.
      */
     protected float sampleRate;
 
-    /**
+    /** {@collect.stats}
      * The number of bits in each sample of a sound that has this format.
      */
     protected int sampleSizeInBits;
 
-    /**
+    /** {@collect.stats}
      * The number of audio channels in this format (1 for mono, 2 for stereo).
      */
     protected int channels;
 
-    /**
+    /** {@collect.stats}
      * The number of bytes in each frame of a sound that has this format.
      */
     protected int frameSize;
 
-    /**
+    /** {@collect.stats}
      * The number of frames played or recorded per second, for sounds that have this format.
      */
     protected float frameRate;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the audio data is stored in big-endian or little-endian order.
      */
     protected boolean bigEndian;
 
 
-    /** The set of properties */
+    /** {@collect.stats} The set of properties */
     private HashMap<String, Object> properties;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AudioFormat</code> with the given parameters.
      * The encoding specifies the convention used to represent the data.
      * The other parameters are further explained in the {@link AudioFormat
@@ -195,7 +195,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AudioFormat</code> with the given parameters.
      * The encoding specifies the convention used to represent the data.
      * The other parameters are further explained in the {@link AudioFormat
@@ -225,7 +225,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>AudioFormat</code> with a linear PCM encoding and
      * the given parameters.  The frame size is set to the number of bytes
      * required to contain one sample from each channel, and the frame rate
@@ -253,7 +253,7 @@ public class AudioFormat {
              bigEndian);
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the type of encoding for sounds in this format.
      *
      * @return the encoding type
@@ -267,7 +267,7 @@ public class AudioFormat {
         return encoding;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the sample rate.
      * For compressed formats, the return value is the sample rate of the uncompressed
      * audio data.
@@ -289,7 +289,7 @@ public class AudioFormat {
         return sampleRate;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the size of a sample.
      * For compressed formats, the return value is the sample size of the
      * uncompressed audio data.
@@ -311,7 +311,7 @@ public class AudioFormat {
         return sampleSizeInBits;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the number of channels.
      * When this AudioFormat is used for queries (e.g. {@link
      * AudioSystem#isConversionSupported(AudioFormat, AudioFormat)
@@ -329,7 +329,7 @@ public class AudioFormat {
         return channels;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the frame size in bytes.
      * When this AudioFormat is used for queries (e.g. {@link
      * AudioSystem#isConversionSupported(AudioFormat, AudioFormat)
@@ -349,7 +349,7 @@ public class AudioFormat {
         return frameSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the frame rate in frames per second.
      * When this AudioFormat is used for queries (e.g. {@link
      * AudioSystem#isConversionSupported(AudioFormat, AudioFormat)
@@ -370,7 +370,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the audio data is stored in big-endian or little-endian
      * byte order.  If the sample size is not more than one byte, the return value is
      * irrelevant.
@@ -383,7 +383,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtain an unmodifiable map of properties.
      * The concept of properties is further explained in
      * the {@link AudioFileFormat class description}.
@@ -406,7 +406,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtain the property value specified by the key.
      * The concept of properties is further explained in
      * the {@link AudioFileFormat class description}.
@@ -430,7 +430,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this format matches the one specified.  To match,
      * two formats must have the same encoding, the same number of channels,
      * and the same number of bits per sample and bytes per frame.
@@ -463,7 +463,7 @@ public class AudioFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that describes the format, such as:
      * "PCM SIGNED 22050 Hz 16 bit mono big-endian".  The contents of the string
      * may vary between implementations of Java Sound.
@@ -542,7 +542,7 @@ public class AudioFormat {
 
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>Encoding</code> class  names the  specific type of data representation
      * used for an audio stream.   The encoding includes aspects of the
      * sound format other than the number of channels, sample rate, sample size,
@@ -579,22 +579,22 @@ public class AudioFormat {
 
         // ENCODING DEFINES
 
-        /**
+        /** {@collect.stats}
          * Specifies signed, linear PCM data.
          */
         public static final Encoding PCM_SIGNED = new Encoding("PCM_SIGNED");
 
-        /**
+        /** {@collect.stats}
          * Specifies unsigned, linear PCM data.
          */
         public static final Encoding PCM_UNSIGNED = new Encoding("PCM_UNSIGNED");
 
-        /**
+        /** {@collect.stats}
          * Specifies u-law encoded data.
          */
         public static final Encoding ULAW = new Encoding("ULAW");
 
-        /**
+        /** {@collect.stats}
          * Specifies a-law encoded data.
          */
         public static final Encoding ALAW = new Encoding("ALAW");
@@ -602,7 +602,7 @@ public class AudioFormat {
 
         // INSTANCE VARIABLES
 
-        /**
+        /** {@collect.stats}
          * Encoding name.
          */
         private String name;
@@ -610,7 +610,7 @@ public class AudioFormat {
 
         // CONSTRUCTOR
 
-        /**
+        /** {@collect.stats}
          * Constructs a new encoding.
          * @param name  the name of the new type of encoding
          */
@@ -621,7 +621,7 @@ public class AudioFormat {
 
         // METHODS
 
-        /**
+        /** {@collect.stats}
          * Finalizes the equals method
          */
         public final boolean equals(Object obj) {
@@ -634,7 +634,7 @@ public class AudioFormat {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashCode method
          */
         public final int hashCode() {
@@ -644,7 +644,7 @@ public class AudioFormat {
             return toString().hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * Provides the <code>String</code> representation of the encoding.  This <code>String</code> is
          * the same name that was passed to the constructor.  For the predefined encodings, the name
          * is similar to the encoding's variable (field) name.  For example, <code>PCM_SIGNED.toString()</code> returns

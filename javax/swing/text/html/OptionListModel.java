@@ -31,7 +31,7 @@ import java.util.BitSet;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * This class extends DefaultListModel, and also implements
  * the ListSelectionModel interface, allowing for it to store state
  * relevant to a SELECT form element which is implemented as a List.
@@ -99,7 +99,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         listenerList.remove(ListSelectionListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ListSelectionListener</code>s added
      * to this OptionListModel with addListSelectionListener().
      *
@@ -112,7 +112,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
                 ListSelectionListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notify listeners that we are beginning or ending a
      * series of value changes
      */
@@ -121,7 +121,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
     }
 
 
-    /**
+    /** {@collect.stats}
      * Notify ListSelectionListeners that the value of the selection,
      * in the closed interval firstIndex,lastIndex, has changed.
      */
@@ -129,7 +129,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         fireValueChanged(firstIndex, lastIndex, getValueIsAdjusting());
     }
 
-    /**
+    /** {@collect.stats}
      * @param firstIndex The first index in the interval.
      * @param index1 The last index in the interval.
      * @param isAdjusting True if this is the final change in a series of them.
@@ -245,7 +245,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of the leadAnchorNotificationEnabled flag.
      * @see             #isLeadAnchorNotificationEnabled()
      */
@@ -253,7 +253,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         leadAnchorNotificationEnabled = flag;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the leadAnchorNotificationEnabled flag.
      * When leadAnchorNotificationEnabled is true the model
      * generates notification events with bounds that cover all the changes to
@@ -395,7 +395,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Insert length indices beginning before/after index. If the value
      * at index is itself selected, set all of the newly inserted
      * items, otherwise leave them unselected. This method is typically
@@ -427,7 +427,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
     }
 
 
-    /**
+    /** {@collect.stats}
      * Remove the indices in the interval index0,index1 (inclusive) from
      * the selection model.  This is typically called to sync the selection
      * model width a corresponding change in the data model.  Note
@@ -461,7 +461,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         return getClass().getName() + " " + Integer.toString(hashCode()) + " " + s;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of the receiver with the same selection.
      * <code>listenerLists</code> are not duplicated.
      *
@@ -485,7 +485,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         return leadIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the anchor selection index, leaving all selection values unchanged.
      *
      * @see #getAnchorSelectionIndex
@@ -495,7 +495,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         this.anchorIndex = anchorIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the lead selection index, ensuring that values between the
      * anchor and the new lead are either all selected or all deselected.
      * If the value at the anchor index is selected, first clear all the
@@ -543,7 +543,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is responsible for storing the state
      * of the initial selection.  If the selectionMode
      * is the default, i.e allowing only for SINGLE_SELECTION,
@@ -561,7 +561,7 @@ class OptionListModel extends DefaultListModel implements ListSelectionModel, Se
         initialValue.set(i);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the BitSet that represents the initial
      * set of selected items in the list.
      */

@@ -25,7 +25,7 @@
 
 package javax.management.openmbean;
 
-/**
+/** {@collect.stats}
  * This runtime exception is thrown to indicate that a method parameter which was expected to be
  * an item name of a <i>composite data</i> or a row index of a <i>tabular data</i> is not valid.
  *
@@ -36,14 +36,14 @@ public class InvalidKeyException extends IllegalArgumentException {
 
     private static final long serialVersionUID = 4224269443946322062L;
 
-    /**
+    /** {@collect.stats}
      * An InvalidKeyException with no detail message.
      */
     public InvalidKeyException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * An InvalidKeyException with a detail message.
      *
      * @param msg the detail message.

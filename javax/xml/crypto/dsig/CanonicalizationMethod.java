@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>CanonicalizationMethod</code>
  * element as defined in the
  * <a href="http://www.w3.org/TR/xmldsig-core/">
@@ -59,14 +59,14 @@ import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
  */
 public interface CanonicalizationMethod extends Transform {
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315">Canonical
      * XML (without comments)</a> canonicalization method algorithm URI.
      */
     final static String INCLUSIVE =
         "http://www.w3.org/TR/2001/REC-xml-c14n-20010315";
 
-    /**
+    /** {@collect.stats}
      * The
      * <a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments">
      * Canonical XML with comments</a> canonicalization method algorithm URI.
@@ -74,7 +74,7 @@ public interface CanonicalizationMethod extends Transform {
     final static String INCLUSIVE_WITH_COMMENTS =
         "http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/2001/10/xml-exc-c14n#">Exclusive
      * Canonical XML (without comments)</a> canonicalization method algorithm
      * URI.
@@ -82,7 +82,7 @@ public interface CanonicalizationMethod extends Transform {
     final static String EXCLUSIVE =
         "http://www.w3.org/2001/10/xml-exc-c14n#";
 
-    /**
+    /** {@collect.stats}
      * The <a href="http://www.w3.org/2001/10/xml-exc-c14n#WithComments">
      * Exclusive Canonical XML with comments</a> canonicalization method
      * algorithm URI.
@@ -90,7 +90,7 @@ public interface CanonicalizationMethod extends Transform {
     final static String EXCLUSIVE_WITH_COMMENTS =
         "http://www.w3.org/2001/10/xml-exc-c14n#WithComments";
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm-specific input parameters associated with this
      * <code>CanonicalizationMethod</code>.
      *

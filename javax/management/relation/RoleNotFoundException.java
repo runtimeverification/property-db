@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * This exception is raised when a role in a relation does not exist, or is not
  * readable, or is not settable.
  *
@@ -36,14 +36,14 @@ public class RoleNotFoundException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = -2986406101364031481L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public RoleNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

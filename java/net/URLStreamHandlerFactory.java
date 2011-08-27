@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * This interface defines a factory for <code>URL</code> stream
  * protocol handlers.
  * <p>
@@ -38,7 +38,7 @@ package java.net;
  * @since   JDK1.0
  */
 public interface URLStreamHandlerFactory {
-    /**
+    /** {@collect.stats}
      * Creates a new <code>URLStreamHandler</code> instance with the specified
      * protocol.
      *

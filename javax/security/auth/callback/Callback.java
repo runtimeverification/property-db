@@ -26,7 +26,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Implementations of this interface are passed to a
  * <code>CallbackHandler</code>, allowing underlying security services
  * the ability to interact with a calling application to retrieve specific

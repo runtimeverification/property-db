@@ -31,7 +31,7 @@ import javax.swing.*;
 import sun.awt.dnd.SunDragSourceContextPeer;
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * Drag gesture recognition support for classes that have a
  * <code>TransferHandler</code>. The gesture for a drag in this class is a mouse
  * press followed by movement by <code>DragSource.getDragThreshold()</code>
@@ -45,7 +45,7 @@ class DragRecognitionSupport {
     private MouseEvent dndArmedEvent;
     private JComponent component;
 
-    /**
+    /** {@collect.stats}
      * This interface allows us to pass in a handler to mouseDragged,
      * so that we can be notified immediately before a drag begins.
      */
@@ -53,7 +53,7 @@ class DragRecognitionSupport {
         public void dragStarting(MouseEvent me);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the DragRecognitionSupport for the caller's AppContext.
      */
     private static DragRecognitionSupport getDragRecognitionSupport() {
@@ -69,7 +69,7 @@ class DragRecognitionSupport {
         return support;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the event is potentially part of a drag sequence.
      */
     public static boolean mousePressed(MouseEvent me) {
@@ -77,7 +77,7 @@ class DragRecognitionSupport {
             mousePressedImpl(me);
     }
 
-    /**
+    /** {@collect.stats}
      * If a dnd recognition has been going on, return the MouseEvent
      * that started the recognition. Otherwise, return null.
      */
@@ -86,7 +86,7 @@ class DragRecognitionSupport {
             mouseReleasedImpl(me);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not a drag gesture recognition is ongoing.
      */
     public static boolean mouseDragged(MouseEvent me, BeforeDrag bd) {
@@ -111,7 +111,7 @@ class DragRecognitionSupport {
                                          th.getSourceActions(component));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the event is potentially part of a drag sequence.
      */
     private boolean mousePressedImpl(MouseEvent me) {
@@ -129,7 +129,7 @@ class DragRecognitionSupport {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * If a dnd recognition has been going on, return the MouseEvent
      * that started the recognition. Otherwise, return null.
      */
@@ -149,7 +149,7 @@ class DragRecognitionSupport {
         return retEvent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not a drag gesture recognition is ongoing.
      */
     private boolean mouseDraggedImpl(MouseEvent me, BeforeDrag bd) {

@@ -27,7 +27,7 @@
 package javax.net.ssl;
 
 
-/**
+/** {@collect.stats}
  * Indicates that the peer's identity has not been verified.
  * <P>
  * When the peer was not able to
@@ -44,7 +44,7 @@ class SSLPeerUnverifiedException extends SSLException
 {
     private static final long serialVersionUID = -8919512675000600547L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an exception reporting that the SSL peer's
      * identity has not been verifiied.
      *

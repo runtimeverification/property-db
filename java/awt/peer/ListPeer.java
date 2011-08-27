@@ -26,7 +26,7 @@ package java.awt.peer;
 
 import java.awt.Dimension;
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers
@@ -45,27 +45,27 @@ public interface ListPeer extends ComponentPeer {
     Dimension getPreferredSize(int rows);
     Dimension getMinimumSize(int rows);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by add(String, int).
      */
     void addItem(String item, int index);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by removeAll().
      */
     void clear();
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by setMultipleMode(boolean).
      */
     void setMultipleSelections(boolean v);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by getPreferredSize(int).
      */
     Dimension preferredSize(int v);
 
-    /**
+    /** {@collect.stats}
      * DEPRECATED:  Replaced by getMinimumSize(int).
      */
     Dimension minimumSize(int v);

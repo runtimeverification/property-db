@@ -46,7 +46,7 @@ import java.awt.image.SampleModel;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * An adapter class that implements ImageProducer to allow the
  * asynchronous production of a RenderableImage.  The size of the
  * ImageConsumer is determined by the scale factor of the usr2dev
@@ -61,16 +61,16 @@ import java.util.Vector;
  */
 public class RenderableImageProducer implements ImageProducer, Runnable {
 
-    /** The RenderableImage source for the producer. */
+    /** {@collect.stats} The RenderableImage source for the producer. */
     RenderableImage rdblImage;
 
-    /** The RenderContext to use for producing the image. */
+    /** {@collect.stats} The RenderContext to use for producing the image. */
     RenderContext rc;
 
-    /** A Vector of image consumers. */
+    /** {@collect.stats} A Vector of image consumers. */
     Vector ics = new Vector();
 
-    /**
+    /** {@collect.stats}
      * Constructs a new RenderableImageProducer from a RenderableImage
      * and a RenderContext.
      *
@@ -83,7 +83,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         this.rc = rc;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a new RenderContext to use for the next startProduction() call.
      *
      * @param rc the new RenderContext.
@@ -92,7 +92,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         this.rc = rc;
     }
 
-   /**
+   /** {@collect.stats}
      * Adds an ImageConsumer to the list of consumers interested in
      * data for this image.
      *
@@ -104,7 +104,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if an ImageConsumer is on the list of consumers
      * currently interested in data for this image.
      *
@@ -115,7 +115,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         return ics.contains(ic);
     }
 
-    /**
+    /** {@collect.stats}
      * Remove an ImageConsumer from the list of consumers interested in
      * data for this image.
      *
@@ -125,7 +125,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         ics.removeElement(ic);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an ImageConsumer to the list of consumers interested in
      * data for this image, and immediately starts delivery of the
      * image data through the ImageConsumer interface.
@@ -139,7 +139,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         thread.start();
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that a given ImageConsumer have the image data delivered
      * one more time in top-down, left-right order.
      *
@@ -149,7 +149,7 @@ public class RenderableImageProducer implements ImageProducer, Runnable {
         // So far, all pixels are already sent in TDLR order
     }
 
-    /**
+    /** {@collect.stats}
      * The runnable method for this class. This will produce an image using
      * the current RenderableImage and RenderContext and send it to all the
      * ImageConsumer currently registered with this class.

@@ -29,7 +29,7 @@ import java.io.Reader;
 import java.util.Map;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * <code>ScriptEngine</code> is the fundamental interface whose methods must be
  * fully functional in every implementation of this specification.
  * <br><br>
@@ -50,31 +50,31 @@ import java.util.Set;
 
 public interface ScriptEngine  {
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that passes
      * an array of positional arguments to a script.
      */
     public static final String ARGV="javax.script.argv";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that is
      * the name of the file being executed.
      */
     public static final String FILENAME = "javax.script.filename";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that is
      * the name of the <code>ScriptEngine</code> implementation.
      */
     public static final String ENGINE = "javax.script.engine";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that identifies
      * the version of the <code>ScriptEngine</code> implementation.
      */
     public static final String ENGINE_VERSION = "javax.script.engine_version";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that identifies
      * the short name of the scripting language.  The name is used by the
      * <code>ScriptEngineManager</code> to locate a <code>ScriptEngine</code>
@@ -82,20 +82,20 @@ public interface ScriptEngine  {
      */
     public static final String NAME = "javax.script.name";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for a named value that is
      * the full name of Scripting Language supported by the implementation.
      */
     public static final String LANGUAGE = "javax.script.language";
 
-    /**
+    /** {@collect.stats}
      * Reserved key for the named value that identifies
      * the version of the scripting language supported by the implementation.
      */
     public static final String LANGUAGE_VERSION ="javax.script.language_version";
 
 
-    /**
+    /** {@collect.stats}
      * Causes the immediate execution of the script whose source is the String
      * passed as the first argument.  The script may be reparsed or recompiled before
      * execution.  State left in the engine from previous executions, including
@@ -122,7 +122,7 @@ public interface ScriptEngine  {
     public Object eval(String script, ScriptContext context) throws ScriptException;
 
 
-    /**
+    /** {@collect.stats}
      * Same as <code>eval(String, ScriptContext)</code> where the source of the script
      * is read from a <code>Reader</code>.
      *
@@ -137,7 +137,7 @@ public interface ScriptEngine  {
      */
     public Object eval(Reader reader , ScriptContext context) throws ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Executes the specified script.  The default <code>ScriptContext</code> for the <code>ScriptEngine</code>
      * is used.
      *
@@ -150,7 +150,7 @@ public interface ScriptEngine  {
      */
     public Object eval(String script) throws ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Same as <code>eval(String)</code> except that the source of the script is
      * provided as a <code>Reader</code>
      *
@@ -163,7 +163,7 @@ public interface ScriptEngine  {
      */
     public Object eval(Reader reader) throws ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Executes the script using the <code>Bindings</code> argument as the <code>ENGINE_SCOPE</code>
      * <code>Bindings</code> of the <code>ScriptEngine</code> during the script execution.  The
      * <code>Reader</code>, <code>Writer</code> and non-<code>ENGINE_SCOPE</code> <code>Bindings</code> of the
@@ -182,7 +182,7 @@ public interface ScriptEngine  {
      */
     public Object eval(String script, Bindings n) throws ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Same as <code>eval(String, Bindings)</code> except that the source of the script
      * is provided as a <code>Reader</code>.
      *
@@ -198,7 +198,7 @@ public interface ScriptEngine  {
 
 
 
-    /**
+    /** {@collect.stats}
      * Sets a key/value pair in the state of the ScriptEngine that may either create
      * a Java Language Binding to be used in the execution of scripts or be used in some
      * other way, depending on whether the key is reserved.  Must have the same effect as
@@ -213,7 +213,7 @@ public interface ScriptEngine  {
     public void put(String key, Object value);
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves a value set in the state of this engine.  The value might be one
      * which was set using <code>setValue</code> or some other value in the state
      * of the <code>ScriptEngine</code>, depending on the implementation.  Must have the same effect
@@ -228,7 +228,7 @@ public interface ScriptEngine  {
     public Object get(String key);
 
 
-    /**
+    /** {@collect.stats}
      * Returns a scope of named values.  The possible scopes are:
      * <br><br>
      * <ul>
@@ -259,7 +259,7 @@ public interface ScriptEngine  {
      */
     public Bindings getBindings(int scope);
 
-    /**
+    /** {@collect.stats}
      * Sets a scope of named values to be used by scripts.  The possible scopes are:
      *<br><br>
      * <ul>
@@ -288,7 +288,7 @@ public interface ScriptEngine  {
     public void setBindings(Bindings bindings, int scope);
 
 
-    /**
+    /** {@collect.stats}
      * Returns an uninitialized <code>Bindings</code>.
      *
      * @return A <code>Bindings</code> that can be used to replace the state of this <code>ScriptEngine</code>.
@@ -296,7 +296,7 @@ public interface ScriptEngine  {
     public Bindings createBindings();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>ScriptContext</code> of the <code>ScriptEngine</code> whose Bindings, Reader
      * and Writers are used for script executions when no <code>ScriptContext</code> is specified.
      *
@@ -304,7 +304,7 @@ public interface ScriptEngine  {
      */
     public ScriptContext getContext();
 
-    /**
+    /** {@collect.stats}
      * Sets the default <code>ScriptContext</code> of the <code>ScriptEngine</code> whose Bindings, Reader
      * and Writers are used for script executions when no <code>ScriptContext</code> is specified.
      *
@@ -314,7 +314,7 @@ public interface ScriptEngine  {
      */
     public void setContext(ScriptContext context);
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>ScriptEngineFactory</code> for the class to which this <code>ScriptEngine</code> belongs.
      *
      * @return The <code>ScriptEngineFactory</code>

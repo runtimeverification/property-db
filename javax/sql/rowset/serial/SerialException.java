@@ -27,7 +27,7 @@ package javax.sql.rowset.serial;
 
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * Indicates and an error with the serialization or de-serialization of
  * SQL types such as <code>BLOB, CLOB, STRUCT or ARRAY</code> in
  * addition to SQL types such as <code>DATALINK and JAVAOBJECT</code>
@@ -35,14 +35,14 @@ import java.sql.SQLException;
  */
 public class SerialException extends java.sql.SQLException {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SerialException</code> without a
      * message.
      */
      public SerialException() {
      }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SerialException</code> with the
      * specified message.
      *

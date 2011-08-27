@@ -42,7 +42,7 @@ import java.beans.PropertyVetoException;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * The class that manages a basic title bar
  * <p>
  * <strong>Warning:</strong>
@@ -339,7 +339,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-   /**
+   /** {@collect.stats}
     * Invoked from paintComponent.
     * Paints the background of the titlepane.  All text and icons will
     * then be rendered on top of this background.
@@ -361,7 +361,7 @@ public class BasicInternalFrameTitlePane extends JComponent
                            frame, fm, text, availTextWidth);
       }
 
-    /**
+    /** {@collect.stats}
      * Post a WINDOW_CLOSING-like event to the frame, so that it can
      * be treated like a regular Frame.
      */
@@ -550,7 +550,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -564,7 +564,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -594,7 +594,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -610,7 +610,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     } // end CloseAction
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -638,7 +638,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -658,7 +658,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     } // end IconifyAction
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -684,7 +684,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -717,7 +717,7 @@ public class BasicInternalFrameTitlePane extends JComponent
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */
@@ -732,7 +732,7 @@ public class BasicInternalFrameTitlePane extends JComponent
     } // end SizeAction
 
 
-    /**
+    /** {@collect.stats}
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of <Foo>.
      */

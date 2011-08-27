@@ -35,7 +35,7 @@ import javax.swing.border.*;
 import javax.swing.event.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * HiddenTagView subclasses EditableView to contain a JTextField showing
  * the element name. When the textfield is edited the element name is
  * reset. As this inherits from EditableView if the JTextComponent is
@@ -151,7 +151,7 @@ class HiddenTagView extends EditableView implements DocumentListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This resets the text on the text component we created to match
      * that of the AttributeSet for the Element we represent.
      * <p>If this is invoked on the event dispatching thread, this
@@ -172,7 +172,7 @@ class HiddenTagView extends EditableView implements DocumentListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This resets the text on the text component we created to match
      * that of the AttributeSet for the Element we represent.
      */
@@ -202,7 +202,7 @@ class HiddenTagView extends EditableView implements DocumentListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This copies the text from the text component we've created
      * to the Element's AttributeSet we represent.
      * <p>If this is invoked on the event dispatching thread, this
@@ -225,7 +225,7 @@ class HiddenTagView extends EditableView implements DocumentListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This copies the text from the text component we've created
      * to the Element's AttributeSet we represent.
      */
@@ -278,9 +278,9 @@ class HiddenTagView extends EditableView implements DocumentListener {
         return false;
     }
 
-    /** Alignment along the y axis, based on the font of the textfield. */
+    /** {@collect.stats} Alignment along the y axis, based on the font of the textfield. */
     float yAlign;
-    /** Set to true when setting attributes. */
+    /** {@collect.stats} Set to true when setting attributes. */
     boolean isSettingAttributes;
 
 

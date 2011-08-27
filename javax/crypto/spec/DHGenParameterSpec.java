@@ -28,7 +28,7 @@ package javax.crypto.spec;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used for generating
  * Diffie-Hellman (system) parameters for use in Diffie-Hellman key
  * agreement. This is typically done by a central
@@ -50,7 +50,7 @@ public class DHGenParameterSpec implements AlgorithmParameterSpec {
     // The size in bits of the random exponent (private value)
     private int exponentSize;
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for the generation of Diffie-Hellman
      * (system) parameters. The constructed parameter set can be used to
      * initialize an
@@ -65,7 +65,7 @@ public class DHGenParameterSpec implements AlgorithmParameterSpec {
         this.exponentSize = exponentSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size in bits of the prime modulus.
      *
      * @return the size in bits of the prime modulus
@@ -74,7 +74,7 @@ public class DHGenParameterSpec implements AlgorithmParameterSpec {
         return this.primeSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size in bits of the random exponent (private value).
      *
      * @return the size in bits of the random exponent (private value)

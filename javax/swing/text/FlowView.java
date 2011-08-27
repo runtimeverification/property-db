@@ -29,7 +29,7 @@ import java.util.Vector;
 import javax.swing.event.*;
 import javax.swing.SizeRequirements;
 
-/**
+/** {@collect.stats}
  * A View that tries to flow it's children into some
  * partially constrained space.  This can be used to
  * build things like paragraphs, pages, etc.  The
@@ -51,7 +51,7 @@ import javax.swing.SizeRequirements;
  */
 public abstract class FlowView extends BoxView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a FlowView for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -63,7 +63,7 @@ public abstract class FlowView extends BoxView {
         strategy = new FlowStrategy();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the axis along which views should be
      * flowed.  By default, this will be the axis
      * orthogonal to the axis along which the flow
@@ -78,7 +78,7 @@ public abstract class FlowView extends BoxView {
         return Y_AXIS;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the constraining span to flow against for
      * the given child index.  This is called by the
      * FlowStrategy while it is updating the flow.
@@ -95,7 +95,7 @@ public abstract class FlowView extends BoxView {
         return layoutSpan;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the location along the flow axis that the
      * flow span will start at.  This is called by the
      * FlowStrategy while it is updating the flow.
@@ -110,7 +110,7 @@ public abstract class FlowView extends BoxView {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a View that should be used to hold a
      * a rows worth of children in a flow.  This is
      * called by the FlowStrategy when new children
@@ -121,7 +121,7 @@ public abstract class FlowView extends BoxView {
 
     // ---- BoxView methods -------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Loads all of the children to initialize the view.
      * This is called by the <code>setParent</code> method.
      * This is reimplemented to not load any children directly
@@ -143,7 +143,7 @@ public abstract class FlowView extends BoxView {
         strategy.insertUpdate(this, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view index representing the given position in
      * the model.
      *
@@ -164,7 +164,7 @@ public abstract class FlowView extends BoxView {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the children.  If the span along the flow
      * axis has changed, layout is marked as invalid which
      * which will cause the superclass behavior to recalculate
@@ -220,7 +220,7 @@ public abstract class FlowView extends BoxView {
         super.layout(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate equirements along the minor axis.  This
      * is implemented to forward the request to the logical
      * view by calling getMinimumSpan, getPreferredSpan, and
@@ -242,7 +242,7 @@ public abstract class FlowView extends BoxView {
 
     // ---- View methods ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the document
      * in a location that this view is responsible for.
      *
@@ -256,7 +256,7 @@ public abstract class FlowView extends BoxView {
         strategy.insertUpdate(this, changes, getInsideAllocation(a));
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      *
@@ -270,7 +270,7 @@ public abstract class FlowView extends BoxView {
         strategy.removeUpdate(this, changes, getInsideAllocation(a));
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -284,7 +284,7 @@ public abstract class FlowView extends BoxView {
         strategy.changedUpdate(this, changes, getInsideAllocation(a));
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void setParent(View parent) {
         super.setParent(parent);
         if (parent == null
@@ -295,13 +295,13 @@ public abstract class FlowView extends BoxView {
 
     // --- variables -----------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Default constraint against which the flow is
      * created against.
      */
     protected int layoutSpan;
 
-    /**
+    /** {@collect.stats}
      * These are the views that represent the child elements
      * of the element this view represents (The logical view
      * to translate to a physical view).  These are not
@@ -312,7 +312,7 @@ public abstract class FlowView extends BoxView {
      */
     protected View layoutPool;
 
-    /**
+    /** {@collect.stats}
      * The behavior for keeping the flow updated.  By
      * default this is a singleton shared by all instances
      * of FlowView (FlowStrategy is stateless).  Subclasses
@@ -321,7 +321,7 @@ public abstract class FlowView extends BoxView {
      */
     protected FlowStrategy strategy;
 
-    /**
+    /** {@collect.stats}
      * Strategy for maintaining the physical form
      * of the flow.  The default implementation is
      * completely stateless, and recalculates the
@@ -346,7 +346,7 @@ public abstract class FlowView extends BoxView {
             damageStart = Integer.MAX_VALUE;
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was inserted into the document
          * in a location that the given flow view is responsible for.  The
          * strategy should update the appropriate changed region (which
@@ -374,7 +374,7 @@ public abstract class FlowView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was removed from the document
          * in a location that the given flow view is responsible for.
          *
@@ -394,7 +394,7 @@ public abstract class FlowView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification from the document that attributes were changed
          * in a location that this view is responsible for.
          *
@@ -416,7 +416,7 @@ public abstract class FlowView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This method gives flow strategies access to the logical
          * view of the FlowView.
          */
@@ -424,7 +424,7 @@ public abstract class FlowView extends BoxView {
             return fv.layoutPool;
         }
 
-        /**
+        /** {@collect.stats}
          * Update the flow on the given FlowView.  By default, this causes
          * all of the rows (child views) to be rebuilt to match the given
          * constraints for each row.  This is called by a FlowView.layout
@@ -477,7 +477,7 @@ public abstract class FlowView extends BoxView {
             unsetDamage();
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a row of views that will fit within the
          * layout span of the row.  This is called by the layout method.
          * This is implemented to fill the row by repeatedly calling
@@ -563,7 +563,7 @@ public abstract class FlowView extends BoxView {
             return (views.length > 0 ? row.getEndOffset() : pos);
         }
 
-        /**
+        /** {@collect.stats}
          * Adjusts the given row if possible to fit within the
          * layout span.  By default this will try to find the
          * highest break weight possible nearest the end of
@@ -637,7 +637,7 @@ public abstract class FlowView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a view that can be used to represent the current piece
          * of the flow.  This can be either an entire view from the
          * logical view, or a fragment of the logical view.
@@ -663,7 +663,7 @@ public abstract class FlowView extends BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This class can be used to represent a logical view for
      * a flow.  It keeps the children updated to reflect the state
      * of the model, gives the logical child views access to the
@@ -694,7 +694,7 @@ public abstract class FlowView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  This view
          * isn't directly responsible for an element so it returns
          * the outer classes attributes.
@@ -704,7 +704,7 @@ public abstract class FlowView extends BoxView {
             return (p != null) ? p.getAttributes() : null;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the preferred span for this view along an
          * axis.
          *
@@ -731,7 +731,7 @@ public abstract class FlowView extends BoxView {
             return maxpref;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the minimum span for this view along an
          * axis.  The is implemented to find the minimum unbreakable
          * span.
@@ -766,7 +766,7 @@ public abstract class FlowView extends BoxView {
             return maxmin;
         }
 
-        /**
+        /** {@collect.stats}
          * Forward the DocumentEvent to the given child view.  This
          * is implemented to reparent the child to the logical view
          * (the children may have been parented by a row in the flow
@@ -791,7 +791,7 @@ public abstract class FlowView extends BoxView {
         // The following methods don't do anything useful, they
         // simply keep the class from being abstract.
 
-        /**
+        /** {@collect.stats}
          * Renders using the given rendering surface and area on that
          * surface.  This is implemented to do nothing, the logical
          * view is never visible.
@@ -803,7 +803,7 @@ public abstract class FlowView extends BoxView {
         public void paint(Graphics g, Shape allocation) {
         }
 
-        /**
+        /** {@collect.stats}
          * Tests whether a point lies before the rectangle range.
          * Implemented to return false, as hit detection is not
          * performed on the logical view.
@@ -817,7 +817,7 @@ public abstract class FlowView extends BoxView {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Tests whether a point lies after the rectangle range.
          * Implemented to return false, as hit detection is not
          * performed on the logical view.
@@ -831,7 +831,7 @@ public abstract class FlowView extends BoxView {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the child view at the given point.
          * Implemented to return null, as hit detection is not
          * performed on the logical view.
@@ -846,7 +846,7 @@ public abstract class FlowView extends BoxView {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the allocation for a given child.
          * Implemented to do nothing, as the logical view doesn't
          * perform layout on the children.

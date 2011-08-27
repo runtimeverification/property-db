@@ -39,7 +39,7 @@ import javax.swing.undo.*;
 import java.text.Bidi;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A document that models HTML.  The purpose of this model is to
  * support both browsing and editing.  As a result, the structure
  * described by an HTML document is not exactly replicated by default.
@@ -274,7 +274,7 @@ import sun.swing.SwingUtilities2;
  * @author  Sunita Mani
  */
 public class HTMLDocument extends DefaultStyledDocument {
-    /**
+    /** {@collect.stats}
      * Constructs an HTML document using the default buffer size
      * and a default <code>StyleSheet</code>.  This is a convenience
      * method for the constructor
@@ -284,7 +284,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         this(new GapContent(BUFFER_SIZE_DEFAULT), new StyleSheet());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an HTML document with the default content
      * storage implementation and the specified style/attribute
      * storage mechanism.  This is a convenience method for the
@@ -297,7 +297,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         this(new GapContent(BUFFER_SIZE_DEFAULT), styles);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an HTML document with the given content
      * storage implementation and the given style/attribute
      * storage mechanism.
@@ -309,7 +309,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         super(c, styles);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the reader for the parser to use when loading the document
      * with HTML.  This is implemented to return an instance of
      * <code>HTMLDocument.HTMLReader</code>.
@@ -330,7 +330,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return reader;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the reader for the parser to use to load the document
      * with HTML.  This is implemented to return an instance of
      * <code>HTMLDocument.HTMLReader</code>.
@@ -356,7 +356,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return getReader(pos, popDepth, pushDepth, insertTag, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the reader for the parser to use to load the document
      * with HTML.  This is implemented to return an instance of
      * HTMLDocument.HTMLReader.  Subclasses can reimplement this
@@ -389,7 +389,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return reader;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location to resolve relative URLs against.  By
      * default this will be the document's URL if the document
      * was loaded from a URL.  If a base tag is found and
@@ -401,7 +401,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return base;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the location to resolve relative URLs against.  By
      * default this will be the document's URL if the document
      * was loaded from a URL.  If a base tag is found and
@@ -416,7 +416,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         getStyleSheet().setBase(u);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts new elements in bulk.  This is how elements get created
      * in the document.  The parsing determines what structure is needed
      * and creates the specification as a set of tokens that describe the
@@ -434,7 +434,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         super.insert(offset, data);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates document structure as a result of text insertion.  This
      * will happen within a write lock.  This implementation simply
      * parses the inserted content for line breaks and builds up a set
@@ -460,7 +460,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         super.insertUpdate(chng, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the contents of the document with the given
      * element specifications.  This is called before insert if
      * the loading is done in bursts.  This is the only method called
@@ -472,7 +472,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         super.create(data);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets attributes for a paragraph.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -524,7 +524,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the <code>StyleSheet</code> with the document-specific display
      * rules (CSS) that were specified in the HTML document itself.
      *
@@ -534,7 +534,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return (StyleSheet) getAttributeContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches an iterator for the specified HTML tag.
      * This can be used for things like iterating over the
      * set of anchors contained, or iterating over the input
@@ -552,7 +552,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return new LeafIterator(t, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a document leaf element that directly represents
      * text (doesn't have any children).  This is implemented
      * to return an element of type
@@ -568,7 +568,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return new RunElement(parent, a, p0, p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a document branch element, that can contain other elements.
      * This is implemented to return an element of type
      * <code>HTMLDocument.BlockElement</code>.
@@ -581,7 +581,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return new BlockElement(parent, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the root element to be used to represent the
      * default document structure.
      *
@@ -617,7 +617,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return html;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of tokens to buffer before trying to update
      * the documents element structure.
      *
@@ -627,7 +627,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         putProperty(TokenThreshold, new Integer(n));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the number of tokens to buffer before trying to update
      * the documents element structure.  The default value is
      * <code>Integer.MAX_VALUE</code>.
@@ -642,7 +642,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return Integer.MAX_VALUE;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines how unknown tags are handled by the parser.
      * If set to true, unknown
      * tags are put in the model, otherwise they are dropped.
@@ -655,7 +655,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         preservesUnknownTags = preservesTags;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the behavior the parser observes when encountering
      * unknown tags.
      *
@@ -666,7 +666,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return preservesUnknownTags;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes <code>HyperlinkEvents</code> that
      * are generated by documents in an HTML frame.
      * The <code>HyperlinkEvent</code> type, as the parameter suggests,
@@ -734,7 +734,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Searches the element hierarchy for an FRAME element
      * that has its name attribute equal to the <code>frameName</code>.
      *
@@ -759,7 +759,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return next;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>StyleConstants.NameAttribute</code> is
      * equal to the tag that is passed in as a parameter.
      *
@@ -779,7 +779,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces a frameset branch Element with a frame leaf element.
      *
      * @param element the frameset element to remove
@@ -805,7 +805,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Updates the Frame elements <code>HTML.Attribute.SRC attribute</code>
      * and fires a <code>ChangedUpdate</code> event.
      *
@@ -833,7 +833,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the document will be viewed in a frame.
      * @return true if document will be viewed in a frame, otherwise false
      */
@@ -841,7 +841,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return frameDocument;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a boolean state about whether the document will be
      * viewed in a frame.
      * @param frameDoc  true if the document will be viewed in a frame,
@@ -851,7 +851,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         this.frameDocument = frameDoc;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified map, this will remove a Map that has been
      * previously registered with the same name.
      *
@@ -873,7 +873,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a previously registered map.
      * @param map the <code>Map</code> to be removed
      */
@@ -889,7 +889,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Map associated with the given name.
      * @param the name of the desired <code>Map</code>
      * @return the <code>Map</code> or <code>null</code> if it can't
@@ -906,7 +906,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of the possible Maps.
      * @return the enumerated list of maps, or <code>null</code>
      *          if the maps are not an instance of <code>Hashtable</code>
@@ -920,7 +920,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the content type language used for style sheets that do not
      * explicitly specify the type. The default is text/css.
      * @param contentType  the content type language for the style sheets
@@ -930,7 +930,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         putProperty(StyleType, contentType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the content type language used for style sheets. The default
      * is text/css.
      * @return the content type language used for the style sheets
@@ -944,7 +944,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the parser that is used by the methods that insert html
      * into the existing document, such as <code>setInnerHTML</code>,
      * and <code>setOuterHTML</code>.
@@ -961,7 +961,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         putProperty("__PARSER__", null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parser that is used when inserting HTML into the existing
      * document.
      * @return the parser used for text insertion
@@ -977,7 +977,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return parser;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the children of the given element with the contents
      * specified as an HTML string.
      *
@@ -1045,7 +1045,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the given element in the parent with the contents
      * specified as an HTML string.
      *
@@ -1131,7 +1131,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the HTML specified as a string at the start
      * of the element.
      *
@@ -1191,7 +1191,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         insertHTML(elem, elem.getStartOffset(), htmlText, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the HTML specified as a string at the end of
      * the element.
      *
@@ -1263,7 +1263,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the HTML specified as a string before the start of
      * the given element.
      *
@@ -1321,7 +1321,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the HTML specified as a string after the the end of the
      * given element.
      *
@@ -1387,7 +1387,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the element that has the given id <code>Attribute</code>.
      * If the element can't be found, <code>null</code> is returned.
      * Note that this method works on an <code>Attribute</code>,
@@ -1413,7 +1413,7 @@ public class HTMLDocument extends DefaultStyledDocument {
                           true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child element of <code>e</code> that contains the
      * attribute, <code>attribute</code> with value <code>value</code>, or
      * <code>null</code> if one isn't found. This is not thread-safe.
@@ -1431,7 +1431,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return getElement(e, attribute, value, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child element of <code>e</code> that contains the
      * attribute, <code>attribute</code> with value <code>value</code>, or
      * <code>null</code> if one isn't found. This is not thread-safe.
@@ -1491,7 +1491,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Verifies the document has an <code>HTMLEditorKit.Parser</code> set.
      * If <code>getParser</code> returns <code>null</code>, this will throw an
      * IllegalStateException.
@@ -1504,7 +1504,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Installs a default Parser if one has not been installed yet.
      */
     private void installParserIfNecessary() {
@@ -1513,7 +1513,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a string of HTML into the document at the given position.
      * <code>parent</code> is used to identify the location to insert the
      * <code>html</code>. If <code>parent</code> is a leaf this can have
@@ -1559,7 +1559,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes child Elements of the passed in Element <code>e</code>. This
      * will do the necessary cleanup to ensure the element representing the
      * end character is correctly created.
@@ -1584,7 +1584,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called to remove child elements of <code>e</code> when one of the
      * elements to remove is representing the end character.
      * <p>Since the Content will not allow a removal to the end character
@@ -1637,7 +1637,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         fireUndoableEditUpdate(new UndoableEditEvent(this, dde));
     }
 
-    /**
+    /** {@collect.stats}
      * This is used by <code>removeElementsAtEnd</code>, it removes
      * <code>count</code> elements starting at <code>start</code> from
      * <code>e</code>.  If <code>remove</code> is true text of length
@@ -1672,7 +1672,7 @@ public class HTMLDocument extends DefaultStyledDocument {
                                              index, removed.length, added);
     }
 
-    /**
+    /** {@collect.stats}
      * Called to remove child Elements when the end is not touched.
      */
     private void removeElements(Element e, int index, int count,
@@ -1714,7 +1714,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     // Provided for inner class access.
     //
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -1727,7 +1727,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         super.fireChangedUpdate(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -1761,7 +1761,7 @@ public class HTMLDocument extends DefaultStyledDocument {
      */
     private HashMap radioButtonGroupsMap;
 
-    /**
+    /** {@collect.stats}
      * Document property for the number of tokens to buffer
      * before building an element subtree to represent them.
      */
@@ -1772,19 +1772,19 @@ public class HTMLDocument extends DefaultStyledDocument {
     private static final int StepThreshold = 5;
 
 
-    /**
+    /** {@collect.stats}
      * Document property key value. The value for the key will be a Vector
      * of Strings that are comments not found in the body.
      */
     public static final String AdditionalComments = "AdditionalComments";
 
-    /**
+    /** {@collect.stats}
      * Document property key value. The value for the key will be a
      * String indicating the default type of stylesheet links.
      */
     /* public */ static final String StyleType = "StyleType";
 
-    /**
+    /** {@collect.stats}
      * The location to resolve relative URLs against.  By
      * default this will be the document's URL if the document
      * was loaded from a URL.  If a base tag is found and
@@ -1792,28 +1792,28 @@ public class HTMLDocument extends DefaultStyledDocument {
      */
     URL base;
 
-    /**
+    /** {@collect.stats}
      * does the document have base tag
      */
     boolean hasBaseTag = false;
 
-    /**
+    /** {@collect.stats}
      * BASE tag's TARGET attribute value
      */
     private String baseTarget = null;
 
-    /**
+    /** {@collect.stats}
      * The parser that is used when inserting html into the existing
      * document.
      */
     private HTMLEditorKit.Parser parser;
 
-    /**
+    /** {@collect.stats}
      * Used for inserts when a null AttributeSet is supplied.
      */
     private static AttributeSet contentAttributeSet;
 
-    /**
+    /** {@collect.stats}
      * Property Maps are registered under, will be a Hashtable.
      */
     static String MAP_PROPERTY = "__MAP__";
@@ -1821,7 +1821,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     private static char[] NEWLINE;
     private static final String IMPLIED_CR = "CR";
 
-    /**
+    /** {@collect.stats}
      * I18N property key.
      *
      * @see AbstractDocument.I18NProperty
@@ -1838,7 +1838,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An iterator to iterate over a particular type of
      * tag.  The iterator is not thread safe.  If reliable
      * access to the document is not already ensured by
@@ -1848,14 +1848,14 @@ public class HTMLDocument extends DefaultStyledDocument {
      */
     public static abstract class Iterator {
 
-        /**
+        /** {@collect.stats}
          * Return the attributes for this tag.
          * @return the <code>AttributeSet</code> for this tag, or
          *      <code>null</code> if none can be found
          */
         public abstract AttributeSet getAttributes();
 
-        /**
+        /** {@collect.stats}
          * Returns the start of the range for which the current occurrence of
          * the tag is defined and has the same attributes.
          *
@@ -1863,7 +1863,7 @@ public class HTMLDocument extends DefaultStyledDocument {
          */
         public abstract int getStartOffset();
 
-        /**
+        /** {@collect.stats}
          * Returns the end of the range for which the current occurrence of
          * the tag is defined and has the same attributes.
          *
@@ -1871,13 +1871,13 @@ public class HTMLDocument extends DefaultStyledDocument {
          */
         public abstract int getEndOffset();
 
-        /**
+        /** {@collect.stats}
          * Move the iterator forward to the next occurrence
          * of the tag it represents.
          */
         public abstract void next();
 
-        /**
+        /** {@collect.stats}
          * Indicates if the iterator is currently
          * representing an occurrence of a tag.  If
          * false there are no more tags for this iterator.
@@ -1886,13 +1886,13 @@ public class HTMLDocument extends DefaultStyledDocument {
          */
         public abstract boolean isValid();
 
-        /**
+        /** {@collect.stats}
          * Type of tag this iterator represents.
          */
         public abstract HTML.Tag getTag();
     }
 
-    /**
+    /** {@collect.stats}
      * An iterator to iterate over a particular type of tag.
      */
     static class LeafIterator extends Iterator {
@@ -1904,7 +1904,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             next();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the attributes for this tag.
          * @return the <code>AttributeSet</code> for this tag,
          *              or <code>null</code> if none can be found
@@ -1922,7 +1922,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the start of the range for which the current occurrence of
          * the tag is defined and has the same attributes.
          *
@@ -1936,7 +1936,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end of the range for which the current occurrence of
          * the tag is defined and has the same attributes.
          *
@@ -1946,7 +1946,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return endOffset;
         }
 
-        /**
+        /** {@collect.stats}
          * Moves the iterator forward to the next occurrence
          * of the tag it represents.
          */
@@ -1967,7 +1967,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the type of tag this iterator represents.
          *
          * @return the <code>HTML.Tag</code> that this iterator represents.
@@ -1977,7 +1977,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return tag;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the current position is not <code>null</code>.
          * @return true if current position is not <code>null</code>,
          *              otherwise returns false
@@ -1986,7 +1986,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return (pos.current() != null);
         }
 
-        /**
+        /** {@collect.stats}
          * Moves the given iterator to the next leaf element.
          * @param iter  the iterator to be scanned
          */
@@ -1999,7 +1999,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Marches a cloned iterator forward to locate the end
          * of the run.  This sets the value of <code>endOffset</code>.
          */
@@ -2023,7 +2023,7 @@ public class HTMLDocument extends DefaultStyledDocument {
 
     }
 
-    /**
+    /** {@collect.stats}
      * An HTML reader to load an HTML document with an HTML
      * element structure.  This is a set of callbacks from
      * the parser, implemented to create a set of elements
@@ -2178,7 +2178,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             this(offset, popDepth, pushDepth, insertTag, true, false, true);
         }
 
-        /**
+        /** {@collect.stats}
          * Generates a RuntimeException (will eventually generate
          * a BadLocationException when API changes are alloced) if inserting
          * into non empty document, <code>insertTag</code> is
@@ -2305,7 +2305,7 @@ public class HTMLDocument extends DefaultStyledDocument {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * This block initializes the <code>inParagraph</code> flag.
              * It is left in <code>false</code> value automatically
              * if the target document is empty or future inserts
@@ -2335,7 +2335,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Generates an initial batch of end <code>ElementSpecs</code>
          * in parseBuffer to position future inserts into the body.
          */
@@ -2386,7 +2386,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             // Or look for the body and reset the offset.
         }
 
-        /**
+        /** {@collect.stats}
          * @return number of parents to reach the child at offset.
          */
         private int depthTo(int offset) {
@@ -2400,7 +2400,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return count;
         }
 
-        /**
+        /** {@collect.stats}
          * @return number of parents of the leaf at <code>offset</code>
          *         until a parent with name, <code>name</code> has been
          *         found. -1 indicates no matching parent with
@@ -2418,7 +2418,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return (e == null) ? -1 : count;
         }
 
-        /**
+        /** {@collect.stats}
          * This will make sure there aren't two BODYs (the second is
          * typically created when you do a remove all, and then an insert).
          */
@@ -2510,7 +2510,7 @@ public class HTMLDocument extends DefaultStyledDocument {
 
         // -- HTMLEditorKit.ParserCallback methods --------------------
 
-        /**
+        /** {@collect.stats}
          * The last method called on the reader.  It allows
          * any pending changes to be flushed into the document.
          * Since this is currently loading synchronously, the entire
@@ -2530,7 +2530,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Called by the parser to indicate a block of text was
          * encountered.
          */
@@ -2578,7 +2578,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Callback from the parser.  Route to the appropriate
          * handler for the tag.
          */
@@ -2647,7 +2647,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the comment <code>comment</code> to the set of comments
          * maintained outside of the scope of elements.
          */
@@ -2664,7 +2664,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             ((Vector)comments).addElement(comment);
         }
 
-        /**
+        /** {@collect.stats}
          * Callback from the parser.  Route to the appropriate
          * handler for the tag.
          */
@@ -2687,7 +2687,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Callback from the parser.  Route to the appropriate
          * handler for the tag.
          */
@@ -2718,7 +2718,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This is invoked after the stream has been parsed, but before
          * <code>flush</code>. <code>eol</code> will be one of \n, \r
          * or \r\n, which ever is encountered the most in parsing the
@@ -2735,7 +2735,7 @@ public class HTMLDocument extends DefaultStyledDocument {
 
         // ---- tag handling support ------------------------------
 
-        /**
+        /** {@collect.stats}
          * Registers a handler for the given tag.  By default
          * all of the well-known tags will have been registered.
          * This can be used to change the handling of a particular
@@ -2745,7 +2745,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             tagMap.put(t, a);
         }
 
-        /**
+        /** {@collect.stats}
          * An action to be performed in response
          * to parsing a tag.  This allows customization
          * of how each tag is handled and avoids a large
@@ -2753,7 +2753,7 @@ public class HTMLDocument extends DefaultStyledDocument {
          */
         public class TagAction {
 
-            /**
+            /** {@collect.stats}
              * Called when a start tag is seen for the
              * type of tag this action was registered
              * to.  The tag argument indicates the actual
@@ -2764,7 +2764,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             public void start(HTML.Tag t, MutableAttributeSet a) {
             }
 
-            /**
+            /** {@collect.stats}
              * Called when an end tag is seen for the
              * type of tag this action was registered
              * to.  The tag argument indicates the actual
@@ -2789,7 +2789,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Action used for the actual element form tag. This is named such
          * as there was already a public class named FormAction.
          */
@@ -2870,7 +2870,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Subclass of HiddenAction to set the content type for style sheets,
          * and to set the name of the default style sheet.
          */
@@ -2901,7 +2901,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
 
 
-        /**
+        /** {@collect.stats}
          * End if overridden to create the necessary stylesheets that
          * are referenced via the link tag. It is done in this manner
          * as the meta tag can be used to specify an alternate style sheet,
@@ -3001,7 +3001,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
 
 
-        /**
+        /** {@collect.stats}
          * A subclass to add the AttributeSet to styles if the
          * attributes contains an attribute for 'rel' with value
          * 'stylesheet' or 'alternate stylesheet'.
@@ -3124,7 +3124,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Provides conversion of HTML tag/attribute
          * mappings that have a corresponding StyleConstants
          * and CSS mapping.  The conversion is to CSS attributes.
@@ -3287,7 +3287,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Action to support forms by building all of the elements
          * used to represent form controls.  This will process
          * the &lt;INPUT&gt;, &lt;TEXTAREA&gt;, &lt;SELECT&gt;,
@@ -3475,7 +3475,7 @@ public class HTMLDocument extends DefaultStyledDocument {
                 }
             }
 
-            /**
+            /** {@collect.stats}
              * If a &lt;SELECT&gt; tag is being processed, this
              * model will be a reference to the model being filled
              * with the &lt;OPTION&gt; elements (which produce
@@ -3488,7 +3488,7 @@ public class HTMLDocument extends DefaultStyledDocument {
 
         // --- utility methods used by the reader ------------------
 
-        /**
+        /** {@collect.stats}
          * Pushes the current character style on a stack in preparation
          * for forming a new nested character style.
          */
@@ -3496,7 +3496,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             charAttrStack.push(charAttr.copyAttributes());
         }
 
-        /**
+        /** {@collect.stats}
          * Pops a previously pushed character style off the stack
          * to return to a previous style.
          */
@@ -3507,7 +3507,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the given content to the textarea document.
          * This method gets called when we are in a textarea
          * context.  Therefore all text that is seen belongs
@@ -3522,7 +3522,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the given content that was encountered in a
          * PRE element.  This synthesizes lines to hold the
          * runs of text, and makes calls to addContent to
@@ -3545,7 +3545,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an instruction to the parse buffer to create a
          * block element with the given attributes.
          */
@@ -3569,7 +3569,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             parseBuffer.addElement(es);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds an instruction to the parse buffer to close out
          * a block element of the given type.
          */
@@ -3615,7 +3615,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             parseBuffer.addElement(es);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds some text with the current character attributes.
          *
          * @param data the content to add
@@ -3626,7 +3626,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             addContent(data, offs, length, true);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds some text with the current character attributes.
          *
          * @param data the content to add
@@ -3667,7 +3667,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds content that is basically specified entirely
          * in the attribute set.
          */
@@ -3700,7 +3700,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Flushes the current parse buffer into the document.
          * @param endOfStream true if there is no more content to parser
          */
@@ -3725,7 +3725,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             flushCount++;
         }
 
-        /**
+        /** {@collect.stats}
          * This will be invoked for the last flush, if <code>insertTag</code>
          * is non null.
          */
@@ -3804,7 +3804,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the CSS rules in <code>rules</code>.
          */
         void addCSSRules(String rules) {
@@ -3812,7 +3812,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             ss.addRule(rules);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds the CSS stylesheet at <code>href</code> to the known list
          * of stylesheets.
          */
@@ -3832,7 +3832,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if can insert starting at <code>t</code>. This
          * will return false if the insert tag is set, and hasn't been found
          * yet.
@@ -3967,17 +3967,17 @@ public class HTMLDocument extends DefaultStyledDocument {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This is set to true when and end is invoked for <html>.
          */
         private boolean receivedEndHTML;
-        /** Number of times <code>flushBuffer</code> has been invoked. */
+        /** {@collect.stats} Number of times <code>flushBuffer</code> has been invoked. */
         private int flushCount;
-        /** If true, behavior is similiar to insertTag, but instead of
+        /** {@collect.stats} If true, behavior is similiar to insertTag, but instead of
          * waiting for insertTag will wait for first Element without
          * an 'implied' attribute and begin inserting then. */
         private boolean insertAfterImplied;
-        /** This is only used if insertAfterImplied is true. If false, only
+        /** {@collect.stats} This is only used if insertAfterImplied is true. If false, only
          * inserting content, and there is a trailing newline it is removed. */
         private boolean wantsTrailingNewline;
         int threshold;
@@ -3990,19 +3990,19 @@ public class HTMLDocument extends DefaultStyledDocument {
         boolean inTitle = false;
         boolean lastWasNewline = true;
         boolean emptyAnchor;
-        /** True if (!emptyDocument && insertTag == null), this is used so
+        /** {@collect.stats} True if (!emptyDocument && insertTag == null), this is used so
          * much it is cached. */
         boolean midInsert;
-        /** True when the body has been encountered. */
+        /** {@collect.stats} True when the body has been encountered. */
         boolean inBody;
-        /** If non null, gives parent Tag that insert is to happen at. */
+        /** {@collect.stats} If non null, gives parent Tag that insert is to happen at. */
         HTML.Tag insertTag;
-        /** If true, the insertTag is inserted, otherwise elements after
+        /** {@collect.stats} If true, the insertTag is inserted, otherwise elements after
          * the insertTag is found are inserted. */
         boolean insertInsertTag;
-        /** Set to true when insertTag has been found. */
+        /** {@collect.stats} Set to true when insertTag has been found. */
         boolean foundInsertTag;
-        /** When foundInsertTag is set to true, this will be updated to
+        /** {@collect.stats} When foundInsertTag is set to true, this will be updated to
          * reflect the delta between the two structures. That is, it
          * will be the depth the inserts are happening at minus the
          * depth of the tags being passed in. A value of 0 (the common
@@ -4013,18 +4013,18 @@ public class HTMLDocument extends DefaultStyledDocument {
          * EndTagType specs in the flushBuffer method.
          */
         int insertTagDepthDelta;
-        /** How many parents to ascend before insert new elements. */
+        /** {@collect.stats} How many parents to ascend before insert new elements. */
         int popDepth;
-        /** How many parents to descend (relative to popDepth) before
+        /** {@collect.stats} How many parents to descend (relative to popDepth) before
          * inserting. */
         int pushDepth;
-        /** Last Map that was encountered. */
+        /** {@collect.stats} Last Map that was encountered. */
         Map lastMap;
-        /** Set to true when a style element is encountered. */
+        /** {@collect.stats} Set to true when a style element is encountered. */
         boolean inStyle = false;
-        /** Name of style to use. Obtained from Meta tag. */
+        /** {@collect.stats} Name of style to use. Obtained from Meta tag. */
         String defaultStyle;
-        /** Vector describing styles that should be include. Will consist
+        /** {@collect.stats} Vector describing styles that should be include. Will consist
          * of a bunch of HTML.Tags, which will either be:
          * <p>LINK: in which case it is followed by an AttributeSet
          * <p>STYLE: in which case the following element is a String
@@ -4032,17 +4032,17 @@ public class HTMLDocument extends DefaultStyledDocument {
          * it until the next HTML.Tag are the rules as Strings.
          */
         Vector styles;
-        /** True if inside the head tag. */
+        /** {@collect.stats} True if inside the head tag. */
         boolean inHead = false;
-        /** Set to true if the style language is text/css. Since this is
+        /** {@collect.stats} Set to true if the style language is text/css. Since this is
          * used alot, it is cached. */
         boolean isStyleCSS;
-        /** True if inserting into an empty document. */
+        /** {@collect.stats} True if inserting into an empty document. */
         boolean emptyDocument;
-        /** Attributes from a style Attribute. */
+        /** {@collect.stats} Attributes from a style Attribute. */
         AttributeSet styleAttributes;
 
-        /**
+        /** {@collect.stats}
          * Current option, if in an option element (needed to
          * load the label.
          */
@@ -4054,7 +4054,7 @@ public class HTMLDocument extends DefaultStyledDocument {
         Hashtable tagMap;
         int inBlock = 0;
 
-        /**
+        /** {@collect.stats}
          * This attribute is sometimes used to refer to next tag
          * to be handled after p-implied when the latter is
          * the current tag which is being handled.
@@ -4063,7 +4063,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used by StyleSheet to determine when to avoid removing HTML.Tags
      * matching StyleConstants.
      */
@@ -4074,14 +4074,14 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An element that represents a chunk of text that has
      * a set of HTML character level attributes assigned to
      * it.
      */
     public class RunElement extends LeafElement {
 
-        /**
+        /** {@collect.stats}
          * Constructs an element that represents content within the
          * document (has no children).
          *
@@ -4095,7 +4095,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             super(parent, a, offs0, offs1);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          *
          * @return the name, null if none
@@ -4108,7 +4108,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return super.getName();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the resolving parent.  HTML attributes are not inherited
          * at the model level so we override this to return null.
          *
@@ -4120,13 +4120,13 @@ public class HTMLDocument extends DefaultStyledDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An element that represents a structural <em>block</em> of
      * HTML.
      */
     public class BlockElement extends BranchElement {
 
-        /**
+        /** {@collect.stats}
          * Constructs a composite element that initially contains
          * no children.
          *
@@ -4138,7 +4138,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             super(parent, a);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          *
          * @return the name, null if none
@@ -4151,7 +4151,7 @@ public class HTMLDocument extends DefaultStyledDocument {
             return super.getName();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the resolving parent.  HTML attributes are not inherited
          * at the model level so we override this to return null.
          *
@@ -4165,7 +4165,7 @@ public class HTMLDocument extends DefaultStyledDocument {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Document that allows you to set the maximum length of the text.
      */
     private static class FixedLengthDocument extends PlainDocument {

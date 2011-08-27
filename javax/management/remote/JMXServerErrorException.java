@@ -31,7 +31,7 @@ import java.io.IOException;
 // imports for javadoc
 import javax.management.MBeanServer;
 
-/**
+/** {@collect.stats}
  * Exception thrown as the result of a remote {@link MBeanServer}
  * method invocation when an <code>Error</code> is thrown while
  * processing the invocation in the remote MBean server.  A
@@ -45,7 +45,7 @@ public class JMXServerErrorException extends IOException {
 
     private static final long serialVersionUID = 3996732239558744666L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JMXServerErrorException</code> with the specified
      * detail message and nested error.
      *
@@ -63,7 +63,7 @@ public class JMXServerErrorException extends IOException {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * @serial An {@link Error} that caused this exception to be thrown.
      * @see #getCause()
      **/

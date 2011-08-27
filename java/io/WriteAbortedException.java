@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * Signals that one of the ObjectStreamExceptions was thrown during a
  * write operation.  Thrown during a read operation when one of the
  * ObjectStreamExceptions was thrown during a write operation.  The
@@ -46,7 +46,7 @@ package java.io;
 public class WriteAbortedException extends ObjectStreamException {
     private static final long serialVersionUID = -3326426625597282442L;
 
-    /**
+    /** {@collect.stats}
      * Exception that was caught while writing the ObjectStream.
      *
      * <p>This field predates the general-purpose exception chaining facility.
@@ -57,7 +57,7 @@ public class WriteAbortedException extends ObjectStreamException {
      */
     public Exception detail;
 
-    /**
+    /** {@collect.stats}
      * Constructs a WriteAbortedException with a string describing
      * the exception and the exception causing the abort.
      * @param s   String describing the exception.
@@ -69,7 +69,7 @@ public class WriteAbortedException extends ObjectStreamException {
         detail = ex;
     }
 
-    /**
+    /** {@collect.stats}
      * Produce the message and include the message from the nested
      * exception, if there is one.
      */
@@ -80,7 +80,7 @@ public class WriteAbortedException extends ObjectStreamException {
             return super.getMessage() + "; " + detail.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the exception that terminated the operation (the <i>cause</i>).
      *
      * @return  the exception that terminated the operation (the <i>cause</i>),

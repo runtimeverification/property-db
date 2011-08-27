@@ -40,7 +40,7 @@ import sun.swing.plaf.synth.*;
 import sun.swing.MenuItemLayoutHelper;
 
 
-/**
+/** {@collect.stats}
  * Synth's MenuItemUI.
  *
  * @author Georges Saab

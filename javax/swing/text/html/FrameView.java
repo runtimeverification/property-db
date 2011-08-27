@@ -34,7 +34,7 @@ import javax.swing.event.*;
 
 import sun.swing.text.html.FrameEditorPaneTag;
 
-/**
+/** {@collect.stats}
  * Implements a FrameView, intended to support the HTML
  * &lt;FRAME&gt; tag.  Supports the frameborder, scrolling,
  * marginwidth and marginheight attributes.
@@ -51,10 +51,10 @@ class FrameView extends ComponentView implements HyperlinkListener {
     float width;
     float height;
     URL src;
-    /** Set to true when the component has been created. */
+    /** {@collect.stats} Set to true when the component has been created. */
     private boolean createdComponent;
 
-    /**
+    /** {@collect.stats}
      * Creates a new Frame.
      *
      * @param elem the element to represent.
@@ -120,7 +120,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the parent view for the FrameView.
      * Also determines if the FrameView should be editable
      * or not based on whether the JTextComponent that
@@ -137,7 +137,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Also determines if the FrameView should be editable
      * or not based on whether the JTextComponent that
      * contains it is editable. And then proceeds to call
@@ -158,7 +158,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the marginwidth or marginheight attributes have been specified,
      * then the JEditorPane's margin's are set to the new values.
      */
@@ -196,7 +196,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If the frameborder attribute has been specified, either in the frame,
      * or by the frames enclosing frameset, the JScrollPane's setBorder()
      * method is invoked to achieve the desired look.
@@ -213,7 +213,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method creates the JScrollPane.  The scrollbar policy is determined by
      * the scrolling attribute.  If not defined, the default is "auto" which
      * maps to the scrollbar's being displayed as needed.
@@ -247,7 +247,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Finds the outermost FrameSetView.  It then
      * returns that FrameSetView's container.
      */
@@ -268,7 +268,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if this frame is contained within
      * a nested frameset.
      */
@@ -278,7 +278,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Notification of a change relative to a
      * hyperlink. This method searches for the outermost
      * JEditorPane, and then fires an HTMLFrameHyperlinkEvent
@@ -352,7 +352,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.  Currently this view
      * handles changes to its SRC attribute.
@@ -396,7 +396,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Move POST data from temporary storage into the target document property.
      *
      * @return the POST data or null if no data found
@@ -424,7 +424,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
         return postData;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.
      *
@@ -439,7 +439,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
       return 5;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.
      *
@@ -454,7 +454,7 @@ class FrameView extends ComponentView implements HyperlinkListener {
         return Integer.MAX_VALUE;
     }
 
-    /** Editor pane rendering frame of HTML document
+    /** {@collect.stats} Editor pane rendering frame of HTML document
      *  It uses the same editor kits classes as outermost JEditorPane
      */
     class FrameEditorPane extends JEditorPane implements FrameEditorPaneTag {

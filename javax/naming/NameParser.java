@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This interface is used for parsing names from a hierarchical
   * namespace.  The NameParser contains knowledge of the syntactic
   * information (like left-to-right orientation, name separator, etc.)
@@ -43,7 +43,7 @@ package javax.naming;
   */
 
 public interface NameParser {
-        /**
+        /** {@collect.stats}
           * Parses a name into its components.
           *
           * @param name The non-null string name to parse.

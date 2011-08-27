@@ -31,7 +31,7 @@ import java.util.Enumeration;
 import javax.swing.event.*;
 
 
-/**
+/** {@collect.stats}
  * This class loosely implements the <code>java.util.Vector</code>
  * API, in that it implements the 1.1.x version of
  * <code>java.util.Vector</code>, has no collection class support,
@@ -54,7 +54,7 @@ public class DefaultListModel extends AbstractListModel
 {
     private Vector delegate = new Vector();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of components in this list.
      * <p>
      * This method is identical to <code>size</code>, which implements the
@@ -69,7 +69,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at the specified index.
      * <blockquote>
      * <b>Note:</b> Although this method is not deprecated, the preferred
@@ -87,7 +87,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the components of this list into the specified array.
      * The array must be big enough to hold all the objects in this list,
      * else an <code>IndexOutOfBoundsException</code> is thrown.
@@ -99,7 +99,7 @@ public class DefaultListModel extends AbstractListModel
         delegate.copyInto(anArray);
     }
 
-    /**
+    /** {@collect.stats}
      * Trims the capacity of this list to be the list's current size.
      *
      * @see Vector#trimToSize()
@@ -108,7 +108,7 @@ public class DefaultListModel extends AbstractListModel
         delegate.trimToSize();
     }
 
-    /**
+    /** {@collect.stats}
      * Increases the capacity of this list, if necessary, to ensure
      * that it can hold at least the number of components specified by
      * the minimum capacity argument.
@@ -120,7 +120,7 @@ public class DefaultListModel extends AbstractListModel
         delegate.ensureCapacity(minCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the size of this list.
      *
      * @param   newSize   the new size of this list
@@ -137,7 +137,7 @@ public class DefaultListModel extends AbstractListModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current capacity of this list.
      *
      * @return  the current capacity
@@ -147,7 +147,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.capacity();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of components in this list.
      *
      * @return  the number of components in this list
@@ -157,7 +157,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether this list has any components.
      *
      * @return  <code>true</code> if and only if this list has
@@ -169,7 +169,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the components of this list.
      *
      * @return  an enumeration of the components of this list
@@ -179,7 +179,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.elements();
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the specified object is a component in this list.
      *
      * @param   elem   an object
@@ -191,7 +191,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.contains(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Searches for the first occurrence of <code>elem</code>.
      *
      * @param   elem   an object
@@ -203,7 +203,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.indexOf(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Searches for the first occurrence of <code>elem</code>, beginning
      * the search at <code>index</code>.
      *
@@ -218,7 +218,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.indexOf(elem, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the last occurrence of <code>elem</code>.
      *
      * @param   elem   the desired component
@@ -230,7 +230,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.lastIndexOf(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Searches backwards for <code>elem</code>, starting from the
      * specified index, and returns an index to it.
      *
@@ -245,7 +245,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.lastIndexOf(elem, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at the specified index.
      * Throws an <code>ArrayIndexOutOfBoundsException</code> if the index
      * is negative or not less than the size of the list.
@@ -264,7 +264,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first component of this list.
      * Throws a <code>NoSuchElementException</code> if this
      * vector has no components.
@@ -275,7 +275,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.firstElement();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last component of the list.
      * Throws a <code>NoSuchElementException</code> if this vector
      * has no components.
@@ -287,7 +287,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.lastElement();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the component at the specified <code>index</code> of this
      * list to be the specified object. The previous component at that
      * position is discarded.
@@ -310,7 +310,7 @@ public class DefaultListModel extends AbstractListModel
         fireContentsChanged(this, index, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the component at the specified index.
      * <p>
      * Throws an <code>ArrayIndexOutOfBoundsException</code> if the index
@@ -330,7 +330,7 @@ public class DefaultListModel extends AbstractListModel
         fireIntervalRemoved(this, index, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified object as a component in this list at the
      * specified <code>index</code>.
      * <p>
@@ -353,7 +353,7 @@ public class DefaultListModel extends AbstractListModel
         fireIntervalAdded(this, index, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to the end of this list.
      *
      * @param   obj   the component to be added
@@ -365,7 +365,7 @@ public class DefaultListModel extends AbstractListModel
         fireIntervalAdded(this, index, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the first (lowest-indexed) occurrence of the argument
      * from this list.
      *
@@ -384,7 +384,7 @@ public class DefaultListModel extends AbstractListModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes all components from this list and sets its size to zero.
      * <blockquote>
      * <b>Note:</b> Although this method is not deprecated, the preferred
@@ -404,7 +404,7 @@ public class DefaultListModel extends AbstractListModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *
@@ -419,7 +419,7 @@ public class DefaultListModel extends AbstractListModel
      * Java 2 platform Vector class.
      */
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this list in the
      * correct order.
      *
@@ -432,7 +432,7 @@ public class DefaultListModel extends AbstractListModel
         return rv;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the element at the specified position in this list.
      * <p>
      * Throws an <code>ArrayIndexOutOfBoundsException</code>
@@ -445,7 +445,7 @@ public class DefaultListModel extends AbstractListModel
         return delegate.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the element at the specified position in this list with the
      * specified element.
      * <p>
@@ -464,7 +464,7 @@ public class DefaultListModel extends AbstractListModel
         return rv;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the specified position in this list.
      * <p>
      * Throws an <code>ArrayIndexOutOfBoundsException</code> if the
@@ -479,7 +479,7 @@ public class DefaultListModel extends AbstractListModel
         fireIntervalAdded(this, index, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the element at the specified position in this list.
      * Returns the element that was removed from the list.
      * <p>
@@ -496,7 +496,7 @@ public class DefaultListModel extends AbstractListModel
         return rv;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this list.  The list will
      * be empty after this call returns (unless it throws an exception).
      */
@@ -508,7 +508,7 @@ public class DefaultListModel extends AbstractListModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the components at the specified range of indexes.
      * The removal is inclusive, so specifying a range of (1,5)
      * removes the component at index 1 and the component at index 5,

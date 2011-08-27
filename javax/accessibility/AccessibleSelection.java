@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * This AccessibleSelection interface
  * provides the standard mechanism for an assistive technology to determine
  * what the current selected children are, as well as modify the selection set.
@@ -47,7 +47,7 @@ package javax.accessibility;
  */
 public interface AccessibleSelection {
 
-    /**
+    /** {@collect.stats}
      * Returns the number of Accessible children currently selected.
      * If no children are selected, the return value will be 0.
      *
@@ -55,7 +55,7 @@ public interface AccessibleSelection {
      */
      public int getAccessibleSelectionCount();
 
-    /**
+    /** {@collect.stats}
      * Returns an Accessible representing the specified selected child
      * of the object.  If there isn't a selection, or there are
      * fewer children selected than the integer passed in, the return
@@ -69,7 +69,7 @@ public interface AccessibleSelection {
      */
      public Accessible getAccessibleSelection(int i);
 
-    /**
+    /** {@collect.stats}
      * Determines if the current child of this object is selected.
      *
      * @return true if the current child of this object is selected; else false.
@@ -78,7 +78,7 @@ public interface AccessibleSelection {
      */
      public boolean isAccessibleChildSelected(int i);
 
-    /**
+    /** {@collect.stats}
      * Adds the specified Accessible child of the object to the object's
      * selection.  If the object supports multiple selections,
      * the specified child is added to any existing selection, otherwise
@@ -90,7 +90,7 @@ public interface AccessibleSelection {
      */
      public void addAccessibleSelection(int i);
 
-    /**
+    /** {@collect.stats}
      * Removes the specified child of the object from the object's
      * selection.  If the specified item isn't currently selected, this
      * method has no effect.
@@ -100,13 +100,13 @@ public interface AccessibleSelection {
      */
      public void removeAccessibleSelection(int i);
 
-    /**
+    /** {@collect.stats}
      * Clears the selection in the object, so that no children in the
      * object are selected.
      */
      public void clearAccessibleSelection();
 
-    /**
+    /** {@collect.stats}
      * Causes every child of the object to be selected
      * if the object supports multiple selections.
      */

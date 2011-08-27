@@ -27,7 +27,7 @@ package javax.print.event;
 
 import javax.print.DocPrintJob;
 
-/**
+/** {@collect.stats}
  *
  * Class <code>PrintJobEvent</code> encapsulates common events a print job
  * reports to let a listener know of progress in the processing of the
@@ -41,24 +41,24 @@ public class PrintJobEvent extends PrintEvent {
 
    private int reason;
 
-   /**
+   /** {@collect.stats}
     * The job was canceled by the {@link javax.print.PrintService PrintService}.
     */
    public static final int JOB_CANCELED   = 101;
 
-   /**
+   /** {@collect.stats}
     * The document cis completely printed.
     */
    public static final int JOB_COMPLETE       = 102;
 
-   /**
+   /** {@collect.stats}
     * The print service reports that the job cannot be completed.
     * The application must resubmit the job.
     */
 
    public static final int JOB_FAILED         = 103;
 
-   /**
+   /** {@collect.stats}
     * The print service indicates that a - possibly transient - problem
     * may require external intervention before the print service can
     * continue.  One example of an event that can
@@ -66,7 +66,7 @@ public class PrintJobEvent extends PrintEvent {
     */
    public static final int REQUIRES_ATTENTION = 104;
 
-   /**
+   /** {@collect.stats}
     * Not all print services may be capable of delivering interesting
     * events, or even telling when a job is complete. This message indicates
     * the print job has no further information or communication
@@ -78,14 +78,14 @@ public class PrintJobEvent extends PrintEvent {
     */
    public static final int NO_MORE_EVENTS    = 105;
 
-   /**
+   /** {@collect.stats}
     * The job is not necessarily printed yet, but the data has been transferred
     * successfully from the client to the print service. The client may
     * free data resources.
     */
    public static final int DATA_TRANSFER_COMPLETE    = 106;
 
-   /**
+   /** {@collect.stats}
      * Constructs a <code>PrintJobEvent</code> object.
      *
      * @param source  a <code>DocPrintJob</code> object
@@ -100,7 +100,7 @@ public class PrintJobEvent extends PrintEvent {
         this.reason = reason;
    }
 
-    /**
+    /** {@collect.stats}
      * Gets the reason for this event.
      * @return  reason int.
      */
@@ -108,7 +108,7 @@ public class PrintJobEvent extends PrintEvent {
         return reason;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the <code>DocPrintJob</code> to which this print job
      * event pertains.
      *

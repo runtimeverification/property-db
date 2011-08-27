@@ -30,7 +30,7 @@ import javax.swing.DefaultRowSorter;
 import javax.swing.RowFilter;
 import javax.swing.SortOrder;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>RowSorter</code> that provides sorting
  * and filtering using a <code>TableModel</code>.
  * The following example shows adding sorting to a <code>JTable</code>:
@@ -128,31 +128,31 @@ import javax.swing.SortOrder;
  * @since 1.6
  */
 public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, Integer> {
-    /**
+    /** {@collect.stats}
      * Comparator that uses compareTo on the contents.
      */
     private static final Comparator COMPARABLE_COMPARATOR =
             new ComparableComparator();
 
-    /**
+    /** {@collect.stats}
      * Underlying model.
      */
     private M tableModel;
 
-    /**
+    /** {@collect.stats}
      * For toString conversions.
      */
     private TableStringConverter stringConverter;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TableRowSorter</code> with an empty model.
      */
     public TableRowSorter() {
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>TableRowSorter</code> using <code>model</code>
      * as the underlying <code>TableModel</code>.
      *
@@ -163,7 +163,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         setModel(model);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableModel</code> to use as the underlying model
      * for this <code>TableRowSorter</code>.  A value of <code>null</code>
      * can be used to set an empty model.
@@ -175,7 +175,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         setModelWrapper(new TableRowSorterModelWrapper());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the object responsible for converting values from the
      * model to strings.  If non-<code>null</code> this
      * is used to convert any object values, that do not have a
@@ -188,7 +188,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         this.stringConverter = stringConverter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object responsible for converting values from the
      * model to strings.
      *
@@ -198,7 +198,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         return stringConverter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Comparator</code> for the specified
      * column.  If a <code>Comparator</code> has not been specified using
      * the <code>setComparator</code> method a <code>Comparator</code>
@@ -228,7 +228,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         return Collator.getInstance();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -248,7 +248,7 @@ public class TableRowSorter<M extends TableModel> extends DefaultRowSorter<M, In
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of DefaultRowSorter.ModelWrapper that delegates to a
      * TableModel.
      */

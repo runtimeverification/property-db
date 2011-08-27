@@ -28,7 +28,7 @@ package javax.imageio.metadata;
 import javax.imageio.IIOException;
 import org.w3c.dom.Node;
 
-/**
+/** {@collect.stats}
  * An <code>IIOInvalidTreeException</code> is thrown when an attempt
  * by an <code>IIOMetadata</code> object to parse a tree of
  * <code>IIOMetadataNode</code>s fails.  The node that led to the
@@ -45,13 +45,13 @@ import org.w3c.dom.Node;
  */
 public class IIOInvalidTreeException extends IIOException {
 
-    /**
+    /** {@collect.stats}
      * The <code>Node</code> that led to the parsing error, or
      * <code>null</code>.
      */
     protected Node offendingNode = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOInvalidTreeException</code> with a
      * message string and a reference to the <code>Node</code> that
      * caused the parsing error.
@@ -66,7 +66,7 @@ public class IIOInvalidTreeException extends IIOException {
         this.offendingNode = offendingNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOInvalidTreeException</code> with a
      * message string, a reference to an exception that caused this
      * exception, and a reference to the <code>Node</code> that caused
@@ -86,7 +86,7 @@ public class IIOInvalidTreeException extends IIOException {
         this.offendingNode = offendingNode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Node</code> that caused the error in parsing.
      *
      * @return the offending <code>Node</code>.

@@ -36,7 +36,7 @@ import java.awt.event.*;
 import java.beans.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * MetalButtonUI implementation
  * <p>
  * <strong>Warning:</strong>
@@ -114,7 +114,7 @@ public class MetalButtonUI extends BasicButtonUI {
     // ********************************
     //          Paint
     // ********************************
-    /**
+    /** {@collect.stats}
      * If necessary paints the background of the component, then
      * invokes <code>paint</code>.
      *
@@ -194,11 +194,11 @@ public class MetalButtonUI extends BasicButtonUI {
 
         /* Draw the Text */
         if(model.isEnabled()) {
-            /*** paint the text normally */
+            /** {@collect.stats}* paint the text normally */
             g.setColor(b.getForeground());
         }
         else {
-            /*** paint the text disabled ***/
+            /** {@collect.stats}* paint the text disabled ***/
             g.setColor(getDisabledTextColor());
         }
         SwingUtilities2.drawStringUnderlineCharAt(c, g,text,mnemIndex,

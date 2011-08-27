@@ -30,7 +30,7 @@ import java.util.EventListener;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 
-/**
+/** {@collect.stats}
  * The <code>DropTargetListener</code> interface
  * is the callback interface used by the
  * <code>DropTarget</code> class to provide
@@ -68,7 +68,7 @@ import java.awt.dnd.DropTargetDropEvent;
 
 public interface DropTargetListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Called while a drag operation is ongoing, when the mouse pointer enters
      * the operable part of the drop site for the <code>DropTarget</code>
      * registered with this listener.
@@ -78,7 +78,7 @@ public interface DropTargetListener extends EventListener {
 
     void dragEnter(DropTargetDragEvent dtde);
 
-    /**
+    /** {@collect.stats}
      * Called when a drag operation is ongoing, while the mouse pointer is still
      * over the operable part of the drop site for the <code>DropTarget</code>
      * registered with this listener.
@@ -88,7 +88,7 @@ public interface DropTargetListener extends EventListener {
 
     void dragOver(DropTargetDragEvent dtde);
 
-    /**
+    /** {@collect.stats}
      * Called if the user has modified
      * the current drop gesture.
      * <P>
@@ -97,7 +97,7 @@ public interface DropTargetListener extends EventListener {
 
     void dropActionChanged(DropTargetDragEvent dtde);
 
-    /**
+    /** {@collect.stats}
      * Called while a drag operation is ongoing, when the mouse pointer has
      * exited the operable part of the drop site for the
      * <code>DropTarget</code> registered with this listener.
@@ -107,7 +107,7 @@ public interface DropTargetListener extends EventListener {
 
     void dragExit(DropTargetEvent dte);
 
-    /**
+    /** {@collect.stats}
      * Called when the drag operation has terminated with a drop on
      * the operable part of the drop site for the <code>DropTarget</code>
      * registered with this listener.

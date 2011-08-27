@@ -25,7 +25,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * Signals that a user account has expired.
  *
  * <p> This exception is thrown by LoginModules when they determine
@@ -40,7 +40,7 @@ public class AccountExpiredException extends AccountException {
 
     private static final long serialVersionUID = -6064064890162661560L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountExpiredException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -48,7 +48,7 @@ public class AccountExpiredException extends AccountException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a AccountExpiredException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.

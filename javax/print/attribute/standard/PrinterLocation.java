@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterLocation is a printing attribute class, a text attribute, that
  * identifies the location of the device. This could include things like:
  * <CODE>"in Room 123A, second floor of building XYZ"</CODE>.
@@ -47,7 +47,7 @@ public final class PrinterLocation extends TextSyntax
 
     private static final long serialVersionUID = -1598610039865566337L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer location attribute with the given location and
      * locale.
      *
@@ -63,7 +63,7 @@ public final class PrinterLocation extends TextSyntax
         super (location, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer location attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -89,7 +89,7 @@ public final class PrinterLocation extends TextSyntax
         return (super.equals(object) && object instanceof PrinterLocation);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -103,7 +103,7 @@ public final class PrinterLocation extends TextSyntax
         return PrinterLocation.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

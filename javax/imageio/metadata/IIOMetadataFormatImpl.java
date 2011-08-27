@@ -37,7 +37,7 @@ import java.util.ResourceBundle;
 import javax.imageio.ImageTypeSpecifier;
 import com.sun.imageio.plugins.common.StandardMetadataFormat;
 
-/**
+/** {@collect.stats}
  * A concrete class providing a reusable implementation of the
  * <code>IIOMetadataFormat</code> interface.  In addition, a static
  * instance representing the standard, plug-in neutral
@@ -76,7 +76,7 @@ import com.sun.imageio.plugins.common.StandardMetadataFormat;
  */
 public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
 
-    /**
+    /** {@collect.stats}
      * A <code>String</code> constant containing the standard format
      * name, <code>"javax_imageio_1.0"</code>.
      */
@@ -150,7 +150,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         int arrayMaxLength = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>IIOMetadataFormatImpl</code> instance,
      * with a given root element name and child policy (other than
      * <code>CHILD_POLICY_REPEAT</code>).  Additional elements, and
@@ -186,7 +186,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         elementMap.put(rootName, root);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>IIOMetadataFormatImpl</code> instance,
      * with a given root element name and a child policy of
      * <code>CHILD_POLICY_REPEAT</code>.  Additional elements, and
@@ -225,7 +225,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         elementMap.put(rootName, root);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a new base name for locating <code>ResourceBundle</code>s
      * containing descriptions of elements and attributes for this
      * format.
@@ -249,7 +249,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         this.resourceBaseName = resourceBaseName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the currently set base name for locating
      * <code>ResourceBundle</code>s.
      *
@@ -261,7 +261,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         return resourceBaseName;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility method for locating an element.
      *
      * @param mustAppear if <code>true</code>, throw an
@@ -297,7 +297,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
 
     // Setup
 
-    /**
+    /** {@collect.stats}
      * Adds a new element type to this metadata document format with a
      * child policy other than <code>CHILD_POLICY_REPEAT</code>.
      *
@@ -335,7 +335,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         elementMap.put(elementName, element);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new element type to this metadata document format with a
      * child policy of <code>CHILD_POLICY_REPEAT</code>.
      *
@@ -375,7 +375,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         elementMap.put(elementName, element);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an existing element to the list of legal children for a
      * given parent node type.
      *
@@ -398,7 +398,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.parentList.add(parentName);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an element from the format.  If no element with the
      * given name was present, nothing happens and no exception is
      * thrown.
@@ -420,7 +420,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new attribute to a previously defined element that may
      * be set to an arbitrary value.
      *
@@ -464,7 +464,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.attrMap.put(attrName, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new attribute to a previously defined element that will
      * be defined by a set of enumerated values.
      *
@@ -539,7 +539,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.attrMap.put(attrName, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new attribute to a previously defined element that will
      * be defined by a range of values.
      *
@@ -605,7 +605,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.attrMap.put(attrName, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new attribute to a previously defined element that will
      * be defined by a list of values.
      *
@@ -657,7 +657,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.attrMap.put(attrName, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new attribute to a previously defined element that will
      * be defined by the enumerated values <code>TRUE</code> and
      * <code>FALSE</code>, with a datatype of
@@ -697,7 +697,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
                      values);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute from a previously defined element.  If no
      * attribute with the given name was present in the given element,
      * nothing happens and no exception is thrown.
@@ -714,7 +714,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.attrMap.remove(attrName);
     }
 
-    /**
+    /** {@collect.stats}
      * Allows an <code>Object</code> reference of a given class type
      * to be stored in nodes implementing the named element.  The
      * value of the <code>Object</code> is unconstrained other than by
@@ -747,7 +747,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.objectValue = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows an <code>Object</code> reference of a given class type
      * to be stored in nodes implementing the named element.  The
      * value of the <code>Object</code> must be one of the values
@@ -811,7 +811,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.objectValue = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows an <code>Object</code> reference of a given class type
      * to be stored in nodes implementing the named element.  The
      * value of the <code>Object</code> must be within the range given
@@ -867,7 +867,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.objectValue = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows an <code>Object</code> reference of a given class type
      * to be stored in nodes implementing the named element.  The
      * value of the <code>Object</code> must an array of objects of
@@ -901,7 +901,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         element.objectValue = obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Disallows an <code>Object</code> reference from being stored in
      * nodes implementing the named element.
      *
@@ -951,7 +951,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
             locale = Locale.getDefault();
         }
 
-        /**
+        /** {@collect.stats}
          * If an applet supplies an implementation of IIOMetadataFormat and
          * resource bundles, then the resource bundle will need to be
          * accessed via the applet class loader. So first try the context
@@ -986,7 +986,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> containing a description of the
      * named element, or <code>null</code>.  The desciption will be
      * localized for the supplied <code>Locale</code> if possible.
@@ -1124,7 +1124,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         return attr.listMaxLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> containing a description of the
      * named attribute, or <code>null</code>.  The desciption will be
      * localized for the supplied <code>Locale</code> if possible.
@@ -1255,7 +1255,7 @@ public abstract class IIOMetadataFormatImpl implements IIOMetadataFormat {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataFormat</code> object describing the
      * standard, plug-in neutral <code>javax.imageio_1.0</code>
      * metadata document format described in the comment of the

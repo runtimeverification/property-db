@@ -47,7 +47,7 @@ import java.text.CharacterIterator;
 import java.io.InputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A subclass of RuleBasedBreakIterator that adds the ability to use a dictionary
  * to further subdivide ranges of text beyond what is possible using just the
  * state-table-based algorithm.  This is necessary, for example, to handle
@@ -74,26 +74,26 @@ import java.io.IOException;
  */
 class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
 
-    /**
+    /** {@collect.stats}
      * a list of known words that is used to divide up contiguous ranges of letters,
      * stored in a compressed, indexed, format that offers fast access
      */
     private BreakDictionary dictionary;
 
-    /**
+    /** {@collect.stats}
      * a list of flags indicating which character categories are contained in
      * the dictionary file (this is used to determine which ranges of characters
      * to apply the dictionary to)
      */
     private boolean[] categoryFlags;
 
-    /**
+    /** {@collect.stats}
      * a temporary hiding place for the number of dictionary characters in the
      * last range passed over by next()
      */
     private int dictionaryCharCount;
 
-    /**
+    /** {@collect.stats}
      * when a range of characters is divided up using the dictionary, the break
      * positions that are discovered are stored here, preventing us from having
      * to use either the dictionary or the state table again until the iterator
@@ -101,13 +101,13 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
      */
     private int[] cachedBreakPositions;
 
-    /**
+    /** {@collect.stats}
      * if cachedBreakPositions is not null, this indicates which item in the
      * cache the current iteration position refers to
      */
     private int positionInCache;
 
-    /**
+    /** {@collect.stats}
      * Constructs a DictionaryBasedBreakIterator.
      * @param description Same as the description parameter on RuleBasedBreakIterator,
      * except for the special meaning of "<dictionary>".  This parameter is just
@@ -139,7 +139,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         positionInCache = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current iteration position to the beginning of the text.
      * (i.e., the CharacterIterator's starting offset).
      * @return The offset of the beginning of the text.
@@ -151,7 +151,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         return super.first();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current iteration position to the end of the text.
      * (i.e., the CharacterIterator's ending offset).
      * @return The text's past-the-end offset.
@@ -163,7 +163,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         return super.last();
     }
 
-    /**
+    /** {@collect.stats}
      * Advances the iterator one step backwards.
      * @return The position of the last boundary position before the
      * current iteration position
@@ -192,7 +192,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current iteration position to the last boundary position
      * before the specified position.
      * @param offset The position to begin searching from
@@ -227,7 +227,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current iteration position to the first boundary position after
      * the specified position.
      * @param offset The position to begin searching forward from
@@ -261,7 +261,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is the implementation function for next().
      */
     protected int handleNext() {
@@ -306,7 +306,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         return -9999;   // SHOULD NEVER GET HERE!
     }
 
-    /**
+    /** {@collect.stats}
      * Looks up a character category for a character.
      */
     protected int lookupCategory(int c) {
@@ -322,7 +322,7 @@ class DictionaryBasedBreakIterator extends RuleBasedBreakIterator {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * This is the function that actually implements the dictionary-based
      * algorithm.  Given the endpoints of a range of text, it uses the
      * dictionary to determine the positions of any boundaries in this

@@ -29,7 +29,7 @@ import java.sql.*;
 import java.io.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A serialized mapping of a <code>Ref</code> object, which is the mapping in the
  * Java programming language of an SQL <code>REF</code> value.
  * <p>
@@ -39,23 +39,23 @@ import java.util.*;
  */
 public class SerialRef implements Ref, Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * String containing the base type name.
      * @serial
      */
     private String baseTypeName;
 
-    /**
+    /** {@collect.stats}
      * This will store the type <code>Ref</code> as an <code>Object</code>.
      */
     private Object object;
 
-    /**
+    /** {@collect.stats}
      * Private copy of the Ref reference.
      */
     private Ref reference;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialRef</code> object from the given <code>Ref</code>
      * object.
      *
@@ -81,7 +81,7 @@ public class SerialRef implements Ref, Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the base type name of the <code>Ref</code>.
      *
      * @return a string of the base type name of the Ref
@@ -91,7 +91,7 @@ public class SerialRef implements Ref, Serializable, Cloneable {
         return baseTypeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Object</code> representing the SQL structured type
      * to which this <code>SerialRef</code> object refers.  The attributes
      * of the structured type are mapped according to the given type map.
@@ -117,7 +117,7 @@ public class SerialRef implements Ref, Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Object</code> representing the SQL structured type
      * to which this <code>SerialRef</code> object refers.
      *
@@ -144,7 +144,7 @@ public class SerialRef implements Ref, Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SQL structured type that this <code>SerialRef</code> object
      * references to the given <code>Object</code> object.
      *
@@ -162,7 +162,7 @@ public class SerialRef implements Ref, Serializable, Cloneable {
         object = obj;
     }
 
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this <code>SerialRef</code>
      * object.
      */

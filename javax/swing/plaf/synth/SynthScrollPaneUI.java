@@ -43,7 +43,7 @@ import java.awt.event.FocusEvent;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's ScrollPaneUI.
  *
  * @author Scott Violet
@@ -238,7 +238,7 @@ class SynthScrollPaneUI extends BasicScrollPaneUI implements
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handle keeping track of the viewport's view's focus
      */
     private class ViewportViewFocusHandler implements ContainerListener,

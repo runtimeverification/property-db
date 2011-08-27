@@ -26,7 +26,7 @@ package java.security.interfaces;
 
 import java.security.spec.ECParameterSpec;
 
-/**
+/** {@collect.stats}
  * The interface to an elliptic curve (EC) key.
  *
  * @author Valerie Peng
@@ -34,7 +34,7 @@ import java.security.spec.ECParameterSpec;
  * @since 1.5
  */
 public interface ECKey {
-    /**
+    /** {@collect.stats}
      * Returns the domain parameters associated
      * with this key. The domain parameters are
      * either explicitly specified or implicitly

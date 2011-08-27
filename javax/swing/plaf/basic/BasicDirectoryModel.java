@@ -34,7 +34,7 @@ import java.beans.*;
 
 import sun.awt.shell.ShellFolder;
 
-/**
+/** {@collect.stats}
  * Basic implementation of a file list.
  *
  * @author Jeff Dinkins
@@ -80,7 +80,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used to interrupt file loading thread.
      */
     public void invalidateFileCache() {
@@ -140,7 +140,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         loadThread.start();
     }
 
-    /**
+    /** {@collect.stats}
      * Renames a file in the underlying file system.
      *
      * @param oldFile a <code>File</code> object representing
@@ -183,13 +183,13 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         return fileCache.get(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Obsolete - not used.
      */
     public void intervalAdded(ListDataEvent e) {
     }
 
-    /**
+    /** {@collect.stats}
      * Obsolete - not used.
      */
     public void intervalRemoved(ListDataEvent e) {
@@ -352,7 +352,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
    }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a PropertyChangeListener to the listener list. The listener is
      * registered for all bound properties of this class.
      * <p>
@@ -373,7 +373,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         changeSupport.addPropertyChangeListener(listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a PropertyChangeListener from the listener list.
      * <p>
      * If listener is null, no exception is thrown and no action is performed.
@@ -391,7 +391,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the property change listeners
      * registered on this component.
      *
@@ -412,7 +412,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
         return changeSupport.getPropertyChangeListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Support for reporting bound property changes for boolean properties.
      * This method can be called when a bound property has changed and it will
      * send the appropriate PropertyChangeEvent to any registered
@@ -433,7 +433,7 @@ public class BasicDirectoryModel extends AbstractListModel implements PropertyCh
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the busy state for the model. The model is considered
      * busy when it is running a separate (interruptable)
      * thread in order to load the contents of a directory.

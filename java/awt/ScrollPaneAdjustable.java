@@ -30,7 +30,7 @@ import java.awt.peer.ScrollPanePeer;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * This class represents the state of a horizontal or vertical
  * scrollbar of a <code>ScrollPane</code>.  Objects of this class are
  * returned by <code>ScrollPane</code> methods.
@@ -39,13 +39,13 @@ import java.io.Serializable;
  */
 public class ScrollPaneAdjustable implements Adjustable, Serializable {
 
-    /**
+    /** {@collect.stats}
      * The <code>ScrollPane</code> this object is a scrollbar of.
      * @serial
      */
     private ScrollPane sp;
 
-    /**
+    /** {@collect.stats}
      * Orientation of this scrollbar.
      *
      * @serial
@@ -55,7 +55,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int orientation;
 
-    /**
+    /** {@collect.stats}
      * The value of this scrollbar.
      * <code>value</code> should be greater than <code>minimum</code>
      * and less than <code>maximum</code>
@@ -66,7 +66,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int value;
 
-    /**
+    /** {@collect.stats}
      * The minimum value of this scrollbar.
      * This value can only be set by the <code>ScrollPane</code>.
      * <p>
@@ -83,7 +83,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int minimum;
 
-    /**
+    /** {@collect.stats}
      * The maximum value of this scrollbar.
      * This value can only be set by the <code>ScrollPane</code>.
      *
@@ -93,7 +93,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int maximum;
 
-    /**
+    /** {@collect.stats}
      * The size of the visible portion of this scrollbar.
      * This value can only be set by the <code>ScrollPane</code>.
      *
@@ -103,7 +103,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int visibleAmount;
 
-    /**
+    /** {@collect.stats}
      * The adjusting status of the <code>Scrollbar</code>.
      * True if the value is in the process of changing as a result of
      * actions being taken by the user.
@@ -114,7 +114,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private transient boolean isAdjusting;
 
-    /**
+    /** {@collect.stats}
      * The amount by which the scrollbar value will change when going
      * up or down by a line.
      * This value should be a non negative integer.
@@ -125,7 +125,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
      */
     private int unitIncrement  = 1;
 
-    /**
+    /** {@collect.stats}
      * The amount by which the scrollbar value will change when going
      * up or down by a page.
      * This value should be a non negative integer.
@@ -138,7 +138,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
 
     private AdjustmentListener adjustmentListener;
 
-    /**
+    /** {@collect.stats}
      * Error message for <code>AWTError</code> reported when one of
      * the public but unsupported methods is called.
      */
@@ -146,7 +146,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         "Can be set by scrollpane only";
 
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method ids.
      */
     private static native void initIDs();
@@ -158,13 +158,13 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * JDK 1.1 serialVersionUID.
      */
     private static final long serialVersionUID = -3359745691033257079L;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new object to represent specified scrollabar
      * of the specified <code>ScrollPane</code>.
      * Only ScrollPane creates instances of this class.
@@ -180,7 +180,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         addAdjustmentListener(l);
     }
 
-    /**
+    /** {@collect.stats}
      * This is called by the scrollpane itself to update the
      * <code>minimum</code>, <code>maximum</code> and
      * <code>visible</code> values.  The scrollpane is the only one
@@ -197,7 +197,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         setValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the orientation of this scrollbar.
      * @return    the orientation of this scrollbar, either
      *            <code>Adjustable.HORIZONTAL</code> or
@@ -207,7 +207,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return orientation;
     }
 
-    /**
+    /** {@collect.stats}
      * This method should <strong>NOT</strong> be called by user code.
      * This method is public for this class to properly implement
      * <code>Adjustable</code> interface.
@@ -224,7 +224,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * This method should <strong>NOT</strong> be called by user code.
      * This method is public for this class to properly implement
      * <code>Adjustable</code> interface.
@@ -261,7 +261,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return blockIncrement;
     }
 
-    /**
+    /** {@collect.stats}
      * This method should <strong>NOT</strong> be called by user code.
      * This method is public for this class to properly implement
      * <code>Adjustable</code> interface.
@@ -277,7 +277,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>valueIsAdjusting</code> property.
      *
      * @param b new adjustment-in-progress status
@@ -295,7 +295,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the value is in the process of changing as a
      * result of actions being taken by the user.
      *
@@ -306,7 +306,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return isAdjusting;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of this scrollbar to the specified value.
      * <p>
      * If the value supplied is less than the current minimum or
@@ -319,7 +319,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         setTypedValue(v, AdjustmentEvent.TRACK);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of this scrollbar to the specified value.
      * <p>
      * If the value supplied is less than the current minimum or
@@ -351,7 +351,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified adjustment listener to receive adjustment
      * events from this <code>ScrollPaneAdjustable</code>.
      * If <code>l</code> is <code>null</code>, no exception is thrown
@@ -372,7 +372,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         adjustmentListener = AWTEventMulticaster.add(adjustmentListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified adjustment listener so that it no longer
      * receives adjustment events from this <code>ScrollPaneAdjustable</code>.
      * If <code>l</code> is <code>null</code>, no exception is thrown
@@ -394,7 +394,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         adjustmentListener = AWTEventMulticaster.remove(adjustmentListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the adjustment listeners
      * registered on this <code>ScrollPaneAdjustable</code>.
      *
@@ -415,7 +415,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
                                       AdjustmentListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this scrollbar and its values.
      * @return    a string representation of this scrollbar.
      */
@@ -423,7 +423,7 @@ public class ScrollPaneAdjustable implements Adjustable, Serializable {
         return getClass().getName() + "[" + paramString() + "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this scrollbar.
      * This method is intended to be used only for debugging purposes,
      * and the content and format of the returned string may vary

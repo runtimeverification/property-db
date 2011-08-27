@@ -28,34 +28,34 @@ package javax.swing.event;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * Defines a menu mouse-drag listener.
  *
  * @author Georges Saab
  */
 public interface MenuDragMouseListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked when the dragged mouse has entered a menu component's
      * display area.
      *
      * @param e  a MenuDragMouseEvent object
      */
     void menuDragMouseEntered(MenuDragMouseEvent e);
-    /**
+    /** {@collect.stats}
      * Invoked when the dragged mouse has left a menu component's
      * display area.
      *
      * @param e  a MenuDragMouseEvent object
      */
     void menuDragMouseExited(MenuDragMouseEvent e);
-    /**
+    /** {@collect.stats}
      * Invoked when the mouse is being dragged in a menu component's
      * display area.
      *
      * @param e  a MenuDragMouseEvent object
      */
     void menuDragMouseDragged(MenuDragMouseEvent e);
-    /**
+    /** {@collect.stats}
      * Invoked when a dragged mouse is release in a menu component's
      * display area.
      *

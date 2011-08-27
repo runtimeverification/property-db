@@ -28,7 +28,7 @@ package javax.accessibility;
 import java.io.InputStream;
 import java.awt.datatransfer.DataFlavor;
 
-/**
+/** {@collect.stats}
  *
  * The <code>AccessibleStreamable</code> interface should be implemented
  * by the <code>AccessibleContext</code> of any component that presents the
@@ -45,7 +45,7 @@ import java.awt.datatransfer.DataFlavor;
  * @since 1.5
  */
 public interface AccessibleStreamable {
-    /**
+    /** {@collect.stats}
       * Returns an array of DataFlavor objects for the MIME types
       * this object supports.
       *
@@ -54,7 +54,7 @@ public interface AccessibleStreamable {
       */
      DataFlavor[] getMimeTypes();
 
-    /**
+    /** {@collect.stats}
       * Returns an InputStream for a DataFlavor
       *
       * @param flavor the DataFlavor

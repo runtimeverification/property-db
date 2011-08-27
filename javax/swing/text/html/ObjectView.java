@@ -31,7 +31,7 @@ import javax.swing.text.*;
 import java.beans.*;
 import java.lang.reflect.*;
 
-/**
+/** {@collect.stats}
  * Component decorator that implements the view interface
  * for &lt;object&gt; elements.
  * <p>
@@ -69,7 +69,7 @@ import java.lang.reflect.*;
  */
 public class ObjectView extends ComponentView  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new ObjectView object.
      *
      * @param elem the element to decorate
@@ -78,7 +78,7 @@ public class ObjectView extends ComponentView  {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Create the component.  The classid is used
      * as a specification of the classname, which
      * we try to load.
@@ -103,7 +103,7 @@ public class ObjectView extends ComponentView  {
         return getUnloadableRepresentation();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a component that can be used to represent the
      * object if it can't be created.
      */
@@ -115,7 +115,7 @@ public class ObjectView extends ComponentView  {
         return comp;
     }
 
-    /**
+    /** {@collect.stats}
      * Get a Class object to use for loading the
      * classid.  If possible, the Classloader
      * used to load the associated Document is used.
@@ -137,7 +137,7 @@ public class ObjectView extends ComponentView  {
         return klass;
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize this component according the KEY/VALUEs passed in
      * via the &lt;param&gt; elements in the corresponding
      * &lt;object&gt; element.

@@ -28,13 +28,13 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel implementation for
  * <code>JFormattedTextField</code>.
  *
  */
 class SynthFormattedTextFieldUI extends SynthTextFieldUI {
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JFormattedTextField.
      *
      * @param c the formatted text field
@@ -44,7 +44,7 @@ class SynthFormattedTextFieldUI extends SynthTextFieldUI {
         return new SynthFormattedTextFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.

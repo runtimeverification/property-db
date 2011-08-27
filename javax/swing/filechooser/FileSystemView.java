@@ -48,7 +48,7 @@ import java.lang.reflect.*;
 
 import sun.awt.shell.*;
 
-/**
+/** {@collect.stats}
  * FileSystemView is JFileChooser's gateway to the
  * file system. Since the JDK1.1 File API doesn't allow
  * access to such information as root partitions, file type
@@ -113,7 +113,7 @@ public abstract class FileSystemView {
         return genericFileSystemView;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the given file is a root in the navigatable tree(s).
      * Examples: Windows 98 has one root, the Desktop folder. DOS has one root
      * per drive letter, <code>C:\</code>, <code>D:\</code>, etc. Unix has one root,
@@ -139,7 +139,7 @@ public abstract class FileSystemView {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the file (directory) can be visited.
      * Returns false if the directory cannot be traversed.
      *
@@ -153,7 +153,7 @@ public abstract class FileSystemView {
         return Boolean.valueOf(f.isDirectory());
     }
 
-    /**
+    /** {@collect.stats}
      * Name of a file, directory, or folder as it would be displayed in
      * a system file browser. Example from Windows: the "M:\" directory
      * displays as "CD-ROM (M:)"
@@ -185,7 +185,7 @@ public abstract class FileSystemView {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Type description for a file, directory, or folder as it would be displayed in
      * a system file browser. Example from Windows: the "Desktop" folder
      * is desribed as "Desktop".
@@ -202,7 +202,7 @@ public abstract class FileSystemView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Icon for a file, directory, or folder as it would be displayed in
      * a system file browser. Example from Windows: the "M:\" directory
      * displays a CD-ROM icon.
@@ -228,7 +228,7 @@ public abstract class FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * On Windows, a file can appear in multiple folders, other than its
      * parent directory in the filesystem. Folder could for example be the
      * "Desktop" folder which is not the same as file.getParentFile().
@@ -258,7 +258,7 @@ public abstract class FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      *
      * @param parent a <code>File</code> object repesenting a directory or special folder
      * @param fileName a name of a file or folder which exists in <code>parent</code>
@@ -281,7 +281,7 @@ public abstract class FileSystemView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Checks if <code>f</code> represents a real directory or file as opposed to a
      * special folder such as <code>"Desktop"</code>. Used by UI classes to decide if
      * a folder is selectable when doing directory choosing.
@@ -301,12 +301,12 @@ public abstract class FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new folder with a default folder name.
      */
     public abstract File createNewFolder(File containingDir) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns whether a file is hidden or not.
      */
     public boolean isHiddenFile(File f) {
@@ -314,7 +314,7 @@ public abstract class FileSystemView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Is dir the root of a tree in the file system, such as a drive
      * or partition. Example: Returns true for "C:\" on Windows 98.
      *
@@ -327,7 +327,7 @@ public abstract class FileSystemView {
         return ShellFolder.isFileSystemRoot(dir);
     }
 
-    /**
+    /** {@collect.stats}
      * Used by UI classes to decide whether to display a special icon
      * for drives or partitions, e.g. a "hard disk" icon.
      *
@@ -341,7 +341,7 @@ public abstract class FileSystemView {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Used by UI classes to decide whether to display a special icon
      * for a floppy disk. Implies isDrive(dir).
      *
@@ -355,7 +355,7 @@ public abstract class FileSystemView {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Used by UI classes to decide whether to display a special icon
      * for a computer node, e.g. "My Computer" or a network server.
      *
@@ -370,7 +370,7 @@ public abstract class FileSystemView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns all root partitions on this system. For example, on
      * Windows, this would be the "Desktop" folder, while on DOS this
      * would be the A: through Z: drives.
@@ -397,7 +397,7 @@ public abstract class FileSystemView {
         return createFileObject(System.getProperty("user.home"));
     }
 
-    /**
+    /** {@collect.stats}
      * Return the user's default starting directory for the file chooser.
      *
      * @return a <code>File</code> object representing the default
@@ -412,7 +412,7 @@ public abstract class FileSystemView {
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a File object constructed in dir from the given filename.
      */
     public File createFileObject(File dir, String filename) {
@@ -423,7 +423,7 @@ public abstract class FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a File object constructed from the given path string.
      */
     public File createFileObject(String path) {
@@ -435,7 +435,7 @@ public abstract class FileSystemView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the list of shown (i.e. not hidden) files.
      */
     public File[] getFiles(File dir, boolean useFileHiding) {
@@ -483,7 +483,7 @@ public abstract class FileSystemView {
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the parent directory of <code>dir</code>.
      * @param dir the <code>File</code> being queried
      * @return the parent directory of <code>dir</code>, or
@@ -533,7 +533,7 @@ public abstract class FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>File</code> object for <code>f</code> with correct
      * behavior for a file system root directory.
      *
@@ -568,7 +568,7 @@ public abstract class FileSystemView {
     }
 }
 
-/**
+/** {@collect.stats}
  * FileSystemView that handles some specific unix-isms.
  */
 class UnixFileSystemView extends FileSystemView {
@@ -578,7 +578,7 @@ class UnixFileSystemView extends FileSystemView {
     private static final String newFolderNextString  =
             UIManager.getString("FileChooser.other.newFolder.subsequent");
 
-    /**
+    /** {@collect.stats}
      * Creates a new folder with a default folder name.
      */
     public File createNewFolder(File containingDir) throws IOException {
@@ -635,7 +635,7 @@ class UnixFileSystemView extends FileSystemView {
 }
 
 
-/**
+/** {@collect.stats}
  * FileSystemView that handles some specific windows concepts.
  */
 class WindowsFileSystemView extends FileSystemView {
@@ -666,7 +666,7 @@ class WindowsFileSystemView extends FileSystemView {
         return super.getChild(parent, fileName);
     }
 
-    /**
+    /** {@collect.stats}
      * Type description for a file, directory, or folder as it would be displayed in
      * a system file browser. Example from Windows: the "Desktop" folder
      * is desribed as "Desktop".
@@ -681,14 +681,14 @@ class WindowsFileSystemView extends FileSystemView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @return the Desktop folder.
      */
     public File getHomeDirectory() {
         return getRoots()[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new folder with a default folder name.
      */
     public File createNewFolder(File containingDir) throws IOException {
@@ -723,7 +723,7 @@ class WindowsFileSystemView extends FileSystemView {
         return (path != null && (path.equals("A:\\") || path.equals("B:\\")));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a File object constructed from the given path string.
      */
     public File createFileObject(String path) {
@@ -750,7 +750,7 @@ class WindowsFileSystemView extends FileSystemView {
 
 }
 
-/**
+/** {@collect.stats}
  * Fallthrough FileSystemView in case we can't determine the OS.
  */
 class GenericFileSystemView extends FileSystemView {
@@ -758,7 +758,7 @@ class GenericFileSystemView extends FileSystemView {
     private static final String newFolderString =
             UIManager.getString("FileChooser.other.newFolder");
 
-    /**
+    /** {@collect.stats}
      * Creates a new folder with a default folder name.
      */
     public File createNewFolder(File containingDir) throws IOException {

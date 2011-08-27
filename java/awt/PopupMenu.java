@@ -29,7 +29,7 @@ import java.awt.peer.PopupMenuPeer;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * A class that implements a menu which can be dynamically popped up
  * at a specified position within a component.
  * <p>
@@ -53,7 +53,7 @@ public class PopupMenu extends Menu {
      */
     private static final long serialVersionUID = -4620452533522760060L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new popup menu with an empty name.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
      * returns true.
@@ -63,7 +63,7 @@ public class PopupMenu extends Menu {
         this("");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new popup menu with the specified name.
      *
      * @param label a non-<code>null</code> string specifying
@@ -76,7 +76,7 @@ public class PopupMenu extends Menu {
         super(label);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public MenuContainer getParent() {
@@ -86,7 +86,7 @@ public class PopupMenu extends Menu {
         return super.getParent();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a name for this <code>MenuComponent</code>.
      * Called by <code>getName</code> when the name is <code>null</code>.
      */
@@ -96,7 +96,7 @@ public class PopupMenu extends Menu {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the popup menu's peer.
      * The peer allows us to change the appearance of the popup menu without
      * changing any of the popup menu's functionality.
@@ -121,7 +121,7 @@ public class PopupMenu extends Menu {
         }
     }
 
-   /**
+   /** {@collect.stats}
      * Shows the popup menu at the x, y position relative to an origin
      * component.
      * The origin component must be contained within the component
@@ -184,7 +184,7 @@ public class PopupMenu extends Menu {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>PopupMenu</code>.
      *
@@ -199,7 +199,7 @@ public class PopupMenu extends Menu {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class of PopupMenu used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -215,7 +215,7 @@ public class PopupMenu extends Menu {
          */
         private static final long serialVersionUID = -4282044795947239955L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

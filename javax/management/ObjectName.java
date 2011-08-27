@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * <p>Represents the object name of an MBean, or a pattern that can
  * match the names of several MBeans.  Instances of this class are
  * immutable.</p>
@@ -221,7 +221,7 @@ import java.util.Map;
 @SuppressWarnings("serial") // don't complain serialVersionUID not constant
 public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
-    /**
+    /** {@collect.stats}
      * A structure recording property structure and
      * proposing minimal services
      */
@@ -231,7 +231,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         int _key_length;
         int _value_length;
 
-        /**
+        /** {@collect.stats}
          * Constructor.
          */
         Property(int key_index, int key_length, int value_length) {
@@ -240,21 +240,21 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
             _value_length = value_length;
         }
 
-        /**
+        /** {@collect.stats}
          * Assigns the key index of property
          */
         void setKeyIndex(int key_index) {
             _key_index = key_index;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a key string for receiver key
          */
         String getKeyString(String name) {
             return name.substring(_key_index, _key_index + _key_length);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a value string for receiver key
          */
         String getValueString(String name) {
@@ -264,11 +264,11 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Marker class for value pattern property.
      */
     private static class PatternProperty extends Property {
-        /**
+        /** {@collect.stats}
          * Constructor.
          */
         PatternProperty(int key_index, int key_length, int value_length) {
@@ -336,7 +336,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Class private fields ----------------------------------->
 
-    /**
+    /** {@collect.stats}
      * a shared empty array for empty property lists
      */
     static final private Property[] _Empty_property_array = new Property[0];
@@ -346,47 +346,47 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Instance private fields ----------------------------------->
 
-    /**
+    /** {@collect.stats}
      * a String containing the canonical name
      */
     private transient String _canonicalName;
 
 
-    /**
+    /** {@collect.stats}
      * An array of properties in the same seq order as time creation
      */
     private transient Property[] _kp_array;
 
-    /**
+    /** {@collect.stats}
      * An array of properties in the same seq order as canonical order
      */
     private transient Property[] _ca_array;
 
 
-    /**
+    /** {@collect.stats}
      * The length of the domain part of built objectname
      */
     private transient int _domain_length = 0;
 
 
-    /**
+    /** {@collect.stats}
      * The propertyList of built object name. Initialized lazily.
      * Table that contains all the pairs (key,value) for this ObjectName.
      */
     private transient Map<String,String> _propertyList;
 
-    /**
+    /** {@collect.stats}
      * boolean that declares if this ObjectName domain part is a pattern
      */
     private transient boolean _domain_pattern = false;
 
-    /**
+    /** {@collect.stats}
      * boolean that declares if this ObjectName contains a pattern on the
      * key property list
      */
     private transient boolean _property_list_pattern = false;
 
-    /**
+    /** {@collect.stats}
      * boolean that declares if this ObjectName contains a pattern on the
      * value of at least one key property
      */
@@ -401,7 +401,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Instance construction ------------------------->
 
-    /**
+    /** {@collect.stats}
      * Initializes this {@link ObjectName} from the given string
      * representation.
      *
@@ -660,7 +660,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
                          keys_map, cname_index, property_index);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an ObjectName from a domain and a Hashtable.
      *
      * @param domain Domain of the ObjectName.
@@ -751,7 +751,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Internal utilities ------------------------------>
 
-    /**
+    /** {@collect.stats}
      * Add passed property to the list at the given index
      * for the passed key name
      */
@@ -773,7 +773,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         keys_map.put(key_name, prop);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the canonical name of receiver from input 'specified_chars'
      * array, by filling 'canonical_chars' array with found 'nb-props'
      * properties starting at position 'prop_index'.
@@ -831,7 +831,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         _canonicalName = (new String(canonical_chars, 0, prop_index)).intern();
     }
 
-    /**
+    /** {@collect.stats}
      * Parse a key.
      * <pre>final int endKey=parseKey(s,startKey);</pre>
      * <p>key starts at startKey (included), and ends at endKey (excluded).
@@ -871,7 +871,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return endKey;
     }
 
-    /**
+    /** {@collect.stats}
      * Parse a value.
      * <pre>final int endVal=parseValue(s,startVal);</pre>
      * <p>value starts at startVal (included), and ends at endVal (excluded).
@@ -986,7 +986,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new int[] { endValue, value_pattern ? 1 : 0 };
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the supplied value is a valid value.
      *
      * @return true if the value is a pattern, otherwise false.
@@ -1011,7 +1011,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return value_pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Check if the supplied key is a valid key.
      */
     private static void checkKey(String key)
@@ -1062,7 +1062,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Internal accessors ------------------------------>
 
-    /**
+    /** {@collect.stats}
      * Check if domain is a valid domain.  Set _domain_pattern if appropriate.
      */
     private boolean isDomain(String domain) {
@@ -1089,7 +1089,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Serialization ----------------------------------->
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link ObjectName} from an {@link ObjectInputStream}.
      * @serialData <ul>
      *               <li>In the current serial form (value of property
@@ -1186,7 +1186,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link ObjectName} to an {@link ObjectOutputStream}.
      * @serialData <ul>
      *               <li>In the current serial form (value of property
@@ -1277,7 +1277,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : ObjectName Construction ------------------------------>
 
-    /**
+    /** {@collect.stats}
      * <p>Return an instance of ObjectName that can be used anywhere
      * an object obtained with {@link #ObjectName(String) new
      * ObjectName(name)} can be used.  The returned object may be of
@@ -1300,7 +1300,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new ObjectName(name);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return an instance of ObjectName that can be used anywhere
      * an object obtained with {@link #ObjectName(String, String,
      * String) new ObjectName(domain, key, value)} can be used.  The
@@ -1328,7 +1328,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new ObjectName(domain, key, value);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return an instance of ObjectName that can be used anywhere
      * an object obtained with {@link #ObjectName(String, Hashtable)
      * new ObjectName(domain, table)} can be used.  The returned
@@ -1359,7 +1359,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new ObjectName(domain, table);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Return an instance of ObjectName that can be used anywhere
      * the given object can be used.  The returned object may be of a
      * subclass of ObjectName.  If <code>name</code> is of a subclass
@@ -1400,7 +1400,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an object name from the given string.
      *
      * @param name  A string representation of the object name.
@@ -1415,7 +1415,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         construct(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an object name with exactly one key property.
      *
      * @param domain  The domain part of the object name.
@@ -1437,7 +1437,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         construct(domain, table);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an object name with several key properties from a Hashtable.
      *
      * @param domain  The domain part of the object name.
@@ -1467,7 +1467,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Getter methods ------------------------------>
 
-    /**
+    /** {@collect.stats}
      * Checks whether the object name is a pattern.
      * <p>
      * An object name is a pattern if its domain contains a
@@ -1481,7 +1481,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
                 _property_value_pattern);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the object name is a pattern on the domain part.
      *
      * @return  True if the name is a domain pattern, otherwise false.
@@ -1491,7 +1491,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _domain_pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the object name is a pattern on the key properties.
      * <p>
      * An object name is a pattern on the key properties if it is a
@@ -1504,7 +1504,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _property_list_pattern || _property_value_pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the object name is a pattern on the key property list.
      * <p>
      * For example, "d:k=v,*" and "d:k=*,*" are key property list patterns
@@ -1518,7 +1518,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _property_list_pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the object name is a pattern on the value part
      * of at least one of the key properties.
      * <p>
@@ -1533,7 +1533,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _property_value_pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the value associated with a key in a key
      * property is a pattern.
      *
@@ -1561,7 +1561,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         throw new IllegalArgumentException("key property not found");
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the canonical form of the name; that is, a string
      * representation where the properties are sorted in lexical
      * order.</p>
@@ -1591,7 +1591,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _canonicalName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the domain part.
      *
      * @return The domain.
@@ -1600,7 +1600,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _canonicalName.substring(0, _domain_length);
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the value associated with a key in a key property.
      *
      * @param property The property whose value is to be obtained.
@@ -1614,7 +1614,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _getKeyPropertyList().get(property);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the key properties as a Map.  The returned
      * value is a Map in which each key is a key in the
      * ObjectName's key property list and each value is the associated
@@ -1642,7 +1642,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _propertyList;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the key properties as a Hashtable.  The returned
      * value is a Hashtable in which each key is a key in the
      * ObjectName's key property list and each value is the associated
@@ -1658,7 +1658,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new Hashtable<String,String>(_getKeyPropertyList());
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of the list of key
      * properties specified at creation time.  If this ObjectName was
      * constructed with the constructor {@link #ObjectName(String)},
@@ -1683,7 +1683,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new String(dest_chars);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the serialized string of the ObjectName.
      * properties specified at creation time.  If this ObjectName was
      * constructed with the constructor {@link #ObjectName(String)},
@@ -1723,7 +1723,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return new String(dest_chars);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Write a string representation of the list of key
      * properties specified at creation time in the given array, starting
      * at the specified offset.  If this ObjectName was
@@ -1756,7 +1756,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the list of key properties,
      * in which the key properties are sorted in lexical order. This
      * is used in lexicographic comparisons performed in order to
@@ -1778,7 +1778,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Utilities ---------------------------------------->
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of the object name.  The
      * format of this string is not specified, but users can expect
      * that two ObjectNames return the same string if and only if they
@@ -1790,7 +1790,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return getSerializedNameString();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the current object name with another object name.  Two
      * ObjectName instances are equal if and only if their canonical
      * forms are equal.  The canonical form is the string described
@@ -1822,7 +1822,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return false;
    }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this object name.
      *
      */
@@ -1831,7 +1831,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return _canonicalName.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a quoted form of the given String, suitable for
      * inclusion in an ObjectName.  The returned value can be used as
      * the value associated with a key in an ObjectName.  The String
@@ -1885,7 +1885,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns an unquoted form of the given String.  If
      * <code>q</code> is a String returned by {@link #quote quote(s)},
      * then <code>unquote(q).equals(s)</code>.  If there is no String
@@ -1947,7 +1947,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Defines the wildcard "*:*" ObjectName.
      *
      * @since 1.6
@@ -1965,7 +1965,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : QueryExp Interface ---------------------------------------->
 
-    /**
+    /** {@collect.stats}
      * <p>Test whether this ObjectName, which may be a pattern,
      * matches another ObjectName.  If <code>name</code> is a pattern,
      * the result is false.  If this ObjectName is a pattern, the
@@ -2071,7 +2071,7 @@ public class ObjectName implements Comparable<ObjectName>, QueryExp {
 
     // Category : Comparable Interface ---------------------------------------->
 
-    /**
+    /** {@collect.stats}
      * <p>Compares two ObjectName instances. The ordering relation between
      * ObjectNames is not completely specified but is intended to be such
      * that a sorted list of ObjectNames will appear in an order that is

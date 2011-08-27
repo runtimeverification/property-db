@@ -27,7 +27,7 @@ package java.lang;
 
 import java.lang.annotation.*;
 
-/**
+/** {@collect.stats}
  * Indicates that a method declaration is intended to override a
  * method declaration in a superclass.  If a method is annotated with
  * this annotation type but does not override a superclass method,

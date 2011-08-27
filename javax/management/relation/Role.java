@@ -42,7 +42,7 @@ import java.util.List;
 
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * Represents a role: includes a role name and referenced MBeans (via their
  * ObjectNames). The role value is always represented as an ArrayList
  * collection (of ObjectNames) to homogenize the access.
@@ -82,7 +82,7 @@ public class Role implements Serializable {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField name String Role name
      * @serialField objectNameList List {@link List} of {@link ObjectName}s of referenced MBeans
      */
@@ -111,12 +111,12 @@ public class Role implements Serializable {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial Role name
      */
     private String name = null;
 
-    /**
+    /** {@collect.stats}
      * @serial {@link List} of {@link ObjectName}s of referenced MBeans
      */
     private List<ObjectName> objectNameList = new ArrayList<ObjectName>();
@@ -125,7 +125,7 @@ public class Role implements Serializable {
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * <p>Make a new Role object.
      * No check is made that the ObjectNames in the role value exist in
      * an MBean server.  That check will be made when the role is set
@@ -155,7 +155,7 @@ public class Role implements Serializable {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Retrieves role name.
      *
      * @return the role name.
@@ -166,7 +166,7 @@ public class Role implements Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value.
      *
      * @return ArrayList of ObjectName objects for referenced MBeans.
@@ -177,7 +177,7 @@ public class Role implements Serializable {
         return objectNameList;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets role name.
      *
      * @param roleName  role name
@@ -198,7 +198,7 @@ public class Role implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets role value.
      *
      * @param roleValue  List of ObjectName objects for referenced
@@ -220,7 +220,7 @@ public class Role implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the role.
      *
      * @return the description of the role.
@@ -243,7 +243,7 @@ public class Role implements Serializable {
     // Misc
     //
 
-    /**
+    /** {@collect.stats}
      * Clone the role object.
      *
      * @return a Role that is an independent copy of the current Role object.
@@ -257,7 +257,7 @@ public class Role implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string for the given role value.
      *
      * @param roleValue  List of ObjectName objects
@@ -284,7 +284,7 @@ public class Role implements Serializable {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link Role} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -314,7 +314,7 @@ public class Role implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link Role} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

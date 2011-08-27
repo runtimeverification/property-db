@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.SupportedValuesAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobPrioritySupported is an integer valued printing attribute class
  * that specifies whether a Print Service instance supports the {@link
  * JobPriority JobPriority} attribute and the number of different job priority
@@ -54,7 +54,7 @@ public final class JobPrioritySupported extends IntegerSyntax
     private static final long serialVersionUID = 2564840378013555894L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new job priority supported attribute with the given integer
      * value.
      *
@@ -68,7 +68,7 @@ public final class JobPrioritySupported extends IntegerSyntax
         super (value, 1, 100);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job priority supported attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -94,7 +94,7 @@ public final class JobPrioritySupported extends IntegerSyntax
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -108,7 +108,7 @@ public final class JobPrioritySupported extends IntegerSyntax
         return JobPrioritySupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

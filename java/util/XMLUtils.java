@@ -34,7 +34,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 
-/**
+/** {@collect.stats}
  * A class used to aid in Properties load and save in XML. Keeping this
  * code outside of Properties helps reduce the number of classes loaded
  * when Properties is loaded.
@@ -61,7 +61,7 @@ class XMLUtils {
     "<!ATTLIST entry "                           +
         " key CDATA #REQUIRED>";
 
-    /**
+    /** {@collect.stats}
      * Version number for the format of exported properties files.
      */
     private static final String EXTERNAL_XML_VERSION = "1.0";

@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterIsAcceptingJobs is a printing attribute class, an enumeration,
  * that indicates whether the printer is currently able to accept jobs. This
  * value is independent of the {@link PrinterState PrinterState} and {@link
@@ -52,19 +52,19 @@ public final class PrinterIsAcceptingJobs extends EnumSyntax
 
     private static final long serialVersionUID = -5052010680537678061L;
 
-    /**
+    /** {@collect.stats}
      * The printer is currently rejecting any jobs sent to it.
      */
     public static final PrinterIsAcceptingJobs
         NOT_ACCEPTING_JOBS = new PrinterIsAcceptingJobs(0);
 
-    /**
+    /** {@collect.stats}
      * The printer is currently acccepting jobs.
      */
     public static final PrinterIsAcceptingJobs
         ACCEPTING_JOBS = new PrinterIsAcceptingJobs(1);
 
-    /**
+    /** {@collect.stats}
      * Construct a new printer is accepting jobs enumeration value with the
      * given integer value.
      *
@@ -84,21 +84,21 @@ public final class PrinterIsAcceptingJobs extends EnumSyntax
         ACCEPTING_JOBS
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PrinterIsAcceptingJobs.
      */
     protected String[] getStringTable() {
         return myStringTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PrinterIsAcceptingJobs.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return myEnumValueTable;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public final class PrinterIsAcceptingJobs extends EnumSyntax
         return PrinterIsAcceptingJobs.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

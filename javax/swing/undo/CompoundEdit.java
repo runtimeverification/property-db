@@ -26,19 +26,19 @@ package javax.swing.undo;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A concrete subclass of AbstractUndoableEdit, used to assemble little
  * UndoableEdits into great big ones.
  *
  * @author Ray Ryan
  */
 public class CompoundEdit extends AbstractUndoableEdit {
-    /**
+    /** {@collect.stats}
      * True if this edit has never received <code>end</code>.
      */
     boolean inProgress;
 
-    /**
+    /** {@collect.stats}
      * The collection of <code>UndoableEdit</code>s
      * undone/redone en masse by this <code>CompoundEdit</code>.
      */
@@ -50,7 +50,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         edits = new Vector<UndoableEdit>();
     }
 
-    /**
+    /** {@collect.stats}
      * Sends <code>undo</code> to all contained
      * <code>UndoableEdits</code> in the reverse of
      * the order in which they were added.
@@ -64,7 +64,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sends <code>redo</code> to all contained
      * <code>UndoableEdit</code>s in the order in
      * which they were added.
@@ -77,7 +77,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last <code>UndoableEdit</code> in
      * <code>edits</code>, or <code>null</code>
      * if <code>edits</code> is empty.
@@ -90,7 +90,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
             return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sends <code>die</code> to each subedit,
      * in the reverse of the order that they were added.
      */
@@ -106,7 +106,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         super.die();
     }
 
-    /**
+    /** {@collect.stats}
      * If this edit is <code>inProgress</code>,
      * accepts <code>anEdit</code> and returns true.
      *
@@ -146,7 +146,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets <code>inProgress</code> to false.
      *
      * @see #canUndo
@@ -156,7 +156,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         inProgress = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false if <code>isInProgress</code> or if super
      * returns false.
      *
@@ -166,7 +166,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         return !isInProgress() && super.canUndo();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false if <code>isInProgress</code> or if super
      * returns false.
      *
@@ -176,7 +176,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         return !isInProgress() && super.canRedo();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this edit is in progress--that is, it has not
      * received end. This generally means that edits are still being
      * added to it.
@@ -187,7 +187,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         return inProgress;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if any of the <code>UndoableEdit</code>s
      * in <code>edits</code> do.
      * Returns false if they all return false.
@@ -202,7 +202,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>getPresentationName</code> from the
      * last <code>UndoableEdit</code> added to
      * <code>edits</code>. If <code>edits</code> is empty,
@@ -217,7 +217,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>getUndoPresentationName</code>
      * from the last <code>UndoableEdit</code>
      * added to <code>edits</code>.
@@ -232,7 +232,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>getRedoPresentationName</code>
      * from the last <code>UndoableEdit</code>
      * added to <code>edits</code>.
@@ -247,7 +247,7 @@ public class CompoundEdit extends AbstractUndoableEdit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

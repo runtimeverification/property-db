@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * The <code>Dictionary</code> class is the abstract parent of any
  * class, such as <code>Hashtable</code>, which maps keys to values.
  * Every key and every value is an object. In any one <tt>Dictionary</tt>
@@ -48,21 +48,21 @@ package java.util;
  */
 public abstract
 class Dictionary<K,V> {
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     public Dictionary() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of entries (distinct keys) in this dictionary.
      *
      * @return  the number of keys in this dictionary.
      */
     abstract public int size();
 
-    /**
+    /** {@collect.stats}
      * Tests if this dictionary maps no keys to value. The general contract
      * for the <tt>isEmpty</tt> method is that the result is true if and only
      * if this dictionary contains no entries.
@@ -72,7 +72,7 @@ class Dictionary<K,V> {
      */
     abstract public boolean isEmpty();
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the keys in this dictionary. The general
      * contract for the keys method is that an <tt>Enumeration</tt> object
      * is returned that will generate all the keys for which this dictionary
@@ -84,7 +84,7 @@ class Dictionary<K,V> {
      */
     abstract public Enumeration<K> keys();
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of the values in this dictionary. The general
      * contract for the <tt>elements</tt> method is that an
      * <tt>Enumeration</tt> is returned that will generate all the elements
@@ -96,7 +96,7 @@ class Dictionary<K,V> {
      */
     abstract public Enumeration<V> elements();
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the key is mapped in this dictionary.
      * The general contract for the <tt>isEmpty</tt> method is that if this
      * dictionary contains an entry for the specified key, the associated
@@ -111,7 +111,7 @@ class Dictionary<K,V> {
      */
     abstract public V get(Object key);
 
-    /**
+    /** {@collect.stats}
      * Maps the specified <code>key</code> to the specified
      * <code>value</code> in this dictionary. Neither the key nor the
      * value can be <code>null</code>.
@@ -140,7 +140,7 @@ class Dictionary<K,V> {
      */
     abstract public V put(K key, V value);
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>key</code> (and its corresponding
      * <code>value</code>) from this dictionary. This method does nothing
      * if the <code>key</code> is not in this dictionary.

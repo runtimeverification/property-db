@@ -47,7 +47,7 @@ import javax.swing.border.*;
 import javax.swing.plaf.*;
 import javax.swing.plaf.basic.*;
 
-/**
+/** {@collect.stats}
  * A Metal Look and Feel implementation of ToolBarUI.  This implementation
  * is a "combined" view/controller.
  * <p>
@@ -56,14 +56,14 @@ import javax.swing.plaf.basic.*;
  */
 public class MetalToolBarUI extends BasicToolBarUI
 {
-    /**
+    /** {@collect.stats}
      * An array of WeakReferences that point to JComponents. This will contain
      * instances of JToolBars and JMenuBars and is used to find
      * JToolBars/JMenuBars that border each other.
      */
     private static java.util.List components = new ArrayList();
 
-    /**
+    /** {@collect.stats}
      * This protected field is implemenation specific. Do not access directly
      * or override. Use the create method instead.
      *
@@ -71,7 +71,7 @@ public class MetalToolBarUI extends BasicToolBarUI
      */
     protected ContainerListener contListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implemenation specific. Do not access directly
      * or override. Use the create method instead.
      *
@@ -81,12 +81,12 @@ public class MetalToolBarUI extends BasicToolBarUI
 
     private static Border nonRolloverBorder;
 
-    /**
+    /** {@collect.stats}
      * Last menubar the toolbar touched.  This is only useful for ocean.
      */
     private JMenuBar lastMenuBar;
 
-    /**
+    /** {@collect.stats}
      * Registers the specified component.
      */
     synchronized static void register(JComponent c) {
@@ -98,7 +98,7 @@ public class MetalToolBarUI extends BasicToolBarUI
         components.add(new WeakReference(c));
     }
 
-    /**
+    /** {@collect.stats}
      * Unregisters the specified component.
      */
     synchronized static void unregister(JComponent c) {
@@ -114,7 +114,7 @@ public class MetalToolBarUI extends BasicToolBarUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a previously registered component of class <code>target</code>
      * that shares the JRootPane ancestor of <code>from</code>.
      */
@@ -139,7 +139,7 @@ public class MetalToolBarUI extends BasicToolBarUI
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the passed in JMenuBar is above a horizontal
      * JToolBar.
      */
@@ -212,7 +212,7 @@ public class MetalToolBarUI extends BasicToolBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a non rollover border for Toggle buttons in the toolbar.
      */
     private Border createNonRolloverToggleBorder() {
@@ -244,7 +244,7 @@ public class MetalToolBarUI extends BasicToolBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a container listener that will be added to the JToolBar.
      * If this method returns null then it will not be added to the
      * toolbar.
@@ -255,7 +255,7 @@ public class MetalToolBarUI extends BasicToolBarUI
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a property change listener that will be added to the JToolBar.
      * If this method returns null then it will not be added to the
      * toolbar.
@@ -280,7 +280,7 @@ public class MetalToolBarUI extends BasicToolBarUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If necessary paints the background of the component, then invokes
      * <code>paint</code>.
      *

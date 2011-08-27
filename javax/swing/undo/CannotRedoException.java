@@ -24,7 +24,7 @@
  */
 package javax.swing.undo;
 
-/**
+/** {@collect.stats}
  * Thrown when an UndoableEdit is told to <code>redo()</code> and can't.
  * <p>
  * <strong>Warning:</strong>

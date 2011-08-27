@@ -31,7 +31,7 @@ import javax.management.InstanceNotFoundException;
 import java.util.List;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * The Relation Service is in charge of creating and deleting relation types
  * and relations, of handling the consistency and of providing query
  * mechanisms.
@@ -40,7 +40,7 @@ import java.util.Map;
  */
 public interface RelationServiceMBean {
 
-    /**
+    /** {@collect.stats}
      * Checks if the Relation Service is active.
      * Current condition is that the Relation Service must be registered in the
      * MBean Server
@@ -55,7 +55,7 @@ public interface RelationServiceMBean {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the flag to indicate if when a notification is received for the
      * unregistration of an MBean referenced in a relation, if an immediate
      * "purge" of the relations (look for the relations no longer valid)
@@ -69,7 +69,7 @@ public interface RelationServiceMBean {
      */
     public boolean getPurgeFlag();
 
-    /**
+    /** {@collect.stats}
      * Sets the flag to indicate if when a notification is received for the
      * unregistration of an MBean referenced in a relation, if an immediate
      * "purge" of the relations (look for the relations no longer valid)
@@ -87,7 +87,7 @@ public interface RelationServiceMBean {
     // Relation type handling
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a relation type (RelationTypeSupport object) with given
      * role infos (provided by the RoleInfo objects), and adds it in the
      * Relation Service.
@@ -107,7 +107,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                InvalidRelationTypeException;
 
-    /**
+    /** {@collect.stats}
      * Adds given object as a relation type. The object is expected to
      * implement the RelationType interface.
      *
@@ -124,14 +124,14 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                InvalidRelationTypeException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves names of all known relation types.
      *
      * @return ArrayList of relation type names (Strings)
      */
     public List<String> getAllRelationTypeNames();
 
-    /**
+    /** {@collect.stats}
      * Retrieves list of role infos (RoleInfo objects) of a given relation
      * type.
      *
@@ -147,7 +147,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationTypeNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves role info for given role of a given relation type.
      *
      * @param relationTypeName  name of relation type
@@ -167,7 +167,7 @@ public interface RelationServiceMBean {
                RelationTypeNotFoundException,
                RoleInfoNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Removes given relation type from Relation Service.
      * <P>The relation objects of that type will be removed from the
      * Relation Service.
@@ -189,7 +189,7 @@ public interface RelationServiceMBean {
     // Relation handling
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a simple relation (represented by a RelationSupport object) of
      * given relation type, and adds it in the Relation Service.
      * <P>Roles are initialized according to the role list provided in
@@ -232,7 +232,7 @@ public interface RelationServiceMBean {
                RelationTypeNotFoundException,
                InvalidRoleValueException;
 
-    /**
+    /** {@collect.stats}
      * Adds an MBean created by the user (and registered by him in the MBean
      * Server) as a relation in the Relation Service.
      * <P>To be added as a relation, the MBean must conform to the
@@ -288,7 +288,7 @@ public interface RelationServiceMBean {
                RoleNotFoundException,
                InvalidRoleValueException;
 
-    /**
+    /** {@collect.stats}
      * If the relation is represented by an MBean (created by the user and
      * added as a relation in the Relation Service), returns the ObjectName of
      * the MBean.
@@ -306,7 +306,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns the relation id associated to the given ObjectName if the
      * MBean has been added as a relation in the Relation Service.
      *
@@ -320,7 +320,7 @@ public interface RelationServiceMBean {
     public String isRelation(ObjectName objectName)
         throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Checks if there is a relation identified in Relation Service with given
      * relation id.
      *
@@ -333,7 +333,7 @@ public interface RelationServiceMBean {
     public Boolean hasRelation(String relationId)
         throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Returns all the relation ids for all the relations handled by the
      * Relation Service.
      *
@@ -341,7 +341,7 @@ public interface RelationServiceMBean {
      */
     public List<String> getAllRelationIds();
 
-    /**
+    /** {@collect.stats}
      * Checks if given Role can be read in a relation of the given type.
      *
      * @param roleName  name of role to be checked
@@ -362,7 +362,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationTypeNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Checks if given Role can be set in a relation of given type.
      *
      * @param role  role to be checked
@@ -389,7 +389,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationTypeNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a relation creation.
      * The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_CREATION if the relation is an
@@ -410,7 +410,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a role update in the
      * given relation. The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_UPDATE if the relation is an
@@ -438,7 +438,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a relation removal.
      * The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_REMOVAL if the relation is an
@@ -461,7 +461,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Handles update of the Relation Service role map for the update of given
      * role in given relation.
      * <P>It is called in relation MBean setRole() (for given role) and
@@ -489,7 +489,7 @@ public interface RelationServiceMBean {
                RelationServiceNotRegisteredException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Removes given relation from the Relation Service.
      * <P>A RelationNotification notification is sent, its type being:
      * <P>- RelationNotification.RELATION_BASIC_REMOVAL if the relation was
@@ -511,7 +511,7 @@ public interface RelationServiceMBean {
                IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Purges the relations.
      *
      * <P>Depending on the purgeFlag value, this method is either called
@@ -540,7 +540,7 @@ public interface RelationServiceMBean {
     public void purgeRelations()
         throws RelationServiceNotRegisteredException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the relations where a given MBean is referenced.
      * <P>This corresponds to the CIM "References" and "ReferenceNames"
      * operations.
@@ -566,7 +566,7 @@ public interface RelationServiceMBean {
                                  String roleName)
             throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the MBeans associated to given one in a relation.
      * <P>This corresponds to CIM Associators and AssociatorNames operations.
      *
@@ -592,7 +592,7 @@ public interface RelationServiceMBean {
                              String roleName)
             throws IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Returns the relation ids for relations of the given type.
      *
      * @param relationTypeName  relation type name
@@ -607,7 +607,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationTypeNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value for given role name in given relation.
      *
      * @param relationId  relation id
@@ -633,7 +633,7 @@ public interface RelationServiceMBean {
                RelationNotFoundException,
                RoleNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves values of roles with given names in given relation.
      *
      * @param relationId  relation id
@@ -656,7 +656,7 @@ public interface RelationServiceMBean {
                IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns all roles present in the relation.
      *
      * @param relationId  relation id
@@ -675,7 +675,7 @@ public interface RelationServiceMBean {
                RelationNotFoundException,
                RelationServiceNotRegisteredException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of MBeans currently referenced in the
      * given role.
      *
@@ -694,7 +694,7 @@ public interface RelationServiceMBean {
                RelationNotFoundException,
                RoleNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sets the given role in given relation.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -737,7 +737,7 @@ public interface RelationServiceMBean {
                InvalidRoleValueException,
                RelationTypeNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sets the given roles in given relation.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -764,7 +764,7 @@ public interface RelationServiceMBean {
                IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves MBeans referenced in the various roles of the relation.
      *
      * @param relationId  relation id
@@ -781,7 +781,7 @@ public interface RelationServiceMBean {
         throws IllegalArgumentException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns name of associated relation type for given relation.
      *
      * @param relationId  relation id

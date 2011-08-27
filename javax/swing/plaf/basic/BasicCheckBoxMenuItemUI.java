@@ -33,7 +33,7 @@ import javax.swing.border.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * BasicCheckboxMenuItem implementation
  *
  * @author Georges Saab

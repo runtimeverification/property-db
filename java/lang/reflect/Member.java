@@ -25,7 +25,7 @@
 
 package java.lang.reflect;
 
-/**
+/** {@collect.stats}
  * Member is an interface that reflects identifying information about
  * a single member (a field or a method) or a constructor.
  *
@@ -39,21 +39,21 @@ package java.lang.reflect;
 public
 interface Member {
 
-    /**
+    /** {@collect.stats}
      * Identifies the set of all public members of a class or interface,
      * including inherited members.
      * @see java.lang.SecurityManager#checkMemberAccess
      */
     public static final int PUBLIC = 0;
 
-    /**
+    /** {@collect.stats}
      * Identifies the set of declared members of a class or interface.
      * Inherited members are not included.
      * @see java.lang.SecurityManager#checkMemberAccess
      */
     public static final int DECLARED = 1;
 
-    /**
+    /** {@collect.stats}
      * Returns the Class object representing the class or interface
      * that declares the member or constructor represented by this Member.
      *
@@ -62,7 +62,7 @@ interface Member {
      */
     public Class<?> getDeclaringClass();
 
-    /**
+    /** {@collect.stats}
      * Returns the simple name of the underlying member or constructor
      * represented by this Member.
      *
@@ -70,7 +70,7 @@ interface Member {
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java language modifiers for the member or
      * constructor represented by this Member, as an integer.  The
      * Modifier class should be used to decode the modifiers in
@@ -81,7 +81,7 @@ interface Member {
      */
     public int getModifiers();
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this member was introduced by
      * the compiler; returns {@code false} otherwise.
      *

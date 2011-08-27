@@ -37,7 +37,7 @@ import java.security.AccessController;
 import javax.swing.event.SwingPropertyChangeSupport;
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * This class provides default implementations for the JFC <code>Action</code>
  * interface. Standard behaviors like the get and set methods for
  * <code>Action</code> object properties (icon, text, and enabled) are defined
@@ -58,23 +58,23 @@ import sun.security.action.GetPropertyAction;
  */
 public abstract class AbstractAction implements Action, Cloneable, Serializable
 {
-    /**
+    /** {@collect.stats}
      * Whether or not actions should reconfigure all properties on null.
      */
     private static Boolean RECONFIGURE_ON_NULL;
 
-    /**
+    /** {@collect.stats}
      * Specifies whether action is enabled; the default is true.
      */
     protected boolean enabled = true;
 
 
-    /**
+    /** {@collect.stats}
      * Contains the array of key bindings.
      */
     private transient ArrayTable arrayTable;
 
-    /**
+    /** {@collect.stats}
      * Whether or not to reconfigure all action properties from the
      * specified event.
      */
@@ -92,7 +92,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the enabled state of a component from an Action.
      *
      * @param c the Component to set the enabled state on
@@ -102,7 +102,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         c.setEnabled((a != null) ? a.isEnabled() : true);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the tooltip text of a component from an Action.
      *
      * @param c the Component to set the tooltip text on
@@ -123,13 +123,13 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
 
 
 
-    /**
+    /** {@collect.stats}
      * Creates an {@code Action}.
      */
     public AbstractAction() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an {@code Action} with the specified name.
      *
      * @param name the name ({@code Action.NAME}) for the action; a
@@ -139,7 +139,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         putValue(Action.NAME, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an {@code Action} with the specified name and small icon.
      *
      * @param name the name ({@code Action.NAME}) for the action; a
@@ -152,7 +152,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         putValue(Action.SMALL_ICON, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>Object</code> associated with the specified key.
      *
      * @param key a string containing the specified <code>key</code>
@@ -170,7 +170,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         return arrayTable.get(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Value</code> associated with the specified key.
      *
      * @param key  the <code>String</code> that identifies the stored object
@@ -211,7 +211,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         firePropertyChange(key, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the action is enabled.
      *
      * @return true if the action is enabled, false otherwise
@@ -221,7 +221,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         return enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the {@code Action} is enabled. The default is {@code true}.
      *
      * @param newValue  {@code true} to enable the action, {@code false} to
@@ -239,7 +239,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Object</code>s which are keys for
      * which values have been set for this <code>AbstractAction</code>,
      * or <code>null</code> if no keys have values set.
@@ -256,13 +256,13 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
         return keys;
     }
 
-    /**
+    /** {@collect.stats}
      * If any <code>PropertyChangeListeners</code> have been registered, the
      * <code>changeSupport</code> field describes them.
      */
     protected SwingPropertyChangeSupport changeSupport;
 
-    /**
+    /** {@collect.stats}
      * Supports reporting bound property changes.  This method can be called
      * when a bound property has changed and it will send the appropriate
      * <code>PropertyChangeEvent</code> to any registered
@@ -277,7 +277,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>PropertyChangeListener</code> to the listener list.
      * The listener is registered for all properties.
      * <p>
@@ -300,7 +300,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>PropertyChangeListener</code> from the listener list.
      * This removes a <code>PropertyChangeListener</code> that was registered
      * for all properties.
@@ -317,7 +317,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>PropertyChangeListener</code>s added
      * to this AbstractAction with addPropertyChangeListener().
      *
@@ -333,7 +333,7 @@ public abstract class AbstractAction implements Action, Cloneable, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Clones the abstract action. This gives the clone
      * its own copy of the key/value list,
      * which is not handled for you by <code>Object.clone()</code>.

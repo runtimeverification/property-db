@@ -26,7 +26,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Interface PrintRequestAttribute is a tagging interface which a printing
  * attribute class implements to indicate the attribute denotes a
  * requested setting for a print job.

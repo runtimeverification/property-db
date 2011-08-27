@@ -43,7 +43,7 @@ import java.beans.PropertyChangeListener;
 import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 
-/**
+/** {@collect.stats}
  * BasicTableUI implementation
  *
  * @author Philip Milne
@@ -68,7 +68,7 @@ public class BasicTableUI extends TableUI
 
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * Local cache of Table's client property "Table.isFileList"
      */
     private boolean isFileList = false;
@@ -226,7 +226,7 @@ public class BasicTableUI extends TableUI
             return (num < 0) ? -1 : ((num == 0) ? 0 : 1);
         }
 
-        /**
+        /** {@collect.stats}
          * Called to move within the selected range of the given JTable.
          * This method uses the table's notion of selection, which is
          * important to allow the user to navigate between items visually
@@ -334,7 +334,7 @@ public class BasicTableUI extends TableUI
             return stayInSelection;
         }
 
-        /**
+        /** {@collect.stats}
          * Find the next lead row and column based on the given
          * dx/dy and max/min values.
          */
@@ -723,7 +723,7 @@ public class BasicTableUI extends TableUI
 //  The Table's Key listener
 //
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTableUI.
@@ -754,7 +754,7 @@ public class BasicTableUI extends TableUI
 //  The Table's focus listener
 //
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTableUI.
@@ -777,7 +777,7 @@ public class BasicTableUI extends TableUI
 //  The Table's mouse and mouse motion listeners
 //
 
-    /**
+    /** {@collect.stats}
      * This inner class is marked &quot;public&quot; due to a compiler bug.
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of BasicTableUI.
@@ -1343,21 +1343,21 @@ public class BasicTableUI extends TableUI
         return handler;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the key listener for handling keyboard navigation in the JTable.
      */
     protected KeyListener createKeyListener() {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the focus listener for handling keyboard navigation in the JTable.
      */
     protected FocusListener createFocusListener() {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the mouse listener for the JTable.
      */
     protected MouseInputListener createMouseInputListener() {
@@ -1385,7 +1385,7 @@ public class BasicTableUI extends TableUI
         installKeyboardActions();
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JTable properties, e.g. font, foreground, and background.
      * The font, foreground, and background properties are only set if their
      * current value is either null or a UIResource, other properties are set
@@ -1448,7 +1448,7 @@ public class BasicTableUI extends TableUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Attaches listeners to the JTable.
      */
     protected void installListeners() {
@@ -1466,7 +1466,7 @@ public class BasicTableUI extends TableUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Register all keyboard actions on the JTable.
      */
     protected void installKeyboardActions() {
@@ -1638,7 +1638,7 @@ public class BasicTableUI extends TableUI
         SwingUtilities.replaceUIActionMap(table, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -1663,7 +1663,7 @@ public class BasicTableUI extends TableUI
                                     rowMargin) + rowMargin / 2;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -1697,7 +1697,7 @@ public class BasicTableUI extends TableUI
         return new Dimension((int)tmp, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the minimum size of the table. The minimum height is the
      * row height times the number of rows.
      * The minimum width is the sum of the minimum widths of each column.
@@ -1712,7 +1712,7 @@ public class BasicTableUI extends TableUI
         return createTableSize(width);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the preferred size of the table. The preferred height is the
      * row height times the number of rows.
      * The preferred width is the sum of the preferred widths of each column.
@@ -1727,7 +1727,7 @@ public class BasicTableUI extends TableUI
         return createTableSize(width);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the maximum size of the table. The maximum height is the
      * row heighttimes the number of rows.
      * The maximum width is the sum of the maximum widths of each column.
@@ -1746,7 +1746,7 @@ public class BasicTableUI extends TableUI
 //  Paint methods and support
 //
 
-    /** Paint a representation of the <code>table</code> instance
+    /** {@collect.stats} Paint a representation of the <code>table</code> instance
      * that was set in installUI().
      */
     public void paint(Graphics g, JComponent c) {
@@ -2130,7 +2130,7 @@ public class BasicTableUI extends TableUI
 
     static class TableTransferHandler extends TransferHandler implements UIResource {
 
-        /**
+        /** {@collect.stats}
          * Create a Transferable to use as the source for a data transfer.
          *
          * @param c  The component holding the data to be transfered.  This

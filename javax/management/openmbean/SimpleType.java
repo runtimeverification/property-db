@@ -42,7 +42,7 @@ import java.util.HashMap;
 import javax.management.ObjectName;
 
 
-/**
+/** {@collect.stats}
  * The <code>SimpleType</code> class is the <i>open type</i> class whose instances describe
  * all <i>open data</i> values which are neither arrays,
  * nor {@link CompositeData <code>CompositeData</code>} values,
@@ -65,98 +65,98 @@ public final class SimpleType<T> extends OpenType<T> {
     // SimpleType instances.
     // IF YOU ADD A SimpleType, YOU MUST UPDATE OpenType and typeArray
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Void</code>.
      */
     public static final SimpleType<Void> VOID =
         new SimpleType<Void>(Void.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Boolean</code>.
      */
     public static final SimpleType<Boolean> BOOLEAN =
         new SimpleType<Boolean>(Boolean.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Character</code>.
      */
     public static final SimpleType<Character> CHARACTER =
         new SimpleType<Character>(Character.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Byte</code>.
      */
     public static final SimpleType<Byte> BYTE =
         new SimpleType<Byte>(Byte.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Short</code>.
      */
     public static final SimpleType<Short> SHORT =
         new SimpleType<Short>(Short.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Integer</code>.
      */
     public static final SimpleType<Integer> INTEGER =
         new SimpleType<Integer>(Integer.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Long</code>.
      */
     public static final SimpleType<Long> LONG =
         new SimpleType<Long>(Long.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Float</code>.
      */
     public static final SimpleType<Float> FLOAT =
         new SimpleType<Float>(Float.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.Double</code>.
      */
     public static final SimpleType<Double> DOUBLE =
         new SimpleType<Double>(Double.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.lang.String</code>.
      */
     public static final SimpleType<String> STRING =
         new SimpleType<String>(String.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.math.BigDecimal</code>.
      */
     public static final SimpleType<BigDecimal> BIGDECIMAL =
         new SimpleType<BigDecimal>(BigDecimal.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.math.BigInteger</code>.
      */
     public static final SimpleType<BigInteger> BIGINTEGER =
         new SimpleType<BigInteger>(BigInteger.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>java.util.Date</code>.
      */
     public static final SimpleType<Date> DATE =
         new SimpleType<Date>(Date.class);
 
-    /**
+    /** {@collect.stats}
      * The <code>SimpleType</code> instance describing values whose
      * Java class name is <code>javax.management.ObjectName</code>.
      */
@@ -183,7 +183,7 @@ public final class SimpleType<T> extends OpenType<T> {
 
     /* *** SimpleType specific information methods *** */
 
-    /**
+    /** {@collect.stats}
      * Tests whether <var>obj</var> is a value for this
      * <code>SimpleType</code> instance.  <p> This method returns
      * <code>true</code> if and only if <var>obj</var> is not null and
@@ -213,7 +213,7 @@ public final class SimpleType<T> extends OpenType<T> {
 
     /* *** Methods overriden from class Object *** */
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <code>obj</code> parameter with this <code>SimpleType</code> instance for equality.
      * <p>
      * Two <code>SimpleType</code> instances are equal if and only if their
@@ -242,7 +242,7 @@ public final class SimpleType<T> extends OpenType<T> {
         return this.getClassName().equals(other.getClassName());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>SimpleType</code> instance.
      * The hash code of a <code>SimpleType</code> instance is the the hash code of
      * the string value returned by the {@link OpenType#getClassName() getClassName} method.
@@ -265,7 +265,7 @@ public final class SimpleType<T> extends OpenType<T> {
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>SimpleType</code> instance.
      * <p>
      * The string representation consists of
@@ -299,7 +299,7 @@ public final class SimpleType<T> extends OpenType<T> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replace an object read from an {@link
      * java.io.ObjectInputStream} with the unique instance for that
      * value.

@@ -32,7 +32,7 @@ import java.util.Locale;
 import java.io.Serializable;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A lightweight container
  * that uses a BoxLayout object as its layout manager.
  * Box provides several class methods
@@ -77,7 +77,7 @@ import javax.accessibility.*;
  */
 public class Box extends JComponent implements Accessible {
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Box</code> that displays its components
      * along the the specified axis.
      *
@@ -94,7 +94,7 @@ public class Box extends JComponent implements Accessible {
         super.setLayout(new BoxLayout(this, axis));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Box</code> that displays its components
      * from left to right. If you want a <code>Box</code> that
      * respects the component orientation you should create the
@@ -110,7 +110,7 @@ public class Box extends JComponent implements Accessible {
         return new Box(BoxLayout.X_AXIS);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Box</code> that displays its components
      * from top to bottom. If you want a <code>Box</code> that
      * respects the component orientation you should create the
@@ -126,7 +126,7 @@ public class Box extends JComponent implements Accessible {
         return new Box(BoxLayout.Y_AXIS);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an invisible component that's always the specified size.
      * <!-- WHEN WOULD YOU USE THIS AS OPPOSED TO A STRUT? -->
      *
@@ -140,7 +140,7 @@ public class Box extends JComponent implements Accessible {
         return new Filler(d, d, d);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an invisible, fixed-width component.
      * In a horizontal box,
      * you typically use this method
@@ -164,7 +164,7 @@ public class Box extends JComponent implements Accessible {
                           new Dimension(width, Short.MAX_VALUE));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an invisible, fixed-height component.
      * In a vertical box,
      * you typically use this method
@@ -188,7 +188,7 @@ public class Box extends JComponent implements Accessible {
                           new Dimension(Short.MAX_VALUE, height));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an invisible "glue" component
      * that can be useful in a Box
      * whose visible components have a maximum width
@@ -237,7 +237,7 @@ public class Box extends JComponent implements Accessible {
                           new Dimension(Short.MAX_VALUE, Short.MAX_VALUE));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a horizontal glue component.
      *
      * @return the component
@@ -247,7 +247,7 @@ public class Box extends JComponent implements Accessible {
                           new Dimension(Short.MAX_VALUE, 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a vertical glue component.
      *
      * @return the component
@@ -257,7 +257,7 @@ public class Box extends JComponent implements Accessible {
                           new Dimension(0, Short.MAX_VALUE));
     }
 
-    /**
+    /** {@collect.stats}
      * Throws an AWTError, since a Box can use only a BoxLayout.
      *
      * @param l the layout manager to use
@@ -266,7 +266,7 @@ public class Box extends JComponent implements Accessible {
         throw new AWTError("Illegal request");
     }
 
-    /**
+    /** {@collect.stats}
      * Paints this <code>Box</code>.  If this <code>Box</code> has a UI this
      * method invokes super's implementation, otherwise if this
      * <code>Box</code> is opaque the <code>Graphics</code> is filled
@@ -287,7 +287,7 @@ public class Box extends JComponent implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An implementation of a lightweight component that participates in
      * layout but has no view.
      * <p>
@@ -302,7 +302,7 @@ public class Box extends JComponent implements Accessible {
      */
     public static class Filler extends JComponent implements Accessible {
 
-        /**
+        /** {@collect.stats}
          * Constructor to create shape with the given size ranges.
          *
          * @param min   Minimum size
@@ -315,7 +315,7 @@ public class Box extends JComponent implements Accessible {
             setMaximumSize(max);
         }
 
-        /**
+        /** {@collect.stats}
          * Change the size requests for this shape.  An invalidate() is
          * propagated upward as a result so that layout will eventually
          * happen with using the new sizes.
@@ -333,7 +333,7 @@ public class Box extends JComponent implements Accessible {
 
         // ---- Component methods ------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Paints this <code>Filler</code>.  If this
          * <code>Filler</code> has a UI this method invokes super's
          * implementation, otherwise if this <code>Filler</code> is
@@ -358,7 +358,7 @@ public class Box extends JComponent implements Accessible {
 // Accessibility support for Box$Filler
 ////////////////
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleContext associated with this Box.Filler.
          * For box fillers, the AccessibleContext takes the form of an
          * AccessibleBoxFiller.
@@ -374,14 +374,14 @@ public class Box extends JComponent implements Accessible {
             return accessibleContext;
         }
 
-        /**
+        /** {@collect.stats}
          * This class implements accessibility support for the
          * <code>Box.Filler</code> class.
          */
         protected class AccessibleBoxFiller extends AccessibleAWTComponent {
             // AccessibleContext methods
             //
-            /**
+            /** {@collect.stats}
              * Gets the role of this object.
              *
              * @return an instance of AccessibleRole describing the role of
@@ -398,7 +398,7 @@ public class Box extends JComponent implements Accessible {
 // Accessibility support for Box
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this Box.
      * For boxes, the AccessibleContext takes the form of an
      * AccessibleBox.
@@ -414,14 +414,14 @@ public class Box extends JComponent implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Box</code> class.
      */
     protected class AccessibleBox extends AccessibleAWTContainer {
         // AccessibleContext methods
         //
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

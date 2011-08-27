@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>TextOutputCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to display information messages,
@@ -37,25 +37,25 @@ public class TextOutputCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = 1689502495511663102L;
 
-    /** Information message. */
+    /** {@collect.stats} Information message. */
     public static final int INFORMATION         = 0;
-    /** Warning message. */
+    /** {@collect.stats} Warning message. */
     public static final int WARNING             = 1;
-    /** Error message. */
+    /** {@collect.stats} Error message. */
     public static final int ERROR               = 2;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private int messageType;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String message;
 
-    /**
+    /** {@collect.stats}
      * Construct a TextOutputCallback with a message type and message
      * to be displayed.
      *
@@ -82,7 +82,7 @@ public class TextOutputCallback implements Callback, java.io.Serializable {
         this.message = message;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the message type.
      *
      * <p>
@@ -94,7 +94,7 @@ public class TextOutputCallback implements Callback, java.io.Serializable {
         return messageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the message to be displayed.
      *
      * <p>

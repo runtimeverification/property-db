@@ -28,7 +28,7 @@ package javax.sql.rowset.serial;
 import java.sql.*;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * A serialized mapping in the Java programming language of an SQL
  * <code>CLOB</code> value.
  * <P>
@@ -47,7 +47,7 @@ import java.io.*;
  */
 public class SerialClob implements Clob, Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * A serialized array of characters containing the data of the SQL
      * <code>CLOB</code> value that this <code>SerialClob</code> object
      * represents.
@@ -56,13 +56,13 @@ public class SerialClob implements Clob, Serializable, Cloneable {
      */
     private char buf[];
 
-    /**
+    /** {@collect.stats}
      * Internal Clob representation if SerialClob is intialized with a
      * Clob
      */
     private Clob clob;
 
-    /**
+    /** {@collect.stats}
      * The length in characters of this <code>SerialClob</code> object's
      * internal array of characters.
      *
@@ -70,7 +70,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
      */
     private long len;
 
-    /**
+    /** {@collect.stats}
      * The original length in characters of tgus <code>SerialClob</code>
      * objects internal array of characters.
      *
@@ -78,7 +78,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
      */
     private long origLen;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialClob</code> object that is a serialized version of
      * the given <code>char</code> array.
      * <p>
@@ -106,7 +106,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         origLen = len;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SerialClob</code> object that is a serialized
      * version of the given <code>Clob</code> object.
      * <P>
@@ -164,7 +164,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         origLen = len;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of characters in this <code>SerialClob</code>
      * object's array of characters.
      *
@@ -176,7 +176,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return len;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this <code>SerialClob</code> object's data as a stream
      * of Unicode characters. Unlike the related method, <code>getAsciiStream</code>,
      * a stream is produced regardless of whether the <code>SerialClob</code> object
@@ -190,7 +190,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return (java.io.Reader) new CharArrayReader(buf);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>CLOB</code> value designated by this <code>SerialClob</code>
      * object as an ascii stream. This method forwards the <code>getAsciiStream</code>
      * call to the underlying <code>Clob</code> object in the event that this
@@ -216,7 +216,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
          }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the substring contained in this
      * <code>SerialClob</code> object, starting at the given position
      * and continuing for the specified number or characters.
@@ -260,7 +260,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position in this <code>SerialClob</code> object
      * where the given <code>String</code> object begins, starting
      * the search at the specified position. This method returns
@@ -308,7 +308,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return -1; // not found
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position in this <code>SerialClob</code> object
      * where the given <code>Clob</code> signature begins, starting
      * the search at the specified position. This method returns
@@ -332,7 +332,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return position(searchStr.getSubString(1,(int)searchStr.length()), start);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the given Java <code>String</code> to the <code>CLOB</code>
      * value that this <code>SerialClob</code> object represents, at the position
      * <code>pos</code>.
@@ -354,7 +354,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return (setString(pos, str, 0, str.length()));
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> characters of <code>str</code>, starting
      * at character <code>offset</code>, to the <code>CLOB</code> value
      * that this <code>Clob</code> represents.
@@ -407,7 +407,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a stream to be used to write Ascii characters to the
      * <code>CLOB</code> value that this <code>SerialClob</code> object represents,
      * starting at position <code>pos</code>. This method forwards the
@@ -436,7 +436,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
          }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a stream to be used to write a stream of Unicode characters
      * to the <code>CLOB</code> value that this <code>SerialClob</code> object
      * represents, at position <code>pos</code>. This method forwards the
@@ -466,7 +466,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Truncates the <code>CLOB</code> value that this <code>SerialClob</code>
      * object represents so that it has a length of <code>len</code>
      * characters.
@@ -505,7 +505,7 @@ public class SerialClob implements Clob, Serializable, Cloneable {
         throw new java.lang.UnsupportedOperationException("Not supported");
     }
 
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this <code>SerialClob</code>
      * object.
      */

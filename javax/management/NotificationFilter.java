@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * To be implemented by a any class acting as a notification filter.
  * It allows a registered notification listener to filter the notifications of interest.
  *
@@ -34,7 +34,7 @@ package javax.management;
  */
 public interface NotificationFilter extends java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * Invoked before sending the specified notification to the listener.
      *
      * @param notification The notification to be sent.

@@ -29,7 +29,7 @@ package javax.management;
 // RI import
 import javax.management.MBeanServer;
 
-/**
+/** {@collect.stats}
  * Represents attributes used as arguments to relational constraints.
  * An <CODE>AttributeValueExp</CODE> may be used anywhere a <CODE>ValueExp</CODE> is required.
  *
@@ -41,12 +41,12 @@ public class AttributeValueExp implements ValueExp  {
     /* Serial version */
     private static final long serialVersionUID = -7768025046539163385L;
 
-    /**
+    /** {@collect.stats}
      * @serial The name of the attribute
      */
     private String attr;
 
-    /**
+    /** {@collect.stats}
      * An <code>AttributeValueExp</code> with a null attribute.
      * @deprecated An instance created with this constructor cannot be
      * used in a query.
@@ -55,7 +55,7 @@ public class AttributeValueExp implements ValueExp  {
     public AttributeValueExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <CODE>AttributeValueExp</CODE> representing the
      * specified object attribute, named attr.
      *
@@ -66,7 +66,7 @@ public class AttributeValueExp implements ValueExp  {
         this.attr = attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the name of the attribute.
      *
      * @return the attribute name.
@@ -75,7 +75,7 @@ public class AttributeValueExp implements ValueExp  {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the <CODE>AttributeValueExp</CODE> on an MBean.
      *
      * @param name The name of the MBean on which the <CODE>AttributeValueExp</CODE> will be applied.
@@ -103,7 +103,7 @@ public class AttributeValueExp implements ValueExp  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing its value.
      */
     public String toString()  {
@@ -111,7 +111,7 @@ public class AttributeValueExp implements ValueExp  {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the MBean server on which the query is to be performed.
      *
      * @param s The MBean server on which the query is to be performed.
@@ -123,7 +123,7 @@ public class AttributeValueExp implements ValueExp  {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the value of the given attribute in the named MBean.
      * If the attempt to access the attribute generates an exception,
      * return null.

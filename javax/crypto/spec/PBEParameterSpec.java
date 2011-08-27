@@ -28,7 +28,7 @@ package javax.crypto.spec;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the set of parameters used with password-based
  * encryption (PBE), as defined in the
  * <a href="http://www.ietf.org/rfc/rfc2898.txt">PKCS #5</a>
@@ -43,7 +43,7 @@ public class PBEParameterSpec implements AlgorithmParameterSpec {
     private byte[] salt;
     private int iterationCount;
 
-    /**
+    /** {@collect.stats}
      * Constructs a parameter set for password-based encryption as defined in
      * the PKCS #5 standard.
      *
@@ -57,7 +57,7 @@ public class PBEParameterSpec implements AlgorithmParameterSpec {
         this.iterationCount = iterationCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the salt.
      *
      * @return the salt. Returns a new array
@@ -67,7 +67,7 @@ public class PBEParameterSpec implements AlgorithmParameterSpec {
         return (byte[])this.salt.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the iteration count.
      *
      * @return the iteration count

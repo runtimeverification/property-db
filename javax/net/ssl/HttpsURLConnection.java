@@ -31,7 +31,7 @@ import java.security.Principal;
 import java.security.cert.X509Certificate;
 import javax.security.auth.x500.X500Principal;
 
-/**
+/** {@collect.stats}
  * <code>HttpsURLConnection</code> extends <code>HttpURLConnection</code>
  * with support for https-specific features.
  * <P>
@@ -56,7 +56,7 @@ import javax.security.auth.x500.X500Principal;
 abstract public
 class HttpsURLConnection extends HttpURLConnection
 {
-    /**
+    /** {@collect.stats}
      * Creates an <code>HttpsURLConnection</code> using the
      * URL specified.
      *
@@ -66,7 +66,7 @@ class HttpsURLConnection extends HttpURLConnection
         super(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cipher suite in use on this connection.
      *
      * @return the cipher suite
@@ -75,7 +75,7 @@ class HttpsURLConnection extends HttpURLConnection
      */
     public abstract String getCipherSuite();
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate(s) that were sent to the server during
      * handshaking.
      * <P>
@@ -98,7 +98,7 @@ class HttpsURLConnection extends HttpURLConnection
      */
     public abstract java.security.cert.Certificate [] getLocalCertificates();
 
-    /**
+    /** {@collect.stats}
      * Returns the server's certificate chain which was established
      * as part of defining the session.
      * <P>
@@ -117,7 +117,7 @@ class HttpsURLConnection extends HttpURLConnection
     public abstract java.security.cert.Certificate [] getServerCertificates()
             throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
      * Returns the server's principal which was established as part of
      * defining the session.
      * <P>
@@ -148,7 +148,7 @@ class HttpsURLConnection extends HttpURLConnection
                 ((X509Certificate)certs[0]).getSubjectX500Principal());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the principal that was sent to the server during handshaking.
      * <P>
      * Note: Subclasses should override this method. If not overridden, it
@@ -180,7 +180,7 @@ class HttpsURLConnection extends HttpURLConnection
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <code>HostnameVerifier</code> provides a callback mechanism so that
      * implementers of this interface can supply a policy for
      * handling the case where the host to connect to and
@@ -190,7 +190,7 @@ class HttpsURLConnection extends HttpURLConnection
      */
     private static HostnameVerifier defaultHostnameVerifier;
 
-    /**
+    /** {@collect.stats}
      * Initialize the default <code>HostnameVerifier</code>.
      */
     static {
@@ -214,12 +214,12 @@ class HttpsURLConnection extends HttpURLConnection
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>hostnameVerifier</code> for this object.
      */
     protected HostnameVerifier hostnameVerifier = defaultHostnameVerifier;
 
-    /**
+    /** {@collect.stats}
      * Sets the default <code>HostnameVerifier</code> inherited by a
      * new instance of this class.
      * <P>
@@ -248,7 +248,7 @@ class HttpsURLConnection extends HttpURLConnection
         defaultHostnameVerifier = v;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the default <code>HostnameVerifier</code> that is inherited
      * by new instances of this class.
      *
@@ -259,7 +259,7 @@ class HttpsURLConnection extends HttpURLConnection
         return defaultHostnameVerifier;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>HostnameVerifier</code> for this instance.
      * <P>
      * New instances of this class inherit the default static hostname
@@ -282,7 +282,7 @@ class HttpsURLConnection extends HttpURLConnection
         hostnameVerifier = v;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>HostnameVerifier</code> in place on this instance.
      *
      * @return the host name verifier
@@ -295,13 +295,13 @@ class HttpsURLConnection extends HttpURLConnection
 
     private static SSLSocketFactory defaultSSLSocketFactory = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>SSLSocketFactory</code> inherited when an instance
      * of this class is created.
      */
     private SSLSocketFactory sslSocketFactory = getDefaultSSLSocketFactory();
 
-    /**
+    /** {@collect.stats}
      * Sets the default <code>SSLSocketFactory</code> inherited by new
      * instances of this class.
      * <P>
@@ -329,7 +329,7 @@ class HttpsURLConnection extends HttpURLConnection
         defaultSSLSocketFactory = sf;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the default static <code>SSLSocketFactory</code> that is
      * inherited by new instances of this class.
      * <P>
@@ -347,7 +347,7 @@ class HttpsURLConnection extends HttpURLConnection
         return defaultSSLSocketFactory;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>SSLSocketFactory</code> to be used when this instance
      * creates sockets for secure https URL connections.
      * <P>
@@ -371,7 +371,7 @@ class HttpsURLConnection extends HttpURLConnection
         sslSocketFactory = sf;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the SSL socket factory to be used when creating sockets
      * for secure https URL connections.
      *

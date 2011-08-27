@@ -31,7 +31,7 @@ import javax.xml.crypto.XMLStructure;
 import java.security.cert.X509CRL;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>X509Data</code> element as defined in
  * the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>. An
@@ -80,7 +80,7 @@ import java.util.List;
 //@@@ check for illegal combinations of data violating MUSTs in W3c spec
 public interface X509Data extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * URI identifying the X509Data KeyInfo type:
      * http://www.w3.org/2000/09/xmldsig#X509Data. This can be specified as
      * the value of the <code>type</code> parameter of the
@@ -89,7 +89,7 @@ public interface X509Data extends XMLStructure {
      */
     final static String TYPE = "http://www.w3.org/2000/09/xmldsig#X509Data";
 
-    /**
+    /** {@collect.stats}
      * URI identifying the binary (ASN.1 DER) X.509 Certificate KeyInfo type:
      * http://www.w3.org/2000/09/xmldsig#rawX509Certificate. This can be
      * specified as the value of the <code>type</code> parameter of the
@@ -98,7 +98,7 @@ public interface X509Data extends XMLStructure {
     final static String RAW_X509_CERTIFICATE_TYPE =
         "http://www.w3.org/2000/09/xmldsig#rawX509Certificate";
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of the content in this <code>X509Data</code>. Valid types are
      * {@link String} (subject names), <code>byte[]</code> (subject key ids),

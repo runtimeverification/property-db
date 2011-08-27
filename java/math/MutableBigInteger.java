@@ -25,7 +25,7 @@
 
 package java.math;
 
-/**
+/** {@collect.stats}
  * A class used to represent multiprecision integers that makes efficient
  * use of allocated space by allowing a number to occupy only part of
  * an array so that the arrays do not have to be reallocated as often.
@@ -47,28 +47,28 @@ import static java.math.BigInteger.LONG_MASK;
 import static java.math.BigDecimal.INFLATED;
 
 class MutableBigInteger {
-    /**
+    /** {@collect.stats}
      * Holds the magnitude of this MutableBigInteger in big endian order.
      * The magnitude may start at an offset into the value array, and it may
      * end before the length of the value array.
      */
     int[] value;
 
-    /**
+    /** {@collect.stats}
      * The number of ints of the value array that are currently used
      * to hold the magnitude of this MutableBigInteger. The magnitude starts
      * at an offset and offset + intLen may be less than value.length.
      */
     int intLen;
 
-    /**
+    /** {@collect.stats}
      * The offset into the value array where the magnitude of this
      * MutableBigInteger begins.
      */
     int offset = 0;
 
     // Constants
-    /**
+    /** {@collect.stats}
      * MutableBigInteger with one element value array with the value 1. Used by
      * BigDecimal divideAndRound to increment the quotient. Use this constant
      * only when the method is not going to modify this object.
@@ -77,7 +77,7 @@ class MutableBigInteger {
 
     // Constructors
 
-    /**
+    /** {@collect.stats}
      * The default constructor. An empty MutableBigInteger is created with
      * a one word capacity.
      */
@@ -86,7 +86,7 @@ class MutableBigInteger {
         intLen = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with a magnitude specified by
      * the int val.
      */
@@ -96,7 +96,7 @@ class MutableBigInteger {
         value[0] = val;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with the specified value array
      * up to the length of the array supplied.
      */
@@ -105,7 +105,7 @@ class MutableBigInteger {
         intLen = val.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with a magnitude equal to the
      * specified BigInteger.
      */
@@ -114,7 +114,7 @@ class MutableBigInteger {
         value = Arrays.copyOf(b.mag, intLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new MutableBigInteger with a magnitude equal to the
      * specified MutableBigInteger.
      */
@@ -123,7 +123,7 @@ class MutableBigInteger {
         value = Arrays.copyOfRange(val.value, val.offset, val.offset + intLen);
     }
 
-    /**
+    /** {@collect.stats}
      * Internal helper method to return the magnitude array. The caller is not
      * supposed to modify the returned array.
      */
@@ -133,7 +133,7 @@ class MutableBigInteger {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert this MutableBigInteger to a long value. The caller has to make
      * sure this MutableBigInteger can be fit into long.
      */
@@ -145,7 +145,7 @@ class MutableBigInteger {
         return (intLen == 2) ? d << 32 | (value[offset + 1] & LONG_MASK) : d;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert this MutableBigInteger to a BigInteger object.
      */
     BigInteger toBigInteger(int sign) {
@@ -154,7 +154,7 @@ class MutableBigInteger {
         return new BigInteger(getMagnitudeArray(), sign);
     }
 
-    /**
+    /** {@collect.stats}
      * Convert this MutableBigInteger to BigDecimal object with the specified sign
      * and scale.
      */
@@ -174,7 +174,7 @@ class MutableBigInteger {
         return new BigDecimal(null, sign == -1 ? -v : v, scale, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Clear out a MutableBigInteger for reuse.
      */
     void clear() {
@@ -183,14 +183,14 @@ class MutableBigInteger {
             value[index] = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Set a MutableBigInteger to zero, removing its offset.
      */
     void reset() {
         offset = intLen = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Compare the magnitude of two MutableBigIntegers. Returns -1, 0 or 1
      * as this MutableBigInteger is numerically less than, equal to, or
      * greater than <tt>b</tt>.
@@ -216,7 +216,7 @@ class MutableBigInteger {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Compare this against half of a MutableBigInteger object (Needed for
      * remainder tests).
      * Assumes no leading unnecessary zeros, which holds for results
@@ -256,7 +256,7 @@ class MutableBigInteger {
         return carry == 0? 0 : -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the index of the lowest set bit in this MutableBigInteger. If the
      * magnitude of this MutableBigInteger is zero, -1 is returned.
      */
@@ -272,7 +272,7 @@ class MutableBigInteger {
         return ((intLen-1-j)<<5) + Integer.numberOfTrailingZeros(b);
     }
 
-    /**
+    /** {@collect.stats}
      * Return the int in use in this MutableBigInteger at the specified
      * index. This method is not used because it is not inlined on all
      * platforms.
@@ -281,7 +281,7 @@ class MutableBigInteger {
         return value[offset+index];
     }
 
-    /**
+    /** {@collect.stats}
      * Return a long which is equal to the unsigned value of the int in
      * use in this MutableBigInteger at the specified index. This method is
      * not used because it is not inlined on all platforms.
@@ -290,7 +290,7 @@ class MutableBigInteger {
         return value[offset+index] & LONG_MASK;
     }
 
-    /**
+    /** {@collect.stats}
      * Ensure that the MutableBigInteger is in normal form, specifically
      * making sure that there are no leading zeros, and that if the
      * magnitude is zero, then intLen is zero.
@@ -315,7 +315,7 @@ class MutableBigInteger {
         offset = (intLen==0 ?  0 : offset+numZeros);
     }
 
-    /**
+    /** {@collect.stats}
      * If this MutableBigInteger cannot hold len words, increase the size
      * of the value array to len words.
      */
@@ -327,7 +327,7 @@ class MutableBigInteger {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convert this MutableBigInteger into an int array with no leading
      * zeros, of a length that is equal to this MutableBigInteger's intLen.
      */
@@ -338,7 +338,7 @@ class MutableBigInteger {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the int at index+offset in this MutableBigInteger to val.
      * This does not get inlined on all platforms so it is not used
      * as often as originally intended.
@@ -347,7 +347,7 @@ class MutableBigInteger {
         value[offset + index] = val;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this MutableBigInteger's value array to the specified array.
      * The intLen is set to the specified length.
      */
@@ -357,7 +357,7 @@ class MutableBigInteger {
         offset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this MutableBigInteger's value array to a copy of the specified
      * array. The intLen is set to the length of the new array.
      */
@@ -370,7 +370,7 @@ class MutableBigInteger {
         offset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this MutableBigInteger's value array to a copy of the specified
      * array. The intLen is set to the length of the specified array.
      */
@@ -383,35 +383,35 @@ class MutableBigInteger {
         offset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true iff this MutableBigInteger has a value of one.
      */
     boolean isOne() {
         return (intLen == 1) && (value[offset] == 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true iff this MutableBigInteger has a value of zero.
      */
     boolean isZero() {
         return (intLen == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true iff this MutableBigInteger is even.
      */
     boolean isEven() {
         return (intLen == 0) || ((value[offset + intLen - 1] & 1) == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true iff this MutableBigInteger is odd.
      */
     boolean isOdd() {
         return isZero() ? false : ((value[offset + intLen - 1] & 1) == 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true iff this MutableBigInteger is in normal form. A
      * MutableBigInteger is in normal form if it has no leading zeros
      * after the offset, and intLen + offset <= value.length.
@@ -424,7 +424,7 @@ class MutableBigInteger {
         return (value[offset] != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String representation of this MutableBigInteger in radix 10.
      */
     public String toString() {
@@ -432,7 +432,7 @@ class MutableBigInteger {
         return b.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Right shift this MutableBigInteger n bits. The MutableBigInteger is left
      * in normal form.
      */
@@ -453,7 +453,7 @@ class MutableBigInteger {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Left shift this MutableBigInteger n bits.
      */
     void leftShift(int n) {
@@ -505,7 +505,7 @@ class MutableBigInteger {
             primitiveRightShift(32 -nBits);
     }
 
-    /**
+    /** {@collect.stats}
      * A primitive used for division. This method adds in one multiple of the
      * divisor a back to the dividend result at a specified offset. It is used
      * when qhat was estimated too large, and must be adjusted.
@@ -522,7 +522,7 @@ class MutableBigInteger {
         return (int)carry;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used for division. It multiplies an n word input a by one
      * word input x, and subtracts the n word product from q. This is needed
      * when subtracting qhat*divisor from dividend.
@@ -543,7 +543,7 @@ class MutableBigInteger {
         return (int)carry;
     }
 
-    /**
+    /** {@collect.stats}
      * Right shift this MutableBigInteger n bits, where n is
      * less than 32.
      * Assumes that intLen > 0, n > 0 for speed
@@ -559,7 +559,7 @@ class MutableBigInteger {
         val[offset] >>>= n;
     }
 
-    /**
+    /** {@collect.stats}
      * Left shift this MutableBigInteger n bits, where n is
      * less than 32.
      * Assumes that intLen > 0, n > 0 for speed
@@ -575,7 +575,7 @@ class MutableBigInteger {
         val[offset+intLen-1] <<= n;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the contents of two MutableBigInteger objects.The result
      * is placed within this MutableBigInteger.
      * The contents of the addend are not changed.
@@ -635,7 +635,7 @@ class MutableBigInteger {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Subtracts the smaller of this and b from the larger and places the
      * result into this MutableBigInteger.
      */
@@ -686,7 +686,7 @@ class MutableBigInteger {
         return sign;
     }
 
-    /**
+    /** {@collect.stats}
      * Subtracts the smaller of a and b from the larger and places the result
      * into the larger. Returns 1 if the answer is in a, -1 if in b, 0 if no
      * operation was performed.
@@ -724,7 +724,7 @@ class MutableBigInteger {
         return sign;
     }
 
-    /**
+    /** {@collect.stats}
      * Multiply the contents of two MutableBigInteger objects. The result is
      * placed into MutableBigInteger z. The contents of y are not changed.
      */
@@ -766,7 +766,7 @@ class MutableBigInteger {
         z.normalize();
     }
 
-    /**
+    /** {@collect.stats}
      * Multiply the contents of this MutableBigInteger by the word y. The
      * result is placed into z.
      */
@@ -803,7 +803,7 @@ class MutableBigInteger {
         z.value = zval;
     }
 
-     /**
+     /** {@collect.stats}
      * This method is used for division of an n word dividend by a one word
      * divisor. The quotient is placed into quotient. The one word divisor is
      * specified by divisor.
@@ -867,7 +867,7 @@ class MutableBigInteger {
             return rem;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the quotient of this div b and places the quotient in the
      * provided MutableBigInteger objects and the remainder object is returned.
      *
@@ -915,7 +915,7 @@ class MutableBigInteger {
         return divideMagnitude(div, quotient);
     }
 
-    /**
+    /** {@collect.stats}
      * Internally used  to calculate the quotient of this div v and places the
      * quotient in the provided MutableBigInteger object and the remainder is
      * returned.
@@ -945,7 +945,7 @@ class MutableBigInteger {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Divide this MutableBigInteger by the divisor represented by its magnitude
      * array. The quotient will be placed into the provided quotient object &
      * the remainder object is returned.
@@ -1063,7 +1063,7 @@ class MutableBigInteger {
         return rem;
     }
 
-    /**
+    /** {@collect.stats}
      * Compare two longs as if they were unsigned.
      * Returns true iff one is bigger than two.
      */
@@ -1071,7 +1071,7 @@ class MutableBigInteger {
         return (one+Long.MIN_VALUE) > (two+Long.MIN_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * This method divides a long quantity by an int to estimate
      * qhat for two multi precision numbers. It is used when
      * the signed value of n is less than zero.
@@ -1104,7 +1104,7 @@ class MutableBigInteger {
         result[1] = (int)r;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate GCD of this and b. This and b are changed by the computation.
      */
     MutableBigInteger hybridGCD(MutableBigInteger b) {
@@ -1124,7 +1124,7 @@ class MutableBigInteger {
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate GCD of this and v.
      * Assumes that this and v are not zero.
      */
@@ -1181,7 +1181,7 @@ class MutableBigInteger {
         return u;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate GCD of a and b interpreted as unsigned integers.
      */
     static int binaryGcd(int a, int b) {
@@ -1210,7 +1210,7 @@ class MutableBigInteger {
         return a<<t;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the modInverse of this mod p. This and p are not affected by
      * the operation.
      */
@@ -1310,7 +1310,7 @@ class MutableBigInteger {
         return fixup(new MutableBigInteger(1), new MutableBigInteger(mod), k);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the multiplicative inverse of this mod mod, where mod is odd.
      * This and mod are not changed by the calculation.
      *
@@ -1411,7 +1411,7 @@ class MutableBigInteger {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Uses the extended Euclidean algorithm to compute the modInverse of base
      * mod a modulus that is a power of 2. The modulus is 2^k.
      */

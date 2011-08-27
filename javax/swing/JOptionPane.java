@@ -58,7 +58,7 @@ import javax.swing.event.InternalFrameAdapter;
 import javax.accessibility.*;
 import static javax.swing.ClientPropertyKey.PopupFactory_FORCE_HEAVYWEIGHT_POPUP;
 
-/**
+/** {@collect.stats}
  * <code>JOptionPane</code> makes it easy to pop up a standard dialog box that
  * prompts users for a value or informs them of something.
  * For information about using <code>JOptionPane</code>, see
@@ -314,13 +314,13 @@ import static javax.swing.ClientPropertyKey.PopupFactory_FORCE_HEAVYWEIGHT_POPUP
  */
 public class JOptionPane extends JComponent implements Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "OptionPaneUI";
 
-    /**
+    /** {@collect.stats}
      * Indicates that the user has not yet selected a value.
      */
     public static final Object      UNINITIALIZED_VALUE = "uninitializedValue";
@@ -329,30 +329,30 @@ public class JOptionPane extends JComponent implements Accessible
     // Option types
     //
 
-    /**
+    /** {@collect.stats}
      * Type meaning Look and Feel should not supply any options -- only
      * use the options from the <code>JOptionPane</code>.
      */
     public static final int         DEFAULT_OPTION = -1;
-    /** Type used for <code>showConfirmDialog</code>. */
+    /** {@collect.stats} Type used for <code>showConfirmDialog</code>. */
     public static final int         YES_NO_OPTION = 0;
-    /** Type used for <code>showConfirmDialog</code>. */
+    /** {@collect.stats} Type used for <code>showConfirmDialog</code>. */
     public static final int         YES_NO_CANCEL_OPTION = 1;
-    /** Type used for <code>showConfirmDialog</code>. */
+    /** {@collect.stats} Type used for <code>showConfirmDialog</code>. */
     public static final int         OK_CANCEL_OPTION = 2;
 
     //
     // Return values.
     //
-    /** Return value from class method if YES is chosen. */
+    /** {@collect.stats} Return value from class method if YES is chosen. */
     public static final int         YES_OPTION = 0;
-    /** Return value from class method if NO is chosen. */
+    /** {@collect.stats} Return value from class method if NO is chosen. */
     public static final int         NO_OPTION = 1;
-    /** Return value from class method if CANCEL is chosen. */
+    /** {@collect.stats} Return value from class method if CANCEL is chosen. */
     public static final int         CANCEL_OPTION = 2;
-    /** Return value form class method if OK is chosen. */
+    /** {@collect.stats} Return value form class method if OK is chosen. */
     public static final int         OK_OPTION = 0;
-    /** Return value from class method if user closes window without selecting
+    /** {@collect.stats} Return value from class method if user closes window without selecting
      * anything, more than likely this should be treated as either a
      * <code>CANCEL_OPTION</code> or <code>NO_OPTION</code>. */
     public static final int         CLOSED_OPTION = -1;
@@ -361,72 +361,72 @@ public class JOptionPane extends JComponent implements Accessible
     // Message types. Used by the UI to determine what icon to display,
     // and possibly what behavior to give based on the type.
     //
-    /** Used for error messages. */
+    /** {@collect.stats} Used for error messages. */
     public static final int  ERROR_MESSAGE = 0;
-    /** Used for information messages. */
+    /** {@collect.stats} Used for information messages. */
     public static final int  INFORMATION_MESSAGE = 1;
-    /** Used for warning messages. */
+    /** {@collect.stats} Used for warning messages. */
     public static final int  WARNING_MESSAGE = 2;
-    /** Used for questions. */
+    /** {@collect.stats} Used for questions. */
     public static final int  QUESTION_MESSAGE = 3;
-    /** No icon is used. */
+    /** {@collect.stats} No icon is used. */
     public static final int   PLAIN_MESSAGE = -1;
 
-    /** Bound property name for <code>icon</code>. */
+    /** {@collect.stats} Bound property name for <code>icon</code>. */
     public static final String      ICON_PROPERTY = "icon";
-    /** Bound property name for <code>message</code>. */
+    /** {@collect.stats} Bound property name for <code>message</code>. */
     public static final String      MESSAGE_PROPERTY = "message";
-    /** Bound property name for <code>value</code>. */
+    /** {@collect.stats} Bound property name for <code>value</code>. */
     public static final String      VALUE_PROPERTY = "value";
-    /** Bound property name for <code>option</code>. */
+    /** {@collect.stats} Bound property name for <code>option</code>. */
     public static final String      OPTIONS_PROPERTY = "options";
-    /** Bound property name for <code>initialValue</code>. */
+    /** {@collect.stats} Bound property name for <code>initialValue</code>. */
     public static final String      INITIAL_VALUE_PROPERTY = "initialValue";
-    /** Bound property name for <code>type</code>. */
+    /** {@collect.stats} Bound property name for <code>type</code>. */
     public static final String      MESSAGE_TYPE_PROPERTY = "messageType";
-    /** Bound property name for <code>optionType</code>. */
+    /** {@collect.stats} Bound property name for <code>optionType</code>. */
     public static final String      OPTION_TYPE_PROPERTY = "optionType";
-    /** Bound property name for <code>selectionValues</code>. */
+    /** {@collect.stats} Bound property name for <code>selectionValues</code>. */
     public static final String      SELECTION_VALUES_PROPERTY = "selectionValues";
-    /** Bound property name for <code>initialSelectionValue</code>. */
+    /** {@collect.stats} Bound property name for <code>initialSelectionValue</code>. */
     public static final String      INITIAL_SELECTION_VALUE_PROPERTY = "initialSelectionValue";
-    /** Bound property name for <code>inputValue</code>. */
+    /** {@collect.stats} Bound property name for <code>inputValue</code>. */
     public static final String      INPUT_VALUE_PROPERTY = "inputValue";
-    /** Bound property name for <code>wantsInput</code>. */
+    /** {@collect.stats} Bound property name for <code>wantsInput</code>. */
     public static final String      WANTS_INPUT_PROPERTY = "wantsInput";
 
-    /** Icon used in pane. */
+    /** {@collect.stats} Icon used in pane. */
     transient protected Icon                  icon;
-    /** Message to display. */
+    /** {@collect.stats} Message to display. */
     transient protected Object                message;
-    /** Options to display to the user. */
+    /** {@collect.stats} Options to display to the user. */
     transient protected Object[]              options;
-    /** Value that should be initially selected in <code>options</code>. */
+    /** {@collect.stats} Value that should be initially selected in <code>options</code>. */
     transient protected Object                initialValue;
-    /** Message type. */
+    /** {@collect.stats} Message type. */
     protected int                   messageType;
-    /**
+    /** {@collect.stats}
      * Option type, one of <code>DEFAULT_OPTION</code>,
      * <code>YES_NO_OPTION</code>,
      * <code>YES_NO_CANCEL_OPTION</code> or
      * <code>OK_CANCEL_OPTION</code>.
      */
     protected int                   optionType;
-    /** Currently selected value, will be a valid option, or
+    /** {@collect.stats} Currently selected value, will be a valid option, or
      * <code>UNINITIALIZED_VALUE</code> or <code>null</code>. */
     transient protected Object                value;
-    /** Array of values the user can choose from. Look and feel will
+    /** {@collect.stats} Array of values the user can choose from. Look and feel will
      * provide the UI component to choose this from. */
     protected transient Object[]              selectionValues;
-    /** Value the user has input. */
+    /** {@collect.stats} Value the user has input. */
     protected transient Object                inputValue;
-    /** Initial value to select in <code>selectionValues</code>. */
+    /** {@collect.stats} Initial value to select in <code>selectionValues</code>. */
     protected transient Object                initialSelectionValue;
-    /** If true, a UI widget will be provided to the user to get input. */
+    /** {@collect.stats} If true, a UI widget will be provided to the user to get input. */
     protected boolean                         wantsInput;
 
 
-    /**
+    /** {@collect.stats}
      * Shows a question-message dialog requesting input from the user. The
      * dialog uses the default frame, which usually means it is centered on
      * the screen.
@@ -442,7 +442,7 @@ public class JOptionPane extends JComponent implements Accessible
         return showInputDialog(null, message);
     }
 
-    /**
+    /** {@collect.stats}
      * Shows a question-message dialog requesting input from the user, with
      * the input value initialized to <code>initialSelectionValue</code>. The
      * dialog uses the default frame, which usually means it is centered on
@@ -457,7 +457,7 @@ public class JOptionPane extends JComponent implements Accessible
         return showInputDialog(null, message, initialSelectionValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Shows a question-message dialog requesting input from the user
      * parented to <code>parentComponent</code>.
      * The dialog is displayed on top of the <code>Component</code>'s
@@ -477,7 +477,7 @@ public class JOptionPane extends JComponent implements Accessible
             "OptionPane.inputDialogTitle", parentComponent), QUESTION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Shows a question-message dialog requesting input from the user and
      * parented to <code>parentComponent</code>. The input value will be
      * initialized to <code>initialSelectionValue</code>.
@@ -499,7 +499,7 @@ public class JOptionPane extends JComponent implements Accessible
                       initialSelectionValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Shows a dialog requesting input from the user parented to
      * <code>parentComponent</code> with the dialog having the title
      * <code>title</code> and message type <code>messageType</code>.
@@ -527,7 +527,7 @@ public class JOptionPane extends JComponent implements Accessible
                                        messageType, null, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Prompts the user for input in a blocking dialog where the
      * initial selection, possible selections, and all other options can
      * be specified. The user will able to choose from
@@ -592,7 +592,7 @@ public class JOptionPane extends JComponent implements Accessible
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an information-message dialog titled "Message".
      *
      * @param parentComponent determines the <code>Frame</code> in
@@ -612,7 +612,7 @@ public class JOptionPane extends JComponent implements Accessible
                     INFORMATION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog that displays a message using a default
      * icon determined by the <code>messageType</code> parameter.
      *
@@ -639,7 +639,7 @@ public class JOptionPane extends JComponent implements Accessible
         showMessageDialog(parentComponent, message, title, messageType, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog displaying a message, specifying all parameters.
      *
      * @param parentComponent determines the <code>Frame</code> in which the
@@ -669,7 +669,7 @@ public class JOptionPane extends JComponent implements Accessible
                          messageType, icon, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog with the options <i>Yes</i>,
      * <i>No</i> and <i>Cancel</i>; with the
      * title, <b>Select an Option</b>.
@@ -693,7 +693,7 @@ public class JOptionPane extends JComponent implements Accessible
                                  YES_NO_CANCEL_OPTION);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog where the number of choices is determined
      * by the <code>optionType</code> parameter.
      *
@@ -721,7 +721,7 @@ public class JOptionPane extends JComponent implements Accessible
                                  QUESTION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog where the number of choices is determined
      * by the <code>optionType</code> parameter, where the
      * <code>messageType</code>
@@ -760,7 +760,7 @@ public class JOptionPane extends JComponent implements Accessible
                                 messageType, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog with a specified icon, where the number of
      * choices is determined by the <code>optionType</code> parameter.
      * The <code>messageType</code> parameter is primarily used to supply
@@ -798,7 +798,7 @@ public class JOptionPane extends JComponent implements Accessible
                                 messageType, icon, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a dialog with a specified icon, where the initial
      * choice is determined by the <code>initialValue</code> parameter and
      * the number of choices is determined by the <code>optionType</code>
@@ -888,7 +888,7 @@ public class JOptionPane extends JComponent implements Accessible
         return CLOSED_OPTION;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a new <code>JDialog</code> wrapping
      * <code>this</code> centered on the <code>parentComponent</code>
      * in the <code>parentComponent</code>'s frame.
@@ -920,7 +920,7 @@ public class JOptionPane extends JComponent implements Accessible
         return createDialog(parentComponent, title, style);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a new parentless <code>JDialog</code>
      * with the specified title.
      * The returned <code>JDialog</code> will not be resizable by the
@@ -1025,7 +1025,7 @@ public class JOptionPane extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal confirmation dialog panel. The dialog
      * is a information-message dialog titled "Message".
      *
@@ -1042,7 +1042,7 @@ public class JOptionPane extends JComponent implements Accessible
                                  parentComponent), INFORMATION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel that displays a message
      * using a default icon determined by the <code>messageType</code>
      * parameter.
@@ -1066,7 +1066,7 @@ public class JOptionPane extends JComponent implements Accessible
         showInternalMessageDialog(parentComponent, message, title, messageType,null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel displaying a message,
      * specifying all parameters.
      *
@@ -1093,7 +1093,7 @@ public class JOptionPane extends JComponent implements Accessible
                                  messageType, icon, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel with the options <i>Yes</i>, <i>No</i>
      * and <i>Cancel</i>; with the title, <b>Select an Option</b>.
      *
@@ -1111,7 +1111,7 @@ public class JOptionPane extends JComponent implements Accessible
                                  YES_NO_CANCEL_OPTION);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up a internal dialog panel where the number of choices
      * is determined by the <code>optionType</code> parameter.
      *
@@ -1138,7 +1138,7 @@ public class JOptionPane extends JComponent implements Accessible
                                          QUESTION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel where the number of choices
      * is determined by the <code>optionType</code> parameter, where
      * the <code>messageType</code> parameter determines the icon to display.
@@ -1175,7 +1175,7 @@ public class JOptionPane extends JComponent implements Accessible
                                          messageType, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel with a specified icon, where
      * the number of choices is determined by the <code>optionType</code>
      * parameter.
@@ -1214,7 +1214,7 @@ public class JOptionPane extends JComponent implements Accessible
                                         messageType, icon, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Brings up an internal dialog panel with a specified icon, where
      * the initial choice is determined by the <code>initialValue</code>
      * parameter and the number of choices is determined by the
@@ -1341,7 +1341,7 @@ public class JOptionPane extends JComponent implements Accessible
         return CLOSED_OPTION;
     }
 
-    /**
+    /** {@collect.stats}
      * Shows an internal question-message dialog requesting input from
      * the user parented to <code>parentComponent</code>. The dialog
      * is displayed in the <code>Component</code>'s frame,
@@ -1358,7 +1358,7 @@ public class JOptionPane extends JComponent implements Accessible
                QUESTION_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Shows an internal dialog requesting input from the user parented
      * to <code>parentComponent</code> with the dialog having the title
      * <code>title</code> and message type <code>messageType</code>.
@@ -1377,7 +1377,7 @@ public class JOptionPane extends JComponent implements Accessible
                                        messageType, null, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Prompts the user for input in a blocking internal dialog where
      * the initial selection, possible selections, and all other
      * options can be specified. The user will able to choose from
@@ -1475,7 +1475,7 @@ public class JOptionPane extends JComponent implements Accessible
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an instance of <code>JInternalFrame</code>.
      * The internal frame is created with the specified title,
      * and wrapping the <code>JOptionPane</code>.
@@ -1587,7 +1587,7 @@ public class JOptionPane extends JComponent implements Accessible
         return iFrame;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's <code>Frame</code>.
      *
      * @param parentComponent the <code>Component</code> to check for a
@@ -1611,7 +1611,7 @@ public class JOptionPane extends JComponent implements Accessible
         return JOptionPane.getFrameForComponent(parentComponent.getParent());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's toplevel <code>Frame</code> or
      * <code>Dialog</code>.
      *
@@ -1637,7 +1637,7 @@ public class JOptionPane extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the specified component's desktop pane.
      *
      * @param parentComponent the <code>Component</code> to check for a
@@ -1657,7 +1657,7 @@ public class JOptionPane extends JComponent implements Accessible
 
     private static final Object sharedFrameKey = JOptionPane.class;
 
-    /**
+    /** {@collect.stats}
      * Sets the frame to use for class methods in which a frame is
      * not provided.
      * <p>
@@ -1674,7 +1674,7 @@ public class JOptionPane extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Frame</code> to use for the class methods in
      * which a frame is not provided.
      *
@@ -1695,14 +1695,14 @@ public class JOptionPane extends JComponent implements Accessible
         return sharedFrame;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JOptionPane</code> with a test message.
      */
     public JOptionPane() {
         this("JOptionPane message");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a instance of <code>JOptionPane</code> to display a
      * message using the
      * plain-message message type and the default options delivered by
@@ -1714,7 +1714,7 @@ public class JOptionPane extends JComponent implements Accessible
         this(message, PLAIN_MESSAGE);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>JOptionPane</code> to display a message
      * with the specified message type and the default options,
      *
@@ -1730,7 +1730,7 @@ public class JOptionPane extends JComponent implements Accessible
         this(message, messageType, DEFAULT_OPTION);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>JOptionPane</code> to display a message
      * with the specified message type and options.
      *
@@ -1750,7 +1750,7 @@ public class JOptionPane extends JComponent implements Accessible
         this(message, messageType, optionType, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>JOptionPane</code> to display a message
      * with the specified message type, options, and icon.
      *
@@ -1772,7 +1772,7 @@ public class JOptionPane extends JComponent implements Accessible
         this(message, messageType, optionType, icon, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>JOptionPane</code> to display a message
      * with the specified message type, icon, and options.
      * None of the options is initially selected.
@@ -1804,7 +1804,7 @@ public class JOptionPane extends JComponent implements Accessible
         this(message, messageType, optionType, icon, options, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>JOptionPane</code> to display a message
      * with the specified message type, icon, and options, with the
      * initially-selected option specified.
@@ -1841,7 +1841,7 @@ public class JOptionPane extends JComponent implements Accessible
         updateUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the UI object which implements the L&F for this component.
      *
      * @param ui  the <code>OptionPaneUI</code> L&F object
@@ -1858,7 +1858,7 @@ public class JOptionPane extends JComponent implements Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the UI object which implements the L&F for this component.
      *
      * @return the <code>OptionPaneUI</code> object
@@ -1867,7 +1867,7 @@ public class JOptionPane extends JComponent implements Accessible
         return (OptionPaneUI)ui;
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIManager</code> that the L&F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
@@ -1879,7 +1879,7 @@ public class JOptionPane extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the UI class that implements the
      * L&F for this component.
      *
@@ -1892,7 +1892,7 @@ public class JOptionPane extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the option pane's message-object.
      * @param newMessage the <code>Object</code> to display
      * @see #getMessage
@@ -1909,7 +1909,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(MESSAGE_PROPERTY, oldMessage, message);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the message-object this pane displays.
      * @see #setMessage
      *
@@ -1919,7 +1919,7 @@ public class JOptionPane extends JComponent implements Accessible
         return message;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the icon to display. If non-<code>null</code>, the look and feel
      * does not provide an icon.
      * @param newIcon the <code>Icon</code> to display
@@ -1937,7 +1937,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(ICON_PROPERTY, oldIcon, icon);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the icon this pane displays.
      * @return the <code>Icon</code> that is displayed
      *
@@ -1947,7 +1947,7 @@ public class JOptionPane extends JComponent implements Accessible
         return icon;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value the user has chosen.
      * @param newValue  the chosen value
      *
@@ -1964,7 +1964,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(VALUE_PROPERTY, oldValue, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value the user has selected. <code>UNINITIALIZED_VALUE</code>
      * implies the user has not yet made a choice, <code>null</code> means the
      * user closed the window with out choosing anything. Otherwise
@@ -1982,7 +1982,7 @@ public class JOptionPane extends JComponent implements Accessible
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the options this pane displays. If an element in
      * <code>newOptions</code> is a <code>Component</code>
      * it is added directly to the pane,
@@ -2004,7 +2004,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(OPTIONS_PROPERTY, oldOptions, options);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the choices the user can make.
      * @return the array of <code>Objects</code> that give the user's choices
      *
@@ -2021,7 +2021,7 @@ public class JOptionPane extends JComponent implements Accessible
         return options;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the initial value that is to be enabled -- the
      * <code>Component</code>
      * that has the focus when the pane is initially displayed.
@@ -2042,7 +2042,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(INITIAL_VALUE_PROPERTY, oldIV, initialValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initial value.
      *
      * @return the <code>Object</code> that gets the initial keyboard focus
@@ -2053,7 +2053,7 @@ public class JOptionPane extends JComponent implements Accessible
         return initialValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the option pane's message type.
      * The message type is used by the Look and Feel to determine the
      * icon to display (if not supplied) as well as potentially how to
@@ -2083,7 +2083,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(MESSAGE_TYPE_PROPERTY, oldType, messageType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the message type.
      *
      * @return an integer specifying the message type
@@ -2094,7 +2094,7 @@ public class JOptionPane extends JComponent implements Accessible
         return messageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the options to display.
      * The option type is used by the Look and Feel to
      * determine what buttons to show (unless options are supplied).
@@ -2124,7 +2124,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(OPTION_TYPE_PROPERTY, oldType, optionType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of options that are displayed.
      *
      * @return an integer specifying the user-selectable options
@@ -2135,7 +2135,7 @@ public class JOptionPane extends JComponent implements Accessible
         return optionType;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the input selection values for a pane that provides the user
      * with a list of items to choose from. (The UI provides a widget
      * for choosing one of the values.)  A <code>null</code> value
@@ -2166,7 +2166,7 @@ public class JOptionPane extends JComponent implements Accessible
             setWantsInput(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the input selection values.
      *
      * @return the array of <code>Objects</code> the user can select
@@ -2176,7 +2176,7 @@ public class JOptionPane extends JComponent implements Accessible
         return selectionValues;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the input value that is initially displayed as selected to the user.
      * Only used if <code>wantsInput</code> is true.
      * @param newValue the initially selected value
@@ -2194,7 +2194,7 @@ public class JOptionPane extends JComponent implements Accessible
                            newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the input value that is displayed as initially selected to the user.
      *
      * @return the initially selected value
@@ -2205,7 +2205,7 @@ public class JOptionPane extends JComponent implements Accessible
         return initialSelectionValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the input value that was selected or input by the user.
      * Only used if <code>wantsInput</code> is true.  Note that this method
      * is invoked internally by the option pane (in response to user action)
@@ -2231,7 +2231,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(INPUT_VALUE_PROPERTY, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value the user has input, if <code>wantsInput</code>
      * is true.
      *
@@ -2247,7 +2247,7 @@ public class JOptionPane extends JComponent implements Accessible
         return inputValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of characters to place on a line in a
      * message. Default is to return <code>Integer.MAX_VALUE</code>.
      * The value can be
@@ -2259,7 +2259,7 @@ public class JOptionPane extends JComponent implements Accessible
         return Integer.MAX_VALUE;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>wantsInput</code> property.
      * If <code>newValue</code> is true, an input component
      * (such as a text field or combo box) whose parent is
@@ -2285,7 +2285,7 @@ public class JOptionPane extends JComponent implements Accessible
         firePropertyChange(WANTS_INPUT_PROPERTY, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>wantsInput</code> property.
      *
      * @return true if an input component will be provided
@@ -2295,7 +2295,7 @@ public class JOptionPane extends JComponent implements Accessible
         return wantsInput;
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that the initial value be selected, which will set
      * focus to the initial value. This method
      * should be invoked after the window containing the option pane
@@ -2456,7 +2456,7 @@ public class JOptionPane extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JOptionPane</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -2507,7 +2507,7 @@ public class JOptionPane extends JComponent implements Accessible
         ",wantsInput=" + wantsInputString;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a method from the provided class and makes it accessible.
      */
     private static class ModalPrivilegedAction implements PrivilegedAction {
@@ -2538,7 +2538,7 @@ public class JOptionPane extends JComponent implements Accessible
 // Accessibility support
 ///////////////////
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleContext</code> associated with this JOptionPane.
      * For option panes, the <code>AccessibleContext</code> takes the form of an
      * <code>AccessibleJOptionPane</code>.
@@ -2557,7 +2557,7 @@ public class JOptionPane extends JComponent implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JOptionPane</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to option pane user-interface
@@ -2574,7 +2574,7 @@ public class JOptionPane extends JComponent implements Accessible
      */
     protected class AccessibleJOptionPane extends AccessibleJComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the object

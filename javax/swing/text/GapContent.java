@@ -36,7 +36,7 @@ import javax.swing.SwingUtilities;
 import java.lang.ref.WeakReference;
 import java.lang.ref.ReferenceQueue;
 
-/**
+/** {@collect.stats}
  * An implementation of the AbstractDocument.Content interface
  * implemented using a gapped buffer similar to that used by emacs.
  * The underlying storage is a array of unicode characters with
@@ -60,14 +60,14 @@ import java.lang.ref.ReferenceQueue;
  */
 public class GapContent extends GapVector implements AbstractDocument.Content, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Creates a new GapContent object.  Initial size defaults to 10.
      */
     public GapContent() {
         this(10);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new GapContent object, with the initial
      * size specified.  The initial size will not be allowed
      * to go below 2, to give room for the implied break and
@@ -86,7 +86,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         queue = new ReferenceQueue();
     }
 
-    /**
+    /** {@collect.stats}
      * Allocate an array to store items of the type
      * appropriate (which is determined by the subclass).
      */
@@ -94,7 +94,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return new char[len];
     }
 
-    /**
+    /** {@collect.stats}
      * Get the length of the allocated array.
      */
     protected int getArrayLength() {
@@ -104,7 +104,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
 
     // --- AbstractDocument.Content methods -------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the content.
      *
      * @return the length >= 1
@@ -115,7 +115,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return len;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a string into the content.
      *
      * @param where the starting position >= 0, < length()
@@ -133,7 +133,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return new InsertUndo(where, str.length());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes part of the content.
      *
      * @param where the starting position >= 0, where + nitems < length()
@@ -153,7 +153,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
 
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a portion of the content.
      *
      * @param where the starting position >= 0
@@ -168,7 +168,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return new String(s.array, s.offset, s.count);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a portion of the content.  If the desired content spans
      * the gap, we copy the content.  If the desired content does not
      * span the gap, the actual store is returned to avoid the copy since
@@ -218,7 +218,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         chars.count = len;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a position within the content that will
      * track change as the content is mutated.
      *
@@ -254,7 +254,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * Holds the data for a mark... separately from
      * the real mark so that the real mark (Position
      * that the caller of createPosition holds) can be
@@ -273,7 +273,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             this.index = index;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the location in the contiguous sequence
          * being modeled.  The index in the gap array
          * is held by the mark, so it is adjusted according
@@ -317,14 +317,14 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
     private static final char[] empty = new char[0];
     private transient MarkVector marks;
 
-    /**
+    /** {@collect.stats}
      * Record used for searching for the place to
      * start updating mark indexs when the gap
      * boundaries are moved.
      */
     private transient MarkData search;
 
-    /**
+    /** {@collect.stats}
      * The number of unused mark entries
      */
     private transient int unusedMarks = 0;
@@ -335,7 +335,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
 
     // --- gap management -------------------------------
 
-    /**
+    /** {@collect.stats}
      * Make the gap bigger, moving any necessary data and updating
      * the appropriate marks
      */
@@ -354,7 +354,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to make growth policy less agressive for large
      * text amount.
      */
@@ -366,7 +366,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Move the start of the gap to a new location,
      * without changing the size of the gap.  This
      * moves the data in the array and updates the
@@ -409,7 +409,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         resetMarksAtZero();
     }
 
-    /**
+    /** {@collect.stats}
      * Resets all the marks that have an offset of 0 to have an index of
      * zero as well.
      */
@@ -429,7 +429,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the gap end downward.  This doesn't move
      * any data, but it does update any marks affected
      * by the boundary change.  All marks from the old
@@ -458,7 +458,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         resetMarksAtZero();
     }
 
-    /**
+    /** {@collect.stats}
      * Adjust the gap end upward.  This doesn't move
      * any data, but it does update any marks affected
      * by the boundary change. All marks from the old
@@ -483,7 +483,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         resetMarksAtZero();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares two marks.
      *
      * @param o1 the first object
@@ -500,7 +500,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the index to start mark adjustments given
      * some search index.
      */
@@ -520,7 +520,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the index of where to insert a new mark.
      *
      * @param o the mark to insert
@@ -560,7 +560,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return (cmp < 0) ? mid : mid + 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Remove all unused marks out of the sorted collection
      * of marks.
      */
@@ -588,7 +588,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             super(size);
         }
 
-        /**
+        /** {@collect.stats}
          * Allocate an array to store items of the type
          * appropriate (which is determined by the subclass).
          */
@@ -596,7 +596,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             return new MarkData[len];
         }
 
-        /**
+        /** {@collect.stats}
          * Get the length of the allocated array
          */
         protected int getArrayLength() {
@@ -604,7 +604,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             return marks.length;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of marks currently held
          */
         public int size() {
@@ -612,7 +612,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             return len;
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts a mark into the vector
          */
         public void insertElementAt(MarkData m, int index) {
@@ -620,14 +620,14 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             replace(index, 0, oneMark, 1);
         }
 
-        /**
+        /** {@collect.stats}
          * Add a mark to the end
          */
         public void addElement(MarkData m) {
             insertElementAt(m, size());
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the mark at the given index
          */
         public MarkData elementAt(int index) {
@@ -644,7 +644,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the elements in the specified range with the passed
          * in objects. This will NOT adjust the gap. The passed in indices
          * do not account for the gap, they are the same as would be used
@@ -697,7 +697,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
 
     // --- undo support --------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns a Vector containing instances of UndoPosRef for the
      * Positions in the range
      * <code>offset</code> to <code>offset</code> + <code>length</code>.
@@ -746,7 +746,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         return placeIn;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the location for all the UndoPosRef instances
      * in <code>positions</code>.
      * <p>
@@ -819,7 +819,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Used to hold a reference to a Mark that is being reset as the
      * result of removing from the content.
      */
@@ -829,7 +829,7 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             this.undoLocation = rec.getOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Resets the location of the Position to the offset when the
          * receiver was instantiated.
          *
@@ -845,14 +845,14 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             }
         }
 
-        /** Previous Offset of rec. */
+        /** {@collect.stats} Previous Offset of rec. */
         protected int undoLocation;
-        /** Mark to reset offset. */
+        /** {@collect.stats} Mark to reset offset. */
         protected MarkData rec;
     } // End of GapContent.UndoPosRef
 
 
-    /**
+    /** {@collect.stats}
      * UnoableEdit created for inserts.
      */
     class InsertUndo extends AbstractUndoableEdit {
@@ -889,20 +889,20 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             }
         }
 
-        /** Where string was inserted. */
+        /** {@collect.stats} Where string was inserted. */
         protected int offset;
-        /** Length of string inserted. */
+        /** {@collect.stats} Length of string inserted. */
         protected int length;
-        /** The string that was inserted. This will only be valid after an
+        /** {@collect.stats} The string that was inserted. This will only be valid after an
          * undo. */
         protected String string;
-        /** An array of instances of UndoPosRef for the Positions in the
+        /** {@collect.stats} An array of instances of UndoPosRef for the Positions in the
          * range that was removed, valid after undo. */
         protected Vector posRefs;
     } // GapContent.InsertUndo
 
 
-    /**
+    /** {@collect.stats}
      * UndoableEdit created for removes.
      */
     class RemoveUndo extends AbstractUndoableEdit {
@@ -941,13 +941,13 @@ public class GapContent extends GapVector implements AbstractDocument.Content, S
             }
         }
 
-        /** Where the string was removed from. */
+        /** {@collect.stats} Where the string was removed from. */
         protected int offset;
-        /** Length of string removed. */
+        /** {@collect.stats} Length of string removed. */
         protected int length;
-        /** The string that was removed. This is valid when redo is valid. */
+        /** {@collect.stats} The string that was removed. This is valid when redo is valid. */
         protected String string;
-        /** An array of instances of UndoPosRef for the Positions in the
+        /** {@collect.stats} An array of instances of UndoPosRef for the Positions in the
          * range that was removed, valid before undo. */
         protected Vector posRefs;
     } // GapContent.RemoveUndo

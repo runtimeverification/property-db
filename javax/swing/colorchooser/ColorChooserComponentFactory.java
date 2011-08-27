@@ -29,7 +29,7 @@ import javax.swing.*;
 
 
 
-/**
+/** {@collect.stats}
  * A class designed to produce preconfigured "accessory" objects to
  * insert into color choosers.
  *

@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.Component;
 import java.awt.FocusTraversalPolicy;
 
-/**
+/** {@collect.stats}
  * A FocusTraversalPolicy which can optionally provide an algorithm for
  * determining a JInternalFrame's initial Component. The initial Component is
  * the first to receive focus when the JInternalFrame is first selected. By
@@ -43,7 +43,7 @@ public abstract class InternalFrameFocusTraversalPolicy
     extends FocusTraversalPolicy
 {
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus when a
      * JInternalFrame is selected for the first time. Once the JInternalFrame
      * has been selected by a call to <code>setSelected(true)</code>, the

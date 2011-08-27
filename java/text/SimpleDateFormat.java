@@ -55,7 +55,7 @@ import sun.util.calendar.CalendarUtils;
 import sun.util.calendar.ZoneInfoFile;
 import sun.util.resources.LocaleData;
 
-/**
+/** {@collect.stats}
  * <code>SimpleDateFormat</code> is a concrete class for formatting and
  * parsing dates in a locale-sensitive manner. It allows for formatting
  * (date -> text), parsing (text -> date), and normalization.
@@ -350,7 +350,7 @@ public class SimpleDateFormat extends DateFormat {
     // - 1 for version from JDK 1.1.4, which includes a new field
     static final int currentSerialVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * The version of the serialized data on the stream.  Possible values:
      * <ul>
      * <li><b>0</b> or not present on stream: JDK 1.1.3.  This version
@@ -366,32 +366,32 @@ public class SimpleDateFormat extends DateFormat {
      */
     private int serialVersionOnStream = currentSerialVersion;
 
-    /**
+    /** {@collect.stats}
      * The pattern string of this formatter.  This is always a non-localized
      * pattern.  May not be null.  See class documentation for details.
      * @serial
      */
     private String pattern;
 
-    /**
+    /** {@collect.stats}
      * The compiled pattern.
      */
     transient private char[] compiledPattern;
 
-    /**
+    /** {@collect.stats}
      * Tags for the compiled pattern.
      */
     private final static int TAG_QUOTE_ASCII_CHAR       = 100;
     private final static int TAG_QUOTE_CHARS            = 101;
 
-    /**
+    /** {@collect.stats}
      * Locale dependent digit zero.
      * @see #zeroPaddingNumber
      * @see java.text.DecimalFormatSymbols#getZeroDigit
      */
     transient private char zeroDigit;
 
-    /**
+    /** {@collect.stats}
      * The symbols used by this formatter for week names, month names,
      * etc.  May not be null.
      * @serial
@@ -399,7 +399,7 @@ public class SimpleDateFormat extends DateFormat {
      */
     private DateFormatSymbols formatData;
 
-    /**
+    /** {@collect.stats}
      * We map dates with two-digit years into the century starting at
      * <code>defaultCenturyStart</code>, which may be any date.  May
      * not be null.
@@ -417,19 +417,19 @@ public class SimpleDateFormat extends DateFormat {
     // GMT-minutes. For instance, in France the time zone is GMT+60.
     private static final String GMT = "GMT";
 
-    /**
+    /** {@collect.stats}
      * Cache to hold the DateTimePatterns of a Locale.
      */
     private static Hashtable<String,String[]> cachedLocaleData
         = new Hashtable<String,String[]>(3);
 
-    /**
+    /** {@collect.stats}
      * Cache NumberFormat instances with Locale key.
      */
     private static Hashtable<Locale,NumberFormat> cachedNumberFormatData
         = new Hashtable<Locale,NumberFormat>(3);
 
-    /**
+    /** {@collect.stats}
      * The Locale used to instantiate this
      * <code>SimpleDateFormat</code>. The value may be null if this object
      * has been created by an older <code>SimpleDateFormat</code> and
@@ -440,7 +440,7 @@ public class SimpleDateFormat extends DateFormat {
      */
     private Locale locale;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether this <code>SimpleDateFormat</code> should use
      * the DateFormatSymbols. If true, the format and parse methods
      * use the DateFormatSymbols values. If false, the format and
@@ -449,7 +449,7 @@ public class SimpleDateFormat extends DateFormat {
      */
     transient boolean useDateFormatSymbols;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SimpleDateFormat</code> using the default pattern and
      * date format symbols for the default locale.
      * <b>Note:</b> This constructor may not support all locales.
@@ -460,7 +460,7 @@ public class SimpleDateFormat extends DateFormat {
         this(SHORT, SHORT, Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SimpleDateFormat</code> using the given pattern and
      * the default date format symbols for the default locale.
      * <b>Note:</b> This constructor may not support all locales.
@@ -476,7 +476,7 @@ public class SimpleDateFormat extends DateFormat {
         this(pattern, Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SimpleDateFormat</code> using the given pattern and
      * the default date format symbols for the given locale.
      * <b>Note:</b> This constructor may not support all locales.
@@ -501,7 +501,7 @@ public class SimpleDateFormat extends DateFormat {
         initialize(locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>SimpleDateFormat</code> using the given pattern and
      * date format symbols.
      *
@@ -607,7 +607,7 @@ public class SimpleDateFormat extends DateFormat {
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the compiled form of the given pattern. The syntax of
      * the compiled pattern is:
      * <blockquote>
@@ -794,7 +794,7 @@ public class SimpleDateFormat extends DateFormat {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Encodes the given tag and length and puts encoded char(s) into buffer.
      */
     private static final void encode(int tag, int length, StringBuilder buffer) {
@@ -825,7 +825,7 @@ public class SimpleDateFormat extends DateFormat {
         defaultCenturyStartYear = calendar.get(Calendar.YEAR);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the 100-year period 2-digit years will be interpreted as being in
      * to begin on the date the user specifies.
      *
@@ -838,7 +838,7 @@ public class SimpleDateFormat extends DateFormat {
         parseAmbiguousDatesAsAfter(startDate);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the beginning date of the 100-year period 2-digit years are interpreted
      * as being within.
      *
@@ -851,7 +851,7 @@ public class SimpleDateFormat extends DateFormat {
         return defaultCenturyStart;
     }
 
-    /**
+    /** {@collect.stats}
      * Formats the given <code>Date</code> into a date/time string and appends
      * the result to the given <code>StringBuffer</code>.
      *
@@ -903,7 +903,7 @@ public class SimpleDateFormat extends DateFormat {
         return toAppendTo;
     }
 
-    /**
+    /** {@collect.stats}
      * Formats an Object producing an <code>AttributedCharacterIterator</code>.
      * You can use the returned <code>AttributedCharacterIterator</code>
      * to build the resulting String, as well as to determine information
@@ -978,7 +978,7 @@ public class SimpleDateFormat extends DateFormat {
         Field.TIME_ZONE,
     };
 
-    /**
+    /** {@collect.stats}
      * Private member function that does the real date/time formatting.
      */
     private void subFormat(int patternCharIndex, int count,
@@ -1154,7 +1154,7 @@ public class SimpleDateFormat extends DateFormat {
         delegate.formatted(fieldID, f, f, beginOffset, buffer.length(), buffer);
     }
 
-    /**
+    /** {@collect.stats}
      * Formats a number with the specified minimum and maximum number of digits.
      */
     private final void zeroPaddingNumber(int value, int minDigits, int maxDigits, StringBuffer buffer)
@@ -1204,7 +1204,7 @@ public class SimpleDateFormat extends DateFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Parses text from a string to produce a <code>Date</code>.
      * <p>
      * The method attempts to parse text starting at the index given by
@@ -1345,7 +1345,7 @@ public class SimpleDateFormat extends DateFormat {
         return parsedDate;
     }
 
-    /**
+    /** {@collect.stats}
      * Private code-size reduction function used by subParse.
      * @param text the time text being parsed.
      * @param start where to start parsing.
@@ -1386,7 +1386,7 @@ public class SimpleDateFormat extends DateFormat {
         return -start;
     }
 
-    /**
+    /** {@collect.stats}
      * Performs the same thing as matchString(String, int, int,
      * String[]). This method takes a Map<String, Integer> instead of
      * String[].
@@ -1437,7 +1437,7 @@ public class SimpleDateFormat extends DateFormat {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * find time zone 'text' matched zoneStrings and set to internal
      * calendar.
      */
@@ -1500,7 +1500,7 @@ public class SimpleDateFormat extends DateFormat {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Private member function that converts the parsed date strings into
      * timeFields. Returns -start (for ParsePosition) if failed.
      * @param text the time text to be parsed.
@@ -1957,7 +1957,7 @@ public class SimpleDateFormat extends DateFormat {
         return "java.util.GregorianCalendar".equals(getCalendarName());
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a pattern, mapping each character in the from string to the
      * corresponding character in the to string.
      *
@@ -1991,7 +1991,7 @@ public class SimpleDateFormat extends DateFormat {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a pattern string describing this date format.
      *
      * @return a pattern string describing this date format.
@@ -2000,7 +2000,7 @@ public class SimpleDateFormat extends DateFormat {
         return pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a localized pattern string describing this date format.
      *
      * @return a localized pattern string describing this date format.
@@ -2011,7 +2011,7 @@ public class SimpleDateFormat extends DateFormat {
                                 formatData.getLocalPatternChars());
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the given pattern string to this date format.
      *
      * @param pattern the new date and time pattern for this date format
@@ -2024,7 +2024,7 @@ public class SimpleDateFormat extends DateFormat {
         this.pattern = pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the given localized pattern string to this date format.
      *
      * @param pattern a String to be mapped to the new date and time format
@@ -2040,7 +2040,7 @@ public class SimpleDateFormat extends DateFormat {
          this.pattern = p;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the date and time format symbols of this date format.
      *
      * @return the date and time format symbols of this date format
@@ -2051,7 +2051,7 @@ public class SimpleDateFormat extends DateFormat {
         return (DateFormatSymbols)formatData.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the date and time format symbols of this date format.
      *
      * @param newFormatSymbols the new date and time format symbols
@@ -2064,7 +2064,7 @@ public class SimpleDateFormat extends DateFormat {
         useDateFormatSymbols = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of this <code>SimpleDateFormat</code>. This also
      * clones the format's date format symbols.
      *
@@ -2076,7 +2076,7 @@ public class SimpleDateFormat extends DateFormat {
         return other;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>SimpleDateFormat</code> object.
      *
      * @return the hash code value for this <code>SimpleDateFormat</code> object.
@@ -2087,7 +2087,7 @@ public class SimpleDateFormat extends DateFormat {
         // just enough fields for a reasonable distribution
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the given object with this <code>SimpleDateFormat</code> for
      * equality.
      *
@@ -2102,7 +2102,7 @@ public class SimpleDateFormat extends DateFormat {
                 && formatData.equals(that.formatData));
     }
 
-    /**
+    /** {@collect.stats}
      * After reading an object from the input stream, the format
      * pattern in the object is verified.
      * <p>

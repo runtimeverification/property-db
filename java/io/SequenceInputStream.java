@@ -29,7 +29,7 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * A <code>SequenceInputStream</code> represents
  * the logical concatenation of other input
  * streams. It starts out with an ordered
@@ -47,7 +47,7 @@ class SequenceInputStream extends InputStream {
     Enumeration e;
     InputStream in;
 
-    /**
+    /** {@collect.stats}
      * Initializes a newly created <code>SequenceInputStream</code>
      * by remembering the argument, which must
      * be an <code>Enumeration</code>  that produces
@@ -73,7 +73,7 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes a newly
      * created <code>SequenceInputStream</code>
      * by remembering the two arguments, which
@@ -98,7 +98,7 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      *  Continues reading in the next stream if an EOF is reached.
      */
     final void nextStream() throws IOException {
@@ -115,7 +115,7 @@ class SequenceInputStream extends InputStream {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from the current underlying input stream without
      * blocking by the next invocation of a method for the current
@@ -141,7 +141,7 @@ class SequenceInputStream extends InputStream {
         return in.available();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next byte of data from this input stream. The byte is
      * returned as an <code>int</code> in the range <code>0</code> to
      * <code>255</code>. If no byte is available because the end of the
@@ -171,7 +171,7 @@ class SequenceInputStream extends InputStream {
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.  If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
@@ -213,7 +213,7 @@ class SequenceInputStream extends InputStream {
         return n;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * A closed <code>SequenceInputStream</code>

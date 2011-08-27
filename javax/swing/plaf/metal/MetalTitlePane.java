@@ -39,7 +39,7 @@ import java.util.Locale;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * Class that manages a JLF awt.Window-descendant class's title bar.
  * <p>
  * This class assumes it will be created with a particular window
@@ -54,93 +54,93 @@ class MetalTitlePane extends JComponent {
     private static final int IMAGE_HEIGHT = 16;
     private static final int IMAGE_WIDTH = 16;
 
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener added to the JRootPane.
      */
     private PropertyChangeListener propertyChangeListener;
 
-    /**
+    /** {@collect.stats}
      * JMenuBar, typically renders the system menu items.
      */
     private JMenuBar menuBar;
-    /**
+    /** {@collect.stats}
      * Action used to close the Window.
      */
     private Action closeAction;
 
-    /**
+    /** {@collect.stats}
      * Action used to iconify the Frame.
      */
     private Action iconifyAction;
 
-    /**
+    /** {@collect.stats}
      * Action to restore the Frame size.
      */
     private Action restoreAction;
 
-    /**
+    /** {@collect.stats}
      * Action to restore the Frame size.
      */
     private Action maximizeAction;
 
-    /**
+    /** {@collect.stats}
      * Button used to maximize or restore the Frame.
      */
     private JButton toggleButton;
 
-    /**
+    /** {@collect.stats}
      * Button used to maximize or restore the Frame.
      */
     private JButton iconifyButton;
 
-    /**
+    /** {@collect.stats}
      * Button used to maximize or restore the Frame.
      */
     private JButton closeButton;
 
-    /**
+    /** {@collect.stats}
      * Icon used for toggleButton when window is normal size.
      */
     private Icon maximizeIcon;
 
-    /**
+    /** {@collect.stats}
      * Icon used for toggleButton when window is maximized.
      */
     private Icon minimizeIcon;
 
-    /**
+    /** {@collect.stats}
      * Image used for the system menu icon
      */
     private Image systemIcon;
 
-    /**
+    /** {@collect.stats}
      * Listens for changes in the state of the Window listener to update
      * the state of the widgets.
      */
     private WindowListener windowListener;
 
-    /**
+    /** {@collect.stats}
      * Window we're currently in.
      */
     private Window window;
 
-    /**
+    /** {@collect.stats}
      * JRootPane rendering for.
      */
     private JRootPane rootPane;
 
-    /**
+    /** {@collect.stats}
      * Room remaining in title for bumps.
      */
     private int buttonsWidth;
 
-    /**
+    /** {@collect.stats}
      * Buffered Frame.state property. As state isn't bound, this is kept
      * to determine when to avoid updating widgets.
      */
     private int state;
 
-    /**
+    /** {@collect.stats}
      * MetalRootPaneUI that created us.
      */
     private MetalRootPaneUI rootPaneUI;
@@ -182,7 +182,7 @@ class MetalTitlePane extends JComponent {
         setLayout(createLayout());
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the necessary state.
      */
     private void uninstall() {
@@ -191,7 +191,7 @@ class MetalTitlePane extends JComponent {
         removeAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the necessary listeners.
      */
     private void installListeners() {
@@ -203,7 +203,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the necessary listeners.
      */
     private void uninstallListeners() {
@@ -213,7 +213,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>WindowListener</code> to add to the
      * <code>Window</code>.
      */
@@ -221,7 +221,7 @@ class MetalTitlePane extends JComponent {
         return new WindowHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>PropertyChangeListener</code> to install on
      * the <code>Window</code>.
      */
@@ -229,14 +229,14 @@ class MetalTitlePane extends JComponent {
         return new PropertyChangeHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JRootPane</code> this was created for.
      */
     public JRootPane getRootPane() {
         return rootPane;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the decoration style of the <code>JRootPane</code>.
      */
     private int getWindowDecorationStyle() {
@@ -269,7 +269,7 @@ class MetalTitlePane extends JComponent {
         window = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds any sub-Components contained in the <code>MetalTitlePane</code>.
      */
     private void installSubcomponents() {
@@ -295,7 +295,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the Colors to draw with.
      */
     private void determineColors() {
@@ -343,20 +343,20 @@ class MetalTitlePane extends JComponent {
                                   activeBackground);
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the fonts and necessary properties on the MetalTitlePane.
      */
     private void installDefaults() {
         setFont(UIManager.getFont("InternalFrame.titleFont", getLocale()));
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls any previously installed UI values.
      */
     private void uninstallDefaults() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JMenuBar</code> displaying the appropriate
      * system menu items.
      */
@@ -368,7 +368,7 @@ class MetalTitlePane extends JComponent {
         return menuBar;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the Window.
      */
     private void close() {
@@ -380,7 +380,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Iconifies the Frame.
      */
     private void iconify() {
@@ -390,7 +390,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Maximizes the Frame.
      */
     private void maximize() {
@@ -400,7 +400,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Restores the Frame size.
      */
     private void restore() {
@@ -417,7 +417,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create the <code>Action</code>s that get associated with the
      * buttons and menu items.
      */
@@ -430,7 +430,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JMenu</code> displaying the appropriate menu items
      * for manipulating the Frame.
      */
@@ -442,7 +442,7 @@ class MetalTitlePane extends JComponent {
         return menu;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the necessary <code>JMenuItem</code>s to the passed in menu.
      */
     private void addMenuItems(JMenu menu) {
@@ -479,7 +479,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>JButton</code> appropriate for placement on the
      * TitlePane.
      */
@@ -492,7 +492,7 @@ class MetalTitlePane extends JComponent {
         return button;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the Buttons that will be placed on the TitlePane.
      */
     private void createButtons() {
@@ -528,7 +528,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>LayoutManager</code> that should be installed on
      * the <code>MetalTitlePane</code>.
      */
@@ -536,7 +536,7 @@ class MetalTitlePane extends JComponent {
         return new TitlePaneLayout();
     }
 
-    /**
+    /** {@collect.stats}
      * Updates state dependant upon the Window's active state.
      */
     private void setActive(boolean isActive) {
@@ -552,14 +552,14 @@ class MetalTitlePane extends JComponent {
         getRootPane().repaint();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the state of the Window.
      */
     private void setState(int state) {
         setState(state, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the state of the window. If <code>updateRegardless</code> is
      * true and the state has not changed, this will update anyway.
      */
@@ -631,7 +631,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the toggle button to contain the Icon <code>icon</code>, and
      * Action <code>action</code>.
      */
@@ -641,7 +641,7 @@ class MetalTitlePane extends JComponent {
         toggleButton.setText(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Frame rendering in. This will return null if the
      * <code>JRootPane</code> is not contained in a <code>Frame</code>.
      */
@@ -654,7 +654,7 @@ class MetalTitlePane extends JComponent {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Window</code> the <code>JRootPane</code> is
      * contained in. This will return null if there is no parent ancestor
      * of the <code>JRootPane</code>.
@@ -663,7 +663,7 @@ class MetalTitlePane extends JComponent {
         return window;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String to display as the title.
      */
     private String getTitle() {
@@ -678,7 +678,7 @@ class MetalTitlePane extends JComponent {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the TitlePane.
      */
     public void paintComponent(Graphics g)  {
@@ -778,7 +778,7 @@ class MetalTitlePane extends JComponent {
         bumps.paintIcon(this, g, bumpXOffset, bumpYOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Actions used to <code>close</code> the <code>Window</code>.
      */
     private class CloseAction extends AbstractAction {
@@ -793,7 +793,7 @@ class MetalTitlePane extends JComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Actions used to <code>iconfiy</code> the <code>Frame</code>.
      */
     private class IconifyAction extends AbstractAction {
@@ -808,7 +808,7 @@ class MetalTitlePane extends JComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Actions used to <code>restore</code> the <code>Frame</code>.
      */
     private class RestoreAction extends AbstractAction {
@@ -823,7 +823,7 @@ class MetalTitlePane extends JComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Actions used to <code>restore</code> the <code>Frame</code>.
      */
     private class MaximizeAction extends AbstractAction {
@@ -838,7 +838,7 @@ class MetalTitlePane extends JComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Class responsible for drawing the system menu. Looks up the
      * image to draw from the Frame associated with the
      * <code>JRootPane</code>.
@@ -965,7 +965,7 @@ class MetalTitlePane extends JComponent {
 
 
 
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener installed on the Window. Updates the necessary
      * state as the state of the Window changes.
      */
@@ -999,7 +999,7 @@ class MetalTitlePane extends JComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the image used for the system icon
      */
     private void updateSystemIcon() {
@@ -1025,7 +1025,7 @@ class MetalTitlePane extends JComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * WindowListener installed on the Window, updates the state as necessary.
      */
     private class WindowHandler extends WindowAdapter {

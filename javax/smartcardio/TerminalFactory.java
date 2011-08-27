@@ -34,7 +34,7 @@ import sun.security.jca.GetInstance.*;
 
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * A factory for CardTerminal objects.
  *
  * It allows an application to
@@ -175,7 +175,7 @@ public final class TerminalFactory {
         this.type = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the default TerminalFactory type.
      *
      * <p>It is determined as follows:
@@ -199,7 +199,7 @@ public final class TerminalFactory {
         return defaultType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default TerminalFactory instance. See
      * {@linkplain #getDefaultType} for more information.
      *
@@ -212,7 +212,7 @@ public final class TerminalFactory {
         return defaultFactory;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a TerminalFactory of the specified type that is initialized
      * with the specified parameters.
      *
@@ -246,7 +246,7 @@ public final class TerminalFactory {
             instance.provider, type);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a TerminalFactory of the specified type that is initialized
      * with the specified parameters.
      *
@@ -285,7 +285,7 @@ public final class TerminalFactory {
             instance.provider, type);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a TerminalFactory of the specified type that is initialized
      * with the specified parameters.
      *
@@ -317,7 +317,7 @@ public final class TerminalFactory {
             instance.provider, type);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this TerminalFactory.
      *
      * @return the provider of this TerminalFactory.
@@ -326,7 +326,7 @@ public final class TerminalFactory {
         return provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this TerminalFactory. This is the value that was
      * specified in the getInstance() method that returned this object.
      *
@@ -336,7 +336,7 @@ public final class TerminalFactory {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new CardTerminals object encapsulating the terminals
      * supported by this factory.
      * See the class comment of the {@linkplain CardTerminals} class
@@ -349,7 +349,7 @@ public final class TerminalFactory {
         return spi.engineTerminals();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this TerminalFactory.
      *
      * @return a string representation of this TerminalFactory.

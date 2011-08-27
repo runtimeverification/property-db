@@ -28,7 +28,7 @@ import sun.swing.SwingUtilities2;
 import java.awt.*;
 import javax.swing.JPasswordField;
 
-/**
+/** {@collect.stats}
  * Implements a View suitable for use in JPasswordField
  * UI implementations.  This is basically a field ui that
  * renders its contents as the echo character specified
@@ -40,7 +40,7 @@ import javax.swing.JPasswordField;
  */
 public class PasswordView extends FieldView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new view wrapped on an element.
      *
      * @param elem the element
@@ -49,7 +49,7 @@ public class PasswordView extends FieldView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as normal unselected
      * text.  This sets the foreground color and echos the characters
      * using the value returned by getEchoChar().
@@ -86,7 +86,7 @@ public class PasswordView extends FieldView {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the given range in the model as selected text.  This
      * is implemented to render the text in the color specified in
      * the hosting component.  It assumes the highlighter will render
@@ -119,7 +119,7 @@ public class PasswordView extends FieldView {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the echo character, or whatever graphic should be used
      * to display the password characters.  The color in the Graphics
      * object is set to the appropriate foreground color for selected
@@ -138,7 +138,7 @@ public class PasswordView extends FieldView {
         return x + g.getFontMetrics().charWidth(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -168,7 +168,7 @@ public class PasswordView extends FieldView {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -205,7 +205,7 @@ public class PasswordView extends FieldView {
         return getStartOffset() + n;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *

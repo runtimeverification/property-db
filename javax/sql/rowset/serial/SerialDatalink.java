@@ -30,7 +30,7 @@ import java.io.*;
 import java.net.URL;
 
 
-/**
+/** {@collect.stats}
  * A serialized mapping in the Java programming language of an SQL
  * <code>DATALINK</code> value. A <code>DATALINK</code> value
  * references a file outside of the underlying data source that the
@@ -45,13 +45,13 @@ import java.net.URL;
  */
 public class SerialDatalink implements Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * The extracted URL field retrieved from the DATALINK field.
      * @serial
      */
     private URL url;
 
-    /**
+    /** {@collect.stats}
      * The SQL type of the elements in this <code>SerialDatalink</code>
      * object.  The type is expressed as one of the contants from the
      * class <code>java.sql.Types</code>.
@@ -59,7 +59,7 @@ public class SerialDatalink implements Serializable, Cloneable {
      */
     private int baseType;
 
-    /**
+    /** {@collect.stats}
      * The type name used by the DBMS for the elements in the SQL
      * <code>DATALINK</code> value that this SerialDatalink object
      * represents.
@@ -67,7 +67,7 @@ public class SerialDatalink implements Serializable, Cloneable {
      */
     private String baseTypeName;
 
-    /**
+    /** {@collect.stats}
       * Constructs a new <code>SerialDatalink</code> object from the given
       * <code>java.net.URL</code> object.
       * <P>
@@ -80,7 +80,7 @@ public class SerialDatalink implements Serializable, Cloneable {
         this.url = url;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new URL that is a copy of this <code>SerialDatalink</code>
      * object.
      *
@@ -101,7 +101,7 @@ public class SerialDatalink implements Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
          * The identifier that assists in the serialization of this <code>SerialDatalink</code>
      * object.
      */

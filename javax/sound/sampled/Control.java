@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * {@link Line Lines} often have a set of controls, such as gain and pan, that affect
  * the audio signal passing through the line.  Java Sound's <code>Line</code> objects
  * let you obtain a particular control object by passing its class as the
@@ -46,7 +46,7 @@ public abstract class Control {
 
     // INSTANCE VARIABLES
 
-    /**
+    /** {@collect.stats}
      * The control type.
      */
     private final Type type;
@@ -55,7 +55,7 @@ public abstract class Control {
 
     // CONSTRUCTORS
 
-    /**
+    /** {@collect.stats}
      * Constructs a Control with the specified type.
      * @param type the kind of control desired
      */
@@ -66,7 +66,7 @@ public abstract class Control {
 
     // METHODS
 
-    /**
+    /** {@collect.stats}
      * Obtains the control's type.
      * @return the control's type.
      */
@@ -77,7 +77,7 @@ public abstract class Control {
 
     // ABSTRACT METHODS
 
-    /**
+    /** {@collect.stats}
      * Obtains a String describing the control type and its current state.
      * @return a String representation of the Control.
      */
@@ -86,7 +86,7 @@ public abstract class Control {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An instance of the <code>Type</code> class represents the type of
      * the control.  Static instances are provided for the
      * common types.
@@ -97,7 +97,7 @@ public abstract class Control {
 
         // INSTANCE VARIABLES
 
-        /**
+        /** {@collect.stats}
          * Type name.
          */
         private String name;
@@ -105,7 +105,7 @@ public abstract class Control {
 
         // CONSTRUCTOR
 
-        /**
+        /** {@collect.stats}
          * Constructs a new control type with the name specified.
          * The name should be a descriptive string appropriate for
          * labelling the control in an application, such as "Gain" or "Balance."
@@ -118,21 +118,21 @@ public abstract class Control {
 
         // METHODS
 
-        /**
+        /** {@collect.stats}
          * Finalizes the equals method
          */
         public final boolean equals(Object obj) {
             return super.equals(obj);
         }
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashCode method
          */
         public final int hashCode() {
             return super.hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * Provides the <code>String</code> representation of the control type.  This <code>String</code> is
          * the same name that was passed to the constructor.
          *

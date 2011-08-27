@@ -29,7 +29,7 @@ import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * SynthDefaultLookup redirects all lookup calls to the SynthContext.
  *
  * @author Scott Violet

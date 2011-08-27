@@ -29,7 +29,7 @@ import javax.print.DocPrintJob;
 import javax.print.attribute.AttributeSetUtilities;
 import javax.print.attribute.PrintJobAttributeSet;
 
-/**
+/** {@collect.stats}
  * Class PrintJobAttributeEvent encapsulates an event a PrintService
  * reports to let the client know that one or more printing attributes for a
  * PrintJob have changed.
@@ -41,7 +41,7 @@ public class PrintJobAttributeEvent extends PrintEvent {
 
     private PrintJobAttributeSet attributes;
 
-    /**
+    /** {@collect.stats}
      * Constructs a PrintJobAttributeEvent object.
      * @param source the print job generating  this event
      * @param attributes the attribute changes being reported
@@ -56,7 +56,7 @@ public class PrintJobAttributeEvent extends PrintEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determine the Print Job to which this print job event pertains.
      *
      * @return  Print Job object.
@@ -67,7 +67,7 @@ public class PrintJobAttributeEvent extends PrintEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determine the printing attributes that changed and their new values.
      *
      * @return  Attributes containing the new values for the print job

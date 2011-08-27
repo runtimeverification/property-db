@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * <p>A public key. This interface contains no methods or constants.
  * It merely serves to group (and provide type safety for) all public key
  * interfaces.
@@ -45,7 +45,7 @@ package java.security;
 
 public interface PublicKey extends Key {
     // Declare serialVersionUID to be compatible with JDK1.1
-    /**
+    /** {@collect.stats}
      * The class fingerprint that is set to indicate serialization
      * compatibility with a previous version of the class.
      */

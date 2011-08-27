@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * This exception is raised when there is no role info with given name in a
  * given relation type.
  *
@@ -36,14 +36,14 @@ public class RoleInfoNotFoundException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = 4394092234999959939L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public RoleInfoNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

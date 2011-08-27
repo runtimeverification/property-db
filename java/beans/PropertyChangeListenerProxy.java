@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * A class which extends the <code>EventListenerProxy</code> specifically
  * for adding a named <code>PropertyChangeListener</code>. Instances of
  * this class can be added as <code>PropertyChangeListener</code> to
@@ -44,7 +44,7 @@ public class PropertyChangeListenerProxy extends java.util.EventListenerProxy
 
     private String propertyName;
 
-    /**
+    /** {@collect.stats}
      * Constructor which binds the PropertyChangeListener to a specific
      * property.
      *
@@ -60,7 +60,7 @@ public class PropertyChangeListenerProxy extends java.util.EventListenerProxy
         this.propertyName = propertyName;
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the property change event to the listener delegate.
      *
      * @param evt the property change event
@@ -69,7 +69,7 @@ public class PropertyChangeListenerProxy extends java.util.EventListenerProxy
         ((PropertyChangeListener)getListener()).propertyChange(evt);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the named property associated with the
      * listener.
      */

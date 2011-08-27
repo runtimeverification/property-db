@@ -30,7 +30,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.HostnameVerifier;
 
-/**
+/** {@collect.stats}
  * This class implements the LDAPv3 Extended Response for StartTLS as
  * defined in
  * <a href="http://www.ietf.org/rfc/rfc2830.txt">Lightweight Directory
@@ -78,7 +78,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
 
     // Constant
 
-    /**
+    /** {@collect.stats}
      * The StartTLS extended response's assigned object identifier
      * is 1.3.6.1.4.1.1466.20037.
      */
@@ -87,7 +87,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
 
     // Called by subclass
 
-    /**
+    /** {@collect.stats}
      * Constructs a StartTLS extended response.
      * A concrete subclass must have a public no-arg constructor.
      */
@@ -97,7 +97,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
 
     // ExtendedResponse methods
 
-    /**
+    /** {@collect.stats}
      * Retrieves the StartTLS response's object identifier string.
      *
      * @return The object identifier string, "1.3.6.1.4.1.1466.20037".
@@ -106,7 +106,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
         return OID;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the StartTLS response's ASN.1 BER encoded value.
      * Since the response has no defined value, null is always
      * returned.
@@ -119,7 +119,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
 
     // StartTls-specific methods
 
-    /**
+    /** {@collect.stats}
      * Overrides the default list of cipher suites enabled for use on the
      * TLS connection. The cipher suites must have already been listed by
      * <tt>SSLSocketFactory.getSupportedCipherSuites()</tt> as being supported.
@@ -133,7 +133,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
      */
     public abstract void setEnabledCipherSuites(String[] suites);
 
-    /**
+    /** {@collect.stats}
      * Sets the hostname verifier used by <tt>negotiate()</tt>
      * after the TLS handshake has completed and the default hostname
      * verification has failed.
@@ -147,7 +147,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
      */
     public abstract void setHostnameVerifier(HostnameVerifier verifier);
 
-    /**
+    /** {@collect.stats}
      * Negotiates a TLS session using the default SSL socket factory.
      * <p>
      * This method is equivalent to <tt>negotiate(null)</tt>.
@@ -160,7 +160,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
      */
     public abstract SSLSession negotiate() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Negotiates a TLS session using an SSL socket factory.
      * <p>
      * Creates an SSL socket using the supplied SSL socket factory and
@@ -193,7 +193,7 @@ public abstract class StartTlsResponse implements ExtendedResponse {
     public abstract SSLSession negotiate(SSLSocketFactory factory)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Closes the TLS connection gracefully and reverts back to the underlying
      * connection.
      *

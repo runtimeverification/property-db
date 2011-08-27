@@ -30,7 +30,7 @@ import java.io.InvalidObjectException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class EnumSyntax is an abstract base class providing the common
  * implementation of all "type safe enumeration" objects. An enumeration class
  * (which extends class EnumSyntax) provides a group of enumeration values
@@ -111,13 +111,13 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -2739521845085831642L;
 
-    /**
+    /** {@collect.stats}
      * This enumeration value's integer value.
      * @serial
      */
     private int value;
 
-    /**
+    /** {@collect.stats}
      * Construct a new enumeration value with the given integer value.
      *
      * @param  value  Integer value.
@@ -126,7 +126,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this enumeration value's integer value.
      * @return the value
      */
@@ -134,7 +134,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this enumeration value, which to preserve the
      * semantics of enumeration values is the same object as this enumeration
      * value.
@@ -143,7 +143,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this enumeration value. The hash code is
      * just this enumeration value's integer value.
      */
@@ -151,7 +151,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string value corresponding to this enumeration value.
      */
     public String toString() {
@@ -164,7 +164,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
             Integer.toString (value);
     }
 
-    /**
+    /** {@collect.stats}
      * During object input, convert this deserialized enumeration instance to
      * the proper enumeration value defined in the enumeration attribute class.
      *
@@ -216,7 +216,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
 
     // Hidden operations to be implemented in a subclass.
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for this enumeration value's enumeration class.
      * The enumeration class's integer values are assumed to lie in the range
      * <I>L</I>..<I>L</I>+<I>N</I>-1, where <I>L</I> is the value returned by
@@ -239,7 +239,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for this enumeration value's
      * enumeration class. The enumeration class's integer values are assumed to
      * lie in the range <I>L</I>..<I>L</I>+<I>N</I>-1, where <I>L</I> is the
@@ -265,7 +265,7 @@ public abstract class EnumSyntax implements Serializable, Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lowest integer value used by this enumeration value's
      * enumeration class.
      * <P>

@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
  * This class represents the string form of the address of
  * a communications end-point.
  * It consists of a type that describes the communication mechanism
@@ -52,13 +52,13 @@ package javax.naming;
  */
 
 public class StringRefAddr extends RefAddr {
-    /**
+    /** {@collect.stats}
      * Contains the contents of this address.
      * Can be null.
      * @serial
      */
     private String contents;
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of StringRefAddr using its address type
       * and contents.
       *
@@ -70,7 +70,7 @@ public class StringRefAddr extends RefAddr {
         contents = addr;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the contents of this address. The result is a string.
       *
       * @return The possibly null address contents.
@@ -79,7 +79,7 @@ public class StringRefAddr extends RefAddr {
         return contents;
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -8913762495138505527L;

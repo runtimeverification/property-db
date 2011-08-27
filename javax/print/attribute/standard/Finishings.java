@@ -30,7 +30,7 @@ import javax.print.attribute.DocAttribute;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class Finishings is a printing attribute class, an enumeration, that
  * identifies whether the printer applies a finishing operation of some kind
  * of binding to each copy of each printed document in the job. For multidoc
@@ -225,18 +225,18 @@ public class Finishings extends EnumSyntax
 
     private static final long serialVersionUID = -627840419548391754L;
 
-    /**
+    /** {@collect.stats}
      * Perform no binding.
      */
     public static final Finishings NONE = new Finishings(3);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples. The exact number and
      * placement of the staples is site-defined.
      */
     public static final Finishings STAPLE = new Finishings(4);
 
-    /**
+    /** {@collect.stats}
      * This value is specified when it is desired to select a non-printed (or
      * pre-printed) cover for the document. This does not supplant the
      * specification of a printed cover (on cover stock medium) by the
@@ -244,13 +244,13 @@ public class Finishings extends EnumSyntax
      */
     public static final Finishings COVER = new Finishings(6);
 
-    /**
+    /** {@collect.stats}
      * This value indicates that a binding is to be applied to the document;
      * the type and placement of the binding is site-defined.
      */
     public static final Finishings BIND = new Finishings(7);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along the
      * middle fold. The exact number and placement of the staples and the
      * middle fold is implementation- and/or site-defined.
@@ -258,7 +258,7 @@ public class Finishings extends EnumSyntax
     public static final Finishings SADDLE_STITCH =
         new Finishings(8);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along one
      * edge. The exact number and placement of the staples is implementation-
      * and/or site- defined.
@@ -266,33 +266,33 @@ public class Finishings extends EnumSyntax
     public static final Finishings EDGE_STITCH =
         new Finishings(9);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples in the top left corner.
      */
     public static final Finishings STAPLE_TOP_LEFT =
         new Finishings(20);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples in the bottom left
      * corner.
      */
     public static final Finishings STAPLE_BOTTOM_LEFT =
         new Finishings(21);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples in the top right corner.
      */
     public static final Finishings STAPLE_TOP_RIGHT =
         new Finishings(22);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples in the bottom right
      * corner.
      */
     public static final Finishings STAPLE_BOTTOM_RIGHT =
         new Finishings(23);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along the
      * left edge. The exact number and placement of the staples is
      * implementation- and/or site-defined.
@@ -300,7 +300,7 @@ public class Finishings extends EnumSyntax
     public static final Finishings EDGE_STITCH_LEFT =
         new Finishings(24);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along the
      * top edge. The exact number and placement of the staples is
      * implementation- and/or site-defined.
@@ -308,7 +308,7 @@ public class Finishings extends EnumSyntax
     public static final Finishings EDGE_STITCH_TOP =
         new Finishings(25);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along the
      * right edge. The exact number and placement of the staples is
      * implementation- and/or site-defined.
@@ -316,7 +316,7 @@ public class Finishings extends EnumSyntax
     public static final Finishings EDGE_STITCH_RIGHT =
         new Finishings(26);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with one or more staples (wire stitches) along the
      * bottom edge. The exact number and placement of the staples is
      * implementation- and/or site-defined.
@@ -324,35 +324,35 @@ public class Finishings extends EnumSyntax
     public static final Finishings EDGE_STITCH_BOTTOM =
         new Finishings(27);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with two staples (wire stitches) along the left
      * edge assuming a portrait document (see above).
      */
     public static final Finishings STAPLE_DUAL_LEFT =
         new Finishings(28);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with two staples (wire stitches) along the top
      * edge assuming a portrait document (see above).
      */
     public static final Finishings STAPLE_DUAL_TOP =
         new Finishings(29);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with two staples (wire stitches) along the right
      * edge assuming a portrait document (see above).
      */
     public static final Finishings STAPLE_DUAL_RIGHT =
         new Finishings(30);
 
-    /**
+    /** {@collect.stats}
      * Bind the document(s) with two staples (wire stitches) along the bottom
      * edge assuming a portrait document (see above).
      */
     public static final Finishings STAPLE_DUAL_BOTTOM =
         new Finishings(31);
 
-    /**
+    /** {@collect.stats}
      * Construct a new finishings binding enumeration value with the given
      * integer value.
      *
@@ -426,28 +426,28 @@ public class Finishings extends EnumSyntax
                  STAPLE_DUAL_BOTTOM
                 };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class Finishings.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class Finishings.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the lowest integer value used by class Finishings.
      */
     protected int getOffset() {
         return 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -461,7 +461,7 @@ public class Finishings extends EnumSyntax
         return Finishings.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

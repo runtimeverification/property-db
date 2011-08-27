@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * Signals that an I/O operation has been interrupted. An
  * <code>InterruptedIOException</code> is thrown to indicate that an
  * input or output transfer has been terminated because the thread
@@ -41,7 +41,7 @@ package java.io;
  */
 public
 class InterruptedIOException extends IOException {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>InterruptedIOException</code> with
      * <code>null</code> as its error detail message.
      */
@@ -49,7 +49,7 @@ class InterruptedIOException extends IOException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>InterruptedIOException</code> with the
      * specified detail message. The string <code>s</code> can be
      * retrieved later by the
@@ -62,7 +62,7 @@ class InterruptedIOException extends IOException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Reports how many bytes had been transferred as part of the I/O
      * operation before it was interrupted.
      *

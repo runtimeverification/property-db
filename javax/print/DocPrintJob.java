@@ -32,7 +32,7 @@ import javax.print.event.PrintJobAttributeListener;
 import javax.print.event.PrintJobListener;
 import javax.print.PrintException;
 
-/**
+/** {@collect.stats}
  *
  * This interface represents a print job that can print a specified
  * document with a set of job attributes.  An object implementing
@@ -42,7 +42,7 @@ import javax.print.PrintException;
 
 public interface DocPrintJob {
 
-    /**
+    /** {@collect.stats}
      * Determines the {@link PrintService} object to which this print job
      * object is bound.
      *
@@ -51,7 +51,7 @@ public interface DocPrintJob {
      */
     public PrintService getPrintService();
 
-    /**
+    /** {@collect.stats}
      * Obtains this Print Job's set of printing attributes.
      * The returned attribute set object is unmodifiable.
      * The returned attribute set object is a "snapshot" of this Print Job's
@@ -67,7 +67,7 @@ public interface DocPrintJob {
      */
      public PrintJobAttributeSet getAttributes();
 
-    /**
+    /** {@collect.stats}
      * Registers a listener for event occurring during this print job.
      * If listener is null, no exception is thrown and no action is
      * performed.
@@ -79,7 +79,7 @@ public interface DocPrintJob {
      */
     public void addPrintJobListener(PrintJobListener listener);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from this print job.
      * This method performs no function, nor does it throw an exception,
      * if the listener specified by the argument was not previously added
@@ -92,7 +92,7 @@ public interface DocPrintJob {
      */
     public void removePrintJobListener(PrintJobListener listener);
 
-    /**
+    /** {@collect.stats}
      * Registers a listener for changes in the specified attributes.
      * If listener is null, no exception is thrown and no action is
      * performed.
@@ -123,7 +123,7 @@ public interface DocPrintJob {
                                   PrintJobAttributeListener listener,
                                   PrintJobAttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute listener from this print job.
      * This method performs no function, nor does it throw an exception,
      * if the listener specified by the argument was not previously added
@@ -139,7 +139,7 @@ public interface DocPrintJob {
     public void removePrintJobAttributeListener(
                                       PrintJobAttributeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Prints a document with the specified job attributes.
      * This method should only be called once for a given print job.
      * Calling it again will not result in a new job being spooled to

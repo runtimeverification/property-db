@@ -31,7 +31,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <code>MaskFormatter</code> is used to format and edit strings. The behavior
  * of a <code>MaskFormatter</code> is controlled by way of a String mask
  * that specifies the valid characters that can be contained at a particular
@@ -163,29 +163,29 @@ public class MaskFormatter extends DefaultFormatter {
 
     private static final MaskCharacter[] EmptyMaskChars = new MaskCharacter[0];
 
-    /** The user specified mask. */
+    /** {@collect.stats} The user specified mask. */
     private String mask;
 
     private transient MaskCharacter[] maskChars;
 
-    /** List of valid characters. */
+    /** {@collect.stats} List of valid characters. */
     private String validCharacters;
 
-    /** List of invalid characters. */
+    /** {@collect.stats} List of invalid characters. */
     private String invalidCharacters;
 
-    /** String used for the passed in value if it does not completely
+    /** {@collect.stats} String used for the passed in value if it does not completely
      * fill the mask. */
     private String placeholderString;
 
-    /** String used to represent characters not present. */
+    /** {@collect.stats} String used to represent characters not present. */
     private char placeholder;
 
-    /** Indicates if the value contains the literal characters. */
+    /** {@collect.stats} Indicates if the value contains the literal characters. */
     private boolean containsLiteralChars;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a MaskFormatter with no mask.
      */
     public MaskFormatter() {
@@ -195,7 +195,7 @@ public class MaskFormatter extends DefaultFormatter {
         placeholder = ' ';
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>MaskFormatter</code> with the specified mask.
      * A <code>ParseException</code>
      * will be thrown if <code>mask</code> is an invalid mask.
@@ -207,7 +207,7 @@ public class MaskFormatter extends DefaultFormatter {
         setMask(mask);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the mask dictating the legal characters.
      * This will throw a <code>ParseException</code> if <code>mask</code> is
      * not valid.
@@ -219,7 +219,7 @@ public class MaskFormatter extends DefaultFormatter {
         updateInternalMask();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the formatting mask.
      *
      * @return Mask dictating legal character values.
@@ -228,7 +228,7 @@ public class MaskFormatter extends DefaultFormatter {
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows for further restricting of the characters that can be input.
      * Only characters specified in the mask, not in the
      * <code>invalidCharacters</code>, and in
@@ -242,7 +242,7 @@ public class MaskFormatter extends DefaultFormatter {
         this.validCharacters = validCharacters;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the valid characters that can be input.
      *
      * @return Legal characters
@@ -251,7 +251,7 @@ public class MaskFormatter extends DefaultFormatter {
         return validCharacters;
     }
 
-    /**
+    /** {@collect.stats}
      * Allows for further restricting of the characters that can be input.
      * Only characters specified in the mask, not in the
      * <code>invalidCharacters</code>, and in
@@ -265,7 +265,7 @@ public class MaskFormatter extends DefaultFormatter {
         this.invalidCharacters = invalidCharacters;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the characters that are not valid for input.
      *
      * @return illegal characters.
@@ -274,7 +274,7 @@ public class MaskFormatter extends DefaultFormatter {
         return invalidCharacters;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the string to use if the value does not completely fill in
      * the mask. A null value implies the placeholder char should be used.
      *
@@ -285,7 +285,7 @@ public class MaskFormatter extends DefaultFormatter {
         this.placeholderString = placeholder;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String to use if the value does not completely fill
      * in the mask.
      *
@@ -296,7 +296,7 @@ public class MaskFormatter extends DefaultFormatter {
         return placeholderString;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the character to use in place of characters that are not present
      * in the value, ie the user must fill them in. The default value is
      * a space.
@@ -311,7 +311,7 @@ public class MaskFormatter extends DefaultFormatter {
         this.placeholder = placeholder;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character to use in place of characters that are not present
      * in the value, ie the user must fill them in.
      *
@@ -322,7 +322,7 @@ public class MaskFormatter extends DefaultFormatter {
         return placeholder;
     }
 
-    /**
+    /** {@collect.stats}
      * If true, the returned value and set value will also contain the literal
      * characters in mask.
      * <p>
@@ -342,7 +342,7 @@ public class MaskFormatter extends DefaultFormatter {
         this.containsLiteralChars = containsLiteralChars;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>stringToValue</code> should return literal
      * characters in the mask.
      *
@@ -353,7 +353,7 @@ public class MaskFormatter extends DefaultFormatter {
         return containsLiteralChars;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the text, returning the appropriate Object representation of
      * the String <code>value</code>. This strips the literal characters as
      * necessary and invokes supers <code>stringToValue</code>, so that if
@@ -372,7 +372,7 @@ public class MaskFormatter extends DefaultFormatter {
         return stringToValue(value, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String representation of the Object <code>value</code>
      * based on the mask.  Refer to
      * {@link #setValueContainsLiteralCharacters} for details
@@ -393,7 +393,7 @@ public class MaskFormatter extends DefaultFormatter {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the <code>DefaultFormatter</code> onto a particular
      * <code>JFormattedTextField</code>.
      * This will invoke <code>valueToString</code> to convert the
@@ -438,7 +438,7 @@ public class MaskFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Actual <code>stringToValue</code> implementation.
      * If <code>completeMatch</code> is true, the value must exactly match
      * the mask, on the other hand if <code>completeMatch</code> is false
@@ -458,7 +458,7 @@ public class MaskFormatter extends DefaultFormatter {
                                  errorOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns -1 if the passed in string is valid, otherwise the index of
      * the first bogus character is returned.
      */
@@ -480,7 +480,7 @@ public class MaskFormatter extends DefaultFormatter {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>append</code> on the mask characters in
      * <code>mask</code>.
      */
@@ -493,7 +493,7 @@ public class MaskFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the internal representation of the mask.
      */
     private void updateInternalMask() throws ParseException {
@@ -550,7 +550,7 @@ public class MaskFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the MaskCharacter at the specified location.
      */
     private MaskCharacter getMaskCharacter(int index) {
@@ -560,14 +560,14 @@ public class MaskFormatter extends DefaultFormatter {
         return maskChars[index];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the placeholder character matches aChar.
      */
     private boolean isPlaceholder(int index, char aChar) {
         return (getPlaceholderCharacter() == aChar);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the passed in character matches the mask at the
      * specified location.
      */
@@ -575,7 +575,7 @@ public class MaskFormatter extends DefaultFormatter {
         return getMaskCharacter(index).isValidCharacter(aChar);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the character at the specified location is a literal,
      * that is it can not be edited.
      */
@@ -583,21 +583,21 @@ public class MaskFormatter extends DefaultFormatter {
         return getMaskCharacter(index).isLiteral();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum length the text can be.
      */
     private int getMaxLength() {
         return maskChars.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the literal character at the specified location.
      */
     private char getLiteral(int index) {
         return getMaskCharacter(index).getChar((char)0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character to insert at the specified location based on
      * the passed in character.  This provides a way to map certain sets
      * of characters to alternative values (lowercase to
@@ -607,7 +607,7 @@ public class MaskFormatter extends DefaultFormatter {
         return getMaskCharacter(index).getChar(aChar);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the literal characters from the passed in string.
      */
     private String stripLiteralChars(String string) {
@@ -643,7 +643,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Subclassed to update the internal representation of the mask after
      * the default read operation has completed.
      */
@@ -657,7 +657,7 @@ public class MaskFormatter extends DefaultFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the MaskFormatter allows invalid, or
      * the offset is less than the max length and the character at
      * <code>offset</code> is a literal.
@@ -691,7 +691,7 @@ public class MaskFormatter extends DefaultFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * This method does the following (assuming !getAllowsInvalid()):
      * iterate over the max of the deleted region or the text length, for
      * each character:
@@ -813,7 +813,7 @@ public class MaskFormatter extends DefaultFormatter {
     // Interal classes used to represent the mask.
     //
     private class MaskCharacter {
-        /**
+        /** {@collect.stats}
          * Subclasses should override this returning true if the instance
          * represents a literal character. The default implementation
          * returns false.
@@ -822,7 +822,7 @@ public class MaskFormatter extends DefaultFormatter {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if <code>aChar</code> is a valid reprensentation of
          * the receiver. The default implementation returns true if the
          * receiver represents a literal character and <code>getChar</code>
@@ -849,7 +849,7 @@ public class MaskFormatter extends DefaultFormatter {
             return true;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the character to insert for <code>aChar</code>. The
          * default implementation returns <code>aChar</code>. Subclasses
          * that wish to do some sort of mapping, perhaps lower case to upper
@@ -859,7 +859,7 @@ public class MaskFormatter extends DefaultFormatter {
             return aChar;
         }
 
-        /**
+        /** {@collect.stats}
          * Appends the necessary character in <code>formatting</code> at
          * <code>index</code> to <code>buff</code>.
          */
@@ -900,7 +900,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to represent a fixed character in the mask.
      */
     private class LiteralCharacter extends MaskCharacter {
@@ -920,7 +920,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents a number, uses <code>Character.isDigit</code>.
      */
     private class DigitMaskCharacter extends MaskCharacter {
@@ -931,7 +931,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents a character, lower case letters are mapped to upper case
      * using <code>Character.toUpperCase</code>.
      */
@@ -947,7 +947,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents a character, upper case letters are mapped to lower case
      * using <code>Character.toLowerCase</code>.
      */
@@ -963,7 +963,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents either a character or digit, uses
      * <code>Character.isLetterOrDigit</code>.
      */
@@ -975,7 +975,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents a letter, uses <code>Character.isLetter</code>.
      */
     private class CharCharacter extends MaskCharacter {
@@ -986,7 +986,7 @@ public class MaskFormatter extends DefaultFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Represents a hex character, 0-9a-fA-F. a-f is mapped to A-F
      */
     private class HexCharacter extends MaskCharacter {

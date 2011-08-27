@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * An exception that indicates the requested look & feel
  * management classes are not present on the user's system.
  * <p>
@@ -41,7 +41,7 @@ package javax.swing;
  */
 public class UnsupportedLookAndFeelException extends Exception
 {
-    /**
+    /** {@collect.stats}
      * Constructs an UnsupportedLookAndFeelException object.
      * @param s a message String
      */

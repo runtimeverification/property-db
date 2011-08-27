@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when an attempt is
   * made to add, or remove, or modify an attribute, its identifier,
   * or its values that conflicts with the attribute's (schema) definition
@@ -59,13 +59,13 @@ import javax.naming.NamingException;
 
 
 public class AttributeModificationException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Contains the possibly null list of unexecuted modifications.
      * @serial
      */
     private ModificationItem[] unexecs = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of AttributeModificationException using
      * an explanation. All other fields are set to null.
      *
@@ -78,7 +78,7 @@ public class AttributeModificationException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of AttributeModificationException.
       * All fields are set to null.
       */
@@ -86,7 +86,7 @@ public class AttributeModificationException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
       * Sets the unexecuted modification list to be e.
       * Items in the list must appear in the same order in which they were
       * originally supplied in DirContext.modifyAttributes().
@@ -101,7 +101,7 @@ public class AttributeModificationException extends NamingException {
         unexecs = e;
     }
 
-    /**
+    /** {@collect.stats}
       * Retrieves the unexecuted modification list.
       * Items in the list appear in the same order in which they were
       * originally supplied in DirContext.modifyAttributes().
@@ -116,7 +116,7 @@ public class AttributeModificationException extends NamingException {
         return unexecs;
     }
 
-    /**
+    /** {@collect.stats}
       * The string representation of this exception consists of
       * information about where the error occurred, and
       * the first unexecuted modification.
@@ -133,7 +133,7 @@ public class AttributeModificationException extends NamingException {
         return orig;
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 8060676069678710186L;

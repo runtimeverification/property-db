@@ -30,7 +30,7 @@ import java.awt.AWTException;
 import java.awt.Image;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * Defines methods that provide sufficient information about an input method
  * to enable selection and loading of that input method.
  * The input method itself is only loaded when it is actually used.
@@ -40,7 +40,7 @@ import java.util.Locale;
 
 public interface InputMethodDescriptor {
 
-    /**
+    /** {@collect.stats}
      * Returns the locales supported by the corresponding input method.
      * The locale may describe just the language, or may also include
      * country and variant information if needed.
@@ -68,14 +68,14 @@ public interface InputMethodDescriptor {
      */
     Locale[] getAvailableLocales() throws AWTException;
 
-    /**
+    /** {@collect.stats}
      * Returns whether the list of available locales can change
      * at runtime. This may be the case, for example, for adapters
      * that access real input methods over the network.
      */
     boolean hasDynamicLocaleList();
 
-    /**
+    /** {@collect.stats}
      * Returns the user-visible name of the corresponding
      * input method for the given input locale in the language in which
      * the name will be displayed.
@@ -95,7 +95,7 @@ public interface InputMethodDescriptor {
      */
     String getInputMethodDisplayName(Locale inputLocale, Locale displayLanguage);
 
-    /**
+    /** {@collect.stats}
      * Returns an icon for the corresponding input method.
      * The icon may be used by a user interface for selecting input methods.
      * <p>
@@ -113,7 +113,7 @@ public interface InputMethodDescriptor {
      */
     Image getInputMethodIcon(Locale inputLocale);
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of the corresponding input method.
      *
      * @return a new instance of the corresponding input method

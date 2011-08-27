@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Represents runtime exceptions thrown by MBean methods in
  * the agent. It "wraps" the actual <CODE>java.lang.RuntimeException</CODE> exception thrown.
  * This exception will be built by the MBeanServer when a call to an
@@ -39,13 +39,13 @@ public class RuntimeMBeanException extends JMRuntimeException   {
     /* Serial version */
     private static final long serialVersionUID = 5274912751982730171L;
 
-    /**
+    /** {@collect.stats}
      * @serial The encapsulated {@link RuntimeException}
      */
     private java.lang.RuntimeException runtimeException ;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>RuntimeMBeanException</CODE> that wraps the actual <CODE>java.lang.RuntimeException</CODE>.
      *
      * @param e the wrapped exception.
@@ -55,7 +55,7 @@ public class RuntimeMBeanException extends JMRuntimeException   {
         runtimeException = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>RuntimeMBeanException</CODE> that wraps the actual <CODE>java.lang.RuntimeException</CODE> with
      * a detailed message.
      *
@@ -67,7 +67,7 @@ public class RuntimeMBeanException extends JMRuntimeException   {
         runtimeException = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link RuntimeException} thrown.
      *
      * @return the wrapped {@link RuntimeException}.
@@ -76,7 +76,7 @@ public class RuntimeMBeanException extends JMRuntimeException   {
         return runtimeException ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link RuntimeException} thrown.
      *
      * @return the wrapped {@link RuntimeException}.

@@ -29,7 +29,7 @@ import java.util.*;
 
 import java.security.KeyStore.*;
 
-/**
+/** {@collect.stats}
  * A parameters object for X509KeyManagers that encapsulates a List
  * of KeyStore.Builders.
  *
@@ -43,7 +43,7 @@ public class KeyStoreBuilderParameters implements ManagerFactoryParameters {
 
     private final List<Builder> parameters;
 
-    /**
+    /** {@collect.stats}
      * Construct new KeyStoreBuilderParameters from the specified
      * {@linkplain java.security.KeyStore.Builder}.
      *
@@ -54,7 +54,7 @@ public class KeyStoreBuilderParameters implements ManagerFactoryParameters {
         parameters = Collections.singletonList(builder);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct new KeyStoreBuilderParameters from a List
      * of {@linkplain java.security.KeyStore.Builder}s. Note that the list
      * is cloned to protect against subsequent modification.
@@ -71,7 +71,7 @@ public class KeyStoreBuilderParameters implements ManagerFactoryParameters {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the unmodifiable List of the
      * {@linkplain java.security.KeyStore.Builder}s
      * encapsulated by this object.

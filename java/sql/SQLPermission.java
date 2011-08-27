@@ -28,7 +28,7 @@ package java.sql;
 
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * The permission for which the <code>SecurityManager</code> will check
  * when code that is running in an applet calls the
  * <code>DriverManager.setLogWriter</code> method or the
@@ -86,7 +86,7 @@ import java.security.*;
 
 public final class SQLPermission extends BasicPermission {
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SQLPermission</code> object with the specified name.
      * The name is the symbolic name of the <code>SQLPermission</code>; currently,
      * the only name allowed is "setLog".
@@ -102,7 +102,7 @@ public final class SQLPermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>SQLPermission</code> object with the specified name.
      * The name is the symbolic name of the <code>SQLPermission</code>; the
      * actions <code>String</code> is currently unused and should be
@@ -120,7 +120,7 @@ public final class SQLPermission extends BasicPermission {
         super(name, actions);
     }
 
-    /**
+    /** {@collect.stats}
      * Private serial version unique ID to ensure serialization
      * compatibility.
      */

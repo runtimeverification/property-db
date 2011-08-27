@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import java.util.EventObject;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  *
  * A base class for <code>CellEditors</code>, providing default
  * implementations for the methods in the <code>CellEditor</code>
@@ -59,7 +59,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
     // Force this to be implemented.
     // public Object  getCellEditorValue()
 
-    /**
+    /** {@collect.stats}
      * Returns true.
      * @param e  an event object
      * @return true
@@ -68,7 +68,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true.
      * @param anEvent  an event object
      * @return true
@@ -77,7 +77,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>fireEditingStopped</code> and returns true.
      * @return true
      */
@@ -86,14 +86,14 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>fireEditingCanceled</code>.
      */
     public void  cancelCellEditing() {
         fireEditingCanceled();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>CellEditorListener</code> to the listener list.
      * @param l  the new listener to be added
      */
@@ -101,7 +101,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         listenerList.add(CellEditorListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>CellEditorListener</code> from the listener list.
      * @param l  the listener to be removed
      */
@@ -109,7 +109,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         listenerList.remove(CellEditorListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>CellEditorListener</code>s added
      * to this AbstractCellEditor with addCellEditorListener().
      *
@@ -122,7 +122,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
                 CellEditorListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -144,7 +144,7 @@ public abstract class AbstractCellEditor implements CellEditor, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.

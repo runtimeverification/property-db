@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 
-/**
+/** {@collect.stats}
  * A default L&F implementation of MenuUI.  This implementation
  * is a "combined" view/controller.
  *
@@ -53,7 +53,7 @@ public class BasicMenuUI extends BasicMenuItemUI
 
     private int lastMnemonic = 0;
 
-    /** Uses as the parent of the windowInputMap when selected. */
+    /** {@collect.stats} Uses as the parent of the windowInputMap when selected. */
     private InputMap selectedWindowInputMap;
 
     /* diagnostic aids -- should be false for production builds. */
@@ -309,7 +309,7 @@ public class BasicMenuUI extends BasicMenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiated and used by a menu item to handle the current menu selection
      * from mouse events. A MouseInputHandler processes and forwards all mouse events
      * to a shared instance of the MenuSelectionManager.
@@ -332,7 +332,7 @@ public class BasicMenuUI extends BasicMenuItemUI
             getHandler().mouseClicked(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the mouse has been clicked on the menu. This
          * method clears or sets the selection path of the
          * MenuSelectionManager.
@@ -343,7 +343,7 @@ public class BasicMenuUI extends BasicMenuItemUI
             getHandler().mousePressed(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the mouse has been released on the menu. Delegates the
          * mouse event to the MenuSelectionManager.
          *
@@ -353,7 +353,7 @@ public class BasicMenuUI extends BasicMenuItemUI
             getHandler().mouseReleased(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the cursor enters the menu. This method sets the selected
          * path for the MenuSelectionManager and handles the case
          * in which a menu item is used to pop up an additional menu, as in a
@@ -368,7 +368,7 @@ public class BasicMenuUI extends BasicMenuItemUI
             getHandler().mouseExited(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a mouse button is pressed on the menu and then dragged.
          * Delegates the mouse event to the MenuSelectionManager.
          *
@@ -384,7 +384,7 @@ public class BasicMenuUI extends BasicMenuItemUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform 1.4, this previously undocumented class
      * is now obsolete. KeyBindings are now managed by the popup menu.
      */
@@ -426,7 +426,7 @@ public class BasicMenuUI extends BasicMenuItemUI
         public void mouseClicked(MouseEvent e) {
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the mouse has been clicked on the menu. This
          * method clears or sets the selection path of the
          * MenuSelectionManager.
@@ -467,7 +467,7 @@ public class BasicMenuUI extends BasicMenuItemUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the mouse has been released on the menu. Delegates the
          * mouse event to the MenuSelectionManager.
          *
@@ -484,7 +484,7 @@ public class BasicMenuUI extends BasicMenuItemUI
                 manager.clearSelectedPath();
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the cursor enters the menu. This method sets the selected
          * path for the MenuSelectionManager and handles the case
          * in which a menu item is used to pop up an additional menu, as in a
@@ -532,7 +532,7 @@ public class BasicMenuUI extends BasicMenuItemUI
         public void mouseExited(MouseEvent e) {
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when a mouse button is pressed on the menu and then dragged.
          * Delegates the mouse event to the MenuSelectionManager.
          *
@@ -591,7 +591,7 @@ public class BasicMenuUI extends BasicMenuItemUI
         //
         // MenuKeyListener
         //
-        /**
+        /** {@collect.stats}
          * Open the Menu
          */
         public void menuKeyTyped(MenuKeyEvent e) {

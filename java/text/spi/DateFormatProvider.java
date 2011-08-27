@@ -29,7 +29,7 @@ import java.text.DateFormat;
 import java.util.Locale;
 import java.util.spi.LocaleServiceProvider;
 
-/**
+/** {@collect.stats}
  * An abstract class for service providers that
  * provide concrete implementations of the
  * {@link java.text.DateFormat DateFormat} class.
@@ -38,14 +38,14 @@ import java.util.spi.LocaleServiceProvider;
  */
 public abstract class DateFormatProvider extends LocaleServiceProvider {
 
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected DateFormatProvider() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>DateFormat</code> instance which formats time
      * with the given formatting style for the specified locale.
      * @param style the given formatting style.  Either one of
@@ -65,7 +65,7 @@ public abstract class DateFormatProvider extends LocaleServiceProvider {
      */
     public abstract DateFormat getTimeInstance(int style, Locale locale);
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>DateFormat</code> instance which formats date
      * with the given formatting style for the specified locale.
      * @param style the given formatting style.  Either one of
@@ -85,7 +85,7 @@ public abstract class DateFormatProvider extends LocaleServiceProvider {
      */
     public abstract DateFormat getDateInstance(int style, Locale locale);
 
-    /**
+    /** {@collect.stats}
      * Returns a new <code>DateFormat</code> instance which formats date and time
      * with the given formatting style for the specified locale.
      * @param dateStyle the given date formatting style.  Either one of

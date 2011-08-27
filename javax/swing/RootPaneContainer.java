@@ -29,7 +29,7 @@ import java.awt.Component;
 import java.awt.Container;
 
 
-/**
+/** {@collect.stats}
  * This interface is implemented by components that have a single
  * JRootPane child: JDialog, JFrame, JWindow, JApplet, JInternalFrame.
  * The methods in  this interface are just <i>covers</i> for the JRootPane
@@ -80,7 +80,7 @@ import java.awt.Container;
  */
 public interface RootPaneContainer
 {
-    /**
+    /** {@collect.stats}
      * Return this component's single JRootPane child.  A conventional
      * implementation of this interface will have all of the other
      * methods indirect through this one.  The rootPane has two
@@ -92,7 +92,7 @@ public interface RootPaneContainer
     JRootPane getRootPane();
 
 
-    /**
+    /** {@collect.stats}
      * The "contentPane" is the primary container for application
      * specific components.  Applications should add children to
      * the contentPane, set its layout manager, and so on.
@@ -112,7 +112,7 @@ public interface RootPaneContainer
     void setContentPane(Container contentPane);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the contentPane.
      *
      * @return the value of the contentPane property.
@@ -121,7 +121,7 @@ public interface RootPaneContainer
     Container getContentPane();
 
 
-    /**
+    /** {@collect.stats}
      * A Container that manages the contentPane and in some cases a menu bar.
      * The layeredPane can be used by descendants that want to add a child
      * to the RootPaneContainer that isn't layout managed.  For example
@@ -140,7 +140,7 @@ public interface RootPaneContainer
     void setLayeredPane(JLayeredPane layeredPane);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the layeredPane.
      *
      * @return the value of the layeredPane property.
@@ -149,7 +149,7 @@ public interface RootPaneContainer
     JLayeredPane getLayeredPane();
 
 
-    /**
+    /** {@collect.stats}
      * The glassPane is always the first child of the rootPane
      * and the rootPanes layout manager ensures that it's always
      * as big as the rootPane.  By default it's transparent and
@@ -168,7 +168,7 @@ public interface RootPaneContainer
     void setGlassPane(Component glassPane);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the glassPane.
      *
      * @return the value of the glassPane property.

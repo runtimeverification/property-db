@@ -25,7 +25,7 @@
 
 package javax.swing.plaf;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JSlider.
  *
  * @author Hans Muller

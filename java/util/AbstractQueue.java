@@ -35,7 +35,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This class provides skeletal implementations of some {@link Queue}
  * operations. The implementations in this class are appropriate when
  * the base implementation does <em>not</em> allow <tt>null</tt>
@@ -66,13 +66,13 @@ public abstract class AbstractQueue<E>
     extends AbstractCollection<E>
     implements Queue<E> {
 
-    /**
+    /** {@collect.stats}
      * Constructor for use by subclasses.
      */
     protected AbstractQueue() {
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element into this queue if it is possible to do so
      * immediately without violating capacity restrictions, returning
      * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
@@ -99,7 +99,7 @@ public abstract class AbstractQueue<E>
             throw new IllegalStateException("Queue full");
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of this queue.  This method differs
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
@@ -118,7 +118,7 @@ public abstract class AbstractQueue<E>
             throw new NoSuchElementException();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of this queue.  This method
      * differs from {@link #peek peek} only in that it throws an exception if
      * this queue is empty.
@@ -137,7 +137,7 @@ public abstract class AbstractQueue<E>
             throw new NoSuchElementException();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this queue.
      * The queue will be empty after this call returns.
      *
@@ -149,7 +149,7 @@ public abstract class AbstractQueue<E>
             ;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the elements in the specified collection to this
      * queue.  Attempts to addAll of a queue to itself result in
      * <tt>IllegalArgumentException</tt>. Further, the behavior of

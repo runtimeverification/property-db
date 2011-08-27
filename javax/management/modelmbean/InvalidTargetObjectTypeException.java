@@ -38,7 +38,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamField;
 import java.security.AccessController;
 
-/**
+/** {@collect.stats}
  * Exception thrown when an invalid target object type is specified.
  *
  *
@@ -77,7 +77,7 @@ public class InvalidTargetObjectTypeException  extends Exception
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField exception Exception Encapsulated {@link Exception}
      */
     private static final ObjectStreamField[] serialPersistentFields;
@@ -101,13 +101,13 @@ public class InvalidTargetObjectTypeException  extends Exception
     //
     // END Serialization compatibility stuff
 
-    /**
+    /** {@collect.stats}
      * @serial Encapsulated {@link Exception}
      */
     Exception exception;
 
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public InvalidTargetObjectTypeException ()
@@ -117,7 +117,7 @@ public class InvalidTargetObjectTypeException  extends Exception
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructor from a string.
      *
      * @param s String value that will be incorporated in the message for
@@ -131,7 +131,7 @@ public class InvalidTargetObjectTypeException  extends Exception
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructor taking an exception and a string.
      *
      * @param e Exception that we may have caught to reissue as an
@@ -150,7 +150,7 @@ public class InvalidTargetObjectTypeException  extends Exception
       exception = e;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link InvalidTargetObjectTypeException} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -175,7 +175,7 @@ public class InvalidTargetObjectTypeException  extends Exception
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link InvalidTargetObjectTypeException} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

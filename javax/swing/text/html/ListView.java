@@ -28,14 +28,14 @@ import java.util.Enumeration;
 import java.awt.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * A view implementation to display an html list
  *
  * @author  Timothy Prinzing
  */
 public class ListView extends BlockView  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new view that represents a list element.
      *
      * @param elem the element to create a view for
@@ -44,7 +44,7 @@ public class ListView extends BlockView  {
         super(elem, View.Y_AXIS);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the desired shape of the list.
      *
      * @return the desired span
@@ -61,7 +61,7 @@ public class ListView extends BlockView  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.
      *
@@ -99,7 +99,7 @@ public class ListView extends BlockView  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints one of the children; called by paint().  By default
      * that is all it does, but a subclass can use this to paint
      * things relative to the child.

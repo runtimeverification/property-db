@@ -37,7 +37,7 @@ import java.util.Collection;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * A class for retrieving <code>Certificate</code>s and <code>CRL</code>s
  * from a repository.
  * <p>
@@ -93,7 +93,7 @@ public class CertStore {
     private String type;
     private CertStoreParameters params;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>CertStore</code> object of the given type, and
      * encapsulates the given provider implementation (SPI object) in it.
      *
@@ -111,7 +111,7 @@ public class CertStore {
             this.params = (CertStoreParameters) params.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Collection</code> of <code>Certificate</code>s that
      * match the specified selector. If no <code>Certificate</code>s
      * match the selector, an empty <code>Collection</code> will be returned.
@@ -141,7 +141,7 @@ public class CertStore {
         return storeSpi.engineGetCertificates(selector);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Collection</code> of <code>CRL</code>s that
      * match the specified selector. If no <code>CRL</code>s
      * match the selector, an empty <code>Collection</code> will be returned.
@@ -171,7 +171,7 @@ public class CertStore {
         return storeSpi.engineGetCRLs(selector);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertStore</code> object that implements the specified
      * <code>CertStore</code> type and is initialized with the specified
      * parameters.
@@ -233,7 +233,7 @@ public class CertStore {
         throw e;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertStore</code> object that implements the specified
      * <code>CertStore</code> type.
      *
@@ -294,7 +294,7 @@ public class CertStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>CertStore</code> object that implements the specified
      * <code>CertStore</code> type.
      *
@@ -348,7 +348,7 @@ public class CertStore {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parameters used to initialize this <code>CertStore</code>.
      * Note that the <code>CertStoreParameters</code> object is cloned before
      * it is returned.
@@ -360,7 +360,7 @@ public class CertStore {
         return (params == null ? null : (CertStoreParameters) params.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this <code>CertStore</code>.
      *
      * @return the type of this <code>CertStore</code>
@@ -369,7 +369,7 @@ public class CertStore {
         return this.type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>CertStore</code>.
      *
      * @return the provider of this <code>CertStore</code>
@@ -378,7 +378,7 @@ public class CertStore {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>CertStore</code> type as specified in the
      * Java security properties file, or the string &quot;LDAP&quot; if no
      * such property exists. The Java security properties file is located in

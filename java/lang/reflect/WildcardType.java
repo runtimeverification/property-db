@@ -25,14 +25,14 @@
 
 package java.lang.reflect;
 
-/**
+/** {@collect.stats}
  * WildcardType represents a wildcard type expression, such as
  * {@code ?}, {@code ? extends Number}, or {@code ? super Integer}.
  *
  * @since 1.5
  */
 public interface WildcardType extends Type {
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects representing the  upper
      * bound(s) of this type variable.  Note that if no upper bound is
      * explicitly declared, the upper bound is {@code Object}.
@@ -55,7 +55,7 @@ public interface WildcardType extends Type {
      */
     Type[] getUpperBounds();
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Type} objects representing the
      * lower bound(s) of this type variable.  Note that if no lower bound is
      * explicitly declared, the lower bound is the type of {@code null}.

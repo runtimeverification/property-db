@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown if an application tries to access or modify a specified
  * field of an object, and that object no longer has that field.
  * <p>
@@ -38,14 +38,14 @@ package java.lang;
  */
 public
 class NoSuchFieldError extends IncompatibleClassChangeError {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchFieldException</code> with no detail  message.
      */
     public NoSuchFieldError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchFieldException</code> with the specified
      * detail message.
      *

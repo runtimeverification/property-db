@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Class <code>Object</code> is the root of the class hierarchy.
  * Every class has <code>Object</code> as a superclass. All objects,
  * including arrays, implement the methods of this class.
@@ -41,7 +41,7 @@ public class Object {
         registerNatives();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the runtime class of this {@code Object}. The returned
      * {@code Class} object is the object that is locked by {@code
      * static synchronized} methods of the represented class.
@@ -64,7 +64,7 @@ public class Object {
      */
     public final native Class<?> getClass();
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for the object. This method is
      * supported for the benefit of hashtables such as those provided by
      * <code>java.util.Hashtable</code>.
@@ -101,7 +101,7 @@ public class Object {
      */
     public native int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Indicates whether some other object is "equal to" this one.
      * <p>
      * The <code>equals</code> method implements an equivalence relation
@@ -151,7 +151,7 @@ public class Object {
         return (this == obj);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a copy of this object.  The precise meaning
      * of "copy" may depend on the class of the object. The general
      * intent is that, for any object <tt>x</tt>, the expression:
@@ -211,7 +211,7 @@ public class Object {
      */
     protected native Object clone() throws CloneNotSupportedException;
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the object. In general, the
      * <code>toString</code> method returns a string that
      * "textually represents" this object. The result should
@@ -236,7 +236,7 @@ public class Object {
         return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
 
-    /**
+    /** {@collect.stats}
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
      * is chosen to be awakened. The choice is arbitrary and occurs at
@@ -270,7 +270,7 @@ public class Object {
      */
     public final native void notify();
 
-    /**
+    /** {@collect.stats}
      * Wakes up all threads that are waiting on this object's monitor. A
      * thread waits on an object's monitor by calling one of the
      * <code>wait</code> methods.
@@ -294,7 +294,7 @@ public class Object {
      */
     public final native void notifyAll();
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until either another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or a
@@ -381,7 +381,7 @@ public class Object {
      */
     public final native void wait(long timeout) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or
@@ -460,7 +460,7 @@ public class Object {
         wait(timeout);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object.
@@ -502,7 +502,7 @@ public class Object {
         wait(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the garbage collector on an object when garbage collection
      * determines that there are no more references to the object.
      * A subclass overrides the <code>finalize</code> method to dispose of

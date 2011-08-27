@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.security.InvalidKeyException;
 
-/**
+/** {@collect.stats}
  * This class specifies a DES key.
  *
  * @author Jan Luehe
@@ -36,7 +36,7 @@ import java.security.InvalidKeyException;
  */
 public class DESKeySpec implements java.security.spec.KeySpec {
 
-    /**
+    /** {@collect.stats}
      * The constant which defines the length of a DES key in bytes.
      */
     public static final int DES_KEY_LEN = 8;
@@ -112,7 +112,7 @@ public class DESKeySpec implements java.security.spec.KeySpec {
           (byte)0xF1, (byte)0xFE, (byte)0xF1 }
     };
 
-    /**
+    /** {@collect.stats}
      * Creates a DESKeySpec object using the first 8 bytes in
      * <code>key</code> as the key material for the DES key.
      *
@@ -131,7 +131,7 @@ public class DESKeySpec implements java.security.spec.KeySpec {
         this(key, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a DESKeySpec object using the first 8 bytes in
      * <code>key</code>, beginning at <code>offset</code> inclusive,
      * as the key material for the DES key.
@@ -158,7 +158,7 @@ public class DESKeySpec implements java.security.spec.KeySpec {
         System.arraycopy(key, offset, this.key, 0, DES_KEY_LEN);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the DES key material.
      *
      * @return the DES key material. Returns a new array
@@ -168,7 +168,7 @@ public class DESKeySpec implements java.security.spec.KeySpec {
         return (byte[])this.key.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the given DES key material, starting at <code>offset</code>
      * inclusive, is parity-adjusted.
      *
@@ -202,7 +202,7 @@ public class DESKeySpec implements java.security.spec.KeySpec {
             return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the given DES key material is weak or semi-weak.
      *
      * @param key the buffer with the DES key material.

@@ -27,7 +27,7 @@ package javax.swing.event;
 import javax.swing.undo.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Interface for document change notifications.  This provides
  * detailed information to Document observers about how the
  * Document changed.  It provides high level information such
@@ -41,7 +41,7 @@ import javax.swing.text.*;
  */
 public interface DocumentEvent {
 
-    /**
+    /** {@collect.stats}
      * Returns the offset within the document of the start
      * of the change.
      *
@@ -49,28 +49,28 @@ public interface DocumentEvent {
      */
     public int getOffset();
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the change.
      *
      * @return the length >= 0
      */
     public int getLength();
 
-    /**
+    /** {@collect.stats}
      * Gets the document that sourced the change event.
      *
      * @return the document
      */
     public Document getDocument();
 
-    /**
+    /** {@collect.stats}
      * Gets the type of event.
      *
      * @return the type
      */
     public EventType getType();
 
-    /**
+    /** {@collect.stats}
      * Gets the change information for the given element.
      * The change information describes what elements were
      * added and removed and the location.  If there were
@@ -101,7 +101,7 @@ public interface DocumentEvent {
      */
     public ElementChange getChange(Element elem);
 
-    /**
+    /** {@collect.stats}
      * Enumeration for document event types
      */
     public static final class EventType {
@@ -110,22 +110,22 @@ public interface DocumentEvent {
             typeString = s;
         }
 
-        /**
+        /** {@collect.stats}
          * Insert type.
          */
         public static final EventType INSERT = new EventType("INSERT");
 
-        /**
+        /** {@collect.stats}
          * Remove type.
          */
         public static final EventType REMOVE = new EventType("REMOVE");
 
-        /**
+        /** {@collect.stats}
          * Change type.
          */
         public static final EventType CHANGE = new EventType("CHANGE");
 
-        /**
+        /** {@collect.stats}
          * Converts the type to a string.
          *
          * @return the string
@@ -137,12 +137,12 @@ public interface DocumentEvent {
         private String typeString;
     }
 
-    /**
+    /** {@collect.stats}
      * Describes changes made to a specific element.
      */
     public interface ElementChange {
 
-        /**
+        /** {@collect.stats}
          * Returns the element represented.  This is the element
          * that was changed.
          *
@@ -150,7 +150,7 @@ public interface DocumentEvent {
          */
         public Element getElement();
 
-        /**
+        /** {@collect.stats}
          * Fetches the index within the element represented.
          * This is the location that children were added
          * and/or removed.
@@ -159,7 +159,7 @@ public interface DocumentEvent {
          */
         public int getIndex();
 
-        /**
+        /** {@collect.stats}
          * Gets the child elements that were removed from the
          * given parent element.  The element array returned is
          * sorted in the order that the elements used to lie in
@@ -169,7 +169,7 @@ public interface DocumentEvent {
          */
         public Element[] getChildrenRemoved();
 
-        /**
+        /** {@collect.stats}
          * Gets the child elements that were added to the given
          * parent element.  The element array returned is in the
          * order that the elements lie in the document, and must

@@ -37,7 +37,7 @@ package java.util.concurrent;
 import java.util.concurrent.locks.*;
 import java.util.concurrent.atomic.*;
 
-/**
+/** {@collect.stats}
  * A synchronization aid that allows one or more threads to wait until
  * a set of operations being performed in other threads completes.
  *
@@ -158,7 +158,7 @@ import java.util.concurrent.atomic.*;
  * @author Doug Lea
  */
 public class CountDownLatch {
-    /**
+    /** {@collect.stats}
      * Synchronization control For CountDownLatch.
      * Uses AQS state to represent count.
      */
@@ -192,7 +192,7 @@ public class CountDownLatch {
 
     private final Sync sync;
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code CountDownLatch} initialized with the given count.
      *
      * @param count the number of times {@link #countDown} must be invoked
@@ -204,7 +204,7 @@ public class CountDownLatch {
         this.sync = new Sync(count);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until the latch has counted down to
      * zero, unless the thread is {@linkplain Thread#interrupt interrupted}.
      *
@@ -235,7 +235,7 @@ public class CountDownLatch {
         sync.acquireSharedInterruptibly(1);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until the latch has counted down to
      * zero, unless the thread is {@linkplain Thread#interrupt interrupted},
      * or the specified waiting time elapses.
@@ -281,7 +281,7 @@ public class CountDownLatch {
         return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));
     }
 
-    /**
+    /** {@collect.stats}
      * Decrements the count of the latch, releasing all waiting threads if
      * the count reaches zero.
      *
@@ -295,7 +295,7 @@ public class CountDownLatch {
         sync.releaseShared(1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current count.
      *
      * <p>This method is typically used for debugging and testing purposes.
@@ -306,7 +306,7 @@ public class CountDownLatch {
         return sync.getCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string identifying this latch, as well as its state.
      * The state, in brackets, includes the String {@code "Count ="}
      * followed by the current count.

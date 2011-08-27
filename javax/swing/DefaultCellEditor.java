@@ -34,7 +34,7 @@ import java.util.EventObject;
 import javax.swing.tree.*;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * The default editor for table and tree cells.
  * <p>
  * <strong>Warning:</strong>
@@ -57,14 +57,14 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  Instance Variables
 //
 
-    /** The Swing component being edited. */
+    /** {@collect.stats} The Swing component being edited. */
     protected JComponent editorComponent;
-    /**
+    /** {@collect.stats}
      * The delegate class which handles all methods sent from the
      * <code>CellEditor</code>.
      */
     protected EditorDelegate delegate;
-    /**
+    /** {@collect.stats}
      * An integer specifying the number of clicks needed to start editing.
      * Even if <code>clickCountToStart</code> is defined as zero, it
      * will not initiate until a click occurs.
@@ -75,7 +75,7 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  Constructors
 //
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DefaultCellEditor</code> that uses a text field.
      *
      * @param textField  a <code>JTextField</code> object
@@ -95,7 +95,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         textField.addActionListener(delegate);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DefaultCellEditor</code> object that uses a check box.
      *
      * @param checkBox  a <code>JCheckBox</code> object
@@ -122,7 +122,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         checkBox.setRequestFocusEnabled(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DefaultCellEditor</code> object that uses a
      * combo box.
      *
@@ -159,7 +159,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         comboBox.addActionListener(delegate);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the editor component.
      *
      * @return the editor <code>Component</code>
@@ -172,7 +172,7 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  Modifying
 //
 
-    /**
+    /** {@collect.stats}
      * Specifies the number of clicks needed to start editing.
      *
      * @param count  an int specifying the number of clicks needed to start editing
@@ -182,7 +182,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         clickCountToStart = count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of clicks needed to start editing.
      * @return the number of clicks needed to start editing
      */
@@ -195,7 +195,7 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  from the CellEditor interface to our delegate.
 //
 
-    /**
+    /** {@collect.stats}
      * Forwards the message from the <code>CellEditor</code> to
      * the <code>delegate</code>.
      * @see EditorDelegate#getCellEditorValue
@@ -204,7 +204,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         return delegate.getCellEditorValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the message from the <code>CellEditor</code> to
      * the <code>delegate</code>.
      * @see EditorDelegate#isCellEditable(EventObject)
@@ -213,7 +213,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         return delegate.isCellEditable(anEvent);
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the message from the <code>CellEditor</code> to
      * the <code>delegate</code>.
      * @see EditorDelegate#shouldSelectCell(EventObject)
@@ -222,7 +222,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         return delegate.shouldSelectCell(anEvent);
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the message from the <code>CellEditor</code> to
      * the <code>delegate</code>.
      * @see EditorDelegate#stopCellEditing
@@ -231,7 +231,7 @@ public class DefaultCellEditor extends AbstractCellEditor
         return delegate.stopCellEditing();
     }
 
-    /**
+    /** {@collect.stats}
      * Forwards the message from the <code>CellEditor</code> to
      * the <code>delegate</code>.
      * @see EditorDelegate#cancelCellEditing
@@ -244,7 +244,7 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  Implementing the TreeCellEditor Interface
 //
 
-    /** Implements the <code>TreeCellEditor</code> interface. */
+    /** {@collect.stats} Implements the <code>TreeCellEditor</code> interface. */
     public Component getTreeCellEditorComponent(JTree tree, Object value,
                                                 boolean isSelected,
                                                 boolean expanded,
@@ -259,7 +259,7 @@ public class DefaultCellEditor extends AbstractCellEditor
 //
 //  Implementing the CellEditor Interface
 //
-    /** Implements the <code>TableCellEditor</code> interface. */
+    /** {@collect.stats} Implements the <code>TableCellEditor</code> interface. */
     public Component getTableCellEditorComponent(JTable table, Object value,
                                                  boolean isSelected,
                                                  int row, int column) {
@@ -292,15 +292,15 @@ public class DefaultCellEditor extends AbstractCellEditor
 //  Protected EditorDelegate class
 //
 
-    /**
+    /** {@collect.stats}
      * The protected <code>EditorDelegate</code> class.
      */
     protected class EditorDelegate implements ActionListener, ItemListener, Serializable {
 
-        /**  The value of this cell. */
+        /** {@collect.stats}  The value of this cell. */
         protected Object value;
 
-       /**
+       /** {@collect.stats}
         * Returns the value of this cell.
         * @return the value of this cell
         */
@@ -308,7 +308,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             return value;
         }
 
-       /**
+       /** {@collect.stats}
         * Sets the value of this cell.
         * @param value the new value of this cell
         */
@@ -316,7 +316,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             this.value = value;
         }
 
-       /**
+       /** {@collect.stats}
         * Returns true if <code>anEvent</code> is <b>not</b> a
         * <code>MouseEvent</code>.  Otherwise, it returns true
         * if the necessary number of clicks have occurred, and
@@ -334,7 +334,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             return true;
         }
 
-       /**
+       /** {@collect.stats}
         * Returns true to indicate that the editing cell may
         * be selected.
         *
@@ -346,7 +346,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             return true;
         }
 
-       /**
+       /** {@collect.stats}
         * Returns true to indicate that editing has begun.
         *
         * @param anEvent          the event
@@ -355,7 +355,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             return true;
         }
 
-       /**
+       /** {@collect.stats}
         * Stops editing and
         * returns true to indicate that editing has stopped.
         * This method calls <code>fireEditingStopped</code>.
@@ -367,14 +367,14 @@ public class DefaultCellEditor extends AbstractCellEditor
             return true;
         }
 
-       /**
+       /** {@collect.stats}
         * Cancels editing.  This method calls <code>fireEditingCanceled</code>.
         */
        public void cancelCellEditing() {
            fireEditingCanceled();
        }
 
-       /**
+       /** {@collect.stats}
         * When an action is performed, editing is ended.
         * @param e the action event
         * @see #stopCellEditing
@@ -383,7 +383,7 @@ public class DefaultCellEditor extends AbstractCellEditor
             DefaultCellEditor.this.stopCellEditing();
         }
 
-       /**
+       /** {@collect.stats}
         * When an item's state changes, editing is ended.
         * @param e the action event
         * @see #stopCellEditing

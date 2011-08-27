@@ -42,7 +42,7 @@ import java.util.TooManyListenersException;
 
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * <p>
  * This helper class provides a utility implementation of the
  * java.beans.beancontext.BeanContextServices interface.
@@ -61,7 +61,7 @@ import java.util.Locale;
 public class      BeanContextServicesSupport extends BeanContextSupport
        implements BeanContextServices {
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Construct a BeanContextServicesSupport instance
      * </p>
@@ -77,7 +77,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         super(peer, lcle, dTime, visible);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an instance using the specified Locale and design mode.
      *
      * @param peer      The peer BeanContext we are supplying an implementation for, if null the this object is its own peer
@@ -89,7 +89,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         this (peer, lcle, dtime, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an instance using the specified locale
      *
      * @param peer      The peer BeanContext we are supplying an implementation for, if null the this object is its own peer
@@ -100,7 +100,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         this (peer, lcle, false, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an instance with a peer
      *
      * @param peer      The peer BeanContext we are supplying an implementation for, if null the this object is its own peer
@@ -110,7 +110,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         this (peer, null, false, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Create an instance that is not a delegate of another object
      */
 
@@ -118,7 +118,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         this (null, null, false, true);
     }
 
-    /**
+    /** {@collect.stats}
      * called by BeanContextSupport superclass during construction and
      * deserialization to initialize subclass transient state.
      *
@@ -133,7 +133,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         bcsListeners = new ArrayList(1);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <tt>BeanContextServices</tt> associated with this
      * <tt>BeanContextServicesSupport</tt>.
      *
@@ -144,7 +144,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return (BeanContextServices)getBeanContextChildPeer();
     }
 
-    /************************************************************************/
+    /** {@collect.stats}**********************************************************************/
 
     /*
      * protected nested class containing per child information, an instance
@@ -571,7 +571,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         private transient HashMap       serviceRequestors;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>
      * Subclasses can override this method to insert their own subclass
      * of Child without having to override add() or the other Collection
@@ -586,9 +586,9 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return new BCSSChild(targetChild, peer);
     }
 
-    /************************************************************************/
+    /** {@collect.stats}**********************************************************************/
 
-        /**
+        /** {@collect.stats}
          * subclasses may subclass this nested class to add behaviors for
          * each BeanContextServicesProvider.
          */
@@ -612,7 +612,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
             protected BeanContextServiceProvider serviceProvider;
         }
 
-        /**
+        /** {@collect.stats}
          * subclasses can override this method to create new subclasses of
          * BCSSServiceProvider without having to overrride addService() in
          * order to instantiate.
@@ -622,9 +622,9 @@ public class      BeanContextServicesSupport extends BeanContextSupport
             return new BCSSServiceProvider(sc, bcsp);
         }
 
-    /************************************************************************/
+    /** {@collect.stats}**********************************************************************/
 
-    /**
+    /** {@collect.stats}
      * add a BeanContextServicesListener
      *
      * @throws NullPointerException
@@ -641,7 +641,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * remove a BeanContextServicesListener
      */
 
@@ -656,7 +656,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * add a service
      */
 
@@ -664,7 +664,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return addService(serviceClass, bcsp, true);
     }
 
-    /**
+    /** {@collect.stats}
      * add a service
      */
 
@@ -705,7 +705,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * remove a service
      */
 
@@ -736,7 +736,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * has a service, which may be delegated
      */
 
@@ -758,7 +758,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /************************************************************************/
+    /** {@collect.stats}**********************************************************************/
 
     /*
      * a nested subclass used to represent a proxy for serviceClasses delegated
@@ -808,9 +808,9 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         private BeanContextServices nestingCtxt;
     }
 
-    /************************************************************************/
+    /** {@collect.stats}**********************************************************************/
 
-    /**
+    /** {@collect.stats}
      * obtain a service which may be delegated
      */
 
@@ -875,7 +875,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * release a service
      */
 
@@ -896,7 +896,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * @return an iterator for all the currently registered service classes.
      */
 
@@ -904,7 +904,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return new BCSIterator(services.keySet().iterator());
     }
 
-    /**
+    /** {@collect.stats}
      * @return an iterator for all the currently available service selectors
      * (if any) available for the specified service.
      */
@@ -916,7 +916,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         return bcsssp != null ? new BCSIterator(bcsssp.getServiceProvider().getCurrentServiceSelectors(getBeanContextServicesPeer(), serviceClass)) : null;
     }
 
-    /**
+    /** {@collect.stats}
      * BeanContextServicesListener callback, propagates event to all
      * currently registered listeners and BeanContextServices children,
      * if this BeanContextService does not already implement this service
@@ -948,7 +948,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
      }
 
-    /**
+    /** {@collect.stats}
      * BeanContextServicesListener callback, propagates event to all
      * currently registered listeners and BeanContextServices children,
      * if this BeanContextService does not already implement this service
@@ -980,7 +980,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <tt>BeanContextServicesListener</tt> (if any) of the specified
      * child.
      *
@@ -995,7 +995,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * called from superclass child removal operations after a child
      * has been successfully removed. called with child synchronized.
      *
@@ -1012,7 +1012,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         bcssc.cleanupReferences();
     }
 
-    /**
+    /** {@collect.stats}
      * called from setBeanContext to notify a BeanContextChild
      * to release resources obtained from the nesting BeanContext.
      *
@@ -1040,7 +1040,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         proxy = null;
     }
 
-    /**
+    /** {@collect.stats}
      * called from setBeanContext to notify a BeanContextChild
      * to allocate resources obtained from the nesting BeanContext.
      *
@@ -1063,7 +1063,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fires a <tt>BeanContextServiceEvent</tt> notifying of a new service.
      */
     protected final void fireServiceAdded(Class serviceClass) {
@@ -1072,7 +1072,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         fireServiceAdded(bcssae);
     }
 
-    /**
+    /** {@collect.stats}
      * Fires a <tt>BeanContextServiceAvailableEvent</tt> indicating that a new
      * service has become available.
      *
@@ -1088,7 +1088,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fires a <tt>BeanContextServiceEvent</tt> notifying of a service being revoked.
      *
      * @param bcsre the <tt>BeanContextServiceRevokedEvent</tt>
@@ -1103,7 +1103,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fires a <tt>BeanContextServiceRevokedEvent</tt>
      * indicating that a particular service is
      * no longer available.
@@ -1119,7 +1119,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
    }
 
-    /**
+    /** {@collect.stats}
      * called from BeanContextSupport writeObject before it serializes the
      * children ...
      *
@@ -1161,7 +1161,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
             throw new IOException("wrote different number of service providers than expected");
     }
 
-    /**
+    /** {@collect.stats}
      * called from BeanContextSupport readObject before it deserializes the
      * children ...
      *
@@ -1185,7 +1185,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * serialize the instance
      */
 
@@ -1195,7 +1195,7 @@ public class      BeanContextServicesSupport extends BeanContextSupport
         serialize(oos, (Collection)bcsListeners);
     }
 
-    /**
+    /** {@collect.stats}
      * deserialize the instance
      */
 
@@ -1211,25 +1211,25 @@ public class      BeanContextServicesSupport extends BeanContextSupport
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * all accesses to the <code> protected transient HashMap services </code>
      * field should be synchronized on that object
      */
     protected transient HashMap                  services;
 
-    /**
+    /** {@collect.stats}
      * The number of instances of a serializable <tt>BeanContextServceProvider</tt>.
      */
     protected transient int                      serializable = 0;
 
 
-    /**
+    /** {@collect.stats}
      * Delegate for the <tt>BeanContextServiceProvider</tt>.
      */
     protected transient BCSSProxyServiceProvider proxy;
 
 
-    /**
+    /** {@collect.stats}
      * List of <tt>BeanContextServicesListener</tt> objects.
      */
     protected transient ArrayList                bcsListeners;

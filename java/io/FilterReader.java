@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Abstract class for reading filtered character streams.
  * The abstract class <code>FilterReader</code> itself
  * provides default methods that pass all requests to
@@ -40,12 +40,12 @@ package java.io;
 
 public abstract class FilterReader extends Reader {
 
-    /**
+    /** {@collect.stats}
      * The underlying character-input stream.
      */
     protected Reader in;
 
-    /**
+    /** {@collect.stats}
      * Creates a new filtered reader.
      *
      * @param in  a Reader object providing the underlying stream.
@@ -56,7 +56,7 @@ public abstract class FilterReader extends Reader {
         this.in = in;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single character.
      *
      * @exception  IOException  If an I/O error occurs
@@ -65,7 +65,7 @@ public abstract class FilterReader extends Reader {
         return in.read();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads characters into a portion of an array.
      *
      * @exception  IOException  If an I/O error occurs
@@ -74,7 +74,7 @@ public abstract class FilterReader extends Reader {
         return in.read(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Skips characters.
      *
      * @exception  IOException  If an I/O error occurs
@@ -83,7 +83,7 @@ public abstract class FilterReader extends Reader {
         return in.skip(n);
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream is ready to be read.
      *
      * @exception  IOException  If an I/O error occurs
@@ -92,14 +92,14 @@ public abstract class FilterReader extends Reader {
         return in.ready();
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream supports the mark() operation.
      */
     public boolean markSupported() {
         return in.markSupported();
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the present position in the stream.
      *
      * @exception  IOException  If an I/O error occurs
@@ -108,7 +108,7 @@ public abstract class FilterReader extends Reader {
         in.mark(readAheadLimit);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the stream.
      *
      * @exception  IOException  If an I/O error occurs

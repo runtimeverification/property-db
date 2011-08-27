@@ -44,7 +44,7 @@ import java.awt.image.SampleModel;
 import java.awt.image.WritableRaster;
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
  * A class that allows the format of an image (in particular, its
  * <code>SampleModel</code> and <code>ColorModel</code>) to be
  * specified in a convenient manner.
@@ -52,17 +52,17 @@ import java.util.Hashtable;
  */
 public class ImageTypeSpecifier {
 
-    /**
+    /** {@collect.stats}
      * The <code>ColorModel</code> to be used as a prototype.
      */
     protected ColorModel colorModel;
 
-    /**
+    /** {@collect.stats}
      * A <code>SampleModel</code> to be used as a prototype.
      */
     protected SampleModel sampleModel;
 
-    /**
+    /** {@collect.stats}
      * Cached specifiers for all of the standard
      * <code>BufferedImage</code> types.
      */
@@ -189,12 +189,12 @@ public class ImageTypeSpecifier {
                           DataBuffer.TYPE_BYTE);
     }
 
-    /**
+    /** {@collect.stats}
      * A constructor to be used by inner subclasses only.
      */
     private ImageTypeSpecifier() {}
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageTypeSpecifier</code> directly
      * from a <code>ColorModel</code> and a <code>SampleModel</code>.
      * It is the caller's responsibility to supply compatible
@@ -223,7 +223,7 @@ public class ImageTypeSpecifier {
         this.sampleModel = sampleModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageTypeSpecifier</code> from a
      * <code>RenderedImage</code>.  If a <code>BufferedImage</code> is
      * being used, one of the factory methods
@@ -299,7 +299,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for a packed image format that will use a
      * <code>DirectColorModel</code> and a packed
      * <code>SampleModel</code> to store each pixel packed into in a
@@ -474,7 +474,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for an interleaved image format that will
      * use a <code>ComponentColorModel</code> and a
      * <code>PixelInterleavedSampleModel</code> to store each pixel
@@ -626,7 +626,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for a banded image format that will use a
      * <code>ComponentColorModel</code> and a
      * <code>BandedSampleModel</code> to store each channel in a
@@ -768,7 +768,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for a grayscale image format that will pack
      * pixels of the given bit depth into array elements of
      * the specified data type.
@@ -802,7 +802,7 @@ public class ImageTypeSpecifier {
                                                 false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for a grayscale plus alpha image format
      * that will pack pixels of the given bit depth into array
      * elements of the specified data type.
@@ -922,7 +922,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a specifier for an indexed-color image format that will pack
      * index values of the given bit depth into array elements of
      * the specified data type.
@@ -977,7 +977,7 @@ public class ImageTypeSpecifier {
                                               dataType);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageTypeSpecifier</code> that encodes
      * one of the standard <code>BufferedImage</code> types
      * (other than <code>TYPE_CUSTOM</code>).
@@ -1019,7 +1019,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>ImageTypeSpecifier</code> that encodes the
      * layout of a <code>RenderedImage</code> (which may be a
      * <code>BufferedImage</code>).
@@ -1048,7 +1048,7 @@ public class ImageTypeSpecifier {
         return new ImageTypeSpecifier(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an int containing one of the enumerated constant values
      * describing image formats from <code>BufferedImage</code>.
      *
@@ -1076,7 +1076,7 @@ public class ImageTypeSpecifier {
         return bi.getType();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the number of color components
      * specified by this object.  This is the same value as returned by
      * <code>ColorModel.getNumComponents</code>
@@ -1087,7 +1087,7 @@ public class ImageTypeSpecifier {
         return colorModel.getNumComponents();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the number of bands
      * specified by this object.  This is the same value as returned by
      * <code>SampleModel.getNumBands</code>
@@ -1098,7 +1098,7 @@ public class ImageTypeSpecifier {
         return sampleModel.getNumBands();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the number of bits used to represent samples of the given band.
      *
      * @param band the index of the band to be queried, as an
@@ -1116,7 +1116,7 @@ public class ImageTypeSpecifier {
         return sampleModel.getSampleSize(band);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SampleModel</code> based on the settings
      * encapsulated within this object.  The width and height of the
      * <code>SampleModel</code> will be set to arbitrary values.
@@ -1127,7 +1127,7 @@ public class ImageTypeSpecifier {
         return sampleModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>SampleModel</code> based on the settings
      * encapsulated within this object.  The width and height of the
      * <code>SampleModel</code> will be set to the supplied values.
@@ -1152,7 +1152,7 @@ public class ImageTypeSpecifier {
         return sampleModel.createCompatibleSampleModel(width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ColorModel</code> specified by this object.
      *
      * @return a <code>ColorModel</code>.
@@ -1161,7 +1161,7 @@ public class ImageTypeSpecifier {
         return colorModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>BufferedImage</code> with a given width and
      * height according to the specification embodied in this object.
      *
@@ -1196,7 +1196,7 @@ public class ImageTypeSpecifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the given <code>Object</code> is
      * an <code>ImageTypeSpecifier</code> and has a
      * <code>SampleModel</code> and <code>ColorModel</code> that are
@@ -1217,7 +1217,7 @@ public class ImageTypeSpecifier {
             (sampleModel.equals(that.sampleModel));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code for this ImageTypeSpecifier.
      *
      * @return a hash code for this ImageTypeSpecifier

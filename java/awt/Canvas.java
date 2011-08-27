@@ -27,7 +27,7 @@ package java.awt;
 import java.awt.image.BufferStrategy;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A <code>Canvas</code> component represents a blank rectangular
  * area of the screen onto which the application can draw or from
  * which the application can trap input events from the user.
@@ -50,13 +50,13 @@ public class Canvas extends Component implements Accessible {
      */
      private static final long serialVersionUID = -2284879212465893870L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new Canvas.
      */
     public Canvas() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new Canvas given a GraphicsConfiguration object.
      *
      * @param config a reference to a GraphicsConfiguration object.
@@ -68,7 +68,7 @@ public class Canvas extends Component implements Accessible {
         graphicsConfig = config;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this component.  Called by getName() when the
      * name is null.
      */
@@ -78,7 +78,7 @@ public class Canvas extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the peer of the canvas.  This peer allows you to change the
      * user interface of the canvas without changing its functionality.
      * @see     java.awt.Toolkit#createCanvas(java.awt.Canvas)
@@ -92,7 +92,7 @@ public class Canvas extends Component implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Paints this canvas.
      * <p>
      * Most applications that subclass <code>Canvas</code> should
@@ -110,7 +110,7 @@ public class Canvas extends Component implements Accessible {
         g.clearRect(0, 0, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates this canvas.
      * <p>
      * This method is called in response to a call to <code>repaint</code>.
@@ -134,7 +134,7 @@ public class Canvas extends Component implements Accessible {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new strategy for multi-buffering on this component.
      * Multi-buffering is useful for rendering performance.  This method
      * attempts to create the best strategy available with the number of
@@ -157,7 +157,7 @@ public class Canvas extends Component implements Accessible {
         super.createBufferStrategy(numBuffers);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new strategy for multi-buffering on this component with the
      * required buffer capabilities.  This is useful, for example, if only
      * accelerated memory or page flipping is desired (as specified by the
@@ -182,7 +182,7 @@ public class Canvas extends Component implements Accessible {
         super.createBufferStrategy(numBuffers, caps);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>BufferStrategy</code> used by this component.  This
      * method will return null if a <code>BufferStrategy</code> has not yet
      * been created or has been disposed.
@@ -200,7 +200,7 @@ public class Canvas extends Component implements Accessible {
      *
      */
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this Canvas.
      * For canvases, the AccessibleContext takes the form of an
      * AccessibleAWTCanvas.
@@ -217,7 +217,7 @@ public class Canvas extends Component implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Canvas</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to canvas user-interface elements.
@@ -227,7 +227,7 @@ public class Canvas extends Component implements Accessible {
     {
         private static final long serialVersionUID = -6325592262103146699L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

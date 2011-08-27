@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/**
+/** {@collect.stats}
  * An <code>ExportException</code> is a <code>RemoteException</code>
  * thrown if an attempt to export a remote object fails.  A remote object is
  * exported via the constructors and <code>exportObject</code> methods of
@@ -42,7 +42,7 @@ public class ExportException extends java.rmi.RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -9155485338494060170L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ExportException</code> with the specified
      * detail message.
      *
@@ -53,7 +53,7 @@ public class ExportException extends java.rmi.RemoteException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ExportException</code> with the specified
      * detail message and nested exception.
      *

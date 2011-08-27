@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A utility class to iterate over the path segments of an rounded rectangle
  * through the PathIterator interface.
  *
@@ -52,7 +52,7 @@ class RoundRectIterator implements PathIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the winding rule for determining the insideness of the
      * path.
      * @see #WIND_EVEN_ODD
@@ -62,7 +62,7 @@ class RoundRectIterator implements PathIterator {
         return WIND_NON_ZERO;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if there are more points to read.
      * @return true if there are more points to read
      */
@@ -70,7 +70,7 @@ class RoundRectIterator implements PathIterator {
         return index >= ctrlpts.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -119,7 +119,7 @@ class RoundRectIterator implements PathIterator {
         SEG_CLOSE,
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -153,7 +153,7 @@ class RoundRectIterator implements PathIterator {
         return types[index];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

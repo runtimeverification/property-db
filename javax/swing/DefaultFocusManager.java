@@ -30,7 +30,7 @@ import java.awt.FocusTraversalPolicy;
 import java.util.Comparator;
 
 
-/**
+/** {@collect.stats}
  * This class has been obsoleted by the 1.4 focus APIs. While client code may
  * still use this class, developers are strongly encouraged to use
  * <code>java.awt.KeyboardFocusManager</code> and

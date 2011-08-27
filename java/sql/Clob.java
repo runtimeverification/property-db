@@ -27,7 +27,7 @@ package java.sql;
 
 import java.io.Reader;
 
-/**
+/** {@collect.stats}
  * The mapping in the Java<sup><font size=-2>TM</font></sup> programming language
  * for the SQL <code>CLOB</code> type.
  * An SQL <code>CLOB</code> is a built-in type
@@ -57,7 +57,7 @@ import java.io.Reader;
 
 public interface Clob {
 
-  /**
+  /** {@collect.stats}
    * Retrieves the number of characters
    * in the <code>CLOB</code> value
    * designated by this <code>Clob</code> object.
@@ -71,7 +71,7 @@ public interface Clob {
    */
   long length() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves a copy of the specified substring
    * in the <code>CLOB</code> value
    * designated by this <code>Clob</code> object.
@@ -94,7 +94,7 @@ public interface Clob {
    */
   String getSubString(long pos, int length) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves the <code>CLOB</code> value designated by this <code>Clob</code>
    * object as a <code>java.io.Reader</code> object (or as a stream of
    * characters).
@@ -110,7 +110,7 @@ public interface Clob {
    */
   java.io.Reader getCharacterStream() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves the <code>CLOB</code> value designated by this <code>Clob</code>
    * object as an ascii stream.
    *
@@ -125,7 +125,7 @@ public interface Clob {
    */
   java.io.InputStream getAsciiStream() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves the character position at which the specified substring
    * <code>searchstr</code> appears in the SQL <code>CLOB</code> value
    * represented by this <code>Clob</code> object.  The search
@@ -144,7 +144,7 @@ public interface Clob {
    */
   long position(String searchstr, long start) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves the character position at which the specified
    * <code>Clob</code> object <code>searchstr</code> appears in this
    * <code>Clob</code> object.  The search begins at position
@@ -165,7 +165,7 @@ public interface Clob {
 
     //---------------------------- jdbc 3.0 -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Writes the given Java <code>String</code> to the <code>CLOB</code>
      * value that this <code>Clob</code> object designates at the position
      * <code>pos</code>. The string will overwrite the existing characters
@@ -195,7 +195,7 @@ public interface Clob {
      */
     int setString(long pos, String str) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> characters of <code>str</code>, starting
      * at character <code>offset</code>, to the <code>CLOB</code> value
      * that this <code>Clob</code> represents.  The string will overwrite the existing characters
@@ -227,7 +227,7 @@ public interface Clob {
      */
     int setString(long pos, String str, int offset, int len) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a stream to be used to write Ascii characters to the
      * <code>CLOB</code> value that this <code>Clob</code> object represents,
      * starting at position <code>pos</code>.  Characters written to the stream
@@ -256,7 +256,7 @@ public interface Clob {
      */
     java.io.OutputStream setAsciiStream(long pos) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a stream to be used to write a stream of Unicode characters
      * to the <code>CLOB</code> value that this <code>Clob</code> object
      * represents, at position <code>pos</code>. Characters written to the stream
@@ -286,7 +286,7 @@ public interface Clob {
      */
     java.io.Writer setCharacterStream(long pos) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Truncates the <code>CLOB</code> value that this <code>Clob</code>
      * designates to have a length of <code>len</code>
      * characters.
@@ -308,7 +308,7 @@ public interface Clob {
      */
     void truncate(long len) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * This method frees the <code>Clob</code> object and releases the resources the resources
      * that it holds.  The object is invalid once the <code>free</code> method
      * is called.
@@ -327,7 +327,7 @@ public interface Clob {
      */
     void free() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Reader</code> object that contains a partial <code>Clob</code> value, starting
      * with the character specified by pos, which is length characters in length.
      *

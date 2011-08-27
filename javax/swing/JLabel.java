@@ -44,7 +44,7 @@ import javax.swing.plaf.basic.*;
 import java.util.*;
 
 
-/**
+/** {@collect.stats}
  * A display area for a short text string or an image,
  * or both.
  * A label does not react to input events.
@@ -105,7 +105,7 @@ import java.util.*;
  */
 public class JLabel extends JComponent implements SwingConstants, Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -127,7 +127,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
 
     protected Component labelFor = null;
 
-    /**
+    /** {@collect.stats}
      * Client property key used to determine what label is labeling the
      * component.  This is generally not used by labels, but is instead
      * used by components such as text areas that are being labeled by
@@ -139,7 +139,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
      */
     static final String LABELED_BY_PROPERTY = "labeledBy";
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with the specified
      * text, image, and horizontal alignment.
      * The label is centered vertically in its display area.
@@ -163,7 +163,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         setAlignmentX(LEFT_ALIGNMENT);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with the specified
      * text and horizontal alignment.
      * The label is centered vertically in its display area.
@@ -181,7 +181,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         this(text, null, horizontalAlignment);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with the specified text.
      * The label is aligned against the leading edge of its display area,
      * and centered vertically.
@@ -192,7 +192,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         this(text, null, LEADING);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with the specified
      * image and horizontal alignment.
      * The label is centered vertically in its display area.
@@ -210,7 +210,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         this(null, image, horizontalAlignment);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with the specified image.
      * The label is centered vertically and horizontally
      * in its display area.
@@ -221,7 +221,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         this(null, image, CENTER);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JLabel</code> instance with
      * no image and with an empty string for the title.
      * The label is centered vertically
@@ -234,7 +234,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the L&F object that renders this component.
      *
      * @return LabelUI object
@@ -244,7 +244,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the L&F object that renders this component.
      *
      * @param ui  the LabelUI L&F object
@@ -264,7 +264,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -274,7 +274,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the l&f class
      * that renders this component.
      *
@@ -288,7 +288,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the text string that the label displays.
      *
      * @return a String
@@ -299,7 +299,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Defines the single line of text this component will display.  If
      * the value of text is null or empty string, nothing is displayed.
      * <p>
@@ -345,7 +345,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the graphic image (glyph, icon) that the label displays.
      *
      * @return an Icon
@@ -355,7 +355,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return defaultIcon;
     }
 
-    /**
+    /** {@collect.stats}
      * Defines the icon this component will display.  If
      * the value of icon is null, nothing is displayed.
      * <p>
@@ -409,7 +409,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the icon used by the label when it's disabled.
      * If no disabled icon has been set this will forward the call to
      * the look and feel to construct an appropriate disabled Icon.
@@ -433,7 +433,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the icon to be displayed if this JLabel is "disabled"
      * (JLabel.setEnabled(false)).
      * <p>
@@ -465,7 +465,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specify a keycode that indicates a mnemonic key.
      * This property is used when the label is part of a larger component.
      * If the labelFor property of the label is not null, the label will
@@ -494,7 +494,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the displayedMnemonic as a char value.
      *
      * @param aChar  a char specifying the mnemonic to display
@@ -508,7 +508,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the keycode that indicates a mnemonic key.
      * This property is used when the label is part of a larger component.
      * If the labelFor property of the label is not null, the label will
@@ -524,7 +524,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return mnemonic;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint to the look and feel as to which character in the
      * text should be decorated to represent the mnemonic. Not all look and
      * feels may support this. A value of -1 indicates either there is no
@@ -571,7 +571,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character, as an index, that the look and feel should
      * provide decoration for as representing the mnemonic character.
      *
@@ -583,7 +583,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return mnemonicIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Verify that key is a legal value for the horizontalAlignment properties.
      *
      * @param key the property value to check
@@ -607,7 +607,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Verify that key is a legal value for the
      * verticalAlignment or verticalTextPosition properties.
      *
@@ -627,7 +627,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space between the text and the icon
      * displayed in this label.
      *
@@ -640,7 +640,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * If both the icon and text properties are set, this property
      * defines the space between them.
      * <p>
@@ -667,7 +667,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment of the label's contents along the Y axis.
      *
      * @return   The value of the verticalAlignment property, one of the
@@ -684,7 +684,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the alignment of the label's contents along the Y axis.
      * <p>
      * The default value of this property is CENTER.
@@ -714,7 +714,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment of the label's contents along the X axis.
      *
      * @return   The value of the horizontalAlignment property, one of the
@@ -732,7 +732,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return horizontalAlignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the alignment of the label's contents along the X axis.
      * <p>
      * This is a JavaBeans bound property.
@@ -768,7 +768,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the vertical position of the label's text,
      * relative to its image.
      *
@@ -786,7 +786,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the vertical position of the label's text,
      * relative to its image.
      * <p>
@@ -822,7 +822,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal position of the label's text,
      * relative to its image.
      *
@@ -841,7 +841,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the horizontal position of the label's text,
      * relative to its image.
      *
@@ -878,7 +878,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * This is overridden to return false if the current Icon's Image is
      * not equal to the passed in Image <code>img</code>.
      *
@@ -899,7 +899,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * See readObject() and writeObject() in JComponent for more
      * information about serialization in Swing.
      */
@@ -915,7 +915,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JLabel. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -988,11 +988,11 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         ",verticalTextPosition=" + verticalTextPositionString;
     }
 
-    /**
+    /** {@collect.stats}
      * --- Accessibility Support ---
      */
 
-    /**
+    /** {@collect.stats}
      * Get the component this is labelling.
      *
      * @return the Component this is labelling.  Can be null if this
@@ -1008,7 +1008,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return labelFor;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the component this is labelling.  Can be null if this does not
      * label a Component.  If the displayedMnemonic property is set
      * and the labelFor property is also set, the label will
@@ -1038,7 +1038,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the AccessibleContext of this object
      *
      * @return the AccessibleContext of this object
@@ -1053,7 +1053,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * The class used to obtain the accessible role for this object.
      * <p>
      * <strong>Warning:</strong>
@@ -1068,7 +1068,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
     protected class AccessibleJLabel extends AccessibleJComponent
         implements AccessibleText, AccessibleExtendedComponent {
 
-        /**
+        /** {@collect.stats}
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -1090,7 +1090,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1101,7 +1101,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return AccessibleRole.LABEL;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleIcons associated with this object if one
          * or more exist.  Otherwise return null.
          * @since 1.3
@@ -1118,7 +1118,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleRelationSet associated with this object if one
          * exists.  Otherwise return null.
          * @see AccessibleRelation
@@ -1154,7 +1154,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Given a point in local coordinates, return the zero-based index
          * of the character under that Point.  If the point is invalid,
          * this method returns -1.
@@ -1180,7 +1180,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determine the bounding box of the character at the given
          * index into the string.  The bounds are returned in local
          * coordinates.  If the index is invalid an empty rectangle is
@@ -1212,7 +1212,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Return the number of characters (valid indicies)
          *
          * @return the number of characters
@@ -1230,7 +1230,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return accessibleContext.getAccessibleName().length();
         }
 
-        /**
+        /** {@collect.stats}
          * Return the zero-based offset of the caret.
          *
          * Note: That to the right of the caret will have the same index
@@ -1243,7 +1243,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String at a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,
@@ -1290,7 +1290,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String after a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,
@@ -1354,7 +1354,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String before a given index.
          *
          * @param part the AccessibleText.CHARACTER, AccessibleText.WORD,
@@ -1414,7 +1414,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Return the AttributeSet for a given character at a given index
          *
          * @param i the zero-based index into the text
@@ -1436,7 +1436,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the start offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1449,7 +1449,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1462,7 +1462,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the portion of the text that is selected.
          *
          * @return the String portion of the text that is selected
@@ -1533,7 +1533,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
 
         // ----- AccessibleExtendedComponent
 
-        /**
+        /** {@collect.stats}
          * Returns the AccessibleExtendedComponent
          *
          * @return the AccessibleExtendedComponent
@@ -1542,7 +1542,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the tool tip text
          *
          * @return the tool tip text, if supported, of the object;
@@ -1553,7 +1553,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return JLabel.this.getToolTipText();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the titled border text
          *
          * @return the titled border text, if supported, of the object;
@@ -1564,7 +1564,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
             return super.getTitledBorderText();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns key bindings associated with this object
          *
          * @return the key bindings, if supported, of the object;
@@ -1587,7 +1587,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
                 this.mnemonic = mnemonic;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns the number of key bindings for this object
              *
              * @return the zero-based number of key bindings for this object
@@ -1596,7 +1596,7 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
                 return 1;
             }
 
-            /**
+            /** {@collect.stats}
              * Returns a key binding for this object.  The value returned is an
              * java.lang.Object which must be cast to appropriate type depending
              * on the underlying implementation of the key.  For example, if the

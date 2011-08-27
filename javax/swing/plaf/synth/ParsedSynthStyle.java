@@ -29,7 +29,7 @@ import java.util.LinkedList;
 
 import sun.swing.plaf.synth.DefaultSynthStyle;
 
-/**
+/** {@collect.stats}
  * ParsedSynthStyle are the SynthStyle's that SynthParser creates.
  *
  * @author Scott Violet

@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * ChangedCharSetException as the name indicates is an exception
  * thrown when the charset is changed.
  *

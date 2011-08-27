@@ -30,7 +30,7 @@
 package java.math;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * Immutable objects which encapsulate the context settings which
  * describe certain rules for numerical operators, such as those
  * implemented by the {@link BigDecimal} class.
@@ -67,7 +67,7 @@ public final class MathContext implements Serializable {
     private static final long serialVersionUID = 5579720004786848255L;
 
     /* ----- Public Properties ----- */
-    /**
+    /** {@collect.stats}
      *  A {@code MathContext} object whose settings have the values
      *  required for unlimited precision arithmetic.
      *  The values of the settings are:
@@ -78,7 +78,7 @@ public final class MathContext implements Serializable {
     public static final MathContext UNLIMITED =
         new MathContext(0, RoundingMode.HALF_UP);
 
-    /**
+    /** {@collect.stats}
      *  A {@code MathContext} object with a precision setting
      *  matching the IEEE 754R Decimal32 format, 7 digits, and a
      *  rounding mode of {@link RoundingMode#HALF_EVEN HALF_EVEN}, the
@@ -87,7 +87,7 @@ public final class MathContext implements Serializable {
     public static final MathContext DECIMAL32 =
         new MathContext(7, RoundingMode.HALF_EVEN);
 
-    /**
+    /** {@collect.stats}
      *  A {@code MathContext} object with a precision setting
      *  matching the IEEE 754R Decimal64 format, 16 digits, and a
      *  rounding mode of {@link RoundingMode#HALF_EVEN HALF_EVEN}, the
@@ -96,7 +96,7 @@ public final class MathContext implements Serializable {
     public static final MathContext DECIMAL64 =
         new MathContext(16, RoundingMode.HALF_EVEN);
 
-    /**
+    /** {@collect.stats}
      *  A {@code MathContext} object with a precision setting
      *  matching the IEEE 754R Decimal128 format, 34 digits, and a
      *  rounding mode of {@link RoundingMode#HALF_EVEN HALF_EVEN}, the
@@ -106,7 +106,7 @@ public final class MathContext implements Serializable {
         new MathContext(34, RoundingMode.HALF_EVEN);
 
     /* ----- Shared Properties ----- */
-    /**
+    /** {@collect.stats}
      * The number of digits to be used for an operation.  A value of 0
      * indicates that unlimited precision (as many digits as are
      * required) will be used.  Note that leading zeros (in the
@@ -118,7 +118,7 @@ public final class MathContext implements Serializable {
      */
     final int precision;
 
-    /**
+    /** {@collect.stats}
      * The rounding algorithm to be used for an operation.
      *
      * @see RoundingMode
@@ -128,7 +128,7 @@ public final class MathContext implements Serializable {
 
     /* ----- Constructors ----- */
 
-    /**
+    /** {@collect.stats}
      * Constructs a new {@code MathContext} with the specified
      * precision and the {@link RoundingMode#HALF_UP HALF_UP} rounding
      * mode.
@@ -142,7 +142,7 @@ public final class MathContext implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new {@code MathContext} with a specified
      * precision and rounding mode.
      *
@@ -164,7 +164,7 @@ public final class MathContext implements Serializable {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new {@code MathContext} from a string.
      *
      * The string must be in the same format as that produced by the
@@ -205,7 +205,7 @@ public final class MathContext implements Serializable {
         precision = setPrecision;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code precision} setting.
      * This value is always non-negative.
      *
@@ -216,7 +216,7 @@ public final class MathContext implements Serializable {
         return precision;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the roundingMode setting.
      * This will be one of
      * {@link  RoundingMode#CEILING},
@@ -236,7 +236,7 @@ public final class MathContext implements Serializable {
         return roundingMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this {@code MathContext} with the specified
      * {@code Object} for equality.
      *
@@ -255,7 +255,7 @@ public final class MathContext implements Serializable {
             && mc.roundingMode == this.roundingMode; // no need for .equals()
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code for this {@code MathContext}.
      *
      * @return hash code for this {@code MathContext}
@@ -264,7 +264,7 @@ public final class MathContext implements Serializable {
         return this.precision + roundingMode.hashCode() * 59;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation of this {@code MathContext}.
      * The {@code String} returned represents the settings of the
      * {@code MathContext} object as two space-delimited words
@@ -303,7 +303,7 @@ public final class MathContext implements Serializable {
 
     // Private methods
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the {@code MathContext} instance from a stream (that is,
      * deserialize it).
      *

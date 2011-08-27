@@ -35,7 +35,7 @@ import java.util.Enumeration;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-/** A Permission to perform actions related to MBeanServers.
+/** {@collect.stats} A Permission to perform actions related to MBeanServers.
     The <em>name</em> of the permission specifies the operation requested
     or granted by the permission.  For a granted permission, it can be
     <code>*</code> to allow all of the MBeanServer operations specified below.
@@ -109,7 +109,7 @@ public class MBeanServerPermission extends BasicPermission {
      */
     transient int mask;
 
-    /** <p>Create a new MBeanServerPermission with the given name.</p>
+    /** {@collect.stats} <p>Create a new MBeanServerPermission with the given name.</p>
         <p>This constructor is equivalent to
         <code>MBeanServerPermission(name,null)</code>.</p>
         @param name the name of the granted permission.  It must
@@ -124,7 +124,7 @@ public class MBeanServerPermission extends BasicPermission {
         this(name, null);
     }
 
-    /** <p>Create a new MBeanServerPermission with the given name.</p>
+    /** {@collect.stats} <p>Create a new MBeanServerPermission with the given name.</p>
         @param name the name of the granted permission.  It must
         respect the constraints spelt out in the description of the
         {@link MBeanServerPermission} class.
@@ -253,7 +253,7 @@ public class MBeanServerPermission extends BasicPermission {
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Checks if this MBeanServerPermission object "implies" the specified
      * permission.</p>
      *
@@ -281,7 +281,7 @@ public class MBeanServerPermission extends BasicPermission {
         return ((this.mask & that.mask) == that.mask);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two MBeanServerPermission objects for equality. Checks that
      * <i>obj</i> is an MBeanServerPermission, and represents the same
      * list of allowable actions as this object.
@@ -306,7 +306,7 @@ public class MBeanServerPermission extends BasicPermission {
     }
 }
 
-/**
+/** {@collect.stats}
  * Class returned by {@link MBeanServerPermission#newPermissionCollection()}.
  *
  * @serial include
@@ -331,7 +331,7 @@ public class MBeanServerPermission extends BasicPermission {
  * optimized "implies" method.
  */
 class MBeanServerPermissionCollection extends PermissionCollection {
-    /** @serial Null if no permissions in collection, otherwise a
+    /** {@collect.stats} @serial Null if no permissions in collection, otherwise a
         single permission that is the union of all permissions that
         have been added.  */
     private MBeanServerPermission collectionPermission;

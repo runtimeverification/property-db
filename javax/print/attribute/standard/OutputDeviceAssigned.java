@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class OutputDeviceAssigned is a printing attribute class, a text attribute,
  * that identifies the output device to which the service has assigned this
  * job. If an output device implements an embedded Print Service instance, the
@@ -52,7 +52,7 @@ public final class OutputDeviceAssigned extends TextSyntax
 
     private static final long serialVersionUID = 5486733778854271081L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new output device assigned attribute with the given device
      * name and locale.
      *
@@ -71,7 +71,7 @@ public final class OutputDeviceAssigned extends TextSyntax
 
     // Exported operations inherited and overridden from class Object.
 
-    /**
+    /** {@collect.stats}
      * Returns whether this output device assigned attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -98,7 +98,7 @@ public final class OutputDeviceAssigned extends TextSyntax
                 object instanceof OutputDeviceAssigned);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public final class OutputDeviceAssigned extends TextSyntax
         return OutputDeviceAssigned.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

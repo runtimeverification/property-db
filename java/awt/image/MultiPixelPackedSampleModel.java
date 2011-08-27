@@ -35,7 +35,7 @@
 
 package java.awt.image;
 
-/**
+/** {@collect.stats}
  * The <code>MultiPixelPackedSampleModel</code> class represents
  * one-banded images and can pack multiple one-sample
  * pixels into one data element.  Pixels are not allowed to span data elements.
@@ -64,29 +64,29 @@ package java.awt.image;
 
 public class MultiPixelPackedSampleModel extends SampleModel
 {
-    /** The number of bits from one pixel to the next. */
+    /** {@collect.stats} The number of bits from one pixel to the next. */
     int pixelBitStride;
 
-    /** Bitmask that extracts the rightmost pixel of a data element. */
+    /** {@collect.stats} Bitmask that extracts the rightmost pixel of a data element. */
     int bitMask;
 
-    /**
+    /** {@collect.stats}
       * The number of pixels that fit in a data element.  Also used
       * as the number of bits per pixel.
       */
     int pixelsPerDataElement;
 
-    /** The size of a data element in bits. */
+    /** {@collect.stats} The size of a data element in bits. */
     int dataElementSize;
 
-    /** The bit offset into the data array where the first pixel begins.
+    /** {@collect.stats} The bit offset into the data array where the first pixel begins.
      */
     int dataBitOffset;
 
-    /** ScanlineStride of the data buffer described in data array elements. */
+    /** {@collect.stats} ScanlineStride of the data buffer described in data array elements. */
     int scanlineStride;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MultiPixelPackedSampleModel</code> with the
      * specified data type, width, height and number of bits per pixel.
      * @param dataType  the data type for storing samples
@@ -117,7 +117,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MultiPixelPackedSampleModel</code> with
      * specified data type, width, height, number of bits per pixel,
      * scanline stride and data bit offset.
@@ -166,7 +166,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>MultiPixelPackedSampleModel</code> with the
      * specified width and height.  The new
      * <code>MultiPixelPackedSampleModel</code> has the
@@ -186,7 +186,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
       return sampleModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DataBuffer</code> that corresponds to this
      * <code>MultiPixelPackedSampleModel</code>.  The
      * <code>DataBuffer</code> object's data type and size
@@ -213,7 +213,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return dataBuffer;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of data elements needed to transfer one pixel
      * via the {@link #getDataElements} and {@link #setDataElements}
      * methods.  For a <code>MultiPixelPackedSampleModel</code>, this is
@@ -224,7 +224,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of bits per sample for all bands.
      * @return the number of bits per sample.
      */
@@ -233,7 +233,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return sampleSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of bits per sample for the specified band.
      * @param band the specified band
      * @return the number of bits per sample for the specified band.
@@ -242,7 +242,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return pixelBitStride;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset of pixel (x,&nbsp;y) in data array elements.
      * @param x the X coordinate of the specified pixel
      * @param y the Y coordinate of the specified pixel
@@ -254,7 +254,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns the offset, in bits, into the data element in which it is
      *  stored for the <code>x</code>th pixel of a scanline.
      *  This offset is the same for all scanlines.
@@ -265,7 +265,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
        return  (x*pixelBitStride+dataBitOffset)%dataElementSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the scanline stride.
      * @return the scanline stride of this
      * <code>MultiPixelPackedSampleModel</code>.
@@ -274,7 +274,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return scanlineStride;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the pixel bit stride in bits.  This value is the same as
      * the number of bits per pixel.
      * @return the <code>pixelBitStride</code> of this
@@ -284,7 +284,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return pixelBitStride;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data bit offset in bits.
      * @return the <code>dataBitOffset</code> of this
      * <code>MultiPixelPackedSampleModel</code>.
@@ -293,7 +293,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return dataBitOffset;
     }
 
-    /**
+    /** {@collect.stats}
      *  Returns the TransferType used to transfer pixels by way of the
      *  <code>getDataElements</code> and <code>setDataElements</code>
      *  methods. The TransferType might or might not be the same as the
@@ -311,7 +311,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
             return DataBuffer.TYPE_BYTE;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>MultiPixelPackedSampleModel</code> with a
      * subset of the bands of this
      * <code>MultiPixelPackedSampleModel</code>.  Since a
@@ -336,7 +336,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return sm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns as <code>int</code> the sample in a specified band for the
      * pixel located at (x,&nbsp;y).  An
      * <code>ArrayIndexOutOfBoundsException</code> is thrown if the
@@ -366,7 +366,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return (element >> shift) & bitMask;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at
      * (x,&nbsp;y) in the <code>DataBuffer</code> using an
      * <code>int</code> for input.
@@ -399,7 +399,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         data.setElem(index,element);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns data for a single pixel in a primitive array of type
      * TransferType.  For a <code>MultiPixelPackedSampleModel</code>,
      * the array has one element, and the type is the smallest of
@@ -515,7 +515,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the specified single band pixel in the first element
      * of an <code>int</code> array.
      * <code>ArrayIndexOutOfBoundsException</code> is thrown if the
@@ -549,7 +549,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a single pixel in the specified
      * <code>DataBuffer</code> from a primitive array of type
      * TransferType.  For a <code>MultiPixelPackedSampleModel</code>,
@@ -628,7 +628,7 @@ public class MultiPixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the <code>DataBuffer</code> using an
      * <code>int</code> array for input.
      * <code>ArrayIndexOutOfBoundsException</code> is thrown if

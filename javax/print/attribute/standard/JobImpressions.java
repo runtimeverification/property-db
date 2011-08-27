@@ -29,7 +29,7 @@ import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobImpressions is an integer valued printing attribute class that
  * specifies the total size in number of impressions of the document(s) being
  * submitted. An "impression" is the image (possibly many print-stream pages in
@@ -80,7 +80,7 @@ public final class JobImpressions extends IntegerSyntax
     private static final long serialVersionUID = 8225537206784322464L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new job impressions attribute with the given integer value.
      *
      * @param  value  Integer value.
@@ -92,7 +92,7 @@ public final class JobImpressions extends IntegerSyntax
         super(value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job impressions attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions must
      * be true:
@@ -115,7 +115,7 @@ public final class JobImpressions extends IntegerSyntax
         return super.equals (object) && object instanceof JobImpressions;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -128,7 +128,7 @@ public final class JobImpressions extends IntegerSyntax
         return JobImpressions.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

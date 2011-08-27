@@ -45,7 +45,7 @@ import javax.swing.border.*;
 import javax.swing.plaf.*;
 
 
-/**
+/** {@collect.stats}
  * A default L&F implementation of MenuBarUI.  This implementation
  * is a "combined" view/controller.
  *

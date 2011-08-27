@@ -30,7 +30,7 @@ import java.awt.font.TextAttribute;
 import javax.swing.event.*;
 import javax.swing.SizeRequirements;
 
-/**
+/** {@collect.stats}
  * View of a simple line-wrapping paragraph that supports
  * multiple fonts, colors, components, icons, etc.  It is
  * basically a vertical box with a margin around it.  The
@@ -49,7 +49,7 @@ import javax.swing.SizeRequirements;
  */
 public class ParagraphView extends FlowView implements TabExpander {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ParagraphView</code> for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -82,7 +82,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the type of justification.
      *
      * @param j one of the following values:
@@ -96,7 +96,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         justification = j;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the line spacing.
      *
      * @param ls the value is a factor of the line hight
@@ -105,7 +105,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         lineSpacing = ls;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the indent on the first line.
      *
      * @param fi the value in points
@@ -114,7 +114,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         firstLineIndent = (int) fi;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the cached properties from the attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -140,7 +140,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of views that this view is
      * responsible for.
      * The child views of the paragraph are rows which
@@ -157,7 +157,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return layoutPool.getViewCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the view at a given <code>index</code>.
      * The child views of the paragraph are rows which
      * have been used to arrange pieces of the <code>Views</code>
@@ -174,7 +174,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return layoutPool.getView(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the given row if possible to fit within the
      * layout span.  By default this will try to find the
      * highest break weight possible nearest the end of
@@ -191,7 +191,7 @@ public class ParagraphView extends FlowView implements TabExpander {
     protected void adjustRow(Row r, int desiredSpan, int x) {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next visual position for the cursor, in
      * either the east or west direction.
      * Overridden from <code>CompositeView</code>.
@@ -258,7 +258,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return getClosestPositionTo(pos, b, a, direction, biasRet, vIndex, x);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closest model position to <code>x</code>.
      * <code>rowIndex</code> gives the index of the view that corresponds
      * that should be looked in.
@@ -328,7 +328,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return lastPos;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines in which direction the next view lays.
      * Consider the <code>View</code> at index n.
      * Typically the <code>View</code>s are layed out
@@ -365,7 +365,7 @@ public class ParagraphView extends FlowView implements TabExpander {
 
     // --- FlowView methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the constraining span to flow against for
      * the given child index.
      * @param index the index of the view being queried
@@ -384,7 +384,7 @@ public class ParagraphView extends FlowView implements TabExpander {
                                                  : (layoutSpan - adjust);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the location along the flow axis that the
      * flow span will start at.
      * @param index the index of the view being queried
@@ -402,7 +402,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return tabBase + adjust;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a <code>View</code> that should be used to hold a
      * a row's worth of children in a flow.
      * @return the new <code>View</code>
@@ -414,7 +414,7 @@ public class ParagraphView extends FlowView implements TabExpander {
 
     // --- TabExpander methods ------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the next tab stop position given a reference position.
      * This view implements the tab coordinate system, and calls
      * <code>getTabbedSpan</code> on the logical children in the process
@@ -494,7 +494,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>Tabset</code> to be used in calculating tabs.
      *
      * @return the <code>TabSet</code>
@@ -503,7 +503,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return StyleConstants.getTabSet(getElement().getAttributes());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size used by the views between
      * <code>startOffset</code> and <code>endOffset</code>.
      * This uses <code>getPartialView</code> to calculate the
@@ -547,7 +547,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Finds the next character in the document with a character in
      * <code>string</code>, starting at offset <code>start</code>. If
      * there are no characters found, -1 will be returned.
@@ -579,7 +579,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns where the tabs are calculated from.
      * @return where tabs are calculated from
      */
@@ -589,7 +589,7 @@ public class ParagraphView extends FlowView implements TabExpander {
 
     // ---- View methods ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.  This is implemented to delgate to the superclass
      * after stashing the base coordinate for tab calculations.
@@ -624,7 +624,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  This is implemented to give the alignment to the
      * center of the first row along the y axis, and the default
@@ -656,7 +656,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Breaks this view on the given axis at the given length.
      * <p>
      * <code>ParagraphView</code> instances are breakable
@@ -688,7 +688,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the break weight for a given location.
      * <p>
      * <code>ParagraphView</code> instances are breakable
@@ -716,7 +716,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         return BadBreakWeight;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -740,24 +740,24 @@ public class ParagraphView extends FlowView implements TabExpander {
 
     private int justification;
     private float lineSpacing;
-    /** Indentation for the first line, from the left inset. */
+    /** {@collect.stats} Indentation for the first line, from the left inset. */
     protected int firstLineIndent = 0;
 
-    /**
+    /** {@collect.stats}
      * Used by the TabExpander functionality to determine
      * where to base the tab calculations.  This is basically
      * the location of the left side of the paragraph.
      */
     private int tabBase;
 
-    /**
+    /** {@collect.stats}
      * Used to create an i18n-based layout strategy
      */
     static Class i18nStrategy;
 
-    /** Used for searching for a tab. */
+    /** {@collect.stats} Used for searching for a tab. */
     static char[] tabChars;
-    /** Used for searching for a tab or decimal character. */
+    /** {@collect.stats} Used for searching for a tab or decimal character. */
     static char[] tabDecimalChars;
 
     static {
@@ -768,7 +768,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         tabDecimalChars[1] = '.';
     }
 
-    /**
+    /** {@collect.stats}
      * Internally created view that has the purpose of holding
      * the views that represent the children of the paragraph
      * that have been arranged in rows.
@@ -779,7 +779,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             super(elem, View.X_AXIS);
         }
 
-        /**
+        /** {@collect.stats}
          * This is reimplemented to do nothing since the
          * paragraph fills in the row with its needed
          * children.
@@ -787,7 +787,7 @@ public class ParagraphView extends FlowView implements TabExpander {
         protected void loadChildren(ViewFactory f) {
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  This view
          * isn't directly responsible for an element so it returns
          * the outer classes attributes.
@@ -819,7 +819,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             return super.getAlignment(axis);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.  This is
          * implemented to let the superclass find the position along
@@ -851,7 +851,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             return r;
         }
 
-        /**
+        /** {@collect.stats}
          * Range represented by a row in the paragraph is only
          * a subset of the total range of the paragraph element.
          * @see View#getRange
@@ -876,7 +876,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             return offs;
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the minor axis of the box (i.e. the
          * axis orthoginal to the axis that it represents).  The results
          * of the layout should be placed in the given arrays which represent
@@ -930,7 +930,7 @@ public class ParagraphView extends FlowView implements TabExpander {
                           AbstractDocument.I18NProperty)));
         }
 
-        /**
+        /** {@collect.stats}
          * Whether we need to justify this {@code Row}.
          * At this time (jdk1.6) we support justification on for non
          * 18n text.
@@ -1084,7 +1084,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             return ret;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the child view index representing the given position in
          * the model.
          *
@@ -1107,7 +1107,7 @@ public class ParagraphView extends FlowView implements TabExpander {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the left inset.
          *
          * @return the inset

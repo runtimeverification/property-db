@@ -29,7 +29,7 @@ package javax.xml.crypto;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * An abstract representation of an algorithm defined in the XML Security
  * specifications. Subclasses represent specific types of XML security
  * algorithms, such as a {@link javax.xml.crypto.dsig.Transform}.
@@ -40,14 +40,14 @@ import java.security.spec.AlgorithmParameterSpec;
  */
 public interface AlgorithmMethod {
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm URI of this <code>AlgorithmMethod</code>.
      *
      * @return the algorithm URI of this <code>AlgorithmMethod</code>
      */
     String getAlgorithm();
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm parameters of this <code>AlgorithmMethod</code>.
      *
      * @return the algorithm parameters of this <code>AlgorithmMethod</code>.

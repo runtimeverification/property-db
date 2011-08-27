@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * This class implements a character buffer that can be used as a
  * character-input stream.
  *
@@ -33,22 +33,22 @@ package java.io;
  * @since       JDK1.1
  */
 public class CharArrayReader extends Reader {
-    /** The character buffer. */
+    /** {@collect.stats} The character buffer. */
     protected char buf[];
 
-    /** The current buffer position. */
+    /** {@collect.stats} The current buffer position. */
     protected int pos;
 
-    /** The position of mark in buffer. */
+    /** {@collect.stats} The position of mark in buffer. */
     protected int markedPos = 0;
 
-    /**
+    /** {@collect.stats}
      *  The index of the end of this buffer.  There is not valid
      *  data at or beyond this index.
      */
     protected int count;
 
-    /**
+    /** {@collect.stats}
      * Creates a CharArrayReader from the specified array of chars.
      * @param buf       Input buffer (not copied)
      */
@@ -58,7 +58,7 @@ public class CharArrayReader extends Reader {
         this.count = buf.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a CharArrayReader from the specified array of chars.
      *
      * <p> The resulting reader will start reading at the given
@@ -86,13 +86,13 @@ public class CharArrayReader extends Reader {
         this.markedPos = offset;
     }
 
-    /** Checks to make sure that the stream has not been closed */
+    /** {@collect.stats} Checks to make sure that the stream has not been closed */
     private void ensureOpen() throws IOException {
         if (buf == null)
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single character.
      *
      * @exception   IOException  If an I/O error occurs
@@ -107,7 +107,7 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads characters into a portion of an array.
      * @param b  Destination buffer
      * @param off  Offset at which to start storing characters
@@ -142,7 +142,7 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Skips characters.  Returns the number of characters that were skipped.
      *
      * <p>The <code>n</code> parameter may be negative, even though the
@@ -168,7 +168,7 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream is ready to be read.  Character-array readers
      * are always ready to be read.
      *
@@ -181,14 +181,14 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream supports the mark() operation, which it does.
      */
     public boolean markSupported() {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will reposition the stream to this point.
      *
@@ -207,7 +207,7 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the stream to the most recent mark, or to the beginning if it has
      * never been marked.
      *
@@ -220,7 +220,7 @@ public class CharArrayReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the stream and releases any system resources associated with
      * it.  Once the stream has been closed, further read(), ready(),
      * mark(), reset(), or skip() invocations will throw an IOException.

@@ -42,7 +42,7 @@ import sun.awt.AppContext;
 import sun.awt.SunToolkit;
 import sun.awt.CausedFocusEvent;
 
-/**
+/** {@collect.stats}
  * The default KeyboardFocusManager for AWT applications. Focus traversal is
  * done in response to a Component's focus traversal keys, and using a
  * Container's FocusTraversalPolicy.
@@ -84,7 +84,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
             this.after = after;
             this.untilFocused = untilFocused;
         }
-        /**
+        /** {@collect.stats}
          * Returns string representation of the marker
          */
         public String toString() {
@@ -172,7 +172,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A special type of SentEvent which updates a counter in the target
      * KeyboardFocusManager if it is an instance of
      * DefaultKeyboardFocusManager.
@@ -213,7 +213,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a synthetic AWTEvent to a Component. If the Component is in
      * the current AppContext, then the event is immediately dispatched.
      * If the Component is in a different AppContext, then the event is
@@ -259,7 +259,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         return se.dispatched;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called by the AWT event dispatcher requesting that the
      * current KeyboardFocusManager dispatch the specified event on its behalf.
      * DefaultKeyboardFocusManagers dispatch all FocusEvents, all WindowEvents
@@ -719,7 +719,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Called by <code>dispatchEvent</code> if no other
      * KeyEventDispatcher in the dispatcher chain dispatched the KeyEvent, or
      * if no other KeyEventDispatchers are registered. If the event has not
@@ -783,7 +783,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * This method will be called by <code>dispatchKeyEvent</code>. It will
      * handle any unconsumed KeyEvents that map to an AWT
      * <code>MenuShortcut</code> by consuming the event and activating the
@@ -839,7 +839,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         } while (ke != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Dumps the list of type-ahead queue markers to stderr
      */
     void dumpMarkers() {
@@ -947,7 +947,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if there are some marker associated with component <code>comp</code>
      * in a markers' queue
      * @since 1.5
@@ -961,7 +961,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Clears markers queue
      * @since 1.5
      */
@@ -987,7 +987,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         // KeyEventDispatchers will use the correct time.
         EventQueue.setCurrentEventAndMostRecentTime(ke);
 
-        /**
+        /** {@collect.stats}
          * Fix for 4495473.
          * This fix allows to correctly dispatch events when native
          * event proxying mechanism is active.
@@ -1001,7 +1001,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
                 ComponentPeer peer = target.getPeer();
                 if (peer != null) {
                     peer.handleEvent(ke);
-                    /**
+                    /** {@collect.stats}
                      * Fix for 4478780 - consume event after it was dispatched by peer.
                      */
                     ke.consume();
@@ -1051,7 +1051,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * This method initiates a focus traversal operation if and only if the
      * KeyEvent represents a focus traversal key for the specified
      * focusedComponent. It is expected that focusedComponent is the current
@@ -1143,7 +1143,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Delays dispatching of KeyEvents until the specified Component becomes
      * the focus owner. KeyEvents with timestamps later than the specified
      * timestamp will be enqueued until the specified Component receives a
@@ -1185,7 +1185,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
                              new TypeAheadMarker(after, untilFocused));
     }
 
-    /**
+    /** {@collect.stats}
      * Releases for normal dispatching to the current focus owner all
      * KeyEvents which were enqueued because of a call to
      * <code>enqueueKeyEvents</code> with the same timestamp and Component.
@@ -1237,7 +1237,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Discards all KeyEvents which were enqueued because of one or more calls
      * to <code>enqueueKeyEvents</code> with the specified Component, or one of
      * its descendants.
@@ -1300,7 +1300,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Focuses the Component before aComponent, typically based on a
      * FocusTraversalPolicy.
      *
@@ -1315,7 +1315,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Focuses the Component after aComponent, typically based on a
      * FocusTraversalPolicy.
      *
@@ -1330,7 +1330,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the focus up one focus traversal cycle. Typically, the focus owner
      * is set to aComponent's focus cycle root, and the current focus cycle
      * root is set to the new focus owner's focus cycle root. If, however,
@@ -1348,7 +1348,7 @@ public class DefaultKeyboardFocusManager extends KeyboardFocusManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the focus down one focus traversal cycle. If aContainer is a focus
      * cycle root, then the focus owner is set to aContainer's default
      * Component to focus, and the current focus cycle root is set to

@@ -31,7 +31,7 @@ import java.awt.*;
 import javax.swing.text.*;
 
 
-/**
+/** {@collect.stats}
  * Encapsulation of a link, or set of links (e.g. client side imagemap)
  * in a Hypertext document
  *
@@ -45,7 +45,7 @@ import javax.swing.text.*;
  */
 public abstract class AccessibleHyperlink implements AccessibleAction {
 
-        /**
+        /** {@collect.stats}
          * Since the document a link is associated with may have
          * changed, this method returns whether or not this Link is still valid
          * (with respect to the document it references).
@@ -55,7 +55,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract boolean isValid();
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible actions available in this Link
          * If there are more than one, the first one is NOT considered the
          * "default" action of this LINK object (e.g. in an HTML imagemap).
@@ -65,7 +65,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract int getAccessibleActionCount();
 
-        /**
+        /** {@collect.stats}
          * Performs the specified Action on the object
          *
          * @param i zero-based index of actions
@@ -74,7 +74,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract boolean doAccessibleAction(int i);
 
-        /**
+        /** {@collect.stats}
          * Returns a String description of this particular
          * link action.  This should be a text string
          * associated with anchoring text, this should be the
@@ -92,7 +92,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract String getAccessibleActionDescription(int i);
 
-        /**
+        /** {@collect.stats}
          * Returns an object that represents the link action,
          * as appropriate for that link.  E.g. from HTML:
          *   &lt;a HREF="http://www.sun.com/access"&gt;Accessibility&lt;/a&gt;
@@ -105,7 +105,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract Object getAccessibleActionObject(int i);
 
-        /**
+        /** {@collect.stats}
          * Returns an object that represents the link anchor,
          * as appropriate for that link.  E.g. from HTML:
          *   &lt;a href="http://www.sun.com/access"&gt;Accessibility&lt;/a&gt;
@@ -122,7 +122,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract Object getAccessibleActionAnchor(int i);
 
-        /**
+        /** {@collect.stats}
          * Gets the index with the hypertext document at which this
          * link begins
          *
@@ -130,7 +130,7 @@ public abstract class AccessibleHyperlink implements AccessibleAction {
          */
         public abstract int getStartIndex();
 
-        /**
+        /** {@collect.stats}
          * Gets the index with the hypertext document at which this
          * link ends
          *

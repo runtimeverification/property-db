@@ -33,7 +33,7 @@ import javax.naming.NamingException;
 import javax.naming.NamingEnumeration;
 import javax.naming.OperationNotSupportedException;
 
-/**
+/** {@collect.stats}
   * This interface represents an attribute associated with a named object.
   *<p>
   * In a directory, named objects can have associated with them
@@ -73,7 +73,7 @@ import javax.naming.OperationNotSupportedException;
   * @since 1.3
   */
 public interface Attribute extends Cloneable, java.io.Serializable {
-    /**
+    /** {@collect.stats}
       * Retrieves an enumeration of the attribute's values.
       * The behaviour of this enumeration is unspecified
       * if the attribute's values are added, changed,
@@ -94,7 +94,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     NamingEnumeration<?> getAll() throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Retrieves one of this attribute's values.
       * If the attribute has more than one value and is unordered, any one of
       * the values is returned.
@@ -112,21 +112,21 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     Object get() throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Retrieves the number of values in this attribute.
       *
       * @return The nonnegative number of values in this attribute.
       */
     int size();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the id of this attribute.
       *
       * @return The id of this attribute. It cannot be null.
       */
     String getID();
 
-    /**
+    /** {@collect.stats}
       * Determines whether a value is in the attribute.
       * Equality is determined by the implementation, which may use
       * <tt>Object.equals()</tt> or schema information to determine equality.
@@ -138,7 +138,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       * @see BasicAttribute#equals
       */
     boolean contains(Object attrVal);
-    /**
+    /** {@collect.stats}
       * Adds a new value to the attribute.
       * If the attribute values are unordered and
       * <tt>attrVal</tt> is already in the attribute, this method does nothing.
@@ -154,7 +154,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     boolean add(Object attrVal);
 
-    /**
+    /** {@collect.stats}
       * Removes a specified value from the attribute.
       * If <tt>attrval</tt> is not in the attribute, this method does nothing.
       * If the attribute values are ordered, the first occurrence of
@@ -172,12 +172,12 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     boolean remove(Object attrval);
 
-    /**
+    /** {@collect.stats}
       * Removes all values from this attribute.
       */
     void clear();
 
-    /**
+    /** {@collect.stats}
       * Retrieves the syntax definition associated with the attribute.
       * An attribute's syntax definition specifies the format
       * of the attribute's value(s). Note that this is different from
@@ -209,7 +209,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
 
     DirContext getAttributeSyntaxDefinition() throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Retrieves the attribute's schema definition.
       * An attribute's schema definition contains information
       * such as whether the attribute is multivalued or single-valued,
@@ -233,7 +233,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     DirContext getAttributeDefinition() throws NamingException;
 
-    /**
+    /** {@collect.stats}
       * Makes a copy of the attribute.
       * The copy contains the same attribute values as the original attribute:
       * the attribute values are not themselves cloned.
@@ -245,7 +245,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
 
     //----------- Methods to support ordered multivalued attributes
 
-    /**
+    /** {@collect.stats}
       * Determines whether this attribute's values are ordered.
       * If an attribute's values are ordered, duplicate values are allowed.
       * If an attribute's values are unordered, they are presented
@@ -258,7 +258,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
       */
     boolean isOrdered();
 
-    /**
+    /** {@collect.stats}
      * Retrieves the attribute value from the ordered list of attribute values.
      * This method returns the value at the <tt>ix</tt> index of the list of
      * attribute values.
@@ -274,7 +274,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
      */
     Object get(int ix) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute value from the ordered list of attribute values.
      * This method removes the value at the <tt>ix</tt> index of the list of
      * attribute values.
@@ -291,7 +291,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
      */
     Object remove(int ix);
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute value to the ordered list of attribute values.
      * This method adds <tt>attrVal</tt> to the list of attribute values at
      * index <tt>ix</tt>.
@@ -312,7 +312,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
     void add(int ix, Object attrVal);
 
 
-    /**
+    /** {@collect.stats}
      * Sets an attribute value in the ordered list of attribute values.
      * This method sets the value at the <tt>ix</tt> index of the list of
      * attribute values to be <tt>attrVal</tt>. The old value is removed.
@@ -333,7 +333,7 @@ public interface Attribute extends Cloneable, java.io.Serializable {
      */
     Object set(int ix, Object attrVal);
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability.
      */
     static final long serialVersionUID = 8707690322213556804L;

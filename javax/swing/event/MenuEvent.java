@@ -27,7 +27,7 @@ package javax.swing.event;
 import java.util.EventObject;
 
 
-/**
+/** {@collect.stats}
  * MenuEvent is used to notify interested parties that
  * the menu which is the event source has been posted,
  * selected, or canceled.
@@ -45,7 +45,7 @@ import java.util.EventObject;
  * @author David Karlton
  */
 public class MenuEvent extends EventObject {
-    /**
+    /** {@collect.stats}
      * Constructs a MenuEvent object.
      *
      * @param source  the Object that originated the event

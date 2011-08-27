@@ -32,7 +32,7 @@ import java.security.PrivilegedAction;
 import java.util.Iterator;
 import java.util.ServiceLoader;
 
-/**
+/** {@collect.stats}
  * <code>RMIClassLoader</code> comprises static methods to support
  * dynamic class loading with RMI.  Included are methods for loading
  * classes from a network location (one or more URLs) and obtaining
@@ -109,11 +109,11 @@ import java.util.ServiceLoader;
  */
 public class RMIClassLoader {
 
-    /** "default" provider instance */
+    /** {@collect.stats} "default" provider instance */
     private static final RMIClassLoaderSpi defaultProvider =
         newDefaultProviderInstance();
 
-    /** provider instance */
+    /** {@collect.stats} provider instance */
     private static final RMIClassLoaderSpi provider =
         AccessController.doPrivileged(
             new PrivilegedAction<RMIClassLoaderSpi>() {
@@ -125,7 +125,7 @@ public class RMIClassLoader {
      */
     private RMIClassLoader() {}
 
-    /**
+    /** {@collect.stats}
      * Loads the class with the specified <code>name</code>.
      *
      * <p>This method delegates to {@link #loadClass(String,String)},
@@ -152,7 +152,7 @@ public class RMIClassLoader {
         return loadClass((String) null, name);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads a class from a codebase URL.
      *
      * If <code>codebase</code> is <code>null</code>, then this method
@@ -187,7 +187,7 @@ public class RMIClassLoader {
             codebase != null ? codebase.toString() : null, name, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads a class from a codebase URL path.
      *
      * <p>This method delegates to the
@@ -219,7 +219,7 @@ public class RMIClassLoader {
         return provider.loadClass(codebase, name, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads a class from a codebase URL path, optionally using the
      * supplied loader.
      *
@@ -264,7 +264,7 @@ public class RMIClassLoader {
         return provider.loadClass(codebase, name, defaultLoader);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads a dynamic proxy class (see {@link java.lang.reflect.Proxy})
      * that implements a set of interfaces with the given names
      * from a codebase URL path.
@@ -311,7 +311,7 @@ public class RMIClassLoader {
         return provider.loadProxyClass(codebase, interfaces, defaultLoader);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a class loader that loads classes from the given codebase
      * URL path.
      *
@@ -355,7 +355,7 @@ public class RMIClassLoader {
         return provider.getClassLoader(codebase);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the annotation string (representing a location for
      * the class definition) that RMI will use to annotate the class
      * descriptor when marshalling objects of the given class.
@@ -381,7 +381,7 @@ public class RMIClassLoader {
         return provider.getClassAnnotation(cl);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical instance of the default provider
      * for the service provider interface {@link RMIClassLoaderSpi}.
      * If the system property <code>java.rmi.server.RMIClassLoaderSpi</code>
@@ -608,7 +608,7 @@ public class RMIClassLoader {
         return defaultProvider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the security context of the given class loader.
      *
      * @param   loader a class loader from which to get the security context
@@ -625,7 +625,7 @@ public class RMIClassLoader {
         return sun.rmi.server.LoaderHandler.getSecurityContext(loader);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of the default provider class.
      */
     private static RMIClassLoaderSpi newDefaultProviderInstance() {
@@ -659,7 +659,7 @@ public class RMIClassLoader {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Chooses provider instance, following above documentation.
      *
      * This method assumes that it has been invoked in a privileged block.

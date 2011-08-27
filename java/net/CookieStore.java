@@ -28,7 +28,7 @@ package java.net;
 import java.util.List;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * A CookieStore object represents a storage for cookie. Can store and retrieve
  * cookies.
  *
@@ -41,7 +41,7 @@ import java.util.Map;
  * @since 1.6
  */
 public interface CookieStore {
-    /**
+    /** {@collect.stats}
      * Adds one HTTP cookie to the store. This is called for every
      * incoming HTTP response.
      *
@@ -67,7 +67,7 @@ public interface CookieStore {
     public void add(URI uri, HttpCookie cookie);
 
 
-    /**
+    /** {@collect.stats}
      * Retrieve cookies associated with given URI, or whose domain matches the
      * given URI. Only cookies that have not expired are returned.
      * This is called for every outgoing HTTP request.
@@ -83,7 +83,7 @@ public interface CookieStore {
     public List<HttpCookie> get(URI uri);
 
 
-    /**
+    /** {@collect.stats}
      * Get all not-expired cookies in cookie store.
      *
      * @return          an immutable list of http cookies;
@@ -92,7 +92,7 @@ public interface CookieStore {
     public List<HttpCookie> getCookies();
 
 
-    /**
+    /** {@collect.stats}
      * Get all URIs which identify the cookies in this cookie store.
      *
      * @return          an immutable list of URIs;
@@ -102,7 +102,7 @@ public interface CookieStore {
     public List<URI> getURIs();
 
 
-    /**
+    /** {@collect.stats}
      * Remove a cookie from store.
      *
      * @param uri       the uri this cookie associated with.
@@ -118,7 +118,7 @@ public interface CookieStore {
     public boolean remove(URI uri, HttpCookie cookie);
 
 
-    /**
+    /** {@collect.stats}
      * Remove all cookies in this cookie store.
      *
      * @return          <tt>true</tt> if this store changed as a result of the call

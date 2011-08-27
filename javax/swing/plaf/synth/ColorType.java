@@ -24,7 +24,7 @@
  */
 package javax.swing.plaf.synth;
 
-/**
+/** {@collect.stats}
  * A typesafe enumeration of colors that can be fetched from a style.
  * <p>
  * Each <code>SynthStyle</code> has a set of <code>ColorType</code>s that
@@ -61,34 +61,34 @@ package javax.swing.plaf.synth;
  * @author Scott Violet
  */
 public class ColorType {
-    /**
+    /** {@collect.stats}
      * ColorType for the foreground of a region.
      */
     public static final ColorType FOREGROUND = new ColorType("Foreground");
 
-    /**
+    /** {@collect.stats}
      * ColorType for the background of a region.
      */
     public static final ColorType BACKGROUND = new ColorType("Background");
 
-    /**
+    /** {@collect.stats}
      * ColorType for the foreground of a region.
      */
     public static final ColorType TEXT_FOREGROUND = new ColorType(
                                        "TextForeground");
 
-    /**
+    /** {@collect.stats}
      * ColorType for the background of a region.
      */
     public static final ColorType TEXT_BACKGROUND =new ColorType(
                                        "TextBackground");
 
-    /**
+    /** {@collect.stats}
      * ColorType for the focus.
      */
     public static final ColorType FOCUS = new ColorType("Focus");
 
-    /**
+    /** {@collect.stats}
      * Maximum number of <code>ColorType</code>s.
      */
     public static final int MAX_COUNT;
@@ -103,7 +103,7 @@ public class ColorType {
                                  BACKGROUND.getID(), FOCUS.getID())) + 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new ColorType with the specified description.
      *
      * @param description String description of the ColorType.
@@ -119,7 +119,7 @@ public class ColorType {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a unique id, as an integer, for this ColorType.
      *
      * @return a unique id, as an integer, for this ColorType.
@@ -128,7 +128,7 @@ public class ColorType {
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the textual description of this <code>ColorType</code>.
      * This is the same value that the <code>ColorType</code> was created
      * with.

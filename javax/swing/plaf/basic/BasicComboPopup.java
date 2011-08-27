@@ -37,7 +37,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * This is a basic implementation of the <code>ComboPopup</code> interface.
  *
  * This class represents the ui for the popup portion of the combo box.
@@ -76,7 +76,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     private static Border LIST_BORDER = new LineBorder(Color.BLACK, 1);
 
     protected JComboBox                comboBox;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the accessor methods instead.
      *
@@ -84,7 +84,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      * @see #createList
      */
     protected JList                    list;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead
      *
@@ -92,7 +92,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      */
     protected JScrollPane              scroller;
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.4 this previously undocumented field is no
      * longer used.
      */
@@ -100,12 +100,12 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
 
     // Listeners that are required by the ComboPopup interface
 
-    /**
+    /** {@collect.stats}
      * Implementation of all the listener classes.
      */
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the accessor or create methods instead.
      *
@@ -113,7 +113,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      * @see #createMouseMotionListener
      */
     protected MouseMotionListener      mouseMotionListener;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the accessor or create methods instead.
      *
@@ -122,7 +122,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      */
     protected MouseListener            mouseListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the accessor or create methods instead.
      *
@@ -131,7 +131,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      */
     protected KeyListener              keyListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead.
      *
@@ -140,14 +140,14 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     protected ListSelectionListener    listSelectionListener;
 
     // Listeners that are attached to the list
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead.
      *
      * @see #createListMouseListener
      */
     protected MouseListener            listMouseListener;
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead
      *
@@ -156,7 +156,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     protected MouseMotionListener      listMouseMotionListener;
 
     // Added to the combo box for bound properties
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead
      *
@@ -165,7 +165,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     protected PropertyChangeListener   propertyChangeListener;
 
     // Added to the combo box model
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead
      *
@@ -173,7 +173,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      */
     protected ListDataListener         listDataListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override. Use the create method instead
      *
@@ -181,7 +181,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      */
     protected ItemListener             itemListener;
 
-    /**
+    /** {@collect.stats}
      * This protected field is implementation specific. Do not access directly
      * or override.
      */
@@ -198,7 +198,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     // begin ComboPopup method implementations
     //
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.show().
      */
     public void show() {
@@ -209,7 +209,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.hide().
      */
     public void hide() {
@@ -226,14 +226,14 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.getList().
      */
     public JList getList() {
         return list;
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.getMouseListener().
      *
      * @return a <code>MouseListener</code> or null
@@ -246,7 +246,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return mouseListener;
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.getMouseMotionListener().
      *
      * @return a <code>MouseMotionListener</code> or null
@@ -259,7 +259,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return mouseMotionListener;
     }
 
-    /**
+    /** {@collect.stats}
      * Implementation of ComboPopup.getKeyListener().
      *
      * @return a <code>KeyListener</code> or null
@@ -272,7 +272,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return keyListener;
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is uninstalling.  Since this popup isn't in the component
      * tree, it won't get it's uninstallUI() called.  It removes the listeners that
      * were added in addComboBoxListeners().
@@ -297,7 +297,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     // end ComboPopup method implementations
     //======================================
 
-    /**
+    /** {@collect.stats}
      * Removes the listeners from the combo box model
      *
      * @param model The combo box model to install listeners
@@ -357,7 +357,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         comboBox.firePopupMenuCanceled();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a listener
      * that will watch for mouse-press and release events on the combo box.
      *
@@ -372,7 +372,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the mouse motion listener which will be added to the combo
      * box.
      *
@@ -387,7 +387,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the key listener that will be added to the combo box. If
      * this method returns null then it will not be added to the combo box.
      *
@@ -397,7 +397,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a list selection listener that watches for selection changes in
      * the popup's list.  If this method returns null then it will not
      * be added to the popup list.
@@ -408,7 +408,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a list data listener which will be added to the
      * <code>ComboBoxModel</code>. If this method returns null then
      * it will not be added to the combo box model.
@@ -419,7 +419,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a mouse listener that watches for mouse events in
      * the popup's list. If this method returns null then it will
      * not be added to the combo box.
@@ -430,7 +430,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a mouse motion listener that watches for mouse motion
      * events in the popup's list. If this method returns null then it will
      * not be added to the combo box.
@@ -441,7 +441,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>PropertyChangeListener</code> which will be added to
      * the combo box. If this method returns null then it will not
      * be added to the combo box.
@@ -452,7 +452,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>ItemListener</code> which will be added to the
      * combo box. If this method returns null then it will not
      * be added to the combo box.
@@ -473,7 +473,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return handler;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the JList used in the popup to display
      * the items in the combo box model. This method is called when the UI class
      * is created.
@@ -499,7 +499,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the list which is used to hold the combo box items in the
      * popup. This method is called when the UI class
      * is created.
@@ -520,7 +520,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         installListListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the listeners to the list control.
      */
     protected void installListListeners() {
@@ -551,7 +551,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         handler = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the scroll pane which houses the scrollable list.
      */
     protected JScrollPane createScroller() {
@@ -562,7 +562,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return sp;
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the scrollable portion which holds the list within
      * the combo box popup. This method is called when the UI class
      * is created.
@@ -573,7 +573,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         scroller.setBorder( null );
     }
 
-    /**
+    /** {@collect.stats}
      * Configures the popup portion of the combo box. This method is called
      * when the UI class is created.
      */
@@ -587,7 +587,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         setFocusable( false );
     }
 
-    /**
+    /** {@collect.stats}
      * This method adds the necessary listeners to the JComboBox.
      */
     protected void installComboBoxListeners() {
@@ -600,7 +600,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         installComboBoxModelListeners(comboBox.getModel());
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the listeners on the combo box model. Any listeners installed
      * on the combo box model should be removed in
      * <code>uninstallComboBoxModelListeners</code>.
@@ -637,7 +637,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     // begin Event Listenters
     //
 
-    /**
+    /** {@collect.stats}
      * A listener to be registered upon the combo box
      * (<em>not</em> its popup menu)
      * to handle mouse events
@@ -659,7 +659,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
      * @see BasicComboPopup#createMouseListener
      */
     protected class InvocationMouseHandler extends MouseAdapter {
-        /**
+        /** {@collect.stats}
          * Responds to mouse-pressed events on the combo box.
          *
          * @param e the mouse-press event to be handled
@@ -668,7 +668,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
             getHandler().mousePressed(e);
         }
 
-        /**
+        /** {@collect.stats}
          * Responds to the user terminating
          * a click or drag that began on the combo box.
          *
@@ -679,7 +679,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for dragging and updates the current selection in the
      * list if it is dragging over the list.
      */
@@ -689,7 +689,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v 1.4, this class is now obsolete and is only included for
      * backwards API compatibility. Do not instantiate or subclass.
      * <p>
@@ -700,7 +700,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         public void keyReleased( KeyEvent e ) {}
     }
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v 1.4, this class is now obsolete, doesn't do anything, and
      * is only included for backwards API compatibility. Do not call or
      * override.
@@ -709,7 +709,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         public void valueChanged( ListSelectionEvent e ) {}
     }
 
-    /**
+    /** {@collect.stats}
      * As of 1.4, this class is now obsolete, doesn't do anything, and
      * is only included for backwards API compatibility. Do not call or
      * override.
@@ -728,7 +728,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener hides the popup when the mouse is released in the list.
      */
     protected class ListMouseHandler extends MouseAdapter {
@@ -739,7 +739,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener changes the selected item as you move the mouse over the list.
      * The selection change is not committed to the model, this is for user feedback only.
      */
@@ -749,7 +749,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for changes to the selection in the
      * combo box.
      */
@@ -759,7 +759,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This listener watches for bound properties that have changed in the
      * combo box.
      * <p>
@@ -989,7 +989,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     //=================================================================
 
 
-    /**
+    /** {@collect.stats}
      * Overridden to unconditionally return false.
      */
     public boolean isFocusTraversable() {
@@ -1000,7 +1000,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     // begin Autoscroll methods
     //
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * do not call or override.
      */
@@ -1037,7 +1037,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         autoscrollTimer.start();
     }
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * do not call or override.
      */
@@ -1050,7 +1050,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * do not call or override.
      */
@@ -1062,7 +1062,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This protected method is implementation specific and should be private.
      * do not call or override.
      */
@@ -1084,7 +1084,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     // begin Utility methods
     //
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this BasicComboPopup.
      * The AccessibleContext will have its parent set to the ComboBox.
      *
@@ -1098,7 +1098,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This is is a utility method that helps event handlers figure out where to
      * send the focus when the popup is brought up.  The standard implementation
      * delegates the focus to the editor (if the combo box is editable) or to
@@ -1116,7 +1116,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes the popup visible if it is hidden and makes it hidden if it is
      * visible.
      */
@@ -1129,7 +1129,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the list selection index to the selectedIndex. This
      * method is used to synchronize the list selection with the
      * combo box selection.
@@ -1164,7 +1164,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the height of the popup based on the current
      * ListCellRenderer and the maximum row count.
      */
@@ -1200,7 +1200,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return height;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the placement and size of the popup portion of the combo box based
      * on the combo box location and the enclosing screen bounds. If
      * no transformations are required, then the returned rectangle will
@@ -1240,7 +1240,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return rect;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the upper left location of the Popup.
      */
     private Point getPopupLocation() {
@@ -1265,7 +1265,7 @@ public class BasicComboPopup extends JPopupMenu implements ComboPopup {
         return popupLocation;
     }
 
-    /**
+    /** {@collect.stats}
      * A utility method used by the event listeners.  Given a mouse event, it changes
      * the list selection to the list item below the mouse.
      */

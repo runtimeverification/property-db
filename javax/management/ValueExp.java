@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Represents values that can be passed as arguments to
  * relational expressions. Strings, numbers, attributes are valid values
  * and should be represented by implementations of <CODE>ValueExp</CODE>.
@@ -73,7 +73,7 @@ package javax.management;
  */
 public interface ValueExp extends java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * Applies the ValueExp on a MBean.
      *
      * @param name The name of the MBean on which the ValueExp will be applied.
@@ -89,7 +89,7 @@ public interface ValueExp extends java.io.Serializable {
             throws BadStringOperationException, BadBinaryOpValueExpException,
                    BadAttributeValueExpException, InvalidApplicationException;
 
-    /**
+    /** {@collect.stats}
      * Sets the MBean server on which the query is to be performed.
      *
      * @param s The MBean server on which the query is to be performed.

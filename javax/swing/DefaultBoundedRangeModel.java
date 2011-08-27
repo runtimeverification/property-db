@@ -29,7 +29,7 @@ import javax.swing.event.*;
 import java.io.Serializable;
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * A generic implementation of BoundedRangeModel.
  * <p>
  * <strong>Warning:</strong>
@@ -47,14 +47,14 @@ import java.util.EventListener;
  */
 public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
 {
-    /**
+    /** {@collect.stats}
      * Only one <code>ChangeEvent</code> is needed per model instance since the
      * event's only (read-only) state is the source property.  The source
      * of events generated here is always "this".
      */
     protected transient ChangeEvent changeEvent = null;
 
-    /** The listeners waiting for model changes. */
+    /** {@collect.stats} The listeners waiting for model changes. */
     protected EventListenerList listenerList = new EventListenerList();
 
     private int value = 0;
@@ -64,7 +64,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     private boolean isAdjusting = false;
 
 
-    /**
+    /** {@collect.stats}
      * Initializes all of the properties with default values.
      * Those values are:
      * <ul>
@@ -79,7 +79,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes value, extent, minimum and maximum. Adjusting is false.
      * Throws an <code>IllegalArgumentException</code> if the following
      * constraints aren't satisfied:
@@ -104,7 +104,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's current value.
      * @return the model's current value
      * @see #setValue
@@ -115,7 +115,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's extent.
      * @return the model's extent
      * @see #setExtent
@@ -126,7 +126,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's minimum.
      * @return the model's minimum
      * @see #setMinimum
@@ -137,7 +137,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's maximum.
      * @return  the model's maximum
      * @see #setMaximum
@@ -148,7 +148,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the current value of the model. For a slider, that
      * determines where the knob appears. Ensures that the new
      * value, <I>n</I> falls within the model's constraints:
@@ -169,7 +169,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the extent to <I>n</I> after ensuring that <I>n</I>
      * is greater than or equal to zero and falls within the model's
      * constraints:
@@ -187,7 +187,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the minimum to <I>n</I> after ensuring that <I>n</I>
      * that the other three properties obey the model's constraints:
      * <pre>
@@ -204,7 +204,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum to <I>n</I> after ensuring that <I>n</I>
      * that the other three properties obey the model's constraints:
      * <pre>
@@ -220,7 +220,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>valueIsAdjusting</code> property.
      *
      * @see #getValueIsAdjusting
@@ -232,7 +232,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the value is in the process of changing
      * as a result of actions being taken by the user.
      *
@@ -245,7 +245,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets all of the <code>BoundedRangeModel</code> properties after forcing
      * the arguments to obey the usual constraints:
      * <pre>
@@ -304,7 +304,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code>.  The change listeners are run each
      * time any one of the Bounded Range model properties changes.
      *
@@ -317,7 +317,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code>.
      *
      * @param l the <code>ChangeListener</code> to remove
@@ -329,7 +329,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the change listeners
      * registered on this <code>DefaultBoundedRangeModel</code>.
      *
@@ -348,7 +348,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Runs each <code>ChangeListener</code>'s <code>stateChanged</code> method.
      *
      * @see #setRangeProperties
@@ -368,7 +368,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays all of the
      * <code>BoundedRangeModel</code> properties.
      */
@@ -383,7 +383,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
         return getClass().getName() + "[" + modelString + "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered as
      * <code><em>Foo</em>Listener</code>s
      * upon this model.

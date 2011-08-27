@@ -28,7 +28,7 @@
 
  *
  */
-/**********************************************************************
+/** {@collect.stats}********************************************************************
  **********************************************************************
  **********************************************************************
  *** COPYRIGHT (c) Eastman Kodak Company, 1997                      ***
@@ -42,13 +42,13 @@
 package java.awt.color;
 
 
-/**
+/** {@collect.stats}
  * This exception is thrown if the native CMM returns an error.
  */
 
 public class CMMException extends java.lang.RuntimeException {
 
-    /**
+    /** {@collect.stats}
      *  Constructs a CMMException with the specified detail message.
      *  @param s the specified detail message
      */

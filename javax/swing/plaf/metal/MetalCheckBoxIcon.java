@@ -32,7 +32,7 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * CheckboxIcon implementation for OrganicCheckBoxUI
  * <p>
  * <strong>Warning:</strong>

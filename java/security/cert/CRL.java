@@ -25,7 +25,7 @@
 
 package java.security.cert;
 
-/**
+/** {@collect.stats}
  * This class is an abstraction of certificate revocation lists (CRLs) that
  * have different formats but important common uses. For example, all CRLs
  * share the functionality of listing revoked certificates, and can be queried
@@ -48,7 +48,7 @@ public abstract class CRL {
     // the CRL type
     private String type;
 
-    /**
+    /** {@collect.stats}
      * Creates a CRL of the specified type.
      *
      * @param type the standard name of the CRL type.
@@ -61,7 +61,7 @@ public abstract class CRL {
         this.type = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of this CRL.
      *
      * @return the type of this CRL.
@@ -70,14 +70,14 @@ public abstract class CRL {
         return this.type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this CRL.
      *
      * @return a string representation of this CRL.
      */
     public abstract String toString();
 
-    /**
+    /** {@collect.stats}
      * Checks whether the given certificate is on this CRL.
      *
      * @param cert the certificate to check for.

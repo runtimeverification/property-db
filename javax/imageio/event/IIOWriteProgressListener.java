@@ -28,7 +28,7 @@ package javax.imageio.event;
 import java.util.EventListener;
 import javax.imageio.ImageWriter;
 
-/**
+/** {@collect.stats}
  * An interface used by <code>ImageWriter</code> implementations to notify
  * callers of their image writing methods of progress.
  *
@@ -37,7 +37,7 @@ import javax.imageio.ImageWriter;
  */
 public interface IIOWriteProgressListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Reports that an image write operation is beginning.  All
      * <code>ImageWriter</code> implementations are required to call
      * this method exactly once when beginning an image write
@@ -50,7 +50,7 @@ public interface IIOWriteProgressListener extends EventListener {
      */
     void imageStarted(ImageWriter source, int imageIndex);
 
-    /**
+    /** {@collect.stats}
      * Reports the approximate degree of completion of the current
      * <code>write</code> call within the associated
      * <code>ImageWriter</code>.
@@ -80,7 +80,7 @@ public interface IIOWriteProgressListener extends EventListener {
     void imageProgress(ImageWriter source,
                        float percentageDone);
 
-    /**
+    /** {@collect.stats}
      * Reports that the image write operation has completed.  All
      * <code>ImageWriter</code> implementations are required to call
      * this method exactly once upon completion of each image write
@@ -90,7 +90,7 @@ public interface IIOWriteProgressListener extends EventListener {
      */
     void imageComplete(ImageWriter source);
 
-    /**
+    /** {@collect.stats}
      * Reports that a thumbnail write operation is beginning.  All
      * <code>ImageWriter</code> implementations are required to call
      * this method exactly once when beginning a thumbnail write
@@ -104,7 +104,7 @@ public interface IIOWriteProgressListener extends EventListener {
     void thumbnailStarted(ImageWriter source,
                           int imageIndex, int thumbnailIndex);
 
-    /**
+    /** {@collect.stats}
      * Reports the approximate degree of completion of the current
      * thumbnail write within the associated <code>ImageWriter</code>.
      * The semantics are identical to those of
@@ -117,7 +117,7 @@ public interface IIOWriteProgressListener extends EventListener {
      */
     void thumbnailProgress(ImageWriter source, float percentageDone);
 
-    /**
+    /** {@collect.stats}
      * Reports that a thumbnail write operation has completed.  All
      * <code>ImageWriter</code> implementations are required to call
      * this method exactly once upon completion of each thumbnail
@@ -128,7 +128,7 @@ public interface IIOWriteProgressListener extends EventListener {
      */
     void thumbnailComplete(ImageWriter source);
 
-    /**
+    /** {@collect.stats}
      * Reports that a write has been aborted via the writer's
      * <code>abort</code> method.  No further notifications will be
      * given.

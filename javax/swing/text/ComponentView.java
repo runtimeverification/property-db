@@ -30,7 +30,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.SwingUtilities;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * Component decorator that implements the view interface.  The
  * entire element is used to represent the component.  This acts
  * as a gateway from the display-only View implementations to
@@ -68,7 +68,7 @@ import javax.swing.event.*;
  */
 public class ComponentView extends View  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new ComponentView object.
      *
      * @param elem the element to decorate
@@ -77,7 +77,7 @@ public class ComponentView extends View  {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Create the component that is associated with
      * this view.  This will be called when it has
      * been determined that a new component is needed.
@@ -91,7 +91,7 @@ public class ComponentView extends View  {
         return comp;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the component associated with the view.
      */
     public final Component getComponent() {
@@ -100,7 +100,7 @@ public class ComponentView extends View  {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The real paint behavior occurs naturally from the association
      * that the component has with its parent container (the same
      * container hosting this view).  This is implemented to do nothing.
@@ -117,7 +117,7 @@ public class ComponentView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.  This is implemented to return the value
      * returned by Component.getPreferredSize along the
@@ -145,7 +145,7 @@ public class ComponentView extends View  {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.  This is implemented to return the value
      * returned by Component.getMinimumSize along the
@@ -173,7 +173,7 @@ public class ComponentView extends View  {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.  This is implemented to return the value
      * returned by Component.getMaximumSize along the
@@ -201,7 +201,7 @@ public class ComponentView extends View  {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  This is implemented to give the alignment of the
      * embedded component.
@@ -225,7 +225,7 @@ public class ComponentView extends View  {
         return super.getAlignment(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the parent for a child view.
      * The parent calls this on the child to tell it who its
      * parent is, giving the view access to things like
@@ -276,7 +276,7 @@ public class ComponentView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Set the parent of the embedded component
      * with assurance that it is thread-safe.
      */
@@ -314,7 +314,7 @@ public class ComponentView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the coordinate space of the model to
      * that of the view.
      *
@@ -339,7 +339,7 @@ public class ComponentView extends View  {
         throw new BadLocationException(pos + " not in range " + p0 + "," + p1, pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -365,7 +365,7 @@ public class ComponentView extends View  {
     private Component createdC;
     private Invalidator c;
 
-    /**
+    /** {@collect.stats}
      * This class feeds the invalidate back to the
      * hosting View.  This is needed to get the View
      * hierarchy to consider giving the component
@@ -387,7 +387,7 @@ public class ComponentView extends View  {
             cacheChildSizes();
         }
 
-        /**
+        /** {@collect.stats}
          * The components invalid layout needs
          * to be propagated through the view hierarchy
          * so the views (which position the component)
@@ -431,7 +431,7 @@ public class ComponentView extends View  {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Shows or hides this component depending on the value of parameter
          * <code>b</code>.
          * @param <code>b</code>  If <code>true</code>, shows this component;
@@ -446,7 +446,7 @@ public class ComponentView extends View  {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Overridden to fix 4759054. Must return true so that content
          * is painted when inside a CellRendererPane which is normally
          * invisible.

@@ -49,7 +49,7 @@ import java.io.Serializable;
 import java.awt.Toolkit;
 import java.awt.ComponentOrientation;
 
-/**
+/** {@collect.stats}
  * A default L&F implementation of ScrollPaneUI.
  *
  * @author Hans Muller
@@ -64,19 +64,19 @@ public class BasicScrollPaneUI
     protected PropertyChangeListener spPropertyChangeListener;
     private MouseWheelListener mouseScrollListener;
 
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener installed on the vertical scrollbar.
      */
     private PropertyChangeListener vsbPropertyChangeListener;
 
-    /**
+    /** {@collect.stats}
      * PropertyChangeListener installed on the horizontal scrollbar.
      */
     private PropertyChangeListener hsbPropertyChangeListener;
 
     private Handler handler;
 
-    /**
+    /** {@collect.stats}
      * State flag that shows whether setValue() was called from a user program
      * before the value of "extent" was set in right-to-left component
      * orientation.
@@ -112,7 +112,7 @@ public class BasicScrollPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * @return new Dimension(Short.MAX_VALUE, Short.MAX_VALUE)
      */
     public Dimension getMaximumSize(JComponent c) {
@@ -353,7 +353,7 @@ public class BasicScrollPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -409,7 +409,7 @@ public class BasicScrollPaneUI
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -429,7 +429,7 @@ public class BasicScrollPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Listener for viewport events.
      */
     public class ViewportChangeHandler implements ChangeListener
@@ -450,7 +450,7 @@ public class BasicScrollPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Horizontal scrollbar listener.
      */
     public class HSBChangeListener implements ChangeListener
@@ -467,7 +467,7 @@ public class BasicScrollPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>PropertyChangeListener</code> that will be installed
      * on the horizontal <code>JScrollBar</code>.
      */
@@ -480,7 +480,7 @@ public class BasicScrollPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Vertical scrollbar listener.
      */
     public class VSBChangeListener implements ChangeListener
@@ -498,7 +498,7 @@ public class BasicScrollPaneUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>PropertyChangeListener</code> that will be installed
      * on the vertical <code>JScrollBar</code>.
      */
@@ -510,7 +510,7 @@ public class BasicScrollPaneUI
         return getHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * MouseWheelHandler is an inner class which implements the
      * MouseWheelListener interface.  MouseWheelHandler responds to
      * MouseWheelEvents by scrolling the JScrollPane appropriately.
@@ -531,7 +531,7 @@ public class BasicScrollPaneUI
         // new functionality add it to the Handler, but make sure this
         // class calls into the Handler.
 
-        /**
+        /** {@collect.stats}
          * Called when the mouse wheel is rotated while over a
          * JScrollPane.
          *
@@ -543,7 +543,7 @@ public class BasicScrollPaneUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of MouseWheelListener, which is added to the
      * JScrollPane by installUI().  The returned MouseWheelListener is used
      * to handle mouse wheel-driven scrolling.
@@ -670,7 +670,7 @@ public class BasicScrollPaneUI
 
 
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of PropertyChangeListener that's added to
      * the JScrollPane by installUI().  Subclasses can override this method
      * to return a custom PropertyChangeListener, e.g.

@@ -29,7 +29,7 @@ import java.util.*;
 import javax.swing.event.*;
 
 
-/**
+/** {@collect.stats}
  * This class provides the ChangeListener part of the
  * SpinnerModel interface that should be suitable for most concrete SpinnerModel
  * implementations.  Subclasses must provide an implementation of the
@@ -48,7 +48,7 @@ import javax.swing.event.*;
 public abstract class AbstractSpinnerModel implements SpinnerModel
 {
 
-    /**
+    /** {@collect.stats}
      * Only one ChangeEvent is needed per model instance since the
      * event's only (read-only) state is the source property.  The source
      * of events generated here is always "this".
@@ -56,14 +56,14 @@ public abstract class AbstractSpinnerModel implements SpinnerModel
     private transient ChangeEvent changeEvent = null;
 
 
-    /**
+    /** {@collect.stats}
      * The list of ChangeListeners for this model.  Subclasses may
      * store their own listeners here.
      */
     protected EventListenerList listenerList = new EventListenerList();
 
 
-    /**
+    /** {@collect.stats}
      * Adds a ChangeListener to the model's listener list.  The
      * ChangeListeners must be notified when the models value changes.
      *
@@ -76,7 +76,7 @@ public abstract class AbstractSpinnerModel implements SpinnerModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes a ChangeListener from the model's listener list.
      *
      * @param l the ChangeListener to remove
@@ -88,7 +88,7 @@ public abstract class AbstractSpinnerModel implements SpinnerModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this AbstractSpinnerModel with addChangeListener().
      *
@@ -102,7 +102,7 @@ public abstract class AbstractSpinnerModel implements SpinnerModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Run each ChangeListeners stateChanged() method.
      *
      * @see #setValue
@@ -122,7 +122,7 @@ public abstract class AbstractSpinnerModel implements SpinnerModel
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return an array of all the listeners of the given type that
      * were added to this model.  For example to find all of the
      * ChangeListeners added to this model:

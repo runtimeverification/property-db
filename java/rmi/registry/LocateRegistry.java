@@ -38,7 +38,7 @@ import sun.rmi.server.Util;
 import sun.rmi.transport.LiveRef;
 import sun.rmi.transport.tcp.TCPEndpoint;
 
-/**
+/** {@collect.stats}
  * <code>LocateRegistry</code> is used to obtain a reference to a bootstrap
  * remote object registry on a particular host (including the local host), or
  * to create a remote object registry that accepts calls on a specific port.
@@ -56,12 +56,12 @@ import sun.rmi.transport.tcp.TCPEndpoint;
  */
 public final class LocateRegistry {
 
-    /**
+    /** {@collect.stats}
      * Private constructor to disable public construction.
      */
     private LocateRegistry() {}
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the the remote object <code>Registry</code> for
      * the local host on the default registry port of 1099.
      *
@@ -75,7 +75,7 @@ public final class LocateRegistry {
         return getRegistry(null, Registry.REGISTRY_PORT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the the remote object <code>Registry</code> for
      * the local host on the specified <code>port</code>.
      *
@@ -90,7 +90,7 @@ public final class LocateRegistry {
         return getRegistry(null, port);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the remote object <code>Registry</code> on the
      * specified <code>host</code> on the default registry port of 1099.  If
      * <code>host</code> is <code>null</code>, the local host is used.
@@ -106,7 +106,7 @@ public final class LocateRegistry {
         return getRegistry(host, Registry.REGISTRY_PORT);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the remote object <code>Registry</code> on the
      * specified <code>host</code> and <code>port</code>. If <code>host</code>
      * is <code>null</code>, the local host is used.
@@ -123,7 +123,7 @@ public final class LocateRegistry {
         return getRegistry(host, port, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a locally created remote reference to the remote object
      * <code>Registry</code> on the specified <code>host</code> and
      * <code>port</code>.  Communication with this remote registry will
@@ -182,7 +182,7 @@ public final class LocateRegistry {
         return (Registry) Util.createProxy(RegistryImpl.class, ref, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and exports a <code>Registry</code> instance on the local
      * host that accepts requests on the specified <code>port</code>.
      *
@@ -203,7 +203,7 @@ public final class LocateRegistry {
         return new RegistryImpl(port);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and exports a <code>Registry</code> instance on the local
      * host that uses custom socket factories for communication with that
      * instance.  The registry that is created listens for incoming

@@ -28,7 +28,7 @@ package javax.sql;
 import java.sql.SQLException;
 
 
-/**
+/** {@collect.stats}
  * A factory for <code>PooledConnection</code>
  * objects.  An object that implements this interface will typically be
  * registered with a naming service that is based on the
@@ -40,7 +40,7 @@ import java.sql.SQLException;
 
 public interface ConnectionPoolDataSource  extends CommonDataSource {
 
-  /**
+  /** {@collect.stats}
    * Attempts to establish a physical database connection that can
    * be used as a pooled connection.
    *
@@ -54,7 +54,7 @@ public interface ConnectionPoolDataSource  extends CommonDataSource {
    */
   PooledConnection getPooledConnection() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Attempts to establish a physical database connection that can
    * be used as a pooled connection.
    *

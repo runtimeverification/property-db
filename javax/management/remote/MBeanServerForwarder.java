@@ -27,7 +27,7 @@ package javax.management.remote;
 
 import javax.management.MBeanServer;
 
-/**
+/** {@collect.stats}
  * <p>An object of this class implements the MBeanServer interface and
  * wraps another object that also implements that interface.
  * Typically, an implementation of this interface performs some action
@@ -39,7 +39,7 @@ import javax.management.MBeanServer;
  */
 public interface MBeanServerForwarder extends MBeanServer {
 
-    /**
+    /** {@collect.stats}
      * Returns the MBeanServer object to which requests will be forwarded.
      *
      * @return the MBeanServer object to which requests will be forwarded,
@@ -49,7 +49,7 @@ public interface MBeanServerForwarder extends MBeanServer {
      */
     public MBeanServer getMBeanServer();
 
-    /**
+    /** {@collect.stats}
      * Sets the MBeanServer object to which requests will be forwarded
      * after treatment by this object.
      *

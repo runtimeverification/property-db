@@ -28,7 +28,7 @@ package javax.naming.spi;
 import java.util.Hashtable;
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
   * This interface represents a factory that creates an initial context.
   *<p>
   * The JNDI framework allows for different initial context implementations
@@ -51,7 +51,7 @@ import javax.naming.*;
   */
 
 public interface InitialContextFactory {
-        /**
+        /** {@collect.stats}
           * Creates an Initial Context for beginning name resolution.
           * Special requirements of this context are supplied
           * using <code>environment</code>.

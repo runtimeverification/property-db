@@ -33,7 +33,7 @@ import sun.misc.JavaSecurityAccess;
 import sun.misc.SharedSecrets;
 
 
-/**
+/** {@collect.stats}
  * An AccessControlContext is used to make system resource access decisions
  * based on the context it encapsulates.
  *
@@ -133,7 +133,7 @@ public final class AccessControlContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create an AccessControlContext with the given set of ProtectionDomains.
      * Context must not be null. Duplicate domains will be removed from the
      * context.
@@ -163,7 +163,7 @@ public final class AccessControlContext {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new <code>AccessControlContext</code> with the given
      * <code>AccessControlContext</code> and <code>DomainCombiner</code>.
      * This constructor associates the provided
@@ -205,7 +205,7 @@ public final class AccessControlContext {
         this.combiner = combiner;
     }
 
-    /**
+    /** {@collect.stats}
      * package private for AccessController
      */
     AccessControlContext(ProtectionDomain context[], DomainCombiner combiner) {
@@ -215,7 +215,7 @@ public final class AccessControlContext {
         this.combiner = combiner;
     }
 
-    /**
+    /** {@collect.stats}
      * package private constructor for AccessController.getContext()
      */
 
@@ -226,7 +226,7 @@ public final class AccessControlContext {
         this.isPrivileged = isPrivileged;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor for JavaSecurityAccess.doIntersectionPrivilege()
      */
     AccessControlContext(ProtectionDomain[] context,
@@ -237,14 +237,14 @@ public final class AccessControlContext {
         this.isPrivileged = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this context's context.
      */
     ProtectionDomain[] getContext() {
         return context;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this context is privileged.
      */
     boolean isPrivileged()
@@ -252,7 +252,7 @@ public final class AccessControlContext {
         return isPrivileged;
     }
 
-    /**
+    /** {@collect.stats}
      * get the assigned combiner from the privileged or inherited context
      */
     DomainCombiner getAssignedCombiner() {
@@ -268,7 +268,7 @@ public final class AccessControlContext {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>DomainCombiner</code> associated with this
      * <code>AccessControlContext</code>.
      *
@@ -292,7 +292,7 @@ public final class AccessControlContext {
         return combiner;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the access request indicated by the
      * specified permission should be allowed or denied, based on
      * the security policy currently in effect, and the context in
@@ -402,7 +402,7 @@ public final class AccessControlContext {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Take the stack-based context (this) and combine it with the
      * privileged or inherited context, if need be.
      */
@@ -530,7 +530,7 @@ public final class AccessControlContext {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks two AccessControlContext objects for equality.
      * Checks that <i>obj</i> is
      * an AccessControlContext and has the same set of ProtectionDomains
@@ -602,7 +602,7 @@ public final class AccessControlContext {
         }
         return match;
     }
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this context. The hash code
      * is computed by exclusive or-ing the hash code of all the protection
      * domains in the context together.

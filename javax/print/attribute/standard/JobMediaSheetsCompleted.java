@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobMediaSheetsCompleted is an integer valued printing attribute class
  * that specifies the number of media sheets which have completed marking and
  * stacking for the entire job so far, whether those sheets have been processed
@@ -62,7 +62,7 @@ public final class JobMediaSheetsCompleted extends IntegerSyntax
 
     private static final long serialVersionUID = 1739595973810840475L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job media sheets completed attribute with the given
      * integer value.
      *
@@ -75,7 +75,7 @@ public final class JobMediaSheetsCompleted extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job media sheets completed attribute is equivalent
      * to the passed in object. To be equivalent, all of the following
      * conditions must be true:
@@ -99,7 +99,7 @@ public final class JobMediaSheetsCompleted extends IntegerSyntax
                 object instanceof JobMediaSheetsCompleted);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -113,7 +113,7 @@ public final class JobMediaSheetsCompleted extends IntegerSyntax
         return JobMediaSheetsCompleted.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

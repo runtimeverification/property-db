@@ -28,7 +28,7 @@ package javax.sql;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * An object that provides hooks for connection pool management.
  * A <code>PooledConnection</code> object
  * represents a physical connection to a data source.  The connection
@@ -90,7 +90,7 @@ import java.sql.SQLException;
 
 public interface PooledConnection {
 
-  /**
+  /** {@collect.stats}
    * Creates and returns a <code>Connection</code> object that is a handle
    * for the physical connection that
    * this <code>PooledConnection</code> object represents.
@@ -108,7 +108,7 @@ public interface PooledConnection {
    */
   Connection getConnection() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Closes the physical connection that this <code>PooledConnection</code>
    * object represents.  An application never calls this method directly;
    * it is called by the connection pool module, or manager.
@@ -123,7 +123,7 @@ public interface PooledConnection {
    */
   void close() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Registers the given event listener so that it will be notified
    * when an event occurs on this <code>PooledConnection</code> object.
    *
@@ -135,7 +135,7 @@ public interface PooledConnection {
    */
   void addConnectionEventListener(ConnectionEventListener listener);
 
-  /**
+  /** {@collect.stats}
    * Removes the given event listener from the list of components that
    * will be notified when an event occurs on this
    * <code>PooledConnection</code> object.
@@ -149,7 +149,7 @@ public interface PooledConnection {
    */
   void removeConnectionEventListener(ConnectionEventListener listener);
 
-        /**
+        /** {@collect.stats}
          * Registers a <code>StatementEventListener</code> with this <code>PooledConnection</code> object.  Components that
          * wish to be notified when  <code>PreparedStatement</code>s created by the
          * connection are closed or are detected to be invalid may use this method
@@ -162,7 +162,7 @@ public interface PooledConnection {
          */
         public void addStatementEventListener(StatementEventListener listener);
 
-        /**
+        /** {@collect.stats}
          * Removes the specified <code>StatementEventListener</code> from the list of
          * components that will be notified when the driver detects that a
          * <code>PreparedStatement</code> has been closed or is invalid.

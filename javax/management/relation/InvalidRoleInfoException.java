@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * This exception is raised when, in a role info, its minimum degree is greater
  * than its maximum degree.
  *
@@ -36,14 +36,14 @@ public class InvalidRoleInfoException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = 7517834705158932074L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public InvalidRoleInfoException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

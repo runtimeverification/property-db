@@ -32,7 +32,7 @@ import java.io.Serializable;
 
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * Class <code>DocFlavor</code> encapsulates an object that specifies the
  * format in which print data is supplied to a {@link DocPrintJob}.
  * "Doc" is a short, easy-to-pronounce term that means "a piece of print data."
@@ -448,7 +448,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -4512080796965449721L;
 
-    /**
+    /** {@collect.stats}
      * A String representing the host operating system encoding.
      * This will follow the conventions documented in
      * <a href="http://ietf.org/rfc/rfc2278.txt">
@@ -468,24 +468,24 @@ public class DocFlavor implements Serializable, Cloneable {
                   new sun.security.action.GetPropertyAction("file.encoding"));
     }
 
-    /**
+    /** {@collect.stats}
      * MIME type.
      */
     private transient MimeType myMimeType;
 
-    /**
+    /** {@collect.stats}
      * Representation class name.
      * @serial
      */
     private String myClassName;
 
-    /**
+    /** {@collect.stats}
      * String value for this doc flavor. Computed when needed and cached.
      */
     private transient String myStringValue = null;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new doc flavor object from the given MIME type and
      * representation class name. The given MIME type is converted into
      * canonical form and stored internally.
@@ -508,7 +508,7 @@ public class DocFlavor implements Serializable, Cloneable {
         myClassName = className;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this doc flavor object's MIME type string based on the
      * canonical form. Each parameter value is enclosed in quotes.
      * @return the mime type
@@ -517,7 +517,7 @@ public class DocFlavor implements Serializable, Cloneable {
         return myMimeType.getMimeType();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this doc flavor object's media type (from the MIME type).
      * @return the media type
      */
@@ -525,7 +525,7 @@ public class DocFlavor implements Serializable, Cloneable {
         return myMimeType.getMediaType();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this doc flavor object's media subtype (from the MIME type).
      * @return the media sub-type
      */
@@ -533,7 +533,7 @@ public class DocFlavor implements Serializable, Cloneable {
         return myMimeType.getMediaSubtype();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> representing a MIME
      * parameter.
      * Mime types may include parameters which are usually optional.
@@ -553,7 +553,7 @@ public class DocFlavor implements Serializable, Cloneable {
             (String)myMimeType.getParameterMap().get(paramName.toLowerCase());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this doc flavor object's representation class.
      * @return the name of the representation class.
      */
@@ -561,7 +561,7 @@ public class DocFlavor implements Serializable, Cloneable {
         return myClassName;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts this <code>DocFlavor</code> to a string.
      *
      * @return  MIME type string based on the canonical form. Each parameter
@@ -573,14 +573,14 @@ public class DocFlavor implements Serializable, Cloneable {
         return getStringValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this doc flavor object.
      */
     public int hashCode() {
         return getStringValue().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if this doc flavor object is equal to the given object.
      * The two are equal if the given object is not null, is an instance
      * of <code>DocFlavor</code>, has a MIME type equivalent to this doc
@@ -605,7 +605,7 @@ public class DocFlavor implements Serializable, Cloneable {
             getStringValue().equals (((DocFlavor) obj).getStringValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this doc flavor object's string value.
      */
     private String getStringValue() {
@@ -615,7 +615,7 @@ public class DocFlavor implements Serializable, Cloneable {
         return myStringValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Write the instance to a stream (ie serialize the object).
      */
     private void writeObject(ObjectOutputStream s) throws IOException {
@@ -624,7 +624,7 @@ public class DocFlavor implements Serializable, Cloneable {
         s.writeObject(myMimeType.getMimeType());
     }
 
-    /**
+    /** {@collect.stats}
      * Reconstitute an instance from a stream (that is, deserialize it).
      *
      * @serialData
@@ -639,7 +639,7 @@ public class DocFlavor implements Serializable, Cloneable {
         myMimeType = new MimeType((String)s.readObject());
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.BYTE_ARRAY provides predefined static constant
      * DocFlavor objects for example doc flavors using a byte array
      * (<CODE>byte[]</CODE>) as the print data representation class.
@@ -651,7 +651,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = -9065578006593857475L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of <CODE>"[B"</CODE> (byte array).
          *
@@ -667,7 +667,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "[B");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -677,7 +677,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_PLAIN_HOST =
             new BYTE_ARRAY ("text/plain; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-8"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
@@ -686,7 +686,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_PLAIN_UTF_8 =
             new BYTE_ARRAY ("text/plain; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
@@ -696,7 +696,7 @@ public class DocFlavor implements Serializable, Cloneable {
             new BYTE_ARRAY ("text/plain; charset=utf-16");
 
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -706,7 +706,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_PLAIN_UTF_16BE =
             new BYTE_ARRAY ("text/plain; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -716,7 +716,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_PLAIN_UTF_16LE =
             new BYTE_ARRAY ("text/plain; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -726,7 +726,7 @@ public class DocFlavor implements Serializable, Cloneable {
             new BYTE_ARRAY ("text/plain; charset=us-ascii");
 
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -736,7 +736,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_HTML_HOST =
             new BYTE_ARRAY ("text/html; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-8"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
@@ -745,7 +745,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_HTML_UTF_8 =
             new BYTE_ARRAY ("text/html; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
@@ -754,7 +754,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_HTML_UTF_16 =
             new BYTE_ARRAY ("text/html; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -764,7 +764,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_HTML_UTF_16BE =
             new BYTE_ARRAY ("text/html; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -774,7 +774,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY TEXT_HTML_UTF_16LE =
             new BYTE_ARRAY ("text/html; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -784,13 +784,13 @@ public class DocFlavor implements Serializable, Cloneable {
             new BYTE_ARRAY ("text/html; charset=us-ascii");
 
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/pdf"</CODE>, print
          * data representation class name = <CODE>"[B"</CODE> (byte array).
          */
         public static final BYTE_ARRAY PDF = new BYTE_ARRAY ("application/pdf");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/postscript"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
          * array).
@@ -798,7 +798,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY POSTSCRIPT =
             new BYTE_ARRAY ("application/postscript");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/vnd.hp-PCL"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
          * array).
@@ -806,25 +806,25 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final BYTE_ARRAY PCL =
             new BYTE_ARRAY ("application/vnd.hp-PCL");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/gif"</CODE>, print data
          * representation class name = <CODE>"[B"</CODE> (byte array).
          */
         public static final BYTE_ARRAY GIF = new BYTE_ARRAY ("image/gif");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/jpeg"</CODE>, print data
          * representation class name = <CODE>"[B"</CODE> (byte array).
          */
         public static final BYTE_ARRAY JPEG = new BYTE_ARRAY ("image/jpeg");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/png"</CODE>, print data
          * representation class name = <CODE>"[B"</CODE> (byte array).
          */
         public static final BYTE_ARRAY PNG = new BYTE_ARRAY ("image/png");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"application/octet-stream"</CODE>,
          * print data representation class name = <CODE>"[B"</CODE> (byte
@@ -836,7 +836,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.INPUT_STREAM provides predefined static constant
      * DocFlavor objects for example doc flavors using a byte stream ({@link
      * java.io.InputStream <CODE>java.io.InputStream</CODE>}) as the print
@@ -849,7 +849,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = -7045842700749194127L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
@@ -866,7 +866,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "java.io.InputStream");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -876,7 +876,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_HOST =
             new INPUT_STREAM ("text/plain; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-8"</CODE>,
          * print data representation class name =
@@ -885,7 +885,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_UTF_8 =
             new INPUT_STREAM ("text/plain; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16"</CODE>,
          * print data representation class name =
@@ -894,7 +894,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_UTF_16 =
             new INPUT_STREAM ("text/plain; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -904,7 +904,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_UTF_16BE =
             new INPUT_STREAM ("text/plain; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -914,7 +914,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_UTF_16LE =
             new INPUT_STREAM ("text/plain; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -923,7 +923,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_PLAIN_US_ASCII =
                 new INPUT_STREAM ("text/plain; charset=us-ascii");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -933,7 +933,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_HTML_HOST =
             new INPUT_STREAM ("text/html; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-8"</CODE>,
          * print data representation class name =
@@ -942,7 +942,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_HTML_UTF_8 =
             new INPUT_STREAM ("text/html; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16"</CODE>,
          * print data representation class name =
@@ -951,7 +951,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_HTML_UTF_16 =
             new INPUT_STREAM ("text/html; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -961,7 +961,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_HTML_UTF_16BE =
             new INPUT_STREAM ("text/html; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -971,7 +971,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM TEXT_HTML_UTF_16LE =
             new INPUT_STREAM ("text/html; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -981,14 +981,14 @@ public class DocFlavor implements Serializable, Cloneable {
             new INPUT_STREAM ("text/html; charset=us-ascii");
 
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/pdf"</CODE>, print
          * data representation class name = <CODE>"java.io.InputStream"</CODE>
          * (byte stream).
          */
         public static final INPUT_STREAM PDF = new INPUT_STREAM ("application/pdf");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/postscript"</CODE>,
          * print data representation class name =
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
@@ -996,7 +996,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM POSTSCRIPT =
             new INPUT_STREAM ("application/postscript");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/vnd.hp-PCL"</CODE>,
          * print data representation class name =
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
@@ -1004,28 +1004,28 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final INPUT_STREAM PCL =
             new INPUT_STREAM ("application/vnd.hp-PCL");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/gif"</CODE>, print data
          * representation class name =
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
          */
         public static final INPUT_STREAM GIF = new INPUT_STREAM ("image/gif");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/jpeg"</CODE>, print data
          * representation class name =
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
          */
         public static final INPUT_STREAM JPEG = new INPUT_STREAM ("image/jpeg");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/png"</CODE>, print data
          * representation class name =
          * <CODE>"java.io.InputStream"</CODE> (byte stream).
          */
         public static final INPUT_STREAM PNG = new INPUT_STREAM ("image/png");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"application/octet-stream"</CODE>,
          * print data representation class name =
@@ -1038,7 +1038,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.URL provides predefined static constant DocFlavor
      * objects.
      * For example doc flavors using a Uniform Resource Locator ({@link
@@ -1050,7 +1050,7 @@ public class DocFlavor implements Serializable, Cloneable {
      */
     public static class URL extends DocFlavor {
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of <CODE>"java.net.URL"</CODE>.
          *
@@ -1066,7 +1066,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "java.net.URL");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -1076,7 +1076,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_HOST =
             new URL ("text/plain; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-8"</CODE>,
          * print data representation class name =
@@ -1085,7 +1085,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_UTF_8 =
             new URL ("text/plain; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16"</CODE>,
          * print data representation class name =
@@ -1094,7 +1094,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_UTF_16 =
             new URL ("text/plain; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -1104,7 +1104,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_UTF_16BE =
             new URL ("text/plain; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -1114,7 +1114,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_UTF_16LE =
             new URL ("text/plain; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/plain; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -1123,7 +1123,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_PLAIN_US_ASCII =
             new URL ("text/plain; charset=us-ascii");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html"</CODE>,
          * encoded in the host platform encoding.
          * See {@link DocFlavor#hostEncoding <CODE>hostEncoding</CODE>}
@@ -1133,7 +1133,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_HTML_HOST =
             new URL ("text/html; charset="+hostEncoding);
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-8"</CODE>,
          * print data representation class name =
@@ -1142,7 +1142,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_HTML_UTF_8 =
             new URL ("text/html; charset=utf-8");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16"</CODE>,
          * print data representation class name =
@@ -1151,7 +1151,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_HTML_UTF_16 =
             new URL ("text/html; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16be"</CODE>
          * (big-endian byte ordering),
@@ -1161,7 +1161,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_HTML_UTF_16BE =
             new URL ("text/html; charset=utf-16be");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=utf-16le"</CODE>
          * (little-endian byte ordering),
@@ -1171,7 +1171,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final URL TEXT_HTML_UTF_16LE =
             new URL ("text/html; charset=utf-16le");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"text/html; charset=us-ascii"</CODE>,
          * print data representation class name =
@@ -1181,43 +1181,43 @@ public class DocFlavor implements Serializable, Cloneable {
             new URL ("text/html; charset=us-ascii");
 
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/pdf"</CODE>, print
          * data representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL PDF = new URL ("application/pdf");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/postscript"</CODE>,
          * print data representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL POSTSCRIPT = new URL ("application/postscript");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"application/vnd.hp-PCL"</CODE>,
          * print data representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL PCL = new URL ("application/vnd.hp-PCL");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/gif"</CODE>, print data
          * representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL GIF = new URL ("image/gif");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/jpeg"</CODE>, print data
          * representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL JPEG = new URL ("image/jpeg");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"image/png"</CODE>, print data
          * representation class name = <CODE>"java.net.URL"</CODE>.
          */
         public static final URL PNG = new URL ("image/png");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type =
          * <CODE>"application/octet-stream"</CODE>,
          * print data representation class name = <CODE>"java.net.URL"</CODE>.
@@ -1228,7 +1228,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.CHAR_ARRAY provides predefined static constant
      * DocFlavor objects for example doc flavors using a character array
      * (<CODE>char[]</CODE>) as the print data representation class. As such,
@@ -1241,7 +1241,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = -8720590903724405128L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of
          * <CODE>"[C"</CODE> (character array).
@@ -1260,7 +1260,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "[C");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"[C"</CODE> (character array).
@@ -1268,7 +1268,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final CHAR_ARRAY TEXT_PLAIN =
             new CHAR_ARRAY ("text/plain; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"[C"</CODE> (character array).
@@ -1278,7 +1278,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.STRING provides predefined static constant DocFlavor
      * objects for example doc flavors using a string ({@link java.lang.String
      * <CODE>java.lang.String</CODE>}) as the print data representation class.
@@ -1291,7 +1291,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = 4414407504887034035L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of <CODE>"java.lang.String"</CODE>.
          *
@@ -1309,7 +1309,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "java.lang.String");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"java.lang.String"</CODE>.
@@ -1317,7 +1317,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final STRING TEXT_PLAIN =
             new STRING ("text/plain; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"java.lang.String"</CODE>.
@@ -1326,7 +1326,7 @@ public class DocFlavor implements Serializable, Cloneable {
             new STRING ("text/html; charset=utf-16");
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.READER provides predefined static constant DocFlavor
      * objects for example doc flavors using a character stream ({@link
      * java.io.Reader <CODE>java.io.Reader</CODE>}) as the print data
@@ -1339,7 +1339,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = 7100295812579351567L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with the given MIME type and a print
          * data representation class name of\
          * <CODE>"java.io.Reader"</CODE> (character stream).
@@ -1358,7 +1358,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super (mimeType, "java.io.Reader");
         }
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/plain;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"java.io.Reader"</CODE> (character stream).
@@ -1366,7 +1366,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final READER TEXT_PLAIN =
             new READER ("text/plain; charset=utf-16");
 
-        /**
+        /** {@collect.stats}
          * Doc flavor with MIME type = <CODE>"text/html;
          * charset=utf-16"</CODE>, print data representation class name =
          * <CODE>"java.io.Reader"</CODE> (character stream).
@@ -1376,7 +1376,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Class DocFlavor.SERVICE_FORMATTED provides predefined static constant
      * DocFlavor objects for example doc flavors for service formatted print
      * data.
@@ -1388,7 +1388,7 @@ public class DocFlavor implements Serializable, Cloneable {
 
         private static final long serialVersionUID = 6181337766266637256L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new doc flavor with a MIME type of
          * <CODE>"application/x-java-jvm-local-objectref"</CODE> indicating
          * service formatted print data and the given print data
@@ -1404,7 +1404,7 @@ public class DocFlavor implements Serializable, Cloneable {
             super ("application/x-java-jvm-local-objectref", className);
         }
 
-        /**
+        /** {@collect.stats}
          * Service formatted print data doc flavor with print data
          * representation class name =
          * <CODE>"java.awt.image.renderable.RenderableImage"</CODE>
@@ -1413,7 +1413,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final SERVICE_FORMATTED RENDERABLE_IMAGE =
             new SERVICE_FORMATTED("java.awt.image.renderable.RenderableImage");
 
-        /**
+        /** {@collect.stats}
          * Service formatted print data doc flavor with print data
          * representation class name = <CODE>"java.awt.print.Printable"</CODE>
          * (printable object).
@@ -1421,7 +1421,7 @@ public class DocFlavor implements Serializable, Cloneable {
         public static final SERVICE_FORMATTED PRINTABLE =
             new SERVICE_FORMATTED ("java.awt.print.Printable");
 
-        /**
+        /** {@collect.stats}
          * Service formatted print data doc flavor with print data
          * representation class name = <CODE>"java.awt.print.Pageable"</CODE>
          * (pageable object).

@@ -25,7 +25,7 @@
 package java.awt;
 
 
-/**
+/** {@collect.stats}
  * Signals that an Absract Window Toolkit exception has occurred.
  *
  * @author      Arthur van Hoff
@@ -37,7 +37,7 @@ public class AWTException extends Exception {
      */
      private static final long serialVersionUID = -1900414231151323879L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of <code>AWTException</code> with the
      * specified detail message. A detail message is an
      * instance of <code>String</code> that describes this particular

@@ -43,7 +43,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * The representation of an SGML DTD.  DTD describes a document
  * syntax and is used in parsing of HTML documents.  It contains
  * a list of elements and their attributes as well as a list of
@@ -80,7 +80,7 @@ class DTD implements DTDConstants {
 
     public static final int FILE_VERSION = 1;
 
-    /**
+    /** {@collect.stats}
      * Creates a new DTD with the specified name.
      * @param name the name, as a <code>String</code> of the new DTD
      */
@@ -92,7 +92,7 @@ class DTD implements DTDConstants {
         defineElement("unknown", EMPTY, false, true, null, null, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the name of the DTD.
      * @return the name of the DTD
      */
@@ -100,7 +100,7 @@ class DTD implements DTDConstants {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an entity by name.
      * @return the <code>Entity</code> corresponding to the
      *   <code>name</code> <code>String</code>
@@ -109,7 +109,7 @@ class DTD implements DTDConstants {
         return (Entity)entityHash.get(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a character entity.
      * @return the <code>Entity</code> corresponding to the
      *    <code>ch</code> character
@@ -118,7 +118,7 @@ class DTD implements DTDConstants {
         return (Entity)entityHash.get(new Integer(ch));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the element is part of the DTD,
      * otherwise returns <code>false</code>.
      *
@@ -130,7 +130,7 @@ class DTD implements DTDConstants {
         return !"unknown".equals(name) && (elementHash.get(name) != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an element by name. A new element is
      * created if the element doesn't exist.
      *
@@ -148,7 +148,7 @@ class DTD implements DTDConstants {
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an element by index.
      *
      * @param index the requested index
@@ -159,7 +159,7 @@ class DTD implements DTDConstants {
         return (Element)elements.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Defines an entity.  If the <code>Entity</code> specified
      * by <code>name</code>, <code>type</code>, and <code>data</code>
      * exists, it is returned; otherwise a new <code>Entity</code>
@@ -188,7 +188,7 @@ class DTD implements DTDConstants {
         return ent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Element</code> which matches the
      * specified parameters.  If one doesn't exist, a new
      * one is created and returned.
@@ -216,7 +216,7 @@ class DTD implements DTDConstants {
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * Defines attributes for an {@code Element}.
      *
      * @param name the name of the <code>Element</code>
@@ -228,7 +228,7 @@ class DTD implements DTDConstants {
         e.atts = atts;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a character <code>Entity</code>.
      * @param name the entity's name
      * @return the new character <code>Entity</code>
@@ -238,7 +238,7 @@ class DTD implements DTDConstants {
         return defineEntity(name, type, data);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an <code>Entity</code>.
      * @param name the entity's name
      * @return the new <code>Entity</code>
@@ -250,7 +250,7 @@ class DTD implements DTDConstants {
         return defineEntity(name, type, data);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an <code>Element</code>.
      * @param name the element's name
      * @return the new <code>Element</code>
@@ -281,7 +281,7 @@ class DTD implements DTDConstants {
         return defineElement(name, type, omitStart, omitEnd, content, excl, incl, atts);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an <code>AttributeList</code>.
      * @param name the attribute list's name
      * @return the new <code>AttributeList</code>
@@ -300,7 +300,7 @@ class DTD implements DTDConstants {
         return new AttributeList(name, type, modifier, value, vals, atts);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a new content model.
      * @param type the type of the new content model
      * @return the new <code>ContentModel</code>
@@ -309,7 +309,7 @@ class DTD implements DTDConstants {
         return new ContentModel(type, obj, next);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this DTD.
      * @return the string representation of this DTD
      */
@@ -317,7 +317,7 @@ class DTD implements DTDConstants {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * The hashtable key of DTDs in AppContext.
      */
     private static final Object DTD_HASH_KEY = new Object();
@@ -326,7 +326,7 @@ class DTD implements DTDConstants {
         getDtdHash().put(name, dtd);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a DTD with the specified <code>name</code>.  If
      * a DTD with that name doesn't exist, one is created
      * and returned.  Any uppercase characters in the name
@@ -358,7 +358,7 @@ class DTD implements DTDConstants {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Recreates a DTD from an archived format.
      * @param in  the <code>DataInputStream</code> to read from
      */

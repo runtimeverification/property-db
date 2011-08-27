@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * A mutable version of <code>ComboBoxModel</code>.
  *
  * @author Tom Santos
@@ -32,7 +32,7 @@ package javax.swing;
 
 public interface MutableComboBoxModel extends ComboBoxModel {
 
-    /**
+    /** {@collect.stats}
      * Adds an item at the end of the model. The implementation of this method
      * should notify all registered <code>ListDataListener</code>s that the
      * item has been added.
@@ -41,7 +41,7 @@ public interface MutableComboBoxModel extends ComboBoxModel {
      */
     public void addElement( Object obj );
 
-    /**
+    /** {@collect.stats}
      * Removes an item from the model. The implementation of this method should
      * should notify all registered <code>ListDataListener</code>s that the
      * item has been removed.
@@ -50,7 +50,7 @@ public interface MutableComboBoxModel extends ComboBoxModel {
      */
     public void removeElement( Object obj );
 
-    /**
+    /** {@collect.stats}
      * Adds an item at a specific index.  The implementation of this method
      * should notify all registered <code>ListDataListener</code>s that the
      * item has been added.
@@ -60,7 +60,7 @@ public interface MutableComboBoxModel extends ComboBoxModel {
      */
     public void insertElementAt( Object obj, int index );
 
-    /**
+    /** {@collect.stats}
      * Removes an item at a specific index. The implementation of this method
      * should notify all registered <code>ListDataListener</code>s that the
      * item has been removed.

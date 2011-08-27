@@ -29,7 +29,7 @@ import java.io.IOException;
 import com.sun.jndi.ldap.Ber;
 import com.sun.jndi.ldap.BerEncoder;
 
-/**
+/** {@collect.stats}
  * Requests that the results of a search operation be sorted by the LDAP server
  * before being returned.
  * The sort criteria are specified using an ordered list of one or more sort
@@ -108,7 +108,7 @@ import com.sun.jndi.ldap.BerEncoder;
  */
 final public class SortControl extends BasicControl {
 
-    /**
+    /** {@collect.stats}
      * The server-side sort control's assigned object identifier
      * is 1.2.840.113556.1.4.473.
      */
@@ -116,7 +116,7 @@ final public class SortControl extends BasicControl {
 
     private static final long serialVersionUID = -1965961680233330744L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to sort on a single attribute in ascending order.
      * Sorting will be performed using the ordering matching rule defined
      * for use with the specified attribute.
@@ -136,7 +136,7 @@ final public class SortControl extends BasicControl {
         super.value = setEncodedValue(new SortKey[]{ new SortKey(sortBy) });
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to sort on a list of attributes in ascending order.
      * Sorting will be performed using the ordering matching rule defined
      * for use with each of the specified attributes.
@@ -163,7 +163,7 @@ final public class SortControl extends BasicControl {
         super.value = setEncodedValue(sortKeys);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a control to sort on a list of sort keys.
      * Each sort key specifies the sort order and ordering matching rule to use.
      *

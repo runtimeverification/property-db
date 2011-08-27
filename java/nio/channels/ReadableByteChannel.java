@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 
-/**
+/** {@collect.stats}
  * A channel that can read bytes.
  *
  * <p> Only one read operation upon a readable channel may be in progress at
@@ -47,7 +47,7 @@ import java.nio.ByteBuffer;
 
 public interface ReadableByteChannel extends Channel {
 
-    /**
+    /** {@collect.stats}
      * Reads a sequence of bytes from this channel into the given buffer.
      *
      * <p> An attempt is made to read up to <i>r</i> bytes from the channel,

@@ -27,7 +27,7 @@ package javax.swing;
 import java.awt.*;
 import java.awt.image.*;
 
-/**
+/** {@collect.stats}
  * An image filter that "disables" an image by turning
  * it into a grayscale image, and brightening the pixels
  * in the image. Used by buttons to create an image for
@@ -41,7 +41,7 @@ public class GrayFilter extends RGBImageFilter {
     private boolean brighter;
     private int percent;
 
-    /**
+    /** {@collect.stats}
      * Creates a disabled image
      */
     public static Image createDisabledImage (Image i) {
@@ -51,7 +51,7 @@ public class GrayFilter extends RGBImageFilter {
         return grayImage;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a GrayFilter object that filters a color image to a
      * grayscale image. Used by buttons to create disabled ("grayed out")
      * button images.
@@ -71,7 +71,7 @@ public class GrayFilter extends RGBImageFilter {
         canFilterIndexColorModel = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>RGBImageFilter.filterRGB</code>.
      */
     public int filterRGB(int x, int y, int rgb) {

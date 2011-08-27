@@ -31,7 +31,7 @@ import java.util.*;
 import java.awt.Color;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * MinimalHTMLWriter is a fallback writer used by the
  * HTMLEditorKit to write out HTML for a document that
  * is a not produced by the EditorKit.
@@ -67,7 +67,7 @@ import javax.swing.text.*;
 
 public class MinimalHTMLWriter extends AbstractWriter {
 
-    /**
+    /** {@collect.stats}
      * These static finals are used to
      * tweak and query the fontMask about which
      * of these tags need to be generated or
@@ -85,7 +85,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     int startOffset = 0;
     int endOffset = 0;
 
-    /**
+    /** {@collect.stats}
      * Stores the attributes of the previous run.
      * Used to compare with the current run's
      * attributeset.  If identical, then a
@@ -93,13 +93,13 @@ public class MinimalHTMLWriter extends AbstractWriter {
      */
     private AttributeSet fontAttributes;
 
-    /**
+    /** {@collect.stats}
      * Maps from style name as held by the Document, to the archived
      * style name (style name written out). These may differ.
      */
     private Hashtable styleNameMapping;
 
-    /**
+    /** {@collect.stats}
      * Creates a new MinimalHTMLWriter.
      *
      * @param w  Writer
@@ -110,7 +110,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         super(w, doc);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new MinimalHTMLWriter.
      *
      * @param w  Writer
@@ -124,7 +124,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         super(w, doc, pos, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates HTML output
      * from a StyledDocument.
      *
@@ -142,7 +142,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out all the attributes for the
      * following types:
      *  StyleConstants.ParagraphConstants,
@@ -175,7 +175,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out text.
      *
      * @exception IOException on any I/O error
@@ -191,7 +191,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out a start tag appropriately
      * indented.  Also increments the indent level.
      *
@@ -205,7 +205,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out an end tag appropriately
      * indented.  Also decrements the indent level.
      *
@@ -219,7 +219,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out the &lt;head&gt; and &lt;style&gt;
      * tags, and then invokes writeStyles() to write
      * out all the named styles as the content of the
@@ -242,7 +242,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
 
 
 
-    /**
+    /** {@collect.stats}
      * Writes out all the named styles as the
      * content of the &lt;style&gt; tag.
      *
@@ -260,7 +260,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         while (styleNames.hasMoreElements()) {
             Style s = styledDoc.getStyle((String)styleNames.nextElement());
 
-            /** PENDING: Once the name attribute is removed
+            /** {@collect.stats} PENDING: Once the name attribute is removed
                 from the list we check check for 0. **/
             if (s.getAttributeCount() == 1 &&
                 s.isDefined(StyleConstants.NameAttribute)) {
@@ -278,7 +278,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Iterates over the elements in the document
      * and processes elements based on whether they are
      * branch elements or leaf elements.  This method specially handles
@@ -328,7 +328,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Emits an end tag for a &lt;p&gt;
      * tag.  Before writing out the tag, this method ensures
      * that all other tags that have been opened are
@@ -347,7 +347,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Emits the start tag for a paragraph. If
      * the paragraph has a named style associated with it,
      * then this method also generates a class attribute for the
@@ -367,7 +367,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Responsible for writing out other non-text leaf
      * elements.
      *
@@ -383,7 +383,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Responsible for handling Icon Elements;
      * deliberately unimplemented.  How to implement this method is
      * an issue of policy.  For example, if you're generating
@@ -398,7 +398,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Responsible for handling Component Elements;
      * deliberately unimplemented.
      * How this method is implemented is a matter of policy.
@@ -407,7 +407,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the element is a text element.
      *
      */
@@ -416,7 +416,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out the attribute set
      * in an HTML-compliant manner.
      *
@@ -437,7 +437,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Generates
      * bold &lt;b&gt;, italic &lt;i&gt;, and &lt;u&gt; tags for the
      * text based on its attribute settings.
@@ -480,7 +480,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Tweaks the appropriate bits of fontMask
      * to reflect whether the text is to be displayed in
      * bold, italic, and/or with an underline.
@@ -503,7 +503,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
 
 
 
-    /**
+    /** {@collect.stats}
      * Writes out start tags &lt;u&gt;, &lt;i&gt;, and &lt;b&gt; based on
      * the mask settings.
      *
@@ -523,7 +523,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out end tags for &lt;u&gt;, &lt;i&gt;, and &lt;b&gt; based on
      * the mask settings.
      *
@@ -544,7 +544,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out the remaining
      * character-level attributes (attributes other than bold,
      * italic, and underline) in an HTML-compliant way.  Given that
@@ -606,14 +606,14 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if we are currently in a &lt;font&gt; tag.
      */
     protected boolean inFontTag() {
         return (fontAttributes != null);
     }
 
-    /**
+    /** {@collect.stats}
      * This is no longer used, instead &lt;span&gt; will be written out.
      * <p>
      * Writes out an end tag for the &lt;font&gt; tag.
@@ -627,7 +627,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This is no longer used, instead &lt;span&gt; will be written out.
      * <p>
      * Writes out a start tag for the &lt;font&gt; tag.
@@ -650,7 +650,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out a start tag for the &lt;font&gt; tag.
      * Because font tags cannot be nested,
      * this method closes out
@@ -671,7 +671,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out an end tag for the &lt;span&gt; tag.
      *
      * @exception IOException on any I/O error
@@ -682,7 +682,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         fontAttributes = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the style named <code>style</code> to the style mapping. This
      * returns the name that should be used when outputting. CSS does not
      * allow the full Unicode set to be used as a style name.
@@ -708,7 +708,7 @@ public class MinimalHTMLWriter extends AbstractWriter {
         return mappedName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the mapped style name corresponding to <code>style</code>.
      */
     private String mapStyleName(String style) {

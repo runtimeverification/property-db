@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
  * This class represents the object name and class name pair of a binding
  * found in a context.
  *<p>
@@ -57,7 +57,7 @@ package javax.naming;
   */
 
 public class NameClassPair implements java.io.Serializable {
-    /**
+    /** {@collect.stats}
      * Contains the name of this NameClassPair.
      * It is initialized by the constructor and can be updated using
      * <tt>setName()</tt>.
@@ -67,7 +67,7 @@ public class NameClassPair implements java.io.Serializable {
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      *Contains the class name contained in this NameClassPair.
      * It is initialized by the constructor and can be updated using
      * <tt>setClassName()</tt>.
@@ -77,7 +77,7 @@ public class NameClassPair implements java.io.Serializable {
      */
     private String className;
 
-    /**
+    /** {@collect.stats}
      * Contains the full name of this NameClassPair within its
      * own namespace.
      * It is initialized using <tt>setNameInNamespace()</tt>
@@ -88,7 +88,7 @@ public class NameClassPair implements java.io.Serializable {
     private String fullName = null;
 
 
-    /**
+    /** {@collect.stats}
      * Records whether the name of this <tt>NameClassPair</tt>
      * is relative to the target context.
      * It is initialized by the constructor and can be updated using
@@ -101,7 +101,7 @@ public class NameClassPair implements java.io.Serializable {
      */
     private boolean isRel = true;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of a NameClassPair given its
      * name and class name.
      *
@@ -120,7 +120,7 @@ public class NameClassPair implements java.io.Serializable {
         this.className = className;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of a NameClassPair given its
      * name, class name, and whether it is relative to the listing context.
      *
@@ -144,7 +144,7 @@ public class NameClassPair implements java.io.Serializable {
         this.isRel = isRelative;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the class name of the object bound to the name of this binding.
      * If a reference or some other indirect information is bound,
      * retrieves the class name of the eventual object that
@@ -160,7 +160,7 @@ public class NameClassPair implements java.io.Serializable {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of this binding.
      * If <tt>isRelative()</tt> is true, this name is relative to the
      * target context (which is named by the first parameter of the
@@ -175,7 +175,7 @@ public class NameClassPair implements java.io.Serializable {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the name of this binding.
      *
      * @param   name the non-null string to use as the name.
@@ -186,7 +186,7 @@ public class NameClassPair implements java.io.Serializable {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the class name of this binding.
      *
      * @param   name the possibly null string to use as the class name.
@@ -200,7 +200,7 @@ public class NameClassPair implements java.io.Serializable {
         this.className = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the name of this binding is
      * relative to the target context (which is named by
      * the first parameter of the <code>list()</code> method).
@@ -215,7 +215,7 @@ public class NameClassPair implements java.io.Serializable {
         return isRel;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether the name of this binding is relative to the target
      * context (which is named by the first parameter of the <code>list()</code>
      * method).
@@ -229,7 +229,7 @@ public class NameClassPair implements java.io.Serializable {
         isRel = r;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the full name of this binding.
      * The full name is the absolute name of this binding within
      * its own namespace. See {@link Context#getNameInNamespace()}.
@@ -258,7 +258,7 @@ public class NameClassPair implements java.io.Serializable {
         return fullName;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the full name of this binding.
      * This method must be called to set the full name whenever a
      * <tt>NameClassPair</tt> is created and a full name is
@@ -276,7 +276,7 @@ public class NameClassPair implements java.io.Serializable {
         this.fullName = fullName;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the string representation of this name/class pair.
      * The string representation consists of the name and class name separated
      * by a colon (':').
@@ -291,7 +291,7 @@ public class NameClassPair implements java.io.Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 5620776610160863339L;

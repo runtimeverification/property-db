@@ -25,7 +25,7 @@
 
 package javax.script;
 
-/**
+/** {@collect.stats}
  * The optional interface implemented by ScriptEngines whose methods allow the invocation of
  * procedures in scripts that have previously been executed.
  *
@@ -34,7 +34,7 @@ package javax.script;
  * @since 1.6
  */
 public interface Invocable  {
-    /**
+    /** {@collect.stats}
      * Calls a method on a script object compiled during a previous script execution,
      * which is retained in the state of the <code>ScriptEngine</code>.
      *
@@ -60,7 +60,7 @@ public interface Invocable  {
     public Object invokeMethod(Object thiz, String name, Object... args)
         throws ScriptException, NoSuchMethodException;
 
-    /**
+    /** {@collect.stats}
      * Used to call top-level procedures and functions defined in scripts.
      *
      * @param args Arguments to pass to the procedure or function
@@ -74,7 +74,7 @@ public interface Invocable  {
         throws ScriptException, NoSuchMethodException;
 
 
-     /**
+     /** {@collect.stats}
      * Returns an implementation of an interface using functions compiled in
      * the interpreter. The methods of the interface
      * may be implemented using the <code>invokeFunction</code> method.
@@ -90,7 +90,7 @@ public interface Invocable  {
      */
     public <T> T getInterface(Class<T> clasz);
 
-    /**
+    /** {@collect.stats}
      * Returns an implementation of an interface using member functions of
      * a scripting object compiled in the interpreter. The methods of the
      * interface may be implemented using the <code>invokeMethod</code> method.

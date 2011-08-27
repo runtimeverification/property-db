@@ -30,7 +30,7 @@ import java.util.Vector;
 import java.io.*;
 
 
-/**
+/** {@collect.stats}
  * A stack of tags. Used while parsing an HTML document.
  * It, together with the ContentModelStates, defines the
  * complete state of the parser while reading a document.
@@ -54,7 +54,7 @@ class TagStack implements DTDConstants {
     boolean net;
     boolean pre;
 
-    /**
+    /** {@collect.stats}
      * Construct a stack element.
      */
     TagStack(TagElement tag, TagStack next) {
@@ -94,7 +94,7 @@ class TagStack implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the element that must come next in the
      * input stream.
      */
@@ -102,7 +102,7 @@ class TagStack implements DTDConstants {
         return (state != null) ? state.first() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the ContentModel that must be satisfied by
      * what comes next in the input stream.
      */
@@ -114,7 +114,7 @@ class TagStack implements DTDConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the element that is contained at
      * the index specified by the parameter is part of
      * the exclusions specified in the DTD for the element
@@ -124,7 +124,7 @@ class TagStack implements DTDConstants {
         return (exclusions != null) && exclusions.get(elem.getIndex());
     }
 
-    /**
+    /** {@collect.stats}
      * Update the Vector elemVec with all the elements that
      * are part of the inclusions listed in DTD for the element
      * currently on the TagStack.
@@ -141,7 +141,7 @@ class TagStack implements DTDConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Advance the state by reducing the given element.
      * Returns false if the element is not legal and the
      * state is not advanced.
@@ -162,14 +162,14 @@ class TagStack implements DTDConstants {
         return (inclusions != null) && inclusions.get(elem.getIndex());
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the current state can be terminated.
      */
     boolean terminate() {
         return (state == null) || state.terminate();
     }
 
-    /**
+    /** {@collect.stats}
      * Convert to a string.
      */
     public String toString() {

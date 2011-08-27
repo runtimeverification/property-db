@@ -28,40 +28,40 @@ package javax.swing.plaf;
 import javax.swing.JSplitPane;
 import java.awt.Graphics;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JSplitPane.
  *
  * @author Scott Violet
  */
 public abstract class SplitPaneUI extends ComponentUI
 {
-    /**
+    /** {@collect.stats}
      * Messaged to relayout the JSplitPane based on the preferred size
      * of the children components.
      */
     public abstract void resetToPreferredSizes(JSplitPane jc);
 
-    /**
+    /** {@collect.stats}
      * Sets the location of the divider to location.
      */
     public abstract void setDividerLocation(JSplitPane jc, int location);
 
-    /**
+    /** {@collect.stats}
      * Returns the location of the divider.
      */
     public abstract int getDividerLocation(JSplitPane jc);
 
-    /**
+    /** {@collect.stats}
      * Returns the minimum possible location of the divider.
      */
     public abstract int getMinimumDividerLocation(JSplitPane jc);
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum possible location of the divider.
      */
     public abstract int getMaximumDividerLocation(JSplitPane jc);
 
-    /**
+    /** {@collect.stats}
      * Messaged after the JSplitPane the receiver is providing the look
      * and feel for paints its children.
      */

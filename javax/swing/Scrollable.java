@@ -29,7 +29,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 
 
-/**
+/** {@collect.stats}
  * An interface that provides information to a scrolling container
  * like JScrollPane.  A complex component that's likely to be used
  * as a viewing a JScrollPane viewport (or other scrolling container)
@@ -42,7 +42,7 @@ import java.awt.Rectangle;
  */
 public interface Scrollable
 {
-    /**
+    /** {@collect.stats}
      * Returns the preferred size of the viewport for a view component.
      * For example, the preferred size of a <code>JList</code> component
      * is the size required to accommodate all of the cells in its list.
@@ -58,7 +58,7 @@ public interface Scrollable
     Dimension getPreferredScrollableViewportSize();
 
 
-    /**
+    /** {@collect.stats}
      * Components that display logical rows or columns should compute
      * the scroll increment that will completely expose one new row
      * or column, depending on the value of orientation.  Ideally,
@@ -78,7 +78,7 @@ public interface Scrollable
     int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction);
 
 
-    /**
+    /** {@collect.stats}
      * Components that display logical rows or columns should compute
      * the scroll increment that will completely expose one block
      * of rows or columns, depending on the value of orientation.
@@ -96,7 +96,7 @@ public interface Scrollable
     int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction);
 
 
-    /**
+    /** {@collect.stats}
      * Return true if a viewport should always force the width of this
      * <code>Scrollable</code> to match the width of the viewport.
      * For example a normal
@@ -113,7 +113,7 @@ public interface Scrollable
      */
     boolean getScrollableTracksViewportWidth();
 
-    /**
+    /** {@collect.stats}
      * Return true if a viewport should always force the height of this
      * Scrollable to match the height of the viewport.  For example a
      * columnar text view that flowed text in left to right columns

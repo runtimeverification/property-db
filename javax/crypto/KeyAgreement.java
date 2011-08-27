@@ -35,7 +35,7 @@ import sun.security.util.Debug;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class provides the functionality of a key agreement (or key
  * exchange) protocol.
  * <p>
@@ -85,7 +85,7 @@ public class KeyAgreement {
 
     private final Object lock;
 
-    /**
+    /** {@collect.stats}
      * Creates a KeyAgreement object.
      *
      * @param keyAgreeSpi the delegate
@@ -107,7 +107,7 @@ public class KeyAgreement {
         lock = new Object();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>KeyAgreement</code> object.
      *
      * <p>This is the same name that was specified in one of the
@@ -120,7 +120,7 @@ public class KeyAgreement {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyAgreement</code> object that implements the
      * specified key agreement algorithm.
      *
@@ -168,7 +168,7 @@ public class KeyAgreement {
                                 ("Algorithm " + algorithm + " not available");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyAgreement</code> object that implements the
      * specified key agreement algorithm.
      *
@@ -216,7 +216,7 @@ public class KeyAgreement {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeyAgreement</code> object that implements the
      * specified key agreement algorithm.
      *
@@ -260,7 +260,7 @@ public class KeyAgreement {
     // max number of debug warnings to print from chooseFirstProvider()
     private static int warnCount = 10;
 
-    /**
+    /** {@collect.stats}
      * Choose the Spi from the first provider available. Used if
      * delayed provider selection is not possible because init()
      * is not the first method called.
@@ -392,7 +392,7 @@ public class KeyAgreement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>KeyAgreement</code> object.
      *
      * @return the provider of this <code>KeyAgreement</code> object
@@ -402,7 +402,7 @@ public class KeyAgreement {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key, which is required to
      * contain all the algorithm parameters required for this key agreement.
      *
@@ -426,7 +426,7 @@ public class KeyAgreement {
         init(key, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key and source of
      * randomness. The given key is required to contain all the algorithm
      * parameters required for this key agreement.
@@ -460,7 +460,7 @@ public class KeyAgreement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key and set of
      * algorithm parameters.
      *
@@ -489,7 +489,7 @@ public class KeyAgreement {
         init(key, params, JceSecurity.RANDOM);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key, set of
      * algorithm parameters, and source of randomness.
      *
@@ -516,7 +516,7 @@ public class KeyAgreement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Executes the next phase of this key agreement with the given
      * key that was received from one of the other parties involved in this key
      * agreement.
@@ -542,7 +542,7 @@ public class KeyAgreement {
         return spi.engineDoPhase(key, lastPhase);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the shared secret and returns it in a new buffer.
      *
      * <p>This method resets this <code>KeyAgreement</code> object, so that it
@@ -561,7 +561,7 @@ public class KeyAgreement {
         return spi.engineGenerateSecret();
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the shared secret, and places it into the buffer
      * <code>sharedSecret</code>, beginning at <code>offset</code> inclusive.
      *
@@ -593,7 +593,7 @@ public class KeyAgreement {
         return spi.engineGenerateSecret(sharedSecret, offset);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the shared secret and returns it as a <code>SecretKey</code>
      * object of the specified algorithm.
      *

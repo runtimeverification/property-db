@@ -27,7 +27,7 @@ package javax.imageio;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * An exception class used for signaling run-time failure of reading
  * and writing operations.
  *
@@ -41,7 +41,7 @@ import java.io.IOException;
  */
 public class IIOException extends IOException {
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOException</code> with a given message
      * <code>String</code>.  No underlying cause is set;
      * <code>getCause</code> will return <code>null</code>.
@@ -54,7 +54,7 @@ public class IIOException extends IOException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOException</code> with a given message
      * <code>String</code> and a <code>Throwable</code> that was its
      * underlying cause.

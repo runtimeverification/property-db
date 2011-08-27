@@ -35,7 +35,7 @@ import java.util.Collection;
 //
 
 
-/**
+/** {@collect.stats}
  * The <tt>CompositeData</tt> interface specifies the behavior of a specific type of complex <i>open data</i> objects
  * which represent <i>composite data</i> structures.
  *
@@ -45,14 +45,14 @@ import java.util.Collection;
 public interface CompositeData {
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <i>composite type </i> of this <i>composite data</i> instance.
      *
      * @return the type of this CompositeData.
      */
     public CompositeType getCompositeType();
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the item whose name is <tt>key</tt>.
      *
      * @param key the name of the item.
@@ -65,7 +65,7 @@ public interface CompositeData {
      */
     public Object get(String key) ;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the values of the items whose names are specified by <tt>keys</tt>, in the same order as <tt>keys</tt>.
      *
      * @param keys the names of the items.
@@ -78,7 +78,7 @@ public interface CompositeData {
      */
     public Object[] getAll(String[] keys) ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>CompositeData</tt> instance contains
      * an item whose name is <tt>key</tt>.
      * If <tt>key</tt> is a null or empty String, this method simply returns false.
@@ -89,7 +89,7 @@ public interface CompositeData {
      */
     public boolean containsKey(String key) ;
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if and only if this <tt>CompositeData</tt> instance contains an item
      * whose value is <tt>value</tt>.
      *
@@ -99,7 +99,7 @@ public interface CompositeData {
      */
     public boolean containsValue(Object value) ;
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Collection view of the item values contained in this <tt>CompositeData</tt> instance.
      * The returned collection's iterator will return the values in the ascending lexicographic order of the corresponding
      * item names.
@@ -108,7 +108,7 @@ public interface CompositeData {
      */
     public Collection<?> values() ;
 
-    /**
+    /** {@collect.stats}
      * Compares the specified <var>obj</var> parameter with this
      * <code>CompositeData</code> instance for equality.
      * <p>
@@ -137,7 +137,7 @@ public interface CompositeData {
      */
     public boolean equals(Object obj) ;
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this <code>CompositeData</code> instance.
      * <p>
      * The hash code of a <code>CompositeData</code> instance is the sum of the hash codes
@@ -160,7 +160,7 @@ public interface CompositeData {
      */
     public int hashCode() ;
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>CompositeData</code> instance.
      * <p>
      * The string representation consists of the name of the implementing class,

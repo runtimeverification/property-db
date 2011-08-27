@@ -26,7 +26,7 @@
 package javax.sound.sampled;
 
 
-/**
+/** {@collect.stats}
  * A mixer is an audio device with one or more lines.  It need not be
  * designed for mixing audio signals.  A mixer that actually mixes audio
  * has multiple input (source) lines and at least one output (target) line.
@@ -56,7 +56,7 @@ package javax.sound.sampled;
  */
 public interface Mixer extends Line {
 
-    /**
+    /** {@collect.stats}
      * Obtains information about this mixer, including the product's name,
      * version, vendor, etc.
      * @return a mixer info object that describes this mixer
@@ -65,7 +65,7 @@ public interface Mixer extends Line {
     public Info getMixerInfo();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains information about the set of source lines supported
      * by this mixer.
      * Some source lines may only be available when this mixer is open.
@@ -75,7 +75,7 @@ public interface Mixer extends Line {
      */
     public Line.Info[] getSourceLineInfo();
 
-    /**
+    /** {@collect.stats}
      * Obtains information about the set of target lines supported
      * by this mixer.
      * Some target lines may only be available when this mixer is open.
@@ -86,7 +86,7 @@ public interface Mixer extends Line {
     public Line.Info[] getTargetLineInfo();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains information about source lines of a particular type supported
      * by the mixer.
      * Some source lines may only be available when this mixer is open.
@@ -99,7 +99,7 @@ public interface Mixer extends Line {
     public Line.Info[] getSourceLineInfo(Line.Info info);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains information about target lines of a particular type supported
      * by the mixer.
      * Some target lines may only be available when this mixer is open.
@@ -112,7 +112,7 @@ public interface Mixer extends Line {
     public Line.Info[] getTargetLineInfo(Line.Info info);
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the mixer supports a line (or lines) that match
      * the specified <code>Line.Info</code> object.
      * Some lines may only be supported when this mixer is open.
@@ -122,7 +122,7 @@ public interface Mixer extends Line {
      */
     public boolean isLineSupported(Line.Info info);
 
-    /**
+    /** {@collect.stats}
      * Obtains a line that is available for use and that matches the description
      * in the specified <code>Line.Info</code> object.
      *
@@ -143,7 +143,7 @@ public interface Mixer extends Line {
     public Line getLine(Line.Info info) throws LineUnavailableException;
 
     //$$fb 2002-04-12: fix for 4667258: behavior of Mixer.getMaxLines(Line.Info) method doesn't match the spec
-    /**
+    /** {@collect.stats}
      * Obtains the approximate maximum number of lines of the requested type that can be open
      * simultaneously on the mixer.
      *
@@ -166,7 +166,7 @@ public interface Mixer extends Line {
     public int getMaxLines(Line.Info info);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of all source lines currently open to this mixer.
      *
      * @return the source lines currently open to the mixer.
@@ -177,7 +177,7 @@ public interface Mixer extends Line {
      */
     public Line[] getSourceLines();
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of all target lines currently open from this mixer.
      *
      * @return target lines currently open from the mixer.
@@ -188,7 +188,7 @@ public interface Mixer extends Line {
      */
     public Line[] getTargetLines();
 
-    /**
+    /** {@collect.stats}
      * Synchronizes two or more lines.  Any subsequent command that starts or stops
      * audio playback or capture for one of these lines will exert the
      * same effect on the other lines in the group, so that they start or stop playing or
@@ -207,7 +207,7 @@ public interface Mixer extends Line {
      */
     public void synchronize(Line[] lines, boolean maintainSync);
 
-    /**
+    /** {@collect.stats}
      * Releases synchronization for the specified lines.  The array must
      * be identical to one for which synchronization has already been
      * established; otherwise an exception may be thrown.  However, <code>null</code>
@@ -223,7 +223,7 @@ public interface Mixer extends Line {
     public void unsynchronize(Line[] lines);
 
 
-    /**
+    /** {@collect.stats}
      * Reports whether this mixer supports synchronization of the specified set of lines.
      *
      * @param lines the set of lines for which synchronization support is queried
@@ -238,7 +238,7 @@ public interface Mixer extends Line {
     public boolean isSynchronizationSupported(Line[] lines, boolean maintainSync);
 
 
-    /**
+    /** {@collect.stats}
      * The <code>Mixer.Info</code> class represents information about an audio mixer,
      * including the product's name, version, and vendor, along with a textual
      * description.  This information may be retrieved through the
@@ -250,27 +250,27 @@ public interface Mixer extends Line {
      */
     public static class Info {
 
-        /**
+        /** {@collect.stats}
          * Mixer name.
          */
         private /*final*/ String name;
 
-        /**
+        /** {@collect.stats}
          * Mixer vendor.
          */
         private /*final*/ String vendor;
 
-        /**
+        /** {@collect.stats}
          * Mixer description.
          */
         private /*final*/ String description;
 
-        /**
+        /** {@collect.stats}
          * Mixer version.
          */
         private /*final*/ String version;
 
-        /**
+        /** {@collect.stats}
          * Constructs a mixer's info object, passing it the given
          * textual information.
          * @param name the name of the mixer
@@ -288,7 +288,7 @@ public interface Mixer extends Line {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Indicates whether two info objects are equal, returning <code>true</code> if
          * they are identical.
          * @param obj the reference object with which to compare this info
@@ -300,7 +300,7 @@ public interface Mixer extends Line {
             return super.equals(obj);
         }
 
-        /**
+        /** {@collect.stats}
          * Finalizes the hashcode method.
          *
          * @return the hashcode for this object
@@ -309,7 +309,7 @@ public interface Mixer extends Line {
             return super.hashCode();
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the name of the mixer.
          * @return a string that names the mixer
          */
@@ -317,7 +317,7 @@ public interface Mixer extends Line {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the vendor of the mixer.
          * @return a string that names the mixer's vendor
          */
@@ -325,7 +325,7 @@ public interface Mixer extends Line {
             return vendor;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the description of the mixer.
          * @return a textual description of the mixer
          */
@@ -333,7 +333,7 @@ public interface Mixer extends Line {
             return description;
         }
 
-        /**
+        /** {@collect.stats}
          * Obtains the version of the mixer.
          * @return textual version information for the mixer
          */
@@ -341,7 +341,7 @@ public interface Mixer extends Line {
             return version;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a string representation of the mixer info.
          * @return a string describing the info object
          */

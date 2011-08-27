@@ -27,7 +27,7 @@ package javax.smartcardio;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * The set of terminals supported by a TerminalFactory.
  * This class allows applications to enumerate the available CardTerminals,
  * obtain a specific CardTerminal, or wait for the insertion or removal of
@@ -50,7 +50,7 @@ import java.util.*;
  */
 public abstract class CardTerminals {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new CardTerminals object.
      *
      * <p>This constructor is called by subclasses only. Application should
@@ -61,7 +61,7 @@ public abstract class CardTerminals {
         // empty
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable list of all available terminals.
      *
      * @return an unmodifiable list of all available terminals.
@@ -72,7 +72,7 @@ public abstract class CardTerminals {
          return list(State.ALL);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable list of all terminals matching the specified
      * state.
      *
@@ -101,7 +101,7 @@ public abstract class CardTerminals {
      */
     public abstract List<CardTerminal> list(State state) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Returns the terminal with the specified name or null if no such
      * terminal exists.
      *
@@ -126,7 +126,7 @@ public abstract class CardTerminals {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Waits for card insertion or removal in any of the terminals of this
      * object.
      *
@@ -141,7 +141,7 @@ public abstract class CardTerminals {
         waitForChange(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Waits for card insertion or removal in any of the terminals of this
      * object or until the timeout expires.
      *
@@ -183,32 +183,32 @@ public abstract class CardTerminals {
      */
     public abstract boolean waitForChange(long timeout) throws CardException;
 
-    /**
+    /** {@collect.stats}
      * Enumeration of attributes of a CardTerminal.
      * It is used as a parameter to the {@linkplain CardTerminals#list} method.
      *
      * @since 1.6
      */
     public static enum State {
-        /**
+        /** {@collect.stats}
          * All CardTerminals.
          */
         ALL,
-        /**
+        /** {@collect.stats}
          * CardTerminals in which a card is present.
          */
         CARD_PRESENT,
-        /**
+        /** {@collect.stats}
          * CardTerminals in which a card is not present.
          */
         CARD_ABSENT,
-        /**
+        /** {@collect.stats}
          * CardTerminals for which a card insertion was detected during the
          * latest call to {@linkplain State#waitForChange waitForChange()}
          * call.
          */
         CARD_INSERTION,
-        /**
+        /** {@collect.stats}
          * CardTerminals for which a card removal was detected during the
          * latest call to {@linkplain State#waitForChange waitForChange()}
          * call.

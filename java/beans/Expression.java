@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * An <code>Expression</code> object represents a primitive expression
  * in which a single method is applied to a target and a set of
  * arguments to return a result - as in <code>"a.getFoo()"</code>.
@@ -50,7 +50,7 @@ public class Expression extends Statement {
 
     private Object value = unbound;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>Statement</code> object with a <code>target</code>,
      * <code>methodName</code> and <code>arguments</code> as per the parameters.
      *
@@ -64,7 +64,7 @@ public class Expression extends Statement {
         super(target, methodName, arguments);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>Expression</code> object for a method
      * that returns a result. The result will never be calculated
      * however, since this constructor uses the <code>value</code>
@@ -83,7 +83,7 @@ public class Expression extends Statement {
         setValue(value);
     }
 
-    /**
+    /** {@collect.stats}
      * If the value property of this instance is not already set,
      * this method dynamically finds the method with the specified
      * methodName on this target with these arguments and calls it.
@@ -117,7 +117,7 @@ public class Expression extends Statement {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the value of this expression to <code>value</code>.
      * This value will be returned by the getValue method
      * without calling the method associated with this
@@ -135,7 +135,7 @@ public class Expression extends Statement {
         return instance == unbound ? "<unbound>" : super.instanceName(instance);
     }
 
-    /**
+    /** {@collect.stats}
      * Prints the value of this expression using a Java-style syntax.
      */
     public String toString() {

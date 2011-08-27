@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * A collection of unique attributes.  This is a read-only,
  * immutable interface.  An attribute is basically a key and
  * a value assigned to the key.  The collection may represent
@@ -46,7 +46,7 @@ import java.util.Enumeration;
  */
 public interface AttributeSet {
 
-    /**
+    /** {@collect.stats}
      * This interface is the type signature that is expected
      * to be present on any attribute key that contributes to
      * the determination of what font to use to render some
@@ -59,7 +59,7 @@ public interface AttributeSet {
     public interface FontAttribute {
     }
 
-    /**
+    /** {@collect.stats}
      * This interface is the type signature that is expected
      * to be present on any attribute key that contributes to
      * presentation of color.
@@ -67,7 +67,7 @@ public interface AttributeSet {
     public interface ColorAttribute {
     }
 
-    /**
+    /** {@collect.stats}
      * This interface is the type signature that is expected
      * to be present on any attribute key that contributes to
      * character level presentation.  This would be any attribute
@@ -77,7 +77,7 @@ public interface AttributeSet {
     public interface CharacterAttribute {
     }
 
-    /**
+    /** {@collect.stats}
      * This interface is the type signature that is expected
      * to be present on any attribute key that contributes to
      * the paragraph level presentation.
@@ -85,7 +85,7 @@ public interface AttributeSet {
     public interface ParagraphAttribute {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of attributes that are defined locally in this set.
      * Attributes that are defined in the parent set are not included.
      *
@@ -93,7 +93,7 @@ public interface AttributeSet {
      */
     public int getAttributeCount();
 
-    /**
+    /** {@collect.stats}
      * Checks whether the named attribute has a value specified in
      * the set without resolving through another attribute
      * set.
@@ -103,7 +103,7 @@ public interface AttributeSet {
      */
     public boolean isDefined(Object attrName);
 
-    /**
+    /** {@collect.stats}
      * Determines if the two attribute sets are equivalent.
      *
      * @param attr an attribute set
@@ -111,7 +111,7 @@ public interface AttributeSet {
      */
     public boolean isEqual(AttributeSet attr);
 
-    /**
+    /** {@collect.stats}
      * Returns an attribute set that is guaranteed not
      * to change over time.
      *
@@ -119,7 +119,7 @@ public interface AttributeSet {
      */
     public AttributeSet copyAttributes();
 
-    /**
+    /** {@collect.stats}
      * Fetches the value of the given attribute. If the value is not found
      * locally, the search is continued upward through the resolving
      * parent (if one exists) until the value is either
@@ -131,7 +131,7 @@ public interface AttributeSet {
      */
     public Object getAttribute(Object key);
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration over the names of the attributes that are
      * defined locally in the set. Names of attributes defined in the
      * resolving parent, if any, are not included. The values of the
@@ -145,7 +145,7 @@ public interface AttributeSet {
      */
     public Enumeration<?> getAttributeNames();
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this set defines an attribute with the same
      * name and an equal value. If such an attribute is not found locally,
      * it is searched through in the resolving parent hierarchy.
@@ -159,7 +159,7 @@ public interface AttributeSet {
      */
     public boolean containsAttribute(Object name, Object value);
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this set defines all the attributes from the
      * given set with equal values. If an attribute is not found locally,
      * it is searched through in the resolving parent hierarchy.
@@ -171,20 +171,20 @@ public interface AttributeSet {
      */
     public boolean containsAttributes(AttributeSet attributes);
 
-    /**
+    /** {@collect.stats}
      * Gets the resolving parent.
      *
      * @return the parent
      */
     public AttributeSet getResolveParent();
 
-    /**
+    /** {@collect.stats}
      * Attribute name used to name the collection of
      * attributes.
      */
     public static final Object NameAttribute = StyleConstants.NameAttribute;
 
-    /**
+    /** {@collect.stats}
      * Attribute name used to identify the resolving parent
      * set of attributes, if one is defined.
      */

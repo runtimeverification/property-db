@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Signals that a method has been invoked at an illegal or
  * inappropriate time.  In other words, the Java environment or
  * Java application is not in an appropriate state for the requested
@@ -36,7 +36,7 @@ package java.lang;
  */
 public
 class IllegalStateException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs an IllegalStateException with no detail message.
      * A detail message is a String that describes this particular exception.
      */
@@ -44,7 +44,7 @@ class IllegalStateException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an IllegalStateException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.
@@ -55,7 +55,7 @@ class IllegalStateException extends RuntimeException {
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified detail message and
      * cause.
      *
@@ -75,7 +75,7 @@ class IllegalStateException extends RuntimeException {
         super(message, cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new exception with the specified cause and a detail
      * message of <tt>(cause==null ? null : cause.toString())</tt> (which
      * typically contains the class and detail message of <tt>cause</tt>).

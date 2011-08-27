@@ -31,7 +31,7 @@ import java.security.Principal;
 import java.security.cert.X509Certificate;
 import javax.security.auth.x500.X500Principal;
 
-/**
+/** {@collect.stats}
  * This event indicates that an SSL handshake completed on a given
  * SSL connection.  All of the core information about that handshake's
  * result is captured through an "SSLSession" object.  As a convenience,
@@ -54,7 +54,7 @@ public class HandshakeCompletedEvent extends EventObject
 
     private transient SSLSession session;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new HandshakeCompletedEvent.
      *
      * @param sock the SSLSocket acting as the source of the event
@@ -67,7 +67,7 @@ public class HandshakeCompletedEvent extends EventObject
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the session that triggered this event.
      *
      * @return the <code>SSLSession</code> for this handshake
@@ -78,7 +78,7 @@ public class HandshakeCompletedEvent extends EventObject
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the cipher suite in use by the session which was produced
      * by the handshake.  (This is a convenience method for
      * getting the ciphersuite from the SSLsession.)
@@ -91,7 +91,7 @@ public class HandshakeCompletedEvent extends EventObject
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate(s) that were sent to the peer during
      * handshaking.
      * Note: This method is useful only when using certificate-based
@@ -115,7 +115,7 @@ public class HandshakeCompletedEvent extends EventObject
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was established as part
      * of defining the session.
      * Note: This method can be used only when using certificate-based
@@ -135,7 +135,7 @@ public class HandshakeCompletedEvent extends EventObject
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was identified as part
      * of defining the session.
      * Note: This method can be used only when using certificate-based
@@ -160,7 +160,7 @@ public class HandshakeCompletedEvent extends EventObject
         return session.getPeerCertificateChain();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was established as part of
      * defining the session.
      *
@@ -192,7 +192,7 @@ public class HandshakeCompletedEvent extends EventObject
         return principal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the principal that was sent to the peer during handshaking.
      *
      * @return the principal sent to the peer. Returns an X500Principal
@@ -223,7 +223,7 @@ public class HandshakeCompletedEvent extends EventObject
         return principal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the socket which is the source of this event.
      * (This is a convenience function, to let applications
      * write code without type casts.)

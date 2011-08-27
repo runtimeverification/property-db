@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * Parameters for the W3C Recommendation:
  * <a href="http://www.w3.org/TR/xml-exc-c14n/">
  * Exclusive XML Canonicalization (C14N) algorithm</a>. The
@@ -61,12 +61,12 @@ public final class ExcC14NParameterSpec implements C14NMethodParameterSpec {
 
     private List preList;
 
-    /**
+    /** {@collect.stats}
      * Indicates the default namespace ("#default").
      */
     public static final String DEFAULT = "#default";
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ExcC14NParameterSpec</code> with an empty prefix
      * list.
      */
@@ -74,7 +74,7 @@ public final class ExcC14NParameterSpec implements C14NMethodParameterSpec {
         preList = Collections.EMPTY_LIST;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ExcC14NParameterSpec</code> with the specified list
      * of prefixes. The list is copied to protect against subsequent
      * modification.
@@ -99,7 +99,7 @@ public final class ExcC14NParameterSpec implements C14NMethodParameterSpec {
         preList = Collections.unmodifiableList(preList);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the inclusive namespace prefix list. Each entry in the list
      * is a <code>String</code> that represents a namespace prefix.
      *

@@ -31,7 +31,7 @@ import com.sun.imageio.stream.StreamFinalizer;
 import sun.java2d.Disposer;
 import sun.java2d.DisposerRecord;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageInputStream</code> that gets its
  * input from a regular <code>InputStream</code>.  A memory buffer is
  * used to cache at least the data between the discard position and
@@ -49,13 +49,13 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
 
     private MemoryCache cache = new MemoryCache();
 
-    /** The referent to be registered with the Disposer. */
+    /** {@collect.stats} The referent to be registered with the Disposer. */
     private final Object disposerReferent;
 
-    /** The DisposerRecord that resets the underlying MemoryCache. */
+    /** {@collect.stats} The DisposerRecord that resets the underlying MemoryCache. */
     private final DisposerRecord disposerRecord;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MemoryCacheImageInputStream</code> that will read
      * from a given <code>InputStream</code>.
      *
@@ -125,7 +125,7 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
         cache.disposeBefore(pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageInputStream</code> caches data in order to allow
      * seeking backwards.
@@ -139,7 +139,7 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since this
      * <code>ImageInputStream</code> does not maintain a file cache.
      *
@@ -152,7 +152,7 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageInputStream</code> maintains a main memory cache.
      *
@@ -165,7 +165,7 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this <code>MemoryCacheImageInputStream</code>, freeing
      * the cache.  The source <code>InputStream</code> is not closed.
      */
@@ -176,7 +176,7 @@ public class MemoryCacheImageInputStream extends ImageInputStreamImpl {
         cache = null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     protected void finalize() throws Throwable {

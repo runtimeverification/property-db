@@ -40,7 +40,7 @@ import java.beans.PropertyVetoException;
 import sun.swing.plaf.synth.SynthUI;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * The class that manages a synth title bar
  *
  * @author David Kloba
@@ -335,7 +335,7 @@ class SynthInternalFrameTitlePane extends BasicInternalFrameTitlePane
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the menuButton icon to match that of the frame.
      */
     private void updateMenuIcon() {

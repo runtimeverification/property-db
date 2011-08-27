@@ -31,7 +31,7 @@ import org.w3c.dom.Node;
 import javax.xml.crypto.XMLStructure;
 import javax.xml.crypto.dsig.XMLSignature;
 
-/**
+/** {@collect.stats}
  * A DOM-specific {@link XMLStructure}. The purpose of this class is to
  * allow a DOM node to be used to represent extensible content (any elements
  * or mixed content) in XML Signature structures.
@@ -53,7 +53,7 @@ public class DOMStructure implements XMLStructure {
 
     private final Node node;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMStructure</code> containing the specified node.
      *
      * @param node the node
@@ -66,7 +66,7 @@ public class DOMStructure implements XMLStructure {
         this.node = node;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the node contained in this <code>DOMStructure</code>.
      *
      * @return the node
@@ -75,7 +75,7 @@ public class DOMStructure implements XMLStructure {
         return node;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      */
     public boolean isFeatureSupported(String feature) {

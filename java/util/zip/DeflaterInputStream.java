@@ -29,7 +29,7 @@ import java.io.FilterInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Implements an input stream filter for compressing data in the "deflate"
  * compression format.
  *
@@ -42,22 +42,22 @@ import java.io.IOException;
  */
 
 public class DeflaterInputStream extends FilterInputStream {
-    /** Compressor for this stream. */
+    /** {@collect.stats} Compressor for this stream. */
     protected final Deflater def;
 
-    /** Input buffer for reading compressed data. */
+    /** {@collect.stats} Input buffer for reading compressed data. */
     protected final byte[] buf;
 
-    /** Temporary read buffer. */
+    /** {@collect.stats} Temporary read buffer. */
     private byte[] rbuf = new byte[1];
 
-    /** Default compressor is used. */
+    /** {@collect.stats} Default compressor is used. */
     private boolean usesDefaultDeflater = false;
 
-    /** End of the underlying input stream has been reached. */
+    /** {@collect.stats} End of the underlying input stream has been reached. */
     private boolean reachEOF = false;
 
-    /**
+    /** {@collect.stats}
      * Check to make sure that this stream has not been closed.
      */
     private void ensureOpen() throws IOException {
@@ -66,7 +66,7 @@ public class DeflaterInputStream extends FilterInputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new input stream with a default compressor and buffer
      * size.
      *
@@ -78,7 +78,7 @@ public class DeflaterInputStream extends FilterInputStream {
         usesDefaultDeflater = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new input stream with the specified compressor and a
      * default buffer size.
      *
@@ -90,7 +90,7 @@ public class DeflaterInputStream extends FilterInputStream {
         this(in, defl, 512);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new input stream with the specified compressor and buffer
      * size.
      *
@@ -116,7 +116,7 @@ public class DeflaterInputStream extends FilterInputStream {
         buf = new byte[bufLen];
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and its underlying input stream, discarding
      * any pending uncompressed data.
      *
@@ -137,7 +137,7 @@ public class DeflaterInputStream extends FilterInputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single byte of compressed data from the input stream.
      * This method will block until some input can be read and compressed.
      *
@@ -154,7 +154,7 @@ public class DeflaterInputStream extends FilterInputStream {
         return (rbuf[0] & 0xFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads compressed data into a byte array.
      * This method will block until some input can be read and compressed.
      *
@@ -209,7 +209,7 @@ public class DeflaterInputStream extends FilterInputStream {
         return cnt;
     }
 
-    /**
+    /** {@collect.stats}
      * Skips over and discards data from the input stream.
      * This method may block until the specified number of bytes are read and
      * skipped. <em>Note:</em> While {@code n} is given as a {@code long},
@@ -246,7 +246,7 @@ public class DeflaterInputStream extends FilterInputStream {
         return cnt;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns 0 after EOF has been reached, otherwise always return 1.
      * <p>
      * Programs should not count on this method to return the actual number
@@ -264,7 +264,7 @@ public class DeflaterInputStream extends FilterInputStream {
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Always returns {@code false} because this input stream does not support
      * the {@link #mark mark()} and {@link #reset reset()} methods.
      *
@@ -274,7 +274,7 @@ public class DeflaterInputStream extends FilterInputStream {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * <i>This operation is not supported</i>.
      *
      * @param limit maximum bytes that can be read before invalidating the position marker
@@ -283,7 +283,7 @@ public class DeflaterInputStream extends FilterInputStream {
         // Operation not supported
     }
 
-    /**
+    /** {@collect.stats}
      * <i>This operation is not supported</i>.
      *
      * @throws IOException always thrown

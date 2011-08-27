@@ -43,7 +43,7 @@ import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
-/**
+/** {@collect.stats}
  * A RelationSupport object is used internally by the Relation Service to
  * represent simple relations (only roles, no properties or methods), with an
  * unlimited number of roles, of any relation type. As internal representation,
@@ -116,7 +116,7 @@ public class RelationSupport
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code RelationSupport} object.
      * <P>This constructor has to be used when the RelationSupport object will
      * be registered as a MBean by the user, or when creating a user relation
@@ -175,7 +175,7 @@ public class RelationSupport
                 "RelationSupport");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code RelationSupport} object.
      * <P>This constructor has to be used when the user relation MBean
      * implements the interfaces expected to be supported by a relation by
@@ -257,7 +257,7 @@ public class RelationSupport
     // Relation Interface
     //
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value for given role name.
      * <P>Checks if the role exists and is readable according to the relation
      * type.
@@ -297,7 +297,7 @@ public class RelationSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves values of roles with given names.
      * <P>Checks for each role if it exists and is readable according to the
      * relation type.
@@ -332,7 +332,7 @@ public class RelationSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all roles present in the relation.
      *
      * @return a RoleResult object, including a RoleList (for roles
@@ -359,7 +359,7 @@ public class RelationSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all roles in the relation without checking read mode.
      *
      * @return a RoleList
@@ -380,7 +380,7 @@ public class RelationSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of MBeans currently referenced in the given role.
      *
      * @param roleName  name of role
@@ -430,7 +430,7 @@ public class RelationSupport
         return new Integer(roleValue.size());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the given role.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -485,7 +485,7 @@ public class RelationSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the given roles.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -529,7 +529,7 @@ public class RelationSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Callback used by the Relation Service when a MBean referenced in a role
      * is unregistered.
      * <P>The Relation Service will call this method to let the relation
@@ -585,7 +585,7 @@ public class RelationSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves MBeans referenced in the various roles of the relation.
      *
      * @return a HashMap mapping:
@@ -632,14 +632,14 @@ public class RelationSupport
         return refMBeanMap;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns name of associated relation type.
      */
     public String getRelationTypeName() {
         return myRelTypeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns ObjectName of the Relation Service handling the relation.
      *
      * @return the ObjectName of the Relation Service.
@@ -648,7 +648,7 @@ public class RelationSupport
         return myRelServiceName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns relation identifier (used to uniquely identify the relation
      * inside the Relation Service).
      *
@@ -696,7 +696,7 @@ public class RelationSupport
     // Others
     //
 
-    /**
+    /** {@collect.stats}
      * Returns an internal flag specifying if the object is still handled by
      * the Relation Service.
      */

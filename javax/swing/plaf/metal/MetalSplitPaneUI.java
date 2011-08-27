@@ -29,7 +29,7 @@ import javax.swing.*;
 import javax.swing.plaf.*;
 import javax.swing.plaf.basic.*;
 
-/**
+/** {@collect.stats}
  * Metal split pane.
  * <p>
  * <strong>Warning:</strong>
@@ -47,14 +47,14 @@ public class MetalSplitPaneUI extends BasicSplitPaneUI
 {
 
 
-    /**
+    /** {@collect.stats}
       * Creates a new MetalSplitPaneUI instance
       */
     public static ComponentUI createUI(JComponent x) {
         return new MetalSplitPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
       * Creates the default divider.
       */
     public BasicSplitPaneDivider createDefaultDivider() {

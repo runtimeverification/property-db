@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.awt.Desktop.Action;
 
-/**
+/** {@collect.stats}
  * The <code>DesktopPeer</code> interface provides methods for the operation
  * of open, edit, print, browse and mail with the given URL or file, by
  * launching the associated application.
@@ -40,7 +40,7 @@ import java.awt.Desktop.Action;
  *
  */
 public interface DesktopPeer {
-    /**
+    /** {@collect.stats}
      * Returns whether the given action is supported on the current platform.
      * @param action the action type to be tested if it's supported on the
      *        current platform.
@@ -49,7 +49,7 @@ public interface DesktopPeer {
      */
     public boolean isSupported(Action action);
 
-    /**
+    /** {@collect.stats}
      * Launches the associated application to open the given file. The
      * associated application is registered to be the default file viewer for
      * the file type of the given file.
@@ -60,7 +60,7 @@ public interface DesktopPeer {
      */
     public void open(File file) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Launches the associated editor and opens the given file for editing. The
      * associated editor is registered to be the default editor for the file
      * type of the given file.
@@ -71,7 +71,7 @@ public interface DesktopPeer {
      */
     public void edit(File file) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Prints the given file with the native desktop printing facility, using
      * the associated application's print command.
      *
@@ -81,7 +81,7 @@ public interface DesktopPeer {
      */
     public void print(File file) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Launches the mail composing window of the user default mail client,
      * filling the message fields including to, cc, etc, with the values
      * specified by the given mailto URL.
@@ -95,7 +95,7 @@ public interface DesktopPeer {
      */
     public void mail(URI mailtoURL) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Launches the user default browser to display the given URI.
      *
      * @param uri the given URI.

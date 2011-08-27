@@ -30,7 +30,7 @@ import java.nio.charset.CharsetDecoder;
 import sun.nio.cs.StreamDecoder;
 
 
-/**
+/** {@collect.stats}
  * An InputStreamReader is a bridge from byte streams to character streams: It
  * reads bytes and decodes them into characters using a specified {@link
  * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
@@ -63,7 +63,7 @@ public class InputStreamReader extends Reader {
 
     private final StreamDecoder sd;
 
-    /**
+    /** {@collect.stats}
      * Creates an InputStreamReader that uses the default charset.
      *
      * @param  in   An InputStream
@@ -78,7 +78,7 @@ public class InputStreamReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an InputStreamReader that uses the named charset.
      *
      * @param  in
@@ -100,7 +100,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, charsetName);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an InputStreamReader that uses the given charset. </p>
      *
      * @param  in       An InputStream
@@ -116,7 +116,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, cs);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an InputStreamReader that uses the given charset decoder.  </p>
      *
      * @param  in       An InputStream
@@ -132,7 +132,7 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, dec);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the character encoding being used by this stream.
      *
      * <p> If the encoding has an historical name then that name is returned;
@@ -156,7 +156,7 @@ public class InputStreamReader extends Reader {
         return sd.getEncoding();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single character.
      *
      * @return The character read, or -1 if the end of the stream has been
@@ -168,7 +168,7 @@ public class InputStreamReader extends Reader {
         return sd.read();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads characters into a portion of an array.
      *
      * @param      cbuf     Destination buffer
@@ -184,7 +184,7 @@ public class InputStreamReader extends Reader {
         return sd.read(cbuf, offset, length);
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream is ready to be read.  An InputStreamReader is
      * ready if its input buffer is not empty, or if bytes are available to be
      * read from the underlying byte stream.

@@ -30,7 +30,7 @@ import java.util.List;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * The RelationType interface has to be implemented by any class expected to
  * represent a relation type.
  *
@@ -42,21 +42,21 @@ public interface RelationType extends Serializable {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the relation type name.
      *
      * @return the relation type name.
      */
     public String getRelationTypeName();
 
-    /**
+    /** {@collect.stats}
      * Returns the list of role definitions (ArrayList of RoleInfo objects).
      *
      * @return an {@link ArrayList} of {@link RoleInfo}.
      */
     public List<RoleInfo> getRoleInfos();
 
-    /**
+    /** {@collect.stats}
      * Returns the role info (RoleInfo object) for the given role info name
      * (null if not found).
      *

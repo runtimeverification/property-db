@@ -29,7 +29,7 @@ import java.util.Hashtable;
 import java.util.BitSet;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * An element as described in a DTD using the ELEMENT construct.
  * This is essentiall the description of a tag. It describes the
  * type, content model, attributes, attribute types etc. It is used
@@ -53,7 +53,7 @@ class Element implements DTDConstants, Serializable {
 
     static int maxIndex = 0;
 
-    /**
+    /** {@collect.stats}
      * A field to store user data. Mostly used to store
      * style sheets.
      */
@@ -62,7 +62,7 @@ class Element implements DTDConstants, Serializable {
     Element() {
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new element.
      */
     Element(String name, int index) {
@@ -71,70 +71,70 @@ class Element implements DTDConstants, Serializable {
         maxIndex = Math.max(maxIndex, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the element.
      */
     public String getName() {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the start tag can be omitted.
      */
     public boolean omitStart() {
         return oStart;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the end tag can be omitted.
      */
     public boolean omitEnd() {
         return oEnd;
     }
 
-    /**
+    /** {@collect.stats}
      * Get type.
      */
     public int getType() {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Get content model
      */
     public ContentModel getContent() {
         return content;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the attributes.
      */
     public AttributeList getAttributes() {
         return atts;
     }
 
-    /**
+    /** {@collect.stats}
      * Get index.
      */
     public int getIndex() {
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Check if empty
      */
     public boolean isEmpty() {
         return type == EMPTY;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert to a string.
      */
     public String toString() {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Get an attribute by name.
      */
     public AttributeList getAttribute(String name) {
@@ -146,7 +146,7 @@ class Element implements DTDConstants, Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Get an attribute by value.
      */
     public AttributeList getAttributeByValue(String name) {

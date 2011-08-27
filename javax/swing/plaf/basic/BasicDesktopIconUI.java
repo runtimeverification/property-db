@@ -36,7 +36,7 @@ import java.util.EventListener;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Basic L&F for a minimized window on a desktop.
  *
  * @author David Kloba
@@ -48,7 +48,7 @@ public class BasicDesktopIconUI extends DesktopIconUI {
     protected JInternalFrame.JDesktopIcon desktopIcon;
     protected JInternalFrame frame;
 
-    /**
+    /** {@collect.stats}
      * The title pane component used in the desktop icon.
      *
      * @since 1.5
@@ -163,7 +163,7 @@ public class BasicDesktopIconUI extends DesktopIconUI {
         return dim;
     }
 
-    /**
+    /** {@collect.stats}
      * Desktop icons can not be resized.  Therefore, we should always
      * return the minimum size of the desktop icon.
      *
@@ -186,7 +186,7 @@ public class BasicDesktopIconUI extends DesktopIconUI {
         try { frame.setIcon(false); } catch (PropertyVetoException e2) { }
     }
 
-    /**
+    /** {@collect.stats}
      * Listens for mouse movements and acts on them.
      *
      * This inner class is marked &quot;public&quot; due to a compiler bug.

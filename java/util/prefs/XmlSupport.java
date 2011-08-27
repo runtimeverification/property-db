@@ -34,7 +34,7 @@ import javax.xml.transform.stream.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
 
-/**
+/** {@collect.stats}
  * XML Support for java.util.prefs. Methods to import and export preference
  * nodes and subtrees.
  *
@@ -72,7 +72,7 @@ class XmlSupport {
         "<!ATTLIST entry"                            +
         "          key CDATA #REQUIRED"              +
         "          value CDATA #REQUIRED >"          ;
-    /**
+    /** {@collect.stats}
      * Version number for the format exported preferences files.
      */
     private static final String EXTERNAL_XML_VERSION = "1.0";
@@ -82,7 +82,7 @@ class XmlSupport {
      */
     private static final String MAP_XML_VERSION = "1.0";
 
-    /**
+    /** {@collect.stats}
      * Export the specified preferences node and, if subTree is true, all
      * subnodes, to the specified output stream.  Preferences are exported as
      * an XML document conforming to the definition in the Preferences spec.
@@ -123,7 +123,7 @@ class XmlSupport {
         writeDoc(doc, os);
     }
 
-    /**
+    /** {@collect.stats}
      * Put the preferences in the specified Preferences node into the
      * specified XML element which is assumed to represent a node
      * in the specified XML document which is assumed to conform to
@@ -182,7 +182,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Import preferences from the specified input stream, which is assumed
      * to contain an XML document in the format described in the Preferences
      * spec.
@@ -217,7 +217,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Create a new prefs XML document.
      */
     private static Document createPrefsDoc( String qname ) {
@@ -231,7 +231,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Load an XML document from specified input stream, which must
      * have the requisite DTD URI.
      */
@@ -253,7 +253,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Write XML document to the specified output stream.
      */
     private static final void writeDoc(Document doc, OutputStream out)
@@ -280,7 +280,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Recursively traverse the specified preferences node and store
      * the described preferences into the system or current user
      * preferences tree, as appropriate.
@@ -317,7 +317,7 @@ class XmlSupport {
             ImportSubtree(prefsKids[i-1], (Element)xmlKids.item(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Import the preferences described by the specified XML element
      * (a map from a preferences document) into the specified
      * preferences node.
@@ -331,7 +331,7 @@ class XmlSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Export the specified Map<String,String> to a map document on
      * the specified OutputStream as per the prefs DTD.  This is used
      * as the internal (undocumented) format for FileSystemPrefs.
@@ -355,7 +355,7 @@ class XmlSupport {
         writeDoc(doc, os);
     }
 
-    /**
+    /** {@collect.stats}
      * Import Map from the specified input stream, which is assumed
      * to contain a map document as per the prefs DTD.  This is used
      * as the internal (undocumented) format for FileSystemPrefs.  The

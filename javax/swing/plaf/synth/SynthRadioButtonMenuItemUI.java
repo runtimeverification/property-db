@@ -31,7 +31,7 @@ import java.awt.event.*;
 import javax.swing.plaf.*;
 import javax.swing.border.*;
 
-/**
+/** {@collect.stats}
  * Synth's RadioButtonMenuItemUI.
  *
  * @author Georges Saab

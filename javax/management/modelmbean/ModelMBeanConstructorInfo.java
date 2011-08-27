@@ -48,7 +48,7 @@ import javax.management.MBeanConstructorInfo;
 import javax.management.MBeanParameterInfo;
 import javax.management.RuntimeOperationsException;
 
-/**
+/** {@collect.stats}
  * The ModelMBeanConstructorInfo object describes a constructor of the ModelMBean.
  * It is a subclass of MBeanConstructorInfo with the addition of an associated Descriptor
  * and an implementation of the DescriptorAccess interface.
@@ -106,7 +106,7 @@ public class ModelMBeanConstructorInfo
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField consDescriptor Descriptor The {@link Descriptor} containing the metadata for this instance
      */
     private static final ObjectStreamField[] serialPersistentFields;
@@ -130,7 +130,7 @@ public class ModelMBeanConstructorInfo
     //
     // END Serialization compatibility stuff
 
-        /**
+        /** {@collect.stats}
          * @serial The {@link Descriptor} containing the metadata for this instance
          */
         private Descriptor consDescriptor = createDefaultDescriptor();
@@ -138,7 +138,7 @@ public class ModelMBeanConstructorInfo
         private final static String currClass = "ModelMBeanConstructorInfo";
 
 
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanConstructorInfo object with a default
         * descriptor.  The {@link Descriptor} of the constructed
         * object will include fields contributed by any annotations on
@@ -166,7 +166,7 @@ public class ModelMBeanConstructorInfo
 
         }
 
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanConstructorInfo object.  The {@link
         * Descriptor} of the constructed object will include fields
         * contributed by any annotations on the {@code Constructor}
@@ -229,7 +229,7 @@ public class ModelMBeanConstructorInfo
 
                 }
         }
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanConstructorInfo object with a default descriptor.
         *
         * @param name The name of the constructor.
@@ -252,7 +252,7 @@ public class ModelMBeanConstructorInfo
                 }
                 consDescriptor = createDefaultDescriptor();
         }
-        /**
+        /** {@collect.stats}
         * Constructs a ModelMBeanConstructorInfo object.
         *
         * @param name The name of the constructor.
@@ -305,7 +305,7 @@ public class ModelMBeanConstructorInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs a new ModelMBeanConstructorInfo object from this ModelMBeanConstructor Object.
          *
          * @param old the ModelMBeanConstructorInfo to be duplicated
@@ -346,7 +346,7 @@ public class ModelMBeanConstructorInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Creates and returns a new ModelMBeanConstructorInfo which is a duplicate of this ModelMBeanConstructorInfo.
         *
         */
@@ -360,7 +360,7 @@ public class ModelMBeanConstructorInfo
                 return(new ModelMBeanConstructorInfo(this)) ;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a copy of the associated Descriptor.
          *
          * @return Descriptor associated with the
@@ -383,7 +383,7 @@ public class ModelMBeanConstructorInfo
                 }
                 return((Descriptor)consDescriptor.clone());
         }
-        /**
+        /** {@collect.stats}
         * Sets associated Descriptor (full replace) of
         * ModelMBeanConstructorInfo.  If the new Descriptor is null,
         * then the associated Descriptor reverts to a default
@@ -436,7 +436,7 @@ public class ModelMBeanConstructorInfo
                 }
         }
 
-        /**
+        /** {@collect.stats}
         * Returns a string containing the entire contents of the ModelMBeanConstructorInfo in human readable form.
         */
         public String toString()
@@ -458,7 +458,7 @@ public class ModelMBeanConstructorInfo
                 }
                 return retStr;
         }
-        /**
+        /** {@collect.stats}
         * Creates default descriptor for constructor as follows:
         * descriptorType=operation,role=constructor,
         * name=this.getName(),displayname=this.getName(),visibility=1
@@ -476,7 +476,7 @@ public class ModelMBeanConstructorInfo
                                                                ("displayname=" + this.getName())});
         }
 
-        /**
+        /** {@collect.stats}
         * Tests that the descriptor is valid and adds appropriate default fields not already
         * specified. Field values must be correct for field names.
         * Descriptor must have the same name as the operation,the descriptorType field must
@@ -539,7 +539,7 @@ public class ModelMBeanConstructorInfo
         }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link ModelMBeanConstructorInfo} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -549,7 +549,7 @@ public class ModelMBeanConstructorInfo
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link ModelMBeanConstructorInfo} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

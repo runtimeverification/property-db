@@ -27,7 +27,7 @@ package java.awt;
 import java.awt.event.KeyEvent;
 
 
-/**
+/** {@collect.stats}
  * A KeyEventDispatcher cooperates with the current KeyboardFocusManager in the
  * targeting and dispatching of all KeyEvents. KeyEventDispatchers registered
  * with the current KeyboardFocusManager will receive KeyEvents before they are
@@ -53,7 +53,7 @@ import java.awt.event.KeyEvent;
  */
 public interface KeyEventDispatcher {
 
-    /**
+    /** {@collect.stats}
      * This method is called by the current KeyboardFocusManager requesting
      * that this KeyEventDispatcher dispatch the specified event on its behalf.
      * This KeyEventDispatcher is free to retarget the event, consume it,

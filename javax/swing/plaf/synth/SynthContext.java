@@ -27,7 +27,7 @@ package javax.swing.plaf.synth;
 import javax.swing.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * An immutable transient object containing contextual information about
  * a <code>Region</code>. A <code>SynthContext</code> should only be
  * considered valid for the duration
@@ -96,7 +96,7 @@ public class SynthContext {
     SynthContext() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a SynthContext with the specified values. This is meant
      * for subclasses and custom UI implementors. You very rarely need to
      * construct a SynthContext, though some methods will take one.
@@ -117,7 +117,7 @@ public class SynthContext {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the hosting component containing the region.
      *
      * @return Hosting Component
@@ -126,7 +126,7 @@ public class SynthContext {
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Region identifying this state.
      *
      * @return Region of the hosting component
@@ -135,7 +135,7 @@ public class SynthContext {
         return region;
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method for <code>getRegion().isSubregion()</code>.
      */
     boolean isSubregion() {
@@ -146,7 +146,7 @@ public class SynthContext {
         this.style = style;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the style associated with this Region.
      *
      * @return SynthStyle associated with the region.
@@ -159,7 +159,7 @@ public class SynthContext {
         this.state = state;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the state of the widget, which is a bitmask of the
      * values defined in <code>SynthConstants</code>. A region will at least
      * be in one of
@@ -173,7 +173,7 @@ public class SynthContext {
         return state;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the state of the Context.
      */
     void reset(JComponent component, Region region, SynthStyle style,
@@ -190,7 +190,7 @@ public class SynthContext {
         releaseContext(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience method to get the Painter from the current SynthStyle.
      * This will NEVER return null.
      */

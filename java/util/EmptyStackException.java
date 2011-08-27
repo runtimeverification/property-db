@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Thrown by methods in the <code>Stack</code> class to indicate
  * that the stack is empty.
  *
@@ -35,7 +35,7 @@ package java.util;
  */
 public
 class EmptyStackException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>EmptyStackException</code> with <tt>null</tt>
      * as its error message string.
      */

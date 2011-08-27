@@ -55,7 +55,7 @@ import sun.util.TimeZoneNameUtility;
 import sun.util.calendar.ZoneInfo;
 import sun.util.resources.LocaleData;
 
-/**
+/** {@collect.stats}
  * <code>DateFormatSymbols</code> is a public class for encapsulating
  * localizable date-time formatting data, such as the names of the
  * months, the names of the days of the week, and the time zone data.
@@ -102,7 +102,7 @@ import sun.util.resources.LocaleData;
  */
 public class DateFormatSymbols implements Serializable, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Construct a DateFormatSymbols object by loading format data from
      * resources for the default locale. This constructor can only
      * construct instances for the locales supported by the Java
@@ -121,7 +121,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         initializeData(Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a DateFormatSymbols object by loading format data from
      * resources for the given locale. This constructor can only
      * construct instances for the locales supported by the Java
@@ -140,14 +140,14 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         initializeData(locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Era strings. For example: "AD" and "BC".  An array of 2 strings,
      * indexed by <code>Calendar.BC</code> and <code>Calendar.AD</code>.
      * @serial
      */
     String eras[] = null;
 
-    /**
+    /** {@collect.stats}
      * Month strings. For example: "January", "February", etc.  An array
      * of 13 strings (some calendars have 13 months), indexed by
      * <code>Calendar.JANUARY</code>, <code>Calendar.FEBRUARY</code>, etc.
@@ -155,7 +155,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String months[] = null;
 
-    /**
+    /** {@collect.stats}
      * Short month strings. For example: "Jan", "Feb", etc.  An array of
      * 13 strings (some calendars have 13 months), indexed by
      * <code>Calendar.JANUARY</code>, <code>Calendar.FEBRUARY</code>, etc.
@@ -164,7 +164,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String shortMonths[] = null;
 
-    /**
+    /** {@collect.stats}
      * Weekday strings. For example: "Sunday", "Monday", etc.  An array
      * of 8 strings, indexed by <code>Calendar.SUNDAY</code>,
      * <code>Calendar.MONDAY</code>, etc.
@@ -173,7 +173,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String weekdays[] = null;
 
-    /**
+    /** {@collect.stats}
      * Short weekday strings. For example: "Sun", "Mon", etc.  An array
      * of 8 strings, indexed by <code>Calendar.SUNDAY</code>,
      * <code>Calendar.MONDAY</code>, etc.
@@ -182,7 +182,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String shortWeekdays[] = null;
 
-    /**
+    /** {@collect.stats}
      * AM and PM strings. For example: "AM" and "PM".  An array of
      * 2 strings, indexed by <code>Calendar.AM</code> and
      * <code>Calendar.PM</code>.
@@ -190,7 +190,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String ampms[] = null;
 
-    /**
+    /** {@collect.stats}
      * Localized names of time zones in this locale.  This is a
      * two-dimensional array of strings of size <em>n</em> by <em>m</em>,
      * where <em>m</em> is at least 5.  Each of the <em>n</em> rows is an
@@ -217,18 +217,18 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String zoneStrings[][] = null;
 
-    /**
+    /** {@collect.stats}
      * Indicates that zoneStrings is set externally with setZoneStrings() method.
      */
     transient boolean isZoneStringsSet = false;
 
-    /**
+    /** {@collect.stats}
      * Unlocalized date-time pattern characters. For example: 'y', 'd', etc.
      * All locales use the same these unlocalized pattern characters.
      */
     static final String  patternChars = "GyMdkHmsSEDFwWahKzZ";
 
-    /**
+    /** {@collect.stats}
      * Localized date-time pattern characters. For example, a locale may
      * wish to use 'u' rather than 'y' to represent years in its date format
      * pattern strings.
@@ -240,7 +240,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
      */
     String  localPatternChars = null;
 
-    /**
+    /** {@collect.stats}
      * The locale which is used for initializing this DateFormatSymbols object.
      *
      * @since 1.6
@@ -251,7 +251,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
     /* use serialVersionUID from JDK 1.1.4 for interoperability */
     static final long serialVersionUID = -5987973545549424702L;
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all locales for which the
      * <code>getInstance</code> methods of this class can return
      * localized instances.
@@ -271,7 +271,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return pool.getAvailableLocales();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>DateFormatSymbols</code> instance for the default
      * locale.  This method provides access to <code>DateFormatSymbols</code>
      * instances for locales supported by the Java runtime itself as well
@@ -285,7 +285,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return getInstance(Locale.getDefault());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>DateFormatSymbols</code> instance for the specified
      * locale.  This method provides access to <code>DateFormatSymbols</code>
      * instances for locales supported by the Java runtime itself as well
@@ -314,7 +314,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return new DateFormatSymbols(locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets era strings. For example: "AD" and "BC".
      * @return the era strings.
      */
@@ -322,7 +322,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(eras);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets era strings. For example: "AD" and "BC".
      * @param newEras the new era strings.
      */
@@ -330,7 +330,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         eras = duplicate(newEras);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets month strings. For example: "January", "February", etc.
      * @return the month strings.
      */
@@ -338,7 +338,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(months);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets month strings. For example: "January", "February", etc.
      * @param newMonths the new month strings.
      */
@@ -346,7 +346,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         months = duplicate(newMonths);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets short month strings. For example: "Jan", "Feb", etc.
      * @return the short month strings.
      */
@@ -354,7 +354,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(shortMonths);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets short month strings. For example: "Jan", "Feb", etc.
      * @param newShortMonths the new short month strings.
      */
@@ -362,7 +362,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         shortMonths = duplicate(newShortMonths);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets weekday strings. For example: "Sunday", "Monday", etc.
      * @return the weekday strings. Use <code>Calendar.SUNDAY</code>,
      * <code>Calendar.MONDAY</code>, etc. to index the result array.
@@ -371,7 +371,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(weekdays);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets weekday strings. For example: "Sunday", "Monday", etc.
      * @param newWeekdays the new weekday strings. The array should
      * be indexed by <code>Calendar.SUNDAY</code>,
@@ -381,7 +381,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         weekdays = duplicate(newWeekdays);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets short weekday strings. For example: "Sun", "Mon", etc.
      * @return the short weekday strings. Use <code>Calendar.SUNDAY</code>,
      * <code>Calendar.MONDAY</code>, etc. to index the result array.
@@ -390,7 +390,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(shortWeekdays);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets short weekday strings. For example: "Sun", "Mon", etc.
      * @param newShortWeekdays the new short weekday strings. The array should
      * be indexed by <code>Calendar.SUNDAY</code>,
@@ -400,7 +400,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         shortWeekdays = duplicate(newShortWeekdays);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets ampm strings. For example: "AM" and "PM".
      * @return the ampm strings.
      */
@@ -408,7 +408,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return duplicate(ampms);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets ampm strings. For example: "AM" and "PM".
      * @param newAmpms the new ampm strings.
      */
@@ -416,7 +416,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         ampms = duplicate(newAmpms);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets time zone strings.  Use of this method is discouraged; use
      * {@link java.util.TimeZone#getDisplayName() TimeZone.getDisplayName()}
      * instead.
@@ -458,7 +458,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return getZoneStringsImpl(true);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets time zone strings.  The argument must be a
      * two-dimensional array of strings of size <em>n</em> by <em>m</em>,
      * where <em>m</em> is at least 5.  Each of the <em>n</em> rows is an
@@ -499,7 +499,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         isZoneStringsSet = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets localized date-time pattern characters. For example: 'u', 't', etc.
      * @return the localized date-time pattern characters.
      */
@@ -507,7 +507,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return new String(localPatternChars);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets localized date-time pattern characters. For example: 'u', 't', etc.
      * @param newLocalPatternChars the new localized date-time
      * pattern characters.
@@ -516,7 +516,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         localPatternChars = new String(newLocalPatternChars);
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides Cloneable
      */
     public Object clone()
@@ -531,7 +531,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Override hashCode.
      * Generates a hash code for the DateFormatSymbols object.
      */
@@ -543,7 +543,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return hashcode;
     }
 
-    /**
+    /** {@collect.stats}
      * Override equals
      */
     public boolean equals(Object obj)
@@ -566,18 +566,18 @@ public class DateFormatSymbols implements Serializable, Cloneable {
 
     // =======================privates===============================
 
-    /**
+    /** {@collect.stats}
      * Useful constant for defining time zone offsets.
      */
     static final int millisPerHour = 60*60*1000;
 
-    /**
+    /** {@collect.stats}
      * Cache to hold the FormatData and TimeZoneNames ResourceBundles
      * of a Locale.
      */
     private static Hashtable cachedLocaleData = new Hashtable(3);
 
-    /**
+    /** {@collect.stats}
      * Look up resource data for the desiredLocale in the cache; update the
      * cache if necessary.
      */
@@ -624,7 +624,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         locale = desiredLocale;
     }
 
-    /**
+    /** {@collect.stats}
      * Package private: used by SimpleDateFormat
      * Gets the index for the given time zone ID to obtain the time zone
      * strings for formatting. The time zone ID is just for programmatic
@@ -645,7 +645,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Wrapper method to the getZoneStrings(), which is called from inside
      * the java.text package and not to mutate the returned arrays, so that
      * it does not need to create a defensive copy.
@@ -678,7 +678,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return !getClass().getName().equals("java.text.DateFormatSymbols");
     }
 
-    /**
+    /** {@collect.stats}
      * Clones an array of Strings.
      * @param srcArray the source array to be cloned.
      * @param count the number of elements in the given source array.
@@ -691,7 +691,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return dstArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Clones all the data members from the source DateFormatSymbols to
      * the target DateFormatSymbols. This is only for subclasses.
      * @param src the source DateFormatSymbols.
@@ -718,7 +718,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         dst.localPatternChars = new String (src.localPatternChars);
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the equality of the two arrays of String.
      * @param current this String array.
      * @param other that String array.
@@ -733,7 +733,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Write out the default serializable data, after ensuring the
      * <code>zoneStrings</code> field is initialized in order to make
      * sure the backward compatibility.
@@ -747,7 +747,7 @@ public class DateFormatSymbols implements Serializable, Cloneable {
         stream.defaultWriteObject();
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains a DateFormatSymbols instance from a DateFormatSymbolsProvider
      * implementation.
      */

@@ -27,7 +27,7 @@ package java.awt.dnd;
 
 import java.awt.event.InputEvent;
 
-/**
+/** {@collect.stats}
  * The <code>DragSourceDragEvent</code> is
  * delivered from the <code>DragSourceContextPeer</code>,
  * via the <code>DragSourceContext</code>, to the <code>DragSourceListener</code>
@@ -73,7 +73,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
 
     private static final long serialVersionUID = 481346297933902471L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DragSourceDragEvent</code>.
      * This class is typically
      * instantiated by the <code>DragSourceContextPeer</code>
@@ -127,7 +127,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DragSourceDragEvent</code> given the specified
      * <code>DragSourceContext</code>, user drop action, target drop action,
      * modifiers and coordinates.
@@ -177,7 +177,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the target drop action.
      *
      * @return the target drop action.
@@ -191,7 +191,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
     private static final int JDK_1_4_MODIFIERS =
             ((InputEvent.ALT_GRAPH_DOWN_MASK << 1) - 1) & ~JDK_1_3_MODIFIERS;
 
-    /**
+    /** {@collect.stats}
      * This method returns an <code>int</code> representing
      * the current state of the input device modifiers
      * associated with the user's gesture. Typically these
@@ -207,7 +207,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
         return invalidModifiers ? gestureModifiers : gestureModifiers & JDK_1_3_MODIFIERS;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns an <code>int</code> representing
      * the current state of the input device extended modifiers
      * associated with the user's gesture.
@@ -224,14 +224,14 @@ public class DragSourceDragEvent extends DragSourceEvent {
         return invalidModifiers ? gestureModifiers : gestureModifiers & JDK_1_4_MODIFIERS;
     }
 
-    /**
+    /** {@collect.stats}
      * This method returns the user drop action.
      *
      * @return the user drop action.
      */
     public int getUserAction() { return dropAction; }
 
-    /**
+    /** {@collect.stats}
      * This method returns the logical intersection of
      * the target drop action and the set of drop actions supported by
      * the drag source.
@@ -247,21 +247,21 @@ public class DragSourceDragEvent extends DragSourceEvent {
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * The target drop action.
      *
      * @serial
      */
     private int     targetActions    = DnDConstants.ACTION_NONE;
 
-    /**
+    /** {@collect.stats}
      * The user drop action.
      *
      * @serial
      */
     private int     dropAction       = DnDConstants.ACTION_NONE;
 
-    /**
+    /** {@collect.stats}
      * The state of the input device modifiers associated with the user
      * gesture.
      *
@@ -269,14 +269,14 @@ public class DragSourceDragEvent extends DragSourceEvent {
      */
     private int     gestureModifiers = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the <code>gestureModifiers</code> are invalid.
      *
      * @serial
      */
     private boolean invalidModifiers;
 
-    /**
+    /** {@collect.stats}
      * Sets new modifiers by the old ones.
      * The mouse modifiers have higher priority than overlaying key
      * modifiers.
@@ -302,7 +302,7 @@ public class DragSourceDragEvent extends DragSourceEvent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets old modifiers by the new ones.
      */
     private void setOldModifiers() {

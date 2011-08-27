@@ -32,7 +32,7 @@ import java.util.*;
 import java.util.jar.*;
 import javax.crypto.CryptoPolicyParser.ParsingException;
 
-/**
+/** {@collect.stats}
  * This class verifies JAR files (and any supporting JAR files), and
  * determines whether they may be used in this implementation.
  *
@@ -51,7 +51,7 @@ final class JarVerifier {
     private boolean savePerms;
     private CryptoPermissions appPerms = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a JarVerifier object to verify the given URL.
      *
      * @param jarURL the JAR file to be verified.
@@ -63,7 +63,7 @@ final class JarVerifier {
         this.savePerms = savePerms;
     }
 
-    /**
+    /** {@collect.stats}
      * Verify the JAR file is signed by an entity which has a certificate
      * issued by a trusted CA.
      *
@@ -134,7 +134,7 @@ final class JarVerifier {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Verify that the provided JarEntry was indeed signed by the
      * framework signing certificate.
      *
@@ -145,7 +145,7 @@ final class JarVerifier {
     static void verifyFrameworkSigned(URL je) throws Exception {
     }
 
-    /**
+    /** {@collect.stats}
      * Verify that the provided certs include the
      * framework signing certificate.
      *
@@ -157,7 +157,7 @@ final class JarVerifier {
             throws Exception {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the permissions which are bundled with the JAR file,
      * aka the "cryptoperms" file.
      *

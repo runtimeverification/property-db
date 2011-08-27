@@ -30,7 +30,7 @@ import java.io.*;
 import java.util.*;
 
 
-/**
+/** {@collect.stats}
  * A <code>DefaultMutableTreeNode</code> is a general-purpose node in a tree data
  * structure.
  * For examples of using default mutable tree nodes, see
@@ -89,7 +89,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
 {
     private static final long serialVersionUID = -4298474751201349152L;
 
-    /**
+    /** {@collect.stats}
      * An enumeration that is always empty. This is used when an enumeration
      * of a leaf node's children is requested.
      */
@@ -101,20 +101,20 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
             }
     };
 
-    /** this node's parent, or null if this node has no parent */
+    /** {@collect.stats} this node's parent, or null if this node has no parent */
     protected MutableTreeNode   parent;
 
-    /** array of children, may be null if this node has no children */
+    /** {@collect.stats} array of children, may be null if this node has no children */
     protected Vector children;
 
-    /** optional user object */
+    /** {@collect.stats} optional user object */
     transient protected Object  userObject;
 
-    /** true if the node is able to have children */
+    /** {@collect.stats} true if the node is able to have children */
     protected boolean           allowsChildren;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a tree node that has no parent and no children, but which
      * allows children.
      */
@@ -122,7 +122,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a tree node with no parent, no children, but which allows
      * children, and initializes it with the specified user object.
      *
@@ -133,7 +133,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         this(userObject, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a tree node with no parent, no children, initialized with
      * the specified user object, and that allows children only if
      * specified.
@@ -155,7 +155,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Primitives
     //
 
-    /**
+    /** {@collect.stats}
      * Removes <code>newChild</code> from its present parent (if it has a
      * parent), sets the child's parent to this node, and then adds the child
      * to this node's child array at index <code>childIndex</code>.
@@ -195,7 +195,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
             children.insertElementAt(newChild, childIndex);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the child at the specified index from this node's children
      * and sets that node's parent to null. The child node to remove
      * must be a <code>MutableTreeNode</code>.
@@ -211,7 +211,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         child.setParent(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this node's parent to <code>newParent</code> but does not
      * change the parent's child array.  This method is called from
      * <code>insert()</code> and <code>remove()</code> to
@@ -224,7 +224,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         parent = newParent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this node's parent or null if this node has no parent.
      *
      * @return  this node's parent TreeNode, or null if this node has no parent
@@ -233,7 +233,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return parent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child at the specified index in this node's child array.
      *
      * @param   index   an index into this node's child array
@@ -248,7 +248,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return (TreeNode)children.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of children of this node.
      *
      * @return  an int giving the number of children of this node
@@ -261,7 +261,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the specified child in this node's child array.
      * If the specified node is not a child of this node, returns
      * <code>-1</code>.  This method performs a linear search and is O(n)
@@ -285,7 +285,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return children.indexOf(aChild);        // linear search
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a forward-order enumeration of this node's
      * children.  Modifying this node's child array invalidates any child
      * enumerations created before the modification.
@@ -300,7 +300,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not this node is allowed to have children.
      * If <code>allows</code> is false, all of this node's children are
      * removed.
@@ -318,7 +318,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this node is allowed to have children.
      *
      * @return  true if this node allows children, else false
@@ -327,7 +327,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return allowsChildren;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the user object for this node to <code>userObject</code>.
      *
      * @param   userObject      the Object that constitutes this node's
@@ -339,7 +339,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         this.userObject = userObject;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this node's user object.
      *
      * @return  the Object stored at this node by the user
@@ -355,7 +355,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Derived methods
     //
 
-    /**
+    /** {@collect.stats}
      * Removes the subtree rooted at this node from the tree, giving this
      * node a null parent.  Does nothing if this node is the root of its
      * tree.
@@ -367,7 +367,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes <code>aChild</code> from this node's child array, giving it a
      * null parent.
      *
@@ -386,7 +386,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         remove(getIndex(aChild));       // linear search
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of this node's children, setting their parents to null.
      * If this node has no children, this method does nothing.
      */
@@ -396,7 +396,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes <code>newChild</code> from its parent and makes it a child of
      * this node by adding it to the end of this node's child array.
      *
@@ -420,7 +420,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Tree Queries
     //
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>anotherNode</code> is an ancestor of this node
      * -- if it is this node, this node's parent, or an ancestor of this
      * node's parent.  (Note that a node is considered an ancestor of itself.)
@@ -449,7 +449,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>anotherNode</code> is a descendant of this node
      * -- if it is this node, one of this node's children, or a descendant of
      * one of this node's children.  Note that a node is considered a
@@ -469,7 +469,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return anotherNode.isNodeAncestor(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the nearest common ancestor to this node and <code>aNode</code>.
      * Returns null, if no such ancestor exists -- if this node and
      * <code>aNode</code> are in different trees or if <code>aNode</code> is
@@ -532,7 +532,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if and only if <code>aNode</code> is in the same tree
      * as this node.  Returns false if <code>aNode</code> is null.
      *
@@ -546,7 +546,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the depth of the tree rooted at this node -- the longest
      * distance from this node to a leaf.  If this node has no children,
      * returns 0.  This operation is much more expensive than
@@ -573,7 +573,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
 
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of levels above this node -- the distance from
      * the root to this node.  If this node is the root, returns 0.
      *
@@ -593,7 +593,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
       * Returns the path from the root, to get to this node.  The last
       * element in the path is this node.
       *
@@ -605,7 +605,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return getPathToRoot(this, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Builds the parents of node up to and including the root node,
      * where the original node is the last element in the returned array.
      * The length of the returned array gives the node's depth in the
@@ -636,7 +636,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return retNodes;
     }
 
-    /**
+    /** {@collect.stats}
       * Returns the user object path, from the root, to get to this node.
       * If some of the TreeNodes in the path have null user objects, the
       * returned path will contain nulls.
@@ -651,7 +651,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return retPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root of the tree that contains this node.  The root is
      * the ancestor with a null parent.
      *
@@ -671,7 +671,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if this node is the root of the tree.  The root is
      * the only node in the tree with a null parent; every tree has exactly
      * one root.
@@ -683,7 +683,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the node that follows this node in a preorder traversal of this
      * node's tree.  Returns null if this node is the last node of the
      * traversal.  This is an inefficient way to traverse the entire tree; use
@@ -722,7 +722,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the node that precedes this node in a preorder traversal of
      * this node's tree.  Returns <code>null</code> if this node is the
      * first node of the traversal -- the root of the tree.
@@ -753,7 +753,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in preorder.  The first node returned by the enumeration's
      * <code>nextElement()</code> method is this node.<P>
@@ -768,7 +768,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return new PreorderEnumeration(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in postorder.  The first node returned by the enumeration's
      * <code>nextElement()</code> method is the leftmost leaf.  This is the
@@ -785,7 +785,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return new PostorderEnumeration(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in breadth-first order.  The first node returned by the
      * enumeration's <code>nextElement()</code> method is this node.<P>
@@ -800,7 +800,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return new BreadthFirstEnumeration(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in depth-first order.  The first node returned by the
      * enumeration's <code>nextElement()</code> method is the leftmost leaf.
@@ -817,7 +817,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         return postorderEnumeration();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an enumeration that follows the path from
      * <code>ancestor</code> to this node.  The enumeration's
      * <code>nextElement()</code> method first returns <code>ancestor</code>,
@@ -846,7 +846,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Child Queries
     //
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>aNode</code> is a child of this node.  If
      * <code>aNode</code> is null, this method returns false.
      *
@@ -870,7 +870,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns this node's first child.  If this node has no children,
      * throws NoSuchElementException.
      *
@@ -885,7 +885,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns this node's last child.  If this node has no children,
      * throws NoSuchElementException.
      *
@@ -900,7 +900,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the child in this node's child array that immediately
      * follows <code>aChild</code>, which must be a child of this node.  If
      * <code>aChild</code> is the last child, returns null.  This method
@@ -933,7 +933,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the child in this node's child array that immediately
      * precedes <code>aChild</code>, which must be a child of this node.  If
      * <code>aChild</code> is the first child, returns null.  This method
@@ -969,7 +969,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>anotherNode</code> is a sibling of (has the
      * same parent as) this node.  A node is its own sibling.  If
      * <code>anotherNode</code> is null, returns false.
@@ -998,7 +998,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the number of siblings of this node.  A node is its own sibling
      * (if it has no parent or no siblings, this method returns
      * <code>1</code>).
@@ -1016,7 +1016,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the next sibling of this node in the parent's children array.
      * Returns null if this node has no parent or is the parent's last child.
      * This method performs a linear search that is O(n) where n is the number
@@ -1045,7 +1045,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the previous sibling of this node in the parent's children
      * array.  Returns null if this node has no parent or is the parent's
      * first child.  This method performs a linear search that is O(n) where n
@@ -1077,7 +1077,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Leaf Queries
     //
 
-    /**
+    /** {@collect.stats}
      * Returns true if this node has no children.  To distinguish between
      * nodes that have no children and nodes that <i>cannot</i> have
      * children (e.g. to distinguish files from empty directories), use this
@@ -1091,7 +1091,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Finds and returns the first leaf that is a descendant of this node --
      * either this node or its first child's first leaf.
      * Returns this node if it is a leaf.
@@ -1111,7 +1111,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Finds and returns the last leaf that is a descendant of this node --
      * either this node or its last child's last leaf.
      * Returns this node if it is a leaf.
@@ -1131,7 +1131,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the leaf after this node or null if this node is the
      * last leaf in the tree.
      * <p>
@@ -1166,7 +1166,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the leaf before this node or null if this node is the
      * first leaf in the tree.
      * <p>
@@ -1201,7 +1201,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the total number of leaves that are descendants of this node.
      * If this node is a leaf, returns <code>1</code>.  This method is O(n)
      * where n is the number of descendants of this node.
@@ -1234,7 +1234,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
     //  Overrides
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the result of sending <code>toString()</code> to this node's
      * user object, or null if this node has no user object.
      *
@@ -1248,7 +1248,7 @@ public class DefaultMutableTreeNode extends Object implements Cloneable,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to make clone public.  Returns a shallow copy of this node;
      * the new node has no parent or children and has a reference to the same
      * user object, if any.

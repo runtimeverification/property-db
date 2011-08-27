@@ -32,7 +32,7 @@ import java.util.Comparator;
 import java.util.List;
 import javax.swing.SortOrder;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>RowSorter</code> that provides sorting and
  * filtering around a grid-based data model.
  * Beyond creating and installing a <code>RowSorter</code>, you very rarely
@@ -110,86 +110,86 @@ import javax.swing.SortOrder;
  * @since 1.6
  */
 public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
-    /**
+    /** {@collect.stats}
      * Whether or not we resort on TableModelEvent.UPDATEs.
      */
     private boolean sortsOnUpdates;
 
-    /**
+    /** {@collect.stats}
      * View (JTable) -> model.
      */
     private Row[] viewToModel;
 
-    /**
+    /** {@collect.stats}
      * model -> view (JTable)
      */
     private int[] modelToView;
 
-    /**
+    /** {@collect.stats}
      * Comparators specified by column.
      */
     private Comparator[] comparators;
 
-    /**
+    /** {@collect.stats}
      * Whether or not the specified column is sortable, by column.
      */
     private boolean[] isSortable;
 
-    /**
+    /** {@collect.stats}
      * Cached SortKeys for the current sort.
      */
     private SortKey[] cachedSortKeys;
 
-    /**
+    /** {@collect.stats}
      * Cached comparators for the current sort
      */
     private Comparator[] sortComparators;
 
-    /**
+    /** {@collect.stats}
      * Developer supplied Filter.
      */
     private RowFilter<? super M,? super I> filter;
 
-    /**
+    /** {@collect.stats}
      * Value passed to the filter.  The same instance is passed to the
      * filter for different rows.
      */
     private FilterEntry filterEntry;
 
-    /**
+    /** {@collect.stats}
      * The sort keys.
      */
     private List<SortKey> sortKeys;
 
-    /**
+    /** {@collect.stats}
      * Whether or not to use getStringValueAt.  This is indexed by column.
      */
     private boolean[] useToString;
 
-    /**
+    /** {@collect.stats}
      * Indicates the contents are sorted.  This is used if
      * getSortsOnUpdates is false and an update event is received.
      */
     private boolean sorted;
 
-    /**
+    /** {@collect.stats}
      * Maximum number of sort keys.
      */
     private int maxSortKeys;
 
-    /**
+    /** {@collect.stats}
      * Provides access to the data we're sorting/filtering.
      */
     private ModelWrapper<M,I> modelWrapper;
 
-    /**
+    /** {@collect.stats}
      * Size of the model. This is used to enforce error checking within
      * the table changed notification methods (such as rowsInserted).
      */
     private int modelRowCount;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an empty <code>DefaultRowSorter</code>.
      */
     public DefaultRowSorter() {
@@ -197,7 +197,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         maxSortKeys = 3;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the model wrapper providing the data that is being sorted and
      * filtered.
      *
@@ -222,7 +222,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the model wrapper providing the data that is being sorted and
      * filtered.
      *
@@ -233,7 +233,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return modelWrapper;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the underlying model.
      *
      * @return the underlying model
@@ -242,7 +242,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return getModelWrapper().getModel();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the specified column is sortable.  The specified
      * value is only checked when <code>toggleSortOrder</code> is invoked.
      * It is still possible to sort on a column that has been marked as
@@ -268,7 +268,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         isSortable[column] = sortable;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified column is sortable; otherwise, false.
      *
      * @param column the column to check sorting for, in terms of the
@@ -282,7 +282,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return (isSortable == null) ? true : isSortable[column];
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the sort keys. This creates a copy of the supplied
      * {@code List}; subsequent changes to the supplied
      * {@code List} do not effect this {@code DefaultRowSorter}.
@@ -323,7 +323,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current sort keys.  This returns an unmodifiable
      * {@code non-null List}. If you need to change the sort keys,
      * make a copy of the returned {@code List}, mutate the copy
@@ -335,7 +335,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return sortKeys;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the maximum number of sort keys.  The number of sort keys
      * determines how equal values are resolved when sorting.  For
      * example, assume a table row sorter is created and
@@ -370,7 +370,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         maxSortKeys = max;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of sort keys.
      *
      * @return the maximum number of sort keys
@@ -379,7 +379,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return maxSortKeys;
     }
 
-    /**
+    /** {@collect.stats}
      * If true, specifies that a sort should happen when the underlying
      * model is updated (<code>rowsUpdated</code> is invoked).  For
      * example, if this is true and the user edits an entry the
@@ -392,7 +392,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         this.sortsOnUpdates = sortsOnUpdates;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if  a sort should happen when the underlying
      * model is updated; otherwise, returns false.
      *
@@ -402,7 +402,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return sortsOnUpdates;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the filter that determines which rows, if any, should be
      * hidden from the view.  The filter is applied before sorting.  A value
      * of <code>null</code> indicates all values from the model should be
@@ -424,7 +424,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         sort();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the filter that determines which rows, if any, should
      * be hidden from view.
      *
@@ -434,7 +434,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return filter;
     }
 
-    /**
+    /** {@collect.stats}
      * Reverses the sort order from ascending to descending (or
      * descending to ascending) if the specified column is already the
      * primary sorted column; otherwise, makes the specified column
@@ -488,7 +488,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return new SortKey(key.getColumn(), SortOrder.ASCENDING);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -503,7 +503,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return modelToView[index];
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -525,7 +525,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
                 SortOrder.UNSORTED);
     }
 
-    /**
+    /** {@collect.stats}
      * Sorts the existing filtered data.  This should only be used if
      * the filter hasn't changed.
      */
@@ -558,7 +558,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         fireRowSorterChanged(lastViewToModel);
     }
 
-    /**
+    /** {@collect.stats}
      * Sorts and filters the rows in the view based on the sort keys
      * of the columns currently being sorted and the filter, if any,
      * associated with this sorter.  An empty <code>sortKeys</code> list
@@ -612,7 +612,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         fireRowSorterChanged(lastViewToModel);
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the useToString mapping before a sort.
      */
     private void updateUseToString() {
@@ -625,7 +625,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the viewToModel and modelToView mappings based on
      * the current Filter.
      */
@@ -655,7 +655,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Makes sure the modelToView array is of size rowCount.
      */
     private void createModelToView(int rowCount) {
@@ -664,7 +664,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the viewToModel array to be of size rowCount.
      */
     private void createViewToModel(int rowCount) {
@@ -690,7 +690,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Caches the sort keys before a sort.
      */
     private void cacheSortKeys(List<? extends SortKey> keys) {
@@ -702,7 +702,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         cachedSortKeys = keys.toArray(new SortKey[keySize]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not to convert the value to a string before
      * doing comparisons when sorting.  If true
      * <code>ModelWrapper.getStringValueAt</code> will be used, otherwise
@@ -718,7 +718,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return (getComparator(column) == null);
     }
 
-    /**
+    /** {@collect.stats}
      * Refreshes the modelToView mapping from that of viewToModel.
      * If <code>unsetFirst</code> is true, all indices in modelToView are
      * first set to -1.
@@ -746,7 +746,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return new int[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>Comparator</code> to use when sorting the specified
      * column.  This does not trigger a sort.  If you want to sort after
      * setting the comparator you need to explicitly invoke <code>sort</code>.
@@ -765,7 +765,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         comparators[column] = comparator;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Comparator</code> for the specified
      * column.  This will return <code>null</code> if a <code>Comparator</code>
      * has not been specified for the column.
@@ -804,7 +804,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return filterEntry;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public int getViewRowCount() {
@@ -815,7 +815,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return getModelWrapper().getRowCount();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public int getModelRowCount() {
@@ -836,7 +836,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void modelStructureChanged() {
@@ -844,7 +844,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         modelRowCount = getModelWrapper().getRowCount();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void allRowsChanged() {
@@ -852,7 +852,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         sort();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -869,7 +869,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -885,7 +885,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -905,7 +905,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @throws IndexOutOfBoundsException {@inheritDoc}
@@ -922,7 +922,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified row should be included.
      */
     private boolean include(int row) {
@@ -979,14 +979,14 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
         return model1 - model2;
     }
 
-    /**
+    /** {@collect.stats}
      * Whether not we are filtering/sorting.
      */
     private boolean isTransformed() {
         return (viewToModel != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Insets new set of entries.
      *
      * @param toAdd the Rows to add, sorted
@@ -1010,7 +1010,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
                          current.length - last);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if we should try and optimize the processing of the
      * <code>TableModelEvent</code>.  If this returns false, assume the
      * event was dealt with and no further processing needs to happen.
@@ -1222,7 +1222,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
     }
 
 
-    /**
+    /** {@collect.stats}
      * <code>DefaultRowSorter.ModelWrapper</code> is responsible for providing
      * the data that gets sorted by <code>DefaultRowSorter</code>.  You
      * normally do not interact directly with <code>ModelWrapper</code>.
@@ -1245,13 +1245,13 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
      * @see RowFilter.Entry
      */
     protected abstract static class ModelWrapper<M,I> {
-        /**
+        /** {@collect.stats}
          * Creates a new <code>ModelWrapper</code>.
          */
         protected ModelWrapper() {
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the underlying model that this <code>Model</code> is
          * wrapping.
          *
@@ -1259,21 +1259,21 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
          */
         public abstract M getModel();
 
-        /**
+        /** {@collect.stats}
          * Returns the number of columns in the model.
          *
          * @return the number of columns in the model
          */
         public abstract int getColumnCount();
 
-        /**
+        /** {@collect.stats}
          * Returns the number of rows in the model.
          *
          * @return the number of rows in the model
          */
         public abstract int getRowCount();
 
-        /**
+        /** {@collect.stats}
          * Returns the value at the specified index.
          *
          * @param row the row index
@@ -1284,7 +1284,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
          */
         public abstract Object getValueAt(int row, int column);
 
-        /**
+        /** {@collect.stats}
          * Returns the value as a <code>String</code> at the specified
          * index.  This implementation uses <code>toString</code> on
          * the result from <code>getValueAt</code> (making sure
@@ -1309,7 +1309,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
             return string;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the identifier for the specified row.  The return value
          * of this is used as the identifier for the
          * <code>RowFilter.Entry</code> that is passed to the
@@ -1324,14 +1324,14 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
     }
 
 
-    /**
+    /** {@collect.stats}
      * RowFilter.Entry implementation that delegates to the ModelWrapper.
      * getFilterEntry(int) creates the single instance of this that is
      * passed to the Filter.  Only call getFilterEntry(int) to get
      * the instance.
      */
     private class FilterEntry extends RowFilter.Entry<M,I> {
-        /**
+        /** {@collect.stats}
          * The index into the model, set in getFilterEntry
          */
         int modelIndex;
@@ -1358,7 +1358,7 @@ public abstract class DefaultRowSorter<M, I> extends RowSorter<M> {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Row is used to handle the actual sorting by way of Comparable.  It
      * will use the sortKeys to do the actual comparison.
      */

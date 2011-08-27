@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * Represents exceptions thrown in the MBean server when using the
  * java.lang.reflect classes to invoke methods on MBeans. It "wraps" the
  * actual java.lang.Exception thrown.
@@ -39,13 +39,13 @@ public class ReflectionException extends JMException   {
     /* Serial version */
     private static final long serialVersionUID = 9170809325636915553L;
 
-    /**
+    /** {@collect.stats}
      * @serial The wrapped {@link Exception}
      */
     private java.lang.Exception exception ;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>ReflectionException</CODE> that wraps the actual <CODE>java.lang.Exception</CODE>.
      *
      * @param e the wrapped exception.
@@ -55,7 +55,7 @@ public class ReflectionException extends JMException   {
         exception = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>ReflectionException</CODE> that wraps the actual <CODE>java.lang.Exception</CODE> with
      * a detail message.
      *
@@ -67,7 +67,7 @@ public class ReflectionException extends JMException   {
         exception = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link Exception} thrown.
      *
      * @return the wrapped {@link Exception}.
@@ -76,7 +76,7 @@ public class ReflectionException extends JMException   {
         return exception ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link Exception} thrown.
      *
      * @return the wrapped {@link Exception}.

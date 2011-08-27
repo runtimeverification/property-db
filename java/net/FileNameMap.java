@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * A simple interface which provides a mechanism to map
  * between a file name and a MIME type string.
  *
@@ -34,7 +34,7 @@ package java.net;
  */
 public interface FileNameMap {
 
-    /**
+    /** {@collect.stats}
      * Gets the MIME type for the specified file name.
      * @param fileName the specified file name
      * @return a <code>String</code> indicating the MIME

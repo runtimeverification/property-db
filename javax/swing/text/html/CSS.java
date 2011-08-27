@@ -42,7 +42,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SizeRequirements;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Defines a set of
  * <a href="http://www.w3.org/TR/REC-CSS1">CSS attributes</a>
  * as a typesafe enumeration.  The HTML View implementations use
@@ -115,7 +115,7 @@ import javax.swing.text.*;
  */
 public class CSS implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * Definitions to be used as a key on AttributeSet's
      * that might hold CSS attributes.  Since this is a
      * closed set (i.e. defined exactly by the specification),
@@ -129,7 +129,7 @@ public class CSS implements Serializable {
             this.inherited = inherited;
         }
 
-        /**
+        /** {@collect.stats}
          * The string representation of the attribute.  This
          * should exactly match the string specified in the
          * CSS specification.
@@ -138,7 +138,7 @@ public class CSS implements Serializable {
             return name;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the default value for the attribute.
          * If there is no default value (such as for
          * composite attributes), null will be returned.
@@ -147,7 +147,7 @@ public class CSS implements Serializable {
             return defaultValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates if the attribute should be inherited
          * from the parent or not.
          */
@@ -381,7 +381,7 @@ public class CSS implements Serializable {
             this.name = name;
         }
 
-        /**
+        /** {@collect.stats}
          * The string representation of the attribute.  This
          * should exactly match the string specified in the
          * CSS specification.
@@ -493,7 +493,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the base font size. <code>sz</code> is a CSS value, and is
      * not necessarily the point size. Use getPointSize to determine the
      * point size corresponding to <code>sz</code>.
@@ -507,7 +507,7 @@ public class CSS implements Serializable {
           baseFontSize = sz;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the base font size from the passed in string.
      */
     void setBaseFontSize(String size) {
@@ -526,14 +526,14 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base font size.
      */
     int getBaseFontSize() {
         return baseFontSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the CSS property <code>key</code> with value
      * <code>value</code> placing the result in <code>att</code>.
      */
@@ -566,7 +566,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the internal CSS representation of <code>value</code> which is
      * a CSS value of the CSS attribute named <code>key</code>. The receiver
      * should not modify <code>value</code>, and the first <code>count</code>
@@ -578,14 +578,14 @@ public class CSS implements Serializable {
         return r != null ? r : conv.parseCssValue(key.getDefaultValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Maps from a StyleConstants to a CSS Attribute.
      */
     Attribute styleConstantsKeyToCSSKey(StyleConstants sc) {
         return (Attribute)styleConstantToCssMap.get(sc);
     }
 
-    /**
+    /** {@collect.stats}
      * Maps from a StyleConstants value to a CSS value.
      */
     Object styleConstantsValueToCSSValue(StyleConstants sc,
@@ -598,7 +598,7 @@ public class CSS implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the passed in CSS value to a StyleConstants value.
      * <code>key</code> identifies the CSS attribute being mapped.
      */
@@ -610,7 +610,7 @@ public class CSS implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the font for the values in the passed in AttributeSet.
      * It is assumed the keys will be CSS.Attribute keys.
      * <code>sc</code> is the StyleContext that will be messaged to get
@@ -671,7 +671,7 @@ public class CSS implements Serializable {
                                    : defaultSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.
@@ -689,7 +689,7 @@ public class CSS implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of a font from the passed in string.
      *
      * @param size CSS string describing font size
@@ -713,7 +713,7 @@ public class CSS implements Serializable {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the attribute in <code>a</code> with
      * key <code>key</code>.
      */
@@ -725,7 +725,7 @@ public class CSS implements Serializable {
         return len;
     }
 
-    /**
+    /** {@collect.stats}
      * Convert a set of HTML attributes to an equivalent
      * set of CSS attributes.
      *
@@ -780,7 +780,7 @@ public class CSS implements Serializable {
     private static final Hashtable attributeMap = new Hashtable();
     private static final Hashtable valueMap = new Hashtable();
 
-    /**
+    /** {@collect.stats}
      * The hashtable and the static initalization block below,
      * set up a mapping from well-known HTML attributes to
      * CSS attributes.  For the most part, there is a 1-1 mapping
@@ -792,15 +792,15 @@ public class CSS implements Serializable {
      */
     private static final Hashtable htmlAttrToCssAttrMap = new Hashtable(20);
 
-    /**
+    /** {@collect.stats}
      * The hashtable and static initialization that follows sets
      * up a translation from StyleConstants (i.e. the <em>well known</em>
      * attributes) to the associated CSS attributes.
      */
     private static final Hashtable styleConstantToCssMap = new Hashtable(17);
-    /** Maps from HTML value to a CSS value. Used in internal mapping. */
+    /** {@collect.stats} Maps from HTML value to a CSS value. Used in internal mapping. */
     private static final Hashtable htmlValueToCssValueMap = new Hashtable(8);
-    /** Maps from CSS value (string) to internal value. */
+    /** {@collect.stats} Maps from CSS value (string) to internal value. */
     private static final Hashtable cssValueToInternalValueMap = new Hashtable(13);
 
     static {
@@ -949,7 +949,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the set of all possible CSS attribute keys.
      */
     public static Attribute[] getAllAttributeKeys() {
@@ -958,7 +958,7 @@ public class CSS implements Serializable {
         return keys;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a string to a <code>CSS.Attribute</code> object.
      * This will return <code>null</code> if there is no attribute
      * by the given name.
@@ -973,7 +973,7 @@ public class CSS implements Serializable {
         return (Attribute) attributeMap.get(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Translates a string to a <code>CSS.Value</code> object.
      * This will return <code>null</code> if there is no value
      * by the given name.
@@ -994,7 +994,7 @@ public class CSS implements Serializable {
     // Conversion related methods/classes
     //
 
-    /**
+    /** {@collect.stats}
      * Returns a URL for the given CSS url string. If relative,
      * <code>base</code> is used as the parent. If a valid URL can not
      * be found, this will not throw a MalformedURLException, instead
@@ -1029,7 +1029,7 @@ public class CSS implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a type Color to a hex string
      * in the format "#RRGGBB"
      */
@@ -1067,7 +1067,7 @@ public class CSS implements Serializable {
       return colorstr;
     }
 
-     /**
+     /** {@collect.stats}
       * Convert a "#FFFFFF" hex string to a Color.
       * If the color specification is bad, an attempt
       * will be made to fix it up.
@@ -1090,7 +1090,7 @@ public class CSS implements Serializable {
          return c;
      }
 
-    /**
+    /** {@collect.stats}
      * Convert a color string such as "RED" or "#NNNNNN" or "rgb(r, g, b)"
      * to a Color.
      */
@@ -1141,7 +1141,7 @@ public class CSS implements Serializable {
       return color;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a String in the format <code>rgb(r, g, b)</code> where
      * each of the Color components is either an integer, or a floating number
      * with a % after indicating a percentage value of 255. Values are
@@ -1159,7 +1159,7 @@ public class CSS implements Serializable {
         return new Color(red, green, blue);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next integer value from <code>string</code> starting
      * at <code>index[0]</code>. The value can either can an integer, or
      * a percentage (floating number ending with %), in which case it is
@@ -1223,7 +1223,7 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * @return an array of all the strings in <code>value</code>
      *         that are separated by whitespace.
      */
@@ -1254,7 +1254,7 @@ public class CSS implements Serializable {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the point size, given a size index. Legal HTML index sizes
      * are 1-7.
      */
@@ -1362,7 +1362,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Given a CSS.Attribute object and its corresponding HTML.Attribute's
      * value, this method returns a CssValue object to associate with the
      * CSS attribute.
@@ -1376,7 +1376,7 @@ public class CSS implements Serializable {
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * Maps an HTML.Attribute object to its appropriate CSS.Attributes.
      *
      * @param HTML.Attribute
@@ -1386,7 +1386,7 @@ public class CSS implements Serializable {
         return (CSS.Attribute[])htmlAttrToCssAttrMap.get(hAttr);
     }
 
-    /**
+    /** {@collect.stats}
      * Maps HTML.Attribute.ALIGN to either:
      *     CSS.Attribute.TEXT_ALIGN
      *     CSS.Attribute.FLOAT
@@ -1417,7 +1417,7 @@ public class CSS implements Serializable {
         */
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the tag associated with the HTML AttributeSet.
      *
      * @param  AttributeSet containing the HTML attributes.
@@ -1446,7 +1446,7 @@ public class CSS implements Serializable {
         return (isFloater(alignValue) || alignValue.equals("center"));
     }
 
-    /**
+    /** {@collect.stats}
      * Base class to CSS values in the attribute sets.  This
      * is intended to act as a convertor to/from other attribute
      * formats.
@@ -1475,7 +1475,7 @@ public class CSS implements Serializable {
      */
     static class CssValue implements Serializable {
 
-        /**
+        /** {@collect.stats}
          * Convert a CSS value string to the internal format
          * (for fast processing) used in the attribute sets.
          * The fallback storage for any value that we don't
@@ -1485,7 +1485,7 @@ public class CSS implements Serializable {
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Convert an HTML attribute value to a CSS attribute
          * value.  If there is no conversion, return null.
          * This is implemented to simply forward to the CSS
@@ -1498,7 +1498,7 @@ public class CSS implements Serializable {
             return parseCssValue(value);
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion,
          * returns <code>null</code>.  By default, there is no conversion.
@@ -1513,7 +1513,7 @@ public class CSS implements Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a
          * <code>StyleConstants</code>
          * value.  If there is no conversion, returns
@@ -1529,21 +1529,21 @@ public class CSS implements Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Return the CSS format of the value
          */
         public String toString() {
             return svalue;
         }
 
-        /**
+        /** {@collect.stats}
          * The value as a string... before conversion to a
          * binary format.
          */
         String svalue;
     }
 
-    /**
+    /** {@collect.stats}
      * By default CSS attributes are represented as simple
      * strings.  They also have no conversion to/from
      * StyleConstants by default. This class represents the
@@ -1553,7 +1553,7 @@ public class CSS implements Serializable {
      */
     static class StringValue extends CssValue {
 
-        /**
+        /** {@collect.stats}
          * Convert a CSS value string to the internal format
          * (for fast processing) used in the attribute sets.
          * This produces a StringValue, so that it can be
@@ -1565,7 +1565,7 @@ public class CSS implements Serializable {
             return sv;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion
          * returns <code>null</code>.
@@ -1626,7 +1626,7 @@ public class CSS implements Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a
          * <code>StyleConstants</code> value.
          * If there is no conversion, returns <code>null</code>.
@@ -1697,7 +1697,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Represents a value for the CSS.FONT_SIZE attribute.
      * The binary format of the value can be one of several
      * types.  If the type is Float,
@@ -1709,7 +1709,7 @@ public class CSS implements Serializable {
      */
     class FontSize extends CssValue {
 
-        /**
+        /** {@collect.stats}
          * Returns the size in points.  This is ultimately
          * what we need for the purpose of creating/fetching
          * a Font object.
@@ -1832,7 +1832,7 @@ public class CSS implements Serializable {
             return fs;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion
          * returns <code>null</code>.  By default, there is no conversion.
@@ -1855,7 +1855,7 @@ public class CSS implements Serializable {
             return parseCssValue(value.toString());
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a <code>StyleConstants</code>
          * value.  If there is no conversion, returns <code>null</code>.
          * By default, there is no conversion.
@@ -1878,7 +1878,7 @@ public class CSS implements Serializable {
 
     static class FontFamily extends CssValue {
 
-        /**
+        /** {@collect.stats}
          * Returns the font family to use.
          */
         String getValue() {
@@ -1942,7 +1942,7 @@ public class CSS implements Serializable {
             return parseCssValue(value);
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion
          * returns <code>null</code>.  By default, there is no conversion.
@@ -1957,7 +1957,7 @@ public class CSS implements Serializable {
             return parseCssValue(value.toString());
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a <code>StyleConstants</code>
          * value.  If there is no conversion, returns <code>null</code>.
          * By default, there is no conversion.
@@ -1997,7 +1997,7 @@ public class CSS implements Serializable {
             return fw;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion
          * returns <code>null</code>.  By default, there is no conversion.
@@ -2015,7 +2015,7 @@ public class CSS implements Serializable {
             return parseCssValue("normal");
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a <code>StyleConstants</code>
          * value.  If there is no conversion, returns <code>null</code>.
          * By default, there is no conversion.
@@ -2037,7 +2037,7 @@ public class CSS implements Serializable {
 
     static class ColorValue extends CssValue {
 
-        /**
+        /** {@collect.stats}
          * Returns the color to use.
          */
         Color getValue() {
@@ -2060,7 +2060,7 @@ public class CSS implements Serializable {
             return parseCssValue(value);
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion
          * returns <code>null</code>.  By default, there is no conversion.
@@ -2078,7 +2078,7 @@ public class CSS implements Serializable {
             return colorValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a <code>StyleConstants</code>
          * value.  If there is no conversion, returns <code>null</code>.
          * By default, there is no conversion.
@@ -2148,7 +2148,7 @@ public class CSS implements Serializable {
 
     static class LengthValue extends CssValue {
 
-        /**
+        /** {@collect.stats}
          * if this length value may be negative.
          */
         boolean mayBeNegative;
@@ -2161,7 +2161,7 @@ public class CSS implements Serializable {
             this.mayBeNegative = mayBeNegative;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the length (span) to use.
          */
         float getValue() {
@@ -2172,7 +2172,7 @@ public class CSS implements Serializable {
             return getValue(0, isW3CLengthUnits);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the length (span) to use. If the value represents
          * a percentage, it is scaled based on <code>currentValue</code>.
          */
@@ -2186,7 +2186,7 @@ public class CSS implements Serializable {
             return LengthUnit.getValue(span, units, isW3CLengthUnits);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the length represents a percentage of the
          * containing box.
          */
@@ -2237,7 +2237,7 @@ public class CSS implements Serializable {
             }
             return parseCssValue(value);
         }
-        /**
+        /** {@collect.stats}
          * Converts a <code>StyleConstants</code> attribute value to
          * a CSS attribute value.  If there is no conversion,
          * returns <code>null</code>.  By default, there is no conversion.
@@ -2255,7 +2255,7 @@ public class CSS implements Serializable {
             return v;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts a CSS attribute value to a <code>StyleConstants</code>
          * value.  If there is no conversion, returns <code>null</code>.
          * By default, there is no conversion.
@@ -2268,10 +2268,10 @@ public class CSS implements Serializable {
             return new Float(getValue(false));
         }
 
-        /** If true, span is a percentage value, and that to determine
+        /** {@collect.stats} If true, span is a percentage value, and that to determine
          * the length another value needs to be passed in. */
         boolean percentage;
-        /** Either the absolute value (percentage == false) or
+        /** {@collect.stats} Either the absolute value (percentage == false) or
          * a percentage value. */
         float span;
 
@@ -2279,7 +2279,7 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * BorderWidthValue is used to model BORDER_XXX_WIDTH and adds support
      * for the thin/medium/thick values.
      */
@@ -2313,12 +2313,12 @@ public class CSS implements Serializable {
             return parseCssValue(value);
         }
 
-        /** Values used to represent border width. */
+        /** {@collect.stats} Values used to represent border width. */
         private static final float[] values = { 1, 2, 4 };
    }
 
 
-    /**
+    /** {@collect.stats}
      * Handles uniquing of CSS values, like lists, and background image
      * repeating.
      */
@@ -2342,7 +2342,7 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used for background images, to represent the position.
      */
     static class BackgroundPosition extends CssValue {
@@ -2487,7 +2487,7 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used for BackgroundImages.
      */
     static class BackgroundImage extends CssValue {
@@ -2525,7 +2525,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Parses a length value, this is used internally, and never added
      * to an AttributeSet or returned to the developer.
      */
@@ -2660,13 +2660,13 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Class used to parse font property. The font property is shorthand
      * for the other font properties. This expands the properties, placing
      * them in the attributeset.
      */
     static class ShorthandFontParser {
-        /**
+        /** {@collect.stats}
          * Parses the shorthand font string <code>value</code>, placing the
          * result in <code>attr</code>.
          */
@@ -2804,11 +2804,11 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Parses the background property into its intrinsic values.
      */
     static class ShorthandBackgroundParser {
-        /**
+        /** {@collect.stats}
          * Parses the shorthand font string <code>value</code>, placing the
          * result in <code>attr</code>.
          */
@@ -2909,11 +2909,11 @@ public class CSS implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to parser margin and padding.
      */
     static class ShorthandMarginParser {
-        /**
+        /** {@collect.stats}
          * Parses the shorthand margin/padding/border string
          * <code>value</code>, placing the result in <code>attr</code>.
          * <code>names</code> give the 4 instrinsic property names.
@@ -2957,7 +2957,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements needed to tile the requirements
      * given by the iterator that would be tiled.  The calculation
      * takes into consideration margin and border spacing.
@@ -2998,7 +2998,7 @@ public class CSS implements Serializable {
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate a tiled layout for the given iterator.
      * This should be done collapsing the neighboring
      * margins to be a total of the maximum of the two
@@ -3139,7 +3139,7 @@ public class CSS implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An iterator to express the requirements to use when computing
      * layout.
      */
@@ -3255,10 +3255,10 @@ public class CSS implements Serializable {
     // Instance variables
     //
 
-    /** Maps from CSS key to CssValue. */
+    /** {@collect.stats} Maps from CSS key to CssValue. */
     private transient Hashtable valueConvertor;
 
-    /** Size used for relative units. */
+    /** {@collect.stats} Size used for relative units. */
     private int baseFontSize;
 
     private transient StyleSheet styleSheet = null;

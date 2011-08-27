@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class NumberOfDocuments is an integer valued printing attribute that
  * indicates the number of individual docs the printer has accepted for this
  * job, regardless of whether the docs' print data has reached the printer or
@@ -47,7 +47,7 @@ public final class NumberOfDocuments extends IntegerSyntax
     private static final long serialVersionUID = 7891881310684461097L;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new number of documents attribute with the given integer
      * value.
      *
@@ -60,7 +60,7 @@ public final class NumberOfDocuments extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this number of documents attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -84,7 +84,7 @@ public final class NumberOfDocuments extends IntegerSyntax
                 object instanceof NumberOfDocuments);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -98,7 +98,7 @@ public final class NumberOfDocuments extends IntegerSyntax
         return NumberOfDocuments.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

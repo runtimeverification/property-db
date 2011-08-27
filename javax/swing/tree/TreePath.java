@@ -28,7 +28,7 @@ package javax.swing.tree;
 import java.io.*;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * Represents a path to a node. A TreePath is an array of Objects that are
  * vended from a TreeModel. The elements of the array are ordered such
  * that the root is always the first element (index 0) of the array.
@@ -54,13 +54,13 @@ import java.util.Vector;
  * @author Philip Milne
  */
 public class TreePath extends Object implements Serializable {
-    /** Path representing the parent, null if lastPathComponent represents
+    /** {@collect.stats} Path representing the parent, null if lastPathComponent represents
      * the root. */
     private TreePath           parentPath;
-    /** Last path component. */
+    /** {@collect.stats} Last path component. */
     transient private Object   lastPathComponent;
 
-    /**
+    /** {@collect.stats}
      * Constructs a path from an array of Objects, uniquely identifying
      * the path from the root of the tree to a specific node, as returned
      * by the tree's data model.
@@ -80,7 +80,7 @@ public class TreePath extends Object implements Serializable {
             parentPath = new TreePath(path, path.length - 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a TreePath containing only a single element. This is
      * usually used to construct a TreePath for the the root of the TreeModel.
      * <p>
@@ -94,7 +94,7 @@ public class TreePath extends Object implements Serializable {
         parentPath = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TreePath, which is the path identified by
      * <code>parent</code> ending in <code>lastElement</code>.
      */
@@ -105,7 +105,7 @@ public class TreePath extends Object implements Serializable {
         lastPathComponent = lastElement;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new TreePath with the identified path components of
      * length <code>length</code>.
      */
@@ -115,7 +115,7 @@ public class TreePath extends Object implements Serializable {
             parentPath = new TreePath(path, length - 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Primarily provided for subclasses
      * that represent paths in a different manner.
      * If a subclass uses this constructor, it should also override
@@ -127,7 +127,7 @@ public class TreePath extends Object implements Serializable {
     protected TreePath() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an ordered array of Objects containing the components of this
      * TreePath. The first element (index 0) is the root.
      *
@@ -144,7 +144,7 @@ public class TreePath extends Object implements Serializable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last component of this path. For a path returned by
      * DefaultTreeModel this will return an instance of TreeNode.
      *
@@ -155,7 +155,7 @@ public class TreePath extends Object implements Serializable {
         return lastPathComponent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in the path.
      *
      * @return an int giving a count of items the path
@@ -168,7 +168,7 @@ public class TreePath extends Object implements Serializable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path component at the specified index.
      *
      * @param element  an int specifying an element in the path, where
@@ -192,7 +192,7 @@ public class TreePath extends Object implements Serializable {
         return path.lastPathComponent;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests two TreePaths for equality by checking each element of the
      * paths for equality. Two paths are considered equal if they are of
      * the same length, and contain
@@ -220,7 +220,7 @@ public class TreePath extends Object implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hashCode for the object. The hash code of a TreePath
      * is defined to be the hash code of the last component in the path.
      *
@@ -230,7 +230,7 @@ public class TreePath extends Object implements Serializable {
         return lastPathComponent.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if <code>aTreePath</code> is a
      * descendant of this
      * TreePath. A TreePath P1 is a descendant of a TreePath P2
@@ -264,7 +264,7 @@ public class TreePath extends Object implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new path containing all the elements of this object
      * plus <code>child</code>. <code>child</code> will be the last element
      * of the newly created TreePath.
@@ -278,7 +278,7 @@ public class TreePath extends Object implements Serializable {
         return new TreePath(this, child);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a path containing all the elements of this object, except
      * the last path component.
      */
@@ -286,7 +286,7 @@ public class TreePath extends Object implements Serializable {
         return parentPath;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

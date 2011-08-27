@@ -33,7 +33,7 @@ import javax.swing.event.DocumentEvent;
 
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * HTML table view.
  *
  * @author  Timothy Prinzing
@@ -41,7 +41,7 @@ import javax.swing.text.*;
  */
 /*public*/ class TableView extends BoxView implements ViewFactory {
 
-    /**
+    /** {@collect.stats}
      * Constructs a TableView for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -54,7 +54,7 @@ import javax.swing.text.*;
         totalColumnRequirements = new SizeRequirements();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new table row.
      *
      * @param elem an element
@@ -71,14 +71,14 @@ import javax.swing.text.*;
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * The number of columns in the table.
      */
     public int getColumnCount() {
         return columnSpans.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the span (width) of the given column.
      * This is used by the nested cells to query the
      * sizes of grid locations outside of themselves.
@@ -90,14 +90,14 @@ import javax.swing.text.*;
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * The number of rows in the table.
      */
     public int getRowCount() {
         return rows.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the span of multiple rows.  This includes
      * the border area.
      */
@@ -114,7 +114,7 @@ import javax.swing.text.*;
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the span (height) of the given row.
      */
     public int getRowSpan(int row) {
@@ -151,7 +151,7 @@ import javax.swing.text.*;
         return super.getViewAtPoint(x, y, alloc);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the number of columns occupied by
      * the table cell represented by given element.
      */
@@ -172,7 +172,7 @@ import javax.swing.text.*;
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the number of rows occupied by
      * the table cell represented by given element.
      */
@@ -202,7 +202,7 @@ import javax.swing.text.*;
         return doc.getStyleSheet();
     }
 
-    /**
+    /** {@collect.stats}
      * Update the insets, which contain the caption if there
      * is a caption.
      */
@@ -224,7 +224,7 @@ import javax.swing.text.*;
                   bottom, (short) painter.getInset(RIGHT, this));
     }
 
-    /**
+    /** {@collect.stats}
      * Update any cached values that come from attributes.
      */
     protected void setPropertiesFromAttributes() {
@@ -255,7 +255,7 @@ import javax.swing.text.*;
                 }
     }
 
-    /**
+    /** {@collect.stats}
      * Fill in the grid locations that are placeholders
      * for multi-column, multi-row, and missing grid
      * locations.
@@ -342,7 +342,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Mark a grid location as filled in for a cells overflow.
      */
     void addFill(int row, int col) {
@@ -352,7 +352,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Layout the columns to fit within the given target span.
      *
      * @param targetSpan the given span for total of all the table
@@ -376,7 +376,7 @@ import javax.swing.text.*;
         CSS.calculateTiledLayout(colIterator, targetSpan);
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements for each column.  The calculation
      * is done as two passes over the table.  The table cells that
      * occupy a single column are scanned first to determine the
@@ -453,7 +453,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * check the requirements of a table cell that spans a single column.
      */
     void checkSingleColumnCell(int axis, int col, View v) {
@@ -462,7 +462,7 @@ import javax.swing.text.*;
         req.preferred = Math.max((int) v.getPreferredSpan(axis), req.preferred);
     }
 
-    /**
+    /** {@collect.stats}
      * check the requirements of a table cell that spans multiple
      * columns.
      */
@@ -529,7 +529,7 @@ import javax.swing.text.*;
 
     // --- BoxView methods -----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements for the minor axis.  This is called by
      * the superclass whenever the requirements need to be updated (i.e.
      * a preferenceChanged was messaged through this view).
@@ -602,7 +602,7 @@ import javax.swing.text.*;
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the requirements for the major axis.  This is called by
      * the superclass whenever the requirements need to be updated (i.e.
      * a preferenceChanged was messaged through this view).
@@ -618,7 +618,7 @@ import javax.swing.text.*;
         return r;
     }
 
-    /**
+    /** {@collect.stats}
      * Perform layout for the minor axis of the box (i.e. the
      * axis orthoginal to the axis that it represents).  The results
      * of the layout should be placed in the given arrays which represent
@@ -661,7 +661,7 @@ import javax.swing.text.*;
     }
 
 
-    /**
+    /** {@collect.stats}
      * Perform layout for the major axis of the box (i.e. the
      * axis that it represents).  The results
      * of the layout should be placed in the given arrays which represent
@@ -703,7 +703,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view that represents the given position in
      * the model.  This is implemented to walk through the children
      * looking for a range that contains the given position.  In this
@@ -742,7 +742,7 @@ import javax.swing.text.*;
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -755,7 +755,7 @@ import javax.swing.text.*;
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.  This is implemented to delegate to the css box
      * painter to paint the border and background prior to the
@@ -796,7 +796,7 @@ import javax.swing.text.*;
         //super.paint(g, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the parent view for this view.  This is
      * guaranteed to be called before any other methods if the
      * parent view is functioning properly.
@@ -820,7 +820,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the ViewFactory implementation that is feeding
      * the view hierarchy.
      * This replaces the ViewFactory with an implementation that
@@ -835,7 +835,7 @@ import javax.swing.text.*;
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into
      * the document in a location that this view is responsible for.
      * This replaces the ViewFactory with an implementation that
@@ -853,7 +853,7 @@ import javax.swing.text.*;
         super.insertUpdate(e, a, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      * This replaces the ViewFactory with an implementation that
@@ -871,7 +871,7 @@ import javax.swing.text.*;
         super.removeUpdate(e, a, this);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      * This replaces the ViewFactory with an implementation that
@@ -904,7 +904,7 @@ import javax.swing.text.*;
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Change the child views.  This is implemented to
      * provide the superclass behavior and invalidate the
      * grid so that rows and columns will be recalculated.
@@ -916,7 +916,7 @@ import javax.swing.text.*;
 
     // --- ViewFactory methods ------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The table itself acts as a factory for the various
      * views that actually represent pieces of the table.
      * All other factory activity is delegated to the factory
@@ -953,7 +953,7 @@ import javax.swing.text.*;
     private int cellSpacing;
     private int borderWidth;
 
-    /**
+    /** {@collect.stats}
      * The index of the caption view if there is a caption.
      * This has a value of -1 if there is no caption.  The
      * caption lives in the inset area of the table, and is
@@ -961,7 +961,7 @@ import javax.swing.text.*;
      */
     private int captionIndex;
 
-    /**
+    /** {@collect.stats}
      * Do any of the table cells contain a relative size
      * specification?  This is updated with each call to
      * updateGrid().  If this is true, the ColumnIterator
@@ -970,7 +970,7 @@ import javax.swing.text.*;
      */
     private boolean relativeCells;
 
-    /**
+    /** {@collect.stats}
      * Do any of the table cells span multiple rows?  If
      * true, the RowRequirementIterator will do additional
      * work to adjust the requirements of rows spanned by
@@ -981,7 +981,7 @@ import javax.swing.text.*;
 
     int[] columnSpans;
     int[] columnOffsets;
-    /**
+    /** {@collect.stats}
      * SizeRequirements for all the columns.
      */
     SizeRequirements totalColumnRequirements;
@@ -1000,7 +1000,7 @@ import javax.swing.text.*;
 
     class ColumnIterator implements CSS.LayoutIterator {
 
-        /**
+        /** {@collect.stats}
          * Disable percentage adjustments which should only apply
          * when calculating layout, not requirements.
          */
@@ -1008,7 +1008,7 @@ import javax.swing.text.*;
             percentages = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Update percentage adjustments if they are needed.
          */
         private void updatePercentagesAndAdjustmentWeights(int span) {
@@ -1051,7 +1051,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Set the layout arrays to use for holding layout results
          */
         public void setLayoutArrays(int offsets[], int spans[], int targetSpan) {
@@ -1121,12 +1121,12 @@ import javax.swing.text.*;
             return adjustmentWeights[col];
         }
 
-        /**
+        /** {@collect.stats}
          * Current column index
          */
         private int col;
 
-        /**
+        /** {@collect.stats}
          * percentage values (may be null since there
          * might not be any).
          */
@@ -1168,7 +1168,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fixup preferences to accomodate a multi-row table cell
          * if not already covered by existing preferences.  This is
          * a no-op if not all of the rows needed (to do this check/fixup)
@@ -1281,12 +1281,12 @@ import javax.swing.text.*;
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Current row index
          */
         private int row;
 
-        /**
+        /** {@collect.stats}
          * Adjustments to the row requirements to handle multi-row
          * table cells.
          */
@@ -1296,12 +1296,12 @@ import javax.swing.text.*;
         private int[] spans;
     }
 
-    /**
+    /** {@collect.stats}
      * View of a row in a row-centric table.
      */
     public class RowView extends BoxView {
 
-        /**
+        /** {@collect.stats}
          * Constructs a TableView for the given element.
          *
          * @param elem the element that this view is responsible for
@@ -1324,7 +1324,7 @@ import javax.swing.text.*;
             return fillColumns.get(col);
         }
 
-        /**
+        /** {@collect.stats}
          * The number of columns present in this row.
          */
         int getColumnCount() {
@@ -1338,7 +1338,7 @@ import javax.swing.text.*;
             return getViewCount() + nfill;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  This is
          * implemented to multiplex the attributes specified in the
          * model with a StyleSheet.
@@ -1363,7 +1363,7 @@ import javax.swing.text.*;
             return doc.getStyleSheet();
         }
 
-        /**
+        /** {@collect.stats}
          * This is called by a child to indicate its
          * preferred span has changed.  This is implemented to
          * execute the superclass behavior and well as try to
@@ -1449,7 +1449,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Renders using the given rendering surface and area on that
          * surface.  This is implemented to delegate to the css box
          * painter to paint the border and background prior to the
@@ -1465,7 +1465,7 @@ import javax.swing.text.*;
             super.paint(g, a);
         }
 
-        /**
+        /** {@collect.stats}
          * Change the child views.  This is implemented to
          * provide the superclass behavior and invalidate the
          * grid so that rows and columns will be recalculated.
@@ -1475,7 +1475,7 @@ import javax.swing.text.*;
             invalidateGrid();
         }
 
-        /**
+        /** {@collect.stats}
          * Calculate the height requirements of the table row.  The
          * requirements of multi-row cells are not considered for this
          * calculation.  The table itself will check and adjust the row
@@ -1512,7 +1512,7 @@ import javax.swing.text.*;
             return r;
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the major axis of the box (i.e. the
          * axis that it represents).  The results of the layout should
          * be placed in the given arrays which represent the allocations
@@ -1562,7 +1562,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the minor axis of the box (i.e. the
          * axis orthoginal to the axis that it represents).  The results
          * of the layout should be placed in the given arrays which represent
@@ -1605,7 +1605,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the resizability of the view along the
          * given axis.  A value of 0 or less is not resizable.
          *
@@ -1617,7 +1617,7 @@ import javax.swing.text.*;
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the child view that represents the given position in
          * the model.  This is implemented to walk through the children
          * looking for a range that contains the given position.  In this
@@ -1654,7 +1654,7 @@ import javax.swing.text.*;
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Update any cached values that come from attributes.
          */
         void setPropertiesFromAttributes() {
@@ -1666,34 +1666,34 @@ import javax.swing.text.*;
         private StyleSheet.BoxPainter painter;
         private AttributeSet attr;
 
-        /** columns filled by multi-column or multi-row cells */
+        /** {@collect.stats} columns filled by multi-column or multi-row cells */
         BitSet fillColumns;
 
-        /**
+        /** {@collect.stats}
          * The row index within the overall grid
          */
         int rowIndex;
 
-        /**
+        /** {@collect.stats}
          * The view index (for row index to view index conversion).
          * This is set by the updateGrid method.
          */
         int viewIndex;
 
-        /**
+        /** {@collect.stats}
          * Does this table row have cells that span multiple rows?
          */
         boolean multiRowCells;
 
     }
 
-    /**
+    /** {@collect.stats}
      * Default view of an html table cell.  This needs to be moved
      * somewhere else.
      */
     class CellView extends BlockView {
 
-        /**
+        /** {@collect.stats}
          * Constructs a TableCell for the given element.
          *
          * @param elem the element that this view is responsible for
@@ -1702,7 +1702,7 @@ import javax.swing.text.*;
             super(elem, Y_AXIS);
         }
 
-        /**
+        /** {@collect.stats}
          * Perform layout for the major axis of the box (i.e. the
          * axis that it represents).  The results of the layout should
          * be placed in the given arrays which represent the allocations
@@ -1760,7 +1760,7 @@ import javax.swing.text.*;
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Calculate the requirements needed along the major axis.
          * This is called by the superclass whenever the requirements
          * need to be updated (i.e. a preferenceChanged was messaged

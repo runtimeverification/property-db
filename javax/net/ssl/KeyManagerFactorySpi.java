@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.security.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>KeyManagerFactory</code> class.
  *
@@ -40,7 +40,7 @@ import java.security.*;
  * @see KeyManager
  */
 public abstract class KeyManagerFactorySpi {
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of key material.
      *
      * @param ks the key store or null
@@ -54,7 +54,7 @@ public abstract class KeyManagerFactorySpi {
     protected abstract void engineInit(KeyStore ks, char[] password) throws
         KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of key material.
      * <P>
      * In some cases, initialization parameters other than a keystore
@@ -74,7 +74,7 @@ public abstract class KeyManagerFactorySpi {
     protected abstract void engineInit(ManagerFactoryParameters spec)
         throws InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Returns one key manager for each type of key material.
      *
      * @return the key managers

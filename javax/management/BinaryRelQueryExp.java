@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent binary
  * operations.
  * @serial include
@@ -38,29 +38,29 @@ class BinaryRelQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -5690656271650491000L;
 
-    /**
+    /** {@collect.stats}
      * @serial The operator
      */
     private int relOp;
 
-    /**
+    /** {@collect.stats}
      * @serial The first value
      */
     private ValueExp exp1;
 
-    /**
+    /** {@collect.stats}
      * @serial The second value
      */
     private ValueExp exp2;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public BinaryRelQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BinaryRelQueryExp with operator op applied on v1 and
      * v2 values.
      */
@@ -71,28 +71,28 @@ class BinaryRelQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the operator of the query.
      */
     public int getOperator()  {
         return relOp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the left value of the query.
      */
     public ValueExp getLeftValue()  {
         return exp1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the right value of the query.
      */
     public ValueExp getRightValue()  {
         return exp2;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the BinaryRelQueryExp on an MBean.
      *
      * @param name The name of the MBean on which the BinaryRelQueryExp will be applied.
@@ -192,7 +192,7 @@ class BinaryRelQueryExp extends QueryEval implements QueryExp {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

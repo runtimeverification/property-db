@@ -26,7 +26,7 @@
 package java.lang;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * This interface imposes a total ordering on the objects of each class that
  * implements it.  This ordering is referred to as the class's <i>natural
  * ordering</i>, and the class's <tt>compareTo</tt> method is referred to as
@@ -95,7 +95,7 @@ import java.util.*;
  */
 
 public interface Comparable<T> {
-    /**
+    /** {@collect.stats}
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less
      * than, equal to, or greater than the specified object.

@@ -28,7 +28,7 @@ package javax.swing.undo;
 import javax.swing.event.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A support class used for managing <code>UndoableEdit</code> listeners.
  *
  * @author Ray Ryan
@@ -39,14 +39,14 @@ public class UndoableEditSupport {
     protected Vector<UndoableEditListener> listeners;
     protected Object realSource;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>UndoableEditSupport</code> object.
      */
     public UndoableEditSupport() {
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>UndoableEditSupport</code> object.
      *
      * @param r  an <code>Object</code>
@@ -58,7 +58,7 @@ public class UndoableEditSupport {
         listeners = new Vector<UndoableEditListener>();
     }
 
-    /**
+    /** {@collect.stats}
      * Registers an <code>UndoableEditListener</code>.
      * The listener is notified whenever an edit occurs which can be undone.
      *
@@ -69,7 +69,7 @@ public class UndoableEditSupport {
         listeners.addElement(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>UndoableEditListener</code>.
      *
      * @param l  the <code>UndoableEditListener</code> object to be removed
@@ -80,7 +80,7 @@ public class UndoableEditSupport {
         listeners.removeElement(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>UndoableEditListener</code>s added
      * to this UndoableEditSupport with addUndoableEditListener().
      *
@@ -93,7 +93,7 @@ public class UndoableEditSupport {
                 new UndoableEditListener[0]));
     }
 
-    /**
+    /** {@collect.stats}
      * Called only from <code>postEdit</code> and <code>endUpdate</code>. Calls
      * <code>undoableEditHappened</code> in all listeners. No synchronization
      * is performed here, since the two calling methods are synchronized.
@@ -107,7 +107,7 @@ public class UndoableEditSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * DEADLOCK WARNING: Calling this method may call
      * <code>undoableEditHappened</code> in all listeners.
      * It is unwise to call this method from one of its listeners.
@@ -121,7 +121,7 @@ public class UndoableEditSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the update level value.
      *
      * @return an integer representing the update level
@@ -130,7 +130,7 @@ public class UndoableEditSupport {
         return updateLevel;
     }
 
-    /**
+    /** {@collect.stats}
      *
      */
     public synchronized void beginUpdate() {
@@ -140,7 +140,7 @@ public class UndoableEditSupport {
         updateLevel++;
     }
 
-    /**
+    /** {@collect.stats}
      * Called only from <code>beginUpdate</code>.
      * Exposed here for subclasses' use.
      */
@@ -148,7 +148,7 @@ public class UndoableEditSupport {
         return new CompoundEdit();
     }
 
-    /**
+    /** {@collect.stats}
      * DEADLOCK WARNING: Calling this method may call
      * <code>undoableEditHappened</code> in all listeners.
      * It is unwise to call this method from one of its listeners.
@@ -162,7 +162,7 @@ public class UndoableEditSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string that displays and identifies this
      * object's properties.
      *

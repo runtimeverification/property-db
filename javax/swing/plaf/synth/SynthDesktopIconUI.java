@@ -37,7 +37,7 @@ import java.io.Serializable;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth L&F for a minimized window on a desktop.
  *
  * @author Joshua Outwater

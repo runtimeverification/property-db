@@ -35,7 +35,7 @@ import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-/**
+/** {@collect.stats}
  * <p>An <code>SslRMIServerSocketFactory</code> instance is used by the RMI
  * runtime in order to obtain server sockets for RMI calls via SSL.</p>
  *
@@ -62,7 +62,7 @@ import javax.net.ssl.SSLSocketFactory;
  */
 public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new <code>SslRMIServerSocketFactory</code> with
      * the default SSL socket configuration.</p>
      *
@@ -74,7 +74,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         this(null, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a new <code>SslRMIServerSocketFactory</code> with
      * the specified SSL socket configuration.</p>
      *
@@ -150,7 +150,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the names of the cipher suites enabled on SSL
      * connections accepted by server sockets created by this factory,
      * or <code>null</code> if this factory uses the cipher suites
@@ -165,7 +165,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         null : (String[]) enabledCipherSuites.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the names of the protocol versions enabled on SSL
      * connections accepted by server sockets created by this factory,
      * or <code>null</code> if this factory uses the protocol versions
@@ -181,7 +181,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         null : (String[]) enabledProtocols.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns <code>true</code> if client authentication is
      * required on SSL connections accepted by server sockets created
      * by this factory.</p>
@@ -194,7 +194,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         return needClientAuth;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a server socket that accepts SSL connections
      * configured according to this factory's SSL socket configuration
      * parameters.</p>
@@ -253,7 +253,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         // };
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Indicates whether some other object is "equal to" this one.</p>
      *
      * <p>Two <code>SslRMIServerSocketFactory</code> objects are equal
@@ -306,7 +306,7 @@ public class SslRMIServerSocketFactory implements RMIServerSocketFactory {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a hash code value for this
      * <code>SslRMIServerSocketFactory</code>.</p>
      *

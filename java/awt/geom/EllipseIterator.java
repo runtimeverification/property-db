@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * A utility class to iterate over the path segments of an ellipse
  * through the PathIterator interface.
  *
@@ -49,7 +49,7 @@ class EllipseIterator implements PathIterator {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the winding rule for determining the insideness of the
      * path.
      * @see #WIND_EVEN_ODD
@@ -59,7 +59,7 @@ class EllipseIterator implements PathIterator {
         return WIND_NON_ZERO;
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if there are more points to read.
      * @return true if there are more points to read
      */
@@ -67,7 +67,7 @@ class EllipseIterator implements PathIterator {
         return index > 5;
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the iterator to the next segment of the path forwards
      * along the primary direction of traversal as long as there are
      * more points in that direction.
@@ -93,7 +93,7 @@ class EllipseIterator implements PathIterator {
         {  pcv,  0.0,  1.0,  ncv,  1.0,  0.5 }
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:
@@ -140,7 +140,7 @@ class EllipseIterator implements PathIterator {
         return SEG_CUBICTO;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the coordinates and type of the current path segment in
      * the iteration.
      * The return value is the path segment type:

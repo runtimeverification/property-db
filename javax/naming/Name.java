@@ -27,7 +27,7 @@ package javax.naming;
 
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * The <tt>Name</tt> interface represents a generic name -- an ordered
  * sequence of components.  It can be a composite name (names that
  * span multiple namespaces), or a compound name (names that are
@@ -59,14 +59,14 @@ public interface Name
     extends Cloneable, java.io.Serializable, Comparable<Object>
 {
 
-   /**
+   /** {@collect.stats}
     * The class fingerprint that is set to indicate
     * serialization compatibility with a previous
     * version of the class.
     */
     static final long serialVersionUID = -3617482732056931635L;
 
-    /**
+    /** {@collect.stats}
      * Generates a new copy of this name.
      * Subsequent changes to the components of this name will not
      * affect the new copy, and vice versa.
@@ -77,7 +77,7 @@ public interface Name
      */
     public Object clone();
 
-    /**
+    /** {@collect.stats}
      * Compares this name with another name for order.
      * Returns a negative integer, zero, or a positive integer as this
      * name is less than, equal to, or greater than the given name.
@@ -100,14 +100,14 @@ public interface Name
      */
     public int compareTo(Object obj);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of components in this name.
      *
      * @return  the number of components in this name
      */
     public int size();
 
-    /**
+    /** {@collect.stats}
      * Determines whether this name is empty.
      * An empty name is one with zero components.
      *
@@ -115,7 +115,7 @@ public interface Name
      */
     public boolean isEmpty();
 
-    /**
+    /** {@collect.stats}
      * Retrieves the components of this name as an enumeration
      * of strings.  The effect on the enumeration of updates to
      * this name is undefined.  If the name has zero components,
@@ -125,7 +125,7 @@ public interface Name
      */
     public Enumeration<String> getAll();
 
-    /**
+    /** {@collect.stats}
      * Retrieves a component of this name.
      *
      * @param posn
@@ -137,7 +137,7 @@ public interface Name
      */
     public String get(int posn);
 
-    /**
+    /** {@collect.stats}
      * Creates a name whose components consist of a prefix of the
      * components of this name.  Subsequent changes to
      * this name will not affect the name that is returned and vice versa.
@@ -152,7 +152,7 @@ public interface Name
      */
     public Name getPrefix(int posn);
 
-    /**
+    /** {@collect.stats}
      * Creates a name whose components consist of a suffix of the
      * components in this name.  Subsequent changes to
      * this name do not affect the name that is returned and vice versa.
@@ -168,7 +168,7 @@ public interface Name
      */
     public Name getSuffix(int posn);
 
-    /**
+    /** {@collect.stats}
      * Determines whether this name starts with a specified prefix.
      * A name <tt>n</tt> is a prefix if it is equal to
      * <tt>getPrefix(n.size())</tt>.
@@ -179,7 +179,7 @@ public interface Name
      */
     public boolean startsWith(Name n);
 
-    /**
+    /** {@collect.stats}
      * Determines whether this name ends with a specified suffix.
      * A name <tt>n</tt> is a suffix if it is equal to
      * <tt>getSuffix(size()-n.size())</tt>.
@@ -190,7 +190,7 @@ public interface Name
      */
     public boolean endsWith(Name n);
 
-    /**
+    /** {@collect.stats}
      * Adds the components of a name -- in order -- to the end of this name.
      *
      * @param suffix
@@ -203,7 +203,7 @@ public interface Name
      */
     public Name addAll(Name suffix) throws InvalidNameException;
 
-    /**
+    /** {@collect.stats}
      * Adds the components of a name -- in order -- at a specified position
      * within this name.
      * Components of this name at or after the index of the first new
@@ -225,7 +225,7 @@ public interface Name
      */
     public Name addAll(int posn, Name n) throws InvalidNameException;
 
-    /**
+    /** {@collect.stats}
      * Adds a single component to the end of this name.
      *
      * @param comp
@@ -237,7 +237,7 @@ public interface Name
      */
     public Name add(String comp) throws InvalidNameException;
 
-    /**
+    /** {@collect.stats}
      * Adds a single component at a specified position within this name.
      * Components of this name at or after the index of the new component
      * are shifted up by one (away from index 0) to accommodate the new
@@ -257,7 +257,7 @@ public interface Name
      */
     public Name add(int posn, String comp) throws InvalidNameException;
 
-    /**
+    /** {@collect.stats}
      * Removes a component from this name.
      * The component of this name at the specified position is removed.
      * Components with indexes greater than this position

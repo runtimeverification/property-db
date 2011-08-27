@@ -27,7 +27,7 @@ package java.security;
 
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * The <code>AlgorithmParameterGenerator</code> class is used to generate a
  * set of
  * parameters to be used with a certain algorithm. Parameter generators
@@ -86,7 +86,7 @@ public class AlgorithmParameterGenerator {
     // The algorithm
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * Creates an AlgorithmParameterGenerator object.
      *
      * @param paramGenSpi the delegate
@@ -101,7 +101,7 @@ public class AlgorithmParameterGenerator {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the standard name of the algorithm this parameter
      * generator is associated with.
      *
@@ -111,7 +111,7 @@ public class AlgorithmParameterGenerator {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an AlgorithmParameterGenerator object for generating
      * a set of parameters to be used with the specified algorithm.
      *
@@ -154,7 +154,7 @@ public class AlgorithmParameterGenerator {
             }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an AlgorithmParameterGenerator object for generating
      * a set of parameters to be used with the specified algorithm.
      *
@@ -203,7 +203,7 @@ public class AlgorithmParameterGenerator {
              algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an AlgorithmParameterGenerator object for generating
      * a set of parameters to be used with the specified algorithm.
      *
@@ -247,7 +247,7 @@ public class AlgorithmParameterGenerator {
              algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this algorithm parameter generator object.
      *
      * @return the provider of this algorithm parameter generator object
@@ -256,7 +256,7 @@ public class AlgorithmParameterGenerator {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this parameter generator for a certain size.
      * To create the parameters, the <code>SecureRandom</code>
      * implementation of the highest-priority installed provider is used as
@@ -271,7 +271,7 @@ public class AlgorithmParameterGenerator {
         paramGenSpi.engineInit(size, new SecureRandom());
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this parameter generator for a certain size and source
      * of randomness.
      *
@@ -282,7 +282,7 @@ public class AlgorithmParameterGenerator {
         paramGenSpi.engineInit(size, random);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this parameter generator with a set of algorithm-specific
      * parameter generation values.
      * To generate the parameters, the <code>SecureRandom</code>
@@ -302,7 +302,7 @@ public class AlgorithmParameterGenerator {
             paramGenSpi.engineInit(genParamSpec, new SecureRandom());
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this parameter generator with a set of algorithm-specific
      * parameter generation values.
      *
@@ -318,7 +318,7 @@ public class AlgorithmParameterGenerator {
             paramGenSpi.engineInit(genParamSpec, random);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the parameters.
      *
      * @return the new AlgorithmParameters object.

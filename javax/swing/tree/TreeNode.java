@@ -27,7 +27,7 @@ package javax.swing.tree;
 
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * Defines the requirements for an object that can be used as a
  * tree node in a JTree.
  * <p>
@@ -46,41 +46,41 @@ import java.util.Enumeration;
 
 public interface TreeNode
 {
-    /**
+    /** {@collect.stats}
      * Returns the child <code>TreeNode</code> at index
      * <code>childIndex</code>.
      */
     TreeNode getChildAt(int childIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of children <code>TreeNode</code>s the receiver
      * contains.
      */
     int getChildCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the parent <code>TreeNode</code> of the receiver.
      */
     TreeNode getParent();
 
-    /**
+    /** {@collect.stats}
      * Returns the index of <code>node</code> in the receivers children.
      * If the receiver does not contain <code>node</code>, -1 will be
      * returned.
      */
     int getIndex(TreeNode node);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the receiver allows children.
      */
     boolean getAllowsChildren();
 
-    /**
+    /** {@collect.stats}
      * Returns true if the receiver is a leaf.
      */
     boolean isLeaf();
 
-    /**
+    /** {@collect.stats}
      * Returns the children of the receiver as an <code>Enumeration</code>.
      */
     Enumeration children();

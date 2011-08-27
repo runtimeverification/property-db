@@ -41,7 +41,7 @@ import javax.management.MBeanParameterInfo;
 // in OpenMBeanAttributeInfoSupport and import them here.
 import static javax.management.openmbean.OpenMBeanAttributeInfoSupport.*;
 
-/**
+/** {@collect.stats}
  * Describes a parameter used in one or more operations or
  * constructors of an open MBean.
  *
@@ -55,28 +55,28 @@ public class OpenMBeanParameterInfoSupport
     /* Serial version */
     static final long serialVersionUID = -7235016873758443122L;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean parameter's <i>open type</i>
      */
     private OpenType<?>    openType;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean parameter's default value
      */
     private Object      defaultValue    = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean parameter's legal values. This {@link
      * Set} is unmodifiable
      */
     private Set<?> legalValues     = null;  // to be constructed unmodifiable
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean parameter's min value
      */
     private Comparable minValue        = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The open mbean parameter's max value
      */
     private Comparable maxValue        = null;
@@ -88,7 +88,7 @@ public class OpenMBeanParameterInfoSupport
     private transient String  myToString = null;        // need only be calculated once.
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanParameterInfoSupport} instance,
      * which describes the parameter used in one or more operations or
      * constructors of a class of open MBeans, with the specified
@@ -110,7 +110,7 @@ public class OpenMBeanParameterInfoSupport
         this(name, description, openType, (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanParameterInfoSupport} instance,
      * which describes the parameter used in one or more operations or
      * constructors of a class of open MBeans, with the specified
@@ -171,7 +171,7 @@ public class OpenMBeanParameterInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanParameterInfoSupport} instance,
      * which describes the parameter used in one or more operations or
      * constructors of a class of open MBeans, with the specified
@@ -209,7 +209,7 @@ public class OpenMBeanParameterInfoSupport
         this(name, description, openType, defaultValue, (T[]) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanParameterInfoSupport} instance,
      * which describes the parameter used in one or more operations or
      * constructors of a class of open MBeans, with the specified
@@ -266,7 +266,7 @@ public class OpenMBeanParameterInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code OpenMBeanParameterInfoSupport} instance,
      * which describes the parameter used in one or more operations or
      * constructors of a class of open MBeans, with the specified
@@ -354,7 +354,7 @@ public class OpenMBeanParameterInfoSupport
         check(this);
     }
 
-    /**
+    /** {@collect.stats}
      * An object serialized in a version of the API before Descriptors were
      * added to this class will have an empty or null Descriptor.
      * For consistency with our
@@ -378,7 +378,7 @@ public class OpenMBeanParameterInfoSupport
             return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the open type for the values of the parameter described
      * by this {@code OpenMBeanParameterInfoSupport} instance.
      */
@@ -386,7 +386,7 @@ public class OpenMBeanParameterInfoSupport
         return openType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default value for the parameter described by this
      * {@code OpenMBeanParameterInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -402,7 +402,7 @@ public class OpenMBeanParameterInfoSupport
         return defaultValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an unmodifiable Set of legal values for the parameter
      * described by this {@code OpenMBeanParameterInfoSupport}
      * instance, if specified, or {@code null} otherwise.
@@ -419,7 +419,7 @@ public class OpenMBeanParameterInfoSupport
         return (legalValues);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the minimal value for the parameter described by this
      * {@code OpenMBeanParameterInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -432,7 +432,7 @@ public class OpenMBeanParameterInfoSupport
         return minValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximal value for the parameter described by this
      * {@code OpenMBeanParameterInfoSupport} instance, if specified,
      * or {@code null} otherwise.
@@ -445,7 +445,7 @@ public class OpenMBeanParameterInfoSupport
         return maxValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanParameterInfoSupport} instance specifies a non-null
      * default value for the described parameter, {@code false}
@@ -456,7 +456,7 @@ public class OpenMBeanParameterInfoSupport
         return (defaultValue != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanParameterInfoSupport} instance specifies a non-null
      * set of legal values for the described parameter, {@code false}
@@ -467,7 +467,7 @@ public class OpenMBeanParameterInfoSupport
         return (legalValues != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanParameterInfoSupport} instance specifies a non-null
      * minimal value for the described parameter, {@code false}
@@ -478,7 +478,7 @@ public class OpenMBeanParameterInfoSupport
         return (minValue != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this {@code
      * OpenMBeanParameterInfoSupport} instance specifies a non-null
      * maximal value for the described parameter, {@code false}
@@ -490,7 +490,7 @@ public class OpenMBeanParameterInfoSupport
     }
 
 
-    /**
+    /** {@collect.stats}
      * Tests whether {@code obj} is a valid value for the parameter
      * described by this {@code OpenMBeanParameterInfo} instance.
      *
@@ -511,7 +511,7 @@ public class OpenMBeanParameterInfoSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * <p>Compares the specified {@code obj} parameter with this {@code
      * OpenMBeanParameterInfoSupport} instance for equality.</p>
      *
@@ -549,7 +549,7 @@ public class OpenMBeanParameterInfoSupport
         return equal(this, other);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this {@code
      * OpenMBeanParameterInfoSupport} instance.</p>
      *
@@ -592,7 +592,7 @@ public class OpenMBeanParameterInfoSupport
         return myHashCode.intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this
      * {@code OpenMBeanParameterInfoSupport} instance.
      * <p>

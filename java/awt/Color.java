@@ -30,7 +30,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.color.ColorSpace;
 
-/**
+/** {@collect.stats}
  * The <code>Color</code> class is used to encapsulate colors in the default
  * sRGB color space or colors in arbitrary color spaces identified by a
  * {@link ColorSpace}.  Every color has an implicit alpha value of 1.0 or
@@ -57,157 +57,157 @@ import java.awt.color.ColorSpace;
  */
 public class Color implements Paint, java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * The color white.  In the default sRGB space.
      */
     public final static Color white     = new Color(255, 255, 255);
 
-    /**
+    /** {@collect.stats}
      * The color white.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color WHITE = white;
 
-    /**
+    /** {@collect.stats}
      * The color light gray.  In the default sRGB space.
      */
     public final static Color lightGray = new Color(192, 192, 192);
 
-    /**
+    /** {@collect.stats}
      * The color light gray.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color LIGHT_GRAY = lightGray;
 
-    /**
+    /** {@collect.stats}
      * The color gray.  In the default sRGB space.
      */
     public final static Color gray      = new Color(128, 128, 128);
 
-    /**
+    /** {@collect.stats}
      * The color gray.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color GRAY = gray;
 
-    /**
+    /** {@collect.stats}
      * The color dark gray.  In the default sRGB space.
      */
     public final static Color darkGray  = new Color(64, 64, 64);
 
-    /**
+    /** {@collect.stats}
      * The color dark gray.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color DARK_GRAY = darkGray;
 
-    /**
+    /** {@collect.stats}
      * The color black.  In the default sRGB space.
      */
     public final static Color black     = new Color(0, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * The color black.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color BLACK = black;
 
-    /**
+    /** {@collect.stats}
      * The color red.  In the default sRGB space.
      */
     public final static Color red       = new Color(255, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * The color red.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color RED = red;
 
-    /**
+    /** {@collect.stats}
      * The color pink.  In the default sRGB space.
      */
     public final static Color pink      = new Color(255, 175, 175);
 
-    /**
+    /** {@collect.stats}
      * The color pink.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color PINK = pink;
 
-    /**
+    /** {@collect.stats}
      * The color orange.  In the default sRGB space.
      */
     public final static Color orange    = new Color(255, 200, 0);
 
-    /**
+    /** {@collect.stats}
      * The color orange.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color ORANGE = orange;
 
-    /**
+    /** {@collect.stats}
      * The color yellow.  In the default sRGB space.
      */
     public final static Color yellow    = new Color(255, 255, 0);
 
-    /**
+    /** {@collect.stats}
      * The color yellow.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color YELLOW = yellow;
 
-    /**
+    /** {@collect.stats}
      * The color green.  In the default sRGB space.
      */
     public final static Color green     = new Color(0, 255, 0);
 
-    /**
+    /** {@collect.stats}
      * The color green.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color GREEN = green;
 
-    /**
+    /** {@collect.stats}
      * The color magenta.  In the default sRGB space.
      */
     public final static Color magenta   = new Color(255, 0, 255);
 
-    /**
+    /** {@collect.stats}
      * The color magenta.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color MAGENTA = magenta;
 
-    /**
+    /** {@collect.stats}
      * The color cyan.  In the default sRGB space.
      */
     public final static Color cyan      = new Color(0, 255, 255);
 
-    /**
+    /** {@collect.stats}
      * The color cyan.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color CYAN = cyan;
 
-    /**
+    /** {@collect.stats}
      * The color blue.  In the default sRGB space.
      */
     public final static Color blue      = new Color(0, 0, 255);
 
-    /**
+    /** {@collect.stats}
      * The color blue.  In the default sRGB space.
      * @since 1.4
      */
     public final static Color BLUE = blue;
 
-    /**
+    /** {@collect.stats}
      * The color value.
      * @serial
      * @see #getRGB
      */
     int value;
 
-    /**
+    /** {@collect.stats}
      * The color value in the default sRGB <code>ColorSpace</code> as
      * <code>float</code> components (no alpha).
      * If <code>null</code> after object construction, this must be an
@@ -219,7 +219,7 @@ public class Color implements Paint, java.io.Serializable {
      */
     private float frgbvalue[] = null;
 
-    /**
+    /** {@collect.stats}
      * The color value in the native <code>ColorSpace</code> as
      * <code>float</code> components (no alpha).
      * If <code>null</code> after object construction, this must be an
@@ -231,7 +231,7 @@ public class Color implements Paint, java.io.Serializable {
      */
     private float fvalue[] = null;
 
-    /**
+    /** {@collect.stats}
      * The alpha value as a <code>float</code> component.
      * If <code>frgbvalue</code> is <code>null</code>, this is not valid
      * data, so compute from the <code>int</code> color value.
@@ -241,7 +241,7 @@ public class Color implements Paint, java.io.Serializable {
      */
     private float falpha = 0.0f;
 
-    /**
+    /** {@collect.stats}
      * The <code>ColorSpace</code>.  If <code>null</code>, then it's
      * default is sRGB.
      * @serial
@@ -251,7 +251,7 @@ public class Color implements Paint, java.io.Serializable {
      */
     private ColorSpace cs = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>PaintContext</code> for this solid color.
      * @see #createContext
      */
@@ -262,13 +262,13 @@ public class Color implements Paint, java.io.Serializable {
      */
      private static final long serialVersionUID = 118526816881161077L;
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
 
     static {
-        /** 4112352 - Calling getDefaultToolkit()
+        /** {@collect.stats} 4112352 - Calling getDefaultToolkit()
          ** here can cause this class to be accessed before it is fully
          ** initialized. DON'T DO IT!!!
          **
@@ -282,7 +282,7 @@ public class Color implements Paint, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the color integer components supplied for validity.
      * Throws an {@link IllegalArgumentException} if the value is out of
      * range.
@@ -316,7 +316,7 @@ public class Color implements Paint, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the color <code>float</code> components supplied for
      * validity.
      * Throws an <code>IllegalArgumentException</code> if the value is out
@@ -350,7 +350,7 @@ public class Color implements Paint, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an opaque sRGB color with the specified red, green,
      * and blue values in the range (0 - 255).
      * The actual color used in rendering depends
@@ -373,7 +373,7 @@ public class Color implements Paint, java.io.Serializable {
         this(r, g, b, 255);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an sRGB color with the specified red, green, blue, and alpha
      * values in the range (0 - 255).
      *
@@ -398,7 +398,7 @@ public class Color implements Paint, java.io.Serializable {
         testColorValueRange(r,g,b,a);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an opaque sRGB color with the specified combined RGB value
      * consisting of the red component in bits 16-23, the green component
      * in bits 8-15, and the blue component in bits 0-7.  The actual color
@@ -417,7 +417,7 @@ public class Color implements Paint, java.io.Serializable {
         value = 0xff000000 | rgb;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an sRGB color with the specified combined RGBA value consisting
      * of the alpha component in bits 24-31, the red component in bits 16-23,
      * the green component in bits 8-15, and the blue component in bits 0-7.
@@ -442,7 +442,7 @@ public class Color implements Paint, java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an opaque sRGB color with the specified red, green, and blue
      * values in the range (0.0 - 1.0).  Alpha is defaulted to 1.0.  The
      * actual color used in rendering depends on finding the best
@@ -471,7 +471,7 @@ public class Color implements Paint, java.io.Serializable {
         fvalue = frgbvalue;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an sRGB color with the specified red, green, blue, and
      * alpha values in the range (0.0 - 1.0).  The actual color
      * used in rendering depends on finding the best match given the
@@ -499,7 +499,7 @@ public class Color implements Paint, java.io.Serializable {
         fvalue = frgbvalue;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a color in the specified <code>ColorSpace</code>
      * with the color components specified in the <code>float</code>
      * array and the specified alpha.  The number of components is
@@ -550,7 +550,7 @@ public class Color implements Paint, java.io.Serializable {
                 ((((int)(frgbvalue[2]*255)) & 0xFF) << 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the red component in the range 0-255 in the default sRGB
      * space.
      * @return the red component.
@@ -560,7 +560,7 @@ public class Color implements Paint, java.io.Serializable {
         return (getRGB() >> 16) & 0xFF;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the green component in the range 0-255 in the default sRGB
      * space.
      * @return the green component.
@@ -570,7 +570,7 @@ public class Color implements Paint, java.io.Serializable {
         return (getRGB() >> 8) & 0xFF;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the blue component in the range 0-255 in the default sRGB
      * space.
      * @return the blue component.
@@ -580,7 +580,7 @@ public class Color implements Paint, java.io.Serializable {
         return (getRGB() >> 0) & 0xFF;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alpha component in the range 0-255.
      * @return the alpha component.
      * @see #getRGB
@@ -589,7 +589,7 @@ public class Color implements Paint, java.io.Serializable {
         return (getRGB() >> 24) & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the RGB value representing the color in the default sRGB
      * {@link ColorModel}.
      * (Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are
@@ -608,7 +608,7 @@ public class Color implements Paint, java.io.Serializable {
 
     private static final double FACTOR = 0.7;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>Color</code> that is a brighter version of this
      * <code>Color</code>.
      * <p>
@@ -646,7 +646,7 @@ public class Color implements Paint, java.io.Serializable {
                          Math.min((int)(b/FACTOR), 255));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>Color</code> that is a darker version of this
      * <code>Color</code>.
      * <p>
@@ -667,7 +667,7 @@ public class Color implements Paint, java.io.Serializable {
                          Math.max((int)(getBlue() *FACTOR), 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Computes the hash code for this <code>Color</code>.
      * @return     a hash code value for this object.
      * @since      JDK1.0
@@ -676,7 +676,7 @@ public class Color implements Paint, java.io.Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether another object is equal to this
      * <code>Color</code>.
      * <p>
@@ -693,7 +693,7 @@ public class Color implements Paint, java.io.Serializable {
         return obj instanceof Color && ((Color)obj).getRGB() == this.getRGB();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>Color</code>. This
      * method is intended to be used only for debugging purposes.  The
      * content and format of the returned string might vary between
@@ -706,7 +706,7 @@ public class Color implements Paint, java.io.Serializable {
         return getClass().getName() + "[r=" + getRed() + ",g=" + getGreen() + ",b=" + getBlue() + "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a <code>String</code> to an integer and returns the
      * specified opaque <code>Color</code>. This method handles string
      * formats that are used to represent octal and hexadecimal numbers.
@@ -725,7 +725,7 @@ public class Color implements Paint, java.io.Serializable {
         return new Color((i >> 16) & 0xFF, (i >> 8) & 0xFF, i & 0xFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a color in the system properties.
      * <p>
      * The argument is treated as the name of a system property to
@@ -747,7 +747,7 @@ public class Color implements Paint, java.io.Serializable {
         return getColor(nm, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a color in the system properties.
      * <p>
      * The first argument is treated as the name of a system property to
@@ -776,7 +776,7 @@ public class Color implements Paint, java.io.Serializable {
         return new Color((i >> 16) & 0xFF, (i >> 8) & 0xFF, i & 0xFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a color in the system properties.
      * <p>
      * The first argument is treated as the name of a system property to
@@ -803,7 +803,7 @@ public class Color implements Paint, java.io.Serializable {
         return new Color((i >> 16) & 0xFF, (i >> 8) & 0xFF, (i >> 0) & 0xFF);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the components of a color, as specified by the HSB
      * model, to an equivalent set of values for the default RGB model.
      * <p>
@@ -876,7 +876,7 @@ public class Color implements Paint, java.io.Serializable {
         return 0xff000000 | (r << 16) | (g << 8) | (b << 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the components of a color, as specified by the default RGB
      * model, to an equivalent set of values for hue, saturation, and
      * brightness that are the three components of the HSB model.
@@ -935,7 +935,7 @@ public class Color implements Paint, java.io.Serializable {
         return hsbvals;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Color</code> object based on the specified values
      * for the HSB color model.
      * <p>
@@ -957,7 +957,7 @@ public class Color implements Paint, java.io.Serializable {
         return new Color(HSBtoRGB(h, s, b));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing the color and alpha
      * components of the <code>Color</code>, as represented in the default
      * sRGB color space.
@@ -990,7 +990,7 @@ public class Color implements Paint, java.io.Serializable {
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing only the color
      * components of the <code>Color</code>, in the default sRGB color
      * space.  If <code>compArray</code> is <code>null</code>, an array of
@@ -1020,7 +1020,7 @@ public class Color implements Paint, java.io.Serializable {
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing the color and alpha
      * components of the <code>Color</code>, in the
      * <code>ColorSpace</code> of the <code>Color</code>.
@@ -1053,7 +1053,7 @@ public class Color implements Paint, java.io.Serializable {
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing only the color
      * components of the <code>Color</code>, in the
      * <code>ColorSpace</code> of the <code>Color</code>.
@@ -1084,7 +1084,7 @@ public class Color implements Paint, java.io.Serializable {
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing the color and alpha
      * components of the <code>Color</code>, in the
      * <code>ColorSpace</code> specified by the <code>cspace</code>
@@ -1129,7 +1129,7 @@ public class Color implements Paint, java.io.Serializable {
         return compArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>float</code> array containing only the color
      * components of the <code>Color</code> in the
      * <code>ColorSpace</code> specified by the <code>cspace</code>
@@ -1168,7 +1168,7 @@ public class Color implements Paint, java.io.Serializable {
         return compArray;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ColorSpace</code> of this <code>Color</code>.
      * @return this <code>Color</code> object's <code>ColorSpace</code>.
      */
@@ -1179,7 +1179,7 @@ public class Color implements Paint, java.io.Serializable {
         return cs;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a {@link PaintContext} used to 
      * generate a solid color field pattern.
      * See the {@link Paint#createContext specification} of the 
@@ -1219,7 +1219,7 @@ public class Color implements Paint, java.io.Serializable {
       return context;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the transparency mode for this <code>Color</code>.  This is
      * required to implement the <code>Paint</code> interface.
      * @return this <code>Color</code> object's transparency mode.

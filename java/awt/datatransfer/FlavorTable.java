@@ -28,7 +28,7 @@ package java.awt.datatransfer;
 import java.util.List;
 
 
-/**
+/** {@collect.stats}
  * A FlavorMap which relaxes the traditional 1-to-1 restriction of a Map. A
  * flavor is permitted to map to any number of natives, and likewise a native
  * is permitted to map to any number of flavors. FlavorTables need not be
@@ -40,7 +40,7 @@ import java.util.List;
  */
 public interface FlavorTable extends FlavorMap {
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>List</code> of <code>String</code> natives to which the
      * specified <code>DataFlavor</code> corresponds. The <code>List</code>
      * will be sorted from best native to worst. That is, the first native will
@@ -59,7 +59,7 @@ public interface FlavorTable extends FlavorMap {
      */
     List<String> getNativesForFlavor(DataFlavor flav);
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>List</code> of <code>DataFlavor</code>s to which the
      * specified <code>String</code> corresponds. The <code>List</code> will be
      * sorted from best <code>DataFlavor</code> to worst. That is, the first

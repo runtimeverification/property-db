@@ -25,7 +25,7 @@
 
 package java.awt.font;
 
-/**
+/** {@collect.stats}
  * The <code>NumericShaper</code> class is used to convert Latin-1 (European)
  * digits to other Unicode decimal digits.  Users of this class will
  * primarily be people who wish to present data using
@@ -71,76 +71,76 @@ package java.awt.font;
  */
 
 public final class NumericShaper implements java.io.Serializable {
-    /** index of context for contextual shaping - values range from 0 to 18 */
+    /** {@collect.stats} index of context for contextual shaping - values range from 0 to 18 */
     private int key;
 
-    /** flag indicating whether to shape contextually (high bit) and which
+    /** {@collect.stats} flag indicating whether to shape contextually (high bit) and which
      *  digit ranges to shape (bits 0-18)
      */
     private int mask;
 
-    /** Identifies the Latin-1 (European) and extended range, and
+    /** {@collect.stats} Identifies the Latin-1 (European) and extended range, and
      *  Latin-1 (European) decimal base.
      */
     public static final int EUROPEAN = 1<<0;
 
-    /** Identifies the ARABIC range and decimal base. */
+    /** {@collect.stats} Identifies the ARABIC range and decimal base. */
     public static final int ARABIC = 1<<1;
 
-    /** Identifies the ARABIC range and ARABIC_EXTENDED decimal base. */
+    /** {@collect.stats} Identifies the ARABIC range and ARABIC_EXTENDED decimal base. */
     public static final int EASTERN_ARABIC = 1<<2;
 
-    /** Identifies the DEVANAGARI range and decimal base. */
+    /** {@collect.stats} Identifies the DEVANAGARI range and decimal base. */
     public static final int DEVANAGARI = 1<<3;
 
-    /** Identifies the BENGALI range and decimal base. */
+    /** {@collect.stats} Identifies the BENGALI range and decimal base. */
     public static final int BENGALI = 1<<4;
 
-    /** Identifies the GURMUKHI range and decimal base. */
+    /** {@collect.stats} Identifies the GURMUKHI range and decimal base. */
     public static final int GURMUKHI = 1<<5;
 
-    /** Identifies the GUJARATI range and decimal base. */
+    /** {@collect.stats} Identifies the GUJARATI range and decimal base. */
     public static final int GUJARATI = 1<<6;
 
-    /** Identifies the ORIYA range and decimal base. */
+    /** {@collect.stats} Identifies the ORIYA range and decimal base. */
     public static final int ORIYA = 1<<7;
 
-    /** Identifies the TAMIL range and decimal base. Tamil does not have a
+    /** {@collect.stats} Identifies the TAMIL range and decimal base. Tamil does not have a
      *  decimal digit 0 so Latin-1 (European) 0 is used.
      */
     public static final int TAMIL = 1<<8;
 
-    /** Identifies the TELUGU range and decimal base. */
+    /** {@collect.stats} Identifies the TELUGU range and decimal base. */
     public static final int TELUGU = 1<<9;
 
-    /** Identifies the KANNADA range and decimal base. */
+    /** {@collect.stats} Identifies the KANNADA range and decimal base. */
     public static final int KANNADA = 1<<10;
 
-    /** Identifies the MALAYALAM range and decimal base. */
+    /** {@collect.stats} Identifies the MALAYALAM range and decimal base. */
     public static final int MALAYALAM = 1<<11;
 
-    /** Identifies the THAI range and decimal base. */
+    /** {@collect.stats} Identifies the THAI range and decimal base. */
     public static final int THAI = 1<<12;
 
-    /** Identifies the LAO range and decimal base. */
+    /** {@collect.stats} Identifies the LAO range and decimal base. */
     public static final int LAO = 1<<13;
 
-    /** Identifies the TIBETAN range and decimal base. */
+    /** {@collect.stats} Identifies the TIBETAN range and decimal base. */
     public static final int TIBETAN = 1<<14;
 
-    /** Identifies the MYANMAR range and decimal base. */
+    /** {@collect.stats} Identifies the MYANMAR range and decimal base. */
     public static final int MYANMAR = 1<<15;
 
-    /** Identifies the ETHIOPIC range and decimal base. */
+    /** {@collect.stats} Identifies the ETHIOPIC range and decimal base. */
     public static final int ETHIOPIC = 1<<16;
 
-    /** Identifies the KHMER range and decimal base. */
+    /** {@collect.stats} Identifies the KHMER range and decimal base. */
     public static final int KHMER = 1<<17;
 
-    /** Identifies the MONGOLIAN range and decimal base. */
+    /** {@collect.stats} Identifies the MONGOLIAN range and decimal base. */
     public static final int MONGOLIAN = 1<<18;
 
-    /** Identifies all ranges, for full contextual shaping. */
+    /** {@collect.stats} Identifies all ranges, for full contextual shaping. */
     public static final int ALL_RANGES = 0x0007ffff;
 
     private static final int EUROPEAN_KEY = 0;
@@ -636,7 +636,7 @@ public final class NumericShaper implements java.io.Serializable {
         return key;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shaper for the provided unicode range.  All
      * Latin-1 (EUROPEAN) digits are converted
      * to the corresponding decimal unicode digits.
@@ -649,7 +649,7 @@ public final class NumericShaper implements java.io.Serializable {
         return new NumericShaper(key, singleRange);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a contextual shaper for the provided unicode range(s).
      * Latin-1 (EUROPEAN) digits are converted to the decimal digits
      * corresponding to the range of the preceding text, if the
@@ -668,7 +668,7 @@ public final class NumericShaper implements java.io.Serializable {
         return new NumericShaper(EUROPEAN_KEY, ranges);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a contextual shaper for the provided unicode range(s).
      * Latin-1 (EUROPEAN) digits will be converted to the decimal digits
      * corresponding to the range of the preceding text, if the
@@ -689,7 +689,7 @@ public final class NumericShaper implements java.io.Serializable {
         return new NumericShaper(key, ranges);
     }
 
-    /**
+    /** {@collect.stats}
      * Private constructor.
      */
     private NumericShaper(int key, int mask) {
@@ -697,7 +697,7 @@ public final class NumericShaper implements java.io.Serializable {
         this.mask = mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the digits in the text that occur between start and
      * start + count.
      * @param text an array of characters to convert
@@ -728,7 +728,7 @@ public final class NumericShaper implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the digits in the text that occur between start and
      * start + count, using the provided context.
      * Context is ignored if the shaper is not a contextual shaper.
@@ -766,7 +766,7 @@ public final class NumericShaper implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>boolean</code> indicating whether or not
      * this shaper shapes contextually.
      * @return <code>true</code> if this shaper is contextual;
@@ -776,7 +776,7 @@ public final class NumericShaper implements java.io.Serializable {
         return (mask & CONTEXTUAL_MASK) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>int</code> that ORs together the values for
      * all the ranges that will be shaped.
      * <p>
@@ -791,7 +791,7 @@ public final class NumericShaper implements java.io.Serializable {
         return mask & ~CONTEXTUAL_MASK;
     }
 
-    /**
+    /** {@collect.stats}
      * Perform non-contextual shaping.
      */
     private void shapeNonContextually(char[] text, int start, int count) {
@@ -805,7 +805,7 @@ public final class NumericShaper implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Perform contextual shaping.
      * Synchronized to protect caches used in getContextKey and isStrongDirectional.
      */
@@ -846,7 +846,7 @@ public final class NumericShaper implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this shaper.
      * @return this shaper's hash code.
      * @see java.lang.Object#hashCode
@@ -855,7 +855,7 @@ public final class NumericShaper implements java.io.Serializable {
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified object is an instance of
      * <code>NumericShaper</code> and shapes identically to this one.
      * @param o the specified object to compare to this
@@ -877,7 +877,7 @@ public final class NumericShaper implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>String</code> that describes this shaper. This method
      * is used for debugging purposes only.
      * @return a <code>String</code> describing this shaper.
@@ -908,7 +908,7 @@ public final class NumericShaper implements java.io.Serializable {
         return buf.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the high bit in value (assuming le, actually
      * power of 2 >= value). value must be positive.
      */
@@ -947,7 +947,7 @@ public final class NumericShaper implements java.io.Serializable {
         return bit;
     }
 
-    /**
+    /** {@collect.stats}
      * fast binary search over subrange of array.
      */
     private static int search(char value, char[] array, int start, int length)

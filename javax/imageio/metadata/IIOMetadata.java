@@ -28,7 +28,7 @@ package javax.imageio.metadata;
 import org.w3c.dom.Node;
 import java.lang.reflect.Method;
 
-/**
+/** {@collect.stats}
  * An abstract class to be extended by objects that represent metadata
  * (non-image data) associated with images and streams.  Plug-ins
  * represent metadata using opaque, plug-in specific objects.  These
@@ -65,33 +65,33 @@ import java.lang.reflect.Method;
  */
 public abstract class IIOMetadata {
 
-    /**
+    /** {@collect.stats}
      * A boolean indicating whether the concrete subclass supports the
      * standard metadata format, set via the constructor.
      */
     protected boolean standardFormatSupported;
 
-    /**
+    /** {@collect.stats}
      * The name of the native metadata format for this object,
      * initialized to <code>null</code> and set via the constructor.
      */
     protected String nativeMetadataFormatName = null;
 
-    /**
+    /** {@collect.stats}
      * The name of the class implementing <code>IIOMetadataFormat</code>
      * and representing the native metadata format, initialized to
      * <code>null</code> and set via the constructor.
      */
     protected String nativeMetadataFormatClassName = null;
 
-    /**
+    /** {@collect.stats}
      * An array of names of formats, other than the standard and
      * native formats, that are supported by this plug-in,
      * initialized to <code>null</code> and set via the constructor.
      */
     protected String[] extraMetadataFormatNames = null;
 
-    /**
+    /** {@collect.stats}
      * An array of names of classes implementing <code>IIOMetadataFormat</code>
      * and representing the metadata formats, other than the standard and
      * native formats, that are supported by this plug-in,
@@ -99,7 +99,7 @@ public abstract class IIOMetadata {
      */
     protected String[] extraMetadataFormatClassNames = null;
 
-    /**
+    /** {@collect.stats}
      * An <code>IIOMetadataController</code> that is suggested for use
      * as the controller for this <code>IIOMetadata</code> object.  It
      * may be retrieved via <code>getDefaultController</code>.  To
@@ -114,7 +114,7 @@ public abstract class IIOMetadata {
      */
     protected IIOMetadataController defaultController = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>IIOMetadataController</code> that will be
      * used to provide settings for this <code>IIOMetadata</code>
      * object when the <code>activateController</code> method
@@ -128,7 +128,7 @@ public abstract class IIOMetadata {
      */
     protected IIOMetadataController controller = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <code>IIOMetadata</code> object.  The
      * subclass is responsible for suppying values for all protected
      * instance variables that will allow any non-overridden default
@@ -137,7 +137,7 @@ public abstract class IIOMetadata {
      */
     protected IIOMetadata() {}
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOMetadata</code> object with the given
      * format names and format class names, as well as a boolean
      * indicating whether the standard format is supported.
@@ -203,7 +203,7 @@ public abstract class IIOMetadata {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the standard metadata format is
      * supported by <code>getMetadataFormat</code>,
      * <code>getAsTree</code>, <code>setFromTree</code>, and
@@ -224,7 +224,7 @@ public abstract class IIOMetadata {
         return standardFormatSupported;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if this object does not support the
      * <code>mergeTree</code>, <code>setFromTree</code>, and
      * <code>reset</code> methods.
@@ -234,7 +234,7 @@ public abstract class IIOMetadata {
      */
     public abstract boolean isReadOnly();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the "native" metadata format for this
      * plug-in, which typically allows for lossless encoding and
      * transmission of the metadata stored in the format handled by
@@ -261,7 +261,7 @@ public abstract class IIOMetadata {
         return nativeMetadataFormatName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the names
      * of additional metadata formats, other than the native and standard
      * formats, recognized by this plug-in's
@@ -288,7 +288,7 @@ public abstract class IIOMetadata {
         return (String[])extraMetadataFormatNames.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing the names
      * of all metadata formats, including the native and standard
      * formats, recognized by this plug-in's <code>getAsTree</code>,
@@ -344,7 +344,7 @@ public abstract class IIOMetadata {
         return formats;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataFormat</code> object describing the
      * given metadata format, or <code>null</code> if no description
      * is available.  The supplied name must be one of those returned
@@ -447,7 +447,7 @@ public abstract class IIOMetadata {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an XML DOM <code>Node</code> object that represents the
      * root of a tree of metadata contained within this object
      * according to the conventions defined by a given metadata
@@ -471,7 +471,7 @@ public abstract class IIOMetadata {
      */
     public abstract Node getAsTree(String formatName);
 
-    /**
+    /** {@collect.stats}
      * Alters the internal state of this <code>IIOMetadata</code>
      * object from a tree of XML DOM <code>Node</code>s whose syntax
      * is defined by the given metadata format.  The previous state is
@@ -506,7 +506,7 @@ public abstract class IIOMetadata {
     public abstract void mergeTree(String formatName, Node root)
         throws IIOInvalidTreeException;
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the chroma
      * information of the standard <code>javax_imageio_1.0</code>
      * metadata format, or <code>null</code> if no such information is
@@ -527,7 +527,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the
      * compression information of the standard
      * <code>javax_imageio_1.0</code> metadata format, or
@@ -549,7 +549,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the data
      * format information of the standard
      * <code>javax_imageio_1.0</code> metadata format, or
@@ -571,7 +571,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the
      * dimension information of the standard
      * <code>javax_imageio_1.0</code> metadata format, or
@@ -593,7 +593,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the document
      * information of the standard <code>javax_imageio_1.0</code>
      * metadata format, or <code>null</code> if no such information is
@@ -614,7 +614,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the textual
      * information of the standard <code>javax_imageio_1.0</code>
      * metadata format, or <code>null</code> if no such information is
@@ -635,7 +635,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the tiling
      * information of the standard <code>javax_imageio_1.0</code>
      * metadata format, or <code>null</code> if no such information is
@@ -656,7 +656,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>IIOMetadataNode</code> representing the
      * transparency information of the standard
      * <code>javax_imageio_1.0</code> metadata format, or
@@ -676,7 +676,7 @@ public abstract class IIOMetadata {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a new node to an existing node, if the new node is
      * non-<code>null</code>.
      */
@@ -686,7 +686,7 @@ public abstract class IIOMetadata {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A utility method to return a tree of
      * <code>IIOMetadataNode</code>s representing the metadata
      * contained within this object according to the conventions of
@@ -726,7 +726,7 @@ public abstract class IIOMetadata {
         return root;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the internal state of this <code>IIOMetadata</code> object
      * from a tree of XML DOM <code>Node</code>s whose syntax is
      * defined by the given metadata format.  The previous state is
@@ -759,7 +759,7 @@ public abstract class IIOMetadata {
         mergeTree(formatName, root);
     }
 
-    /**
+    /** {@collect.stats}
      * Resets all the data stored in this object to default values,
      * usually to the state this object was in immediately after
      * construction, though the precise semantics are plug-in specific.
@@ -775,7 +775,7 @@ public abstract class IIOMetadata {
      */
     public abstract void reset();
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>IIOMetadataController</code> to be used
      * to provide settings for this <code>IIOMetadata</code>
      * object when the <code>activateController</code> method
@@ -800,7 +800,7 @@ public abstract class IIOMetadata {
         this.controller = controller;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whatever <code>IIOMetadataController</code> is currently
      * installed.  This could be the default if there is one,
      * <code>null</code>, or the argument of the most recent call
@@ -822,7 +822,7 @@ public abstract class IIOMetadata {
         return controller;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>IIOMetadataController</code>, if there
      * is one, regardless of the currently installed controller.  If
      * there is no default controller, returns <code>null</code>.
@@ -843,7 +843,7 @@ public abstract class IIOMetadata {
         return defaultController;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if there is a controller installed
      * for this <code>IIOMetadata</code> object.
      *
@@ -863,7 +863,7 @@ public abstract class IIOMetadata {
         return (getController() != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Activates the installed <code>IIOMetadataController</code> for
      * this <code>IIOMetadata</code> object and returns the resulting
      * value.  When this method returns <code>true</code>, all values for this

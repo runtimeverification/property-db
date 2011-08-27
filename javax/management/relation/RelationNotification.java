@@ -43,7 +43,7 @@ import java.util.List;
 import com.sun.jmx.mbeanserver.GetPropertyAction;
 import static com.sun.jmx.mbeanserver.Util.cast;
 
-/**
+/** {@collect.stats}
  * A notification of a change in the Relation Service.
  * A RelationNotification notification is sent when a relation is created via
  * the Relation Service, or an MBean is added as a relation in the Relation
@@ -95,7 +95,7 @@ public class RelationNotification extends Notification {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField relationId String Relation identifier of
      * created/removed/updated relation
      * @serialField relationTypeName String Relation type name of
@@ -137,27 +137,27 @@ public class RelationNotification extends Notification {
     // Notification types
     //
 
-    /**
+    /** {@collect.stats}
      * Type for the creation of an internal relation.
      */
     public static final String RELATION_BASIC_CREATION = "jmx.relation.creation.basic";
-    /**
+    /** {@collect.stats}
      * Type for the relation MBean added into the Relation Service.
      */
     public static final String RELATION_MBEAN_CREATION = "jmx.relation.creation.mbean";
-    /**
+    /** {@collect.stats}
      * Type for an update of an internal relation.
      */
     public static final String RELATION_BASIC_UPDATE = "jmx.relation.update.basic";
-    /**
+    /** {@collect.stats}
      * Type for the update of a relation MBean.
      */
     public static final String RELATION_MBEAN_UPDATE = "jmx.relation.update.mbean";
-    /**
+    /** {@collect.stats}
      * Type for the removal from the Relation Service of an internal relation.
      */
     public static final String RELATION_BASIC_REMOVAL = "jmx.relation.removal.basic";
-    /**
+    /** {@collect.stats}
      * Type for the removal from the Relation Service of a relation MBean.
      */
     public static final String RELATION_MBEAN_REMOVAL = "jmx.relation.removal.mbean";
@@ -166,39 +166,39 @@ public class RelationNotification extends Notification {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial Relation identifier of created/removed/updated relation
      */
     private String relationId = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Relation type name of created/removed/updated relation
      */
     private String relationTypeName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial {@link ObjectName} of the relation MBean of created/removed/updated relation
      *         (only if the relation is represented by an MBean)
      */
     private ObjectName relationObjName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial List of {@link ObjectName}s of referenced MBeans to be unregistered due to
      *         relation removal
      */
     private List<ObjectName> unregisterMBeanList = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Name of updated role (only for role update)
      */
     private String roleName = null;
 
-    /**
+    /** {@collect.stats}
      * @serial Old role value ({@link ArrayList} of {@link ObjectName}s) (only for role update)
      */
     private List<ObjectName> oldRoleValue = null;
 
-    /**
+    /** {@collect.stats}
      * @serial New role value ({@link ArrayList} of {@link ObjectName}s) (only for role update)
      */
     private List<ObjectName> newRoleValue = null;
@@ -207,7 +207,7 @@ public class RelationNotification extends Notification {
     // Constructors
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a notification for either a relation creation (RelationSupport
      * object created internally in the Relation Service, or an MBean added as a
      * relation) or for a relation removal from the Relation Service.
@@ -273,7 +273,7 @@ public class RelationNotification extends Notification {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a notification for a role update in a relation.
      *
      * @param notifType  type of the notification; either:
@@ -334,7 +334,7 @@ public class RelationNotification extends Notification {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the relation identifier of created/removed/updated relation.
      *
      * @return the relation id.
@@ -343,7 +343,7 @@ public class RelationNotification extends Notification {
         return relationId;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the relation type name of created/removed/updated relation.
      *
      * @return the relation type name.
@@ -352,7 +352,7 @@ public class RelationNotification extends Notification {
         return relationTypeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ObjectName of the
      * created/removed/updated relation.
      *
@@ -362,7 +362,7 @@ public class RelationNotification extends Notification {
         return relationObjName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the list of ObjectNames of MBeans expected to be unregistered
      * due to a relation removal (only for relation removal).
      *
@@ -378,7 +378,7 @@ public class RelationNotification extends Notification {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns name of updated role of updated relation (only for role update).
      *
      * @return the name of the updated role.
@@ -391,7 +391,7 @@ public class RelationNotification extends Notification {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns old value of updated role (only for role update).
      *
      * @return the old value of the updated role.
@@ -406,7 +406,7 @@ public class RelationNotification extends Notification {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns new value of updated role (only for role update).
      *
      * @return the new value of the updated role.
@@ -542,7 +542,7 @@ public class RelationNotification extends Notification {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link RelationNotification} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -597,7 +597,7 @@ public class RelationNotification extends Notification {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link RelationNotification} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

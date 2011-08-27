@@ -36,7 +36,7 @@
 package java.awt.image;
 import java.awt.Point;
 
-/**
+/** {@collect.stats}
  * WriteableRenderedImage is a common interface for objects which
  * contain or can produce image data in the form of Rasters and
  * which can be modified and/or written over.  The image
@@ -69,14 +69,14 @@ import java.awt.Point;
 public interface WritableRenderedImage extends RenderedImage
 {
 
-  /**
+  /** {@collect.stats}
    * Adds an observer.  If the observer is already present,
    * it will receive multiple notifications.
    * @param to the specified <code>TileObserver</code>
    */
   public void addTileObserver(TileObserver to);
 
-  /**
+  /** {@collect.stats}
    * Removes an observer.  If the observer was not registered,
    * nothing happens.  If the observer was registered for multiple
    * notifications, it will now be registered for one fewer.
@@ -84,7 +84,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public void removeTileObserver(TileObserver to);
 
-  /**
+  /** {@collect.stats}
    * Checks out a tile for writing.
    *
    * The WritableRenderedImage is responsible for notifying all
@@ -97,7 +97,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public WritableRaster getWritableTile(int tileX, int tileY);
 
-  /**
+  /** {@collect.stats}
    * Relinquishes the right to write to a tile.  If the caller
    * continues to write to the tile, the results are undefined.
    * Calls to this method should only appear in matching pairs
@@ -113,7 +113,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public void releaseWritableTile(int tileX, int tileY);
 
-  /**
+  /** {@collect.stats}
    * Returns whether a tile is currently checked out for writing.
    *
    * @param tileX the X index of the tile.
@@ -123,7 +123,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public boolean isTileWritable(int tileX, int tileY);
 
-  /**
+  /** {@collect.stats}
    * Returns an array of Point objects indicating which tiles
    * are checked out for writing.  Returns null if none are
    * checked out.
@@ -132,7 +132,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public Point[] getWritableTileIndices();
 
-  /**
+  /** {@collect.stats}
    * Returns whether any tile is checked out for writing.
    * Semantically equivalent to (getWritableTileIndices() != null).
    * @return <code>true</code> if any tiles are checked out for
@@ -140,7 +140,7 @@ public interface WritableRenderedImage extends RenderedImage
    */
   public boolean hasTileWriters();
 
-  /**
+  /** {@collect.stats}
    * Sets a rect of the image to the contents of the Raster r, which is
    * assumed to be in the same coordinate space as the WritableRenderedImage.
    * The operation is clipped to the bounds of the WritableRenderedImage.

@@ -25,7 +25,7 @@
 
 package javax.sql;
 
-/**
+/** {@collect.stats}
  * An interface that must be implemented by a
  * component that wants to be notified when a significant
  * event happens in the life of a <code>RowSet</code> object.
@@ -39,7 +39,7 @@ package javax.sql;
 
 public interface RowSetListener extends java.util.EventListener {
 
-  /**
+  /** {@collect.stats}
    * Notifies registered listeners that a <code>RowSet</code> object
    * in the given <code>RowSetEvent</code> object has changed its entire contents.
    * <P>
@@ -51,7 +51,7 @@ public interface RowSetListener extends java.util.EventListener {
    */
   void rowSetChanged(RowSetEvent event);
 
-  /**
+  /** {@collect.stats}
    * Notifies registered listeners that a <code>RowSet</code> object
    * has had a change in one of its rows.
    * <P>
@@ -63,7 +63,7 @@ public interface RowSetListener extends java.util.EventListener {
    */
   void rowChanged(RowSetEvent event);
 
-  /**
+  /** {@collect.stats}
    * Notifies registered listeners that a <code>RowSet</code> object's
    * cursor has moved.
    * <P>

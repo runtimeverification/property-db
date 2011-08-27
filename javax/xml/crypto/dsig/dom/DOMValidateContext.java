@@ -35,7 +35,7 @@ import javax.xml.crypto.dsig.XMLValidateContext;
 import java.security.Key;
 import org.w3c.dom.Node;
 
-/**
+/** {@collect.stats}
  * A DOM-specific {@link XMLValidateContext}. This class contains additional
  * methods to specify the location in a DOM tree where an {@link XMLSignature}
  * is to be unmarshalled and validated from.
@@ -61,7 +61,7 @@ public class DOMValidateContext extends DOMCryptoContext
 
     private Node node;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMValidateContext</code> containing the specified key
      * selector and node.
      *
@@ -81,7 +81,7 @@ public class DOMValidateContext extends DOMCryptoContext
         this.node = node;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DOMValidateContext</code> containing the specified key
      * and node. The validating key will be stored in a
      * {@link KeySelector#singletonKeySelector singleton KeySelector} that
@@ -104,7 +104,7 @@ public class DOMValidateContext extends DOMCryptoContext
         this.node = node;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the node.
      *
      * @param node the node
@@ -118,7 +118,7 @@ public class DOMValidateContext extends DOMCryptoContext
         this.node = node;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the node.
      *
      * @return the node (never <code>null</code>)

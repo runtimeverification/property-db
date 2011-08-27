@@ -29,7 +29,7 @@ package javax.management.remote;
 import java.io.IOException;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * <p>A provider for creating JMX API connector clients using a given
  * protocol.  Instances of this interface are created by {@link
  * JMXConnectorFactory} as part of its {@link
@@ -39,7 +39,7 @@ import java.util.Map;
  * @since 1.5
  */
 public interface JMXConnectorProvider {
-    /**
+    /** {@collect.stats}
      * <p>Creates a new connector client that is ready to connect
      * to the connector server at the given address.  Each successful
      * call to this method produces a different

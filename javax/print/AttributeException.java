@@ -27,7 +27,7 @@ package javax.print;
 
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Interface AttributeException is a mixin interface which a subclass of
  * {@link
  * PrintException PrintException} can implement to report an error condition
@@ -43,7 +43,7 @@ import javax.print.attribute.Attribute;
 public interface AttributeException {
 
 
-    /**
+    /** {@collect.stats}
      * Returns the array of printing attribute classes for which the Print
      * Service instance does not support the attribute at all, or null if
      * there are no such attributes. The objects in the returned array are
@@ -54,7 +54,7 @@ public interface AttributeException {
      */
     public Class[] getUnsupportedAttributes();
 
-    /**
+    /** {@collect.stats}
      * Returns the array of printing attributes for which the Print Service
      * instance supports the attribute but does not support that particular
      * value of the attribute, or null if there are no such attribute values.

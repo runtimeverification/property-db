@@ -27,7 +27,7 @@ package java.awt.dnd.peer;
 
 import java.awt.dnd.DropTarget;
 
-/**
+/** {@collect.stats}
  * <p>
  * The DropTargetPeer class is the interface to the platform dependent
  * DnD facilities. Since the DnD system is based on the native platform's
@@ -41,7 +41,7 @@ import java.awt.dnd.DropTarget;
 
 public interface DropTargetPeer {
 
-    /**
+    /** {@collect.stats}
      * Add the DropTarget to the System
      *
      * @param dt The DropTarget effected
@@ -49,7 +49,7 @@ public interface DropTargetPeer {
 
     void addDropTarget(DropTarget dt);
 
-    /**
+    /** {@collect.stats}
      * Remove the DropTarget from the system
      *
      * @param dt The DropTarget effected

@@ -36,7 +36,7 @@
 package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
-/**
+/** {@collect.stats}
  * An {@code int} value that may be updated atomically.  See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
@@ -65,7 +65,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
 
     private volatile int value;
 
-    /**
+    /** {@collect.stats}
      * Creates a new AtomicInteger with the given initial value.
      *
      * @param initialValue the initial value
@@ -74,13 +74,13 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         value = initialValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AtomicInteger with initial value {@code 0}.
      */
     public AtomicInteger() {
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current value.
      *
      * @return the current value
@@ -89,7 +89,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets to the given value.
      *
      * @param newValue the new value
@@ -98,7 +98,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         value = newValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Eventually sets to the given value.
      *
      * @param newValue the new value
@@ -108,7 +108,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         unsafe.putOrderedInt(this, valueOffset, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets to the given value and returns the old value.
      *
      * @param newValue the new value
@@ -122,7 +122,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -135,7 +135,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -151,7 +151,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically increments by one the current value.
      *
      * @return the previous value
@@ -165,7 +165,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically decrements by one the current value.
      *
      * @return the previous value
@@ -179,7 +179,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically adds the given value to the current value.
      *
      * @param delta the value to add
@@ -194,7 +194,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically increments by one the current value.
      *
      * @return the updated value
@@ -208,7 +208,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically decrements by one the current value.
      *
      * @return the updated value
@@ -222,7 +222,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically adds the given value to the current value.
      *
      * @param delta the value to add
@@ -237,7 +237,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String representation of the current value.
      * @return the String representation of the current value.
      */

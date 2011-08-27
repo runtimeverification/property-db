@@ -25,7 +25,7 @@
 
 package javax.security.auth;
 
-/**
+/** {@collect.stats}
  * Signals that a <code>destroy</code> operation failed.
  *
  * <p> This exception is thrown by credentials implementing
@@ -37,7 +37,7 @@ public class DestroyFailedException extends Exception {
 
     private static final long serialVersionUID = -7790152857282749162L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a DestroyFailedException with no detail message. A detail
      * message is a String that describes this particular exception.
      */
@@ -45,7 +45,7 @@ public class DestroyFailedException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a DestroyFailedException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.

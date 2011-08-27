@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.awt.image.*;
 
-/** Color filter for DebugGraphics, used for images only.
+/** {@collect.stats} Color filter for DebugGraphics, used for images only.
   *
   * @author Dave Karlton
   */

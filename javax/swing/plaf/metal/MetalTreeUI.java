@@ -37,7 +37,7 @@ import javax.swing.tree.*;
 
 import javax.swing.plaf.basic.*;
 
-/**
+/** {@collect.stats}
  * The metal look and feel implementation of <code>TreeUI</code>.
  * <p>
  * <code>MetalTreeUI</code> allows for configuring how to
@@ -123,7 +123,7 @@ public class MetalTreeUI extends BasicTreeUI {
          super.uninstallUI(c);
     }
 
-    /** this function converts between the string passed into the client property
+    /** {@collect.stats} this function converts between the string passed into the client property
       * and the internal representation (currently and int)
       *
       */
@@ -225,7 +225,7 @@ public class MetalTreeUI extends BasicTreeUI {
         }
     }
 
-    /** This class listens for changes in line style */
+    /** {@collect.stats} This class listens for changes in line style */
     class LineListener implements PropertyChangeListener {
         public void propertyChange(PropertyChangeEvent e) {
             String name = e.getPropertyName();

@@ -29,7 +29,7 @@ import java.util.Hashtable;
 import javax.naming.spi.NamingManager;
 import com.sun.naming.internal.ResourceManager;
 
-/**
+/** {@collect.stats}
  * This class is the starting context for performing naming operations.
  *<p>
  * All naming operations are relative to a context.
@@ -130,7 +130,7 @@ import com.sun.naming.internal.ResourceManager;
 
 public class InitialContext implements Context {
 
-    /**
+    /** {@collect.stats}
      * The environment associated with this InitialContext.
      * It is initialized to null and is updated by the constructor
      * that accepts an environment or by the <tt>init()</tt> method.
@@ -140,7 +140,7 @@ public class InitialContext implements Context {
      */
     protected Hashtable<Object,Object> myProps = null;
 
-    /**
+    /** {@collect.stats}
      * Field holding the result of calling NamingManager.getInitialContext().
      * It is set by getDefaultInitCtx() the first time getDefaultInitCtx()
      * is called. Subsequent invocations of getDefaultInitCtx() return
@@ -149,14 +149,14 @@ public class InitialContext implements Context {
      */
     protected Context defaultInitCtx = null;
 
-    /**
+    /** {@collect.stats}
      * Field indicating whether the initial context has been obtained
      * by calling NamingManager.getInitialContext().
      * If true, its result is in <code>defaultInitCtx</code>.
      */
     protected boolean gotDefault = false;
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial context with the option of not
      * initializing it.  This may be used by a constructor in
      * a subclass when the value of the environment parameter
@@ -179,7 +179,7 @@ public class InitialContext implements Context {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial context.
      * No environment properties are supplied.
      * Equivalent to <tt>new InitialContext(null)</tt>.
@@ -192,7 +192,7 @@ public class InitialContext implements Context {
         init(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial context using the supplied environment.
      * Environment properties are discussed in the class description.
      *
@@ -214,7 +214,7 @@ public class InitialContext implements Context {
         init(environment);
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes the initial context using the supplied environment.
      * Environment properties are discussed in the class description.
      *
@@ -241,7 +241,7 @@ public class InitialContext implements Context {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * A static method to retrieve the named object.
      * This is a shortcut method equivalent to invoking:
      * <p>
@@ -268,7 +268,7 @@ public class InitialContext implements Context {
         return (T) (new InitialContext()).lookup(name);
     }
 
-   /**
+   /** {@collect.stats}
      * A static method to retrieve the named object.
      * See {@link #doLookup(Name)} for details.
      * @param name
@@ -291,7 +291,7 @@ public class InitialContext implements Context {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the initial context by calling
      * <code>NamingManager.getInitialContext()</code>
      * and cache it in defaultInitCtx.
@@ -311,7 +311,7 @@ public class InitialContext implements Context {
         return defaultInitCtx;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a context for resolving the string name <code>name</code>.
      * If <code>name</code> name is a URL string, then attempt
      * to find a URL context for it. If none is found, or if
@@ -342,7 +342,7 @@ public class InitialContext implements Context {
         return getDefaultInitCtx();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a context for resolving <code>name</code>.
      * If the first component of <code>name</code> name is a URL string,
      * then attempt to find a URL context for it. If none is found, or if
@@ -501,7 +501,7 @@ public class InitialContext implements Context {
         return getURLOrDefaultInitCtx(name).getNameParser(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Composes the name of this context with a name relative to
      * this context.
      * Since an initial context may never be named relative
@@ -513,7 +513,7 @@ public class InitialContext implements Context {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Composes the name of this context with a name relative to
      * this context.
      * Since an initial context may never be named relative

@@ -27,7 +27,7 @@ package javax.crypto.spec;
 
 import java.math.BigInteger;
 
-/**
+/** {@collect.stats}
  * This class specifies a Diffie-Hellman public key with its associated
  * parameters.
  *
@@ -51,7 +51,7 @@ public class DHPublicKeySpec implements java.security.spec.KeySpec {
     // The base generator
     private BigInteger g;
 
-    /**
+    /** {@collect.stats}
      * Constructor that takes a public value <code>y</code>, a prime
      * modulus <code>p</code>, and a base generator <code>g</code>.
      * @param y  public value y
@@ -64,7 +64,7 @@ public class DHPublicKeySpec implements java.security.spec.KeySpec {
         this.g = g;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the public value <code>y</code>.
      *
      * @return the public value <code>y</code>
@@ -73,7 +73,7 @@ public class DHPublicKeySpec implements java.security.spec.KeySpec {
         return this.y;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the prime modulus <code>p</code>.
      *
      * @return the prime modulus <code>p</code>
@@ -82,7 +82,7 @@ public class DHPublicKeySpec implements java.security.spec.KeySpec {
         return this.p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the base generator <code>g</code>.
      *
      * @return the base generator <code>g</code>

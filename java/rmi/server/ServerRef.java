@@ -27,7 +27,7 @@ package java.rmi.server;
 
 import java.rmi.*;
 
-/**
+/** {@collect.stats}
  * A ServerRef represents the server-side handle for a remote object
  * implementation.
  *
@@ -36,10 +36,10 @@ import java.rmi.*;
  */
 public interface ServerRef extends RemoteRef {
 
-    /** indicate compatibility with JDK 1.1.x version of class. */
+    /** {@collect.stats} indicate compatibility with JDK 1.1.x version of class. */
     static final long serialVersionUID = -4557750989390278438L;
 
-    /**
+    /** {@collect.stats}
      * Creates a client stub object for the supplied Remote object.
      * If the call completes successfully, the remote object should
      * be able to accept incoming calls from clients.
@@ -53,7 +53,7 @@ public interface ServerRef extends RemoteRef {
     RemoteStub exportObject(Remote obj, Object data)
         throws RemoteException;
 
-    /**
+    /** {@collect.stats}
      * Returns the hostname of the current client.  When called from a
      * thread actively handling a remote method invocation the
      * hostname of the client is returned.

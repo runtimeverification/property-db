@@ -36,7 +36,7 @@ import sun.awt.AppContext;
 import java.util.ServiceLoader;
 import java.util.ServiceConfigurationError;
 
-/**
+/** {@collect.stats}
  * A <code>StreamPrintServiceFactory</code> is the factory for
  * {@link StreamPrintService} instances,
  * which can print to an output stream in a particular
@@ -82,7 +82,7 @@ public abstract class StreamPrintServiceFactory {
         return listOfFactories;
     }
 
-    /**
+    /** {@collect.stats}
      * Locates factories for print services that can be used with
      * a print job to output a stream of data in the
      * format specified by {@code outputMimeType}.
@@ -113,21 +113,21 @@ public abstract class StreamPrintServiceFactory {
                (list.toArray(new StreamPrintServiceFactory[list.size()]));
      }
 
-    /** Queries the factory for the document format that is emitted
+    /** {@collect.stats} Queries the factory for the document format that is emitted
      * by printers obtained from this factory.
      *
      * @return the output format described as a mime type.
      */
     public abstract String getOutputFormat();
 
-    /**
+    /** {@collect.stats}
      * Queries the factory for the document flavors that can be accepted
      * by printers obtained from this factory.
      * @return array of supported doc flavors.
      */
     public abstract DocFlavor[] getSupportedDocFlavors();
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>StreamPrintService</code> that can print to
      * the specified output stream.
      * The output stream is created and managed by the application.

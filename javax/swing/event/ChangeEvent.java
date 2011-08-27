@@ -27,7 +27,7 @@ package javax.swing.event;
 import java.util.EventObject;
 
 
-/**
+/** {@collect.stats}
  * ChangeEvent is used to notify interested parties that
  * state has changed in the event source.
  * <p>
@@ -43,7 +43,7 @@ import java.util.EventObject;
  * @author Jeff Dinkins
  */
 public class ChangeEvent extends EventObject {
-    /**
+    /** {@collect.stats}
      * Constructs a ChangeEvent object.
      *
      * @param source  the Object that is the source of the event

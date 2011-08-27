@@ -30,7 +30,7 @@ import java.security.Key;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 
-/**
+/** {@collect.stats}
  * This class specifies a secret key in a provider-independent fashion.
  *
  * <p>It can be used to construct a <code>SecretKey</code> from a byte array,
@@ -51,21 +51,21 @@ public class SecretKeySpec implements KeySpec, SecretKey {
 
     private static final long serialVersionUID = 6577238317307289933L;
 
-    /**
+    /** {@collect.stats}
      * The secret key.
      *
      * @serial
      */
     private byte[] key;
 
-    /**
+    /** {@collect.stats}
      * The name of the algorithm associated with this key.
      *
      * @serial
      */
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * Constructs a secret key from the given byte array.
      *
      * <p>This constructor does not check if the given bytes indeed specify a
@@ -99,7 +99,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a secret key from the given byte array, using the first
      * <code>len</code> bytes of <code>key</code>, starting at
      * <code>offset</code> inclusive.
@@ -156,7 +156,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the algorithm associated with this secret key.
      *
      * @return the secret key algorithm.
@@ -165,7 +165,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the encoding format for this secret key.
      *
      * @return the string "RAW".
@@ -174,7 +174,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
         return "RAW";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key material of this secret key.
      *
      * @return the key material. Returns a new array
@@ -184,7 +184,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
         return (byte[])this.key.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates a hash code value for the object.
      * Objects that are equal will also have the same hashcode.
      */
@@ -199,7 +199,7 @@ public class SecretKeySpec implements KeySpec, SecretKey {
             return (retval ^= this.algorithm.toLowerCase().hashCode());
     }
 
-   /**
+   /** {@collect.stats}
      * Tests for equality between the specified object and this
      * object. Two SecretKeySpec objects are considered equal if
      * they are both SecretKey instances which have the

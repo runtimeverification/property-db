@@ -38,7 +38,7 @@ package javax.xml.crypto.dsig;
 import java.util.List;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>Object</code> element as defined in
  * the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -80,14 +80,14 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface XMLObject extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * URI that identifies the <code>Object</code> element (this can be
      * specified as the value of the <code>type</code> parameter of the
      * {@link Reference} class to identify the referent's type).
      */
     final static String TYPE = "http://www.w3.org/2000/09/xmldsig#Object";
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of {@link XMLStructure}s contained in this <code>XMLObject</code>,
      * which represent elements from any namespace.
@@ -102,14 +102,14 @@ public interface XMLObject extends XMLStructure {
      */
     List getContent();
 
-    /**
+    /** {@collect.stats}
      * Returns the Id of this <code>XMLObject</code>.
      *
      * @return the Id (or <code>null</code> if not specified)
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Returns the mime type of this <code>XMLObject</code>. The
      * mime type is an optional attribute which describes the data within this
      * <code>XMLObject</code> (independent of its encoding).
@@ -118,7 +118,7 @@ public interface XMLObject extends XMLStructure {
      */
     String getMimeType();
 
-    /**
+    /** {@collect.stats}
      * Returns the encoding URI of this <code>XMLObject</code>. The encoding
      * URI identifies the method by which the object is encoded.
      *

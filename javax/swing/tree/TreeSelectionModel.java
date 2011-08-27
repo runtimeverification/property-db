@@ -28,7 +28,7 @@ package javax.swing.tree;
 import javax.swing.event.*;
 import java.beans.PropertyChangeListener;
 
-/**
+/** {@collect.stats}
   * This interface represents the current state of the selection for
   * the tree component.
   * For information and examples of using tree selection models,
@@ -88,19 +88,19 @@ import java.beans.PropertyChangeListener;
 
 public interface TreeSelectionModel
 {
-    /** Selection can only contain one path at a time. */
+    /** {@collect.stats} Selection can only contain one path at a time. */
     public static final int               SINGLE_TREE_SELECTION = 1;
 
-    /** Selection can only be contiguous. This will only be enforced if
+    /** {@collect.stats} Selection can only be contiguous. This will only be enforced if
      * a RowMapper instance is provided. That is, if no RowMapper is set
      * this behaves the same as DISCONTIGUOUS_TREE_SELECTION. */
     public static final int               CONTIGUOUS_TREE_SELECTION = 2;
 
-    /** Selection can contain any number of items that are not necessarily
+    /** {@collect.stats} Selection can contain any number of items that are not necessarily
      * contiguous. */
     public static final int               DISCONTIGUOUS_TREE_SELECTION = 4;
 
-    /**
+    /** {@collect.stats}
      * Sets the selection model, which must be one of SINGLE_TREE_SELECTION,
      * CONTIGUOUS_TREE_SELECTION or DISCONTIGUOUS_TREE_SELECTION.
      * <p>
@@ -112,7 +112,7 @@ public interface TreeSelectionModel
      */
     void setSelectionMode(int mode);
 
-    /**
+    /** {@collect.stats}
      * Returns the current selection mode, one of
      * <code>SINGLE_TREE_SELECTION</code>,
      * <code>CONTIGUOUS_TREE_SELECTION</code> or
@@ -120,7 +120,7 @@ public interface TreeSelectionModel
      */
     int getSelectionMode();
 
-    /**
+    /** {@collect.stats}
       * Sets the selection to path. If this represents a change, then
       * the TreeSelectionListeners are notified. If <code>path</code> is
       * null, this has the same effect as invoking <code>clearSelection</code>.
@@ -129,7 +129,7 @@ public interface TreeSelectionModel
       */
     void setSelectionPath(TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Sets the selection to path. If this represents a change, then
       * the TreeSelectionListeners are notified. If <code>paths</code> is
       * null, this has the same effect as invoking <code>clearSelection</code>.
@@ -138,7 +138,7 @@ public interface TreeSelectionModel
       */
     void setSelectionPaths(TreePath[] paths);
 
-    /**
+    /** {@collect.stats}
       * Adds path to the current selection. If path is not currently
       * in the selection the TreeSelectionListeners are notified. This has
       * no effect if <code>path</code> is null.
@@ -147,7 +147,7 @@ public interface TreeSelectionModel
       */
     void addSelectionPath(TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Adds paths to the current selection.  If any of the paths in
       * paths are not currently in the selection the TreeSelectionListeners
       * are notified. This has
@@ -157,7 +157,7 @@ public interface TreeSelectionModel
       */
     void addSelectionPaths(TreePath[] paths);
 
-    /**
+    /** {@collect.stats}
       * Removes path from the selection. If path is in the selection
       * The TreeSelectionListeners are notified. This has no effect if
       * <code>path</code> is null.
@@ -166,7 +166,7 @@ public interface TreeSelectionModel
       */
     void removeSelectionPath(TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Removes paths from the selection.  If any of the paths in
       * <code>paths</code>
       * are in the selection, the TreeSelectionListeners are notified.
@@ -176,7 +176,7 @@ public interface TreeSelectionModel
       */
     void removeSelectionPaths(TreePath[] paths);
 
-    /**
+    /** {@collect.stats}
       * Returns the first path in the selection. How first is defined is
       * up to implementors, and may not necessarily be the TreePath with
       * the smallest integer value as determined from the
@@ -184,73 +184,73 @@ public interface TreeSelectionModel
       */
     TreePath getSelectionPath();
 
-    /**
+    /** {@collect.stats}
       * Returns the paths in the selection. This will return null (or an
       * empty array) if nothing is currently selected.
       */
     TreePath[] getSelectionPaths();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of paths that are selected.
      */
     int getSelectionCount();
 
-    /**
+    /** {@collect.stats}
       * Returns true if the path, <code>path</code>, is in the current
       * selection.
       */
     boolean isPathSelected(TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Returns true if the selection is currently empty.
       */
     boolean isSelectionEmpty();
 
-    /**
+    /** {@collect.stats}
       * Empties the current selection.  If this represents a change in the
       * current selection, the selection listeners are notified.
       */
     void clearSelection();
 
-    /**
+    /** {@collect.stats}
      * Sets the RowMapper instance. This instance is used to determine
      * the row for a particular TreePath.
      */
     void setRowMapper(RowMapper newMapper);
 
-    /**
+    /** {@collect.stats}
      * Returns the RowMapper instance that is able to map a TreePath to a
      * row.
      */
     RowMapper getRowMapper();
 
-    /**
+    /** {@collect.stats}
       * Returns all of the currently selected rows. This will return
       * null (or an empty array) if there are no selected TreePaths or
       * a RowMapper has not been set.
       */
     int[] getSelectionRows();
 
-    /**
+    /** {@collect.stats}
      * Returns the smallest value obtained from the RowMapper for the
      * current set of selected TreePaths. If nothing is selected,
      * or there is no RowMapper, this will return -1.
       */
     int getMinSelectionRow();
 
-    /**
+    /** {@collect.stats}
      * Returns the largest value obtained from the RowMapper for the
      * current set of selected TreePaths. If nothing is selected,
      * or there is no RowMapper, this will return -1.
       */
     int getMaxSelectionRow();
 
-    /**
+    /** {@collect.stats}
       * Returns true if the row identified by <code>row</code> is selected.
       */
     boolean isRowSelected(int row);
 
-    /**
+    /** {@collect.stats}
      * Updates this object's mapping from TreePaths to rows. This should
      * be invoked when the mapping from TreePaths to integers has changed
      * (for example, a node has been expanded).
@@ -261,19 +261,19 @@ public interface TreeSelectionModel
      */
     void resetRowSelection();
 
-    /**
+    /** {@collect.stats}
      * Returns the lead selection index. That is the last index that was
      * added.
      */
     int getLeadSelectionRow();
 
-    /**
+    /** {@collect.stats}
      * Returns the last path that was added. This may differ from the
      * leadSelectionPath property maintained by the JTree.
      */
     TreePath getLeadSelectionPath();
 
-    /**
+    /** {@collect.stats}
      * Adds a PropertyChangeListener to the listener list.
      * The listener is registered for all properties.
      * <p>
@@ -284,7 +284,7 @@ public interface TreeSelectionModel
      */
     void addPropertyChangeListener(PropertyChangeListener listener);
 
-    /**
+    /** {@collect.stats}
      * Removes a PropertyChangeListener from the listener list.
      * This removes a PropertyChangeListener that was registered
      * for all properties.
@@ -293,7 +293,7 @@ public interface TreeSelectionModel
      */
     void removePropertyChangeListener(PropertyChangeListener listener);
 
-    /**
+    /** {@collect.stats}
       * Adds x to the list of listeners that are notified each time the
       * set of selected TreePaths changes.
       *
@@ -301,7 +301,7 @@ public interface TreeSelectionModel
       */
     void addTreeSelectionListener(TreeSelectionListener x);
 
-    /**
+    /** {@collect.stats}
       * Removes x from the list of listeners that are notified each time
       * the set of selected TreePaths changes.
       *

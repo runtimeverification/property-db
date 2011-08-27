@@ -25,21 +25,21 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when a circularity has been detected while initializing a class.
  *
  * @author     unascribed
  * @since      JDK1.0
  */
 public class ClassCircularityError extends LinkageError {
-    /**
+    /** {@collect.stats}
      * Constructs a {@code ClassCircularityError} with no detail message.
      */
     public ClassCircularityError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code ClassCircularityError} with the specified detail
      * message.
      *

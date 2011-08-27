@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * This class represents the contents of the <CODE>MLET</CODE> tag.
  * It can be consulted by a subclass of {@link MLet} that overrides
  * the {@link MLet#check MLet.check} method.
@@ -44,35 +44,35 @@ import java.util.Map;
 public class MLetContent {
 
 
-    /**
+    /** {@collect.stats}
      * A map of the attributes of the <CODE>MLET</CODE> tag
      * and their values.
      */
     private Map<String,String> attributes;
 
-    /**
+    /** {@collect.stats}
      * An ordered list of the TYPE attributes that appeared in nested
      * &lt;PARAM&gt; tags.
      */
     private List<String> types;
 
-    /**
+    /** {@collect.stats}
      * An ordered list of the VALUE attributes that appeared in nested
      * &lt;PARAM&gt; tags.
      */
     private List<String> values;
 
-    /**
+    /** {@collect.stats}
      * The MLet text file's base URL.
      */
     private URL documentURL;
-    /**
+    /** {@collect.stats}
      * The base URL.
      */
     private URL baseURL;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <CODE>MLet</CODE> instance initialized with attributes read
      * from an <CODE>MLET</CODE> tag in an MLet text file.
      *
@@ -126,7 +126,7 @@ public class MLetContent {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the attributes of the <CODE>MLET</CODE> tag.  The keys in
      * the returned map are the attribute names in lowercase, for
      * example <code>codebase</code>.  The values are the associated
@@ -138,7 +138,7 @@ public class MLetContent {
         return attributes;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the MLet text file's base URL.
      * @return The MLet text file's base URL.
      */
@@ -146,7 +146,7 @@ public class MLetContent {
         return documentURL;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the code base URL.
      * @return The code base URL.
      */
@@ -154,7 +154,7 @@ public class MLetContent {
         return baseURL;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the list of <CODE>.jar</CODE> files specified by the <CODE>ARCHIVE</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      * @return A comma-separated list of <CODE>.jar</CODE> file names.
@@ -163,7 +163,7 @@ public class MLetContent {
         return getParameter("archive");
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <CODE>CODE</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      * @return The value of the <CODE>CODE</CODE>
@@ -173,7 +173,7 @@ public class MLetContent {
         return getParameter("code");
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <CODE>OBJECT</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      * @return The value of the <CODE>OBJECT</CODE>
@@ -183,7 +183,7 @@ public class MLetContent {
         return getParameter("object");
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <CODE>NAME</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      * @return The value of the <CODE>NAME</CODE>
@@ -194,7 +194,7 @@ public class MLetContent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <CODE>VERSION</CODE>
      * attribute of the <CODE>MLET</CODE> tag.
      * @return The value of the <CODE>VERSION</CODE>
@@ -204,7 +204,7 @@ public class MLetContent {
         return getParameter("version");
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the list of values of the <code>TYPE</code> attribute in
      * each nested &lt;PARAM&gt; tag within the <code>MLET</code>
      * tag.
@@ -214,7 +214,7 @@ public class MLetContent {
         return types;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the list of values of the <code>VALUE</code> attribute in
      * each nested &lt;PARAM&gt; tag within the <code>MLET</code>
      * tag.
@@ -224,7 +224,7 @@ public class MLetContent {
         return values;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the specified
      * attribute of the <CODE>MLET</CODE> tag.
      *

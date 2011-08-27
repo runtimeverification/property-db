@@ -27,7 +27,7 @@ package java.io;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * A piped output stream can be connected to a piped input stream
  * to create a communications pipe. The piped output stream is the
  * sending end of the pipe. Typically, data is written to a
@@ -52,7 +52,7 @@ class PipedOutputStream extends OutputStream {
            long time until the next GC). */
     private PipedInputStream sink;
 
-    /**
+    /** {@collect.stats}
      * Creates a piped output stream connected to the specified piped
      * input stream. Data bytes written to this stream will then be
      * available as input from <code>snk</code>.
@@ -64,7 +64,7 @@ class PipedOutputStream extends OutputStream {
         connect(snk);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a piped output stream that is not yet connected to a
      * piped input stream. It must be connected to a piped input stream,
      * either by the receiver or the sender, before being used.
@@ -75,7 +75,7 @@ class PipedOutputStream extends OutputStream {
     public PipedOutputStream() {
     }
 
-    /**
+    /** {@collect.stats}
      * Connects this piped output stream to a receiver. If this object
      * is already connected to some other piped input stream, an
      * <code>IOException</code> is thrown.
@@ -105,7 +105,7 @@ class PipedOutputStream extends OutputStream {
         snk.connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the specified <code>byte</code> to the piped output stream.
      * <p>
      * Implements the <code>write</code> method of <code>OutputStream</code>.
@@ -122,7 +122,7 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this piped output stream.
      * This method blocks until all the bytes are written to the output
@@ -149,7 +149,7 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out.
      * This will notify any readers that bytes are waiting in the pipe.
@@ -164,7 +164,7 @@ class PipedOutputStream extends OutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this piped output stream and releases any system resources
      * associated with this stream. This stream may no longer be used for
      * writing bytes.

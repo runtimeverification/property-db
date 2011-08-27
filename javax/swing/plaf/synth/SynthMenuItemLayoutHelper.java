@@ -33,7 +33,7 @@ import javax.swing.*;
 import javax.swing.text.View;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * Calculates preferred size and layouts synth menu items.
  *
  * All JMenuItems (and JMenus) include enough space for the insets

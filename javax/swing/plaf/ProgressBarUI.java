@@ -26,7 +26,7 @@
 package javax.swing.plaf;
 
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JProgressBar.
  *
  * @author Rob Davis

@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
+/** {@collect.stats}
  * <P>Class AccessibleState describes a component's particular state.  The actual
  * state of the component is defined as an AccessibleStateSet, which is a
  * composed set of AccessibleStates.
@@ -52,7 +52,7 @@ public class AccessibleState extends AccessibleBundle {
     // If you add or remove anything from here, make sure you
     // update AccessibleResourceBundle.java.
 
-    /**
+    /** {@collect.stats}
      * Indicates a window is currently the active window.  This includes
      * windows, dialogs, frames, etc.  In addition, this state is used
      * to indicate the currently active child of a component such as a
@@ -65,7 +65,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState ACTIVE
             = new AccessibleState("active");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is currently pressed.  This is usually
      * associated with buttons and indicates the user has pressed a
      * mouse button while the pointer was over the button and has
@@ -75,7 +75,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState PRESSED
             = new AccessibleState("pressed");
 
-    /**
+    /** {@collect.stats}
      * Indicates that the object is armed.  This is usually used on buttons
      * that have been pressed but not yet released, and the mouse pointer
      * is still over the button.
@@ -84,7 +84,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState ARMED
             = new AccessibleState("armed");
 
-    /**
+    /** {@collect.stats}
      * Indicates the current object is busy.  This is usually used on objects
      * such as progress bars, sliders, or scroll bars to indicate they are
      * in a state of transition.
@@ -95,7 +95,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState BUSY
             = new AccessibleState("busy");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is currently checked.  This is usually used on
      * objects such as toggle buttons, radio buttons, and check boxes.
      * @see AccessibleRole#TOGGLE_BUTTON
@@ -105,7 +105,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState CHECKED
             = new AccessibleState("checked");
 
-    /**
+    /** {@collect.stats}
      * Indicates the user can change the contents of this object.  This
      * is usually used primarily for objects that allow the user to
      * enter text.  Other objects, such as scroll bars and sliders,
@@ -115,7 +115,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState EDITABLE
             = new AccessibleState("editable");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object allows progressive disclosure of its children.
      * This is usually used with hierarchical objects such as trees and
      * is often paired with the EXPANDED or COLLAPSED states.
@@ -126,7 +126,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState EXPANDABLE
             = new AccessibleState("expandable");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is collapsed.  This is usually paired with the
      * EXPANDABLE state and is used on objects that provide progressive
      * disclosure such as trees.
@@ -137,7 +137,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState COLLAPSED
             = new AccessibleState("collapsed");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is expanded.  This is usually paired with the
      * EXPANDABLE state and is used on objects that provide progressive
      * disclosure such as trees.
@@ -148,7 +148,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState EXPANDED
             = new AccessibleState("expanded");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is enabled.  The absence of this state from an
      * object's state set indicates this object is not enabled.  An object
      * that is not enabled cannot be manipulated by the user.  In a graphical
@@ -157,7 +157,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState ENABLED
             = new AccessibleState("enabled");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object can accept keyboard focus, which means all
      * events resulting from typing on the keyboard will normally be
      * passed to it when it has focus.
@@ -166,14 +166,14 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState FOCUSABLE
             = new AccessibleState("focusable");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object currently has the keyboard focus.
      * @see #FOCUSABLE
      */
     public static final AccessibleState FOCUSED
             = new AccessibleState("focused");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is minimized and is represented only by an
      * icon.  This is usually only associated with frames and internal
      * frames.
@@ -183,7 +183,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState ICONIFIED
             = new AccessibleState("iconified");
 
-    /**
+    /** {@collect.stats}
      * Indicates something must be done with this object before the
      * user can interact with an object in a different window.  This
      * is usually associated only with dialogs.
@@ -192,7 +192,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState MODAL
             = new AccessibleState("modal");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object paints every pixel within its
      * rectangular region. A non-opaque component paints only some of
      * its pixels, allowing the pixels underneath it to "show through".
@@ -205,7 +205,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState OPAQUE
             = new AccessibleState("opaque");
 
-    /**
+    /** {@collect.stats}
      * Indicates the size of this object is not fixed.
      * @see Accessible#getAccessibleContext
      * @see AccessibleContext#getAccessibleComponent
@@ -216,7 +216,7 @@ public class AccessibleState extends AccessibleBundle {
             = new AccessibleState("resizable");
 
 
-    /**
+    /** {@collect.stats}
      * Indicates this object allows more than one of its children to
      * be selected at the same time.
      * @see Accessible#getAccessibleContext
@@ -226,7 +226,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState MULTISELECTABLE
             = new AccessibleState("multiselectable");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is the child of an object that allows its
      * children to be selected, and that this child is one of those
      * children that can be selected.
@@ -238,7 +238,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState SELECTABLE
             = new AccessibleState("selectable");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is the child of an object that allows its
      * children to be selected, and that this child is one of those
      * children that has been selected.
@@ -250,7 +250,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState SELECTED
             = new AccessibleState("selected");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object, the object's parent, the object's parent's
      * parent, and so on, are all visible.  Note that this does not
      * necessarily mean the object is painted on the screen.  It might
@@ -260,7 +260,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState SHOWING
             = new AccessibleState("showing");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is visible.  Note: this means that the
      * object intends to be visible; however, it may not in fact be
      * showing on the screen because one of the objects that this object
@@ -270,7 +270,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState VISIBLE
             = new AccessibleState("visible");
 
-    /**
+    /** {@collect.stats}
      * Indicates the orientation of this object is vertical.  This is
      * usually associated with objects such as scrollbars, sliders, and
      * progress bars.
@@ -282,7 +282,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState VERTICAL
             = new AccessibleState("vertical");
 
-    /**
+    /** {@collect.stats}
      * Indicates the orientation of this object is horizontal.  This is
      * usually associated with objects such as scrollbars, sliders, and
      * progress bars.
@@ -294,19 +294,19 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState HORIZONTAL
             = new AccessibleState("horizontal");
 
-    /**
+    /** {@collect.stats}
      * Indicates this (text) object can contain only a single line of text
      */
     public static final AccessibleState SINGLE_LINE
             = new AccessibleState("singleline");
 
-    /**
+    /** {@collect.stats}
      * Indicates this (text) object can contain multiple lines of text
      */
     public static final AccessibleState MULTI_LINE
             = new AccessibleState("multiline");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is transient.  An assistive technology should
      * not add a PropertyChange listener to an object with transient state,
      * as that object will never generate any events.  Transient objects
@@ -322,7 +322,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState TRANSIENT
             = new AccessibleState("transient");
 
-    /**
+    /** {@collect.stats}
      * Indicates this object is responsible for managing its
      * subcomponents.  This is typically used for trees and tables
      * that have a large number of subcomponents and where the
@@ -334,7 +334,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState MANAGES_DESCENDANTS
             = new AccessibleState ("managesDescendants");
 
-    /**
+    /** {@collect.stats}
      * Indicates that the object state is indeterminate.  An example
      * is selected text that is partially bold and partially not
      * bold. In this case the attributes associated with the selected
@@ -345,7 +345,7 @@ public class AccessibleState extends AccessibleBundle {
     public static final AccessibleState INDETERMINATE
            = new AccessibleState ("indeterminate");
 
-    /**
+    /** {@collect.stats}
      * A state indicating that text is truncated by a bounding rectangle
      * and that some of the text is not displayed on the screen.  An example
      * is text in a spreadsheet cell that is truncated by the bounds of
@@ -356,7 +356,7 @@ public class AccessibleState extends AccessibleBundle {
     static public final AccessibleState TRUNCATED
            =  new AccessibleState("truncated");
 
-    /**
+    /** {@collect.stats}
      * Creates a new AccessibleState using the given locale independent key.
      * This should not be a public method.  Instead, it is used to create
      * the constants in this file to make it a strongly typed enumeration.

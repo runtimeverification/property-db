@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>ConfirmationCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to ask for YES/NO,
@@ -37,7 +37,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = -9095656433782481624L;
 
-    /**
+    /** {@collect.stats}
      * Unspecified option type.
      *
      * <p> The <code>getOptionType</code> method returns this
@@ -46,7 +46,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int UNSPECIFIED_OPTION          = -1;
 
-    /**
+    /** {@collect.stats}
      * YES/NO confirmation option.
      *
      * <p> An underlying security service specifies this as the
@@ -56,7 +56,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int YES_NO_OPTION               = 0;
 
-    /**
+    /** {@collect.stats}
      * YES/NO/CANCEL confirmation confirmation option.
      *
      * <p> An underlying security service specifies this as the
@@ -66,7 +66,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int YES_NO_CANCEL_OPTION        = 1;
 
-    /**
+    /** {@collect.stats}
      * OK/CANCEL confirmation confirmation option.
      *
      * <p> An underlying security service specifies this as the
@@ -76,7 +76,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int OK_CANCEL_OPTION            = 2;
 
-    /**
+    /** {@collect.stats}
      * YES option.
      *
      * <p> If an <code>optionType</code> was specified to this
@@ -85,7 +85,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int YES                         = 0;
 
-    /**
+    /** {@collect.stats}
      * NO option.
      *
      * <p> If an <code>optionType</code> was specified to this
@@ -94,7 +94,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int NO                          = 1;
 
-    /**
+    /** {@collect.stats}
      * CANCEL option.
      *
      * <p> If an <code>optionType</code> was specified to this
@@ -103,7 +103,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int CANCEL                      = 2;
 
-    /**
+    /** {@collect.stats}
      * OK option.
      *
      * <p> If an <code>optionType</code> was specified to this
@@ -112,46 +112,46 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
      */
     public static final int OK                          = 3;
 
-    /** INFORMATION message type.  */
+    /** {@collect.stats} INFORMATION message type.  */
     public static final int INFORMATION                 = 0;
 
-    /** WARNING message type. */
+    /** {@collect.stats} WARNING message type. */
     public static final int WARNING                     = 1;
 
-    /** ERROR message type. */
+    /** {@collect.stats} ERROR message type. */
     public static final int ERROR                       = 2;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String prompt;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private int messageType;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private int optionType = UNSPECIFIED_OPTION;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private int defaultOption;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String[] options;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private int selection;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>ConfirmationCallback</code> with a
      * message type, an option type and a default option.
      *
@@ -211,7 +211,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         this.defaultOption = defaultOption;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>ConfirmationCallback</code> with a
      * message type, a list of options and a default option.
      *
@@ -260,7 +260,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         this.defaultOption = defaultOption;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>ConfirmationCallback</code> with a prompt,
      * message type, an option type and a default option.
      *
@@ -326,7 +326,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         this.defaultOption = defaultOption;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>ConfirmationCallback</code> with a prompt,
      * message type, a list of options and a default option.
      *
@@ -381,7 +381,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         this.defaultOption = defaultOption;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the prompt.
      *
      * <p>
@@ -393,7 +393,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         return prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the message type.
      *
      * <p>
@@ -405,7 +405,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         return messageType;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the option type.
      *
      * <p> If this method returns <code>UNSPECIFIED_OPTION</code>, then this
@@ -427,7 +427,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         return optionType;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the confirmation options.
      *
      * <p>
@@ -440,7 +440,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         return options;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the default option.
      *
      * <p>
@@ -459,7 +459,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         return defaultOption;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the selected confirmation option.
      *
      * <p>
@@ -478,7 +478,7 @@ public class ConfirmationCallback implements Callback, java.io.Serializable {
         this.selection = selection;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the selected confirmation option.
      *
      * <p>

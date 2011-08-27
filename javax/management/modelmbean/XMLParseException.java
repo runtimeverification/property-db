@@ -39,7 +39,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamField;
 import java.security.AccessController;
 
-/**
+/** {@collect.stats}
 * This exception is thrown when an XML formatted string is being parsed into ModelMBean objects
 * or when XML formatted strings are being created from ModelMBean objects.
 *
@@ -97,7 +97,7 @@ extends Exception
     //
     // END Serialization compatibility stuff
 
-    /**
+    /** {@collect.stats}
      * Default constructor .
      */
     public  XMLParseException ()
@@ -105,7 +105,7 @@ extends Exception
       super("XML Parse Exception.");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor taking a string.
      *
      * @param s the detail message.
@@ -114,7 +114,7 @@ extends Exception
     {
       super("XML Parse Exception: " + s);
     }
-    /**
+    /** {@collect.stats}
      * Constructor taking a string and an exception.
      *
      * @param e the nested exception.
@@ -125,7 +125,7 @@ extends Exception
       super("XML Parse Exception: " + s + ":" + e.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link XMLParseException} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -135,7 +135,7 @@ extends Exception
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link XMLParseException} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

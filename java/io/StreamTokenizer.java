@@ -27,7 +27,7 @@ package java.io;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  * The <code>StreamTokenizer</code> class takes an input stream and
  * parses it into "tokens", allowing the tokens to be
  * read one at a time. The parsing process is controlled by a table
@@ -70,7 +70,7 @@ public class StreamTokenizer {
 
     private char buf[] = new char[20];
 
-    /**
+    /** {@collect.stats}
      * The next character to be considered by the nextToken method.  May also
      * be NEED_CHAR to indicate that a new character should be read, or SKIP_LF
      * to indicate that a new character should be read and, if it is a '\n'
@@ -84,7 +84,7 @@ public class StreamTokenizer {
 
     private boolean pushedBack;
     private boolean forceLower;
-    /** The line number of the last token read */
+    /** {@collect.stats} The line number of the last token read */
     private int LINENO = 1;
 
     private boolean eolIsSignificantP = false;
@@ -98,7 +98,7 @@ public class StreamTokenizer {
     private static final byte CT_QUOTE = 8;
     private static final byte CT_COMMENT = 16;
 
-    /**
+    /** {@collect.stats}
      * After a call to the <code>nextToken</code> method, this field
      * contains the type of the token just read. For a single character
      * token, its value is the single character, converted to an integer.
@@ -127,22 +127,22 @@ public class StreamTokenizer {
      */
     public int ttype = TT_NOTHING;
 
-    /**
+    /** {@collect.stats}
      * A constant indicating that the end of the stream has been read.
      */
     public static final int TT_EOF = -1;
 
-    /**
+    /** {@collect.stats}
      * A constant indicating that the end of the line has been read.
      */
     public static final int TT_EOL = '\n';
 
-    /**
+    /** {@collect.stats}
      * A constant indicating that a number token has been read.
      */
     public static final int TT_NUMBER = -2;
 
-    /**
+    /** {@collect.stats}
      * A constant indicating that a word token has been read.
      */
     public static final int TT_WORD = -3;
@@ -153,7 +153,7 @@ public class StreamTokenizer {
      */
     private static final int TT_NOTHING = -4;
 
-    /**
+    /** {@collect.stats}
      * If the current token is a word token, this field contains a
      * string giving the characters of the word token. When the current
      * token is a quoted string token, this field contains the body of
@@ -172,7 +172,7 @@ public class StreamTokenizer {
      */
     public String sval;
 
-    /**
+    /** {@collect.stats}
      * If the current token is a number, this field contains the value
      * of that number. The current token is a number when the value of
      * the <code>ttype</code> field is <code>TT_NUMBER</code>.
@@ -184,7 +184,7 @@ public class StreamTokenizer {
      */
     public double nval;
 
-    /** Private constructor that initializes everything except the streams. */
+    /** {@collect.stats} Private constructor that initializes everything except the streams. */
     private StreamTokenizer() {
         wordChars('a', 'z');
         wordChars('A', 'Z');
@@ -196,7 +196,7 @@ public class StreamTokenizer {
         parseNumbers();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a stream tokenizer that parses the specified input
      * stream. The stream tokenizer is initialized to the following
      * default state:
@@ -236,7 +236,7 @@ public class StreamTokenizer {
         input = is;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a tokenizer that parses the given character stream.
      *
      * @param r  a Reader object providing the input stream.
@@ -250,7 +250,7 @@ public class StreamTokenizer {
         reader = r;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets this tokenizer's syntax table so that all characters are
      * "ordinary." See the <code>ordinaryChar</code> method
      * for more information on a character being ordinary.
@@ -262,7 +262,7 @@ public class StreamTokenizer {
             ctype[i] = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are word constituents. A word token consists of a word constituent
@@ -280,7 +280,7 @@ public class StreamTokenizer {
             ctype[low++] |= CT_ALPHA;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are white space characters. White space characters serve only to
@@ -301,7 +301,7 @@ public class StreamTokenizer {
             ctype[low++] = CT_WHITESPACE;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are "ordinary" in this tokenizer. See the
@@ -321,7 +321,7 @@ public class StreamTokenizer {
             ctype[low++] = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that the character argument is "ordinary"
      * in this tokenizer. It removes any special significance the
      * character has as a comment character, word component, string
@@ -343,7 +343,7 @@ public class StreamTokenizer {
             ctype[ch] = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Specified that the character argument starts a single-line
      * comment. All characters from the comment character to the end of
      * the line are ignored by this stream tokenizer.
@@ -357,7 +357,7 @@ public class StreamTokenizer {
             ctype[ch] = CT_COMMENT;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that matching pairs of this character delimit string
      * constants in this tokenizer.
      * <p>
@@ -386,7 +386,7 @@ public class StreamTokenizer {
             ctype[ch] = CT_QUOTE;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies that numbers should be parsed by this tokenizer. The
      * syntax table of this tokenizer is modified so that each of the twelve
      * characters:
@@ -413,7 +413,7 @@ public class StreamTokenizer {
         ctype['-'] |= CT_DIGIT;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not ends of line are treated as tokens.
      * If the flag argument is true, this tokenizer treats end of lines
      * as tokens; the <code>nextToken</code> method returns
@@ -440,7 +440,7 @@ public class StreamTokenizer {
         eolIsSignificantP = flag;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the tokenizer recognizes C-style comments.
      * If the flag argument is <code>true</code>, this stream tokenizer
      * recognizes C-style comments. All text between successive
@@ -456,7 +456,7 @@ public class StreamTokenizer {
         slashStarCommentsP = flag;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the tokenizer recognizes C++-style comments.
      * If the flag argument is <code>true</code>, this stream tokenizer
      * recognizes C++-style comments. Any occurrence of two consecutive
@@ -473,7 +473,7 @@ public class StreamTokenizer {
         slashSlashCommentsP = flag;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not word token are automatically lowercased.
      * If the flag argument is <code>true</code>, then the value in the
      * <code>sval</code> field is lowercased whenever a word token is
@@ -494,7 +494,7 @@ public class StreamTokenizer {
         forceLower = fl;
     }
 
-    /** Read the next character */
+    /** {@collect.stats} Read the next character */
     private int read() throws IOException {
         if (reader != null)
             return reader.read();
@@ -504,7 +504,7 @@ public class StreamTokenizer {
             throw new IllegalStateException();
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the next token from the input stream of this tokenizer.
      * The type of the next token is returned in the <code>ttype</code>
      * field. Additional information about the token may be in the
@@ -751,7 +751,7 @@ public class StreamTokenizer {
         return ttype = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the next call to the <code>nextToken</code> method of this
      * tokenizer to return the current value in the <code>ttype</code>
      * field, and not to modify the value in the <code>nval</code> or
@@ -767,7 +767,7 @@ public class StreamTokenizer {
             pushedBack = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the current line number.
      *
      * @return  the current line number of this stream tokenizer.
@@ -776,7 +776,7 @@ public class StreamTokenizer {
         return LINENO;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation of the current stream token and
      * the line number it occurs on.
      *

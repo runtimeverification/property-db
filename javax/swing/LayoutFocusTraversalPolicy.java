@@ -31,7 +31,7 @@ import java.util.Comparator;
 import java.io.*;
 
 
-/**
+/** {@collect.stats}
  * A SortingFocusTraversalPolicy which sorts Components based on their size,
  * position, and orientation. Based on their size and position, Components are
  * roughly categorized into rows and columns. For a Container with horizontal
@@ -54,14 +54,14 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
     private static final SwingDefaultFocusTraversalPolicy fitnessTestPolicy =
         new SwingDefaultFocusTraversalPolicy();
 
-    /**
+    /** {@collect.stats}
      * Constructs a LayoutFocusTraversalPolicy.
      */
     public LayoutFocusTraversalPolicy() {
         super(new LayoutComparator());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a LayoutFocusTraversalPolicy with the passed in
      * <code>Comparator</code>.
      */
@@ -69,7 +69,7 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
         super(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus after aComponent.
      * aContainer must be a focus cycle root of aComponent.
      * <p>
@@ -105,7 +105,7 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
         return super.getComponentAfter(aContainer, aComponent);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Component that should receive the focus before aComponent.
      * aContainer must be a focus cycle root of aComponent.
      * <p>
@@ -141,7 +141,7 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
         return super.getComponentBefore(aContainer, aComponent);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * forward direction.
@@ -165,7 +165,7 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
         return super.getFirstComponent(aContainer);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last Component in the traversal cycle. This method is used
      * to determine the next Component to focus when traversal wraps in the
      * reverse direction.
@@ -189,7 +189,7 @@ public class LayoutFocusTraversalPolicy extends SortingFocusTraversalPolicy
         return super.getLastComponent(aContainer);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether the specified <code>Component</code>
      * is an acceptable choice as the new focus owner.
      * This method performs the following sequence of operations:

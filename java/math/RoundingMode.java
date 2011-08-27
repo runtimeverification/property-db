@@ -28,7 +28,7 @@
  */
 package java.math;
 
-/**
+/** {@collect.stats}
  * Specifies a <i>rounding behavior</i> for numerical operations
  * capable of discarding precision. Each rounding mode indicates how
  * the least significant returned digit of a rounded result is to be
@@ -93,7 +93,7 @@ package java.math;
  */
 public enum RoundingMode {
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round away from zero.  Always increments the
          * digit prior to a non-zero discarded fraction.  Note that this
          * rounding mode never decreases the magnitude of the calculated
@@ -117,7 +117,7 @@ public enum RoundingMode {
          */
     UP(BigDecimal.ROUND_UP),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards zero.  Never increments the digit
          * prior to a discarded fraction (i.e., truncates).  Note that this
          * rounding mode never increases the magnitude of the calculated value.
@@ -140,7 +140,7 @@ public enum RoundingMode {
          */
     DOWN(BigDecimal.ROUND_DOWN),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards positive infinity.  If the
          * result is positive, behaves as for {@code RoundingMode.UP};
          * if negative, behaves as for {@code RoundingMode.DOWN}.  Note
@@ -164,7 +164,7 @@ public enum RoundingMode {
          */
     CEILING(BigDecimal.ROUND_CEILING),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards negative infinity.  If the
          * result is positive, behave as for {@code RoundingMode.DOWN};
          * if negative, behave as for {@code RoundingMode.UP}.  Note that
@@ -188,7 +188,7 @@ public enum RoundingMode {
          */
     FLOOR(BigDecimal.ROUND_FLOOR),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards {@literal "nearest neighbor"}
          * unless both neighbors are equidistant, in which case round up.
          * Behaves as for {@code RoundingMode.UP} if the discarded
@@ -214,7 +214,7 @@ public enum RoundingMode {
          */
     HALF_UP(BigDecimal.ROUND_HALF_UP),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards {@literal "nearest neighbor"}
          * unless both neighbors are equidistant, in which case round
          * down.  Behaves as for {@code RoundingMode.UP} if the discarded
@@ -239,7 +239,7 @@ public enum RoundingMode {
          */
     HALF_DOWN(BigDecimal.ROUND_HALF_DOWN),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to round towards the {@literal "nearest neighbor"}
          * unless both neighbors are equidistant, in which case, round
          * towards the even neighbor.  Behaves as for
@@ -271,7 +271,7 @@ public enum RoundingMode {
          */
     HALF_EVEN(BigDecimal.ROUND_HALF_EVEN),
 
-        /**
+        /** {@collect.stats}
          * Rounding mode to assert that the requested operation has an exact
          * result, hence no rounding is necessary.  If this rounding mode is
          * specified on an operation that yields an inexact result, an
@@ -297,7 +297,7 @@ public enum RoundingMode {
     // Corresponding BigDecimal rounding constant
     final int oldMode;
 
-    /**
+    /** {@collect.stats}
      * Constructor
      *
      * @param oldMode The {@code BigDecimal} constant corresponding to
@@ -307,7 +307,7 @@ public enum RoundingMode {
         this.oldMode = oldMode;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code RoundingMode} object corresponding to a
      * legacy integer rounding mode constant in {@link BigDecimal}.
      *

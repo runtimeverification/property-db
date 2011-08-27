@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * Signals that a <code>CallbackHandler</code> does not
  * recognize a particular <code>Callback</code>.
  *
@@ -34,12 +34,12 @@ public class UnsupportedCallbackException extends Exception {
 
     private static final long serialVersionUID = -6873556327655666839L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      */
     private Callback callback;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>UnsupportedCallbackException</code>
      * with no detail message.
      *
@@ -52,7 +52,7 @@ public class UnsupportedCallbackException extends Exception {
         this.callback = callback;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a UnsupportedCallbackException with the specified detail
      * message.  A detail message is a String that describes this particular
      * exception.
@@ -68,7 +68,7 @@ public class UnsupportedCallbackException extends Exception {
         this.callback = callback;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the unrecognized <code>Callback</code>.
      *
      * <p>

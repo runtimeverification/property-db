@@ -31,7 +31,7 @@ import java.util.BitSet;
 
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A GlyphView is a styled chunk of text that represents a view
  * mapped over an element in the text model. This view is generally
  * responsible for displaying text glyphs using character level
@@ -61,7 +61,7 @@ import sun.swing.SwingUtilities2;
  */
 public class GlyphView extends View implements TabableView, Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new view wrapped on an element.
      *
      * @param elem the element
@@ -80,7 +80,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         skipWidth = elem.getName().equals("br");
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a shallow copy.  This is used by the
      * createFragment and breakView methods.
      *
@@ -96,7 +96,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the currently installed glyph painter.
      * If a painter has not yet been installed, and
      * a default was not yet needed, null is returned.
@@ -105,14 +105,14 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return painter;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the painter to use for rendering glyphs.
      */
     public void setGlyphPainter(GlyphPainter p) {
         painter = p;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch a reference to the text that occupies
      * the given range.  This is normally used by
      * the GlyphPainter to determine what characters
@@ -136,7 +136,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
          return text;
      }
 
-    /**
+    /** {@collect.stats}
      * Fetch the background color to use to render the
      * glyphs.  If there is no background color, null should
      * be returned.  This is implemented to call
@@ -154,7 +154,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the foreground color to use to render the
      * glyphs.  If there is no foreground color, null should
      * be returned.  This is implemented to call
@@ -177,7 +177,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the font that the glyphs should be based
      * upon.  This is implemented to call
      * <code>StyledDocument.getFont</code> if the associated
@@ -199,7 +199,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if the glyphs should be underlined.  If true,
      * an underline should be drawn through the baseline.
      */
@@ -208,7 +208,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return StyleConstants.isUnderline(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if the glyphs should have a strikethrough
      * line.  If true, a line should be drawn through the center
      * of the glyphs.
@@ -218,7 +218,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return StyleConstants.isStrikeThrough(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if the glyphs should be rendered as superscript.
      */
     public boolean isSubscript() {
@@ -226,7 +226,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return StyleConstants.isSubscript(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if the glyphs should be rendered as subscript.
      */
     public boolean isSuperscript() {
@@ -234,14 +234,14 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return StyleConstants.isSuperscript(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the TabExpander to use if tabs are present in this view.
      */
     public TabExpander getTabExpander() {
         return expander;
     }
 
-    /**
+    /** {@collect.stats}
      * Check to see that a glyph painter exists.  If a painter
      * doesn't exist, a default glyph painter will be installed.
      */
@@ -274,7 +274,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
 
     // --- TabableView methods --------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Determines the desired span when using the given
      * tab expansion implementation.
      *
@@ -303,7 +303,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return width;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the span along the same axis as tab
      * expansion for a portion of the view.  This is
      * intended for use by the TabExpander for cases
@@ -330,7 +330,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the portion of the model that this view is responsible for.
      *
      * @return the starting offset into the model
@@ -341,7 +341,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return (length > 0) ? e.getStartOffset() + offset : e.getStartOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the portion of the model that this view is responsible for.
      *
      * @return the ending offset into the model
@@ -352,7 +352,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return (length > 0) ? e.getStartOffset() + offset + length : e.getEndOffset();
     }
 
-    /**
+    /** {@collect.stats}
      * Lazily initializes the selections field
      */
     private void initSelections(int p0, int p1) {
@@ -364,7 +364,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         for (int i = 0; i < viewPosCount; selections[i++] = 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Renders a portion of a text style run.
      *
      * @param g the rendering surface to use
@@ -480,7 +480,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
             paintTextUsingColor(g, a, fg, p0, p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the specified region of text in the specified color.
      */
     final void paintTextUsingColor(Graphics g, Shape a, Color c, int p0, int p1) {
@@ -526,7 +526,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -560,7 +560,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  For the label, the alignment is along the font
      * baseline for the y axis, and the superclasses alignment
@@ -594,7 +594,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return super.getAlignment(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -612,7 +612,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return painter.modelToView(this, pos, b, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -631,7 +631,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return painter.viewToModel(this, x, y, a, biasReturn);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines how attractive a break opportunity in
      * this view is.  This can be used for determining which
      * view is the most attractive to call <code>breakView</code>
@@ -697,7 +697,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return super.getBreakWeight(axis, pos, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Breaks this view on the given axis at the given length.
      * This is implemented to attempt to break on a whitespace
      * location, and returns a fragment with the whitespace at
@@ -739,7 +739,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a location to break at in the passed in region, or -1 if
      * there isn't a good location to break at in the specified region.
      */
@@ -753,7 +753,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return getBreakSpotUseWhitespace(p0, p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the appropriate place to break based on the last whitespace
      * character encountered.
      */
@@ -771,7 +771,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the appropriate place to break based on BreakIterator.
      */
     private int getBreakSpotUseBreakIterator(int p0, int p1) {
@@ -839,7 +839,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a view that represents a portion of the element.
      * This is potentially useful during formatting operations
      * for taking measurements of fragments of the view.  If
@@ -871,7 +871,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return v;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location that one might place a caret.  Some views may not be
      * visible, they might not be in the same order found in the model, or
@@ -897,7 +897,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         return painter.getNextVisualPositionFrom(this, pos, b, a, direction, biasRet);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into
      * the document in a location that this view is responsible for.
      * This is implemented to call preferenceChanged along the
@@ -914,7 +914,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         preferenceChanged(null, true, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      * This is implemented to call preferenceChanged along the
@@ -931,7 +931,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         preferenceChanged(null, true, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      * This is implemented to call preferenceChanged along both the
@@ -956,7 +956,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Class to hold data needed to justify this GlyphView in a PargraphView.Row
      */
     static class JustificationInfo {
@@ -1069,7 +1069,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
 
     // --- variables ------------------------------------------------
 
-    /**
+    /** {@collect.stats}
     * Used by paint() to store highlighted view positions
     */
     private byte[] selections = null;
@@ -1081,29 +1081,29 @@ public class GlyphView extends View implements TabableView, Cloneable {
     private static final String IMPLIED_CR = "CR";
     boolean skipWidth;
 
-    /**
+    /** {@collect.stats}
      * how to expand tabs
      */
     TabExpander expander;
 
-    /**
+    /** {@collect.stats}
      * location for determining tab expansion against.
      */
     int x;
 
-    /**
+    /** {@collect.stats}
      * Glyph rendering functionality.
      */
     GlyphPainter painter;
 
-    /**
+    /** {@collect.stats}
      * The prototype painter used by default.
      */
     static GlyphPainter defaultPainter;
 
     private JustificationInfo justificationInfo = null;
 
-    /**
+    /** {@collect.stats}
      * A class to perform rendering of the glyphs.
      * This can be implemented to be stateless, or
      * to hold some information as a cache to
@@ -1118,7 +1118,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
      */
     public static abstract class GlyphPainter {
 
-        /**
+        /** {@collect.stats}
          * Determine the span the glyphs given a start location
          * (for tab expansion).
          */
@@ -1130,12 +1130,12 @@ public class GlyphView extends View implements TabableView, Cloneable {
 
         public abstract float getDescent(GlyphView v);
 
-        /**
+        /** {@collect.stats}
          * Paint the glyphs representing the given range.
          */
         public abstract void paint(GlyphView v, Graphics g, Shape a, int p0, int p1);
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          * This is shared by the broken views.
@@ -1155,7 +1155,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
                                           int pos, Position.Bias bias,
                                           Shape a) throws BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.
          *
@@ -1174,7 +1174,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
                                         float x, float y, Shape a,
                                         Position.Bias[] biasReturn);
 
-        /**
+        /** {@collect.stats}
          * Determines the model location that represents the
          * maximum advance that fits within the given span.
          * This could be used to break the given view.  The result
@@ -1195,7 +1195,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
          */
         public abstract int getBoundedPosition(GlyphView v, int p0, float x, float len);
 
-        /**
+        /** {@collect.stats}
          * Create a painter to use for the given GlyphView.  If
          * the painter carries state it can create another painter
          * to represent a new GlyphView that is being created.  If
@@ -1209,7 +1209,7 @@ public class GlyphView extends View implements TabableView, Cloneable {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a way to determine the next visually represented model
          * location that one might place a caret.  Some views may not be
          * visible, they might not be in the same order found in the model, or

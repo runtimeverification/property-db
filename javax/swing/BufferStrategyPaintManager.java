@@ -37,7 +37,7 @@ import sun.awt.SubRegionShowable;
 import sun.java2d.SunGraphics2D;
 import sun.security.action.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * A PaintManager implementation that uses a BufferStrategy for
  * rendering.
  *
@@ -73,7 +73,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
     private static Method COMPONENT_CREATE_BUFFER_STRATEGY_METHOD;
     private static Method COMPONENT_GET_BUFFER_STRATEGY_METHOD;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not we should try and get a flip buffer strategy
      * first, default is false.
      */
@@ -82,19 +82,19 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
     private static final Logger LOGGER = Logger.getLogger(
                            "javax.swing.BufferStrategyPaintManager");
 
-    /**
+    /** {@collect.stats}
      * List of BufferInfos.  We don't use a Map primarily because
      * there are typically only a handful of top level components making
      * a Map overkill.
      */
     private ArrayList<BufferInfo> bufferInfos;
 
-    /**
+    /** {@collect.stats}
      * Indicates <code>beginPaint</code> has been invoked.  This is
      * set to true for the life of beginPaint/endPaint pair.
      */
     private boolean painting;
-    /**
+    /** {@collect.stats}
      * Indicates we're in the process of showing.  All painting, on the EDT,
      * is blocked while this is true.
      */
@@ -116,36 +116,36 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
     // The following fields are set by prepare
     //
 
-    /**
+    /** {@collect.stats}
      * Farthest JComponent ancestor for the current paint/copyArea.
      */
     private JComponent rootJ;
-    /**
+    /** {@collect.stats}
      * Parent Applet/Window for the current paint/copyArea
      */
     private Container root;
-    /**
+    /** {@collect.stats}
      * Location of component being painted relative to root.
      */
     private int xOffset;
-    /**
+    /** {@collect.stats}
      * Location of component being painted relative to root.
      */
     private int yOffset;
-    /**
+    /** {@collect.stats}
      * Graphics from the BufferStrategy.
      */
     private Graphics bsg;
-    /**
+    /** {@collect.stats}
      * BufferStrategy currently being used.
      */
     private BufferStrategy bufferStrategy;
-    /**
+    /** {@collect.stats}
      * BufferInfo corresponding to root.
      */
     private BufferInfo bufferInfo;
 
-    /**
+    /** {@collect.stats}
      * Set to true if the bufferInfo needs to be disposed when current
      * paint loop is done.
      */
@@ -203,7 +203,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
     // PaintManager methods
     //
 
-    /**
+    /** {@collect.stats}
      * Cleans up any created BufferStrategies.
      */
     protected void dispose() {
@@ -240,7 +240,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Shows the specified region of the back buffer.  This will return
      * true if successful, false otherwise.  This is invoked on the
      * toolkit thread in response to an expose event.
@@ -411,7 +411,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Renders the BufferStrategy to the screen.
      *
      * @return true if successful, false otherwise.
@@ -446,7 +446,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         accumulatedMaxY = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked when the double buffering or useTrueDoubleBuffering
      * changes for a JRootPane.  If the rootpane is not double
      * buffered, or true double buffering changes we throw out any
@@ -470,7 +470,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Does the work for doubleBufferingChanged.
      */
     private void doubleBufferingChanged0(JRootPane rootPane) {
@@ -502,7 +502,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates information common to paint/copyArea.
      *
      * @return true if should use buffering per window in painting.
@@ -626,7 +626,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Turns off double buffering per window.
      */
     private void resetDoubleBufferPerWindow() {
@@ -637,7 +637,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the BufferInfo for the specified root or null if one
      * hasn't been created yet.
      */
@@ -668,7 +668,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
 
 
 
-    /**
+    /** {@collect.stats}
      * BufferInfo is used to track the BufferStrategy being used for
      * a particular Component.  In addition to tracking the BufferStrategy
      * it will install a WindowListener and ComponentListener.  When the
@@ -724,7 +724,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
             this.inSync = inSync;
         }
 
-        /**
+        /** {@collect.stats}
          * Whether or not the contents of the buffer strategy
          * is in sync with the window.  This is set to true when the root
          * pane paints all, and false when contents are lost/restored.
@@ -733,14 +733,14 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
             return inSync;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the Root (Window or Applet) that this BufferInfo references.
          */
         public Container getRoot() {
             return (root == null) ? null : root.get();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the BufferStartegy.  This will return null if
          * the BufferStartegy hasn't been created and <code>create</code> is
          * false, or if there is a problem in creating the
@@ -763,14 +763,14 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
             return bs;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if using a flip buffer strategy.
          */
         public boolean usingFlip() {
             return usingFlip;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the buffer strategy of the component differs
          * from current buffer strategy.
          */
@@ -808,7 +808,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates the BufferStrategy.  If the appropriate system property
          * has been set we'll try for flip first and then we'll try for
          * blit.
@@ -885,7 +885,7 @@ class BufferStrategyPaintManager extends RepaintManager.PaintManager {
             return bs;
         }
 
-        /**
+        /** {@collect.stats}
          * Cleans up and removes any references.
          */
         public void dispose() {

@@ -27,7 +27,7 @@ package javax.swing.text.html;
 import javax.swing.text.*;
 import java.net.URL;
 
-/**
+/** {@collect.stats}
  * FormSubmitEvent is used to notify interested
  * parties that a form was submited.
  *
@@ -37,7 +37,7 @@ import java.net.URL;
 
 public class FormSubmitEvent extends HTMLFrameHyperlinkEvent {
 
-    /**
+    /** {@collect.stats}
      * Represents an HTML form method type.
      * <UL>
      * <LI><code>GET</code> corresponds to the GET form method</LI>
@@ -47,7 +47,7 @@ public class FormSubmitEvent extends HTMLFrameHyperlinkEvent {
      */
     public enum MethodType { GET, POST };
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing an html form submit event.
      *
      * @param source the object responsible for the event
@@ -68,7 +68,7 @@ public class FormSubmitEvent extends HTMLFrameHyperlinkEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the form method type.
      *
      * @return the form method type, either
@@ -78,7 +78,7 @@ public class FormSubmitEvent extends HTMLFrameHyperlinkEvent {
         return method;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the form submission data.
      *
      * @return the string representing the form submission data.

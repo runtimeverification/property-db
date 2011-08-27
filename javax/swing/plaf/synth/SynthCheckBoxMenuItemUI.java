@@ -34,7 +34,7 @@ import javax.swing.border.*;
 import java.io.Serializable;
 
 
-/**
+/** {@collect.stats}
  * Synth's CheckBoxMenuItemUI.
  *
  * @author Leif Samuelsson

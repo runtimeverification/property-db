@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This is the superclass of security-related exceptions
   * thrown by operations in the Context and DirContext interfaces.
   * The nature of the failure is described by the name of the subclass.
@@ -45,7 +45,7 @@ package javax.naming;
   */
 
 public abstract class NamingSecurityException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NamingSecurityException using the
      * explanation supplied. All other fields default to null.
      *
@@ -56,7 +56,7 @@ public abstract class NamingSecurityException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of NamingSecurityException.
       * All fields are initialized to null.
       */
@@ -64,7 +64,7 @@ public abstract class NamingSecurityException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 5855287647294685775L;

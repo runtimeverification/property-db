@@ -33,7 +33,7 @@ import java.util.Hashtable;
 
 
 
-/**
+/** {@collect.stats}
  * A collection of attributes to associate with an element in a document.
  * Since these are typically used to associate character and paragraph
  * styles with the element, operations for this are provided.  Other
@@ -47,7 +47,7 @@ import java.util.Hashtable;
  */
 public interface Style extends MutableAttributeSet {
 
-    /**
+    /** {@collect.stats}
      * Fetches the name of the style.   A style is not required to be named,
      * so <code>null</code> is returned if there is no name
      * associated with the style.
@@ -56,7 +56,7 @@ public interface Style extends MutableAttributeSet {
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to track whenever an attribute
      * has been changed.
      *
@@ -64,7 +64,7 @@ public interface Style extends MutableAttributeSet {
      */
     public void addChangeListener(ChangeListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener that was tracking attribute changes.
      *
      * @param l the change listener

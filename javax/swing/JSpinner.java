@@ -42,7 +42,7 @@ import sun.util.resources.LocaleData;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * A single line input field that lets the user select a
  * number or an object value from an ordered sequence. Spinners typically
  * provide a pair of tiny arrow buttons for stepping through the elements
@@ -125,7 +125,7 @@ import javax.accessibility.*;
  */
 public class JSpinner extends JComponent implements Accessible
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -140,7 +140,7 @@ public class JSpinner extends JComponent implements Accessible
     private boolean editorExplicitlySet = false;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a complete spinner with pair of next/previous buttons
      * and an editor for the <code>SpinnerModel</code>.
      */
@@ -152,7 +152,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a spinner with an <code>Integer SpinnerNumberModel</code>
      * with initial value 0 and no minimum or maximum limits.
      */
@@ -161,7 +161,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the look and feel (L&F) object that renders this component.
      *
      * @return the <code>SpinnerUI</code> object that renders this component
@@ -171,7 +171,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the look and feel (L&F) object that renders this component.
      *
      * @param ui  the <code>SpinnerUI</code> L&F object
@@ -182,7 +182,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the suffix used to construct the name of the look and feel
      * (L&F) class used to render this component.
      *
@@ -196,7 +196,7 @@ public class JSpinner extends JComponent implements Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property with the value from the current look and feel.
      *
      * @see UIManager#getUI
@@ -207,7 +207,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is called by the constructors to create the
      * <code>JComponent</code>
      * that displays the current value of the sequence.  The editor may
@@ -248,7 +248,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the model that represents the value of this spinner.
      * If the editor property has not been explicitly set,
      * the editor property is (implicitly) set after the <code>"model"</code>
@@ -292,7 +292,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>SpinnerModel</code> that defines
      * this spinners sequence of values.
      *
@@ -304,7 +304,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current value of the model, typically
      * this value is displayed by the <code>editor</code>. If the
      * user has changed the value displayed by the <code>editor</code> it is
@@ -326,7 +326,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes current value of the model, typically
      * this value is displayed by the <code>editor</code>.
      * If the <code>SpinnerModel</code> implementation
@@ -348,7 +348,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the object in the sequence that comes after the object returned
      * by <code>getValue()</code>. If the end of the sequence has been reached
      * then return <code>null</code>.
@@ -370,7 +370,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * We pass <code>Change</code> events along to the listeners with the
      * the slider (instead of the model itself) as the event source.
      */
@@ -381,7 +381,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list that is notified each time a change
      * to the model occurs.  The source of <code>ChangeEvents</code>
      * delivered to <code>ChangeListeners</code> will be this
@@ -405,7 +405,7 @@ public class JSpinner extends JComponent implements Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from this spinner.
      *
      * @param listener the <code>ChangeListener</code> to remove
@@ -417,7 +417,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this JSpinner with addChangeListener().
      *
@@ -431,7 +431,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sends a <code>ChangeEvent</code>, whose source is this
      * <code>JSpinner</code>, to each <code>ChangeListener</code>.
      * When a <code>ChangeListener</code> has been added
@@ -455,7 +455,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the object in the sequence that comes
      * before the object returned by <code>getValue()</code>.
      * If the end of the sequence has been reached then
@@ -479,7 +479,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Changes the <code>JComponent</code> that displays the current value
      * of the <code>SpinnerModel</code>.  It is the responsibility of this
      * method to <i>disconnect</i> the old editor from the model and to
@@ -516,7 +516,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the component that displays and potentially
      * changes the model's value.
      *
@@ -530,7 +530,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * Commits the currently edited value to the <code>SpinnerModel</code>.
      * <p>
      * If the editor is an instance of <code>DefaultEditor</code>, the
@@ -582,7 +582,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * A simple base class for more specialized editors
      * that displays a read-only view of the model's current
      * value with a <code>JFormattedTextField</code>.  Subclasses
@@ -615,7 +615,7 @@ public class JSpinner extends JComponent implements Accessible
     public static class DefaultEditor extends JPanel
         implements ChangeListener, PropertyChangeListener, LayoutManager
     {
-        /**
+        /** {@collect.stats}
          * Constructs an editor component for the specified <code>JSpinner</code>.
          * This <code>DefaultEditor</code> is it's own layout manager and
          * it is added to the spinner's <code>ChangeListener</code> list.
@@ -661,7 +661,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Disconnect <code>this</code> editor from the specified
          * <code>JSpinner</code>.  By default, this method removes
          * itself from the spinners <code>ChangeListener</code> list.
@@ -674,7 +674,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>JSpinner</code> ancestor of this editor or
          * <code>null</code> if none of the ancestors are a
          * <code>JSpinner</code>.
@@ -698,7 +698,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>JFormattedTextField</code> child of this
          * editor.  By default the text field is the first and only
          * child of editor.
@@ -713,7 +713,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * This method is called when the spinner's model's state changes.
          * It sets the <code>value</code> of the text field to the current
          * value of the spinners model.
@@ -729,7 +729,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Called by the <code>JFormattedTextField</code>
          * <code>PropertyChangeListener</code>.  When the <code>"value"</code>
          * property changes, which implies that the user has typed a new
@@ -775,7 +775,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * This <code>LayoutManager</code> method does nothing.  We're
          * only managing a single child and there's no support
          * for layout constraints.
@@ -787,7 +787,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * This <code>LayoutManager</code> method does nothing.  There
          * isn't any per-child state.
          *
@@ -797,7 +797,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the size of the parents insets.
          */
         private Dimension insetSize(Container parent) {
@@ -808,7 +808,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the preferred size of first (and only) child plus the
          * size of the parents insets.
          *
@@ -827,7 +827,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the minimum size of first (and only) child plus the
          * size of the parents insets.
          *
@@ -846,7 +846,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Resize the one (and only) child to completely fill the area
          * within the parents insets.
          */
@@ -859,7 +859,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Pushes the currently edited value to the <code>SpinnerModel</code>.
          * <p>
          * The default implementation invokes <code>commitEdit</code> on the
@@ -876,7 +876,7 @@ public class JSpinner extends JComponent implements Accessible
             ftf.commitEdit();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the baseline.
          *
          * @throws IllegalArgumentException {@inheritDoc}
@@ -897,7 +897,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an enum indicating how the baseline of the component
          * changes as the size changes.
          *
@@ -913,7 +913,7 @@ public class JSpinner extends JComponent implements Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * This subclass of javax.swing.DateFormatter maps the minimum/maximum
      * properties to te start/end properties of a SpinnerDateModel.
      */
@@ -943,7 +943,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * An editor for a <code>JSpinner</code> whose model is a
      * <code>SpinnerDateModel</code>.  The value of the editor is
      * displayed with a <code>JFormattedTextField</code> whose format
@@ -965,7 +965,7 @@ public class JSpinner extends JComponent implements Accessible
             return MessageFormat.format(dateTimePatterns[8], dateTimeArgs);
         }
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerDateModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -986,7 +986,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerDateModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1011,7 +1011,7 @@ public class JSpinner extends JComponent implements Accessible
                                                spinner.getLocale()));
         }
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerDateModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1061,7 +1061,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>java.text.SimpleDateFormat</code> object the
          * <code>JFormattedTextField</code> uses to parse and format
          * numbers.
@@ -1075,7 +1075,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Return our spinner ancestor's <code>SpinnerDateModel</code>.
          *
          * @return <code>getSpinner().getModel()</code>
@@ -1088,7 +1088,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * This subclass of javax.swing.NumberFormatter maps the minimum/maximum
      * properties to a SpinnerNumberModel and initializes the valueClass
      * of the NumberFormatter to match the type of the initial models value.
@@ -1121,7 +1121,7 @@ public class JSpinner extends JComponent implements Accessible
 
 
 
-    /**
+    /** {@collect.stats}
      * An editor for a <code>JSpinner</code> whose model is a
      * <code>SpinnerNumberModel</code>.  The value of the editor is
      * displayed with a <code>JFormattedTextField</code> whose format
@@ -1142,7 +1142,7 @@ public class JSpinner extends JComponent implements Accessible
             return all[0];
         }
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerNumberModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1162,7 +1162,7 @@ public class JSpinner extends JComponent implements Accessible
             this(spinner, getDefaultPattern(spinner.getLocale()));
         }
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerNumberModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1188,7 +1188,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerNumberModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1241,7 +1241,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>java.text.DecimalFormat</code> object the
          * <code>JFormattedTextField</code> uses to parse and format
          * numbers.
@@ -1255,7 +1255,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * Return our spinner ancestor's <code>SpinnerNumberModel</code>.
          *
          * @return <code>getSpinner().getModel()</code>
@@ -1268,14 +1268,14 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * An editor for a <code>JSpinner</code> whose model is a
      * <code>SpinnerListModel</code>.
      * @since 1.4
      */
     public static class ListEditor extends DefaultEditor
     {
-        /**
+        /** {@collect.stats}
          * Construct a <code>JSpinner</code> editor that supports displaying
          * and editing the value of a <code>SpinnerListModel</code>
          * with a <code>JFormattedTextField</code>.  <code>This</code>
@@ -1300,7 +1300,7 @@ public class JSpinner extends JComponent implements Accessible
                               DefaultFormatterFactory(new ListFormatter()));
         }
 
-        /**
+        /** {@collect.stats}
          * Return our spinner ancestor's <code>SpinnerNumberModel</code>.
          *
          * @return <code>getSpinner().getModel()</code>
@@ -1312,7 +1312,7 @@ public class JSpinner extends JComponent implements Accessible
         }
 
 
-        /**
+        /** {@collect.stats}
          * ListFormatter provides completion while text is being input
          * into the JFormattedTextField. Completion is only done if the
          * user is inserting text at the end of the document. Completion
@@ -1374,7 +1374,7 @@ public class JSpinner extends JComponent implements Accessible
     }
 
 
-    /**
+    /** {@collect.stats}
      * An Action implementation that is always disabled.
      */
     private static class DisabledAction implements Action {
@@ -1400,7 +1400,7 @@ public class JSpinner extends JComponent implements Accessible
     // Accessibility support
     ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> for the <code>JSpinner</code>
      *
      * @return the <code>AccessibleContext</code> for the <code>JSpinner</code>
@@ -1413,7 +1413,7 @@ public class JSpinner extends JComponent implements Accessible
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * <code>AccessibleJSpinner</code> implements accessibility
      * support for the <code>JSpinner</code> class.
      * @since 1.5
@@ -1424,7 +1424,7 @@ public class JSpinner extends JComponent implements Accessible
 
         private Object oldModelValue = null;
 
-        /**
+        /** {@collect.stats}
          * AccessibleJSpinner constructor
          */
         protected AccessibleJSpinner() {
@@ -1433,7 +1433,7 @@ public class JSpinner extends JComponent implements Accessible
             JSpinner.this.addChangeListener(this);
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the target of the listener has changed its state.
          *
          * @param e  a <code>ChangeEvent</code> object. Must not be null.
@@ -1456,7 +1456,7 @@ public class JSpinner extends JComponent implements Accessible
 
         /* ===== Begin AccessibleContext methods ===== */
 
-        /**
+        /** {@collect.stats}
          * Gets the role of this object.  The role of the object is the generic
          * purpose or use of the class of this object.  For example, the role
          * of a push button is AccessibleRole.PUSH_BUTTON.  The roles in
@@ -1478,7 +1478,7 @@ public class JSpinner extends JComponent implements Accessible
             return AccessibleRole.SPIN_BOX;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children of the object.
          *
          * @return the number of accessible children of the object.
@@ -1491,7 +1491,7 @@ public class JSpinner extends JComponent implements Accessible
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the specified Accessible child of the object.  The Accessible
          * children of an Accessible object are zero-based, so the first child
          * of an Accessible child is at index 0, the second child is at index 1,
@@ -1514,7 +1514,7 @@ public class JSpinner extends JComponent implements Accessible
 
         /* ===== End AccessibleContext methods ===== */
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleAction associated with this object that supports
          * one or more actions.
          *
@@ -1525,7 +1525,7 @@ public class JSpinner extends JComponent implements Accessible
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleText associated with this object presenting
          * text on the display.
          *
@@ -1573,7 +1573,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the AccessibleValue associated with this object.
          *
          * @return AccessibleValue if supported by object; else return null
@@ -1586,7 +1586,7 @@ public class JSpinner extends JComponent implements Accessible
 
         /* ===== Begin AccessibleValue impl ===== */
 
-        /**
+        /** {@collect.stats}
          * Get the value of this object as a Number.  If the value has not been
          * set, the return value will be null.
          *
@@ -1601,7 +1601,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Set the value of this object as a Number.
          *
          * @param n the value to set for this object
@@ -1619,7 +1619,7 @@ public class JSpinner extends JComponent implements Accessible
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the minimum value of this object as a Number.
          *
          * @return Minimum value of the object; null if this object does not
@@ -1637,7 +1637,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the maximum value of this object as a Number.
          *
          * @return Maximum value of the object; null if this object does not
@@ -1659,7 +1659,7 @@ public class JSpinner extends JComponent implements Accessible
 
         /* ===== Begin AccessibleAction impl ===== */
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible actions available in this object
          * If there are more than one, the first one is considered the "default"
          * action of the object.
@@ -1674,7 +1674,7 @@ public class JSpinner extends JComponent implements Accessible
             return 2;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -1690,7 +1690,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Performs the specified Action on the object
          *
          * @param i zero-based index of actions. The first action
@@ -1735,7 +1735,7 @@ public class JSpinner extends JComponent implements Accessible
                 SwingUtilities.getWindowAncestor(dest);
         }
 
-        /**
+        /** {@collect.stats}
          * Given a point in local coordinates, return the zero-based index
          * of the character under that Point.  If the point is invalid,
          * this method returns -1.
@@ -1759,7 +1759,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the bounding box of the character at the given
          * index into the string.  The bounds are returned in local
          * coordinates.  If the index is invalid an empty rectangle is
@@ -1784,7 +1784,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of characters (valid indicies)
          *
          * @return the number of characters
@@ -1797,7 +1797,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the zero-based offset of the caret.
          *
          * Note: That to the right of the caret will have the same index
@@ -1812,7 +1812,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String at a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -1827,7 +1827,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String after a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -1842,7 +1842,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the String before a given index.
          *
          * @param part the CHARACTER, WORD, or SENTENCE to retrieve
@@ -1857,7 +1857,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the AttributeSet for a given character at a given index
          *
          * @param i the zero-based index into the text
@@ -1871,7 +1871,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the start offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1886,7 +1886,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the end offset within the selected text.
          * If there is no selection, but there is
          * a caret, the start and end offsets will be the same.
@@ -1901,7 +1901,7 @@ public class JSpinner extends JComponent implements Accessible
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the portion of the text that is selected.
          *
          * @return the String portion of the text that is selected
@@ -1919,7 +1919,7 @@ public class JSpinner extends JComponent implements Accessible
 
         /* ===== Begin AccessibleEditableText impl ===== */
 
-        /**
+        /** {@collect.stats}
          * Sets the text contents to the specified string.
          *
          * @param s the string to set the text contents
@@ -1931,7 +1931,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Inserts the specified string at the given index/
          *
          * @param index the index in the text where the string will
@@ -1945,7 +1945,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the text string between two indices.
          *
          * @param startIndex the starting index in the text
@@ -1960,7 +1960,7 @@ public class JSpinner extends JComponent implements Accessible
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Deletes the text between two indices
          *
          * @param startIndex the starting index in the text
@@ -1973,7 +1973,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Cuts the text between two indices into the system clipboard.
          *
          * @param startIndex the starting index in the text
@@ -1986,7 +1986,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Pastes the text from the system clipboard into the text
          * starting at the specified index.
          *
@@ -1999,7 +1999,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the text between two indices with the specified
          * string.
          *
@@ -2014,7 +2014,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Selects the text between two indices.
          *
          * @param startIndex the starting index in the text
@@ -2027,7 +2027,7 @@ public class JSpinner extends JComponent implements Accessible
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets attributes for the text between two indices.
          *
          * @param startIndex the starting index in the text

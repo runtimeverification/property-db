@@ -27,7 +27,7 @@ package javax.swing.text.html;
 import javax.swing.text.*;
 
 
-/**
+/** {@collect.stats}
  * TextAreaDocument extends the capabilities of the PlainDocument
  * to store the data that is initially set in the Document.
  * This is stored in order to enable an accurate reset of the
@@ -41,7 +41,7 @@ class TextAreaDocument extends PlainDocument {
     String initialText;
 
 
-    /**
+    /** {@collect.stats}
      * Resets the model by removing all the data,
      * and restoring it to its initial state.
      */
@@ -55,7 +55,7 @@ class TextAreaDocument extends PlainDocument {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the data that the model is initially
      * loaded with.
      */

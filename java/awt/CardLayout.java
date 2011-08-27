@@ -35,7 +35,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamField;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A <code>CardLayout</code> object is a layout manager for a
  * container. It treats each component in the container as a card.
  * Only one card is visible at a time, and the container acts as
@@ -107,7 +107,7 @@ public class CardLayout implements LayoutManager2,
     */
     int vgap;
 
-    /**
+    /** {@collect.stats}
      * @serialField tab         Hashtable
      *      deprectated, for forward compatibility only
      * @serialField hgap        int
@@ -123,14 +123,14 @@ public class CardLayout implements LayoutManager2,
         new ObjectStreamField("currentCard", Integer.TYPE)
     };
 
-    /**
+    /** {@collect.stats}
      * Creates a new card layout with gaps of size zero.
      */
     public CardLayout() {
         this(0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new card layout with the specified horizontal and
      * vertical gaps. The horizontal gaps are placed at the left and
      * right edges. The vertical gaps are placed at the top and bottom
@@ -143,7 +143,7 @@ public class CardLayout implements LayoutManager2,
         this.vgap = vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the horizontal gap between components.
      * @return    the horizontal gap between components.
      * @see       java.awt.CardLayout#setHgap(int)
@@ -154,7 +154,7 @@ public class CardLayout implements LayoutManager2,
         return hgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the horizontal gap between components.
      * @param hgap the horizontal gap between components.
      * @see       java.awt.CardLayout#getHgap()
@@ -165,7 +165,7 @@ public class CardLayout implements LayoutManager2,
         this.hgap = hgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the vertical gap between components.
      * @return the vertical gap between components.
      * @see       java.awt.CardLayout#setVgap(int)
@@ -175,7 +175,7 @@ public class CardLayout implements LayoutManager2,
         return vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the vertical gap between components.
      * @param     vgap the vertical gap between components.
      * @see       java.awt.CardLayout#getVgap()
@@ -186,7 +186,7 @@ public class CardLayout implements LayoutManager2,
         this.vgap = vgap;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to this card layout's internal
      * table of names. The object specified by <code>constraints</code>
      * must be a string. The card layout stores this string as a key-value
@@ -212,7 +212,7 @@ public class CardLayout implements LayoutManager2,
       }
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated   replaced by
      *      <code>addLayoutComponent(Component, Object)</code>.
      */
@@ -232,7 +232,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the layout.
      * If the card was visible on top, the next card underneath it is shown.
      * @param   comp   the component to be removed.
@@ -260,7 +260,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred size of the container argument using
      * this card layout.
      * @param   parent the parent container in which to do the layout
@@ -291,7 +291,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the minimum size for the specified panel.
      * @param     parent the parent container in which to do the layout
      * @return    the minimum dimensions required to lay out the
@@ -321,7 +321,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum dimensions for this layout given the components
      * in the specified target container.
      * @param target the component which needs to be laid out
@@ -333,7 +333,7 @@ public class CardLayout implements LayoutManager2,
         return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -344,7 +344,7 @@ public class CardLayout implements LayoutManager2,
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the alignment along the y axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1
@@ -355,14 +355,14 @@ public class CardLayout implements LayoutManager2,
         return 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Invalidates the layout, indicating that if the layout manager
      * has cached information it should be discarded.
      */
     public void invalidateLayout(Container target) {
     }
 
-    /**
+    /** {@collect.stats}
      * Lays out the specified container using this card layout.
      * <p>
      * Each component in the <code>parent</code> container is reshaped
@@ -395,7 +395,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Make sure that the Container really has a CardLayout installed.
      * Otherwise havoc can ensue!
      */
@@ -405,7 +405,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flips to the first card of the container.
      * @param     parent   the parent container in which to do the layout
      * @see       java.awt.CardLayout#last
@@ -429,7 +429,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flips to the next card of the specified container. If the
      * currently visible card is the last one, this method flips to the
      * first card in the layout.
@@ -455,7 +455,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flips to the previous card of the specified container. If the
      * currently visible card is the first one, this method flips to the
      * last card in the layout.
@@ -489,7 +489,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flips to the last card of the container.
      * @param     parent   the parent container in which to do the layout
      * @see       java.awt.CardLayout#first
@@ -513,7 +513,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flips to the component that was added to this layout with the
      * specified <code>name</code>, using <code>addLayoutComponent</code>.
      * If no such component exists, then nothing happens.
@@ -549,7 +549,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the state of this card layout.
      * @return    a string representation of this card layout.
      */
@@ -557,7 +557,7 @@ public class CardLayout implements LayoutManager2,
         return getClass().getName() + "[hgap=" + hgap + ",vgap=" + vgap + "]";
     }
 
-    /**
+    /** {@collect.stats}
      * Reads serializable fields from stream.
      */
     private void readObject(ObjectInputStream s)
@@ -588,7 +588,7 @@ public class CardLayout implements LayoutManager2,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes serializable fields to stream.
      */
     private void writeObject(ObjectOutputStream s)

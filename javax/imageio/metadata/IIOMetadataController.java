@@ -25,7 +25,7 @@
 
 package javax.imageio.metadata;
 
-/**
+/** {@collect.stats}
  * An interface to be implemented by objects that can determine the
  * settings of an <code>IIOMetadata</code> object, either by putting
  * up a GUI to obtain values from a user, or by other means.  This
@@ -66,7 +66,7 @@ package javax.imageio.metadata;
  */
 public interface IIOMetadataController {
 
-    /**
+    /** {@collect.stats}
      * Activates the controller.  If <code>true</code> is returned,
      * all settings in the <code>IIOMetadata</code> object should be
      * ready for use in a write operation.  If <code>false</code> is

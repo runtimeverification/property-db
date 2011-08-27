@@ -34,7 +34,7 @@ import sun.nio.ch.Interruptible;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
-/**
+/** {@collect.stats}
  * Base implementation class for selectors.
  *
  * <p> This class encapsulates the low-level machinery required to implement
@@ -75,7 +75,7 @@ public abstract class AbstractSelector
     // The provider that created this selector
     private final SelectorProvider provider;
 
-    /**
+    /** {@collect.stats}
      * Initializes a new instance of this class.  </p>
      */
     protected AbstractSelector(SelectorProvider provider) {
@@ -90,7 +90,7 @@ public abstract class AbstractSelector
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this selector.
      *
      * <p> If the selector has already been closed then this method returns
@@ -108,7 +108,7 @@ public abstract class AbstractSelector
         implCloseSelector();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this selector.
      *
      * <p> This method is invoked by the {@link #close close} method in order
@@ -130,7 +130,7 @@ public abstract class AbstractSelector
         return selectorOpen.get();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider that created this channel.
      *
      * @return  The provider that created this channel
@@ -139,7 +139,7 @@ public abstract class AbstractSelector
         return provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves this selector's cancelled-key set.
      *
      * <p> This set should only be used while synchronized upon it.  </p>
@@ -150,7 +150,7 @@ public abstract class AbstractSelector
         return cancelledKeys;
     }
 
-    /**
+    /** {@collect.stats}
      * Registers the given channel with this selector.
      *
      * <p> This method is invoked by a channel's {@link
@@ -172,7 +172,7 @@ public abstract class AbstractSelector
     protected abstract SelectionKey register(AbstractSelectableChannel ch,
                                              int ops, Object att);
 
-    /**
+    /** {@collect.stats}
      * Removes the given key from its channel's key set.
      *
      * <p> This method must be invoked by the selector for each channel that it
@@ -190,7 +190,7 @@ public abstract class AbstractSelector
 
     private Interruptible interruptor = null;
 
-    /**
+    /** {@collect.stats}
      * Marks the beginning of an I/O operation that might block indefinitely.
      *
      * <p> This method should be invoked in tandem with the {@link #end end}
@@ -215,7 +215,7 @@ public abstract class AbstractSelector
             interruptor.interrupt();
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the end of an I/O operation that might block indefinitely.
      *
      * <p> This method should be invoked in tandem with the {@link #begin begin}

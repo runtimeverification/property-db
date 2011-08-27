@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when a component of the name cannot be resolved
   * because it is not bound.
   * <p>
@@ -38,7 +38,7 @@ package javax.naming;
   */
 
 public class NameNotFoundException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NameNotFoundException using the
      * explanation supplied. All other fields default to null.
      *
@@ -50,7 +50,7 @@ public class NameNotFoundException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of NameNotFoundException.
       * all name resolution fields and explanation initialized to null.
       */
@@ -58,7 +58,7 @@ public class NameNotFoundException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -8007156725367842053L;

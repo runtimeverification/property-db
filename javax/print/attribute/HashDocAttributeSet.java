@@ -28,7 +28,7 @@ package javax.print.attribute;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * Class HashDocAttributeSet provides an attribute set which
  * inherits its implementation from class {@link HashAttributeSet
  * HashAttributeSet} and enforces the semantic restrictions of interface {@link
@@ -42,14 +42,14 @@ public class HashDocAttributeSet extends HashAttributeSet
 
     private static final long serialVersionUID = -1128534486061432528L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new, empty hash doc attribute set.
      */
     public HashDocAttributeSet() {
         super (DocAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new hash doc attribute set,
      * initially populated with the given value.
      *
@@ -62,7 +62,7 @@ public class HashDocAttributeSet extends HashAttributeSet
         super (attribute, DocAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new hash doc attribute set,
      * initially populated with the values from the given array.
      * The new attribute set is populated by
@@ -82,7 +82,7 @@ public class HashDocAttributeSet extends HashAttributeSet
         super (attributes, DocAttribute.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new attribute set, initially populated with the
      * values from the  given set where the members of the attribute set
      * are restricted to the <code>DocAttribute</code> interface.

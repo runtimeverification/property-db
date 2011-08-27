@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  *
  * The {@code Byte} class wraps a value of primitive type {@code byte}
  * in an object.  An object of type {@code Byte} contains a single
@@ -43,25 +43,25 @@ package java.lang;
  */
 public final class Byte extends Number implements Comparable<Byte> {
 
-    /**
+    /** {@collect.stats}
      * A constant holding the minimum value a {@code byte} can
      * have, -2<sup>7</sup>.
      */
     public static final byte   MIN_VALUE = -128;
 
-    /**
+    /** {@collect.stats}
      * A constant holding the maximum value a {@code byte} can
      * have, 2<sup>7</sup>-1.
      */
     public static final byte   MAX_VALUE = 127;
 
-    /**
+    /** {@collect.stats}
      * The {@code Class} instance representing the primitive type
      * {@code byte}.
      */
     public static final Class<Byte>     TYPE = (Class<Byte>) Class.getPrimitiveClass("byte");
 
-    /**
+    /** {@collect.stats}
      * Returns a new {@code String} object representing the
      * specified {@code byte}. The radix is assumed to be 10.
      *
@@ -84,7 +84,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Byte} instance representing the specified
      * {@code byte} value.
      * If a new {@code Byte} instance is not required, this method
@@ -102,7 +102,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return ByteCache.cache[(int)b + offset];
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed {@code byte} in the
      * radix specified by the second argument. The characters in the
      * string must all be digits, of the specified radix (as
@@ -149,7 +149,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (byte)i;
     }
 
-    /**
+    /** {@collect.stats}
      * Parses the string argument as a signed decimal {@code
      * byte}. The characters in the string must all be decimal digits,
      * except that the first character may be an ASCII minus sign
@@ -169,7 +169,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return parseByte(s, 10);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Byte} object holding the value
      * extracted from the specified {@code String} when parsed
      * with the radix given by the second argument. The first argument
@@ -199,7 +199,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return new Byte(parseByte(s, radix));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Byte} object holding the value
      * given by the specified {@code String}. The argument is
      * interpreted as representing a signed decimal {@code byte},
@@ -225,7 +225,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return valueOf(s, 10);
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a {@code String} into a {@code Byte}.
      * Accepts decimal, hexadecimal, and octal numbers given by
      * the following grammar:
@@ -274,14 +274,14 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (byte)i;
     }
 
-    /**
+    /** {@collect.stats}
      * The value of the {@code Byte}.
      *
      * @serial
      */
     private final byte value;
 
-    /**
+    /** {@collect.stats}
      * Constructs a newly allocated {@code Byte} object that
      * represents the specified {@code byte} value.
      *
@@ -292,7 +292,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         this.value = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a newly allocated {@code Byte} object that
      * represents the {@code byte} value indicated by the
      * {@code String} parameter. The string is converted to a
@@ -309,7 +309,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         this.value = parseByte(s, 10);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as a
      * {@code byte}.
      */
@@ -317,7 +317,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as a
      * {@code short}.
      */
@@ -325,7 +325,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (short)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as an
      * {@code int}.
      */
@@ -333,7 +333,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (int)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as a
      * {@code long}.
      */
@@ -341,7 +341,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (long)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as a
      * {@code float}.
      */
@@ -349,7 +349,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (float)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of this {@code Byte} as a
      * {@code double}.
      */
@@ -357,7 +357,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return (double)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code String} object representing this
      * {@code Byte}'s value.  The value is converted to signed
      * decimal representation and returned as a string, exactly as if
@@ -371,14 +371,14 @@ public final class Byte extends Number implements Comparable<Byte> {
         return String.valueOf((int)value);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code for this {@code Byte}.
      */
     public int hashCode() {
         return (int)value;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this object to the specified object.  The result is
      * {@code true} if and only if the argument is not
      * {@code null} and is a {@code Byte} object that
@@ -395,7 +395,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares two {@code Byte} objects numerically.
      *
      * @param   anotherByte   the {@code Byte} to be compared.
@@ -412,7 +412,7 @@ public final class Byte extends Number implements Comparable<Byte> {
         return this.value - anotherByte.value;
     }
 
-    /**
+    /** {@collect.stats}
      * The number of bits used to represent a {@code byte} value in two's
      * complement binary form.
      *
@@ -420,6 +420,6 @@ public final class Byte extends Number implements Comparable<Byte> {
      */
     public static final int SIZE = 8;
 
-    /** use serialVersionUID from JDK 1.1. for interoperability */
+    /** {@collect.stats} use serialVersionUID from JDK 1.1. for interoperability */
     private static final long serialVersionUID = -7183698231559129828L;
 }

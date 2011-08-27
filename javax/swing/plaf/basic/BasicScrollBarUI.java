@@ -38,7 +38,7 @@ import javax.swing.event.*;
 import javax.swing.plaf.*;
 
 
-/**
+/** {@collect.stats}
  * Implementation of ScrollBarUI for the Basic Look and Feel
  *
  * @author Rich Schiavi
@@ -89,11 +89,11 @@ public class BasicScrollBarUI
 
     private final static int scrollSpeedThrottle = 60; // delay in milli seconds
 
-    /** True indicates a middle click will absolutely position the
+    /** {@collect.stats} True indicates a middle click will absolutely position the
      * scrollbar. */
     private boolean supportsAbsolutePositioning;
 
-    /** Hint as to what width (when vertical) or height (when horizontal)
+    /** {@collect.stats} Hint as to what width (when vertical) or height (when horizontal)
      * should be.
      */
     private int scrollBarWidth;
@@ -102,17 +102,17 @@ public class BasicScrollBarUI
 
     private boolean thumbActive;
 
-    /**
+    /** {@collect.stats}
      * Determine whether scrollbar layout should use cached value or adjusted
      * value returned by scrollbar's <code>getValue</code>.
      */
     private boolean useCachedValue = false;
-    /**
+    /** {@collect.stats}
      * The scrollbar value is cached to save real value if the view is adjusted.
      */
     private int scrollBarValue;
 
-    /**
+    /** {@collect.stats}
      * Distance between the increment button and the track. This may be a negative
      * number. If negative, then an overlap between the button and track will occur,
      * which is useful for shaped buttons.
@@ -121,7 +121,7 @@ public class BasicScrollBarUI
      */
     private int incrGap;
 
-    /**
+    /** {@collect.stats}
      * Distance between the decrement button and the track. This may be a negative
      * number. If negative, then an overlap between the button and track will occur,
      * which is useful for shaped buttons.
@@ -396,7 +396,7 @@ public class BasicScrollBarUI
         setThumbRollover(rect.contains(x, y));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not the mouse is currently over the thumb.
      *
      * @param active True indicates the thumb is currently active.
@@ -409,7 +409,7 @@ public class BasicScrollBarUI
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the mouse is currently over the thumb.
      *
      * @return true if the thumb is currently active
@@ -428,7 +428,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * A vertical scrollbar's preferred width is the maximum of
      * preferred widths of the (non <code>null</code>)
      * increment/decrement buttons,
@@ -451,7 +451,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * @param c The JScrollBar that's delegating this method to us.
      * @return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
      * @see #getMinimumSize
@@ -585,7 +585,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the smallest acceptable size for the thumb.  If the scrollbar
      * becomes so small that this size isn't available, the thumb will be
      * hidden.
@@ -600,7 +600,7 @@ public class BasicScrollBarUI
         return minimumThumbSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the largest acceptable size for the thumb.  To create a fixed
      * size thumb one make this method and <code>getMinimumThumbSize</code>
      * return the same value.
@@ -866,7 +866,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Set the bounds of the thumb and force a repaint that includes
      * the old thumbBounds and the new one.
      *
@@ -900,7 +900,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Return the current size/location of the thumb.
      * <p>
      * <b>Warning </b>: the value returned by this method should not be
@@ -914,7 +914,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the current bounds of the track, i.e. the space in between
      * the increment and decrement buttons, less the insets.  The value
      * returned by this method is updated each time the scrollbar is
@@ -1024,7 +1024,7 @@ public class BasicScrollBarUI
         scrollByUnits(scrollbar, direction, 1, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the user can absolutely position the thumb with
      * a mouse gesture (usually the middle mouse button).
      *
@@ -1035,7 +1035,7 @@ public class BasicScrollBarUI
         return supportsAbsolutePositioning;
     }
 
-    /**
+    /** {@collect.stats}
      * A listener to listen for model changes.
      *
      */
@@ -1050,7 +1050,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Track mouse drags.
      */
     protected class TrackListener
@@ -1084,7 +1084,7 @@ public class BasicScrollBarUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * If the mouse is pressed above the "thumb" component
          * then reduce the scrollbars value by one page ("page up"),
          * otherwise increase it by one page.  If there is no
@@ -1174,7 +1174,7 @@ public class BasicScrollBarUI
         }
 
 
-        /**
+        /** {@collect.stats}
          * Set the models value to the position of the thumb's top of Vertical
          * scrollbar, or the left/right of Horizontal scrollbar in
          * left-to-right/right-to-left scrollbar relative to the origin of the
@@ -1332,7 +1332,7 @@ public class BasicScrollBarUI
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Invoked when the mouse exits the scrollbar.
          *
          * @param e MouseEvent further describing the event
@@ -1346,7 +1346,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Listener for cursor keys.
      */
     protected class ArrowButtonListener extends MouseAdapter
@@ -1384,7 +1384,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Listener for scrolling events initiated in the
      * <code>ScrollPane</code>.
      */
@@ -1497,7 +1497,7 @@ public class BasicScrollBarUI
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used for scrolling the scrollbar.
      */
     private static class Actions extends UIAction {

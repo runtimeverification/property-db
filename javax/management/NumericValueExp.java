@@ -35,7 +35,7 @@ import java.io.ObjectStreamField;
 
 import java.security.AccessController;
 
-/**
+/** {@collect.stats}
  * This class represents numbers that are arguments to relational constraints.
  * A NumericValueExp may be used anywhere a ValueExp is required.
  *
@@ -77,7 +77,7 @@ class NumericValueExp extends QueryEval implements ValueExp {
     // Actual serial version and serial form
     private static final long serialVersionUID;
 
-    /**
+    /** {@collect.stats}
      * @serialField val Number The numeric value
      *
      * <p>The <b>serialVersionUID</b> of this class is <code>-4679739485102359104L</code>.
@@ -106,19 +106,19 @@ class NumericValueExp extends QueryEval implements ValueExp {
     // END Serialization compatibility stuff
 
 
-    /**
+    /** {@collect.stats}
      * Basic constructor.
      */
     public NumericValueExp() {
     }
 
-    /** Creates a new NumericValue representing the numeric literal <val>.*/
+    /** {@collect.stats} Creates a new NumericValue representing the numeric literal <val>.*/
     NumericValueExp(Number val)
     {
       this.val = val;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a double numeric value
      */
     public double doubleValue()  {
@@ -129,7 +129,7 @@ class NumericValueExp extends QueryEval implements ValueExp {
       return val.doubleValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a long numeric value
      */
     public long longValue()  {
@@ -140,14 +140,14 @@ class NumericValueExp extends QueryEval implements ValueExp {
       return (long)(val.doubleValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true is if the numeric value is a long, false otherwise.
      */
     public boolean isLong()  {
         return (val instanceof Long || val instanceof Integer);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object
      */
     public String toString()  {
@@ -158,7 +158,7 @@ class NumericValueExp extends QueryEval implements ValueExp {
       return String.valueOf(val.doubleValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the ValueExp on a MBean.
      *
      * @param name The name of the MBean on which the ValueExp will be applied.
@@ -176,7 +176,7 @@ class NumericValueExp extends QueryEval implements ValueExp {
         return this;
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link NumericValueExp} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -222,7 +222,7 @@ class NumericValueExp extends QueryEval implements ValueExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link NumericValueExp} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

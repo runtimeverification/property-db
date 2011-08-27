@@ -28,7 +28,7 @@ package javax.naming.spi;
 import java.util.Hashtable;
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This interface represents a builder that creates initial context factories.
   *<p>
   * The JNDI framework allows for different initial context implementations
@@ -52,7 +52,7 @@ import javax.naming.NamingException;
   * @since 1.3
   */
 public interface InitialContextFactoryBuilder {
-    /**
+    /** {@collect.stats}
       * Creates an initial context factory using the specified
       * environment.
       *<p>

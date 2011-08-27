@@ -25,7 +25,7 @@
 
 package java.util.prefs;
 
-/**
+/** {@collect.stats}
  * Static methods for translating Base64 encoded strings to byte arrays
  * and vice-versa.
  *
@@ -34,7 +34,7 @@ package java.util.prefs;
  * @since   1.4
  */
 class Base64 {
-    /**
+    /** {@collect.stats}
      * Translates the specified byte array into a Base64 string as per
      * Preferences.put(byte[]).
      */
@@ -42,7 +42,7 @@ class Base64 {
         return byteArrayToBase64(a, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Translates the specified byte array into an "alternate representation"
      * Base64 string.  This non-standard variant uses an alphabet that does
      * not contain the uppercase alphabetic characters, which makes it
@@ -92,7 +92,7 @@ class Base64 {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * This array is a lookup table that translates 6-bit positive integer
      * index values into their "Base64 Alphabet" equivalents as specified
      * in Table 1 of RFC 2045.
@@ -105,7 +105,7 @@ class Base64 {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'
     };
 
-    /**
+    /** {@collect.stats}
      * This array is a lookup table that translates 6-bit positive integer
      * index values into their "Alternate Base64 Alphabet" equivalents.
      * This is NOT the real Base64 Alphabet as per in Table 1 of RFC 2045.
@@ -120,7 +120,7 @@ class Base64 {
         '0', '1', '2', '3', '4', '5', '6',  '7', '8', '9', '+', '?'
     };
 
-    /**
+    /** {@collect.stats}
      * Translates the specified Base64 string (as per Preferences.get(byte[]))
      * into a byte array.
      *
@@ -131,7 +131,7 @@ class Base64 {
         return base64ToByteArray(s, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Translates the specified "alternate representation" Base64 string
      * into a byte array.
      *
@@ -190,7 +190,7 @@ class Base64 {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Translates the specified character, which is assumed to be in the
      * "Base 64 Alphabet" into its equivalent 6-bit positive integer.
      *
@@ -204,7 +204,7 @@ class Base64 {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * This array is a lookup table that translates unicode characters
      * drawn from the "Base64 Alphabet" (as specified in Table 1 of RFC 2045)
      * into their 6-bit positive integer equivalents.  Characters that
@@ -221,7 +221,7 @@ class Base64 {
         35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
     };
 
-    /**
+    /** {@collect.stats}
      * This array is the analogue of base64ToInt, but for the nonstandard
      * variant that avoids the use of uppercase alphabetic characters.
      */

@@ -27,7 +27,7 @@ package javax.swing.text;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * SegmentCache caches <code>Segment</code>s to avoid continually creating
  * and destroying of <code>Segment</code>s. A common use of this class would
  * be:
@@ -40,25 +40,25 @@ import java.util.List;
  *
  */
 class SegmentCache {
-    /**
+    /** {@collect.stats}
      * A global cache.
      */
     private static SegmentCache sharedCache = new SegmentCache();
 
-    /**
+    /** {@collect.stats}
      * A list of the currently unused Segments.
      */
     private List segments;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the shared SegmentCache.
      */
     public static SegmentCache getSharedInstance() {
         return sharedCache;
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to get a Segment from the shared
      * <code>SegmentCache</code>.
      */
@@ -66,7 +66,7 @@ class SegmentCache {
         return getSharedInstance().getSegment();
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to release a Segment to the shared
      * <code>SegmentCache</code>.
      */
@@ -76,14 +76,14 @@ class SegmentCache {
 
 
 
-    /**
+    /** {@collect.stats}
      * Creates and returns a SegmentCache.
      */
     public SegmentCache() {
         segments = new ArrayList(11);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Segment</code>. When done, the <code>Segment</code>
      * should be recycled by invoking <code>releaseSegment</code>.
      */
@@ -98,7 +98,7 @@ class SegmentCache {
         return new CachedSegment();
     }
 
-    /**
+    /** {@collect.stats}
      * Releases a Segment. You should not use a Segment after you release it,
      * and you should NEVER release the same Segment more than once, eg:
      * <pre>
@@ -118,7 +118,7 @@ class SegmentCache {
     }
 
 
-    /**
+    /** {@collect.stats}
      * CachedSegment is used as a tagging interface to determine if
      * a Segment can successfully be shared.
      */

@@ -28,7 +28,7 @@ package javax.crypto.spec;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class specifies the source for encoding input P in OAEP Padding,
  * as defined in the
  * <a href="http://www.ietf.org/rfc/rfc3447.txt">PKCS #1</a>
@@ -47,7 +47,7 @@ public class PSource {
 
     private String pSrcName;
 
-    /**
+    /** {@collect.stats}
      * Constructs a source of the encoding input P for OAEP
      * padding as defined in the PKCS #1 standard using the
      * specified PSource algorithm.
@@ -62,7 +62,7 @@ public class PSource {
         }
         this.pSrcName = pSrcName;
     }
-    /**
+    /** {@collect.stats}
      * Returns the PSource algorithm name.
      *
      * @return the PSource algorithm name.
@@ -71,7 +71,7 @@ public class PSource {
         return pSrcName;
     }
 
-    /**
+    /** {@collect.stats}
      * This class is used to explicitly specify the value for
      * encoding input P in OAEP Padding.
      *
@@ -81,12 +81,12 @@ public class PSource {
 
         private byte[] p = new byte[0];
 
-        /**
+        /** {@collect.stats}
          * The encoding input P whose value equals byte[0].
          */
         public static final PSpecified DEFAULT = new PSpecified(new byte[0]);
 
-        /**
+        /** {@collect.stats}
          * Constructs the source explicitly with the specified
          * value <code>p</code> as the encoding input P.
          * Note:
@@ -99,7 +99,7 @@ public class PSource {
             super("PSpecified");
             this.p = (byte[]) p.clone();
         }
-        /**
+        /** {@collect.stats}
          * Returns the value of encoding input P.
          * @return the value of encoding input P. A new array is
          * returned each time this method is called.

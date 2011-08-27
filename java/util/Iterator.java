@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * An iterator over a collection.  {@code Iterator} takes the place of
  * {@link Enumeration} in the Java Collections Framework.  Iterators
  * differ from enumerations in two ways:
@@ -48,7 +48,7 @@ package java.util;
  * @since 1.2
  */
 public interface Iterator<E> {
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if the iteration has more elements.
      * (In other words, returns {@code true} if {@link #next} would
      * return an element rather than throwing an exception.)
@@ -57,7 +57,7 @@ public interface Iterator<E> {
      */
     boolean hasNext();
 
-    /**
+    /** {@collect.stats}
      * Returns the next element in the iteration.
      *
      * @return the next element in the iteration
@@ -65,7 +65,7 @@ public interface Iterator<E> {
      */
     E next();
 
-    /**
+    /** {@collect.stats}
      * Removes from the underlying collection the last element returned
      * by this iterator (optional operation).  This method can be called
      * only once per call to {@link #next}.  The behavior of an iterator

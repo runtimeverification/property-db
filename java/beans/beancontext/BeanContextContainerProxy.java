@@ -27,7 +27,7 @@ package java.beans.beancontext;
 
 import java.awt.Container;
 
-/**
+/** {@collect.stats}
  * <p>
  * This interface is implemented by BeanContexts' that have an AWT Container
  * associated with them.
@@ -42,7 +42,7 @@ import java.awt.Container;
 
 public interface BeanContextContainerProxy {
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>java.awt.Container</code> associated
      * with this <code>BeanContext</code>.
      * @return the <code>java.awt.Container</code> associated

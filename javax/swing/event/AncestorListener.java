@@ -30,7 +30,7 @@ import java.util.*;
 
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * AncestorListener
  *
  * Interface to support notification when changes occur to a JComponent or one
@@ -41,7 +41,7 @@ import javax.swing.*;
  * @author Dave Moore
  */
 public interface AncestorListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Called when the source or one of its ancestors is made visible
      * either by setVisible(true) being called or by its being
      * added to the component hierarchy.  The method is only called
@@ -51,7 +51,7 @@ public interface AncestorListener extends EventListener {
      */
     public void ancestorAdded(AncestorEvent event);
 
-    /**
+    /** {@collect.stats}
      * Called when the source or one of its ancestors is made invisible
      * either by setVisible(false) being called or by its being
      * remove from the component hierarchy.  The method is only called
@@ -61,7 +61,7 @@ public interface AncestorListener extends EventListener {
      */
     public void ancestorRemoved(AncestorEvent event);
 
-    /**
+    /** {@collect.stats}
      * Called when either the source or one of its ancestors is moved.
      */
     public void ancestorMoved(AncestorEvent event);

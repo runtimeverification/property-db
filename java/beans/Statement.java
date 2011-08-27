@@ -37,7 +37,7 @@ import java.security.PrivilegedExceptionAction;
 import com.sun.beans.finder.ClassFinder;
 import sun.reflect.misc.MethodUtil;
 
-/**
+/** {@collect.stats}
  * A <code>Statement</code> object represents a primitive statement
  * in which a single method is applied to a target and
  * a set of arguments - as in <code>"a.setFoo(b)"</code>.
@@ -70,7 +70,7 @@ public class Statement {
     private final String methodName;
     private final Object[] arguments;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>Statement</code> object with a <code>target</code>,
      * <code>methodName</code> and <code>arguments</code> as per the parameters.
      *
@@ -85,7 +85,7 @@ public class Statement {
         this.arguments = (arguments == null) ? emptyArray : arguments;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the target of this statement.
      *
      * @return The target of this statement.
@@ -94,7 +94,7 @@ public class Statement {
         return target;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the method.
      *
      * @return The name of the method.
@@ -103,7 +103,7 @@ public class Statement {
         return methodName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the arguments of this statement.
      *
      * @return the arguments of this statement.
@@ -112,7 +112,7 @@ public class Statement {
         return arguments;
     }
 
-    /**
+    /** {@collect.stats}
      * The execute method finds a method whose name is the same
      * as the methodName property, and invokes the method on
      * the target.
@@ -294,7 +294,7 @@ public class Statement {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Prints the value of this statement using a Java-style syntax.
      */
     public String toString() {

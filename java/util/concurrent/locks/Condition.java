@@ -37,7 +37,7 @@ package java.util.concurrent.locks;
 import java.util.concurrent.*;
 import java.util.Date;
 
-/**
+/** {@collect.stats}
  * {@code Condition} factors out the {@code Object} monitor
  * methods ({@link Object#wait() wait}, {@link Object#notify notify}
  * and {@link Object#notifyAll notifyAll}) into distinct objects to
@@ -178,7 +178,7 @@ import java.util.Date;
  */
 public interface Condition {
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until it is signalled or
      * {@linkplain Thread#interrupt interrupted}.
      *
@@ -230,7 +230,7 @@ public interface Condition {
      */
     void await() throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until it is signalled.
      *
      * <p>The lock associated with this condition is atomically
@@ -266,7 +266,7 @@ public interface Condition {
      */
     void awaitUninterruptibly();
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified waiting time elapses.
      *
@@ -354,7 +354,7 @@ public interface Condition {
      */
     long awaitNanos(long nanosTimeout) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified waiting time elapses. This method is behaviorally
      * equivalent to:<br>
@@ -370,7 +370,7 @@ public interface Condition {
      */
     boolean await(long time, TimeUnit unit) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Causes the current thread to wait until it is signalled or interrupted,
      * or the specified deadline elapses.
      *
@@ -444,7 +444,7 @@ public interface Condition {
      */
     boolean awaitUntil(Date deadline) throws InterruptedException;
 
-    /**
+    /** {@collect.stats}
      * Wakes up one waiting thread.
      *
      * <p>If any threads are waiting on this condition then one
@@ -453,7 +453,7 @@ public interface Condition {
      */
     void signal();
 
-    /**
+    /** {@collect.stats}
      * Wakes up all waiting threads.
      *
      * <p>If any threads are waiting on this condition then they are

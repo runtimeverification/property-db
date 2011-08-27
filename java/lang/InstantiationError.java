@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown when an application tries to use the Java <code>new</code>
  * construct to instantiate an abstract class or an interface.
  * <p>
@@ -40,14 +40,14 @@ package java.lang;
 
 public
 class InstantiationError extends IncompatibleClassChangeError {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>InstantiationError</code> with no detail  message.
      */
     public InstantiationError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>InstantiationError</code> with the specified
      * detail message.
      *

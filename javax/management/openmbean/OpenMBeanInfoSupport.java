@@ -39,7 +39,7 @@ import javax.management.MBeanInfo;
 import javax.management.MBeanNotificationInfo;
 import javax.management.MBeanOperationInfo;
 
-/**
+/** {@collect.stats}
  * The {@code OpenMBeanInfoSupport} class describes the management
  * information of an <i>open MBean</i>: it is a subclass of {@link
  * javax.management.MBeanInfo}, and it implements the {@link
@@ -64,7 +64,7 @@ public class OpenMBeanInfoSupport
     private transient String  myToString = null;
 
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanInfoSupport} instance, which
      * describes a class of open MBeans with the specified {@code
      * className}, {@code description}, {@code openAttributes}, {@code
@@ -120,7 +120,7 @@ public class OpenMBeanInfoSupport
              (Descriptor) null);
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs an {@code OpenMBeanInfoSupport} instance, which
      * describes a class of open MBeans with the specified {@code
      * className}, {@code description}, {@code openAttributes}, {@code
@@ -221,7 +221,7 @@ public class OpenMBeanInfoSupport
     /* ***  Commodity methods from java.lang.Object  *** */
 
 
-    /**
+    /** {@collect.stats}
      * <p>Compares the specified {@code obj} parameter with this
      * {@code OpenMBeanInfoSupport} instance for equality.</p>
      *
@@ -303,7 +303,7 @@ public class OpenMBeanInfoSupport
                 .equals(new HashSet<T>(Arrays.asList(a2))));
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Returns the hash code value for this {@code
      * OpenMBeanInfoSupport} instance.</p>
      *
@@ -361,7 +361,7 @@ public class OpenMBeanInfoSupport
 
 
 
-    /**
+    /** {@collect.stats}
      * <p>Returns a string representation of this {@code
      * OpenMBeanInfoSupport} instance.</p>
      *

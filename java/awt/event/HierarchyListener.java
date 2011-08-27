@@ -27,7 +27,7 @@ package java.awt.event;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * The listener interface for receiving hierarchy changed events.
  * The class that is interested in processing a hierarchy changed event
  * should implement this interface.
@@ -47,7 +47,7 @@ import java.util.EventListener;
  * @since       1.3
  */
 public interface HierarchyListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Called when the hierarchy has been changed. To discern the actual
      * type of change, call <code>HierarchyEvent.getChangeFlags()</code>.
      *

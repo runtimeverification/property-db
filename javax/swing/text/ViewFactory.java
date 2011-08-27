@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.awt.Container;
 
-/**
+/** {@collect.stats}
  * A factory to create a view of some portion of document subject.
  * This is intended to enable customization of how views get
  * mapped over a document model.
@@ -35,7 +35,7 @@ import java.awt.Container;
  */
 public interface ViewFactory {
 
-    /**
+    /** {@collect.stats}
      * Creates a view from the given structural element of a
      * document.
      *

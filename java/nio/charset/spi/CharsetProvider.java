@@ -29,7 +29,7 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 
 
-/**
+/** {@collect.stats}
  * Charset service-provider class.
  *
  * <p> A charset provider is a concrete subclass of this class that has a
@@ -71,7 +71,7 @@ import java.util.Iterator;
 
 public abstract class CharsetProvider {
 
-    /**
+    /** {@collect.stats}
      * Initializes a new charset provider. </p>
      *
      * @throws  SecurityException
@@ -84,7 +84,7 @@ public abstract class CharsetProvider {
             sm.checkPermission(new RuntimePermission("charsetProvider"));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an iterator that iterates over the charsets supported by this
      * provider.  This method is used in the implementation of the {@link
      * java.nio.charset.Charset#availableCharsets Charset.availableCharsets}
@@ -94,7 +94,7 @@ public abstract class CharsetProvider {
      */
     public abstract Iterator<Charset> charsets();
 
-    /**
+    /** {@collect.stats}
      * Retrieves a charset for the given charset name. </p>
      *
      * @param  charsetName

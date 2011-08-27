@@ -28,7 +28,7 @@ package javax.sound.midi;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * The <code>MetaEventListener</code> interface should be implemented
  * by classes whose instances need to be notified when a <code>{@link Sequencer}</code>
  * has processed a <code>{@link MetaMessage}</code>.
@@ -41,7 +41,7 @@ import java.util.EventListener;
  */
 public interface MetaEventListener extends EventListener {
 
-    /**
+    /** {@collect.stats}
      * Invoked when a <code>{@link Sequencer}</code> has encountered and processed
      * a <code>MetaMessage</code> in the <code>{@link Sequence}</code> it is processing.
      * @param meta the meta-message that the sequencer encountered

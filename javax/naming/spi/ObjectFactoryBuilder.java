@@ -28,7 +28,7 @@ package javax.naming.spi;
 import java.util.Hashtable;
 import javax.naming.NamingException;
 
- /**
+ /** {@collect.stats}
   * This interface represents a builder that creates object factories.
   *<p>
   * The JNDI framework allows for object implementations to
@@ -55,7 +55,7 @@ import javax.naming.NamingException;
   * @since 1.3
   */
 public interface ObjectFactoryBuilder {
-    /**
+    /** {@collect.stats}
       * Creates a new object factory using the environment supplied.
       *<p>
       * The environment parameter is owned by the caller.

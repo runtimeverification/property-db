@@ -45,7 +45,7 @@ import sun.security.util.SecurityConstants;
 import sun.security.util.Debug;
 
 
-/**
+/** {@collect.stats}
  * This class represents access to a network via sockets.
  * A SocketPermission consists of a
  * host specification and a set of "actions" specifying ways to
@@ -142,32 +142,32 @@ implements java.io.Serializable
 {
     private static final long serialVersionUID = -7204263841984476862L;
 
-    /**
+    /** {@collect.stats}
      * Connect to host:port
      */
     private final static int CONNECT    = 0x1;
 
-    /**
+    /** {@collect.stats}
      * Listen on host:port
      */
     private final static int LISTEN     = 0x2;
 
-    /**
+    /** {@collect.stats}
      * Accept a connection from host:port
      */
     private final static int ACCEPT     = 0x4;
 
-    /**
+    /** {@collect.stats}
      * Resolve DNS queries
      */
     private final static int RESOLVE    = 0x8;
 
-    /**
+    /** {@collect.stats}
      * No actions
      */
     private final static int NONE               = 0x0;
 
-    /**
+    /** {@collect.stats}
      * All actions
      */
     private final static int ALL        = CONNECT|LISTEN|ACCEPT|RESOLVE;
@@ -180,7 +180,7 @@ implements java.io.Serializable
     // the actions mask
     private transient int mask;
 
-    /**
+    /** {@collect.stats}
      * the actions string.
      *
      * @serial
@@ -246,7 +246,7 @@ implements java.io.Serializable
         return debug;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new SocketPermission object with the specified actions.
      * The host is expressed as a DNS name, or as a numerical IP address.
      * Optionally, a port or a portrange may be supplied (separated
@@ -366,7 +366,7 @@ implements java.io.Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize the SocketPermission object. We don't do any DNS lookups
      * as this point, instead we hold off until the implies method is
      * called.
@@ -466,7 +466,7 @@ implements java.io.Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convert an action string to an integer actions mask.
      *
      * @param action the action string
@@ -590,7 +590,7 @@ implements java.io.Serializable
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * attempt to get the fully qualified domain name
      *
      */
@@ -754,7 +754,7 @@ implements java.io.Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * get IP addresses. Sets invalid to true if we can't get them.
      *
      */
@@ -790,7 +790,7 @@ implements java.io.Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if this socket permission object "implies" the
      * specified permission.
      * <P>
@@ -840,7 +840,7 @@ implements java.io.Serializable
                                         impliesIgnoreMask(that);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the incoming Permission's action are a proper subset of
      * the this object's actions.
      * <P>
@@ -984,7 +984,7 @@ implements java.io.Serializable
             return thisHost.equalsIgnoreCase(thatHost);
 
     }
-    /**
+    /** {@collect.stats}
      * Checks two SocketPermission objects for equality.
      * <P>
      * @param obj the object to test for equality with this object.
@@ -1048,7 +1048,7 @@ implements java.io.Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this object.
      *
      * @return a hash code value for this object.
@@ -1078,7 +1078,7 @@ implements java.io.Serializable
             return this.cname.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Return the current action mask.
      *
      * @return the actions mask.
@@ -1088,7 +1088,7 @@ implements java.io.Serializable
         return mask;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the "canonical string representation" of the actions in the
      * specified mask.
      * Always returns present actions in the following order:
@@ -1129,7 +1129,7 @@ implements java.io.Serializable
         return sb.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical string representation of the actions.
      * Always returns present actions in the following order:
      * connect, listen, accept, resolve.
@@ -1144,7 +1144,7 @@ implements java.io.Serializable
         return actions;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a new PermissionCollection object for storing SocketPermission
      * objects.
      * <p>
@@ -1160,7 +1160,7 @@ implements java.io.Serializable
         return new SocketPermissionCollection();
     }
 
-    /**
+    /** {@collect.stats}
      * WriteObject is called to save the state of the SocketPermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
@@ -1175,7 +1175,7 @@ implements java.io.Serializable
         s.defaultWriteObject();
     }
 
-    /**
+    /** {@collect.stats}
      * readObject is called to restore the state of the SocketPermission from
      * a stream.
      */
@@ -1226,7 +1226,7 @@ implements java.io.Serializable
     */
 }
 
-/**
+/** {@collect.stats}
 
 if (init'd with IP, key is IP as string)
 if wildcard, its the wild card
@@ -1249,7 +1249,7 @@ implements Serializable
     // Not serialized; see serialization section at end of class
     private transient List perms;
 
-    /**
+    /** {@collect.stats}
      * Create an empty SocketPermissions object.
      *
      */
@@ -1258,7 +1258,7 @@ implements Serializable
         perms = new ArrayList();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission to the SocketPermissions. The key for the hash is
      * the name in the case of wildcards, or all the IP addresses.
      *
@@ -1287,7 +1287,7 @@ implements Serializable
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Check and see if this collection of permissions implies the permissions
      * expressed in "permission".
      *
@@ -1325,7 +1325,7 @@ implements Serializable
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the SocketPermission objects in the
      * container.
      *
@@ -1350,7 +1350,7 @@ implements Serializable
     //
     // private Vector permissions;
 
-    /**
+    /** {@collect.stats}
      * @serialField permissions java.util.Vector
      *     A list of the SocketPermissions for this set.
      */
@@ -1358,7 +1358,7 @@ implements Serializable
         new ObjectStreamField("permissions", Vector.class),
     };
 
-    /**
+    /** {@collect.stats}
      * @serialData "permissions" field (a Vector containing the SocketPermissions).
      */
     /*

@@ -26,7 +26,7 @@
 package javax.script;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * A mapping of key/value pairs, all of whose keys are
  * <code>Strings</code>.
  *
@@ -34,7 +34,7 @@ import java.util.Map;
  * @since 1.6
  */
 public interface Bindings extends Map<String, Object> {
-    /**
+    /** {@collect.stats}
      * Set a named value.
      *
      * @param name The name associated with the value.
@@ -48,7 +48,7 @@ public interface Bindings extends Map<String, Object> {
      */
     public Object put(String name, Object value);
 
-    /**
+    /** {@collect.stats}
      * Adds all the mappings in a given <code>Map</code> to this <code>Bindings</code>.
      * @param toMerge The <code>Map</code> to merge with this one.
      *
@@ -59,7 +59,7 @@ public interface Bindings extends Map<String, Object> {
      */
     public void putAll(Map<? extends String, ? extends Object> toMerge);
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.  More formally, returns <tt>true</tt> if and only if
      * this map contains a mapping for a key <tt>k</tt> such that
@@ -76,7 +76,7 @@ public interface Bindings extends Map<String, Object> {
      */
     public boolean containsKey(Object key);
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which this map maps the specified key.  Returns
      * <tt>null</tt> if the map contains no mapping for this key.  A return
      * value of <tt>null</tt> does not <i>necessarily</i> indicate that the
@@ -99,7 +99,7 @@ public interface Bindings extends Map<String, Object> {
      */
     public Object get(Object key);
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for this key from this map if it is present
      * (optional operation).   More formally, if this map contains a mapping
      * from key <tt>k</tt> to value <tt>v</tt> such that

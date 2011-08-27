@@ -28,7 +28,7 @@ package java.nio.channels;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * A token representing a lock on a region of a file.
  *
  * <p> A file-lock object is created each time a lock is acquired on a file via
@@ -122,7 +122,7 @@ public abstract class FileLock {
     private final long size;
     private final boolean shared;
 
-    /**
+    /** {@collect.stats}
      * Initializes a new instance of this class.  </p>
      *
      * @param  channel
@@ -158,7 +158,7 @@ public abstract class FileLock {
         this.shared = shared;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the file channel upon whose file this lock is held.  </p>
      *
      * @return  The file channel
@@ -167,7 +167,7 @@ public abstract class FileLock {
         return channel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the position within the file of the first byte of the locked
      * region.
      *
@@ -181,7 +181,7 @@ public abstract class FileLock {
         return position;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the locked region in bytes.
      *
      * <p> A locked region need not be contained within, or even overlap, the
@@ -194,7 +194,7 @@ public abstract class FileLock {
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this lock is shared.  </p>
      *
      * @return <tt>true</tt> if lock is shared,
@@ -204,7 +204,7 @@ public abstract class FileLock {
         return shared;
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether or not this lock overlaps the given lock range.  </p>
      *
      * @return  <tt>true</tt> if, and only if, this lock and the given lock
@@ -218,7 +218,7 @@ public abstract class FileLock {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether or not this lock is valid.
      *
      * <p> A lock object remains valid until it is released or the associated
@@ -228,7 +228,7 @@ public abstract class FileLock {
      */
     public abstract boolean isValid();
 
-    /**
+    /** {@collect.stats}
      * Releases this lock.
      *
      * <p> If this lock object is valid then invoking this method releases the
@@ -244,7 +244,7 @@ public abstract class FileLock {
      */
     public abstract void release() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the range, type, and validity of this lock.
      *
      * @return  A descriptive string

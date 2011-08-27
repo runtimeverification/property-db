@@ -25,7 +25,7 @@
 
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * A <code>ConnectIOException</code> is thrown if an
  * <code>IOException</code> occurs while making a connection
  * to the remote host for a remote method call.
@@ -38,7 +38,7 @@ public class ConnectIOException extends RemoteException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = -8087809532704668744L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ConnectIOException</code> with the specified
      * detail message.
      *
@@ -50,7 +50,7 @@ public class ConnectIOException extends RemoteException {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ConnectIOException</code> with the specified
      * detail message and nested exception.
      *

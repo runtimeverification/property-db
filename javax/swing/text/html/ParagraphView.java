@@ -36,7 +36,7 @@ import javax.swing.text.ViewFactory;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 
-/**
+/** {@collect.stats}
  * Displays the a paragraph, and uses css attributes for its
  * configuration.
  *
@@ -45,7 +45,7 @@ import javax.swing.text.JTextComponent;
 
 public class ParagraphView extends javax.swing.text.ParagraphView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a ParagraphView for the given element.
      *
      * @param elem the element that this view is responsible for
@@ -54,7 +54,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Establishes the parent view for this view.  This is
      * guaranteed to be called before any other methods if the
      * parent view is functioning properly.
@@ -78,7 +78,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -91,7 +91,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets up the paragraph from css attributes instead of
      * the values found in StyleConstants (i.e. which are used
      * by the superclass).  Since
@@ -134,7 +134,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calculate the needs for the paragraph along the minor axis.
      * This implemented to use the requirements of the superclass,
      * modified slightly to set a minimum span allowed.  Typical
@@ -177,7 +177,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not this view should be
      * displayed.  If none of the children wish to be
      * displayed and the only visible child is the
@@ -217,7 +217,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Renders using the given rendering surface and area on that
      * surface.  This is implemented to delgate to the superclass
      * after stashing the base coordinate for tab calculations.
@@ -241,7 +241,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         super.paint(g, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view.  Returns
      * 0 if the view is not visible, otherwise it calls the
      * superclass method to get the preferred span.
@@ -261,7 +261,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         return super.getPreferredSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum span for this view along an
      * axis.  Returns 0 if the view is not visible, otherwise
      * it calls the superclass method to get the minimum span.
@@ -278,7 +278,7 @@ public class ParagraphView extends javax.swing.text.ParagraphView {
         return super.getMinimumSpan(axis);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the maximum span for this view along an
      * axis.  Returns 0 if the view is not visible, otherwise
      * it calls the superclass method ot get the maximum span.

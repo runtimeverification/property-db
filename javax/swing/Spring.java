@@ -26,7 +26,7 @@ package javax.swing;
 
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  *  An instance of the <code>Spring</code> class holds three properties that
  *  characterize its behavior: the <em>minimum</em>, <em>preferred</em>, and
  *  <em>maximum</em> values. Each of these properties may be involved in
@@ -129,12 +129,12 @@ import java.awt.Component;
  */
 public abstract class Spring {
 
-    /**
+    /** {@collect.stats}
      * An integer value signifying that a property value has not yet been calculated.
      */
     public static final int UNSET = Integer.MIN_VALUE;
 
-    /**
+    /** {@collect.stats}
      * Used by factory methods to create a <code>Spring</code>.
      *
      * @see #constant(int)
@@ -146,28 +146,28 @@ public abstract class Spring {
      */
     protected Spring() {}
 
-    /**
+    /** {@collect.stats}
      * Returns the <em>minimum</em> value of this <code>Spring</code>.
      *
      * @return the <code>minimumValue</code> property of this <code>Spring</code>
      */
     public abstract int getMinimumValue();
 
-    /**
+    /** {@collect.stats}
      * Returns the <em>preferred</em> value of this <code>Spring</code>.
      *
      * @return the <code>preferredValue</code> of this <code>Spring</code>
      */
     public abstract int getPreferredValue();
 
-    /**
+    /** {@collect.stats}
      * Returns the <em>maximum</em> value of this <code>Spring</code>.
      *
      * @return the <code>maximumValue</code> property of this <code>Spring</code>
      */
     public abstract int getMaximumValue();
 
-    /**
+    /** {@collect.stats}
      * Returns the current <em>value</em> of this <code>Spring</code>.
      *
      * @return  the <code>value</code> property of this <code>Spring</code>
@@ -176,7 +176,7 @@ public abstract class Spring {
      */
     public abstract int getValue();
 
-    /**
+    /** {@collect.stats}
      * Sets the current <em>value</em> of this <code>Spring</code> to <code>value</code>.
      *
      * @param   value the new setting of the <code>value</code> property
@@ -511,7 +511,7 @@ public abstract class Spring {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a strut -- a spring whose <em>minimum</em>, <em>preferred</em>, and
      * <em>maximum</em> values each have the value <code>pref</code>.
      *
@@ -526,7 +526,7 @@ public abstract class Spring {
          return constant(pref, pref, pref);
      }
 
-    /**
+    /** {@collect.stats}
      * Returns a spring whose <em>minimum</em>, <em>preferred</em>, and
      * <em>maximum</em> values have the values: <code>min</code>, <code>pref</code>,
      * and <code>max</code> respectively.
@@ -545,7 +545,7 @@ public abstract class Spring {
      }
 
 
-    /**
+    /** {@collect.stats}
      * Returns <code>-s</code>: a spring running in the opposite direction to <code>s</code>.
      *
      * @return <code>-s</code>: a spring running in the opposite direction to <code>s</code>
@@ -556,7 +556,7 @@ public abstract class Spring {
         return new NegativeSpring(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>s1+s2</code>: a spring representing <code>s1</code> and <code>s2</code>
      * in series. In a sum, <code>s3</code>, of two springs, <code>s1</code> and <code>s2</code>,
      * the <em>strains</em> of <code>s1</code>, <code>s2</code>, and <code>s3</code> are maintained
@@ -589,7 +589,7 @@ public abstract class Spring {
          return new SumSpring(s1, s2);
      }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>max(s1, s2)</code>: a spring whose value is always greater than (or equal to)
      *         the values of both <code>s1</code> and <code>s2</code>.
      *
@@ -614,7 +614,7 @@ public abstract class Spring {
     }
     */
 
-    /**
+    /** {@collect.stats}
      * Returns a spring whose <em>minimum</em>, <em>preferred</em>, <em>maximum</em>
      * and <em>value</em> properties are each multiples of the properties of the
      * argument spring, <code>s</code>. Minimum and maximum properties are
@@ -637,7 +637,7 @@ public abstract class Spring {
         return new ScaleSpring(s, factor);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a spring whose <em>minimum</em>, <em>preferred</em>, <em>maximum</em>
      * and <em>value</em> properties are defined by the widths of the <em>minimumSize</em>,
      * <em>preferredSize</em>, <em>maximumSize</em> and <em>size</em> properties
@@ -658,7 +658,7 @@ public abstract class Spring {
         return new WidthSpring(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a spring whose <em>minimum</em>, <em>preferred</em>, <em>maximum</em>
      * and <em>value</em> properties are defined by the heights of the <em>minimumSize</em>,
      * <em>preferredSize</em>, <em>maximumSize</em> and <em>size</em> properties
@@ -680,7 +680,7 @@ public abstract class Spring {
     }
 
 
-    /**
+    /** {@collect.stats}
      * If <code>s</code> is null, this throws an NullPointerException.
      */
     private static void checkArg(Object s) {

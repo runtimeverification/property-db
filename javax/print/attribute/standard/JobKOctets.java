@@ -29,7 +29,7 @@ import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobKOctets is an integer valued printing attribute class that specifies
  * the total size of the document(s) in K octets, i.e., in units of 1024 octets
  * requested to be processed in the job. The value must be rounded up, so that a
@@ -131,7 +131,7 @@ public final class JobKOctets   extends IntegerSyntax
 
     private static final long serialVersionUID = -8959710146498202869L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job K octets attribute with the given integer value.
      *
      * @param  value  Integer value.
@@ -143,7 +143,7 @@ public final class JobKOctets   extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job K octets attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -166,7 +166,7 @@ public final class JobKOctets   extends IntegerSyntax
         return super.equals(object) && object instanceof JobKOctets;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -179,7 +179,7 @@ public final class JobKOctets   extends IntegerSyntax
         return JobKOctets.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

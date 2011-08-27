@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import javax.swing.plaf.basic.BasicTextUI;
 
-/**
+/** {@collect.stats}
  * <p>
  * This class has been deprecated and should no longer be used.
  * The basis of the various TextUI implementations can be found

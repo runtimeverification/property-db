@@ -34,7 +34,7 @@ import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioInputStream;
 
 
-/**
+/** {@collect.stats}
  * Provider for audio file writing services.  Classes providing concrete
  * implementations can write one or more types of audio file from an audio
  * stream.
@@ -44,7 +44,7 @@ import javax.sound.sampled.AudioInputStream;
  */
 public abstract class AudioFileWriter {
 
-    /**
+    /** {@collect.stats}
      * Obtains the file types for which file writing support is provided by this
      * audio file writer.
      * @return array of file types.  If no file types are supported,
@@ -53,7 +53,7 @@ public abstract class AudioFileWriter {
     public abstract AudioFileFormat.Type[] getAudioFileTypes();
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether file writing support for the specified file type is provided
      * by this audio file writer.
      * @param fileType the file type for which write capabilities are queried
@@ -73,7 +73,7 @@ public abstract class AudioFileWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the file types that this audio file writer can write from the
      * audio input stream specified.
      * @param stream the audio input stream for which audio file type support
@@ -84,7 +84,7 @@ public abstract class AudioFileWriter {
     public abstract AudioFileFormat.Type[] getAudioFileTypes(AudioInputStream stream);
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether an audio file of the type specified can be written
      * from the audio input stream indicated.
      * @param fileType file type for which write capabilities are queried
@@ -105,7 +105,7 @@ public abstract class AudioFileWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing an audio file of the file type
      * indicated to the output stream provided.  Some file types require that
      * the length be written into the file header, and cannot be written from
@@ -127,7 +127,7 @@ public abstract class AudioFileWriter {
     public abstract int write(AudioInputStream stream, AudioFileFormat.Type fileType, OutputStream out) throws IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Writes a stream of bytes representing an audio file of the file format
      * indicated to the external file provided.
      * @param stream the audio input stream containing audio data to be

@@ -53,7 +53,7 @@ import javax.management.NotificationListener;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
-/**
+/** {@collect.stats}
  * The Relation Service is in charge of creating and deleting relation types
  * and relations, of handling the consistency and of providing query
  * mechanisms.
@@ -144,7 +144,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // Constructor
     //
 
-    /**
+    /** {@collect.stats}
      * Constructor.
      *
      * @param immediatePurgeFlag  flag to indicate when a notification is
@@ -166,7 +166,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the Relation Service is active.
      * Current condition is that the Relation Service must be registered in the
      * MBean Server
@@ -222,7 +222,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Returns the flag to indicate if when a notification is received for the
      * unregistration of an MBean referenced in a relation, if an immediate
      * "purge" of the relations (look for the relations no longer valid)
@@ -238,7 +238,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return myPurgeFlag;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the flag to indicate if when a notification is received for the
      * unregistration of an MBean referenced in a relation, if an immediate
      * "purge" of the relations (look for the relations no longer valid)
@@ -273,7 +273,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // Relation type handling
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a relation type (a RelationTypeSupport object) with given
      * role infos (provided by the RoleInfo objects), and adds it in the
      * Relation Service.
@@ -312,7 +312,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds given object as a relation type. The object is expected to
      * implement the RelationType interface.
      *
@@ -363,7 +363,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
      }
 
-    /**
+    /** {@collect.stats}
      * Retrieves names of all known relation types.
      *
      * @return ArrayList of relation type names (Strings)
@@ -376,7 +376,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves list of role infos (RoleInfo objects) of a given relation
      * type.
      *
@@ -408,7 +408,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return relType.getRoleInfos();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves role info for given role name of a given relation type.
      *
      * @param relationTypeName  name of relation type
@@ -447,7 +447,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return roleInfo;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes given relation type from Relation Service.
      * <P>The relation objects of that type will be removed from the
      * Relation Service.
@@ -525,7 +525,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // Relation handling
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a simple relation (represented by a RelationSupport object) of
      * given relation type, and adds it in the Relation Service.
      * <P>Roles are initialized according to the role list provided in
@@ -605,7 +605,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an MBean created by the user (and registered by him in the MBean
      * Server) as a relation in the Relation Service.
      * <P>To be added as a relation, the MBean must conform to the
@@ -808,7 +808,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * If the relation is represented by an MBean (created by the user and
      * added as a relation in the Relation Service), returns the ObjectName of
      * the MBean.
@@ -843,7 +843,7 @@ public class RelationService extends NotificationBroadcasterSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the relation id associated to the given ObjectName if the
      * MBean has been added as a relation in the Relation Service.
      *
@@ -875,7 +875,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if there is a relation identified in Relation Service with given
      * relation id.
      *
@@ -905,7 +905,7 @@ public class RelationService extends NotificationBroadcasterSupport
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all the relation ids for all the relations handled by the
      * Relation Service.
      *
@@ -919,7 +919,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if given Role can be read in a relation of the given type.
      *
      * @param roleName  name of role to be checked
@@ -973,7 +973,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if given Role can be set in a relation of given type.
      *
      * @param role  role to be checked
@@ -1041,7 +1041,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a relation creation.
      * The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_CREATION if the relation is an
@@ -1088,7 +1088,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a role update in the
      * given relation. The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_UPDATE if the relation is an
@@ -1156,7 +1156,7 @@ public class RelationService extends NotificationBroadcasterSupport
                 "sendRoleUpdateNotification");
     }
 
-    /**
+    /** {@collect.stats}
      * Sends a notification (RelationNotification) for a relation removal.
      * The notification type is:
      * <P>- RelationNotification.RELATION_BASIC_REMOVAL if the relation is an
@@ -1203,7 +1203,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Handles update of the Relation Service role map for the update of given
      * role in given relation.
      * <P>It is called in relation MBean setRole() (for given role) and
@@ -1320,7 +1320,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes given relation from the Relation Service.
      * <P>A RelationNotification notification is sent, its type being:
      * <P>- RelationNotification.RELATION_BASIC_REMOVAL if the relation was
@@ -1459,7 +1459,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Purges the relations.
      *
      * <P>Depending on the purgeFlag value, this method is either called
@@ -1591,7 +1591,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the relations where a given MBean is referenced.
      * <P>This corresponds to the CIM "References" and "ReferenceNames"
      * operations.
@@ -1701,7 +1701,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the MBeans associated to given one in a relation.
      * <P>This corresponds to CIM Associators and AssociatorNames operations.
      *
@@ -1786,7 +1786,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the relation ids for relations of the given type.
      *
      * @param relationTypeName  relation type name
@@ -1826,7 +1826,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value for given role name in given relation.
      *
      * @param relationId  relation id
@@ -1915,7 +1915,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves values of roles with given names in given relation.
      *
      * @param relationId  relation id
@@ -1992,7 +1992,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all roles present in the relation.
      *
      * @param relationId  relation id
@@ -2044,7 +2044,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of MBeans currently referenced in the given role.
      *
      * @param relationId  relation id
@@ -2115,7 +2115,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the given role in given relation.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -2227,7 +2227,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the given roles in given relation.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -2312,7 +2312,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves MBeans referenced in the various roles of the relation.
      *
      * @param relationId  relation id
@@ -2364,7 +2364,7 @@ public class RelationService extends NotificationBroadcasterSupport
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns name of associated relation type for given relation.
      *
      * @param relationId  relation id
@@ -2417,7 +2417,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // NotificationListener Interface
     //
 
-    /**
+    /** {@collect.stats}
      * Invoked when a JMX notification occurs.
      * Currently handles notifications for unregistration of MBeans, either
      * referenced in a relation role or being a relation itself.
@@ -2502,7 +2502,7 @@ public class RelationService extends NotificationBroadcasterSupport
     // NotificationBroadcaster interface
     //
 
-    /**
+    /** {@collect.stats}
      * Returns a NotificationInfo object containing the name of the Java class
      * of the notification and the notification types sent.
      */

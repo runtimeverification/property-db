@@ -30,14 +30,14 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import java.security.Principal;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * Represents a cache response originally retrieved through secure
  * means, such as TLS.
  *
  * @since 1.5
  */
 public abstract class SecureCacheResponse extends CacheResponse {
-    /**
+    /** {@collect.stats}
      * Returns the cipher suite in use on the original connection that
      * retrieved the network resource.
      *
@@ -45,7 +45,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
      */
     public abstract String getCipherSuite();
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate chain that were sent to the server during
      * handshaking of the original connection that retrieved the
      * network resource.  Note: This method is useful only
@@ -58,7 +58,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
      */
     public abstract List<Certificate> getLocalCertificateChain();
 
-    /**
+    /** {@collect.stats}
      * Returns the server's certificate chain, which was established as
      * part of defining the session in the original connection that
      * retrieved the network resource, from cache.  Note: This method
@@ -74,7 +74,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
     public abstract List<Certificate> getServerCertificateChain()
         throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
      * Returns the server's principal which was established as part of
      * defining the session during the original connection that
      * retrieved the network resource.
@@ -91,7 +91,7 @@ public abstract class SecureCacheResponse extends CacheResponse {
      public abstract Principal getPeerPrincipal()
              throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
       * Returns the principal that was sent to the server during
       * handshaking in the original connection that retrieved the
       * network resource.

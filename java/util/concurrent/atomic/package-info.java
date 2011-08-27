@@ -33,7 +33,7 @@
  * http://creativecommons.org/licenses/publicdomain
  */
 
-/**
+/** {@collect.stats}
  * A small toolkit of classes that support lock-free thread-safe
  * programming on single variables.  In essence, the classes in this
  * package extend the notion of {@code volatile} values, fields, and

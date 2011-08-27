@@ -28,7 +28,7 @@ package java.security.cert;
 import java.util.Collection;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * An abstract class that performs one or more checks on an
  * <code>X509Certificate</code>.
  *
@@ -89,12 +89,12 @@ import java.util.Set;
  */
 public abstract class PKIXCertPathChecker implements Cloneable {
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     protected PKIXCertPathChecker() {}
 
-    /**
+    /** {@collect.stats}
      * Initializes the internal state of this <code>PKIXCertPathChecker</code>.
      * <p>
      * The <code>forward</code> flag specifies the order that
@@ -114,7 +114,7 @@ public abstract class PKIXCertPathChecker implements Cloneable {
     public abstract void init(boolean forward)
         throws CertPathValidatorException;
 
-    /**
+    /** {@collect.stats}
      * Indicates if forward checking is supported. Forward checking refers
      * to the ability of the <code>PKIXCertPathChecker</code> to perform
      * its checks when certificates are presented to the <code>check</code>
@@ -125,7 +125,7 @@ public abstract class PKIXCertPathChecker implements Cloneable {
      */
     public abstract boolean isForwardCheckingSupported();
 
-    /**
+    /** {@collect.stats}
      * Returns an immutable <code>Set</code> of X.509 certificate extensions
      * that this <code>PKIXCertPathChecker</code> supports (i.e. recognizes, is
      * able to process), or <code>null</code> if no extensions are supported.
@@ -145,7 +145,7 @@ public abstract class PKIXCertPathChecker implements Cloneable {
      */
     public abstract Set<String> getSupportedExtensions();
 
-    /**
+    /** {@collect.stats}
      * Performs the check(s) on the specified certificate using its internal
      * state and removes any critical extensions that it processes from the
      * specified collection of OID strings that represent the unresolved
@@ -162,7 +162,7 @@ public abstract class PKIXCertPathChecker implements Cloneable {
             Collection<String> unresolvedCritExts)
             throws CertPathValidatorException;
 
-    /**
+    /** {@collect.stats}
      * Returns a clone of this object. Calls the <code>Object.clone()</code>
      * method.
      * All subclasses which maintain state must support and

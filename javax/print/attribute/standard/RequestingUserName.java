@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 
-/**
+/** {@collect.stats}
  * Class RequestingUserName is a printing attribute class, a text attribute,
  * that specifies the name of the end user that submitted the print job. A
  * requesting user name is an arbitrary string defined by the client. The
@@ -57,7 +57,7 @@ public final class RequestingUserName   extends TextSyntax
 
     private static final long serialVersionUID = -2683049894310331454L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new requesting user name attribute with the given user
      * name and locale.
      *
@@ -73,7 +73,7 @@ public final class RequestingUserName   extends TextSyntax
         super (userName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this requesting user name attribute is equivalent to
      * the passed in object. To be equivalent, all of the following
      * conditions must be true:
@@ -100,7 +100,7 @@ public final class RequestingUserName   extends TextSyntax
                 object instanceof RequestingUserName);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -114,7 +114,7 @@ public final class RequestingUserName   extends TextSyntax
         return RequestingUserName.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

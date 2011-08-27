@@ -28,7 +28,7 @@ package javax.swing;
 import javax.swing.event.*;
 
 
-/**
+/** {@collect.stats}
  * Defines the data model used by components like <code>Slider</code>s
  * and <code>ProgressBar</code>s.
  * Defines four interrelated integer properties: minimum, maximum, extent
@@ -79,7 +79,7 @@ import javax.swing.event.*;
  */
 public interface BoundedRangeModel
 {
-    /**
+    /** {@collect.stats}
      * Returns the minimum acceptable value.
      *
      * @return the value of the minimum property
@@ -88,7 +88,7 @@ public interface BoundedRangeModel
     int getMinimum();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the model's minimum to <I>newMinimum</I>.   The
      * other three properties may be changed as well, to ensure
      * that:
@@ -105,7 +105,7 @@ public interface BoundedRangeModel
     void setMinimum(int newMinimum);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's maximum.  Note that the upper
      * limit on the model's value is (maximum - extent).
      *
@@ -116,7 +116,7 @@ public interface BoundedRangeModel
     int getMaximum();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the model's maximum to <I>newMaximum</I>. The other
      * three properties may be changed as well, to ensure that
      * <pre>
@@ -132,7 +132,7 @@ public interface BoundedRangeModel
     void setMaximum(int newMaximum);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's current value.  Note that the upper
      * limit on the model's value is <code>maximum - extent</code>
      * and the lower limit is <code>minimum</code>.
@@ -143,7 +143,7 @@ public interface BoundedRangeModel
     int getValue();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the model's current value to <code>newValue</code> if <code>newValue</code>
      * satisfies the model's constraints. Those constraints are:
      * <pre>
@@ -168,7 +168,7 @@ public interface BoundedRangeModel
     void setValue(int newValue);
 
 
-    /**
+    /** {@collect.stats}
      * This attribute indicates that any upcoming changes to the value
      * of the model should be considered a single event. This attribute
      * will be set to true at the start of a series of changes to the value,
@@ -183,7 +183,7 @@ public interface BoundedRangeModel
     void setValueIsAdjusting(boolean b);
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if the current changes to the value property are part
      * of a series of changes.
      *
@@ -193,7 +193,7 @@ public interface BoundedRangeModel
     boolean getValueIsAdjusting();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the model's extent, the length of the inner range that
      * begins at the model's value.
      *
@@ -204,7 +204,7 @@ public interface BoundedRangeModel
     int getExtent();
 
 
-    /**
+    /** {@collect.stats}
      * Sets the model's extent.  The <I>newExtent</I> is forced to
      * be greater than or equal to zero and less than or equal to
      * maximum - value.
@@ -226,7 +226,7 @@ public interface BoundedRangeModel
 
 
 
-    /**
+    /** {@collect.stats}
      * This method sets all of the model's data with a single method call.
      * The method results in a single change event being generated. This is
      * convenient when you need to adjust all the model data simultaneously and
@@ -248,7 +248,7 @@ public interface BoundedRangeModel
     void setRangeProperties(int value, int extent, int min, int max, boolean adjusting);
 
 
-    /**
+    /** {@collect.stats}
      * Adds a ChangeListener to the model's listener list.
      *
      * @param x the ChangeListener to add
@@ -257,7 +257,7 @@ public interface BoundedRangeModel
     void addChangeListener(ChangeListener x);
 
 
-    /**
+    /** {@collect.stats}
      * Removes a ChangeListener from the model's listener list.
      *
      * @param x the ChangeListener to remove

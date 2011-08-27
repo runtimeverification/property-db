@@ -27,7 +27,7 @@ package java.awt.peer;
 
 import java.io.FilenameFilter;
 
-/**
+/** {@collect.stats}
  * The peer interfaces are intended only for use in porting
  * the AWT. They are not intended for use by application
  * developers, and developers should not implement peers

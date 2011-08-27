@@ -37,7 +37,7 @@ import java.security.Provider.Service;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class instantiates implementations of JCE engine classes from
  * providers registered with the java.security.Security object.
  *
@@ -138,7 +138,7 @@ final class JceSecurity {
                 + " not available", failure);
     }
 
-    /**
+    /** {@collect.stats}
      * Verify if the JAR at URL codeBase is a signed exempt application
      * JAR file and returns the permissions bundled with the JAR.
      *
@@ -150,7 +150,7 @@ final class JceSecurity {
         return jv.getPermissions();
     }
 
-    /**
+    /** {@collect.stats}
      * Verify if the JAR at URL codeBase is a signed provider JAR file.
      *
      * @throws Exception on error
@@ -285,7 +285,7 @@ final class JceSecurity {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Load the policies from the specified file. Also checks that the
      * policies are correctly signed.
      */

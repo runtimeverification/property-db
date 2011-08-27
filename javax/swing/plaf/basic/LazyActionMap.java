@@ -28,7 +28,7 @@ import java.lang.reflect.*;
 import javax.swing.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * An ActionMap that populates its contents as necessary. The
  * contents are populated by invoking the <code>loadActionMap</code>
  * method on the passed in Object.
@@ -36,13 +36,13 @@ import javax.swing.plaf.*;
  * @author Scott Violet
  */
 class LazyActionMap extends ActionMapUIResource {
-    /**
+    /** {@collect.stats}
      * Object to invoke <code>loadActionMap</code> on. This may be
      * a Class object.
      */
     private transient Object _loader;
 
-    /**
+    /** {@collect.stats}
      * Installs an ActionMap that will be populated by invoking the
      * <code>loadActionMap</code> method on the specified Class
      * when necessary.
@@ -65,7 +65,7 @@ class LazyActionMap extends ActionMapUIResource {
         SwingUtilities.replaceUIActionMap(c, map);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an ActionMap that will be populated by invoking the
      * <code>loadActionMap</code> method on the specified Class
      * when necessary.

@@ -25,7 +25,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Interface PrintServiceAttribute is a tagging interface which a printing
  * attribute class implements to indicate the attribute describes the status
  * of a Print Service or some other characteristic of a Print Service. A Print

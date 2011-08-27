@@ -27,7 +27,7 @@ package javax.management.loading;
 
 import javax.management.MBeanServer; // for Javadoc
 
-/**
+/** {@collect.stats}
  * <p>Instances of this interface are used to keep the list of ClassLoaders
  * registered in an MBean Server.
  * They provide the necessary methods to load classes using the registered
@@ -59,7 +59,7 @@ import javax.management.MBeanServer; // for Javadoc
  */
 public interface ClassLoaderRepository {
 
-    /**
+    /** {@collect.stats}
      * <p>Load the given class name through the list of class loaders.
      * Each ClassLoader in turn from the ClassLoaderRepository is
      * asked to load the class via its {@link
@@ -81,7 +81,7 @@ public interface ClassLoaderRepository {
     public Class<?> loadClass(String className)
             throws ClassNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Load the given class name through the list of class loaders,
      * excluding the given one.  Each ClassLoader in turn from the
      * ClassLoaderRepository, except <code>exclude</code>, is asked to
@@ -114,7 +114,7 @@ public interface ClassLoaderRepository {
                                      String className)
             throws ClassNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * <p>Load the given class name through the list of class loaders,
      * stopping at the given one.  Each ClassLoader in turn from the
      * ClassLoaderRepository is asked to load the class via its {@link

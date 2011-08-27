@@ -27,7 +27,7 @@ package java.beans;
 
 import sun.beans.editors.*;
 
-/**
+/** {@collect.stats}
  * The PropertyEditorManager can be used to locate a property editor for
  * any given type name.  This property editor must support the
  * java.beans.PropertyEditor interface for editing a given object.
@@ -54,7 +54,7 @@ import sun.beans.editors.*;
 
 public class PropertyEditorManager {
 
-    /**
+    /** {@collect.stats}
      * Register an editor class to be used to edit values of
      * a given target class.
      *
@@ -83,7 +83,7 @@ public class PropertyEditorManager {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Locate a value editor for a given target type.
      *
      * @param targetType  The Class object for the type to be edited
@@ -134,7 +134,7 @@ public class PropertyEditorManager {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the package names that will be searched for property editors.
      *
      * @return  The array of package names that will be searched in
@@ -149,7 +149,7 @@ public class PropertyEditorManager {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Change the list of package names that will be used for
      *          finding property editors.
      *

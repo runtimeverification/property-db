@@ -24,7 +24,7 @@
  */
 package java.beans;
 
-/**
+/** {@collect.stats}
  * An "IndexedPropertyChange" event gets delivered whenever a component that
  * conforms to the JavaBeans<TM> specification (a "bean") changes a bound
  * indexed property. This class is an extension of <code>PropertyChangeEvent</code>
@@ -44,7 +44,7 @@ public class IndexedPropertyChangeEvent extends PropertyChangeEvent {
 
     private int index;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>IndexedPropertyChangeEvent</code> object.
      *
      * @param source  The bean that fired the event.
@@ -62,7 +62,7 @@ public class IndexedPropertyChangeEvent extends PropertyChangeEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the index of the property that was changed.
      *
      * @return The index specifying the property element that was

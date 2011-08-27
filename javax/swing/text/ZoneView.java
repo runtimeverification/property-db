@@ -28,7 +28,7 @@ import java.util.Vector;
 import java.awt.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * ZoneView is a View implementation that creates zones for which
  * the child views are not created or stored until they are needed
  * for display or model/view translations.  This enables a substantial
@@ -81,7 +81,7 @@ public class ZoneView extends BoxView {
     int maxZonesLoaded = 3;
     Vector loadedZones;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ZoneView.
      *
      * @param elem the element this view is responsible for
@@ -92,14 +92,14 @@ public class ZoneView extends BoxView {
         loadedZones = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the current maximum zone size.
      */
     public int getMaximumZoneSize() {
         return maxZoneSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the desired maximum zone size.  A
      * zone may get larger than this size if
      * a single child view is larger than this
@@ -114,7 +114,7 @@ public class ZoneView extends BoxView {
         maxZoneSize = size;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the current setting of the number of zones
      * allowed to be loaded at the same time.
      */
@@ -122,7 +122,7 @@ public class ZoneView extends BoxView {
         return maxZonesLoaded;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current setting of the number of zones
      * allowed to be loaded at the same time. This will throw an
      * <code>IllegalArgumentException</code> if <code>mzl</code> is less
@@ -140,7 +140,7 @@ public class ZoneView extends BoxView {
         unloadOldZones();
     }
 
-    /**
+    /** {@collect.stats}
      * Called by a zone when it gets loaded.  This happens when
      * an attempt is made to display or perform a model/view
      * translation on a zone that was in an unloaded state.
@@ -163,7 +163,7 @@ public class ZoneView extends BoxView {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Unload a zone (Convert the zone to its memory saving state).
      * The zones are expected to represent a subset of the
      * child elements of the element this view is responsible for.
@@ -178,7 +178,7 @@ public class ZoneView extends BoxView {
         zone.removeAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if a zone is in the loaded state.
      * The zones are expected to represent a subset of the
      * child elements of the element this view is responsible for.
@@ -189,7 +189,7 @@ public class ZoneView extends BoxView {
         return (zone.getViewCount() > 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a view to represent a zone for the given
      * range within the model (which should be within
      * the range of this objects responsibility).  This
@@ -218,7 +218,7 @@ public class ZoneView extends BoxView {
         return zone;
     }
 
-    /**
+    /** {@collect.stats}
      * Loads all of the children to initialize the view.
      * This is called by the <code>setParent</code> method.
      * This is reimplemented to not load any children directly
@@ -238,7 +238,7 @@ public class ZoneView extends BoxView {
         handleInsert(offs0, offs1 - offs0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child view index representing the given position in
      * the model.
      *
@@ -277,7 +277,7 @@ public class ZoneView extends BoxView {
         // IMPLEMENT
     }
 
-    /**
+    /** {@collect.stats}
      * Break up the zone at the given index into pieces
      * of an acceptable size.
      */
@@ -298,7 +298,7 @@ public class ZoneView extends BoxView {
         replace(index, 1, newZones);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the zone position to use for the
      * end of a zone that starts at the given
      * position.  By default this returns something
@@ -320,7 +320,7 @@ public class ZoneView extends BoxView {
 
     // ---- View methods ----------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The superclass behavior will try to update the child views
      * which is not desired in this case, since the children are
      * zones and not directly effected by the changes to the
@@ -332,7 +332,7 @@ public class ZoneView extends BoxView {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the document
      * in a location that this view is responsible for.  This is largely
      * delegated to the superclass, but is reimplemented to update the
@@ -349,7 +349,7 @@ public class ZoneView extends BoxView {
         super.insertUpdate(changes, a, f);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.  This is largely
      * delegated to the superclass, but is reimplemented to update the
@@ -366,7 +366,7 @@ public class ZoneView extends BoxView {
         super.removeUpdate(changes, a, f);
     }
 
-    /**
+    /** {@collect.stats}
      * Internally created view that has the purpose of holding
      * the views that represent the children of the ZoneView
      * that have been arranged in a zone.
@@ -382,7 +382,7 @@ public class ZoneView extends BoxView {
             this.end = end;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates the child views and populates the
          * zone with them.  This is done by translating
          * the positions to child element index locations
@@ -406,7 +406,7 @@ public class ZoneView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the child views and returns to a
          * state of unloaded.
          */
@@ -415,7 +415,7 @@ public class ZoneView extends BoxView {
             removeAll();
         }
 
-        /**
+        /** {@collect.stats}
          * Determines if the zone is in the loaded state
          * or not.
          */
@@ -423,7 +423,7 @@ public class ZoneView extends BoxView {
             return (getViewCount() != 0);
         }
 
-        /**
+        /** {@collect.stats}
          * This method is reimplemented to not build the children
          * since the children are created when the zone is loaded
          * rather then when it is placed in the view hierarchy.
@@ -458,7 +458,7 @@ public class ZoneView extends BoxView {
             setSize(w, h);
         }
 
-        /**
+        /** {@collect.stats}
          * Publish the changes in preferences upward to the parent
          * view.
          * <p>
@@ -474,7 +474,7 @@ public class ZoneView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the child view index representing the given position in
          * the model.  Since the zone contains a cluster of the overall
          * set of child elements, we can determine the index fairly
@@ -520,7 +520,7 @@ public class ZoneView extends BoxView {
 
         // --- View methods ----------------------------------
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  This view
          * isn't directly responsible for an element so it returns
          * the outer classes attributes.
@@ -529,7 +529,7 @@ public class ZoneView extends BoxView {
             return ZoneView.this.getAttributes();
         }
 
-        /**
+        /** {@collect.stats}
          * Renders using the given rendering surface and area on that
          * surface.  This is implemented to load the zone if its not
          * already loaded, and then perform the superclass behavior.
@@ -543,7 +543,7 @@ public class ZoneView extends BoxView {
             super.paint(g, a);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.  This is implemented to first
          * make sure the zone is loaded before providing the superclass
@@ -561,7 +561,7 @@ public class ZoneView extends BoxView {
             return super.viewToModel(x, y, a, bias);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.  This is
          * implemented to provide the superclass behavior after first
@@ -580,7 +580,7 @@ public class ZoneView extends BoxView {
             return super.modelToView(pos, a, b);
         }
 
-        /**
+        /** {@collect.stats}
          * Start of the zones range.
          *
          * @see View#getStartOffset
@@ -589,14 +589,14 @@ public class ZoneView extends BoxView {
             return start.getOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * End of the zones range.
          */
         public int getEndOffset() {
             return end.getOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was inserted into
          * the document in a location that this view is responsible for.
          * If the zone has been loaded, the superclass behavior is
@@ -613,7 +613,7 @@ public class ZoneView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that something was removed from the document
          * in a location that this view is responsible for.
          * If the zone has been loaded, the superclass behavior is
@@ -630,7 +630,7 @@ public class ZoneView extends BoxView {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification from the document that attributes were changed
          * in a location that this view is responsible for.
          * If the zone has been loaded, the superclass behavior is

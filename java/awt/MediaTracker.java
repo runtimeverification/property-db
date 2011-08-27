@@ -29,7 +29,7 @@ import java.awt.Component;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
 
-/**
+/** {@collect.stats}
  * The <code>MediaTracker</code> class is a utility class to track
  * the status of a number of media objects. Media objects could
  * include audio clips as well as images, though currently only
@@ -167,7 +167,7 @@ import java.awt.image.ImageObserver;
  */
 public class MediaTracker implements java.io.Serializable {
 
-    /**
+    /** {@collect.stats}
      * A given <code>Component</code> that will be
      * tracked by a media tracker where the image will
      * eventually be drawn.
@@ -176,7 +176,7 @@ public class MediaTracker implements java.io.Serializable {
      * @see #MediaTracker(Component)
      */
     Component target;
-    /**
+    /** {@collect.stats}
      * The head of the list of <code>Images</code> that is being
      * tracked by the <code>MediaTracker</code>.
      *
@@ -191,7 +191,7 @@ public class MediaTracker implements java.io.Serializable {
      */
     private static final long serialVersionUID = -483174189758638095L;
 
-    /**
+    /** {@collect.stats}
      * Creates a media tracker to track images for a given component.
      * @param     comp the component on which the images
      *                     will eventually be drawn
@@ -200,7 +200,7 @@ public class MediaTracker implements java.io.Serializable {
         target = comp;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an image to the list of images being tracked by this media
      * tracker. The image will eventually be rendered at its default
      * (unscaled) size.
@@ -211,7 +211,7 @@ public class MediaTracker implements java.io.Serializable {
         addImage(image, id, -1, -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a scaled image to the list of images being tracked
      * by this media tracker. The image will eventually be
      * rendered at the indicated width and height.
@@ -226,21 +226,21 @@ public class MediaTracker implements java.io.Serializable {
                                  new ImageMediaEntry(this, image, id, w, h));
     }
 
-    /**
+    /** {@collect.stats}
      * Flag indicating that media is currently being loaded.
      * @see         java.awt.MediaTracker#statusAll
      * @see         java.awt.MediaTracker#statusID
      */
     public static final int LOADING = 1;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating that the downloading of media was aborted.
      * @see         java.awt.MediaTracker#statusAll
      * @see         java.awt.MediaTracker#statusID
      */
     public static final int ABORTED = 2;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating that the downloading of media encountered
      * an error.
      * @see         java.awt.MediaTracker#statusAll
@@ -248,7 +248,7 @@ public class MediaTracker implements java.io.Serializable {
      */
     public static final int ERRORED = 4;
 
-    /**
+    /** {@collect.stats}
      * Flag indicating that the downloading of media was completed
      * successfully.
      * @see         java.awt.MediaTracker#statusAll
@@ -258,7 +258,7 @@ public class MediaTracker implements java.io.Serializable {
 
     static final int DONE = (ABORTED | ERRORED | COMPLETE);
 
-    /**
+    /** {@collect.stats}
      * Checks to see if all images being tracked by this media tracker
      * have finished loading.
      * <p>
@@ -281,7 +281,7 @@ public class MediaTracker implements java.io.Serializable {
         return checkAll(false, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see if all images being tracked by this media tracker
      * have finished loading.
      * <p>
@@ -319,7 +319,7 @@ public class MediaTracker implements java.io.Serializable {
         return done;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the error status of all of the images.
      * @return   <code>true</code> if any of the images tracked
      *                  by this media tracker had an error during
@@ -338,7 +338,7 @@ public class MediaTracker implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of all media that have encountered an error.
      * @return       an array of media objects tracked by this
      *                        media tracker that have encountered
@@ -371,7 +371,7 @@ public class MediaTracker implements java.io.Serializable {
         return errors;
     }
 
-    /**
+    /** {@collect.stats}
      * Starts loading all images tracked by this media tracker. This
      * method waits until all the images being tracked have finished
      * loading.
@@ -391,7 +391,7 @@ public class MediaTracker implements java.io.Serializable {
         waitForAll(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Starts loading all images tracked by this media tracker. This
      * method waits until all the images being tracked have finished
      * loading, or until the length of time specified in milliseconds
@@ -436,7 +436,7 @@ public class MediaTracker implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates and returns the bitwise inclusive <b>OR</b> of the
      * status of all media that are tracked by this media tracker.
      * <p>
@@ -473,7 +473,7 @@ public class MediaTracker implements java.io.Serializable {
         return status;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see if all images tracked by this media tracker that
      * are tagged with the specified identifier have finished loading.
      * <p>
@@ -497,7 +497,7 @@ public class MediaTracker implements java.io.Serializable {
         return checkID(id, false, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see if all images tracked by this media tracker that
      * are tagged with the specified identifier have finished loading.
      * <p>
@@ -539,7 +539,7 @@ public class MediaTracker implements java.io.Serializable {
         return done;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks the error status of all of the images tracked by this
      * media tracker with the specified identifier.
      * @param        id   the identifier of the images to check
@@ -562,7 +562,7 @@ public class MediaTracker implements java.io.Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of media with the specified ID that
      * have encountered an error.
      * @param       id   the identifier of the images to check
@@ -602,7 +602,7 @@ public class MediaTracker implements java.io.Serializable {
         return errors;
     }
 
-    /**
+    /** {@collect.stats}
      * Starts loading all images tracked by this media tracker with the
      * specified identifier. This method waits until all the images with
      * the specified identifier have finished loading.
@@ -622,7 +622,7 @@ public class MediaTracker implements java.io.Serializable {
         waitForID(id, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Starts loading all images tracked by this media tracker with the
      * specified identifier. This method waits until all the images with
      * the specified identifier have finished loading, or until the
@@ -668,7 +668,7 @@ public class MediaTracker implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates and returns the bitwise inclusive <b>OR</b> of the
      * status of all media with the specified identifier that are
      * tracked by this media tracker.
@@ -709,7 +709,7 @@ public class MediaTracker implements java.io.Serializable {
         return status;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified image from this media tracker.
      * All instances of the specified image are removed,
      * regardless of scale or ID.
@@ -738,7 +738,7 @@ public class MediaTracker implements java.io.Serializable {
         notifyAll();    // Notify in case remaining images are "done".
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified image from the specified tracking
      * ID of this media tracker.
      * All instances of <code>Image</code> being tracked
@@ -769,7 +769,7 @@ public class MediaTracker implements java.io.Serializable {
         notifyAll();    // Notify in case remaining images are "done".
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified image with the specified
      * width, height, and ID from this media tracker.
      * Only the specified instance (with any duplicates) is removed.

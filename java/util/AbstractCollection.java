@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This class provides a skeletal implementation of the <tt>Collection</tt>
  * interface, to minimize the effort required to implement this interface. <p>
  *
@@ -59,7 +59,7 @@ package java.util;
  */
 
 public abstract class AbstractCollection<E> implements Collection<E> {
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
@@ -68,7 +68,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     // Query Operations
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements contained in this collection.
      *
      * @return an iterator over the elements contained in this collection
@@ -77,7 +77,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     public abstract int size();
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns <tt>size() == 0</tt>.
@@ -86,7 +86,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return size() == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over the elements in the collection,
@@ -109,7 +109,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns an array containing all the elements
@@ -143,7 +143,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return it.hasNext() ? finishToArray(r, it) : r;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns an array containing all the elements
@@ -190,7 +190,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return it.hasNext() ? finishToArray(r, it) : r;
     }
 
-    /**
+    /** {@collect.stats}
      * Reallocates the array being used within toArray when the iterator
      * returned more elements than expected, and finishes filling it from
      * the iterator.
@@ -222,7 +222,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     // Modification Operations
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation always throws an
@@ -238,7 +238,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over the collection looking for the
@@ -277,7 +277,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     // Bulk Operations
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over the specified collection,
@@ -297,7 +297,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over the specified collection, and adds
@@ -325,7 +325,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return modified;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over this collection, checking each
@@ -358,7 +358,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return modified;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over this collection, checking each
@@ -391,7 +391,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         return modified;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over this collection, removing each
@@ -417,7 +417,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 
     //  String conversion
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this collection.  The string
      * representation consists of a list of the collection's elements in the
      * order they are returned by its iterator, enclosed in square brackets

@@ -34,7 +34,7 @@ import javax.sound.midi.MidiFileFormat;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.InvalidMidiDataException;
 
-/**
+/** {@collect.stats}
  * A <code>MidiFileReader</code> supplies MIDI file-reading services.  Classes implementing this
  * interface can parse the format information from one or more types of
  * MIDI file, and can produce a <code>Sequence</code> object from files of these types.
@@ -44,7 +44,7 @@ import javax.sound.midi.InvalidMidiDataException;
  */
 public abstract class MidiFileReader {
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the input stream provided.  The stream must
      * point to valid MIDI file data.  In general, MIDI file readers may
      * need to read some data from the stream before determining whether they
@@ -65,7 +65,7 @@ public abstract class MidiFileReader {
     public abstract MidiFileFormat getMidiFileFormat(InputStream stream) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the URL provided.  The URL must
      * point to valid MIDI file data.
      * @param url the URL from which file format information should be
@@ -78,7 +78,7 @@ public abstract class MidiFileReader {
     public abstract MidiFileFormat getMidiFileFormat(URL url) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file format of the <code>File</code> provided.
      * The <code>File</code> must point to valid MIDI file data.
      * @param file the <code>File</code> from which file format information should be
@@ -91,7 +91,7 @@ public abstract class MidiFileReader {
     public abstract MidiFileFormat getMidiFileFormat(File file) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the input stream provided.  The stream must
      * point to valid MIDI file data.  In general, MIDI file readers may
      * need to read some data from the stream before determining whether they
@@ -113,7 +113,7 @@ public abstract class MidiFileReader {
     public abstract Sequence getSequence(InputStream stream) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the URL provided.  The URL must
      * point to valid MIDI file data.
      * @param url the URL for which the <code>Sequence</code> should be
@@ -127,7 +127,7 @@ public abstract class MidiFileReader {
     public abstract Sequence getSequence(URL url) throws InvalidMidiDataException, IOException;
 
 
-    /**
+    /** {@collect.stats}
      * Obtains a MIDI sequence from the <code>File</code> provided.  The <code>File</code> must
      * point to valid MIDI file data.
      * @param file the <code>File</code> from which the <code>Sequence</code> should be

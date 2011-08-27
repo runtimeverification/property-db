@@ -30,7 +30,7 @@ import java.io.InputStream;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 
-/**
+/** {@collect.stats}
  * A format conversion provider provides format conversion services
  * from one or more input formats to one or more output formats.
  * Converters include codecs, which encode and/or decode audio data,
@@ -53,7 +53,7 @@ public abstract class FormatConversionProvider {
 
     // NEW METHODS
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of source format encodings from which format
      * conversion services are provided by this provider.
      * @return array of source format encodings.  The array will always
@@ -62,7 +62,7 @@ public abstract class FormatConversionProvider {
     public abstract AudioFormat.Encoding[] getSourceEncodings();
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of target format encodings to which format
      * conversion services are provided by this provider.
      * @return array of target format encodings.  The array will always
@@ -71,7 +71,7 @@ public abstract class FormatConversionProvider {
     public abstract AudioFormat.Encoding[] getTargetEncodings();
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the format converter supports conversion from the
      * specified source format encoding.
      * @param sourceEncoding the source format encoding for which support is queried
@@ -90,7 +90,7 @@ public abstract class FormatConversionProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the format converter supports conversion to the
      * specified target format encoding.
      * @param targetEncoding the target format encoding for which support is queried
@@ -109,7 +109,7 @@ public abstract class FormatConversionProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of target format encodings supported by the format converter
      * given a particular source format.
      * If no target format encodings are supported for this source format,
@@ -119,7 +119,7 @@ public abstract class FormatConversionProvider {
     public abstract AudioFormat.Encoding[] getTargetEncodings(AudioFormat sourceFormat);
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the format converter supports conversion to a particular encoding
      * from a particular format.
      * @param targetEncoding desired encoding of the outgoing data
@@ -139,7 +139,7 @@ public abstract class FormatConversionProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the set of target formats with the encoding specified
      * supported by the format converter
      * If no target formats with the specified encoding are supported
@@ -149,7 +149,7 @@ public abstract class FormatConversionProvider {
     public abstract AudioFormat[] getTargetFormats(AudioFormat.Encoding targetEncoding, AudioFormat sourceFormat);
 
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the format converter supports conversion to one
      * particular format from another.
      * @param targetFormat desired format of outgoing data
@@ -169,7 +169,7 @@ public abstract class FormatConversionProvider {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream with the specified encoding from the given audio
      * input stream.
      * @param targetEncoding desired encoding of the stream after processing
@@ -181,7 +181,7 @@ public abstract class FormatConversionProvider {
     public abstract AudioInputStream getAudioInputStream(AudioFormat.Encoding targetEncoding, AudioInputStream sourceStream);
 
 
-    /**
+    /** {@collect.stats}
      * Obtains an audio input stream with the specified format from the given audio
      * input stream.
      * @param targetFormat desired data format of the stream after processing

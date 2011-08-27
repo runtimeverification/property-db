@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>ChoiceCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to display a list of choices
@@ -37,35 +37,35 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = -3975664071579892167L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String prompt;
-    /**
+    /** {@collect.stats}
      * @serial the list of choices
      * @since 1.4
      */
     private String[] choices;
-    /**
+    /** {@collect.stats}
      * @serial the choice to be used as the default choice
      * @since 1.4
      */
     private int defaultChoice;
-    /**
+    /** {@collect.stats}
      * @serial whether multiple selections are allowed from the list of
      * choices
      * @since 1.4
      */
     private boolean multipleSelectionsAllowed;
-    /**
+    /** {@collect.stats}
      * @serial the selected choices, represented as indexes into the
      *          <code>choices</code> list.
      * @since 1.4
      */
     private int[] selections;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>ChoiceCallback</code> with a prompt,
      * a list of choices, a default choice, and a boolean specifying
      * whether or not multiple selections from the list of choices are allowed.
@@ -114,7 +114,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         this.multipleSelectionsAllowed = multipleSelectionsAllowed;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the prompt.
      *
      * <p>
@@ -125,7 +125,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         return prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the list of choices.
      *
      * <p>
@@ -136,7 +136,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         return choices;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the defaultChoice.
      *
      * <p>
@@ -148,7 +148,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         return defaultChoice;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the boolean determining whether multiple selections from
      * the <code>choices</code> list are allowed.
      *
@@ -160,7 +160,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         return multipleSelectionsAllowed;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the selected choice.
      *
      * <p>
@@ -175,7 +175,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         this.selections[0] = selection;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the selected choices.
      *
      * <p>
@@ -195,7 +195,7 @@ public class ChoiceCallback implements Callback, java.io.Serializable {
         this.selections = selections;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the selected choices.
      *
      * <p>

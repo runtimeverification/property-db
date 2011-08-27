@@ -26,7 +26,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * Comprehensive information about the database as a whole.
  * <P>
  * This interface is implemented by driver vendors to let users know the capabilities
@@ -74,7 +74,7 @@ public interface DatabaseMetaData extends Wrapper {
     //----------------------------------------------------------------------
     // First, a variety of minor information about the target database.
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether the current user can call all the procedures
      * returned by the method <code>getProcedures</code>.
      *
@@ -83,7 +83,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean allProceduresAreCallable() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether the current user can use all the tables returned
      * by the method <code>getTables</code> in a <code>SELECT</code>
      * statement.
@@ -93,7 +93,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean allTablesAreSelectable() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the URL for this DBMS.
      *
      * @return the URL for this DBMS or <code>null</code> if it cannot be
@@ -102,7 +102,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getURL() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the user name as known to this database.
      *
      * @return the database user name
@@ -110,7 +110,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getUserName() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database is in read-only mode.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -118,7 +118,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean isReadOnly() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether <code>NULL</code> values are sorted high.
      * Sorted high means that <code>NULL</code> values
      * sort higher than any other value in a domain.  In an ascending order,
@@ -132,7 +132,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean nullsAreSortedHigh() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether <code>NULL</code> values are sorted low.
      * Sorted low means that <code>NULL</code> values
      * sort lower than any other value in a domain.  In an ascending order,
@@ -146,7 +146,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean nullsAreSortedLow() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether <code>NULL</code> values are sorted at the start regardless
      * of sort order.
      *
@@ -155,7 +155,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean nullsAreSortedAtStart() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether <code>NULL</code> values are sorted at the end regardless of
      * sort order.
      *
@@ -164,7 +164,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean nullsAreSortedAtEnd() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of this database product.
      *
      * @return database product name
@@ -172,7 +172,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getDatabaseProductName() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the version number of this database product.
      *
      * @return database version number
@@ -180,7 +180,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getDatabaseProductVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of this JDBC driver.
      *
      * @return JDBC driver name
@@ -188,7 +188,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getDriverName() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the version number of this JDBC driver as a <code>String</code>.
      *
      * @return JDBC driver version
@@ -196,21 +196,21 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getDriverVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves this JDBC driver's major version number.
      *
      * @return JDBC driver major version
      */
     int getDriverMajorVersion();
 
-    /**
+    /** {@collect.stats}
      * Retrieves this JDBC driver's minor version number.
      *
      * @return JDBC driver minor version number
      */
     int getDriverMinorVersion();
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database stores tables in a local file.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -218,7 +218,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean usesLocalFiles() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database uses a file for each table.
      *
      * @return <code>true</code> if this database uses a local file for each table;
@@ -227,7 +227,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean usesLocalFilePerTable() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case unquoted SQL identifiers as
      * case sensitive and as a result stores them in mixed case.
      *
@@ -236,7 +236,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMixedCaseIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case unquoted SQL identifiers as
      * case insensitive and stores them in upper case.
      *
@@ -245,7 +245,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesUpperCaseIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case unquoted SQL identifiers as
      * case insensitive and stores them in lower case.
      *
@@ -254,7 +254,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesLowerCaseIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case unquoted SQL identifiers as
      * case insensitive and stores them in mixed case.
      *
@@ -263,7 +263,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesMixedCaseIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case quoted SQL identifiers as
      * case sensitive and as a result stores them in mixed case.
      *
@@ -272,7 +272,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMixedCaseQuotedIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case quoted SQL identifiers as
      * case insensitive and stores them in upper case.
      *
@@ -281,7 +281,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesUpperCaseQuotedIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case quoted SQL identifiers as
      * case insensitive and stores them in lower case.
      *
@@ -290,7 +290,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesLowerCaseQuotedIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database treats mixed case quoted SQL identifiers as
      * case insensitive and stores them in mixed case.
      *
@@ -299,7 +299,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean storesMixedCaseQuotedIdentifiers() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the string used to quote SQL identifiers.
      * This method returns a space " " if identifier quoting is not supported.
      *
@@ -308,7 +308,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getIdentifierQuoteString() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a comma-separated list of all of this database's SQL keywords
      * that are NOT also SQL:2003 keywords.
      *
@@ -318,7 +318,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getSQLKeywords() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a comma-separated list of math functions available with
      * this database.  These are the Open /Open CLI math function names used in
      * the JDBC function escape clause.
@@ -328,7 +328,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getNumericFunctions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a comma-separated list of string functions available with
      * this database.  These are the  Open Group CLI string function names used
      * in the JDBC function escape clause.
@@ -338,7 +338,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getStringFunctions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a comma-separated list of system functions available with
      * this database.  These are the  Open Group CLI system function names used
      * in the JDBC function escape clause.
@@ -348,7 +348,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getSystemFunctions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a comma-separated list of the time and date functions available
      * with this database.
      *
@@ -357,7 +357,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getTimeDateFunctions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the string that can be used to escape wildcard characters.
      * This is the string that can be used to escape '_' or '%' in
      * the catalog search parameters that are a pattern (and therefore use one
@@ -372,7 +372,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getSearchStringEscape() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves all the "extra" characters that can be used in unquoted
      * identifier names (those beyond a-z, A-Z, 0-9 and _).
      *
@@ -384,7 +384,7 @@ public interface DatabaseMetaData extends Wrapper {
     //--------------------------------------------------------------------
     // Functions describing which features are supported.
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports <code>ALTER TABLE</code>
      * with add column.
      *
@@ -393,7 +393,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsAlterTableWithAddColumn() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports <code>ALTER TABLE</code>
      * with drop column.
      *
@@ -402,7 +402,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsAlterTableWithDropColumn() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports column aliasing.
      *
      * <P>If so, the SQL AS clause can be used to provide names for
@@ -414,7 +414,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsColumnAliasing() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports concatenations between
      * <code>NULL</code> and non-<code>NULL</code> values being
      * <code>NULL</code>.
@@ -424,7 +424,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean nullPlusNonNullIsNull() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the JDBC scalar function
      * <code>CONVERT</code> for the conversion of one JDBC type to another.
      * The JDBC types are the generic SQL data types defined
@@ -435,7 +435,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsConvert() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the JDBC scalar function
      * <code>CONVERT</code> for conversions between the JDBC types <i>fromType</i>
      * and <i>toType</i>.  The JDBC types are the generic SQL data types defined
@@ -451,7 +451,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsConvert(int fromType, int toType) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports table correlation names.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -459,7 +459,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsTableCorrelationNames() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether, when table correlation names are supported, they
      * are restricted to being different from the names of the tables.
      *
@@ -468,7 +468,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsDifferentTableCorrelationNames() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports expressions in
      * <code>ORDER BY</code> lists.
      *
@@ -477,7 +477,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsExpressionsInOrderBy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports using a column that is
      * not in the <code>SELECT</code> statement in an
      * <code>ORDER BY</code> clause.
@@ -487,7 +487,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsOrderByUnrelated() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports some form of
      * <code>GROUP BY</code> clause.
      *
@@ -496,7 +496,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsGroupBy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports using a column that is
      * not in the <code>SELECT</code> statement in a
      * <code>GROUP BY</code> clause.
@@ -506,7 +506,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsGroupByUnrelated() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports using columns not included in
      * the <code>SELECT</code> statement in a <code>GROUP BY</code> clause
      * provided that all of the columns in the <code>SELECT</code> statement
@@ -517,7 +517,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsGroupByBeyondSelect() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports specifying a
      * <code>LIKE</code> escape clause.
      *
@@ -526,7 +526,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsLikeEscapeClause() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports getting multiple
      * <code>ResultSet</code> objects from a single call to the
      * method <code>execute</code>.
@@ -536,7 +536,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMultipleResultSets() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database allows having multiple
      * transactions open at once (on different connections).
      *
@@ -545,7 +545,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMultipleTransactions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether columns in this database may be defined as non-nullable.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -553,7 +553,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsNonNullableColumns() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ODBC Minimum SQL grammar.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -561,7 +561,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMinimumSQLGrammar() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ODBC Core SQL grammar.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -569,7 +569,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCoreSQLGrammar() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ODBC Extended SQL grammar.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -577,7 +577,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsExtendedSQLGrammar() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ANSI92 entry level SQL
      * grammar.
      *
@@ -586,7 +586,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsANSI92EntryLevelSQL() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ANSI92 intermediate SQL grammar supported.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -594,7 +594,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsANSI92IntermediateSQL() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the ANSI92 full SQL grammar supported.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -602,7 +602,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsANSI92FullSQL() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the SQL Integrity
      * Enhancement Facility.
      *
@@ -611,7 +611,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsIntegrityEnhancementFacility() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports some form of outer join.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -619,7 +619,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsOuterJoins() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports full nested outer joins.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -627,7 +627,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsFullOuterJoins() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database provides limited support for outer
      * joins.  (This will be <code>true</code> if the method
      * <code>supportsFullOuterJoins</code> returns <code>true</code>).
@@ -637,7 +637,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsLimitedOuterJoins() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the database vendor's preferred term for "schema".
      *
      * @return the vendor term for "schema"
@@ -645,7 +645,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getSchemaTerm() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the database vendor's preferred term for "procedure".
      *
      * @return the vendor term for "procedure"
@@ -653,7 +653,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getProcedureTerm() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the database vendor's preferred term for "catalog".
      *
      * @return the vendor term for "catalog"
@@ -661,7 +661,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getCatalogTerm() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog appears at the start of a fully qualified
      * table name.  If not, the catalog appears at the end.
      *
@@ -671,7 +671,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean isCatalogAtStart() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>String</code> that this database uses as the
      * separator between a catalog and table name.
      *
@@ -680,7 +680,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     String getCatalogSeparator() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a schema name can be used in a data manipulation statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -688,7 +688,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSchemasInDataManipulation() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a schema name can be used in a procedure call statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -696,7 +696,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSchemasInProcedureCalls() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a schema name can be used in a table definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -704,7 +704,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSchemasInTableDefinitions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a schema name can be used in an index definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -712,7 +712,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSchemasInIndexDefinitions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a schema name can be used in a privilege definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -720,7 +720,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSchemasInPrivilegeDefinitions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog name can be used in a data manipulation statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -728,7 +728,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCatalogsInDataManipulation() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog name can be used in a procedure call statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -736,7 +736,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCatalogsInProcedureCalls() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog name can be used in a table definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -744,7 +744,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCatalogsInTableDefinitions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog name can be used in an index definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -752,7 +752,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCatalogsInIndexDefinitions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a catalog name can be used in a privilege definition statement.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -761,7 +761,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean supportsCatalogsInPrivilegeDefinitions() throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports positioned <code>DELETE</code>
      * statements.
      *
@@ -770,7 +770,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsPositionedDelete() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports positioned <code>UPDATE</code>
      * statements.
      *
@@ -779,7 +779,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsPositionedUpdate() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports <code>SELECT FOR UPDATE</code>
      * statements.
      *
@@ -788,7 +788,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSelectForUpdate() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports stored procedure calls
      * that use the stored procedure escape syntax.
      *
@@ -797,7 +797,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsStoredProcedures() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports subqueries in comparison
      * expressions.
      *
@@ -806,7 +806,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSubqueriesInComparisons() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports subqueries in
      * <code>EXISTS</code> expressions.
      *
@@ -815,7 +815,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSubqueriesInExists() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports subqueries in
      * <code>IN</code> expressions.
      *
@@ -824,7 +824,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSubqueriesInIns() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports subqueries in quantified
      * expressions.
      *
@@ -833,7 +833,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSubqueriesInQuantifieds() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports correlated subqueries.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -841,7 +841,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsCorrelatedSubqueries() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports SQL <code>UNION</code>.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -849,7 +849,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsUnion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports SQL <code>UNION ALL</code>.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -857,7 +857,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsUnionAll() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports keeping cursors open
      * across commits.
      *
@@ -867,7 +867,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsOpenCursorsAcrossCommit() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports keeping cursors open
      * across rollbacks.
      *
@@ -877,7 +877,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsOpenCursorsAcrossRollback() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports keeping statements open
      * across commits.
      *
@@ -887,7 +887,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsOpenStatementsAcrossCommit() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports keeping statements open
      * across rollbacks.
      *
@@ -905,7 +905,7 @@ public interface DatabaseMetaData extends Wrapper {
     // Unless otherwise specified, a result of zero means there is no
     // limit, or the limit is not known.
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of hex characters this database allows in an
      * inline binary literal.
      *
@@ -916,7 +916,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxBinaryLiteralLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters this database allows
      * for a character literal.
      *
@@ -927,7 +927,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxCharLiteralLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters this database allows
      * for a column name.
      *
@@ -938,7 +938,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of columns this database allows in a
      * <code>GROUP BY</code> clause.
      *
@@ -949,7 +949,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnsInGroupBy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of columns this database allows in an index.
      *
      * @return the maximum number of columns allowed;
@@ -959,7 +959,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnsInIndex() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of columns this database allows in an
      * <code>ORDER BY</code> clause.
      *
@@ -970,7 +970,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnsInOrderBy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of columns this database allows in a
      * <code>SELECT</code> list.
      *
@@ -981,7 +981,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnsInSelect() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of columns this database allows in a table.
      *
      * @return the maximum number of columns allowed;
@@ -991,7 +991,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxColumnsInTable() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of concurrent connections to this
      * database that are possible.
      *
@@ -1002,7 +1002,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxConnections() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters that this database allows in a
      * cursor name.
      *
@@ -1013,7 +1013,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxCursorNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of bytes this database allows for an
      * index, including all of the parts of the index.
      *
@@ -1025,7 +1025,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxIndexLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters that this database allows in a
      * schema name.
      *
@@ -1036,7 +1036,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxSchemaNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters that this database allows in a
      * procedure name.
      *
@@ -1047,7 +1047,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxProcedureNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters that this database allows in a
      * catalog name.
      *
@@ -1058,7 +1058,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxCatalogNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of bytes this database allows in
      * a single row.
      *
@@ -1068,7 +1068,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxRowSize() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether the return value for the method
      * <code>getMaxRowSize</code> includes the SQL data types
      * <code>LONGVARCHAR</code> and <code>LONGVARBINARY</code>.
@@ -1078,7 +1078,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean doesMaxRowSizeIncludeBlobs() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters this database allows in
      * an SQL statement.
      *
@@ -1089,7 +1089,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxStatementLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of active statements to this database
      * that can be open at the same time.
      *
@@ -1100,7 +1100,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxStatements() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters this database allows in
      * a table name.
      *
@@ -1111,7 +1111,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxTableNameLength() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of tables this database allows in a
      * <code>SELECT</code> statement.
      *
@@ -1122,7 +1122,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getMaxTablesInSelect() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the maximum number of characters this database allows in
      * a user name.
      *
@@ -1135,7 +1135,7 @@ public interface DatabaseMetaData extends Wrapper {
 
     //----------------------------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Retrieves this database's default transaction isolation level.  The
      * possible values are defined in <code>java.sql.Connection</code>.
      *
@@ -1145,7 +1145,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getDefaultTransactionIsolation() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports transactions. If not, invoking the
      * method <code>commit</code> is a noop, and the isolation level is
      * <code>TRANSACTION_NONE</code>.
@@ -1156,7 +1156,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsTransactions() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the given transaction isolation level.
      *
      * @param level one of the transaction isolation levels defined in
@@ -1168,7 +1168,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean supportsTransactionIsolationLevel(int level)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports both data definition and
      * data manipulation statements within a transaction.
      *
@@ -1177,7 +1177,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsDataDefinitionAndDataManipulationTransactions()
         throws SQLException;
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports only data manipulation
      * statements within a transaction.
      *
@@ -1187,7 +1187,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean supportsDataManipulationTransactionsOnly()
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a data definition statement within a transaction forces
      * the transaction to commit.
      *
@@ -1197,7 +1197,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean dataDefinitionCausesTransactionCommit()
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database ignores a data definition statement
      * within a transaction.
      *
@@ -1207,7 +1207,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean dataDefinitionIgnoredInTransactions()
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the stored procedures available in the given
      * catalog.
      * <P>
@@ -1256,7 +1256,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getProcedures(String catalog, String schemaPattern,
                             String procedureNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that it is not known whether the procedure returns
      * a result.
      * <P>
@@ -1266,7 +1266,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureResultUnknown  = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the procedure does not return a result.
      * <P>
      * A possible value for column <code>PROCEDURE_TYPE</code> in the
@@ -1275,7 +1275,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureNoResult               = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the procedure returns a result.
      * <P>
      * A possible value for column <code>PROCEDURE_TYPE</code> in the
@@ -1284,7 +1284,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureReturnsResult  = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the given catalog's stored procedure parameter
      * and result columns.
      *
@@ -1381,7 +1381,7 @@ public interface DatabaseMetaData extends Wrapper {
                                   String procedureNamePattern,
                                   String columnNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that type of the column is unknown.
      * <P>
      * A possible value for the column
@@ -1391,7 +1391,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureColumnUnknown = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column stores IN parameters.
      * <P>
      * A possible value for the column
@@ -1401,7 +1401,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureColumnIn = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column stores INOUT parameters.
      * <P>
      * A possible value for the column
@@ -1411,7 +1411,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureColumnInOut = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column stores OUT parameters.
      * <P>
      * A possible value for the column
@@ -1420,7 +1420,7 @@ public interface DatabaseMetaData extends Wrapper {
     * returned by the method <code>getProcedureColumns</code>.
      */
     int procedureColumnOut = 4;
-    /**
+    /** {@collect.stats}
      * Indicates that the column stores return values.
      * <P>
      * A possible value for the column
@@ -1430,7 +1430,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureColumnReturn = 5;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column stores results.
      * <P>
      * A possible value for the column
@@ -1440,7 +1440,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureColumnResult = 3;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values are not allowed.
      * <P>
      * A possible value for the column
@@ -1450,7 +1450,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values are allowed.
      * <P>
      * A possible value for the column
@@ -1460,7 +1460,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int procedureNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that whether <code>NULL</code> values are allowed
      * is unknown.
      * <P>
@@ -1472,7 +1472,7 @@ public interface DatabaseMetaData extends Wrapper {
     int procedureNullableUnknown = 2;
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the tables available in the given catalog.
      * Only table descriptions matching the catalog, schema, table
      * name and type criteria are returned.  They are ordered by
@@ -1521,7 +1521,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getTables(String catalog, String schemaPattern,
                         String tableNamePattern, String types[]) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the schema names available in this database.  The results
      * are ordered by <code>TABLE_CATALOG</code> and
      * <code>TABLE_SCHEM</code>.
@@ -1539,7 +1539,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getSchemas() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the catalog names available in this database.  The results
      * are ordered by catalog name.
      *
@@ -1554,7 +1554,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getCatalogs() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the table types available in this database.  The results
      * are ordered by table type.
      *
@@ -1571,7 +1571,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getTableTypes() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of table columns available in
      * the specified catalog.
      *
@@ -1660,7 +1660,7 @@ public interface DatabaseMetaData extends Wrapper {
                          String tableNamePattern, String columnNamePattern)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column might not allow <code>NULL</code> values.
      * <P>
      * A possible value for the column
@@ -1670,7 +1670,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int columnNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the column definitely allows <code>NULL</code> values.
      * <P>
      * A possible value for the column
@@ -1680,7 +1680,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int columnNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the nullability of columns is unknown.
      * <P>
      * A possible value for the column
@@ -1690,7 +1690,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int columnNullableUnknown = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the access rights for a table's columns.
      *
      * <P>Only privileges matching the column name criteria are
@@ -1729,7 +1729,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getColumnPrivileges(String catalog, String schema,
                                   String table, String columnNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the access rights for each table available
      * in a catalog. Note that a table privilege applies to one or
      * more columns in the table. It would be wrong to assume that
@@ -1772,7 +1772,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getTablePrivileges(String catalog, String schemaPattern,
                                  String tableNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of a table's optimal set of columns that
      * uniquely identifies a row. They are ordered by SCOPE.
      *
@@ -1826,7 +1826,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getBestRowIdentifier(String catalog, String schema,
                                    String table, int scope, boolean nullable) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the scope of the best row identifier is
      * very temporary, lasting only while the
      * row is being used.
@@ -1838,7 +1838,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowTemporary   = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the scope of the best row identifier is
      * the remainder of the current transaction.
      * <P>
@@ -1849,7 +1849,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowTransaction = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the scope of the best row identifier is
      * the remainder of the current session.
      * <P>
@@ -1860,7 +1860,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowSession     = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the best row identifier may or may not be a pseudo column.
      * <P>
      * A possible value for the column
@@ -1870,7 +1870,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowUnknown  = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the best row identifier is NOT a pseudo column.
      * <P>
      * A possible value for the column
@@ -1880,7 +1880,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowNotPseudo        = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the best row identifier is a pseudo column.
      * <P>
      * A possible value for the column
@@ -1890,7 +1890,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int bestRowPseudo   = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of a table's columns that are automatically
      * updated when any value in a row is updated.  They are
      * unordered.
@@ -1937,7 +1937,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getVersionColumns(String catalog, String schema,
                                 String table) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this version column may or may not be a pseudo column.
      * <P>
      * A possible value for the column
@@ -1947,7 +1947,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int versionColumnUnknown    = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this version column is NOT a pseudo column.
      * <P>
      * A possible value for the column
@@ -1957,7 +1957,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int versionColumnNotPseudo  = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this version column is a pseudo column.
      * <P>
      * A possible value for the column
@@ -1967,7 +1967,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int versionColumnPseudo     = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the given table's primary key columns.  They
      * are ordered by COLUMN_NAME.
      *
@@ -1999,7 +1999,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getPrimaryKeys(String catalog, String schema,
                              String table) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the primary key columns that are
      * referenced by the given table's foreign key columns (the primary keys
      * imported by a table).  They are ordered by PKTABLE_CAT,
@@ -2077,7 +2077,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getImportedKeys(String catalog, String schema,
                               String table) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * For the column <code>UPDATE_RULE</code>,
      * indicates that
      * when the primary key is updated, the foreign key (imported key)
@@ -2095,7 +2095,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyCascade      = 0;
 
-    /**
+    /** {@collect.stats}
      * For the column <code>UPDATE_RULE</code>, indicates that
      * a primary key may not be updated if it has been imported by
      * another table as a foreign key.
@@ -2111,7 +2111,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyRestrict = 1;
 
-    /**
+    /** {@collect.stats}
      * For the columns <code>UPDATE_RULE</code>
      * and <code>DELETE_RULE</code>, indicates that
      * when the primary key is updated or deleted, the foreign key (imported key)
@@ -2125,7 +2125,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeySetNull  = 2;
 
-    /**
+    /** {@collect.stats}
      * For the columns <code>UPDATE_RULE</code>
      * and <code>DELETE_RULE</code>, indicates that
      * if the primary key has been imported, it cannot be updated or deleted.
@@ -2138,7 +2138,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyNoAction = 3;
 
-    /**
+    /** {@collect.stats}
      * For the columns <code>UPDATE_RULE</code>
      * and <code>DELETE_RULE</code>, indicates that
      * if the primary key is updated or deleted, the foreign key (imported key)
@@ -2152,7 +2152,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeySetDefault  = 4;
 
-    /**
+    /** {@collect.stats}
      * Indicates deferrability.  See SQL-92 for a definition.
      * <P>
      * A possible value for the column <code>DEFERRABILITY</code>
@@ -2162,7 +2162,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyInitiallyDeferred  = 5;
 
-    /**
+    /** {@collect.stats}
      * Indicates deferrability.  See SQL-92 for a definition.
      * <P>
      * A possible value for the column <code>DEFERRABILITY</code>
@@ -2172,7 +2172,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyInitiallyImmediate  = 6;
 
-    /**
+    /** {@collect.stats}
      * Indicates deferrability.  See SQL-92 for a definition.
      * <P>
      * A possible value for the column <code>DEFERRABILITY</code>
@@ -2182,7 +2182,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int importedKeyNotDeferrable  = 7;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the foreign key columns that reference the
      * given table's primary key columns (the foreign keys exported by a
      * table).  They are ordered by FKTABLE_CAT, FKTABLE_SCHEM,
@@ -2261,7 +2261,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getExportedKeys(String catalog, String schema,
                               String table) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the foreign key columns in the given foreign key
      * table that reference the primary key or the columns representing a unique constraint of the  parent table (could be the same or a different table).
      * The number of columns returned from the parent table must match the number of
@@ -2349,7 +2349,7 @@ public interface DatabaseMetaData extends Wrapper {
                                 String foreignCatalog, String foreignSchema, String foreignTable
                                 ) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of all the data types supported by
      * this database. They are ordered by DATA_TYPE and then by how
      * closely the data type maps to the corresponding JDBC SQL type.
@@ -2415,7 +2415,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getTypeInfo() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a <code>NULL</code> value is NOT allowed for this
      * data type.
      * <P>
@@ -2425,7 +2425,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typeNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a <code>NULL</code> value is allowed for this
      * data type.
      * <P>
@@ -2435,7 +2435,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typeNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that it is not known whether a <code>NULL</code> value
      * is allowed for this data type.
      * <P>
@@ -2445,7 +2445,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typeNullableUnknown = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>WHERE</code> search clauses are not supported
      * for this type.
      * <P>
@@ -2455,7 +2455,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typePredNone = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the data type
      * can be only be used in <code>WHERE</code> search clauses
      * that  use <code>LIKE</code> predicates.
@@ -2466,7 +2466,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typePredChar = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the data type can be only be used in <code>WHERE</code>
      * search clauses
      * that do not use <code>LIKE</code> predicates.
@@ -2477,7 +2477,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typePredBasic = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that all <code>WHERE</code> search clauses can be
      * based on this type.
      * <P>
@@ -2487,7 +2487,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int typeSearchable  = 3;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the given table's indices and statistics. They are
      * ordered by NON_UNIQUE, TYPE, INDEX_NAME, and ORDINAL_POSITION.
      *
@@ -2549,7 +2549,7 @@ public interface DatabaseMetaData extends Wrapper {
                            boolean unique, boolean approximate)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this column contains table statistics that
      * are returned in conjunction with a table's index descriptions.
      * <P>
@@ -2559,7 +2559,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short tableIndexStatistic = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this table index is a clustered index.
      * <P>
      * A possible value for column <code>TYPE</code> in the
@@ -2568,7 +2568,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short tableIndexClustered = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this table index is a hashed index.
      * <P>
      * A possible value for column <code>TYPE</code> in the
@@ -2577,7 +2577,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short tableIndexHashed    = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that this table index is not a clustered
      * index, a hashed index, or table statistics;
      * it is something other than these.
@@ -2590,7 +2590,7 @@ public interface DatabaseMetaData extends Wrapper {
 
     //--------------------------JDBC 2.0-----------------------------
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the given result set type.
      *
      * @param type defined in <code>java.sql.ResultSet</code>
@@ -2601,7 +2601,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsResultSetType(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the given concurrency type
      * in combination with the given result set type.
      *
@@ -2615,7 +2615,7 @@ public interface DatabaseMetaData extends Wrapper {
     boolean supportsResultSetConcurrency(int type, int concurrency)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      *
      * Retrieves whether for the given type of <code>ResultSet</code> object,
      * the result set's own updates are visible.
@@ -2631,7 +2631,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean ownUpdatesAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a result set's own deletes are visible.
      *
      * @param type the <code>ResultSet</code> type; one of
@@ -2645,7 +2645,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean ownDeletesAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a result set's own inserts are visible.
      *
      * @param type the <code>ResultSet</code> type; one of
@@ -2659,7 +2659,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean ownInsertsAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether updates made by others are visible.
      *
      * @param type the <code>ResultSet</code> type; one of
@@ -2674,7 +2674,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean othersUpdatesAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether deletes made by others are visible.
      *
      * @param type the <code>ResultSet</code> type; one of
@@ -2689,7 +2689,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean othersDeletesAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether inserts made by others are visible.
      *
      * @param type the <code>ResultSet</code> type; one of
@@ -2704,7 +2704,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean othersInsertsAreVisible(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether or not a visible row update can be detected by
      * calling the method <code>ResultSet.rowUpdated</code>.
      *
@@ -2719,7 +2719,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean updatesAreDetected(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether or not a visible row delete can be detected by
      * calling the method <code>ResultSet.rowDeleted</code>.  If the method
      * <code>deletesAreDetected</code> returns <code>false</code>, it means that
@@ -2736,7 +2736,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean deletesAreDetected(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether or not a visible row insert can be detected
      * by calling the method <code>ResultSet.rowInserted</code>.
      *
@@ -2751,7 +2751,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean insertsAreDetected(int type) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports batch updates.
      *
      * @return <code>true</code> if this database supports batch upcates;
@@ -2761,7 +2761,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsBatchUpdates() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the user-defined types (UDTs) defined
      * in a particular schema.  Schema-specific UDTs may have type
      * <code>JAVA_OBJECT</code>, <code>STRUCT</code>,
@@ -2814,7 +2814,7 @@ public interface DatabaseMetaData extends Wrapper {
                       String typeNamePattern, int[] types)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the connection that produced this metadata object.
      * <P>
      * @return the connection that produced this metadata object
@@ -2825,7 +2825,7 @@ public interface DatabaseMetaData extends Wrapper {
 
     // ------------------- JDBC 3.0 -------------------------
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports savepoints.
      *
      * @return <code>true</code> if savepoints are supported;
@@ -2835,7 +2835,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsSavepoints() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports named parameters to callable
      * statements.
      *
@@ -2846,7 +2846,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsNamedParameters() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether it is possible to have multiple <code>ResultSet</code> objects
      * returned from a <code>CallableStatement</code> object
      * simultaneously.
@@ -2859,7 +2859,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsMultipleOpenResults() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether auto-generated keys can be retrieved after
      * a statement has been executed
      *
@@ -2873,7 +2873,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsGetGeneratedKeys() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the user-defined type (UDT) hierarchies defined in a
      * particular schema in this database. Only the immediate super type/
      * sub type relationship is modeled.
@@ -2917,7 +2917,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getSuperTypes(String catalog, String schemaPattern,
                             String typeNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the table hierarchies defined in a particular
      * schema in this database.
      *
@@ -2954,7 +2954,7 @@ public interface DatabaseMetaData extends Wrapper {
     ResultSet getSuperTables(String catalog, String schemaPattern,
                              String tableNamePattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values might not be allowed.
      * <P>
      * A possible value for the column
@@ -2963,7 +2963,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short attributeNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values are definitely allowed.
      * <P>
      * A possible value for the column <code>NULLABLE</code>
@@ -2972,7 +2972,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short attributeNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that whether <code>NULL</code> values are allowed is not
      * known.
      * <P>
@@ -2982,7 +2982,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     short attributeNullableUnknown = 2;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the given attribute of the given type
      * for a user-defined type (UDT) that is available in the given schema
      * and catalog.
@@ -3064,7 +3064,7 @@ public interface DatabaseMetaData extends Wrapper {
                             String typeNamePattern, String attributeNamePattern)
         throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports the given result set holdability.
      *
      * @param holdability one of the following constants:
@@ -3077,7 +3077,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsResultSetHoldability(int holdability) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves this database's default holdability for <code>ResultSet</code>
      * objects.
      *
@@ -3089,7 +3089,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getResultSetHoldability() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the major version number of the underlying database.
      *
      * @return the underlying database's major version
@@ -3098,7 +3098,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getDatabaseMajorVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the minor version number of the underlying database.
      *
      * @return underlying database's minor version
@@ -3107,7 +3107,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getDatabaseMinorVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the major JDBC version number for this
      * driver.
      *
@@ -3117,7 +3117,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getJDBCMajorVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the minor JDBC version number for this
      * driver.
      *
@@ -3127,7 +3127,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getJDBCMinorVersion() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      *  A possible return value for the method
      * <code>DatabaseMetaData.getSQLStateType</code> which is used to indicate
      * whether the value returned by the method
@@ -3138,7 +3138,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int sqlStateXOpen = 1;
 
-    /**
+    /** {@collect.stats}
      *  A possible return value for the method
      * <code>DatabaseMetaData.getSQLStateType</code> which is used to indicate
      * whether the value returned by the method
@@ -3148,7 +3148,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int sqlStateSQL = 2;
 
-     /**
+     /** {@collect.stats}
      *  A possible return value for the method
      * <code>DatabaseMetaData.getSQLStateType</code> which is used to indicate
      * whether the value returned by the method
@@ -3161,7 +3161,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int sqlStateSQL99 = sqlStateSQL;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether the SQLSTATE returned by <code>SQLException.getSQLState</code>
      * is X/Open (now known as Open Group) SQL CLI or SQL:2003.
      * @return the type of SQLSTATE; one of:
@@ -3172,7 +3172,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int getSQLStateType() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Indicates whether updates made to a LOB are made on a copy or directly
      * to the LOB.
      * @return <code>true</code> if updates are made to a copy of the LOB;
@@ -3182,7 +3182,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean locatorsUpdateCopy() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports statement pooling.
      *
      * @return <code>true</code> if so; <code>false</code> otherwise
@@ -3193,7 +3193,7 @@ public interface DatabaseMetaData extends Wrapper {
 
     //------------------------- JDBC 4.0 -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not this data source supports the SQL <code>ROWID</code> type,
      * and if so  the lifetime for which a <code>RowId</code> object remains valid.
      * <p>
@@ -3215,7 +3215,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     RowIdLifetime getRowIdLifetime() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the schema names available in this database.  The results
      * are ordered by <code>TABLE_CATALOG</code> and
      * <code>TABLE_SCHEM</code>.
@@ -3241,7 +3241,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getSchemas(String catalog, String schemaPattern) throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether this database supports invoking user-defined or vendor functions
      * using the stored procedure escape syntax.
      *
@@ -3251,7 +3251,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     boolean supportsStoredFunctionsUsingCallSyntax() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves whether a <code>SQLException</code> while autoCommit is <code>true</code> inidcates
      * that all open ResultSets are closed, even ones that are holdable.  When a <code>SQLException</code> occurs while
      * autocommit is <code>true</code>, it is vendor specific whether the JDBC driver responds with a commit operation, a
@@ -3263,7 +3263,7 @@ public interface DatabaseMetaData extends Wrapper {
      * @since 1.6
      */
     boolean autoCommitFailureClosesAllResultSets() throws SQLException;
-        /**
+        /** {@collect.stats}
          * Retrieves a list of the client info properties
          * that the driver supports.  The result set contains the following columns
          * <p>
@@ -3288,7 +3288,7 @@ public interface DatabaseMetaData extends Wrapper {
         ResultSet getClientInfoProperties()
                 throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the  system and user functions available
      * in the given catalog.
      * <P>
@@ -3338,7 +3338,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     ResultSet getFunctions(String catalog, String schemaPattern,
                             String functionNamePattern) throws SQLException;
-    /**
+    /** {@collect.stats}
      * Retrieves a description of the given catalog's system or user
      * function parameters and return type.
      *
@@ -3438,7 +3438,7 @@ public interface DatabaseMetaData extends Wrapper {
                                   String columnNamePattern) throws SQLException;
 
 
-    /**
+    /** {@collect.stats}
      * Indicates that type of the parameter or column is unknown.
      * <P>
      * A possible value for the column
@@ -3448,7 +3448,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionColumnUnknown = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the parameter or column is an IN parameter.
      * <P>
      *  A possible value for the column
@@ -3459,7 +3459,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionColumnIn = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the parameter or column is an INOUT parameter.
      * <P>
      * A possible value for the column
@@ -3470,7 +3470,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionColumnInOut = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the parameter or column is an OUT parameter.
      * <P>
      * A possible value for the column
@@ -3480,7 +3480,7 @@ public interface DatabaseMetaData extends Wrapper {
      * @since 1.6
      */
     int functionColumnOut = 3;
-    /**
+    /** {@collect.stats}
      * Indicates that the parameter or column is a return value.
      * <P>
      *  A possible value for the column
@@ -3491,7 +3491,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionReturn = 4;
 
-       /**
+       /** {@collect.stats}
      * Indicates that the parameter or column is a column in a result set.
      * <P>
      *  A possible value for the column
@@ -3503,7 +3503,7 @@ public interface DatabaseMetaData extends Wrapper {
     int functionColumnResult = 5;
 
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values are not allowed.
      * <P>
      * A possible value for the column
@@ -3514,7 +3514,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionNoNulls = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that <code>NULL</code> values are allowed.
      * <P>
      * A possible value for the column
@@ -3525,7 +3525,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionNullable = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that whether <code>NULL</code> values are allowed
      * is unknown.
      * <P>
@@ -3537,7 +3537,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionNullableUnknown = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that it is not known whether the function returns
      * a result or a table.
      * <P>
@@ -3548,7 +3548,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionResultUnknown   = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the function  does not return a table.
      * <P>
      * A possible value for column <code>FUNCTION_TYPE</code> in the
@@ -3558,7 +3558,7 @@ public interface DatabaseMetaData extends Wrapper {
      */
     int functionNoTable         = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the function  returns a table.
      * <P>
      * A possible value for column <code>FUNCTION_TYPE</code> in the

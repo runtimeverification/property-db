@@ -27,7 +27,7 @@ package java.awt;
 import java.awt.peer.ComponentPeer;
 
 
-/**
+/** {@collect.stats}
  * A FocusTraversalPolicy that determines traversal order based on the order
  * of child Components in a Container. From a particular focus cycle root, the
  * policy makes a pre-order traversal of the Component hierarchy, and traverses
@@ -75,7 +75,7 @@ public class DefaultFocusTraversalPolicy
      */
     private static final long serialVersionUID = 8876966522510157497L;
 
-    /**
+    /** {@collect.stats}
      * Determines whether a Component is an acceptable choice as the new
      * focus owner. The Component must be visible, displayable, and enabled
      * to be accepted. If client code has explicitly set the focusability

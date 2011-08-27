@@ -26,7 +26,7 @@
 package java.util;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * Hash table based implementation of the <tt>Map</tt> interface.  This
  * implementation provides all of the optional map operations, and permits
  * <tt>null</tt> values and the <tt>null</tt> key.  (The <tt>HashMap</tt>
@@ -126,47 +126,47 @@ public class HashMap<K,V>
     implements Map<K,V>, Cloneable, Serializable
 {
 
-    /**
+    /** {@collect.stats}
      * The default initial capacity - MUST be a power of two.
      */
     static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    /**
+    /** {@collect.stats}
      * The maximum capacity, used if a higher value is implicitly specified
      * by either of the constructors with arguments.
      * MUST be a power of two <= 1<<30.
      */
     static final int MAXIMUM_CAPACITY = 1 << 30;
 
-    /**
+    /** {@collect.stats}
      * The load factor used when none specified in constructor.
      */
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    /**
+    /** {@collect.stats}
      * The table, resized as necessary. Length MUST Always be a power of two.
      */
     transient Entry[] table;
 
-    /**
+    /** {@collect.stats}
      * The number of key-value mappings contained in this map.
      */
     transient int size;
 
-    /**
+    /** {@collect.stats}
      * The next size value at which to resize (capacity * load factor).
      * @serial
      */
     int threshold;
 
-    /**
+    /** {@collect.stats}
      * The load factor for the hash table.
      *
      * @serial
      */
     final float loadFactor;
 
-    /**
+    /** {@collect.stats}
      * The number of times this HashMap has been structurally modified
      * Structural modifications are those that change the number of mappings in
      * the HashMap or otherwise modify its internal structure (e.g.,
@@ -175,7 +175,7 @@ public class HashMap<K,V>
      */
     transient volatile int modCount;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <tt>HashMap</tt> with the specified initial
      * capacity and load factor.
      *
@@ -205,7 +205,7 @@ public class HashMap<K,V>
         init();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <tt>HashMap</tt> with the specified initial
      * capacity and the default load factor (0.75).
      *
@@ -216,7 +216,7 @@ public class HashMap<K,V>
         this(initialCapacity, DEFAULT_LOAD_FACTOR);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <tt>HashMap</tt> with the default initial capacity
      * (16) and the default load factor (0.75).
      */
@@ -227,7 +227,7 @@ public class HashMap<K,V>
         init();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <tt>HashMap</tt> with the same mappings as the
      * specified <tt>Map</tt>.  The <tt>HashMap</tt> is created with
      * default load factor (0.75) and an initial capacity sufficient to
@@ -244,7 +244,7 @@ public class HashMap<K,V>
 
     // internal utilities
 
-    /**
+    /** {@collect.stats}
      * Initialization hook for subclasses. This method is called
      * in all constructors and pseudo-constructors (clone, readObject)
      * after HashMap has been initialized but before any entries have
@@ -254,7 +254,7 @@ public class HashMap<K,V>
     void init() {
     }
 
-    /**
+    /** {@collect.stats}
      * Applies a supplemental hash function to a given hashCode, which
      * defends against poor quality hash functions.  This is critical
      * because HashMap uses power-of-two length hash tables, that
@@ -269,14 +269,14 @@ public class HashMap<K,V>
         return h ^ (h >>> 7) ^ (h >>> 4);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns index for hash code h.
      */
     static int indexFor(int h, int length) {
         return h & (length-1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of key-value mappings in this map.
      *
      * @return the number of key-value mappings in this map
@@ -285,7 +285,7 @@ public class HashMap<K,V>
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains no key-value mappings.
      *
      * @return <tt>true</tt> if this map contains no key-value mappings
@@ -294,7 +294,7 @@ public class HashMap<K,V>
         return size == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which the specified key is mapped,
      * or {@code null} if this map contains no mapping for the key.
      *
@@ -325,7 +325,7 @@ public class HashMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Offloaded version of get() to look up null keys.  Null keys map
      * to index 0.  This null case is split out into separate methods
      * for the sake of performance in the two most commonly used
@@ -340,7 +340,7 @@ public class HashMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the
      * specified key.
      *
@@ -352,7 +352,7 @@ public class HashMap<K,V>
         return getEntry(key) != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the entry associated with the specified key in the
      * HashMap.  Returns null if the HashMap contains no mapping
      * for the key.
@@ -371,7 +371,7 @@ public class HashMap<K,V>
     }
 
 
-    /**
+    /** {@collect.stats}
      * Associates the specified value with the specified key in this map.
      * If the map previously contained a mapping for the key, the old
      * value is replaced.
@@ -403,7 +403,7 @@ public class HashMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Offloaded version of put for null keys
      */
     private V putForNullKey(V value) {
@@ -420,7 +420,7 @@ public class HashMap<K,V>
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is used instead of put by constructors and
      * pseudoconstructors (clone, readObject).  It does not resize the table,
      * check for comodification, etc.  It calls createEntry rather than
@@ -430,7 +430,7 @@ public class HashMap<K,V>
         int hash = (key == null) ? 0 : hash(key.hashCode());
         int i = indexFor(hash, table.length);
 
-        /**
+        /** {@collect.stats}
          * Look for preexisting entry for key.  This will never happen for
          * clone or deserialize.  It will only happen for construction if the
          * input Map is a sorted map whose ordering is inconsistent w/ equals.
@@ -454,7 +454,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Rehashes the contents of this map into a new array with a
      * larger capacity.  This method is called automatically when the
      * number of keys in this map reaches its threshold.
@@ -482,7 +482,7 @@ public class HashMap<K,V>
         threshold = (int)(newCapacity * loadFactor);
     }
 
-    /**
+    /** {@collect.stats}
      * Transfers all entries from current table to newTable.
      */
     void transfer(Entry[] newTable) {
@@ -503,7 +503,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies all of the mappings from the specified map to this map.
      * These mappings will replace any mappings that this map had for
      * any of the keys currently in the specified map.
@@ -542,7 +542,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for the specified key from this map if present.
      *
      * @param  key key whose mapping is to be removed from the map
@@ -556,7 +556,7 @@ public class HashMap<K,V>
         return (e == null ? null : e.value);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes and returns the entry associated with the specified key
      * in the HashMap.  Returns null if the HashMap contains no mapping
      * for this key.
@@ -588,7 +588,7 @@ public class HashMap<K,V>
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * Special version of remove for EntrySet.
      */
     final Entry<K,V> removeMapping(Object o) {
@@ -621,7 +621,7 @@ public class HashMap<K,V>
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the mappings from this map.
      * The map will be empty after this call returns.
      */
@@ -633,7 +633,7 @@ public class HashMap<K,V>
         size = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map maps one or more keys to the
      * specified value.
      *
@@ -653,7 +653,7 @@ public class HashMap<K,V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Special-case code for containsValue with null argument
      */
     private boolean containsNullValue() {
@@ -665,7 +665,7 @@ public class HashMap<K,V>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>HashMap</tt> instance: the keys and
      * values themselves are not cloned.
      *
@@ -694,7 +694,7 @@ public class HashMap<K,V>
         Entry<K,V> next;
         final int hash;
 
-        /**
+        /** {@collect.stats}
          * Creates new entry.
          */
         Entry(int h, K k, V v, Entry<K,V> n) {
@@ -742,7 +742,7 @@ public class HashMap<K,V>
             return getKey() + "=" + getValue();
         }
 
-        /**
+        /** {@collect.stats}
          * This method is invoked whenever the value in an entry is
          * overwritten by an invocation of put(k,v) for a key k that's already
          * in the HashMap.
@@ -750,7 +750,7 @@ public class HashMap<K,V>
         void recordAccess(HashMap<K,V> m) {
         }
 
-        /**
+        /** {@collect.stats}
          * This method is invoked whenever the entry is
          * removed from the table.
          */
@@ -758,7 +758,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new entry with the specified key, value and hash code to
      * the specified bucket.  It is the responsibility of this
      * method to resize the table if appropriate.
@@ -772,7 +772,7 @@ public class HashMap<K,V>
             resize(2 * table.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Like addEntry except that this version is used when creating entries
      * as part of Map construction or "pseudo-construction" (cloning,
      * deserialization).  This version needn't worry about resizing the table.
@@ -868,7 +868,7 @@ public class HashMap<K,V>
 
     private transient Set<Map.Entry<K,V>> entrySet = null;
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the keys contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified
@@ -904,7 +904,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Collection} view of the values contained in this map.
      * The collection is backed by the map, so changes to the map are
      * reflected in the collection, and vice-versa.  If the map is
@@ -937,7 +937,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Set} view of the mappings contained in this map.
      * The set is backed by the map, so changes to the map are
      * reflected in the set, and vice-versa.  If the map is modified
@@ -984,7 +984,7 @@ public class HashMap<K,V>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Save the state of the <tt>HashMap</tt> instance to a stream (i.e.,
      * serialize it).
      *
@@ -1022,7 +1022,7 @@ public class HashMap<K,V>
 
     private static final long serialVersionUID = 362498820763181265L;
 
-    /**
+    /** {@collect.stats}
      * Reconstitute the <tt>HashMap</tt> instance from a stream (i.e.,
      * deserialize it).
      */

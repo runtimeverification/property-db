@@ -29,7 +29,7 @@ package javax.swing;
 import java.awt.event.*;
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * Manages all the <code>ToolTips</code> in the system.
  * <p>
  * ToolTipManager contains numerous properties for configuring how long it
@@ -59,7 +59,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     boolean showImmediately;
     private static final Object TOOL_TIP_MANAGER_KEY = new Object();
     transient Popup tipWindow;
-    /** The Window tip is being displayed in. This will be non-null if
+    /** {@collect.stats} The Window tip is being displayed in. This will be non-null if
      * the Window tip is in differs from that of insideComponent's Window.
      */
     private Window window;
@@ -91,7 +91,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         accessibilityKeyListener = new AccessibilityKeyListener();
     }
 
-    /**
+    /** {@collect.stats}
      * Enables or disables the tooltip.
      *
      * @param flag  true to enable the tip, false otherwise
@@ -103,7 +103,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this object is enabled.
      *
      * @return true if this object is enabled, false otherwise
@@ -112,7 +112,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         return enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * When displaying the <code>JToolTip</code>, the
      * <code>ToolTipManager</code> chooses to use a lightweight
      * <code>JPanel</code> if it fits. This method allows you to
@@ -126,7 +126,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         lightWeightPopupEnabled = aFlag;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if lightweight (all-Java) <code>Tooltips</code>
      * are in use, or false if heavyweight (native peer)
      * <code>Tooltips</code> are being used.
@@ -138,7 +138,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
 
-    /**
+    /** {@collect.stats}
      * Specifies the initial delay value.
      *
      * @param milliseconds  the number of milliseconds to delay
@@ -150,7 +150,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         enterTimer.setInitialDelay(milliseconds);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the initial delay value.
      *
      * @return an integer representing the initial delay value,
@@ -161,7 +161,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         return enterTimer.getInitialDelay();
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies the dismissal delay value.
      *
      * @param milliseconds  the number of milliseconds to delay
@@ -172,7 +172,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         insideTimer.setInitialDelay(milliseconds);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the dismissal delay value.
      *
      * @return an integer representing the dismissal delay value,
@@ -183,7 +183,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         return insideTimer.getInitialDelay();
     }
 
-    /**
+    /** {@collect.stats}
      * Used to specify the amount of time before the user has to wait
      * <code>initialDelay</code> milliseconds before a tooltip will be
      * shown. That is, if the tooltip is hidden, and the user moves into
@@ -201,7 +201,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         exitTimer.setInitialDelay(milliseconds);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the reshow delay property.
      *
      * @return reshown delay property
@@ -336,7 +336,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shared <code>ToolTipManager</code> instance.
      *
      * @return a shared <code>ToolTipManager</code> object
@@ -352,7 +352,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // add keylistener here to trigger tip for access
-    /**
+    /** {@collect.stats}
      * Registers a component for tooltip management.
      * <p>
      * This will register key bindings to show and hide the tooltip text
@@ -373,7 +373,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         component.addKeyListener(accessibilityKeyListener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a component from tooltip control.
      *
      * @param component  a <code>JComponent</code> object to remove
@@ -385,7 +385,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // implements java.awt.event.MouseListener
-    /**
+    /** {@collect.stats}
      *  Called when the mouse enters the region of a component.
      *  This determines whether the tool tip should be shown.
      *
@@ -448,7 +448,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // implements java.awt.event.MouseListener
-    /**
+    /** {@collect.stats}
      *  Called when the mouse exits the region of a component.
      *  Any tool tip showing should be hidden.
      *
@@ -519,7 +519,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // implements java.awt.event.MouseListener
-    /**
+    /** {@collect.stats}
      *  Called when the mouse is pressed.
      *  Any tool tip showing should be hidden.
      *
@@ -534,7 +534,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // implements java.awt.event.MouseMotionListener
-    /**
+    /** {@collect.stats}
      *  Called when the mouse is pressed and dragged.
      *  Does nothing.
      *
@@ -544,7 +544,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
     }
 
     // implements java.awt.event.MouseMotionListener
-    /**
+    /** {@collect.stats}
      *  Called when the mouse is moved.
      *  Determines whether the tool tip should be displayed.
      *
@@ -574,7 +574,7 @@ public class ToolTipManager extends MouseAdapter implements MouseMotionListener 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks to see if the tooltip needs to be changed in response to
      * the MouseMoved event <code>event</code>.
      */

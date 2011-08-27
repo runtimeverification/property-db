@@ -36,7 +36,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 
 
-/**
+/** {@collect.stats}
  * An implementation of a check box -- an item that can be selected or
  * deselected, and which displays its state to the user.
  * By convention, any number of check boxes in a group can be selected.
@@ -77,26 +77,26 @@ import java.io.IOException;
  */
 public class JCheckBox extends JToggleButton implements Accessible {
 
-    /** Identifies a change to the flat property. */
+    /** {@collect.stats} Identifies a change to the flat property. */
     public static final String BORDER_PAINTED_FLAT_CHANGED_PROPERTY = "borderPaintedFlat";
 
     private boolean flat = false;
 
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
     private static final String uiClassID = "CheckBoxUI";
 
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected check box button with no text, no icon.
      */
     public JCheckBox () {
         this(null, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected check box with an icon.
      *
      * @param icon  the Icon image to display
@@ -105,7 +105,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         this(null, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a check box with an icon and specifies whether
      * or not it is initially selected.
      *
@@ -117,7 +117,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         this(null, icon, selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected check box with text.
      *
      * @param text the text of the check box.
@@ -126,7 +126,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         this(text, null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a check box where properties are taken from the
      * Action supplied.
      *
@@ -138,7 +138,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a check box with text and specifies whether
      * or not it is initially selected.
      *
@@ -150,7 +150,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         this(text, null, selected);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an initially unselected check box with
      * the specified text and icon.
      *
@@ -161,7 +161,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         this(text, icon, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a check box with text and icon,
      * and specifies whether or not it is initially selected.
      *
@@ -176,7 +176,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         setHorizontalAlignment(LEADING);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>borderPaintedFlat</code> property,
      * which gives a hint to the look and feel as to the
      * appearance of the check box border.
@@ -208,7 +208,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the <code>borderPaintedFlat</code> property.
      *
      * @return the value of the <code>borderPaintedFlat</code> property
@@ -219,7 +219,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         return flat;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property to a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -229,7 +229,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string that specifies the name of the L&F class
      * that renders this component.
      *
@@ -245,7 +245,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * The icon for checkboxs comes from the look and feel,
      * not the Action; this is overriden to do nothing.
      */
@@ -268,7 +268,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
      }
 
 
-    /**
+    /** {@collect.stats}
      * See JComponent.readObject() for information about serialization
      * in Swing.
      */
@@ -282,7 +282,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this JCheckBox. This method
      * is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -300,7 +300,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JCheckBox.
      * For JCheckBoxes, the AccessibleContext takes the form of an
      * AccessibleJCheckBox.
@@ -319,7 +319,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JCheckBox</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to check box user-interface
@@ -336,7 +336,7 @@ public class JCheckBox extends JToggleButton implements Accessible {
      */
     protected class AccessibleJCheckBox extends AccessibleJToggleButton {
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the object

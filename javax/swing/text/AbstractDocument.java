@@ -38,7 +38,7 @@ import javax.swing.tree.TreeNode;
 import sun.font.BidiUtils;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * An implementation of the document interface to serve as a
  * basis for implementing various kinds of documents.  At this
  * level there is very little policy, so there is a corresponding
@@ -99,7 +99,7 @@ import sun.swing.SwingUtilities2;
  */
 public abstract class AbstractDocument implements Document, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>AbstractDocument</code>, wrapped around some
      * specified content storage mechanism.
      *
@@ -109,7 +109,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         this(data, StyleContext.getDefaultStyleContext());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>AbstractDocument</code>, wrapped around some
      * specified content storage mechanism.
      *
@@ -153,7 +153,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Supports managing a set of properties. Callers
      * can use the <code>documentProperties</code> dictionary
      * to annotate the document with document-wide properties.
@@ -168,7 +168,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return documentProperties;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the document properties dictionary for this document.
      *
      * @param x the new dictionary
@@ -178,7 +178,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         documentProperties = x;
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -207,7 +207,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -236,7 +236,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -265,7 +265,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -289,7 +289,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this document.
@@ -328,7 +328,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return listenerList.getListeners(listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the asynchronous loading priority.  If less than zero,
      * the document should not be loaded asynchronously.
      *
@@ -344,7 +344,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the asynchronous loading priority.
      * @param p the new asynchronous loading priority; a value
      *   less than zero indicates that the document should not be
@@ -355,7 +355,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         putProperty(AbstractDocument.AsyncLoadPriority, loadPriority);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>DocumentFilter</code>. The <code>DocumentFilter</code>
      * is passed <code>insert</code> and <code>remove</code> to conditionally
      * allow inserting/deleting of the text.  A <code>null</code> value
@@ -369,7 +369,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         documentFilter = filter;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>DocumentFilter</code> that is responsible for
      * filtering of insertion/removal. A <code>null</code> return value
      * implies no filtering is to occur.
@@ -384,7 +384,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     // --- Document methods -----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * This allows the model to be safely rendered in the presence
      * of currency, if the model supports being updated asynchronously.
      * The given runnable will be executed in a way that allows it
@@ -423,7 +423,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the data.  This is the number of
      * characters of content that represents the users data.
      *
@@ -434,7 +434,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return data.length() - 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a document listener for notification of any changes.
      *
      * @param listener the <code>DocumentListener</code> to add
@@ -444,7 +444,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         listenerList.add(DocumentListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a document listener.
      *
      * @param listener the <code>DocumentListener</code> to remove
@@ -454,7 +454,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         listenerList.remove(DocumentListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the document listeners
      * registered on this document.
      *
@@ -471,7 +471,7 @@ public abstract class AbstractDocument implements Document, Serializable {
                 DocumentListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an undo listener for notification of any changes.
      * Undo/Redo operations performed on the <code>UndoableEdit</code>
      * will cause the appropriate DocumentEvent to be fired to keep
@@ -484,7 +484,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         listenerList.add(UndoableEditListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an undo listener.
      *
      * @param listener the <code>UndoableEditListener</code> to remove
@@ -494,7 +494,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         listenerList.remove(UndoableEditListener.class, listener);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the undoable edit listeners
      * registered on this document.
      *
@@ -512,7 +512,7 @@ public abstract class AbstractDocument implements Document, Serializable {
                 UndoableEditListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method for looking up a property value. It is
      * equivalent to:
      * <pre>
@@ -528,7 +528,7 @@ public abstract class AbstractDocument implements Document, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * A convenience method for storing up a property value.  It is
      * equivalent to:
      * <pre>
@@ -564,7 +564,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes some content from the document.
      * Removing content causes a write lock to be held while the
      * actual changes are taking place.  Observers are notified
@@ -597,7 +597,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Performs the actual work of the remove. It is assumed the caller
      * will have obtained a <code>writeLock</code> before invoking this.
      */
@@ -631,7 +631,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the region of text from <code>offset</code> to
      * <code>offset + length</code>, and replaces it with <code>text</code>.
      * It is up to the implementation as to how this is implemented, some
@@ -677,7 +677,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts some content into the document.
      * Inserting content causes a write lock to be held while the
      * actual changes are taking place, followed by notification
@@ -714,7 +714,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Performs the actual work of inserting the text; it is assumed the
      * caller has obtained a write lock before invoking this.
      */
@@ -757,7 +757,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a sequence of text from the document.
      *
      * @param offset the starting offset >= 0
@@ -775,7 +775,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return str;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the text contained within the given portion
      * of the document.
      * <p>
@@ -814,7 +814,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         data.getChars(offset, length, txt);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a position that will track change as the document
      * is altered.
      * <p>
@@ -833,7 +833,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return data.createPosition(offs);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a position that represents the start of the document.  The
      * position returned can be counted on to track change and stay
      * located at the beginning of the document.
@@ -850,7 +850,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a position that represents the end of the document.  The
      * position returned can be counted on to track change and stay
      * located at the end of the document.
@@ -867,7 +867,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all root elements defined.  Typically, there
      * will only be one so the default implementation
      * is to return the default root element.
@@ -881,7 +881,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return elems;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root element that views should be based upon
      * unless some other mechanism for assigning views to element
      * structures is provided.
@@ -893,7 +893,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     // ---- local methods -----------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>FilterBypass</code>. This will create one if one
      * does not yet exist.
      */
@@ -904,7 +904,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return filterBypass;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the root element of the bidirectional structure for this
      * document.  Its children represent character runs with a given
      * Unicode bidi level.
@@ -913,7 +913,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return bidiRoot;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the text in the range <code>p0</code> to
      * <code>p1</code> is left to right.
      */
@@ -931,7 +931,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the paragraph element containing the given position.  Sub-classes
      * must define for themselves what exactly constitutes a paragraph.  They
      * should keep in mind however that a paragraph should at least be the
@@ -942,7 +942,7 @@ public abstract class AbstractDocument implements Document, Serializable {
     public abstract Element getParagraphElement(int pos);
 
 
-    /**
+    /** {@collect.stats}
      * Fetches the context for managing attributes.  This
      * method effectively establishes the strategy used
      * for compressing AttributeSet information.
@@ -953,7 +953,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return context;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates document structure as a result of text insertion.  This
      * will happen within a write lock.  If a subclass of
      * this class reimplements this method, it should delegate to the
@@ -987,7 +987,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Updates any document structure as a result of text removal.  This
      * method is called before the text is actually removed from the Content.
      * This will happen within a write lock. If a subclass
@@ -999,7 +999,7 @@ public abstract class AbstractDocument implements Document, Serializable {
     protected void removeUpdate(DefaultDocumentEvent chng) {
     }
 
-    /**
+    /** {@collect.stats}
      * Updates any document structure as a result of text removal.  This
      * method is called after the text has been removed from the Content.
      * This will happen within a write lock. If a subclass
@@ -1014,7 +1014,7 @@ public abstract class AbstractDocument implements Document, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Update the bidi element structure as a result of the given change
      * to the document.  The given change will be updated to reflect the
      * changes made to the bidi structure.
@@ -1171,7 +1171,7 @@ public abstract class AbstractDocument implements Document, Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Calculate the levels array for a range of paragraphs.
      */
     private byte[] calculateBidiLevels( int firstPStart, int lastPEnd ) {
@@ -1236,7 +1236,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return levels;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives a diagnostic dump.
      *
      * @param out the output stream
@@ -1249,7 +1249,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         bidiRoot.dump(out,0);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the content for the document.
      *
      * @return the content
@@ -1258,7 +1258,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a document leaf element.
      * Hook through which elements are created to represent the
      * document structure.  Because this implementation keeps
@@ -1277,7 +1277,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return new LeafElement(parent, a, p0, p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a document branch element, that can contain other elements.
      *
      * @param parent the parent element
@@ -1290,7 +1290,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     // --- Document locking ----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the current writing thread if there is one.
      * This can be used to distinguish whether a method is
      * being called as part of an existing modification or
@@ -1304,7 +1304,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         return currWriter;
     }
 
-    /**
+    /** {@collect.stats}
      * Acquires a lock to begin mutating the document this lock
      * protects.  There can be no writing, notification of changes, or
      * reading going on in order to gain the lock.  Additionally a thread is
@@ -1352,7 +1352,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Releases a write lock previously obtained via <code>writeLock</code>.
      * After decrementing the lock count if there are no oustanding locks
      * this will allow a new writer, or readers.
@@ -1367,7 +1367,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Acquires a lock to begin reading some state from the
      * document.  There can be multiple readers at the same time.
      * Writing blocks the readers until notification of the change
@@ -1394,7 +1394,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Does a read unlock.  This signals that one
      * of the readers is done.  If there are no more readers
      * then writing can begin again.  This should be balanced
@@ -1469,34 +1469,34 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     private transient int numReaders;
     private transient Thread currWriter;
-    /**
+    /** {@collect.stats}
      * The number of writers, all obtained from <code>currWriter</code>.
      */
     private transient int numWriters;
-    /**
+    /** {@collect.stats}
      * True will notifying listeners.
      */
     private transient boolean notifyingListeners;
 
     private static Boolean defaultI18NProperty;
 
-    /**
+    /** {@collect.stats}
      * Storage for document-wide properties.
      */
     private Dictionary<Object,Object> documentProperties = null;
 
-    /**
+    /** {@collect.stats}
      * The event listener list for the document.
      */
     protected EventListenerList listenerList = new EventListenerList();
 
-    /**
+    /** {@collect.stats}
      * Where the text is actually stored, and a set of marks
      * that track change as the document is edited are managed.
      */
     private Content data;
 
-    /**
+    /** {@collect.stats}
      * Factory for the attributes.  This is the strategy for
      * attribute compression and control of the lifetime of
      * a set of attributes as a collection.  This may be shared
@@ -1504,56 +1504,56 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     private AttributeContext context;
 
-    /**
+    /** {@collect.stats}
      * The root of the bidirectional structure for this document.  Its children
      * represent character runs with the same Unicode bidi level.
      */
     private transient BranchElement bidiRoot;
 
-    /**
+    /** {@collect.stats}
      * Filter for inserting/removing of text.
      */
     private DocumentFilter documentFilter;
 
-    /**
+    /** {@collect.stats}
      * Used by DocumentFilter to do actual insert/remove.
      */
     private transient DocumentFilter.FilterBypass filterBypass;
 
     private static final String BAD_LOCK_STATE = "document lock failure";
 
-    /**
+    /** {@collect.stats}
      * Error message to indicate a bad location.
      */
     protected static final String BAD_LOCATION = "document location failure";
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to represent paragraphs
      */
     public static final String ParagraphElementName = "paragraph";
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to represent content
      */
     public static final String ContentElementName = "content";
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to hold sections (lines/paragraphs).
      */
     public static final String SectionElementName = "section";
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to hold a unidirectional run
      */
     public static final String BidiElementName = "bidi level";
 
-    /**
+    /** {@collect.stats}
      * Name of the attribute used to specify element
      * names.
      */
     public static final String ElementNameAttribute = "$ename";
 
-    /**
+    /** {@collect.stats}
      * Document property that indicates whether internationalization
      * functions such as text reordering or reshaping should be
      * performed. This property should not be publicly exposed,
@@ -1565,20 +1565,20 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     static final String I18NProperty = "i18n";
 
-    /**
+    /** {@collect.stats}
      * Document property that indicates if a character has been inserted
      * into the document that is more than one byte long.  GlyphView uses
      * this to determine if it should use BreakIterator.
      */
     static final Object MultiByteProperty = "multiByte";
 
-    /**
+    /** {@collect.stats}
      * Document property that indicates asynchronous loading is
      * desired, with the thread priority given as the value.
      */
     static final String AsyncLoadPriority = "load priority";
 
-    /**
+    /** {@collect.stats}
      * Interface to describe a sequence of character content that
      * can be edited.  Implementations may or may not support a
      * history mechanism which will be reflected by whether or not
@@ -1587,7 +1587,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public interface Content {
 
-        /**
+        /** {@collect.stats}
          * Creates a position within the content that will
          * track change as the content is mutated.
          *
@@ -1597,14 +1597,14 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public Position createPosition(int offset) throws BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Current length of the sequence of character content.
          *
          * @return the length >= 0
          */
         public int length();
 
-        /**
+        /** {@collect.stats}
          * Inserts a string of characters into the sequence.
          *
          * @param where   offset into the sequence to make the insertion >= 0
@@ -1617,7 +1617,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public UndoableEdit insertString(int where, String str) throws BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Removes some portion of the sequence.
          *
          * @param where   The offset into the sequence to make the
@@ -1631,7 +1631,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public UndoableEdit remove(int where, int nitems) throws BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Fetches a string of characters contained in the sequence.
          *
          * @param where   Offset into the sequence to fetch >= 0.
@@ -1642,7 +1642,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public String getString(int where, int len) throws BadLocationException;
 
-        /**
+        /** {@collect.stats}
          * Gets a sequence of characters and copies them into a Segment.
          *
          * @param where the starting offset >= 0
@@ -1654,7 +1654,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         public void getChars(int where, int len, Segment txt) throws BadLocationException;
     }
 
-    /**
+    /** {@collect.stats}
      * An interface that can be used to allow MutableAttributeSet
      * implementations to use pluggable attribute compression
      * techniques.  Each mutation of the attribute set can be
@@ -1675,7 +1675,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public interface AttributeContext {
 
-        /**
+        /** {@collect.stats}
          * Adds an attribute to the given set, and returns
          * the new representative set.
          *
@@ -1687,7 +1687,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public AttributeSet addAttribute(AttributeSet old, Object name, Object value);
 
-        /**
+        /** {@collect.stats}
          * Adds a set of attributes to the element.
          *
          * @param old the old attribute set
@@ -1697,7 +1697,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public AttributeSet addAttributes(AttributeSet old, AttributeSet attr);
 
-        /**
+        /** {@collect.stats}
          * Removes an attribute from the set.
          *
          * @param old the old attribute set
@@ -1707,7 +1707,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public AttributeSet removeAttribute(AttributeSet old, Object name);
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param old the old attribute set
@@ -1717,7 +1717,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public AttributeSet removeAttributes(AttributeSet old, Enumeration<?> names);
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param old the old attribute set
@@ -1727,14 +1727,14 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public AttributeSet removeAttributes(AttributeSet old, AttributeSet attrs);
 
-        /**
+        /** {@collect.stats}
          * Fetches an empty AttributeSet.
          *
          * @return the attribute set
          */
         public AttributeSet getEmptySet();
 
-        /**
+        /** {@collect.stats}
          * Reclaims an attribute set.
          * This is a way for a MutableAttributeSet to mark that it no
          * longer need a particular immutable set.  This is only necessary
@@ -1746,7 +1746,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         public void reclaim(AttributeSet a);
     }
 
-    /**
+    /** {@collect.stats}
      * Implements the abstract part of an element.  By default elements
      * support attributes by having a field that represents the immutable
      * part of the current attribute set for the element.  The element itself
@@ -1765,7 +1765,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public abstract class AbstractElement implements Element, MutableAttributeSet, Serializable, TreeNode {
 
-        /**
+        /** {@collect.stats}
          * Creates a new AbstractElement.
          *
          * @param parent the parent element
@@ -1786,7 +1786,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Dumps a debugging representation of the element hierarchy.
          *
          * @param psOut the output stream
@@ -1846,7 +1846,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         // --- AttributeSet ----------------------------
         // delegated to the immutable field "attributes"
 
-        /**
+        /** {@collect.stats}
          * Gets the number of attributes that are defined.
          *
          * @return the number of attributes >= 0
@@ -1856,7 +1856,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.getAttributeCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          *
          * @param attrName the non-null attribute name
@@ -1867,7 +1867,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.isDefined(attrName);
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether two attribute sets are equal.
          *
          * @param attr the attribute set to check against
@@ -1878,7 +1878,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.isEqual(attr);
         }
 
-        /**
+        /** {@collect.stats}
          * Copies a set of attributes.
          *
          * @return the copy
@@ -1888,7 +1888,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.copyAttributes();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.
          *
          * @param attrName the non-null attribute name
@@ -1909,7 +1909,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the names of all attributes.
          *
          * @return the attribute names as an enumeration
@@ -1919,7 +1919,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.getAttributeNames();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute name/value is defined.
          *
          * @param name the non-null attribute name
@@ -1932,7 +1932,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Checks whether the element contains all the attributes.
          *
          * @param attrs the attributes to check
@@ -1943,7 +1943,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return attributes.containsAttributes(attrs);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the resolving parent.
          * If not overridden, the resolving parent defaults to
          * the parent element.
@@ -1963,7 +1963,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         // should fetch a new immutable record for the field
         // "attributes".
 
-        /**
+        /** {@collect.stats}
          * Adds an attribute to the element.
          *
          * @param name the non-null attribute name
@@ -1976,7 +1976,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             attributes = context.addAttribute(attributes, name, value);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a set of attributes to the element.
          *
          * @param attr the attributes to add
@@ -1988,7 +1988,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             attributes = context.addAttributes(attributes, attr);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes an attribute from the set.
          *
          * @param name the non-null attribute name
@@ -2000,7 +2000,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             attributes = context.removeAttribute(attributes, name);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param names the attribute names
@@ -2012,7 +2012,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             attributes = context.removeAttributes(attributes, names);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param attrs the attributes
@@ -2028,7 +2028,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the resolving parent.
          *
          * @param parent the parent, null if none
@@ -2056,7 +2056,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- Element methods -------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Retrieves the underlying model.
          *
          * @return the model
@@ -2065,7 +2065,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return AbstractDocument.this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the parent of the element.
          *
          * @return the parent
@@ -2074,7 +2074,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return parent;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the attributes for the element.
          *
          * @return the attribute set
@@ -2083,7 +2083,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          *
          * @return the name, null if none
@@ -2095,21 +2095,21 @@ public abstract class AbstractDocument implements Document, Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the starting offset in the model for the element.
          *
          * @return the offset >= 0
          */
         public abstract int getStartOffset();
 
-        /**
+        /** {@collect.stats}
          * Gets the ending offset in the model for the element.
          *
          * @return the offset >= 0
          */
         public abstract int getEndOffset();
 
-        /**
+        /** {@collect.stats}
          * Gets a child element.
          *
          * @param index the child index, >= 0 && < getElementCount()
@@ -2117,14 +2117,14 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public abstract Element getElement(int index);
 
-        /**
+        /** {@collect.stats}
          * Gets the number of children for the element.
          *
          * @return the number of children >= 0
          */
         public abstract int getElementCount();
 
-        /**
+        /** {@collect.stats}
          * Gets the child element index closest to the given model offset.
          *
          * @param offset the offset >= 0
@@ -2132,7 +2132,7 @@ public abstract class AbstractDocument implements Document, Serializable {
          */
         public abstract int getElementIndex(int offset);
 
-        /**
+        /** {@collect.stats}
          * Checks whether the element is a leaf.
          *
          * @return true if a leaf
@@ -2141,7 +2141,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- TreeNode methods -------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns the child <code>TreeNode</code> at index
          * <code>childIndex</code>.
          */
@@ -2149,7 +2149,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return (TreeNode)getElement(childIndex);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of children <code>TreeNode</code>'s
          * receiver contains.
          * @return the number of children <code>TreeNodews</code>'s
@@ -2159,7 +2159,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return getElementCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the parent <code>TreeNode</code> of the receiver.
          * @return the parent <code>TreeNode</code> of the receiver
          */
@@ -2167,7 +2167,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return (TreeNode)getParentElement();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of <code>node</code> in the receivers children.
          * If the receiver does not contain <code>node</code>, -1 will be
          * returned.
@@ -2182,14 +2182,14 @@ public abstract class AbstractDocument implements Document, Serializable {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver allows children.
          * @return true if the receiver allows children, otherwise false
          */
         public abstract boolean getAllowsChildren();
 
 
-        /**
+        /** {@collect.stats}
          * Returns the children of the receiver as an
          * <code>Enumeration</code>.
          * @return the children of the receiver as an <code>Enumeration</code>
@@ -2221,7 +2221,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Implements a composite element that contains other elements.
      * <p>
      * <strong>Warning:</strong>
@@ -2235,7 +2235,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public class BranchElement extends AbstractElement {
 
-        /**
+        /** {@collect.stats}
          * Constructs a composite element that initially contains
          * no children.
          *
@@ -2250,7 +2250,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             lastIndex = -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the child element that contains
          * the given model position.
          *
@@ -2268,7 +2268,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces content with a new set of elements.
          *
          * @param offset the starting offset >= 0
@@ -2296,7 +2296,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             nchildren = nchildren + delta;
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the element to a string.
          *
          * @return the string
@@ -2308,7 +2308,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- Element methods -----------------------------------
 
-        /**
+        /** {@collect.stats}
          * Gets the element name.
          *
          * @return the element name
@@ -2321,7 +2321,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return nm;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the starting offset in the model for the element.
          *
          * @return the offset >= 0
@@ -2330,7 +2330,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return children[0].getStartOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the ending offset in the model for the element.
          * @throws NullPointerException if this element has no children
          *
@@ -2342,7 +2342,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return child.getEndOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets a child element.
          *
          * @param index the child index, >= 0 && < getElementCount()
@@ -2355,7 +2355,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the number of children for the element.
          *
          * @return the number of children >= 0
@@ -2364,7 +2364,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return nchildren;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the child element index closest to the given model offset.
          *
          * @param offset the offset >= 0
@@ -2430,7 +2430,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return index;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether the element is a leaf.
          *
          * @return true if a leaf
@@ -2442,7 +2442,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // ------ TreeNode ----------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver allows children.
          * @return true if the receiver allows children, otherwise false
          */
@@ -2451,7 +2451,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the children of the receiver as an
          * <code>Enumeration</code>.
          * @return the children of the receiver
@@ -2474,7 +2474,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         private int lastIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Implements an element that directly represents content of
      * some kind.
      * <p>
@@ -2491,7 +2491,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public class LeafElement extends AbstractElement {
 
-        /**
+        /** {@collect.stats}
          * Constructs an element that represents content within the
          * document (has no children).
          *
@@ -2513,7 +2513,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the element to a string.
          *
          * @return the string
@@ -2524,7 +2524,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- Element methods ---------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Gets the starting offset in the model for the element.
          *
          * @return the offset >= 0
@@ -2533,7 +2533,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return p0.getOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the ending offset in the model for the element.
          *
          * @return the offset >= 0
@@ -2542,7 +2542,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return p1.getOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the element name.
          *
          * @return the name
@@ -2555,7 +2555,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return nm;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the child element index closest to the given model offset.
          *
          * @param pos the offset >= 0
@@ -2565,7 +2565,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return -1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets a child element.
          *
          * @param index the child index, >= 0 && < getElementCount()
@@ -2575,7 +2575,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of child elements.
          *
          * @return the number of children >= 0
@@ -2584,7 +2584,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether the element is a leaf.
          *
          * @return true if a leaf
@@ -2595,7 +2595,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // ------ TreeNode ----------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns true if the receiver allows children.
          * @return true if the receiver allows children, otherwise false
          */
@@ -2604,7 +2604,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns the children of the receiver as an
          * <code>Enumeration</code>.
          * @return the children of the receiver
@@ -2645,7 +2645,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         private transient Position p1;
     }
 
-    /**
+    /** {@collect.stats}
      * Represents the root element of the bidirectional element structure.
      * The root element is the only element in the bidi element structure
      * which contains children.
@@ -2656,7 +2656,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             super( null, null );
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          * @return the name
          */
@@ -2665,12 +2665,12 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Represents an element of the bidirectional element structure.
      */
     class BidiElement extends LeafElement {
 
-        /**
+        /** {@collect.stats}
          * Creates a new BidiElement.
          */
         BidiElement(Element parent, int start, int end, int level) {
@@ -2680,7 +2680,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             //                   + " end = " + end + " level = " + level );
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the name of the element.
          * @return the name
          */
@@ -2701,7 +2701,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Stores document changes as the document is being
      * modified.  Can subsequently be used for change notification
      * when done with the document modification transaction.
@@ -2710,7 +2710,7 @@ public abstract class AbstractDocument implements Document, Serializable {
      */
     public class DefaultDocumentEvent extends CompoundEdit implements DocumentEvent {
 
-        /**
+        /** {@collect.stats}
          * Constructs a change record.
          *
          * @param offs the offset into the document of the change >= 0
@@ -2725,7 +2725,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             this.type = type;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string description of the change event.
          *
          * @return a string
@@ -2736,7 +2736,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- CompoundEdit methods --------------------------
 
-        /**
+        /** {@collect.stats}
          * Adds a document edit.  If the number of edits crosses
          * a threshold, this switches on a hashtable lookup for
          * ElementChange implementations since access of these
@@ -2769,7 +2769,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return super.addEdit(anEdit);
         }
 
-        /**
+        /** {@collect.stats}
          * Redoes a change.
          *
          * @exception CannotRedoException if the change cannot be redone
@@ -2793,7 +2793,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Undoes a change.
          *
          * @exception CannotUndoException if the change cannot be undone
@@ -2817,7 +2817,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * DefaultDocument events are significant.  If you wish to aggregate
          * DefaultDocumentEvents to present them as a single edit to the user
          * place them into a CompoundEdit.
@@ -2829,7 +2829,7 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
 
 
-        /**
+        /** {@collect.stats}
          * Provides a localized, human readable description of this edit
          * suitable for use in, say, a change log.
          *
@@ -2844,7 +2844,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return UIManager.getString("AbstractDocument.styleChangeText");
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a localized, human readable description of the undoable
          * form of this edit, e.g. for use as an Undo menu item. Typically
          * derived from getDescription();
@@ -2856,7 +2856,7 @@ public abstract class AbstractDocument implements Document, Serializable {
                 getPresentationName();
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a localized, human readable description of the redoable
          * form of this edit, e.g. for use as a Redo menu item. Typically
          * derived from getPresentationName();
@@ -2870,7 +2870,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
         // --- DocumentEvent methods --------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns the type of event.
          *
          * @return the event type as a DocumentEvent.EventType
@@ -2880,7 +2880,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return type;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the offset within the document of the start of the change.
          *
          * @return the offset >= 0
@@ -2890,7 +2890,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return offset;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the length of the change.
          *
          * @return the length >= 0
@@ -2900,7 +2900,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return length;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the document that sourced the change event.
          *
          * @return the document
@@ -2910,7 +2910,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return AbstractDocument.this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the changes for an element.
          *
          * @param elem the element
@@ -2942,7 +2942,7 @@ public abstract class AbstractDocument implements Document, Serializable {
 
     }
 
-    /**
+    /** {@collect.stats}
      * This event used when firing document changes while Undo/Redo
      * operations. It just wraps DefaultDocumentEvent and delegates
      * all calls to it except getType() which depends on operation
@@ -2996,13 +2996,13 @@ public abstract class AbstractDocument implements Document, Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An implementation of ElementChange that can be added to the document
      * event.
      */
     public static class ElementEdit extends AbstractUndoableEdit implements DocumentEvent.ElementChange {
 
-        /**
+        /** {@collect.stats}
          * Constructs an edit record.  This does not modify the element
          * so it can safely be used to <em>catch up</em> a view to the
          * current model state for views that just attached to a model.
@@ -3020,7 +3020,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             this.added = added;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the underlying element.
          *
          * @return the element
@@ -3029,7 +3029,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return e;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index into the list of elements.
          *
          * @return the index >= 0
@@ -3038,7 +3038,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return index;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets a list of children that were removed.
          *
          * @return the list
@@ -3047,7 +3047,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return removed;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets a list of children that were added.
          *
          * @return the list
@@ -3056,7 +3056,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             return added;
         }
 
-        /**
+        /** {@collect.stats}
          * Redoes a change.
          *
          * @exception CannotRedoException if the change cannot be redone
@@ -3073,7 +3073,7 @@ public abstract class AbstractDocument implements Document, Serializable {
             ((AbstractDocument.BranchElement)e).replace(index, removed.length, added);
         }
 
-        /**
+        /** {@collect.stats}
          * Undoes a change.
          *
          * @exception CannotUndoException if the change cannot be undone

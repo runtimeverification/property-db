@@ -40,7 +40,7 @@ import java.util.ServiceLoader;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * <p>Factory to create JMX API connector servers.  There
  * are no instances of this class.</p>
  *
@@ -157,7 +157,7 @@ import javax.management.ObjectName;
  */
 public class JMXConnectorServerFactory {
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the default class
      * loader.  This class loader is used to deserialize objects in
      * requests received from the client, possibly after consulting an
@@ -167,7 +167,7 @@ public class JMXConnectorServerFactory {
     public static final String DEFAULT_CLASS_LOADER =
         JMXConnectorFactory.DEFAULT_CLASS_LOADER;
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the default class
      * loader MBean name.  This class loader is used to deserialize objects in
      * requests received from the client, possibly after consulting an
@@ -177,7 +177,7 @@ public class JMXConnectorServerFactory {
     public static final String DEFAULT_CLASS_LOADER_NAME =
         "jmx.remote.default.class.loader.name";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the provider packages
      * that are consulted when looking for the handler for a protocol.
      * The value associated with this attribute is a string with
@@ -186,7 +186,7 @@ public class JMXConnectorServerFactory {
     public static final String PROTOCOL_PROVIDER_PACKAGES =
         "jmx.remote.protocol.provider.pkgs";
 
-    /**
+    /** {@collect.stats}
      * <p>Name of the attribute that specifies the class
      * loader for loading protocol providers.
      * The value associated with this attribute is an instance
@@ -201,7 +201,7 @@ public class JMXConnectorServerFactory {
     private static final ClassLogger logger =
         new ClassLogger("javax.management.remote.misc","JMXConnectorServerFactory");
 
-    /** There are no instances of this class.  */
+    /** {@collect.stats} There are no instances of this class.  */
     private JMXConnectorServerFactory() {
     }
 
@@ -247,7 +247,7 @@ public class JMXConnectorServerFactory {
             throw exception;
     }
 
-    /**
+    /** {@collect.stats}
      * <p>Creates a connector server at the given address.  The
      * resultant server is not started until its {@link
      * JMXConnectorServer#start() start} method is called.</p>

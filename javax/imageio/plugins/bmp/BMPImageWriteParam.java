@@ -30,7 +30,7 @@ import javax.imageio.ImageWriteParam;
 
 import com.sun.imageio.plugins.bmp.BMPConstants;
 
-/**
+/** {@collect.stats}
  * A subclass of <code>ImageWriteParam</code> for encoding images in
  * the BMP format.
  *
@@ -66,7 +66,7 @@ public class BMPImageWriteParam extends ImageWriteParam {
 
     private boolean topDown = false;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>BMPImageWriteParam</code> set to use a given
      * <code>Locale</code> and with default values for all parameters.
      *
@@ -86,7 +86,7 @@ public class BMPImageWriteParam extends ImageWriteParam {
         compressionType = compressionTypes[BMPConstants.BI_RGB];
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>BMPImageWriteParam</code> object with default
      * values for all parameters and a <code>null</code> <code>Locale</code>.
      */
@@ -94,7 +94,7 @@ public class BMPImageWriteParam extends ImageWriteParam {
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * If set, the data will be written out in a top-down manner, the first
      * scanline being written first.
      *
@@ -104,7 +104,7 @@ public class BMPImageWriteParam extends ImageWriteParam {
         this.topDown = topDown;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the <code>topDown</code> parameter.
      * The default is <code>false</code>.
      *

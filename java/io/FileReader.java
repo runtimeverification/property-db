@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Convenience class for reading character files.  The constructors of this
  * class assume that the default character encoding and the default byte-buffer
  * size are appropriate.  To specify these values yourself, construct an
@@ -44,7 +44,7 @@ package java.io;
  */
 public class FileReader extends InputStreamReader {
 
-   /**
+   /** {@collect.stats}
     * Creates a new <tt>FileReader</tt>, given the name of the
     * file to read from.
     *
@@ -58,7 +58,7 @@ public class FileReader extends InputStreamReader {
         super(new FileInputStream(fileName));
     }
 
-   /**
+   /** {@collect.stats}
     * Creates a new <tt>FileReader</tt>, given the <tt>File</tt>
     * to read from.
     *
@@ -72,7 +72,7 @@ public class FileReader extends InputStreamReader {
         super(new FileInputStream(file));
     }
 
-   /**
+   /** {@collect.stats}
     * Creates a new <tt>FileReader</tt>, given the
     * <tt>FileDescriptor</tt> to read from.
     *

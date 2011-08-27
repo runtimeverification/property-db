@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when attempting to destroy a context that
   * is not empty.
   *<p>
@@ -45,7 +45,7 @@ package javax.naming;
   * @since 1.3
   */
 public class ContextNotEmptyException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of ContextNotEmptyException using an
      * explanation. All other fields default to null.
      *
@@ -57,7 +57,7 @@ public class ContextNotEmptyException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of ContextNotEmptyException with
       * all name resolution fields and explanation initialized to null.
       */
@@ -65,7 +65,7 @@ public class ContextNotEmptyException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 1090963683348219877L;

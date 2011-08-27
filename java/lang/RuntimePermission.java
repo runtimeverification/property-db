@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/**
+/** {@collect.stats}
  * This class is for runtime permissions. A RuntimePermission
  * contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -333,7 +333,7 @@ public final class RuntimePermission extends BasicPermission {
 
     private static final long serialVersionUID = 7399184964622342223L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new RuntimePermission with the specified name.
      * The name is the symbolic name of the RuntimePermission, such as
      * "exit", "setFactory", etc. An asterisk
@@ -351,7 +351,7 @@ public final class RuntimePermission extends BasicPermission {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new RuntimePermission object with the specified name.
      * The name is the symbolic name of the RuntimePermission, and the
      * actions String is currently unused and should be null.

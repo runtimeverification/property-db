@@ -28,7 +28,7 @@ package javax.imageio.stream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageOutputStream</code> that writes its
  * output to a regular <code>OutputStream</code>.  A memory buffer is
  * used to cache at least the data between the discard position and
@@ -45,7 +45,7 @@ public class MemoryCacheImageOutputStream extends ImageOutputStreamImpl {
 
     private MemoryCache cache = new MemoryCache();
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MemoryCacheImageOutputStream</code> that will write
      * to a given <code>OutputStream</code>.
      *
@@ -128,7 +128,7 @@ public class MemoryCacheImageOutputStream extends ImageOutputStreamImpl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageOutputStream</code> caches data in order to allow
      * seeking backwards.
@@ -142,7 +142,7 @@ public class MemoryCacheImageOutputStream extends ImageOutputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since this
      * <code>ImageOutputStream</code> does not maintain a file cache.
      *
@@ -155,7 +155,7 @@ public class MemoryCacheImageOutputStream extends ImageOutputStreamImpl {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageOutputStream</code> maintains a main memory cache.
      *
@@ -168,7 +168,7 @@ public class MemoryCacheImageOutputStream extends ImageOutputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this <code>MemoryCacheImageOutputStream</code>.  All
      * pending data is flushed to the output, and the cache
      * is released.  The destination <code>OutputStream</code>

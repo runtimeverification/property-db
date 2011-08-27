@@ -30,7 +30,7 @@ package javax.xml.crypto.dom;
 import javax.xml.crypto.URIReference;
 import org.w3c.dom.Node;
 
-/**
+/** {@collect.stats}
  * A DOM-specific {@link URIReference}. The purpose of this class is to
  * provide additional context necessary for resolving XPointer URIs or
  * same-document references.
@@ -41,7 +41,7 @@ import org.w3c.dom.Node;
  */
 public interface DOMURIReference extends URIReference {
 
-    /**
+    /** {@collect.stats}
      * Returns the here node.
      *
      * @return the attribute or processing instruction node or the

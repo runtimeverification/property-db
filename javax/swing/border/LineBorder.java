@@ -34,7 +34,7 @@ import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 
-/**
+/** {@collect.stats}
  * A class which implements a line border of arbitrary thickness
  * and of a single color.
  * <p>
@@ -58,7 +58,7 @@ public class LineBorder extends AbstractBorder
     protected Color lineColor;
     protected boolean roundedCorners;
 
-    /** Convenience method for getting the Color.black LineBorder of thickness 1.
+    /** {@collect.stats} Convenience method for getting the Color.black LineBorder of thickness 1.
       */
     public static Border createBlackLineBorder() {
         if (blackLine == null) {
@@ -67,7 +67,7 @@ public class LineBorder extends AbstractBorder
         return blackLine;
     }
 
-    /** Convenience method for getting the Color.gray LineBorder of thickness 1.
+    /** {@collect.stats} Convenience method for getting the Color.gray LineBorder of thickness 1.
       */
     public static Border createGrayLineBorder() {
         if (grayLine == null) {
@@ -76,7 +76,7 @@ public class LineBorder extends AbstractBorder
         return grayLine;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a line border with the specified color and a
      * thickness = 1.
      * @param color the color for the border
@@ -85,7 +85,7 @@ public class LineBorder extends AbstractBorder
         this(color, 1, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a line border with the specified color and thickness.
      * @param color the color of the border
      * @param thickness the thickness of the border
@@ -94,7 +94,7 @@ public class LineBorder extends AbstractBorder
         this(color, thickness, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a line border with the specified color, thickness,
      * and corner shape.
      * @param color the color of the border
@@ -108,7 +108,7 @@ public class LineBorder extends AbstractBorder
         this.roundedCorners = roundedCorners;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the
      * specified position and size.
      * @param c the component for which this border is being painted
@@ -147,7 +147,7 @@ public class LineBorder extends AbstractBorder
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
@@ -155,7 +155,7 @@ public class LineBorder extends AbstractBorder
         return new Insets(thickness, thickness, thickness, thickness);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -165,21 +165,21 @@ public class LineBorder extends AbstractBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the color of the border.
      */
     public Color getLineColor()     {
         return lineColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the thickness of the border.
      */
     public int getThickness()       {
         return thickness;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this border will be drawn with rounded corners.
      * @since 1.3
      */
@@ -187,7 +187,7 @@ public class LineBorder extends AbstractBorder
         return roundedCorners;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() {

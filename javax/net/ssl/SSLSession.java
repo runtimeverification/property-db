@@ -28,7 +28,7 @@ package javax.net.ssl;
 import java.net.InetAddress;
 import java.security.Principal;
 
-/**
+/** {@collect.stats}
  * In SSL, sessions are used to describe an ongoing relationship between
  * two entities.  Each SSL connection involves one session at a time, but
  * that session may be used on many connections between those entities,
@@ -65,7 +65,7 @@ import java.security.Principal;
  */
 public interface SSLSession {
 
-    /**
+    /** {@collect.stats}
      * Returns the identifier assigned to this Session.
      *
      * @return the Session identifier
@@ -73,7 +73,7 @@ public interface SSLSession {
     public byte[] getId();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the context in which this session is bound.
      * <P>
      * This context may be unavailable in some environments,
@@ -94,7 +94,7 @@ public interface SSLSession {
     public SSLSessionContext getSessionContext();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the time at which this Session representation was created,
      * in milliseconds since midnight, January 1, 1970 UTC.
      *
@@ -103,7 +103,7 @@ public interface SSLSession {
     public long getCreationTime();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the last time this Session representation was accessed by the
      * session level infrastructure, in milliseconds since
      * midnight, January 1, 1970 UTC.
@@ -122,7 +122,7 @@ public interface SSLSession {
     public long getLastAccessedTime();
 
 
-    /**
+    /** {@collect.stats}
      * Invalidates the session.
      * <P>
      * Future connections will not be able to
@@ -135,7 +135,7 @@ public interface SSLSession {
     public void invalidate();
 
 
-    /**
+    /** {@collect.stats}
      * Returns whether this session is valid and available for resuming or
      * joining.
      *
@@ -147,7 +147,7 @@ public interface SSLSession {
     public boolean isValid();
 
 
-    /**
+    /** {@collect.stats}
      *
      * Binds the specified <code>value</code> object into the
      * session's application layer data
@@ -169,7 +169,7 @@ public interface SSLSession {
     public void putValue(String name, Object value);
 
 
-    /**
+    /** {@collect.stats}
      * Returns the object bound to the given name in the session's
      * application layer data.  Returns null if there is no such binding.
      * <p>
@@ -184,7 +184,7 @@ public interface SSLSession {
     public Object getValue(String name);
 
 
-    /**
+    /** {@collect.stats}
      * Removes the object bound to the given name in the session's
      * application layer data.  Does nothing if there is no object
      * bound to the given name.  If the bound existing object
@@ -201,7 +201,7 @@ public interface SSLSession {
     public void removeValue(String name);
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of the names of all the application layer
      * data objects bound into the Session.
      * <p>
@@ -213,7 +213,7 @@ public interface SSLSession {
      */
     public String [] getValueNames();
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was established as part
      * of defining the session.
      * <P>
@@ -231,7 +231,7 @@ public interface SSLSession {
     public java.security.cert.Certificate [] getPeerCertificates()
             throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
      * Returns the certificate(s) that were sent to the peer during
      * handshaking.
      * <P>
@@ -253,7 +253,7 @@ public interface SSLSession {
      */
     public java.security.cert.Certificate [] getLocalCertificates();
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was identified as part
      * of defining the session.
      * <P>
@@ -277,7 +277,7 @@ public interface SSLSession {
     public javax.security.cert.X509Certificate [] getPeerCertificateChain()
             throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
      * Returns the identity of the peer which was established as part of
      * defining the session.
      *
@@ -296,7 +296,7 @@ public interface SSLSession {
     public Principal getPeerPrincipal()
             throws SSLPeerUnverifiedException;
 
-    /**
+    /** {@collect.stats}
      * Returns the principal that was sent to the peer during handshaking.
      *
      * @return the principal sent to the peer. Returns an X500Principal
@@ -311,7 +311,7 @@ public interface SSLSession {
      */
     public Principal getLocalPrincipal();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the SSL cipher suite which is used for all
      * connections in the session.
      *
@@ -323,7 +323,7 @@ public interface SSLSession {
      */
     public String getCipherSuite();
 
-    /**
+    /** {@collect.stats}
      * Returns the standard name of the protocol used for all
      * connections in the session.
      *
@@ -334,7 +334,7 @@ public interface SSLSession {
      */
     public String getProtocol();
 
-    /**
+    /** {@collect.stats}
      * Returns the host name of the peer in this session.
      * <P>
      * For the server, this is the client's host;  and for
@@ -354,7 +354,7 @@ public interface SSLSession {
      */
     public String getPeerHost();
 
-    /**
+    /** {@collect.stats}
      * Returns the port number of the peer in this session.
      * <P>
      * For the server, this is the client's port number;  and for
@@ -371,7 +371,7 @@ public interface SSLSession {
      */
     public int getPeerPort();
 
-    /**
+    /** {@collect.stats}
      * Gets the current size of the largest SSL/TLS packet that is expected
      * when using this session.
      * <P>
@@ -391,7 +391,7 @@ public interface SSLSession {
     public int getPacketBufferSize();
 
 
-    /**
+    /** {@collect.stats}
      * Gets the current size of the largest application data that is
      * expected when using this session.
      * <P>

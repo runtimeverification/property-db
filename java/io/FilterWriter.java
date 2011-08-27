@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Abstract class for writing filtered character streams.
  * The abstract class <code>FilterWriter</code> itself
  * provides default methods that pass all requests to the
@@ -40,12 +40,12 @@ package java.io;
 
 public abstract class FilterWriter extends Writer {
 
-    /**
+    /** {@collect.stats}
      * The underlying character-output stream.
      */
     protected Writer out;
 
-    /**
+    /** {@collect.stats}
      * Create a new filtered writer.
      *
      * @param out  a Writer object to provide the underlying stream.
@@ -56,7 +56,7 @@ public abstract class FilterWriter extends Writer {
         this.out = out;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a single character.
      *
      * @exception  IOException  If an I/O error occurs
@@ -65,7 +65,7 @@ public abstract class FilterWriter extends Writer {
         out.write(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of an array of characters.
      *
      * @param  cbuf  Buffer of characters to be written
@@ -78,7 +78,7 @@ public abstract class FilterWriter extends Writer {
         out.write(cbuf, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a portion of a string.
      *
      * @param  str  String to be written
@@ -91,7 +91,7 @@ public abstract class FilterWriter extends Writer {
         out.write(str, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the stream.
      *
      * @exception  IOException  If an I/O error occurs

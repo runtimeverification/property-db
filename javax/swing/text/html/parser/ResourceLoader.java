@@ -27,7 +27,7 @@ package javax.swing.text.html.parser;
 
 import java.io.InputStream;
 
-/**
+/** {@collect.stats}
  * Simple class to load resources using the 1.2
  * security model.  Since the html support is loaded
  * lazily, it's resources are potentially fetched with

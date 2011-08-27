@@ -27,7 +27,7 @@ package javax.swing.tree;
 
 import javax.swing.event.TreeExpansionEvent;
 
-/**
+/** {@collect.stats}
  * Exception used to stop and expand/collapse from happening.
  * See <a
  href="http://java.sun.com/docs/books/tutorial/uiswing/events/treewillexpandlistener.html">How to Write a Tree-Will-Expand Listener</a>
@@ -37,10 +37,10 @@ import javax.swing.event.TreeExpansionEvent;
  * @author Scott Violet
  */
 public class ExpandVetoException extends Exception {
-    /** The event that the exception was created for. */
+    /** {@collect.stats} The event that the exception was created for. */
     protected TreeExpansionEvent      event;
 
-    /**
+    /** {@collect.stats}
      * Constructs an ExpandVetoException object with no message.
      *
      * @param event  a TreeExpansionEvent object
@@ -50,7 +50,7 @@ public class ExpandVetoException extends Exception {
         this(event, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an ExpandVetoException object with the specified message.
      *
      * @param event    a TreeExpansionEvent object

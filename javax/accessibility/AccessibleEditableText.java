@@ -29,7 +29,7 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <P>The AccessibleEditableText interface should be implemented by all
  * classes that present editable textual information on the display.
  * Along with the AccessibleText interface, this interface provides
@@ -53,14 +53,14 @@ import javax.swing.text.*;
 
 public interface AccessibleEditableText extends AccessibleText {
 
-    /**
+    /** {@collect.stats}
      * Sets the text contents to the specified string.
      *
      * @param s the string to set the text contents
      */
     public void setTextContents(String s);
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified string at the given index/
      *
      * @param index the index in the text where the string will
@@ -69,7 +69,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void insertTextAtIndex(int index, String s);
 
-    /**
+    /** {@collect.stats}
      * Returns the text string between two indices.
      *
      * @param startIndex the starting index in the text
@@ -78,7 +78,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public String getTextRange(int startIndex, int endIndex);
 
-    /**
+    /** {@collect.stats}
      * Deletes the text between two indices
      *
      * @param startIndex the starting index in the text
@@ -86,7 +86,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void delete(int startIndex, int endIndex);
 
-    /**
+    /** {@collect.stats}
      * Cuts the text between two indices into the system clipboard.
      *
      * @param startIndex the starting index in the text
@@ -94,7 +94,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void cut(int startIndex, int endIndex);
 
-    /**
+    /** {@collect.stats}
      * Pastes the text from the system clipboard into the text
      * starting at the specified index.
      *
@@ -102,7 +102,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void paste(int startIndex);
 
-    /**
+    /** {@collect.stats}
      * Replaces the text between two indices with the specified
      * string.
      *
@@ -112,7 +112,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void replaceText(int startIndex, int endIndex, String s);
 
-    /**
+    /** {@collect.stats}
      * Selects the text between two indices.
      *
      * @param startIndex the starting index in the text
@@ -120,7 +120,7 @@ public interface AccessibleEditableText extends AccessibleText {
      */
     public void selectText(int startIndex, int endIndex);
 
-    /**
+    /** {@collect.stats}
      * Sets attributes for the text between two indices.
      *
      * @param startIndex the starting index in the text

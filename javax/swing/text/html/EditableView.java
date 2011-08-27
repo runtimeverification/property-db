@@ -35,7 +35,7 @@ import javax.swing.border.*;
 import javax.swing.event.*;
 import java.util.*;
 
-/**
+/** {@collect.stats}
  * EditableView sets the view it contains to be visible only when the
  * JTextComponent the view is contained in is editable. The min/pref/max
  * size is 0 when not visible.
@@ -115,14 +115,14 @@ class EditableView extends ComponentView {
         super.setParent(parent);
     }
 
-    /**
+    /** {@collect.stats}
      * @return true if the Component is visible.
      */
     public boolean isVisible() {
         return isVisible;
     }
 
-    /** Set to true if the component is visible. This is based off the
+    /** {@collect.stats} Set to true if the component is visible. This is based off the
      * editability of the container. */
     private boolean isVisible;
 } // End of EditableView

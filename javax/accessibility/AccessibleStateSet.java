@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
+/** {@collect.stats}
  * Class AccessibleStateSet determines a component's state set.  The state set
  * of a component is a set of AccessibleState objects and descriptions. E.G., The
  * current overall state of the object, such as whether it is enabled,
@@ -42,7 +42,7 @@ import java.util.ResourceBundle;
  */
 public class AccessibleStateSet {
 
-    /**
+    /** {@collect.stats}
      * Each entry in the Vector represents an AccessibleState.
      * @see #add
      * @see #addAll
@@ -53,14 +53,14 @@ public class AccessibleStateSet {
      */
     protected Vector<AccessibleState> states = null;
 
-    /**
+    /** {@collect.stats}
      * Creates a new empty state set.
      */
     public AccessibleStateSet() {
         states = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new state with the initial set of states contained in
      * the array of states passed in.  Duplicate entries are ignored.
      *
@@ -77,7 +77,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new state to the current state set if it is not already
      * present.  If the state is already in the state set, the state
      * set is unchanged and the return value is false.  Otherwise,
@@ -103,7 +103,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds all of the states to the existing state set.  Duplicate entries
      * are ignored.
      * @param states  AccessibleState array describing the state set.
@@ -121,7 +121,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a state from the current state set.  If the state is not
      * in the set, the state set will be unchanged and the return value
      * will be false.  If the state is in the state set, it will be removed
@@ -139,7 +139,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all the states from the current state set.
      */
     public void clear() {
@@ -148,7 +148,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if the current state is in the state set.
      * @param state the state
      * @return true if the state is in the state set; otherwise false
@@ -161,7 +161,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current state set as an array of AccessibleState
      * @return AccessibleState array containing the current state.
      */
@@ -177,7 +177,7 @@ public class AccessibleStateSet {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a localized String representing all the states in the set
      * using the default locale.
      *

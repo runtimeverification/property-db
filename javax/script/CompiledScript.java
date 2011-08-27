@@ -27,7 +27,7 @@ package javax.script;
 
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * Extended by classes that store results of compilations.  State
  * might be stored in the form of Java classes, Java class files or scripting
  * language opcodes.  The script may be executed repeatedly
@@ -43,7 +43,7 @@ import java.util.Map;
  */
 public abstract class CompiledScript {
 
-    /**
+    /** {@collect.stats}
      * Executes the program stored in this <code>CompiledScript</code> object.
      *
      * @param context A <code>ScriptContext</code> that is used in the same way as
@@ -59,7 +59,7 @@ public abstract class CompiledScript {
 
     public abstract Object eval(ScriptContext context) throws ScriptException;
 
-    /**
+    /** {@collect.stats}
      * Executes the program stored in the <code>CompiledScript</code> object using
      * the supplied <code>Bindings</code> of attributes as the <code>ENGINE_SCOPE</code> of the
      * associated <code>ScriptEngine</code> during script execution.  If bindings is null,
@@ -93,7 +93,7 @@ public abstract class CompiledScript {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Executes the program stored in the <code>CompiledScript</code> object.  The
      * default <code>ScriptContext</code> of the associated <code>ScriptEngine</code> is used.
      * The effect of calling this method is same as that of eval(getEngine().getContext()).
@@ -106,7 +106,7 @@ public abstract class CompiledScript {
         return eval(getEngine().getContext());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>ScriptEngine</code> wbose <code>compile</code> method created this <code>CompiledScript</code>.
      * The <code>CompiledScript</code> will execute in this engine.
      *

@@ -25,7 +25,7 @@
 
 package java.awt;
 
-/**
+/** {@collect.stats}
  * Capabilities and properties of images.
  * @author Michael Martak
  * @since 1.4
@@ -34,7 +34,7 @@ public class ImageCapabilities implements Cloneable {
 
     private boolean accelerated = false;
 
-    /**
+    /** {@collect.stats}
      * Creates a new object for specifying image capabilities.
      * @param accelerated whether or not an accelerated image is desired
      */
@@ -42,7 +42,7 @@ public class ImageCapabilities implements Cloneable {
         this.accelerated = accelerated;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the object whose capabilities are
      * encapsulated in this <code>ImageCapabilities</code> can be or is
      * accelerated.
@@ -55,7 +55,7 @@ public class ImageCapabilities implements Cloneable {
         return accelerated;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>VolatileImage</code>
      * described by this <code>ImageCapabilities</code> can lose
      * its surfaces.
@@ -66,7 +66,7 @@ public class ImageCapabilities implements Cloneable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * @return a copy of this ImageCapabilities object.
      */
     public Object clone() {

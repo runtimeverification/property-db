@@ -29,7 +29,7 @@ import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.SearchControls;
 
-/**
+/** {@collect.stats}
  * Contains methods for registering listeners to be notified
  * of events fired when objects named in a directory context changes.
  *<p>
@@ -62,7 +62,7 @@ import javax.naming.directory.SearchControls;
  */
 
 public interface EventDirContext extends EventContext, DirContext {
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired
      * when objects identified by the search filter <tt>filter</tt> at
      * the object named by target are modified.
@@ -89,7 +89,7 @@ public interface EventDirContext extends EventContext, DirContext {
     void addNamingListener(Name target, String filter, SearchControls ctls,
         NamingListener l) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired when
      * objects identified by the search filter <tt>filter</tt> at the
      * object named by the string target name are modified.
@@ -109,7 +109,7 @@ public interface EventDirContext extends EventContext, DirContext {
     void addNamingListener(String target, String filter, SearchControls ctls,
         NamingListener l) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired
      * when objects identified by the search filter <tt>filter</tt> and
      * filter arguments at the object named by the target are modified.
@@ -136,7 +136,7 @@ public interface EventDirContext extends EventContext, DirContext {
     void addNamingListener(Name target, String filter, Object[] filterArgs,
         SearchControls ctls, NamingListener l) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for receiving naming events fired when
      * objects identified by the search filter <tt>filter</tt>
      * and filter arguments at the

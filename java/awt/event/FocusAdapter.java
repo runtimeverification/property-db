@@ -25,7 +25,7 @@
 
 package java.awt.event;
 
-/**
+/** {@collect.stats}
  * An abstract adapter class for receiving keyboard focus events.
  * The methods in this class are empty. This class exists as
  * convenience for creating listener objects.
@@ -50,12 +50,12 @@ package java.awt.event;
  * @since 1.1
  */
 public abstract class FocusAdapter implements FocusListener {
-    /**
+    /** {@collect.stats}
      * Invoked when a component gains the keyboard focus.
      */
     public void focusGained(FocusEvent e) {}
 
-    /**
+    /** {@collect.stats}
      * Invoked when a component loses the keyboard focus.
      */
     public void focusLost(FocusEvent e) {}

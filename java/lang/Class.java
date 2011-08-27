@@ -67,7 +67,7 @@ import sun.security.util.SecurityConstants;
 import java.lang.annotation.Annotation;
 import sun.reflect.annotation.*;
 
-/**
+/** {@collect.stats}
  * Instances of the class {@code Class} represent classes and
  * interfaces in a running Java application.  An enum is a kind of
  * class and an annotation is a kind of interface.  Every array also
@@ -133,7 +133,7 @@ public final
     private Class() {}
 
 
-    /**
+    /** {@collect.stats}
      * Converts the object to a string. The string representation is the
      * string "class" or "interface", followed by a space, and then by the
      * fully qualified name of the class in the format returned by
@@ -150,7 +150,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Class} object associated with the class or
      * interface with the given string name.  Invoking this method is
      * equivalent to:
@@ -187,7 +187,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Class} object associated with the class or
      * interface with the given string name, using the given class loader.
      * Given the fully qualified name for a class or interface (in the same
@@ -264,12 +264,12 @@ public final
         return forName0(name, initialize, loader);
     }
 
-    /** Called after security checks have been made. */
+    /** {@collect.stats} Called after security checks have been made. */
     private static native Class forName0(String name, boolean initialize,
                                             ClassLoader loader)
         throws ClassNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new instance of the class represented by this {@code Class}
      * object.  The class is instantiated as if by a {@code new}
      * expression with an empty argument list.  The class is initialized if it
@@ -380,7 +380,7 @@ public final
     private volatile transient Class       newInstanceCallerCache;
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the specified {@code Object} is assignment-compatible
      * with the object represented by this {@code Class}.  This method is
      * the dynamic equivalent of the Java language {@code instanceof}
@@ -413,7 +413,7 @@ public final
     public native boolean isInstance(Object obj);
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the class or interface represented by this
      * {@code Class} object is either the same as, or is a superclass or
      * superinterface of, the class or interface represented by the specified
@@ -440,7 +440,7 @@ public final
     public native boolean isAssignableFrom(Class<?> cls);
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the specified {@code Class} object represents an
      * interface type.
      *
@@ -450,7 +450,7 @@ public final
     public native boolean isInterface();
 
 
-    /**
+    /** {@collect.stats}
      * Determines if this {@code Class} object represents an array class.
      *
      * @return  {@code true} if this object represents an array class;
@@ -460,7 +460,7 @@ public final
     public native boolean isArray();
 
 
-    /**
+    /** {@collect.stats}
      * Determines if the specified {@code Class} object represents a
      * primitive type.
      *
@@ -490,7 +490,7 @@ public final
      */
     public native boolean isPrimitive();
 
-    /**
+    /** {@collect.stats}
      * Returns true if this {@code Class} object represents an annotation
      * type.  Note that if this method returns true, {@link #isInterface()}
      * would also return true, as all annotation types are also interfaces.
@@ -503,7 +503,7 @@ public final
         return (getModifiers() & ANNOTATION) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this class is a synthetic class;
      * returns {@code false} otherwise.
      * @return {@code true} if and only if this class is a synthetic class as
@@ -514,7 +514,7 @@ public final
         return (getModifiers() & SYNTHETIC) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the  name of the entity (class, interface, array class,
      * primitive type, or void) represented by this {@code Class} object,
      * as a {@code String}.
@@ -574,7 +574,7 @@ public final
     private transient String name;
     private native String getName0();
 
-    /**
+    /** {@collect.stats}
      * Returns the class loader for the class.  Some implementations may use
      * null to represent the bootstrap class loader. This method will return
      * null in such implementations if this class was loaded by the bootstrap
@@ -618,7 +618,7 @@ public final
     native ClassLoader getClassLoader0();
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code TypeVariable} objects that represent the
      * type variables declared by the generic declaration represented by this
      * {@code GenericDeclaration} object, in declaration order.  Returns an
@@ -641,7 +641,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Class} representing the superclass of the entity
      * (class, interface, primitive type or void) represented by this
      * {@code Class}.  If this {@code Class} represents either the
@@ -655,7 +655,7 @@ public final
     public native Class<? super T> getSuperclass();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Type} representing the direct superclass of
      * the entity (class, interface, primitive type or void) represented by
      * this {@code Class}.
@@ -696,7 +696,7 @@ public final
             return getSuperclass();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the package for this class.  The class loader of this class is used
      * to find the package.  If the class was loaded by the bootstrap class
      * loader the set of packages loaded from CLASSPATH is searched to find the
@@ -716,7 +716,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines the interfaces implemented by the class or interface
      * represented by this object.
      *
@@ -758,7 +758,7 @@ public final
      */
     public native Class<?>[] getInterfaces();
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Type}s representing the interfaces
      * directly implemented by the class or interface represented by
      * this object.
@@ -814,7 +814,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code Class} representing the component type of an
      * array.  If this class does not represent an array class this method
      * returns null.
@@ -827,7 +827,7 @@ public final
     public native Class<?> getComponentType();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the Java language modifiers for this class or interface, encoded
      * in an integer. The modifiers consist of the Java Virtual Machine's
      * constants for {@code public}, {@code protected},
@@ -857,7 +857,7 @@ public final
     public native int getModifiers();
 
 
-    /**
+    /** {@collect.stats}
      * Gets the signers of this class.
      *
      * @return  the signers of this class, or null if there are no signers.  In
@@ -868,13 +868,13 @@ public final
     public native Object[] getSigners();
 
 
-    /**
+    /** {@collect.stats}
      * Set the signers of this class.
      */
     native void setSigners(Object[] signers);
 
 
-    /**
+    /** {@collect.stats}
      * If this {@code Class} object represents a local or anonymous
      * class within a method, returns a {@link
      * java.lang.reflect.Method Method} object representing the
@@ -1003,7 +1003,7 @@ public final
         return (Class)o;
      }
 
-    /**
+    /** {@collect.stats}
      * If this {@code Class} object represents a local or anonymous
      * class within a constructor, returns a {@link
      * java.lang.reflect.Constructor Constructor} object representing
@@ -1062,7 +1062,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * If the class or interface represented by this {@code Class} object
      * is a member of another class, returns the {@code Class} object
      * representing the class in which it was declared.  This method returns
@@ -1076,7 +1076,7 @@ public final
     public native Class<?> getDeclaringClass();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the immediately enclosing class of the underlying
      * class.  If the underlying class is a top level class this
      * method returns {@code null}.
@@ -1110,7 +1110,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the simple name of the underlying class as given in the
      * source code. Returns an empty string if the underlying class is
      * anonymous.
@@ -1155,7 +1155,7 @@ public final
         return simpleName.substring(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Character.isDigit answers {@code true} to some non-ascii
      * digits.  This one does not.
      */
@@ -1163,7 +1163,7 @@ public final
         return '0' <= c && c <= '9';
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical name of the underlying class as
      * defined by the Java Language Specification.  Returns null if
      * the underlying class does not have a canonical name (i.e., if
@@ -1194,7 +1194,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if and only if the underlying class
      * is an anonymous class.
      *
@@ -1205,7 +1205,7 @@ public final
         return "".equals(getSimpleName());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if and only if the underlying class
      * is a local class.
      *
@@ -1216,7 +1216,7 @@ public final
         return isLocalOrAnonymousClass() && !isAnonymousClass();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if and only if the underlying class
      * is a member class.
      *
@@ -1227,7 +1227,7 @@ public final
         return getSimpleBinaryName() != null && !isLocalOrAnonymousClass();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the "simple binary name" of the underlying class, i.e.,
      * the binary name without the leading enclosing class name.
      * Returns {@code null} if the underlying class is a top level
@@ -1245,7 +1245,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns {@code true} if this is a local class or an anonymous
      * class.  Returns {@code false} otherwise.
      */
@@ -1256,7 +1256,7 @@ public final
         return getEnclosingMethodInfo() != null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing {@code Class} objects representing all
      * the public classes and interfaces that are members of the class
      * represented by this {@code Class} object.  This includes public
@@ -1325,7 +1325,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing {@code Field} objects reflecting all
      * the accessible public fields of the class or interface represented by
      * this {@code Class} object.  The elements in the array returned are
@@ -1377,7 +1377,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing {@code Method} objects reflecting all
      * the public <em>member</em> methods of the class or interface represented
      * by this {@code Class} object, including those declared by the class
@@ -1428,7 +1428,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing {@code Constructor} objects reflecting
      * all the public constructors of the class represented by this
      * {@code Class} object.  An array of length 0 is returned if the
@@ -1477,7 +1477,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Field} object that reflects the specified public
      * member field of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1540,7 +1540,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Method} object that reflects the specified public
      * member method of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1625,7 +1625,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Constructor} object that reflects the specified
      * public constructor of the class represented by this {@code Class}
      * object. The {@code parameterTypes} parameter is an array of
@@ -1675,7 +1675,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Class} objects reflecting all the
      * classes and interfaces declared as members of the class represented by
      * this {@code Class} object. This includes public, protected, default
@@ -1717,7 +1717,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Field} objects reflecting all the fields
      * declared by the class or interface represented by this
      * {@code Class} object. This includes public, protected, default
@@ -1761,7 +1761,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Method} objects reflecting all the
      * methods declared by the class or interface represented by this
      * {@code Class} object. This includes public, protected, default
@@ -1809,7 +1809,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an array of {@code Constructor} objects reflecting all the
      * constructors declared by the class represented by this
      * {@code Class} object. These are public, protected, default
@@ -1854,7 +1854,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Field} object that reflects the specified declared
      * field of the class or interface represented by this {@code Class}
      * object. The {@code name} parameter is a {@code String} that
@@ -1902,7 +1902,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Method} object that reflects the specified
      * declared method of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1957,7 +1957,7 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a {@code Constructor} object that reflects the specified
      * constructor of the class or interface represented by this
      * {@code Class} object.  The {@code parameterTypes} parameter is
@@ -2002,7 +2002,7 @@ public final
         return getConstructor0(parameterTypes, Member.DECLARED);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a resource with a given name.  The rules for searching resources
      * associated with a given class are implemented by the defining
      * {@linkplain ClassLoader class loader} of the class.  This method
@@ -2047,7 +2047,7 @@ public final
         return cl.getResourceAsStream(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Finds a resource with a given name.  The rules for searching resources
      * associated with a given class are implemented by the defining
      * {@linkplain ClassLoader class loader} of the class.  This method
@@ -2093,11 +2093,11 @@ public final
 
 
 
-    /** protection domain returned when the internal domain is null */
+    /** {@collect.stats} protection domain returned when the internal domain is null */
     private static java.security.ProtectionDomain allPermDomain;
 
 
-    /**
+    /** {@collect.stats}
      * Returns the {@code ProtectionDomain} of this class.  If there is a
      * security manager installed, this method first calls the security
      * manager's {@code checkPermission} method with a
@@ -2137,13 +2137,13 @@ public final
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the ProtectionDomain of this class.
      */
     private native java.security.ProtectionDomain getProtectionDomain0();
 
 
-    /**
+    /** {@collect.stats}
      * Set the ProtectionDomain for this class. Called by
      * ClassLoader.defineClass.
      */
@@ -2184,7 +2184,7 @@ public final
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Add a package name prefix if the name is not absolute Remove leading "/"
      * if name is absolute
      */
@@ -2209,7 +2209,7 @@ public final
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Reflection support.
      */
 
@@ -2797,11 +2797,11 @@ public final
         return buf.toString();
     }
 
-    /** use serialVersionUID from JDK 1.1 for interoperability */
+    /** {@collect.stats} use serialVersionUID from JDK 1.1 for interoperability */
     private static final long serialVersionUID = 3206093459760846163L;
 
 
-    /**
+    /** {@collect.stats}
      * Class Class is special cased within the Serialization Stream Protocol.
      *
      * A Class instance is written initially into an ObjectOutputStream in the
@@ -2821,7 +2821,7 @@ public final
         new ObjectStreamField[0];
 
 
-    /**
+    /** {@collect.stats}
      * Returns the assertion status that would be assigned to this
      * class if it were to be initialized at the time this method is invoked.
      * If this class has had its assertion status set, the most recent
@@ -2864,7 +2864,7 @@ public final
     // Retrieves the desired assertion status of this class from the VM
     private static native boolean desiredAssertionStatus0(Class clazz);
 
-    /**
+    /** {@collect.stats}
      * Returns true if and only if this class was declared as an enum in the
      * source code.
      *
@@ -2923,7 +2923,7 @@ public final
             });
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the elements of this enum class or null if this
      * Class object does not represent an enum type.
      *
@@ -2938,7 +2938,7 @@ public final
         return (values != null) ? values.clone() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the elements of this enum class or null if this
      * Class object does not represent an enum type;
      * identical to getEnumConstantsShared except that
@@ -2968,7 +2968,7 @@ public final
     }
     private volatile transient T[] enumConstants = null;
 
-    /**
+    /** {@collect.stats}
      * Returns a map from simple name to enum constant.  This package-private
      * method is used internally by Enum to implement
      *     public static <T extends Enum<T>> T valueOf(Class<T>, String)
@@ -2990,7 +2990,7 @@ public final
     }
     private volatile transient Map<String, T> enumConstantDirectory = null;
 
-    /**
+    /** {@collect.stats}
      * Casts an object to the class or interface represented
      * by this {@code Class} object.
      *
@@ -3012,7 +3012,7 @@ public final
         return "Cannot cast " + obj.getClass().getName() + " to " + getName();
     }
 
-    /**
+    /** {@collect.stats}
      * Casts this {@code Class} object to represent a subclass of the class
      * represented by the specified class object.  Checks that that the cast
      * is valid, and throws a {@code ClassCastException} if it is not.  If
@@ -3039,7 +3039,7 @@ public final
             throw new ClassCastException(this.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -3051,7 +3051,7 @@ public final
         return (A) annotations.get(annotationClass);
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NullPointerException {@inheritDoc}
      * @since 1.5
      */
@@ -3066,7 +3066,7 @@ public final
 
     private static Annotation[] EMPTY_ANNOTATIONS_ARRAY = new Annotation[0];
 
-    /**
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getAnnotations() {
@@ -3074,7 +3074,7 @@ public final
         return annotations.values().toArray(EMPTY_ANNOTATIONS_ARRAY);
     }
 
-    /**
+    /** {@collect.stats}
      * @since 1.5
      */
     public Annotation[] getDeclaredAnnotations()  {

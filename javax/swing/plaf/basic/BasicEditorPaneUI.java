@@ -36,7 +36,7 @@ import javax.swing.plaf.*;
 import javax.swing.border.*;
 
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a JEditorPane.
  * <p>
  * <strong>Warning:</strong>
@@ -52,7 +52,7 @@ import javax.swing.border.*;
  */
 public class BasicEditorPaneUI extends BasicTextUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for the JTextPane.
      *
      * @param c the JTextPane component
@@ -62,14 +62,14 @@ public class BasicEditorPaneUI extends BasicTextUI {
         return new BasicEditorPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new BasicEditorPaneUI.
      */
     public BasicEditorPaneUI() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to lookup properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -80,7 +80,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         return "EditorPane";
     }
 
-    /**
+    /** {@collect.stats}
      *{@inheritDoc}
      *
      * @since 1.5
@@ -91,7 +91,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
                                 c.getForeground());
     }
 
-    /**
+    /** {@collect.stats}
      *{@inheritDoc}
      *
      * @since 1.5
@@ -101,7 +101,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         super.uninstallUI(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the EditorKit for the UI.  This is whatever is
      * currently set in the associated JEditorPane.
      *
@@ -113,7 +113,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         return pane.getEditorKit();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch an action map to use.  The map for a JEditorPane
      * is not shared because it changes with the EditorKit.
      */
@@ -136,7 +136,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         return am;
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the
@@ -263,7 +263,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Attribute key to reference the default font.
      * used in javax.swing.text.StyleContext.getFont
      * to resolve the default font.
@@ -329,7 +329,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         updateForeground(fg);
     }
 
-    /**
+    /** {@collect.stats}
      * Update the color in the default style of the document.
      *
      * @param color the new color to use or null to remove the color attribute
@@ -354,7 +354,7 @@ public class BasicEditorPaneUI extends BasicTextUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Update the font in the default style of the document.
      *
      * @param font the new font to use or null to remove the font attribute

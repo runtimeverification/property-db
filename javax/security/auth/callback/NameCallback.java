@@ -25,7 +25,7 @@
 
 package javax.security.auth.callback;
 
-/**
+/** {@collect.stats}
  * <p> Underlying security services instantiate and pass a
  * <code>NameCallback</code> to the <code>handle</code>
  * method of a <code>CallbackHandler</code> to retrieve name information.
@@ -36,23 +36,23 @@ public class NameCallback implements Callback, java.io.Serializable {
 
     private static final long serialVersionUID = 3770938795909392253L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String prompt;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String defaultName;
-    /**
+    /** {@collect.stats}
      * @serial
      * @since 1.4
      */
     private String inputName;
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>NameCallback</code> with a prompt.
      *
      * <p>
@@ -68,7 +68,7 @@ public class NameCallback implements Callback, java.io.Serializable {
         this.prompt = prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>NameCallback</code> with a prompt
      * and default name.
      *
@@ -93,7 +93,7 @@ public class NameCallback implements Callback, java.io.Serializable {
         this.defaultName = defaultName;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the prompt.
      *
      * <p>
@@ -104,7 +104,7 @@ public class NameCallback implements Callback, java.io.Serializable {
         return prompt;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the default name.
      *
      * <p>
@@ -116,7 +116,7 @@ public class NameCallback implements Callback, java.io.Serializable {
         return defaultName;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the retrieved name.
      *
      * <p>
@@ -129,7 +129,7 @@ public class NameCallback implements Callback, java.io.Serializable {
         this.inputName = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the retrieved name.
      *
      * <p>

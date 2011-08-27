@@ -29,7 +29,7 @@ import java.awt.Rectangle;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JTree.
  *
  * @author Rob Davis
@@ -37,32 +37,32 @@ import javax.swing.tree.TreePath;
  */
 public abstract class TreeUI extends ComponentUI
 {
-    /**
+    /** {@collect.stats}
       * Returns the Rectangle enclosing the label portion that the
       * last item in path will be drawn into.  Will return null if
       * any component in path is currently valid.
       */
     public abstract Rectangle getPathBounds(JTree tree, TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Returns the path for passed in row.  If row is not visible
       * null is returned.
       */
     public abstract TreePath getPathForRow(JTree tree, int row);
 
-    /**
+    /** {@collect.stats}
       * Returns the row that the last item identified in path is visible
       * at.  Will return -1 if any of the elements in path are not
       * currently visible.
       */
     public abstract int getRowForPath(JTree tree, TreePath path);
 
-    /**
+    /** {@collect.stats}
       * Returns the number of rows that are being displayed.
       */
     public abstract int getRowCount(JTree tree);
 
-    /**
+    /** {@collect.stats}
       * Returns the path to the node that is closest to x,y.  If
       * there is nothing currently visible this will return null, otherwise
       * it'll always return a valid path.  If you need to test if the
@@ -72,33 +72,33 @@ public abstract class TreeUI extends ComponentUI
     public abstract TreePath getClosestPathForLocation(JTree tree, int x,
                                                        int y);
 
-    /**
+    /** {@collect.stats}
       * Returns true if the tree is being edited.  The item that is being
       * edited can be returned by getEditingPath().
       */
     public abstract boolean isEditing(JTree tree);
 
-    /**
+    /** {@collect.stats}
       * Stops the current editing session.  This has no effect if the
       * tree isn't being edited.  Returns true if the editor allows the
       * editing session to stop.
       */
     public abstract boolean stopEditing(JTree tree);
 
-    /**
+    /** {@collect.stats}
       * Cancels the current editing session. This has no effect if the
       * tree isn't being edited.  Returns true if the editor allows the
       * editing session to stop.
       */
     public abstract void cancelEditing(JTree tree);
 
-    /**
+    /** {@collect.stats}
       * Selects the last item in path and tries to edit it.  Editing will
       * fail if the CellEditor won't allow it for the selected item.
       */
     public abstract void startEditingAtPath(JTree tree, TreePath path);
 
-    /**
+    /** {@collect.stats}
      * Returns the path to the element that is being edited.
      */
     public abstract TreePath getEditingPath(JTree tree);

@@ -26,7 +26,7 @@
 package java.awt;
 
 import sun.security.util.SecurityConstants;
-/**
+/** {@collect.stats}
  * <code>MouseInfo</code>  provides methods for getting information about the mouse,
  * such as mouse pointer location and the number of mouse buttons.
  *
@@ -36,13 +36,13 @@ import sun.security.util.SecurityConstants;
 
 public class MouseInfo {
 
-    /**
+    /** {@collect.stats}
      * Private constructor to prevent instantiation.
      */
     private MouseInfo() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>PointerInfo</code> instance that represents the current
      * location of the mouse pointer.
      * The <code>GraphicsDevice</code> stored in this <code>PointerInfo</code>
@@ -109,7 +109,7 @@ public class MouseInfo {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of buttons on the mouse.
      * On systems without a mouse, returns <code>-1</code>.
      *

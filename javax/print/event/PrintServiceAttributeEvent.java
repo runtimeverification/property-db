@@ -30,7 +30,7 @@ import javax.print.PrintService;
 import javax.print.attribute.AttributeSetUtilities;
 import javax.print.attribute.PrintServiceAttributeSet;
 
-/**
+/** {@collect.stats}
  *
  * Class PrintServiceAttributeEvent encapsulates an event a
  * Print Service instance reports to let the client know of
@@ -43,7 +43,7 @@ public class PrintServiceAttributeEvent extends PrintEvent {
 
     private PrintServiceAttributeSet attributes;
 
-    /**
+    /** {@collect.stats}
      * Constructs a PrintServiceAttributeEvent object.
      *
      * @param source the print job generating  this event
@@ -59,7 +59,7 @@ public class PrintServiceAttributeEvent extends PrintEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the print service.
 
      * @return  Print Service object.
@@ -70,7 +70,7 @@ public class PrintServiceAttributeEvent extends PrintEvent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determine the printing service attributes that changed and their new
      * values.
      *

@@ -37,7 +37,7 @@ import javax.swing.plaf.*;
 import java.util.EventListener;
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * A default implementation of Caret.  The caret is rendered as
  * a vertical line in the color specified by the CaretColor property
  * of the associated JTextComponent.  It can blink at the rate specified
@@ -107,7 +107,7 @@ import sun.swing.SwingUtilities2;
  */
 public class DefaultCaret extends Rectangle implements Caret, FocusListener, MouseListener, MouseMotionListener {
 
-    /**
+    /** {@collect.stats}
      * Indicates that the caret position is to be updated only when
      * document changes are performed on the Event Dispatching Thread.
      * @see #setUpdatePolicy
@@ -116,7 +116,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
      */
     public static final int UPDATE_WHEN_ON_EDT = 0;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the caret should remain at the same
      * absolute position in the document regardless of any document
      * updates, except when the document length becomes less than
@@ -129,7 +129,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
      */
     public static final int NEVER_UPDATE = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the caret position is to be <b>always</b>
      * updated accordingly to the document changes regardless whether
      * the document updates are performed on the Event Dispatching Thread
@@ -141,13 +141,13 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
      */
     public static final int ALWAYS_UPDATE = 2;
 
-    /**
+    /** {@collect.stats}
      * Constructs a default caret.
      */
     public DefaultCaret() {
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret movement policy on the document updates. Normally
      * the caret updates its absolute position within the document on
      * insertions occurred before or at the caret position and
@@ -203,7 +203,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         updatePolicy = policy;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the caret movement policy on document updates.
      *
      * @return one of the following values : <code>UPDATE_WHEN_ON_EDT</code>,
@@ -220,7 +220,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return updatePolicy;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the text editor component that this caret is
      * is bound to.
      *
@@ -230,7 +230,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return component;
     }
 
-    /**
+    /** {@collect.stats}
      * Cause the caret to be painted.  The repaint
      * area is the bounding box of the caret (i.e.
      * the caret rectangle or <em>this</em>).
@@ -246,7 +246,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Damages the area surrounding the caret to cause
      * it to be repainted in a new location.  If paint()
      * is reimplemented, this method should also be
@@ -267,7 +267,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Scrolls the associated view (if necessary) to make
      * the caret visible.  Since how this should be done
      * is somewhat of a policy, this method can be
@@ -288,7 +288,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the painter for the Highlighter.
      *
      * @return the painter
@@ -297,7 +297,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return DefaultHighlighter.DefaultPainter;
     }
 
-    /**
+    /** {@collect.stats}
      * Tries to set the position of the caret from
      * the coordinates of a mouse event, using viewToModel().
      *
@@ -314,7 +314,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tries to move the position of the caret from
      * the coordinates of a mouse event, using viewToModel().
      * This will cause a selection if the dot and mark
@@ -335,7 +335,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // --- FocusListener methods --------------------------
 
-    /**
+    /** {@collect.stats}
      * Called when the component containing the caret gains
      * focus.  This is implemented to set the caret to visible
      * if the component is editable.
@@ -352,7 +352,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the component containing the caret loses
      * focus.  This is implemented to set the caret to visibility
      * to false.
@@ -366,7 +366,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
     }
 
 
-    /**
+    /** {@collect.stats}
      * Selects word based on the MouseEvent
      */
     private void selectWord(MouseEvent e) {
@@ -394,7 +394,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // --- MouseListener methods -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Called when the mouse is clicked.  If the click was generated
      * from button1, a double click selects a word,
      * and a triple click the current line.
@@ -469,7 +469,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * If button 1 is pressed, this is implemented to
      * request focus on the associated text component,
      * and to set the caret position. If the shift key is held down,
@@ -503,7 +503,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         adjustFocus(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the caret location based on the MouseEvent.
      */
     private void adjustCaret(MouseEvent e) {
@@ -515,7 +515,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the focus, if necessary.
      *
      * @param inWindow if true indicates requestFocusInWindow should be used
@@ -532,7 +532,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the mouse is released.
      *
      * @param e the mouse event
@@ -547,7 +547,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the mouse enters a region.
      *
      * @param e the mouse event
@@ -556,7 +556,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
     public void mouseEntered(MouseEvent e) {
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the mouse exits a region.
      *
      * @param e the mouse event
@@ -567,7 +567,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // --- MouseMotionListener methods -------------------------
 
-    /**
+    /** {@collect.stats}
      * Moves the caret position
      * according to the mouse pointer's current
      * location.  This effectively extends the
@@ -583,7 +583,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the mouse is moved.
      *
      * @param e the mouse event
@@ -594,7 +594,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // ---- Caret methods ---------------------------------
 
-    /**
+    /** {@collect.stats}
      * Renders the caret as a vertical line.  If this is reimplemented
      * the damage method should also be reimplemented as it assumes the
      * shape of the caret is a vertical line.  Sets the caret color to
@@ -666,7 +666,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being installed into the
      * interface of a JTextComponent.  This can be used
      * to gain access to the model that is being navigated
@@ -712,7 +712,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the UI is being removed from the
      * interface of a JTextComponent.  This is used to
      * unregister any listeners that were attached.
@@ -739,7 +739,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to track whenever the caret position has
      * been changed.
      *
@@ -750,7 +750,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener that was tracking caret position changes.
      *
      * @param l the listener
@@ -760,7 +760,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the change listeners
      * registered on this caret.
      *
@@ -778,7 +778,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is lazily created using the parameters passed into
@@ -801,7 +801,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this caret.
@@ -841,7 +841,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return listenerList.getListeners(listenerType);
     }
 
-    /**
+    /** {@collect.stats}
      * Changes the selection visibility.
      *
      * @param vis the new visibility
@@ -873,7 +873,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the current selection is visible.
      *
      * @return true if the selection is visible
@@ -882,7 +882,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return selectionVisible;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if the caret is currently active.
      * <p>
      * This method returns whether or not the <code>Caret</code>
@@ -900,7 +900,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return active;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether or not the caret is currently visible. As the
      * caret flashes on and off the return value of this will change
      * between true, when the caret is painted, and false, when the
@@ -921,7 +921,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return visible;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret visibility, and repaints the caret.
      * It is important to understand the relationship between this method,
      * <code>isVisible</code> and <code>isActive</code>.
@@ -982,7 +982,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret blink rate.
      *
      * @param rate the rate in milliseconds, 0 to stop blinking
@@ -1003,7 +1003,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the caret blink rate.
      *
      * @return the delay in milliseconds.  If this is
@@ -1014,7 +1014,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return (flasher == null) ? 0 : flasher.getDelay();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current position of the caret.
      *
      * @return the position &gt;= 0
@@ -1024,7 +1024,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return dot;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the current position of the mark.  If there is a selection,
      * the dot and mark will not be the same.
      *
@@ -1035,7 +1035,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return mark;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret position and mark to the specified position,
      * with a forward bias. This implicitly sets the
      * selection range to zero.
@@ -1048,7 +1048,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         setDot(dot, Position.Bias.Forward);
     }
 
-    /**
+    /** {@collect.stats}
      * Moves the caret position to the specified position,
      * with a forward bias.
      *
@@ -1062,7 +1062,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // ---- Bidi methods (we could put these in a subclass)
 
-    /**
+    /** {@collect.stats}
      * Moves the caret position to the specified position, with the
      * specified bias.
      *
@@ -1126,7 +1126,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the caret position and mark to the specified position, with the
      * specified bias. This implicitly sets the selection range
      * to zero.
@@ -1178,7 +1178,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bias of the caret position.
      *
      * @return the bias of the caret position
@@ -1188,7 +1188,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return dotBias;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the bias of the mark.
      *
      * @return the bias of the mark
@@ -1249,7 +1249,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // ---- local methods --------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the caret position (dot) to a new location.  This
      * causes the old and new location to be repainted.  It
      * also makes sure that the caret is within the visible
@@ -1290,7 +1290,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         SwingUtilities.invokeLater(callRepaintNewCaret);
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the new caret position, with the
      * assumption that this is happening on the
      * event thread so that calling <code>modelToView</code>
@@ -1378,7 +1378,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return handler;
     }
 
-    /**
+    /** {@collect.stats}
      * This is invoked after the document changes to verify the current
      * dot/mark is valid. We do this in case the <code>NavigationFilter</code>
      * changed where to position the dot, that resulted in the current location
@@ -1395,7 +1395,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
     }
 
 
-    /**
+    /** {@collect.stats}
      * Saves the current caret position.  This is used when
      * caret up/down actions occur, moving between lines
      * that have uneven end positions.
@@ -1407,7 +1407,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         magicCaretPosition = p;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the saved caret position.
      *
      * @return the position
@@ -1417,7 +1417,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         return magicCaretPosition;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this object to the specified object.
      * The superclass behavior of comparing rectangles
      * is not desired, so this is changed to the Object
@@ -1534,12 +1534,12 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
     // ---- member variables ------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The event listener list.
      */
     protected EventListenerList listenerList = new EventListenerList();
 
-    /**
+    /** {@collect.stats}
      * The change event for the model.
      * Only one ChangeEvent is needed per model instance since the
      * event's only (read-only) state is the source property.  The source
@@ -1570,14 +1570,14 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
     private transient NavigationFilter.FilterBypass filterBypass;
     static private transient Action selectWord = null;
     static private transient Action selectLine = null;
-    /**
+    /** {@collect.stats}
      * This is used to indicate if the caret currently owns the selection.
      * This is always false if the system does not support the system
      * clipboard.
      */
     private boolean ownsSelection;
 
-    /**
+    /** {@collect.stats}
      * If this is true, the location of the dot is updated regardless of
      * the current location. This is set in the DocumentListener
      * such that even if the model location of dot hasn't changed (perhaps do
@@ -1585,7 +1585,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
      */
     private boolean forceCaretPositionChange;
 
-    /**
+    /** {@collect.stats}
      * Whether or not mouseReleased should adjust the caret and focus.
      * This flag is set by mousePressed if it wanted to adjust the caret
      * and focus but couldn't because of a possible DnD operation.
@@ -1593,12 +1593,12 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
     private transient boolean shouldHandleRelease;
 
 
-    /**
+    /** {@collect.stats}
      * holds last MouseEvent which caused the word selection
      */
     private transient MouseEvent selectedWordEvent = null;
 
-    /**
+    /** {@collect.stats}
      * The width of the caret in pixels.
      */
     private int caretWidth = -1;
@@ -1624,7 +1624,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
         // --- ActionListener methods ----------------------------------
 
-        /**
+        /** {@collect.stats}
          * Invoked when the blink timer fires.  This is called
          * asynchronously.  The simply changes the visibility
          * and repaints the rectangle that last bounded the caret.
@@ -1653,7 +1653,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
         // --- DocumentListener methods --------------------------------
 
-        /**
+        /** {@collect.stats}
          * Updates the dot and mark if they were changed by
          * the insertion.
          *
@@ -1732,7 +1732,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the dot and mark if they were changed
          * by the removal.
          *
@@ -1816,7 +1816,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Gives notification that an attribute or set of attributes changed.
          *
          * @param e the document event
@@ -1835,7 +1835,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
 
         // --- PropertyChangeListener methods -----------------------
 
-        /**
+        /** {@collect.stats}
          * This method gets called when a bound property is changed.
          * We are looking for document changes on the editor.
          */
@@ -1886,7 +1886,7 @@ public class DefaultCaret extends Rectangle implements Caret, FocusListener, Mou
         //
         // ClipboardOwner
         //
-        /**
+        /** {@collect.stats}
          * Toggles the visibility of the selection when ownership is lost.
          */
         public void lostOwnership(Clipboard clipboard,

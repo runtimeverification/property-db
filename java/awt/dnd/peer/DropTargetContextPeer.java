@@ -30,7 +30,7 @@ import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.InvalidDnDOperationException;
 
-/**
+/** {@collect.stats}
  * <p>
  * This interface is exposed by the underlying window system platform to
  * enable control of platform DnD operations
@@ -42,67 +42,67 @@ import java.awt.dnd.InvalidDnDOperationException;
 
 public interface DropTargetContextPeer {
 
-    /**
+    /** {@collect.stats}
      * update the peer's notion of the Target's actions
      */
 
     void setTargetActions(int actions);
 
-    /**
+    /** {@collect.stats}
      * get the current Target actions
      */
 
     int getTargetActions();
 
-    /**
+    /** {@collect.stats}
      * get the DropTarget associated with this peer
      */
 
     DropTarget getDropTarget();
 
-    /**
+    /** {@collect.stats}
      * get the (remote) DataFlavors from the peer
      */
 
     DataFlavor[] getTransferDataFlavors();
 
-    /**
+    /** {@collect.stats}
      * get an input stream to the remote data
      */
 
     Transferable getTransferable() throws InvalidDnDOperationException;
 
-    /**
+    /** {@collect.stats}
      * @return if the DragSource Transferable is in the same JVM as the Target
      */
 
     boolean isTransferableJVMLocal();
 
-    /**
+    /** {@collect.stats}
      * accept the Drag
      */
 
     void acceptDrag(int dragAction);
 
-    /**
+    /** {@collect.stats}
      * reject the Drag
      */
 
     void rejectDrag();
 
-    /**
+    /** {@collect.stats}
      * accept the Drop
      */
 
     void acceptDrop(int dropAction);
 
-    /**
+    /** {@collect.stats}
      * reject the Drop
      */
 
     void rejectDrop();
 
-    /**
+    /** {@collect.stats}
      * signal complete
      */
 

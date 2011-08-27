@@ -30,7 +30,7 @@
 
 package javax.management;
 
-/**
+/** {@collect.stats}
  * This interface is used to gain access to descriptors of the Descriptor class
  * which are associated with a JMX component, i.e. MBean, MBeanInfo,
  * MBeanAttributeInfo, MBeanNotificationInfo,
@@ -42,7 +42,7 @@ package javax.management;
  */
 public interface DescriptorAccess extends DescriptorRead
 {
-    /**
+    /** {@collect.stats}
     * Sets Descriptor (full replace).
     *
     * @param inDescriptor replaces the Descriptor associated with the

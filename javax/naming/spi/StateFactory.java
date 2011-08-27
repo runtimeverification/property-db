@@ -27,7 +27,7 @@ package javax.naming.spi;
 import javax.naming.*;
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
   * This interface represents a factory for obtaining the state of an
   * object for binding.
   *<p>
@@ -78,7 +78,7 @@ import java.util.Hashtable;
   * @since 1.3
   */
 public interface StateFactory {
-/**
+/** {@collect.stats}
  * Retrieves the state of an object for binding.
  *<p>
  * <tt>NamingManager.getStateToBind()</tt>

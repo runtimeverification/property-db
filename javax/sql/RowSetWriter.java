@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * An object that implements the <code>RowSetWriter</code> interface,
  * called a <i>writer</i>. A writer may be registered with a <code>RowSet</code>
  * object that supports the reader/writer paradigm.
@@ -48,7 +48,7 @@ import java.sql.*;
 
 public interface RowSetWriter {
 
-  /**
+  /** {@collect.stats}
    * Writes the changes in this <code>RowSetWriter</code> object's
    * rowset back to the data source from which it got its data.
    *

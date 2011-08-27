@@ -36,7 +36,7 @@ import java.security.Permission;
 import java.security.PrivilegedAction;
 import javax.management.JMX;
 
-/**
+/** {@collect.stats}
  * The <tt>ManagementFactory</tt> class is a factory class for getting
  * managed beans for the Java platform.
  * This class consists of static methods each of which returns
@@ -288,49 +288,49 @@ public class ManagementFactory {
     // A class with only static fields and methods.
     private ManagementFactory() {};
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link ClassLoadingMXBean}.
      */
     public final static String CLASS_LOADING_MXBEAN_NAME =
         "java.lang:type=ClassLoading";
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link CompilationMXBean}.
      */
     public final static String COMPILATION_MXBEAN_NAME =
         "java.lang:type=Compilation";
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link MemoryMXBean}.
      */
     public final static String MEMORY_MXBEAN_NAME =
         "java.lang:type=Memory";
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link OperatingSystemMXBean}.
      */
     public final static String OPERATING_SYSTEM_MXBEAN_NAME =
         "java.lang:type=OperatingSystem";
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link RuntimeMXBean}.
      */
     public final static String RUNTIME_MXBEAN_NAME =
         "java.lang:type=Runtime";
 
-    /**
+    /** {@collect.stats}
      * String representation of the
      * <tt>ObjectName</tt> for the {@link ThreadMXBean}.
      */
     public final static String THREAD_MXBEAN_NAME =
         "java.lang:type=Threading";
 
-    /**
+    /** {@collect.stats}
      * The domain name and the type key property in
      * the <tt>ObjectName</tt> for a {@link GarbageCollectorMXBean}.
      * The unique <tt>ObjectName</tt> for a <tt>GarbageCollectorMXBean</tt>
@@ -340,7 +340,7 @@ public class ManagementFactory {
     public final static String GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE =
         "java.lang:type=GarbageCollector";
 
-    /**
+    /** {@collect.stats}
      * The domain name and the type key property in
      * the <tt>ObjectName</tt> for a {@link MemoryManagerMXBean}.
      * The unique <tt>ObjectName</tt> for a <tt>MemoryManagerMXBean</tt>
@@ -350,7 +350,7 @@ public class ManagementFactory {
     public final static String MEMORY_MANAGER_MXBEAN_DOMAIN_TYPE=
         "java.lang:type=MemoryManager";
 
-    /**
+    /** {@collect.stats}
      * The domain name and the type key property in
      * the <tt>ObjectName</tt> for a {@link MemoryPoolMXBean}.
      * The unique <tt>ObjectName</tt> for a <tt>MemoryPoolMXBean</tt>
@@ -360,7 +360,7 @@ public class ManagementFactory {
     public final static String MEMORY_POOL_MXBEAN_DOMAIN_TYPE=
         "java.lang:type=MemoryPool";
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the class loading system of
      * the Java virtual machine.
      *
@@ -371,7 +371,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getClassLoadingMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the memory system of
      * the Java virtual machine.
      *
@@ -381,7 +381,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getMemoryMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the thread system of
      * the Java virtual machine.
      *
@@ -391,7 +391,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getThreadMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the runtime system of
      * the Java virtual machine.
      *
@@ -402,7 +402,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getRuntimeMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the compilation system of
      * the Java virtual machine.  This method returns <tt>null</tt>
      * if the Java virtual machine has no compilation system.
@@ -415,7 +415,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getCompilationMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the managed bean for the operating system on which
      * the Java virtual machine is running.
      *
@@ -426,7 +426,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getOperatingSystemMXBean();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of {@link MemoryPoolMXBean} objects in the
      * Java virtual machine.
      * The Java virtual machine can have one or more memory pools.
@@ -439,7 +439,7 @@ public class ManagementFactory {
         return sun.management.ManagementFactory.getMemoryPoolMXBeans();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list of {@link MemoryManagerMXBean} objects
      * in the Java virtual machine.
      * The Java virtual machine can have one or more memory managers.
@@ -453,7 +453,7 @@ public class ManagementFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a list of {@link GarbageCollectorMXBean} objects
      * in the Java virtual machine.
      * The Java virtual machine may have one or more
@@ -469,7 +469,7 @@ public class ManagementFactory {
     }
 
     private static MBeanServer platformMBeanServer;
-    /**
+    /** {@collect.stats}
      * Returns the platform {@link javax.management.MBeanServer MBeanServer}.
      * On the first call to this method, it first creates the platform
      * <tt>MBeanServer</tt> by calling the
@@ -524,7 +524,7 @@ public class ManagementFactory {
         return platformMBeanServer;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a proxy for a platform MXBean interface of a
      * given <a href="#MXBeanNames">MXBean name</a>
      * that forwards its method calls through the given

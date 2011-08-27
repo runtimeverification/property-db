@@ -28,7 +28,7 @@ package javax.net.ssl;
 
 import java.util.EventListener;
 
-/**
+/** {@collect.stats}
  * This interface is implemented by objects which want to know when
  * they are being bound or unbound from a SSLSession.  When either event
  * occurs via {@link SSLSession#putValue(String, Object)}
@@ -46,7 +46,7 @@ public
 interface SSLSessionBindingListener
 extends EventListener
 {
-    /**
+    /** {@collect.stats}
      * This is called to notify the listener that it is being bound into
      * an SSLSession.
      *
@@ -55,7 +55,7 @@ extends EventListener
      */
     public void valueBound(SSLSessionBindingEvent event);
 
-    /**
+    /** {@collect.stats}
      * This is called to notify the listener that it is being unbound
      * from a SSLSession.
      *

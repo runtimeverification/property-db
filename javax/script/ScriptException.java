@@ -25,7 +25,7 @@
 
 package javax.script;
 
-/**
+/** {@collect.stats}
  * The generic <code>Exception</code> class for the Scripting APIs.  Checked
  * exception types thrown by underlying scripting implementations must be wrapped in instances of
  * <code>ScriptException</code>.  The class has members to store line and column numbers and
@@ -40,7 +40,7 @@ public class ScriptException extends Exception {
     private int lineNumber;
     private int columnNumber;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ScriptException</code> with a String to be used in its message.
      * Filename, and line and column numbers are unspecified.
      *
@@ -53,7 +53,7 @@ public class ScriptException extends Exception {
         columnNumber = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ScriptException</code> wrapping an <code>Exception</code> thrown by an underlying
      * interpreter.  Line and column numbers and filename are unspecified.
      *
@@ -66,7 +66,7 @@ public class ScriptException extends Exception {
         columnNumber = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>ScriptException</code> with message, filename and linenumber to
      * be used in error messages.
      *
@@ -85,7 +85,7 @@ public class ScriptException extends Exception {
         this.columnNumber = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * <code>ScriptException</code> constructor specifying message, filename, line number
      * and column number.
      * @param message The message.
@@ -103,7 +103,7 @@ public class ScriptException extends Exception {
         this.columnNumber = columnNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a message containing the String passed to a constructor as well as
      * line and column numbers and filename if any of these are known.
      * @return The error message.
@@ -124,7 +124,7 @@ public class ScriptException extends Exception {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the line number on which an error occurred.
      * @return The line number.  Returns -1 if a line number is unavailable.
      */
@@ -132,7 +132,7 @@ public class ScriptException extends Exception {
         return lineNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the column number on which an error occurred.
      * @return The column number.  Returns -1 if a column number is unavailable.
      */
@@ -140,7 +140,7 @@ public class ScriptException extends Exception {
         return columnNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the source of the script causing the error.
      * @return The file name of the script or some other string describing the script
      * source.  May return some implementation-defined string such as <i>&lt;unknown&gt;</i>

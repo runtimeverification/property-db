@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that the IP address of a host could not be determined.
  *
  * @author  Jonathan Payne
@@ -35,7 +35,7 @@ import java.io.IOException;
  */
 public
 class UnknownHostException extends IOException {
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>UnknownHostException</code> with the
      * specified detail message.
      *
@@ -45,7 +45,7 @@ class UnknownHostException extends IOException {
         super(host);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>UnknownHostException</code> with no detail
      * message.
      */

@@ -25,7 +25,7 @@
 
 package javax.imageio.stream;
 
-/**
+/** {@collect.stats}
  * A class representing a mutable reference to an array of bytes and
  * an offset and length within that array.  <code>IIOByteBuffer</code>
  * is used by <code>ImageInputStream</code> to supply a sequence of bytes
@@ -46,7 +46,7 @@ public class IIOByteBuffer {
 
     private int length;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IIOByteBuffer</code> that references a
      * given byte array, offset, and length.
      *
@@ -61,7 +61,7 @@ public class IIOByteBuffer {
         this.length = length;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a reference to the byte array.  The returned value should
      * be treated as read-only, and only the portion specified by the
      * values of <code>getOffset</code> and <code>getLength</code> should
@@ -77,7 +77,7 @@ public class IIOByteBuffer {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the array reference that will be returned by subsequent calls
      * to the <code>getData</code> method.
      *
@@ -89,7 +89,7 @@ public class IIOByteBuffer {
         this.data = data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset within the byte array returned by
      * <code>getData</code> at which the data of interest start.
      *
@@ -103,7 +103,7 @@ public class IIOByteBuffer {
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the value that will be returned by subsequent calls
      * to the <code>getOffset</code> method.
      *
@@ -115,7 +115,7 @@ public class IIOByteBuffer {
         this.offset = offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the data of interest within the byte
      * array returned by <code>getData</code>.
      *
@@ -129,7 +129,7 @@ public class IIOByteBuffer {
         return length;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the value that will be returned by subsequent calls
      * to the <code>getLength</code> method.
      *

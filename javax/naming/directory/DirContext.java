@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.*;
 
-/**
+/** {@collect.stats}
  * The directory service interface, containing
  * methods for examining and updating attributes
  * associated with objects, and for searching the directory.
@@ -166,7 +166,7 @@ import javax.naming.*;
 
 public interface DirContext extends Context {
 
-    /**
+    /** {@collect.stats}
      * Retrieves all of the attributes associated with a named object.
      * See the class description regarding attribute models, attribute
      * type names, and operational attributes.
@@ -183,7 +183,7 @@ public interface DirContext extends Context {
      */
     public Attributes getAttributes(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves all of the attributes associated with a named object.
      * See {@link #getAttributes(Name)} for details.
      *
@@ -195,7 +195,7 @@ public interface DirContext extends Context {
      */
     public Attributes getAttributes(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves selected attributes associated with a named object.
      * See the class description regarding attribute models, attribute
      * type names, and operational attributes.
@@ -224,7 +224,7 @@ public interface DirContext extends Context {
     public Attributes getAttributes(Name name, String[] attrIds)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves selected attributes associated with a named object.
      * See {@link #getAttributes(Name, String[])} for details.
      *
@@ -241,7 +241,7 @@ public interface DirContext extends Context {
     public Attributes getAttributes(String name, String[] attrIds)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * This constant specifies to add an attribute with the specified values.
      * <p>
      * If attribute does not exist,
@@ -261,7 +261,7 @@ public interface DirContext extends Context {
      */
     public final static int ADD_ATTRIBUTE = 1;
 
-    /**
+    /** {@collect.stats}
      * This constant specifies to replace an attribute with specified values.
      *<p>
      * If attribute already exists,
@@ -280,7 +280,7 @@ public interface DirContext extends Context {
      */
     public final static int REPLACE_ATTRIBUTE = 2;
 
-    /**
+    /** {@collect.stats}
      * This constant specifies to delete
      * the specified attribute values from the attribute.
      *<p>
@@ -301,7 +301,7 @@ public interface DirContext extends Context {
      */
     public final static int REMOVE_ATTRIBUTE = 3;
 
-    /**
+    /** {@collect.stats}
      * Modifies the attributes associated with a named object.
      * The order of the modifications is not specified.  Where
      * possible, the modifications are performed atomically.
@@ -325,7 +325,7 @@ public interface DirContext extends Context {
     public void modifyAttributes(Name name, int mod_op, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Modifies the attributes associated with a named object.
      * See {@link #modifyAttributes(Name, int, Attributes)} for details.
      *
@@ -346,7 +346,7 @@ public interface DirContext extends Context {
     public void modifyAttributes(String name, int mod_op, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Modifies the attributes associated with a named object using
      * an ordered list of modifications.
      * The modifications are performed
@@ -371,7 +371,7 @@ public interface DirContext extends Context {
     public void modifyAttributes(Name name, ModificationItem[] mods)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Modifies the attributes associated with a named object using
      * an ordered list of modifications.
      * See {@link #modifyAttributes(Name, ModificationItem[])} for details.
@@ -389,7 +389,7 @@ public interface DirContext extends Context {
     public void modifyAttributes(String name, ModificationItem[] mods)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, along with associated attributes.
      * If <tt>attrs</tt> is null, the resulting binding will have
      * the attributes associated with <tt>obj</tt> if <tt>obj</tt> is a
@@ -416,7 +416,7 @@ public interface DirContext extends Context {
     public void bind(Name name, Object obj, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, along with associated attributes.
      * See {@link #bind(Name, Object, Attributes)} for details.
      *
@@ -435,7 +435,7 @@ public interface DirContext extends Context {
     public void bind(String name, Object obj, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, along with associated attributes,
      * overwriting any existing binding.
      * If <tt>attrs</tt> is null and <tt>obj</tt> is a <tt>DirContext</tt>,
@@ -466,7 +466,7 @@ public interface DirContext extends Context {
     public void rebind(Name name, Object obj, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Binds a name to an object, along with associated attributes,
      * overwriting any existing binding.
      * See {@link #rebind(Name, Object, Attributes)} for details.
@@ -485,7 +485,7 @@ public interface DirContext extends Context {
     public void rebind(String name, Object obj, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Creates and binds a new context, along with associated attributes.
      * This method creates a new subcontext with the given name, binds it in
      * the target context (that named by all but terminal atomic
@@ -511,7 +511,7 @@ public interface DirContext extends Context {
     public DirContext createSubcontext(Name name, Attributes attrs)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Creates and binds a new context, along with associated attributes.
      * See {@link #createSubcontext(Name, Attributes)} for details.
      *
@@ -531,7 +531,7 @@ public interface DirContext extends Context {
 
 // -------------------- schema operations
 
-    /**
+    /** {@collect.stats}
      * Retrieves the schema associated with the named object.
      * The schema describes rules regarding the structure of the namespace
      * and the attributes stored within it.  The schema
@@ -556,7 +556,7 @@ public interface DirContext extends Context {
      */
     public DirContext getSchema(Name name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the schema associated with the named object.
      * See {@link #getSchema(Name)} for details.
      *
@@ -568,7 +568,7 @@ public interface DirContext extends Context {
      */
     public DirContext getSchema(String name) throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a context containing the schema objects of the
      * named object's class definitions.
      *<p>
@@ -604,7 +604,7 @@ public interface DirContext extends Context {
     public DirContext getSchemaClassDefinition(Name name)
             throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves a context containing the schema objects of the
      * named object's class definitions.
      * See {@link #getSchemaClassDefinition(Name)} for details.
@@ -623,7 +623,7 @@ public interface DirContext extends Context {
 
 // -------------------- search operations
 
-    /**
+    /** {@collect.stats}
      * Searches in a single context for objects that contain a
      * specified set of attributes, and retrieves selected attributes.
      * The search is performed using the default
@@ -698,7 +698,7 @@ public interface DirContext extends Context {
                String[] attributesToReturn)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in a single context for objects that contain a
      * specified set of attributes, and retrieves selected attributes.
      * See {@link #search(Name, Attributes, String[])} for details.
@@ -718,7 +718,7 @@ public interface DirContext extends Context {
                String[] attributesToReturn)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in a single context for objects that contain a
      * specified set of attributes.
      * This method returns all the attributes of such objects.
@@ -741,7 +741,7 @@ public interface DirContext extends Context {
         search(Name name, Attributes matchingAttributes)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in a single context for objects that contain a
      * specified set of attributes.
      * See {@link #search(Name, Attributes)} for details.
@@ -757,7 +757,7 @@ public interface DirContext extends Context {
         search(String name, Attributes matchingAttributes)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in the named context or object for entries that satisfy the
      * given search filter.  Performs the search as specified by
      * the search controls.
@@ -859,7 +859,7 @@ public interface DirContext extends Context {
                SearchControls cons)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in the named context or object for entries that satisfy the
      * given search filter.  Performs the search as specified by
      * the search controls.
@@ -888,7 +888,7 @@ public interface DirContext extends Context {
                SearchControls cons)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in the named context or object for entries that satisfy the
      * given search filter.  Performs the search as specified by
      * the search controls.
@@ -995,7 +995,7 @@ public interface DirContext extends Context {
                SearchControls cons)
         throws NamingException;
 
-    /**
+    /** {@collect.stats}
      * Searches in the named context or object for entries that satisfy the
      * given search filter.  Performs the search as specified by
      * the search controls.

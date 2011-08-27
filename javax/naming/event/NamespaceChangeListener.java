@@ -25,7 +25,7 @@
 
 package javax.naming.event;
 
-/**
+/** {@collect.stats}
   * Specifies the methods that a listener interested in namespace changes
   * must implement.
   * Specifically, the listener is interested in <tt>NamingEvent</tt>s
@@ -56,7 +56,7 @@ package javax.naming.event;
   */
 public interface NamespaceChangeListener extends NamingListener {
 
-    /**
+    /** {@collect.stats}
      * Called when an object has been added.
      *<p>
      * The binding of the newly added object can be obtained using
@@ -66,7 +66,7 @@ public interface NamespaceChangeListener extends NamingListener {
      */
     void objectAdded(NamingEvent evt);
 
-    /**
+    /** {@collect.stats}
      * Called when an object has been removed.
      *<p>
      * The binding of the newly removed object can be obtained using
@@ -76,7 +76,7 @@ public interface NamespaceChangeListener extends NamingListener {
      */
     void objectRemoved(NamingEvent evt);
 
-    /**
+    /** {@collect.stats}
      * Called when an object has been renamed.
      *<p>
      * The binding of the renamed object can be obtained using

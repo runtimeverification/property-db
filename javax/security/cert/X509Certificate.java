@@ -40,7 +40,7 @@ import java.security.PublicKey;
 import java.util.BitSet;
 import java.util.Date;
 
-/**
+/** {@collect.stats}
  * Abstract class for X.509 v1 certificates. This provides a standard
  * way to access all the version 1 attributes of an X.509 certificate.
  * Attributes that are specific to X.509 v2 or v3 are not available
@@ -151,7 +151,7 @@ public abstract class X509Certificate extends Certificate {
         );
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiates an X509Certificate object, and initializes it with
      * the data read from the input stream <code>inStream</code>.
      * The implementation (X509Certificate is an abstract class) is
@@ -179,7 +179,7 @@ public abstract class X509Certificate extends Certificate {
         return getInst((Object)inStream);
     }
 
-    /**
+    /** {@collect.stats}
      * Instantiates an X509Certificate object, and initializes it with
      * the specified byte array.
      * The implementation (X509Certificate is an abstract class) is
@@ -250,7 +250,7 @@ public abstract class X509Certificate extends Certificate {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks that the certificate is currently valid. It is if
      * the current date and time are within the validity period given in the
      * certificate.
@@ -276,7 +276,7 @@ public abstract class X509Certificate extends Certificate {
     public abstract void checkValidity()
         throws CertificateExpiredException, CertificateNotYetValidException;
 
-    /**
+    /** {@collect.stats}
      * Checks that the specified date is within the certificate's
      * validity period. In other words, this determines whether the
      * certificate would be valid at the specified date/time.
@@ -292,7 +292,7 @@ public abstract class X509Certificate extends Certificate {
     public abstract void checkValidity(Date date)
         throws CertificateExpiredException, CertificateNotYetValidException;
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>version</code> (version number) value from the
      * certificate. The ASN.1 definition for this is:
      * <pre>
@@ -304,7 +304,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract int getVersion();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>serialNumber</code> value from the certificate.
      * The serial number is an integer assigned by the certification
      * authority to each certificate. It must be unique for each
@@ -321,7 +321,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract BigInteger getSerialNumber();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>issuer</code> (issuer distinguished name) value from
      * the certificate. The issuer name identifies the entity that signed (and
      * issued) the certificate.
@@ -355,7 +355,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract Principal getIssuerDN();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>subject</code> (subject distinguished name) value
      * from the certificate.
      * The ASN.1 definition for this is:
@@ -371,7 +371,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract Principal getSubjectDN();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>notBefore</code> date from the validity period of
      * the certificate.
      * The relevant ASN.1 definitions are:
@@ -391,7 +391,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract Date getNotBefore();
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>notAfter</code> date from the validity period of
      * the certificate. See <a href = "#getNotBefore">getNotBefore</a>
      * for relevant ASN.1 definitions.
@@ -401,7 +401,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract Date getNotAfter();
 
-    /**
+    /** {@collect.stats}
      * Gets the signature algorithm name for the certificate
      * signature algorithm. An example is the string "SHA-1/DSA".
      * The ASN.1 definition for this is:
@@ -422,7 +422,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract String getSigAlgName();
 
-    /**
+    /** {@collect.stats}
      * Gets the signature algorithm OID string from the certificate.
      * An OID is represented by a set of positive whole numbers separated
      * by periods.
@@ -436,7 +436,7 @@ public abstract class X509Certificate extends Certificate {
      */
     public abstract String getSigAlgOID();
 
-    /**
+    /** {@collect.stats}
      * Gets the DER-encoded signature algorithm parameters from this
      * certificate's signature algorithm. In most cases, the signature
      * algorithm parameters are null; the parameters are usually

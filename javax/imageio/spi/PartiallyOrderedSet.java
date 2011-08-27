@@ -32,7 +32,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * A set of <code>Object</code>s with pairwise orderings between them.
  * The <code>iterator</code> method provides the elements in
  * topologically sorted order.  Elements participating in a cycle
@@ -63,7 +63,7 @@ class PartiallyOrderedSet extends AbstractSet {
     // The set of Objects
     private Set nodes = poNodes.keySet();
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>PartiallyOrderedSet</code>.
      */
     public PartiallyOrderedSet() {}
@@ -76,7 +76,7 @@ class PartiallyOrderedSet extends AbstractSet {
         return nodes.contains(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements contained in this
      * collection, with an ordering that respects the orderings set
      * by the <code>setOrdering</code> method.
@@ -85,7 +85,7 @@ class PartiallyOrderedSet extends AbstractSet {
         return new PartialOrderIterator(poNodes.values().iterator());
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an <code>Object</code> to this
      * <code>PartiallyOrderedSet</code>.
      */
@@ -99,7 +99,7 @@ class PartiallyOrderedSet extends AbstractSet {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an <code>Object</code> from this
      * <code>PartiallyOrderedSet</code>.
      */
@@ -118,7 +118,7 @@ class PartiallyOrderedSet extends AbstractSet {
         poNodes.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets an ordering between two nodes.  When an iterator is
      * requested, the first node will appear earlier in the
      * sequence than the second node.  If a prior ordering existed
@@ -137,7 +137,7 @@ class PartiallyOrderedSet extends AbstractSet {
         return firstPONode.addEdge(secondPONode);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any ordering between two nodes.
      *
      * @return true if a prior prefence existed between the nodes.
@@ -152,7 +152,7 @@ class PartiallyOrderedSet extends AbstractSet {
             secondPONode.removeEdge(firstPONode);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if an ordering exists between two
      * nodes.
      */

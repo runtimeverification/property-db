@@ -26,7 +26,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Interface DocAttribute is a tagging interface which a printing attribute
  * class implements to indicate the attribute denotes a setting for a doc.
  * ("Doc" is a short, easy-to-pronounce term that means "a piece of print

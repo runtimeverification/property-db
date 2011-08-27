@@ -29,7 +29,7 @@ import java.text.BreakIterator;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * Displays the <dfn>inline element</dfn> styles
  * based upon css attributes.
  *
@@ -37,7 +37,7 @@ import javax.swing.text.*;
  */
 public class InlineView extends LabelView {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new view wrapped on an element.
      *
      * @param elem the element
@@ -48,7 +48,7 @@ public class InlineView extends LabelView {
         attr = sheet.getViewAttributes(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into
      * the document in a location that this view is responsible for.
      * If either parameter is <code>null</code>, behavior of this method is
@@ -65,7 +65,7 @@ public class InlineView extends LabelView {
         longestWordSpan = -1.0f;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that this view is responsible for.
      * If either parameter is <code>null</code>, behavior of this method is
@@ -82,7 +82,7 @@ public class InlineView extends LabelView {
         longestWordSpan = -1.0f;
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -99,7 +99,7 @@ public class InlineView extends LabelView {
         preferenceChanged(null, true, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the attributes to use when rendering.  This is
      * implemented to multiplex the attributes specified in the
      * model with a StyleSheet.
@@ -108,7 +108,7 @@ public class InlineView extends LabelView {
         return attr;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines how attractive a break opportunity in
      * this view is.  This can be used for determining which
      * view is the most attractive to call <code>breakView</code>
@@ -153,7 +153,7 @@ public class InlineView extends LabelView {
         return super.getBreakWeight(axis, pos, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Tries to break this view on the given axis. Refer to
      * {@link javax.swing.text.View#breakView} for a complete
      * description of this method.
@@ -186,7 +186,7 @@ public class InlineView extends LabelView {
         return view;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the span of the longest word in the view.
      */
     float getLongestWordSpan() {
@@ -299,7 +299,7 @@ public class InlineView extends LabelView {
         }
         return span;
     }
-    /**
+    /** {@collect.stats}
      * Set the cached properties from the attributes.
      */
     protected void setPropertiesFromAttributes() {

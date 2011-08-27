@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.awt.Color;
 import java.awt.Component;
 
-/**
+/** {@collect.stats}
  * A class which implements a simple etched border which can
  * either be etched-in or etched-out.  If no highlight/shadow
  * colors are initialized when the border is created, then
@@ -52,16 +52,16 @@ import java.awt.Component;
  */
 public class EtchedBorder extends AbstractBorder
 {
-    /** Raised etched type. */
+    /** {@collect.stats} Raised etched type. */
     public static final int RAISED  = 0;
-    /** Lowered etched type. */
+    /** {@collect.stats} Lowered etched type. */
     public static final int LOWERED = 1;
 
     protected int etchType;
     protected Color highlight;
     protected Color shadow;
 
-    /**
+    /** {@collect.stats}
      * Creates a lowered etched border whose colors will be derived
      * from the background color of the component passed into
      * the paintBorder method.
@@ -70,7 +70,7 @@ public class EtchedBorder extends AbstractBorder
         this(LOWERED);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an etched border with the specified etch-type
      * whose colors will be derived
      * from the background color of the component passed into
@@ -81,7 +81,7 @@ public class EtchedBorder extends AbstractBorder
         this(etchType, null, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a lowered etched border with the specified highlight and
      * shadow colors.
      * @param highlight the color to use for the etched highlight
@@ -91,7 +91,7 @@ public class EtchedBorder extends AbstractBorder
         this(LOWERED, highlight, shadow);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an etched border with the specified etch-type,
      * highlight and shadow colors.
      * @param etchType the type of etch to be drawn by the border
@@ -104,7 +104,7 @@ public class EtchedBorder extends AbstractBorder
         this.shadow = shadow;
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the border for the specified component with the
      * specified position and size.
      * @param c the component for which this border is being painted
@@ -133,7 +133,7 @@ public class EtchedBorder extends AbstractBorder
         g.translate(-x, -y);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the insets of the border.
      * @param c the component for which this border insets value applies
      */
@@ -141,7 +141,7 @@ public class EtchedBorder extends AbstractBorder
         return new Insets(2, 2, 2, 2);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitialize the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -151,19 +151,19 @@ public class EtchedBorder extends AbstractBorder
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the border is opaque.
      */
     public boolean isBorderOpaque() { return true; }
 
-    /**
+    /** {@collect.stats}
      * Returns which etch-type is set on the etched border.
      */
     public int getEtchType() {
         return etchType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the highlight color of the etched border
      * when rendered on the specified component.  If no highlight
      * color was specified at instantiation, the highlight color
@@ -176,7 +176,7 @@ public class EtchedBorder extends AbstractBorder
                                        c.getBackground().brighter();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the highlight color of the etched border.
      * Will return null if no highlight color was specified
      * at instantiation.
@@ -186,7 +186,7 @@ public class EtchedBorder extends AbstractBorder
         return highlight;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shadow color of the etched border
      * when rendered on the specified component.  If no shadow
      * color was specified at instantiation, the shadow color
@@ -198,7 +198,7 @@ public class EtchedBorder extends AbstractBorder
         return shadow != null? shadow : c.getBackground().darker();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the shadow color of the etched border.
      * Will return null if no shadow color was specified
      * at instantiation.

@@ -35,7 +35,7 @@ import javax.swing.JEditorPane;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 
-/**
+/** {@collect.stats}
  * This is the set of things needed by a text component
  * to be a reasonably functioning editor for some <em>type</em>
  * of text document.  This implementation provides a default
@@ -46,7 +46,7 @@ import javax.swing.UIManager;
  */
 public class StyledEditorKit extends DefaultEditorKit {
 
-    /**
+    /** {@collect.stats}
      * Creates a new EditorKit used for styled documents.
      */
     public StyledEditorKit() {
@@ -54,7 +54,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         createInputAttributes();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the input attributes for the pane.  When
      * the caret moves and there is no selection, the
      * input attributes are automatically mutated to
@@ -69,7 +69,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         return inputAttributes;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the element representing the current
      * run of character attributes for the caret.
      *
@@ -81,7 +81,7 @@ public class StyledEditorKit extends DefaultEditorKit {
 
     // --- EditorKit methods ---------------------------
 
-    /**
+    /** {@collect.stats}
      * Fetches the command list for the editor.  This is
      * the list of commands supported by the superclass
      * augmented by the collection of commands defined
@@ -93,7 +93,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         return TextAction.augmentList(super.getActions(), this.defaultActions);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an uninitialized text storage model
      * that is appropriate for this type of editor.
      *
@@ -103,7 +103,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         return new DefaultStyledDocument();
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being installed into
      * a JEditorPane.
      *
@@ -119,7 +119,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called when the kit is being removed from the
      * JEditorPane.  This is used to unregister any
      * listeners that were attached.
@@ -135,7 +135,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         currentParagraph = null;
     }
 
-   /**
+   /** {@collect.stats}
      * Fetches a factory that is suitable for producing
      * views of any models that are produced by this
      * kit.  This is implemented to return View implementations
@@ -154,7 +154,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         return defaultFactory;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a copy of the editor kit.
      *
      * @return the copy
@@ -167,7 +167,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         return o;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the AttributeSet used for the selection.
      */
     private void createInputAttributes() {
@@ -183,7 +183,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         };
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>AttributeTracker</code>.
      */
     private void createInputAttributeUpdated() {
@@ -196,13 +196,13 @@ public class StyledEditorKit extends DefaultEditorKit {
     Element currentRun;
     Element currentParagraph;
 
-    /**
+    /** {@collect.stats}
      * This is the set of attributes used to store the
      * input attributes.
      */
     MutableAttributeSet inputAttributes;
 
-    /**
+    /** {@collect.stats}
      * This listener will be attached to the caret of
      * the text component that the EditorKit gets installed
      * into.  This should keep the input attributes updated
@@ -210,7 +210,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     private AttributeTracker inputAttributeUpdater;
 
-    /**
+    /** {@collect.stats}
      * Tracks caret movement and keeps the input attributes set
      * to reflect the current set of attribute definitions at the
      * caret position.
@@ -220,7 +220,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     class AttributeTracker implements CaretListener, PropertyChangeListener, Serializable {
 
-        /**
+        /** {@collect.stats}
          * Updates the attributes. <code>dot</code> and <code>mark</code>
          * mark give the positions of the selection in <code>c</code>.
          */
@@ -277,7 +277,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the key/values in <code>element</code>s AttributeSet into
      * <code>set</code>. This does not copy component, icon, or element
      * names attributes. Subclasses may wish to refine what is and what
@@ -350,7 +350,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         new UnderlineAction()
     };
 
-    /**
+    /** {@collect.stats}
      * An action that assumes it's being fired on a JEditorPane
      * with a StyledEditorKit (or subclass) installed.  This has
      * some convenience methods for causing character or paragraph
@@ -377,7 +377,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public abstract static class StyledTextAction extends TextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates a new StyledTextAction from a string action name.
          *
          * @param nm the name of the action
@@ -386,7 +386,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             super(nm);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the target editor for an action.
          *
          * @param e the action event
@@ -400,7 +400,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the document associated with an editor pane.
          *
          * @param e the editor
@@ -415,7 +415,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             throw new IllegalArgumentException("document must be StyledDocument");
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the editor kit associated with an editor pane.
          *
          * @param e the editor pane
@@ -430,7 +430,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             throw new IllegalArgumentException("EditorKit must be StyledEditorKit");
         }
 
-        /**
+        /** {@collect.stats}
          * Applies the given attributes to character
          * content.  If there is a selection, the attributes
          * are applied to the selection range.  If there
@@ -458,7 +458,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             inputAttributes.addAttributes(attr);
         }
 
-        /**
+        /** {@collect.stats}
          * Applies the given attributes to paragraphs.  If
          * there is a selection, the attributes are applied
          * to the paragraphs that intersect the selection.
@@ -479,7 +479,7 @@ public class StyledEditorKit extends DefaultEditorKit {
 
     }
 
-    /**
+    /** {@collect.stats}
      * An action to set the font family in the associated
      * JEditorPane.  This will use the family specified as
      * the command string on the ActionEvent if there is one,
@@ -496,7 +496,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class FontFamilyAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates a new FontFamilyAction.
          *
          * @param nm the action name
@@ -507,7 +507,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             this.family = family;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the font family.
          *
          * @param e the event
@@ -535,7 +535,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         private String family;
     }
 
-    /**
+    /** {@collect.stats}
      * An action to set the font size in the associated
      * JEditorPane.  This will use the size specified as
      * the command string on the ActionEvent if there is one,
@@ -552,7 +552,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class FontSizeAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates a new FontSizeAction.
          *
          * @param nm the action name
@@ -563,7 +563,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             this.size = size;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the font size.
          *
          * @param e the action event
@@ -592,7 +592,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         private int size;
     }
 
-    /**
+    /** {@collect.stats}
      * An action to set foreground color.  This sets the
      * <code>StyleConstants.Foreground</code> attribute for the
      * currently selected range of the target JEditorPane.
@@ -619,7 +619,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class ForegroundAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates a new ForegroundAction.
          *
          * @param nm the action name
@@ -630,7 +630,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             this.fg = fg;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the foreground color.
          *
          * @param e the action event
@@ -659,7 +659,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         private Color fg;
     }
 
-    /**
+    /** {@collect.stats}
      * An action to set paragraph alignment.  This sets the
      * <code>StyleConstants.Alignment</code> attribute for the
      * currently selected range of the target JEditorPane.
@@ -685,7 +685,7 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class AlignmentAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Creates a new AlignmentAction.
          *
          * @param nm the action name
@@ -696,7 +696,7 @@ public class StyledEditorKit extends DefaultEditorKit {
             this.a = a;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the alignment.
          *
          * @param e the action event
@@ -721,7 +721,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         private int a;
     }
 
-    /**
+    /** {@collect.stats}
      * An action to toggle the bold attribute.
      * <p>
      * <strong>Warning:</strong>
@@ -735,14 +735,14 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class BoldAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Constructs a new BoldAction.
          */
         public BoldAction() {
             super("font-bold");
         }
 
-        /**
+        /** {@collect.stats}
          * Toggles the bold attribute.
          *
          * @param e the action event
@@ -760,7 +760,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An action to toggle the italic attribute.
      * <p>
      * <strong>Warning:</strong>
@@ -774,14 +774,14 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class ItalicAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Constructs a new ItalicAction.
          */
         public ItalicAction() {
             super("font-italic");
         }
 
-        /**
+        /** {@collect.stats}
          * Toggles the italic attribute.
          *
          * @param e the action event
@@ -799,7 +799,7 @@ public class StyledEditorKit extends DefaultEditorKit {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * An action to toggle the underline attribute.
      * <p>
      * <strong>Warning:</strong>
@@ -813,14 +813,14 @@ public class StyledEditorKit extends DefaultEditorKit {
      */
     public static class UnderlineAction extends StyledTextAction {
 
-        /**
+        /** {@collect.stats}
          * Constructs a new UnderlineAction.
          */
         public UnderlineAction() {
             super("font-underline");
         }
 
-        /**
+        /** {@collect.stats}
          * Toggles the Underline attribute.
          *
          * @param e the action event
@@ -839,7 +839,7 @@ public class StyledEditorKit extends DefaultEditorKit {
     }
 
 
-    /**
+    /** {@collect.stats}
      * StyledInsertBreakAction has similar behavior to that of
      * <code>DefaultEditorKit.InsertBreakAction</code>. That is when
      * its <code>actionPerformed</code> method is invoked, a newline

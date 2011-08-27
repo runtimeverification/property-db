@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 import javax.swing.text.AttributeSet;
 
-/**
+/** {@collect.stats}
  * Map is used to represent a map element that is part of an HTML document.
  * Once a Map has been created, and any number of areas have been added,
  * you can test if a point falls inside the map via the contains method.
@@ -38,11 +38,11 @@ import javax.swing.text.AttributeSet;
  * @author  Scott Violet
  */
 class Map implements Serializable {
-    /** Name of the Map. */
+    /** {@collect.stats} Name of the Map. */
     private String           name;
-    /** An array of AttributeSets. */
+    /** {@collect.stats} An array of AttributeSets. */
     private Vector           areaAttributes;
-    /** An array of RegionContainments, will slowly grow to match the
+    /** {@collect.stats} An array of RegionContainments, will slowly grow to match the
      * length of areaAttributes as needed. */
     private Vector           areas;
 
@@ -53,14 +53,14 @@ class Map implements Serializable {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the Map.
      */
     public String getName() {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Defines a region of the Map, based on the passed in AttributeSet.
      */
     public void addArea(AttributeSet as) {
@@ -73,7 +73,7 @@ class Map implements Serializable {
         areaAttributes.addElement(as.copyAttributes());
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the previously created area.
      */
     public void removeArea(AttributeSet as) {
@@ -92,7 +92,7 @@ class Map implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the AttributeSets representing the differet areas of the Map.
      */
     public AttributeSet[] getAreas() {
@@ -107,7 +107,7 @@ class Map implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the AttributeSet that contains the passed in location,
      * <code>x</code>, <code>y</code>. <code>width</code>, <code>height</code>
      * gives the size of the region the map is defined over. If a matching
@@ -138,7 +138,7 @@ class Map implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an instance of RegionContainment that can be
      * used to test if a particular point lies inside a region.
      */
@@ -175,7 +175,7 @@ class Map implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates and returns an array of integers from the String
      * <code>stringCoords</code>. If one of the values represents a
      * % the returned value with be negative. If a parse error results
@@ -229,12 +229,12 @@ class Map implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Defines the interface used for to check if a point is inside a
      * region.
      */
     interface RegionContainment {
-        /**
+        /** {@collect.stats}
          * Returns true if the location <code>x</code>, <code>y</code>
          * falls inside the region defined in the receiver.
          * <code>width</code>, <code>height</code> is the size of
@@ -244,22 +244,22 @@ class Map implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to test for containment in a rectangular region.
      */
     static class RectangleRegionContainment implements RegionContainment {
-        /** Will be non-null if one of the values is a percent, and any value
+        /** {@collect.stats} Will be non-null if one of the values is a percent, and any value
          * that is non null indicates it is a percent
          * (order is x, y, width, height). */
         float[]       percents;
-        /** Last value of width passed in. */
+        /** {@collect.stats} Last value of width passed in. */
         int           lastWidth;
-        /** Last value of height passed in. */
+        /** {@collect.stats} Last value of height passed in. */
         int           lastHeight;
-        /** Top left. */
+        /** {@collect.stats} Top left. */
         int           x0;
         int           y0;
-        /** Bottom right. */
+        /** {@collect.stats} Bottom right. */
         int           x1;
         int           y1;
 
@@ -322,18 +322,18 @@ class Map implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to test for containment in a polygon region.
      */
     static class PolygonRegionContainment extends Polygon implements
                  RegionContainment {
-        /** If any value is a percent there will be an entry here for the
+        /** {@collect.stats} If any value is a percent there will be an entry here for the
          * percent value. Use percentIndex to find out the index for it. */
         float[]           percentValues;
         int[]             percentIndexs;
-        /** Last value of width passed in. */
+        /** {@collect.stats} Last value of width passed in. */
         int               lastWidth;
-        /** Last value of height passed in. */
+        /** {@collect.stats} Last value of height passed in. */
         int               lastHeight;
 
         public PolygonRegionContainment(AttributeSet as) {
@@ -412,21 +412,21 @@ class Map implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Used to test for containment in a circular region.
      */
     static class CircleRegionContainment implements RegionContainment {
-        /** X origin of the circle. */
+        /** {@collect.stats} X origin of the circle. */
         int           x;
-        /** Y origin of the circle. */
+        /** {@collect.stats} Y origin of the circle. */
         int           y;
-        /** Radius of the circle. */
+        /** {@collect.stats} Radius of the circle. */
         int           radiusSquared;
-        /** Non-null indicates one of the values represents a percent. */
+        /** {@collect.stats} Non-null indicates one of the values represents a percent. */
         float[]       percentValues;
-        /** Last value of width passed in. */
+        /** {@collect.stats} Last value of width passed in. */
         int           lastWidth;
-        /** Last value of height passed in. */
+        /** {@collect.stats} Last value of height passed in. */
         int           lastHeight;
 
         public CircleRegionContainment(AttributeSet as) {
@@ -482,13 +482,13 @@ class Map implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * An implementation that will return true if the x, y location is
      * inside a rectangle defined by origin 0, 0, and width equal to
      * width passed in, and height equal to height passed in.
      */
     static class DefaultRegionContainment implements RegionContainment {
-        /** A global shared instance. */
+        /** {@collect.stats} A global shared instance. */
         static DefaultRegionContainment  si = null;
 
         public static DefaultRegionContainment sharedInstance() {

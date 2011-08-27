@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Package-visible class consolidating common code for
  * <code>MemoryCacheImageInputStream</code> and
  * <code>MemoryCacheImageOutputStream</code>.
@@ -62,7 +62,7 @@ class MemoryCache {
 
     private long cacheStart = 0L;
 
-    /**
+    /** {@collect.stats}
      * The largest position ever written to the cache.
      */
     private long length = 0L;
@@ -77,7 +77,7 @@ class MemoryCache {
         return (byte[])cache.get((int)blockOffset);
     }
 
-    /**
+    /** {@collect.stats}
      * Ensures that at least <code>pos</code> bytes are cached,
      * or the end of the source is reached.  The return value
      * is equal to the smaller of <code>pos</code> and the
@@ -133,7 +133,7 @@ class MemoryCache {
         return pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out a portion of the cache to an <code>OutputStream</code>.
      * This method preserves no state about the output stream, and does
      * not dispose of any blocks containing bytes written.  To dispose
@@ -175,7 +175,7 @@ class MemoryCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Ensure that there is space to write a byte at the given position.
      */
     private void pad(long pos) throws IOException {
@@ -191,7 +191,7 @@ class MemoryCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overwrites and/or appends the cache from a byte array.
      * The length of the cache will be extended as needed to hold
      * the incoming data.
@@ -238,7 +238,7 @@ class MemoryCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overwrites or appends a single byte to the cache.
      * The length of the cache will be extended as needed to hold
      * the incoming data.
@@ -266,7 +266,7 @@ class MemoryCache {
         buf[offset] = (byte)b;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the total length of data that has been cached,
      * regardless of whether any early blocks have been disposed.
      * This value will only ever increase.
@@ -275,7 +275,7 @@ class MemoryCache {
         return length;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the single byte at the given position, as an
      * <code>int</code>.  Returns -1 if this position has
      * not been cached or has been disposed.
@@ -293,7 +293,7 @@ class MemoryCache {
         return buf[(int)(pos % BUFFER_LENGTH)] & 0xff;
     }
 
-    /**
+    /** {@collect.stats}
      * Copy <code>len</code> bytes from the cache, starting
      * at cache position <code>pos</code>, into the array
      * <code>b</code> at offset <code>off</code>.
@@ -332,7 +332,7 @@ class MemoryCache {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Free the blocks up to the position <code>pos</code>.
      * The byte at <code>pos</code> remains available.
      *
@@ -351,7 +351,7 @@ class MemoryCache {
         this.cacheStart = index;
     }
 
-    /**
+    /** {@collect.stats}
      * Erase the entire cache contents and reset the length to 0.
      * The cache object may subsequently be reused as though it had just
      * been allocated.

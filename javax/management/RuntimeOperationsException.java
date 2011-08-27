@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * Represents runtime exceptions thrown in the agent when performing operations on MBeans.
  * It wraps the actual <CODE>java.lang.RuntimeException</CODE> thrown.
  *
@@ -38,13 +38,13 @@ public class RuntimeOperationsException extends JMRuntimeException   {
     /* Serial version */
     private static final long serialVersionUID = -8408923047489133588L;
 
-    /**
+    /** {@collect.stats}
      * @serial The encapsulated {@link RuntimeException}
      */
     private java.lang.RuntimeException runtimeException ;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>RuntimeOperationsException</CODE> that wraps the actual <CODE>java.lang.RuntimeException</CODE>.
      *
      * @param e the wrapped exception.
@@ -54,7 +54,7 @@ public class RuntimeOperationsException extends JMRuntimeException   {
         runtimeException = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <CODE>RuntimeOperationsException</CODE> that wraps the actual <CODE>java.lang.RuntimeException</CODE>
      * with a detailed message.
      *
@@ -66,7 +66,7 @@ public class RuntimeOperationsException extends JMRuntimeException   {
         runtimeException = e ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link RuntimeException} thrown.
      *
      * @return the wrapped {@link RuntimeException}.
@@ -75,7 +75,7 @@ public class RuntimeOperationsException extends JMRuntimeException   {
         return runtimeException ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the actual {@link RuntimeException} thrown.
      *
      * @return the wrapped {@link RuntimeException}.

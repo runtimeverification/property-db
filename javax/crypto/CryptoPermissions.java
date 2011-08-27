@@ -36,7 +36,7 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class contains CryptoPermission objects, organized into
  * PermissionCollections according to algorithm names.
  *
@@ -64,7 +64,7 @@ implements Serializable {
     // This class is similar to java.security.Permissions
     private Hashtable perms;
 
-    /**
+    /** {@collect.stats}
      * Creates a new CryptoPermissions object containing
      * no CryptoPermissionCollections.
      */
@@ -72,7 +72,7 @@ implements Serializable {
         perms = new Hashtable(7);
     }
 
-    /**
+    /** {@collect.stats}
      * Populates the crypto policy from the specified
      * InputStream into this CryptoPermissions object.
      *
@@ -92,7 +92,7 @@ implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if this CryptoPermissions object doesn't
      * contain any CryptoPermission objects; otherwise, returns
      * false.
@@ -101,7 +101,7 @@ implements Serializable {
         return perms.isEmpty();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a permission object to the PermissionCollection for the
      * algorithm returned by
      * <code>(CryptoPermission)permission.getAlgorithm()</code>.
@@ -137,7 +137,7 @@ implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Checks if this object's PermissionCollection for permissons
      * of the specified permission's algorithm implies the specified
      * permission. Returns true if the checking succeeded.
@@ -160,7 +160,7 @@ implements Serializable {
         return pc.implies(cryptoPerm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumeration of all the Permission objects in all the
      * PermissionCollections in this CryptoPermissions object.
      *
@@ -172,7 +172,7 @@ implements Serializable {
         return new PermissionsEnumerator(perms.elements());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a CryptoPermissions object which
      * represents the minimum of the specified
      * CryptoPermissions object and this
@@ -274,7 +274,7 @@ implements Serializable {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the minimum of the two given PermissionCollection
      * <code>thisPc</code> and <code>thatPc</code>.
      *
@@ -327,7 +327,7 @@ implements Serializable {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all the CryptoPermission objects in the given
      * PermissionCollection object
      * whose maximum keysize no greater than <code>maxKeySize</code>.
@@ -372,7 +372,7 @@ implements Serializable {
         return ret;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the PermissionCollection for the
      * specified algorithm. Returns null if there
      * isn't such a PermissionCollection.
@@ -400,7 +400,7 @@ implements Serializable {
         return pc;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the PermissionCollection for the algorithm
      * associated with the specified CryptoPermission
      * object. Creates such a PermissionCollection

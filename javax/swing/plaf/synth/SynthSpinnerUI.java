@@ -34,7 +34,7 @@ import javax.swing.plaf.basic.BasicSpinnerUI;
 import java.beans.*;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's SpinnerUI.
  *
  * @author Hans Muller
@@ -43,7 +43,7 @@ import sun.swing.plaf.synth.SynthUI;
 class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
         SynthUI {
     private SynthStyle style;
-    /**
+    /** {@collect.stats}
      * A FocusListener implementation which causes the entire spinner to be
      * repainted whenever the editor component (typically a text field) becomes
      * focused, or loses focus. This is necessary because since SynthSpinnerUI
@@ -54,7 +54,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
      */
     private EditorFocusHandler editorFocusHandler = new EditorFocusHandler();
 
-    /**
+    /** {@collect.stats}
      * Returns a new instance of SynthSpinnerUI.
      *
      * @param c the JSpinner (not used)
@@ -78,7 +78,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the <code>propertyChangeListener</code> added
      * by installListeners.
      * <p>
@@ -99,7 +99,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize the <code>JSpinner</code> <code>border</code>,
      * <code>foreground</code>, and <code>background</code>, properties
      * based on the corresponding "Spinner.*" properties from defaults table.
@@ -137,7 +137,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>JSpinner's</code> layout manager to null.  This
      * method is called by <code>uninstallUI</code>.
      *
@@ -162,7 +162,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a component that will replace the spinner models value
      * with the object returned by <code>spinner.getPreviousValue</code>.
      * By default the <code>previousButton</code> is a JButton
@@ -183,7 +183,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Create a component that will replace the spinner models value
      * with the object returned by <code>spinner.getNextValue</code>.
      * By default the <code>nextButton</code> is a JButton
@@ -204,7 +204,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
     }
 
 
-    /**
+    /** {@collect.stats}
      * This method is called by installUI to get the editor component
      * of the <code>JSpinner</code>.  By default it just returns
      * <code>JSpinner.getEditor()</code>.  Subclasses can override
@@ -235,7 +235,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called by the <code>PropertyChangeListener</code> when the
      * <code>JSpinner</code> editor property changes.  It's the responsibility
      * of this method to remove the old editor and add the new one.  By
@@ -331,7 +331,7 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
         context.getPainter().paintSpinnerBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * A simple layout manager for the editor and the next/previous buttons.
      * See the SynthSpinnerUI javadoc for more information about exactly
      * how the components are arranged.
@@ -442,20 +442,20 @@ class SynthSpinnerUI extends BasicSpinnerUI implements PropertyChangeListener,
         }
     }
 
-    /** Listen to editor text field focus changes and repaint whole spinner */
+    /** {@collect.stats} Listen to editor text field focus changes and repaint whole spinner */
     private class EditorFocusHandler implements FocusListener{
-        /** Invoked when a editor text field gains the keyboard focus. */
+        /** {@collect.stats} Invoked when a editor text field gains the keyboard focus. */
         public void focusGained(FocusEvent e) {
             spinner.repaint();
         }
 
-        /** Invoked when a editor text field loses the keyboard focus. */
+        /** {@collect.stats} Invoked when a editor text field loses the keyboard focus. */
         public void focusLost(FocusEvent e) {
             spinner.repaint();
         }
     }
 
-    /** Override the arrowbuttons focus handling to follow the text fields focus */
+    /** {@collect.stats} Override the arrowbuttons focus handling to follow the text fields focus */
     private class SpinnerArrowButton extends SynthArrowButton{
         public SpinnerArrowButton(int direction) {
             super(direction);

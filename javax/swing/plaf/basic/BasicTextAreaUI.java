@@ -33,7 +33,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.text.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * Provides the look and feel for a plain text editor.  In this
  * implementation the default UI is extended to act as a simple
  * view factory.
@@ -51,7 +51,7 @@ import javax.swing.plaf.*;
  */
 public class BasicTextAreaUI extends BasicTextUI {
 
-    /**
+    /** {@collect.stats}
      * Creates a UI for a JTextArea.
      *
      * @param ta a text area
@@ -61,14 +61,14 @@ public class BasicTextAreaUI extends BasicTextUI {
         return new BasicTextAreaUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new BasicTextAreaUI object.
      */
     public BasicTextAreaUI() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the name used as a key to look up properties through the
      * UIManager.  This is used as a prefix to all the standard
      * text properties.
@@ -84,7 +84,7 @@ public class BasicTextAreaUI extends BasicTextUI {
         //the fix for 4785160 is undone
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the
@@ -107,7 +107,7 @@ public class BasicTextAreaUI extends BasicTextUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * The method is overridden to take into account caret width.
      *
      * @param c the editor component
@@ -121,7 +121,7 @@ public class BasicTextAreaUI extends BasicTextUI {
         //the fix for 4785160 is undone
     }
 
-    /**
+    /** {@collect.stats}
      * The method is overridden to take into account caret width.
      *
      * @param c the editor component
@@ -135,7 +135,7 @@ public class BasicTextAreaUI extends BasicTextUI {
         //the fix for 4785160 is undone
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the view for an element.  Returns a WrappedPlainView or
      * PlainView.
      *
@@ -176,7 +176,7 @@ public class BasicTextAreaUI extends BasicTextUI {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.
      *
      * @throws NullPointerException {@inheritDoc}
@@ -208,7 +208,7 @@ public class BasicTextAreaUI extends BasicTextUI {
         return insets.top + fm.getAscent();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of the component
      * changes as the size changes.
      *
@@ -223,7 +223,7 @@ public class BasicTextAreaUI extends BasicTextUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Paragraph for representing plain-text lines that support
      * bidirectional text.
      */
@@ -251,7 +251,7 @@ public class BasicTextAreaUI extends BasicTextUI {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Fetch the constraining span to flow against for
          * the given child index.
          */
@@ -289,7 +289,7 @@ public class BasicTextAreaUI extends BasicTextUI {
             return req;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the size of the view.  If the size has changed, layout
          * is redone.  The size is the full size of the view including
          * the inset areas.
@@ -304,7 +304,7 @@ public class BasicTextAreaUI extends BasicTextUI {
             super.setSize(width, height);
         }
 
-        /**
+        /** {@collect.stats}
          * This class can be used to represent a logical view for
          * a flow.  It keeps the children updated to reflect the state
          * of the model, gives the logical child views access to the
@@ -348,7 +348,7 @@ public class BasicTextAreaUI extends BasicTextUI {
                 return v.getPreferredSpan(axis);
             }
 
-            /**
+            /** {@collect.stats}
              * Forward the DocumentEvent to the given child view.  This
              * is implemented to reparent the child to the logical view
              * (the children may have been parented by a row in the flow

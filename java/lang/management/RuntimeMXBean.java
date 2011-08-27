@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/**
+/** {@collect.stats}
  * The management interface for the runtime system of
  * the Java virtual machine.
  *
@@ -56,7 +56,7 @@ package java.lang.management;
  * @since   1.5
  */
 public interface RuntimeMXBean {
-    /**
+    /** {@collect.stats}
      * Returns the name representing the running Java virtual machine.
      * The returned name string can be any arbitrary string and
      * a Java virtual machine implementation can choose
@@ -68,7 +68,7 @@ public interface RuntimeMXBean {
      */
     public String getName();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine implementation name.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.name")}.
@@ -84,7 +84,7 @@ public interface RuntimeMXBean {
      */
     public String getVmName();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine implementation vendor.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.vendor")}.
@@ -100,7 +100,7 @@ public interface RuntimeMXBean {
      */
     public String getVmVendor();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine implementation version.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.version")}.
@@ -116,7 +116,7 @@ public interface RuntimeMXBean {
      */
     public String getVmVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine specification name.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.specification.name")}.
@@ -132,7 +132,7 @@ public interface RuntimeMXBean {
      */
     public String getSpecName();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine specification vendor.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.specification.vendor")}.
@@ -148,7 +148,7 @@ public interface RuntimeMXBean {
      */
     public String getSpecVendor();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java virtual machine specification version.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.vm.specification.version")}.
@@ -165,7 +165,7 @@ public interface RuntimeMXBean {
     public String getSpecVersion();
 
 
-    /**
+    /** {@collect.stats}
      * Returns the version of the specification for the management interface
      * implemented by the running Java virtual machine.
      *
@@ -174,7 +174,7 @@ public interface RuntimeMXBean {
      */
     public String getManagementSpecVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java class path that is used by the system class loader
      * to search for class files.
      * This method is equivalent to {@link System#getProperty
@@ -195,7 +195,7 @@ public interface RuntimeMXBean {
      */
     public String getClassPath();
 
-    /**
+    /** {@collect.stats}
      * Returns the Java library path.
      * This method is equivalent to {@link System#getProperty
      * System.getProperty("java.library.path")}.
@@ -215,7 +215,7 @@ public interface RuntimeMXBean {
      */
     public String getLibraryPath();
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports the boot class path
      * mechanism used by the bootstrap class loader to search for class
      * files.
@@ -225,7 +225,7 @@ public interface RuntimeMXBean {
      */
     public boolean isBootClassPathSupported();
 
-    /**
+    /** {@collect.stats}
      * Returns the boot class path that is used by the bootstrap class loader
      * to search for class files.
      *
@@ -250,7 +250,7 @@ public interface RuntimeMXBean {
      */
     public String getBootClassPath();
 
-    /**
+    /** {@collect.stats}
      * Returns the input arguments passed to the Java virtual machine
      * which does not include the arguments to the <tt>main</tt> method.
      * This method returns an empty list if there is no input argument
@@ -279,14 +279,14 @@ public interface RuntimeMXBean {
      */
     public java.util.List<String> getInputArguments();
 
-    /**
+    /** {@collect.stats}
      * Returns the uptime of the Java virtual machine in milliseconds.
      *
      * @return uptime of the Java virtual machine in milliseconds.
      */
     public long getUptime();
 
-    /**
+    /** {@collect.stats}
      * Returns the start time of the Java virtual machine in milliseconds.
      * This method returns the approximate time when the Java virtual
      * machine started.
@@ -296,7 +296,7 @@ public interface RuntimeMXBean {
      */
     public long getStartTime();
 
-    /**
+    /** {@collect.stats}
      * Returns a map of names and values of all system properties.
      * This method calls {@link System#getProperties} to get all
      * system properties.  Properties whose name or value is not

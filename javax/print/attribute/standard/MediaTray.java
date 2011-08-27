@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 
 
-/**
+/** {@collect.stats}
  * Class MediaTray is a subclass of Media.
  * Class MediaTray is a printing attribute class, an enumeration, that
  * specifies the media tray or bin for the job.
@@ -49,47 +49,47 @@ public class MediaTray extends Media implements Attribute {
 
     private static final long serialVersionUID = -982503611095214703L;
 
-    /**
+    /** {@collect.stats}
      * The top input tray in the printer.
      */
     public static final MediaTray TOP = new MediaTray(0);
 
-    /**
+    /** {@collect.stats}
      * The middle input tray in the printe.
      */
     public static final MediaTray MIDDLE = new MediaTray(1);
 
-    /**
+    /** {@collect.stats}
      * The bottom input tray in the printer.
      */
     public static final MediaTray BOTTOM = new MediaTray(2);
 
-    /**
+    /** {@collect.stats}
      * The envelope input tray in the printer.
      */
     public static final MediaTray ENVELOPE = new MediaTray(3);
 
-    /**
+    /** {@collect.stats}
      * The manual feed input tray in the printer.
      */
     public static final MediaTray MANUAL = new MediaTray(4);
 
-    /**
+    /** {@collect.stats}
      * The large capacity input tray in the printer.
      */
     public static final MediaTray LARGE_CAPACITY = new MediaTray(5);
 
-    /**
+    /** {@collect.stats}
      * The main input tray in the printer.
      */
     public static final MediaTray MAIN = new MediaTray(6);
 
-    /**
+    /** {@collect.stats}
      * The side input tray.
      */
     public static final MediaTray SIDE = new MediaTray(7);
 
-    /**
+    /** {@collect.stats}
      * Construct a new media tray enumeration value with the given integer
      * value.
      *
@@ -121,7 +121,7 @@ public class MediaTray extends Media implements Attribute {
         SIDE
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class MediaTray.
      */
     protected String[] getStringTable()
@@ -129,7 +129,7 @@ public class MediaTray extends Media implements Attribute {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class MediaTray.
      */
     protected EnumSyntax[] getEnumValueTable() {

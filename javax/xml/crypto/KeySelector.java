@@ -31,7 +31,7 @@ import java.security.Key;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
-/**
+/** {@collect.stats}
  * A selector that finds and returns a key using the data contained in a
  * {@link KeyInfo} object. An example of an implementation of
  * this class is one that searchs a {@link java.security.KeyStore} for
@@ -46,7 +46,7 @@ import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
  */
 public abstract class KeySelector {
 
-    /**
+    /** {@collect.stats}
      * The purpose of the key that is to be selected.
      */
     public static class Purpose {
@@ -55,7 +55,7 @@ public abstract class KeySelector {
 
         private Purpose(String name)    { this.name = name; }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this purpose ("sign",
          * "verify", "encrypt", or "decrypt").
          *
@@ -63,30 +63,30 @@ public abstract class KeySelector {
          */
         public String toString()        { return name; }
 
-        /**
+        /** {@collect.stats}
          * A key for signing.
          */
         public static final Purpose SIGN = new Purpose("sign");
-        /**
+        /** {@collect.stats}
          * A key for verifying.
          */
         public static final Purpose VERIFY = new Purpose("verify");
-        /**
+        /** {@collect.stats}
          * A key for encrypting.
          */
         public static final Purpose ENCRYPT = new Purpose("encrypt");
-        /**
+        /** {@collect.stats}
          * A key for decrypting.
          */
         public static final Purpose DECRYPT = new Purpose("decrypt");
     }
 
-    /**
+    /** {@collect.stats}
      * Default no-args constructor; intended for invocation by subclasses only.
      */
     protected KeySelector() {}
 
-    /**
+    /** {@collect.stats}
      * Attempts to find a key that satisfies the specified constraints.
      *
      * @param keyInfo a <code>KeyInfo</code> (may be <code>null</code>)
@@ -116,7 +116,7 @@ public abstract class KeySelector {
         AlgorithmMethod method, XMLCryptoContext context)
         throws KeySelectorException;
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>KeySelector</code> that always selects the specified
      * key, regardless of the <code>KeyInfo</code> passed to it.
      *

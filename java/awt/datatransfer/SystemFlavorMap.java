@@ -50,7 +50,7 @@ import java.util.WeakHashMap;
 import sun.awt.datatransfer.DataTransferer;
 
 
-/**
+/** {@collect.stats}
  * The SystemFlavorMap is a configurable map between "natives" (Strings), which
  * correspond to platform-specific data formats, and "flavors" (DataFlavors),
  * which correspond to platform-independent MIME types. This mapping is used
@@ -67,25 +67,25 @@ import sun.awt.datatransfer.DataTransferer;
  */
 public final class SystemFlavorMap implements FlavorMap, FlavorTable {
 
-    /**
+    /** {@collect.stats}
      * Constant prefix used to tag Java types converted to native platform
      * type.
      */
     private static String JavaMIME = "JAVA_DATAFLAVOR:";
 
-    /**
+    /** {@collect.stats}
      * System singleton which maps a thread's ClassLoader to a SystemFlavorMap.
      */
     private static final WeakHashMap flavorMaps = new WeakHashMap();
 
-    /**
+    /** {@collect.stats}
      * Copied from java.util.Properties.
      */
     private static final String keyValueSeparators = "=: \t\r\n\f";
     private static final String strictKeyValueSeparators = "=:";
     private static final String whiteSpaceChars = " \t\r\n\f";
 
-    /**
+    /** {@collect.stats}
      * The list of valid, decoded text flavor representation classes, in order
      * from best to worst.
      */
@@ -93,7 +93,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         "java.io.Reader", "java.lang.String", "java.nio.CharBuffer", "\"[C\""
     };
 
-    /**
+    /** {@collect.stats}
      * The list of valid, encoded text flavor representation classes, in order
      * from best to worst.
      */
@@ -101,12 +101,12 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         "java.io.InputStream", "java.nio.ByteBuffer", "\"[B\""
     };
 
-    /**
+    /** {@collect.stats}
      * A String representing text/plain MIME type.
      */
     private static final String TEXT_PLAIN_BASE_TYPE = "text/plain";
 
-    /**
+    /** {@collect.stats}
      * This constant is passed to flavorToNativeLookup() to indicate that a
      * a native should be synthesized, stored, and returned by encoding the
      * DataFlavor's MIME type in case if the DataFlavor is not found in
@@ -114,31 +114,31 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
      */
     private static final boolean SYNTHESIZE_IF_NOT_FOUND = true;
 
-    /**
+    /** {@collect.stats}
      * Maps native Strings to Lists of DataFlavors (or base type Strings for
      * text DataFlavors).
      */
     private Map nativeToFlavor = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Maps DataFlavors (or base type Strings for text DataFlavors) to Lists of
      * native Strings.
      */
     private Map flavorToNative = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Caches the result of getNativesForFlavor(). Maps DataFlavors to
      * SoftReferences which reference Lists of String natives.
      */
     private Map getNativesForFlavorCache = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Caches the result getFlavorsForNative(). Maps String natives to
      * SoftReferences which reference Lists of DataFlavors.
      */
     private Map getFlavorsForNativeCache = new HashMap();
 
-    /**
+    /** {@collect.stats}
      * Dynamic mapping generation used for text mappings should not be applied
      * to the DataFlavors and String natives for which the mappings have been
      * explicitly specified with setFlavorsForNative() or
@@ -146,7 +146,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
      */
     private Set disabledMappingGenerationKeys = new HashSet();
 
-    /**
+    /** {@collect.stats}
      * Returns the default FlavorMap for this thread's ClassLoader.
      */
     public static FlavorMap getDefaultFlavorMap() {
@@ -169,7 +169,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return fm;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SystemFlavorMap by reading flavormap.properties and
      * AWT.DnD.flavorMapFileURL.
      */
@@ -238,7 +238,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copied code from java.util.Properties. Parsing the data ourselves is the
      * only way to handle duplicate keys and values.
      */
@@ -399,7 +399,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Copied from java.util.Properties.
      */
     private boolean continueLine (String line) {
@@ -411,7 +411,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return (slashCount % 2 == 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Copied from java.util.Properties.
      */
     private String loadConvert(String theString) {
@@ -470,7 +470,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return outBuffer.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Stores the listed object under the specified hash key in map. Unlike a
      * standard map, the listed object will not replace any object already at
      * the appropriate Map location, but rather will be appended to a List
@@ -487,7 +487,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Semantically equivalent to 'nativeToFlavor.get(nat)'. This method
      * handles the case where 'nat' is not found in 'nativeToFlavor'. In that
      * case, a new DataFlavor is synthesized, stored, and returned, if and
@@ -549,7 +549,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return (flavors != null) ? flavors : new ArrayList(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Semantically equivalent to 'flavorToNative.get(flav)'. This method
      * handles the case where 'flav' is not found in 'flavorToNative' depending
      * on the value of passes 'synthesize' parameter. If 'synthesize' is
@@ -605,7 +605,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return natives;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>List</code> of <code>String</code> natives to which the
      * specified <code>DataFlavor</code> can be translated by the data transfer
      * subsystem. The <code>List</code> will be sorted from best native to
@@ -731,7 +731,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return new ArrayList(retval);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>List</code> of <code>DataFlavor</code>s to which the
      * specified <code>String</code> native can be translated by the data
      * transfer subsystem. The <code>List</code> will be sorted from best
@@ -909,7 +909,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return (List)arrayList.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Map</code> of the specified <code>DataFlavor</code>s to
      * their most preferred <code>String</code> native. Each native value will
      * be the same as the first native in the List returned by
@@ -953,7 +953,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return retval;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>Map</code> of the specified <code>String</code> natives
      * to their most preferred <code>DataFlavor</code>. Each
      * <code>DataFlavor</code> value will be the same as the first
@@ -999,7 +999,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return retval;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a mapping from the specified <code>DataFlavor</code> (and all
      * <code>DataFlavor</code>s equal to the specified <code>DataFlavor</code>)
      * to the specified <code>String</code> native.
@@ -1037,7 +1037,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         getNativesForFlavorCache.remove(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Discards the current mappings for the specified <code>DataFlavor</code>
      * and all <code>DataFlavor</code>s equal to the specified
      * <code>DataFlavor</code>, and creates new mappings to the
@@ -1081,7 +1081,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         getNativesForFlavorCache.remove(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a mapping from a single <code>String</code> native to a single
      * <code>DataFlavor</code>. Unlike <code>getFlavorsForNative</code>, the
      * mapping will only be established in one direction, and the native will
@@ -1117,7 +1117,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         getFlavorsForNativeCache.remove(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Discards the current mappings for the specified <code>String</code>
      * native, and creates new mappings to the specified
      * <code>DataFlavor</code>s. Unlike <code>getFlavorsForNative</code>, the
@@ -1160,7 +1160,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         getFlavorsForNativeCache.remove(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Encodes a MIME type for use as a <code>String</code> native. The format
      * of an encoded representation of a MIME type is implementation-dependent.
      * The only restrictions are:
@@ -1185,7 +1185,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Encodes a <code>DataFlavor</code> for use as a <code>String</code>
      * native. The format of an encoded <code>DataFlavor</code> is
      * implementation-dependent. The only restrictions are:
@@ -1214,7 +1214,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the specified <code>String</code> is an encoded Java
      * MIME type.
      *
@@ -1226,7 +1226,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
         return (str != null && str.startsWith(JavaMIME, 0));
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a <code>String</code> native for use as a Java MIME type.
      *
      * @param nat the <code>String</code> to decode
@@ -1239,7 +1239,7 @@ public final class SystemFlavorMap implements FlavorMap, FlavorTable {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Decodes a <code>String</code> native for use as a
      * <code>DataFlavor</code>.
      *

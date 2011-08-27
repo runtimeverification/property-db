@@ -26,7 +26,7 @@
 package javax.sound.midi;
 
 
-/**
+/** {@collect.stats}
  * A <code>MidiUnavailableException</code> is thrown when a requested MIDI
  * component cannot be opened or created because it is unavailable.  This often
  * occurs when a device is in use by another application.  More generally, it
@@ -40,7 +40,7 @@ package javax.sound.midi;
  */
 public class MidiUnavailableException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MidiUnavailableException</code> that has
      * <code>null</code> as its error detail message.
      */
@@ -50,7 +50,7 @@ public class MidiUnavailableException extends Exception {
     }
 
 
-    /**
+    /** {@collect.stats}
      *  Constructs a <code>MidiUnavailableException</code> with the
      * specified detail message.
      *

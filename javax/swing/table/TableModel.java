@@ -28,7 +28,7 @@ package javax.swing.table;
 import javax.swing.*;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  *  The <code>TableModel</code> interface specifies the methods the
  *  <code>JTable</code> will use to interrogate a tabular data model. <p>
  *
@@ -49,7 +49,7 @@ import javax.swing.event.*;
 
 public interface TableModel
 {
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the model. A
      * <code>JTable</code> uses this method to determine how many rows it
      * should display.  This method should be quick, as it
@@ -60,7 +60,7 @@ public interface TableModel
      */
     public int getRowCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the model. A
      * <code>JTable</code> uses this method to determine how many columns it
      * should create and display by default.
@@ -70,7 +70,7 @@ public interface TableModel
      */
     public int getColumnCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the column at <code>columnIndex</code>.  This is used
      * to initialize the table's column header name.  Note: this name does
      * not need to be unique; two columns in a table can have the same name.
@@ -80,7 +80,7 @@ public interface TableModel
      */
     public String getColumnName(int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the most specific superclass for all the cell values
      * in the column.  This is used by the <code>JTable</code> to set up a
      * default renderer and editor for the column.
@@ -90,7 +90,7 @@ public interface TableModel
      */
     public Class<?> getColumnClass(int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the cell at <code>rowIndex</code> and
      * <code>columnIndex</code>
      * is editable.  Otherwise, <code>setValueAt</code> on the cell will not
@@ -103,7 +103,7 @@ public interface TableModel
      */
     public boolean isCellEditable(int rowIndex, int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the value for the cell at <code>columnIndex</code> and
      * <code>rowIndex</code>.
      *
@@ -113,7 +113,7 @@ public interface TableModel
      */
     public Object getValueAt(int rowIndex, int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Sets the value in the cell at <code>columnIndex</code> and
      * <code>rowIndex</code> to <code>aValue</code>.
      *
@@ -125,7 +125,7 @@ public interface TableModel
      */
     public void setValueAt(Object aValue, int rowIndex, int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list that is notified each time a change
      * to the data model occurs.
      *
@@ -133,7 +133,7 @@ public interface TableModel
      */
     public void addTableModelListener(TableModelListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from the list that is notified each time a
      * change to the data model occurs.
      *

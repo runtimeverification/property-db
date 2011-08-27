@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PDLOverrideSupported is a printing attribute class, an enumeration,
  * that expresses the printer's ability to attempt to override processing
  * instructions embedded in documents' print data with processing instructions
@@ -47,7 +47,7 @@ public class PDLOverrideSupported extends EnumSyntax
 
     private static final long serialVersionUID = -4393264467928463934L;
 
-    /**
+    /** {@collect.stats}
      * The printer makes no attempt to make the external job attribute values
      * take precedence over embedded instructions in the documents' print
      * data.
@@ -55,7 +55,7 @@ public class PDLOverrideSupported extends EnumSyntax
     public static final PDLOverrideSupported
         NOT_ATTEMPTED = new PDLOverrideSupported(0);
 
-    /**
+    /** {@collect.stats}
      * The printer attempts to make the external job attribute values take
      * precedence over embedded instructions in the documents' print data,
      * however there is no guarantee.
@@ -64,7 +64,7 @@ public class PDLOverrideSupported extends EnumSyntax
         ATTEMPTED = new PDLOverrideSupported(1);
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new PDL override supported enumeration value with the given
      * integer value.
      *
@@ -84,21 +84,21 @@ public class PDLOverrideSupported extends EnumSyntax
         ATTEMPTED
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PDLOverrideSupported.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PDLOverrideSupported.
      */
     protected EnumSyntax[] getEnumValueTable() {
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public class PDLOverrideSupported extends EnumSyntax
         return PDLOverrideSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

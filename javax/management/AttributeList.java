@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * Represents a list of values for attributes of an MBean. The methods
  * used for the insertion of {@link javax.management.Attribute
  * Attribute} objects in the <CODE>AttributeList</CODE> overrides the
@@ -64,14 +64,14 @@ public class AttributeList extends ArrayList<Object> {
     /* Serial version */
     private static final long serialVersionUID = -4077085769279709076L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <CODE>AttributeList</CODE>.
      */
     public AttributeList() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty <CODE>AttributeList</CODE> with
      * the initial capacity specified.
      *
@@ -83,7 +83,7 @@ public class AttributeList extends ArrayList<Object> {
         super(initialCapacity);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <CODE>AttributeList</CODE> containing the
      * elements of the <CODE>AttributeList</CODE> specified, in the
      * order in which they are returned by the
@@ -100,7 +100,7 @@ public class AttributeList extends ArrayList<Object> {
         super(list);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an {@code AttributeList} containing the elements of the
      * {@code List} specified, in the order in which they are returned by
      * the {@code List}'s iterator.
@@ -131,7 +131,7 @@ public class AttributeList extends ArrayList<Object> {
         super.addAll(list);
     }
 
-    /**
+    /** {@collect.stats}
      * Return a view of this list as a {@code List<Attribute>}.
      * Changes to the returned value are reflected by changes
      * to the original {@code AttributeList} and vice versa.
@@ -162,7 +162,7 @@ public class AttributeList extends ArrayList<Object> {
         return (List<Attribute>) (List) this;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the {@code Attribute} specified as the last element of the list.
      *
      * @param object  The attribute to be added.
@@ -171,7 +171,7 @@ public class AttributeList extends ArrayList<Object> {
         super.add(object);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the attribute specified as an element at the position specified.
      * Elements with an index greater than or equal to the current position are
      * shifted up. If the index is out of range (index < 0 || index >
@@ -192,7 +192,7 @@ public class AttributeList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the element at the position specified to be the attribute specified.
      * The previous element at that position is discarded. If the index is
      * out of range (index < 0 || index > size() a RuntimeOperationsException
@@ -211,7 +211,7 @@ public class AttributeList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends all the elements in the <CODE>AttributeList</CODE> specified to
      * the end of the list, in the order in which they are returned by the
      * Iterator of the <CODE>AttributeList</CODE> specified.
@@ -226,7 +226,7 @@ public class AttributeList extends ArrayList<Object> {
         return (super.addAll(list));
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts all of the elements in the <CODE>AttributeList</CODE> specified
      * into this list, starting at the specified position, in the order in which
      * they are returned by the Iterator of the {@code AttributeList} specified.
@@ -303,7 +303,7 @@ public class AttributeList extends ArrayList<Object> {
         return super.set(index, element);
     }
 
-    /**
+    /** {@collect.stats}
      * IllegalArgumentException if o is a non-Attribute object.
      */
     private static void checkTypeSafe(Object o) {
@@ -314,7 +314,7 @@ public class AttributeList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * IllegalArgumentException if c contains any non-Attribute objects.
      */
     private static void checkTypeSafe(Collection<?> c) {
@@ -327,7 +327,7 @@ public class AttributeList extends ArrayList<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if o is a non-Attribute object.
      */
     private static boolean isTainted(Object o) {
@@ -339,7 +339,7 @@ public class AttributeList extends ArrayList<Object> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if c contains any non-Attribute objects.
      */
     private static boolean isTainted(Collection<?> c) {

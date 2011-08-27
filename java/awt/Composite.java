@@ -27,7 +27,7 @@ package java.awt;
 
 import java.awt.image.ColorModel;
 
-/**
+/** {@collect.stats}
  * The <code>Composite</code> interface, along with
  * {@link CompositeContext}, defines the methods to compose a draw
  * primitive with the underlying graphics area.
@@ -67,7 +67,7 @@ import java.awt.image.ColorModel;
  */
 public interface Composite {
 
-    /**
+    /** {@collect.stats}
      * Creates a context containing state that is used to perform
      * the compositing operation.  In a multi-threaded environment,
      * several contexts can exist simultaneously for a single

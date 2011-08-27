@@ -28,7 +28,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-/**
+/** {@collect.stats}
  * An event reported to a child component that originated from an
  * ancestor in the component hierarchy.
  * <p>
@@ -44,23 +44,23 @@ import javax.swing.*;
  * @author Dave Moore
  */
 public class AncestorEvent extends AWTEvent {
-    /**
+    /** {@collect.stats}
      * An ancestor-component was added to the hierarchy of
      * visible objects (made visible), and is currently being displayed.
      */
     public static final int ANCESTOR_ADDED = 1;
-    /**
+    /** {@collect.stats}
      * An ancestor-component was removed from the hierarchy
      * of visible objects (hidden) and is no longer being displayed.
      */
     public static final int ANCESTOR_REMOVED = 2;
-    /** An ancestor-component changed its position on the screen. */
+    /** {@collect.stats} An ancestor-component changed its position on the screen. */
     public static final int ANCESTOR_MOVED = 3;
 
     Container ancestor;
     Container ancestorParent;
 
-    /**
+    /** {@collect.stats}
      * Constructs an AncestorEvent object to identify a change
      * in an ancestor-component's display-status.
      *
@@ -78,14 +78,14 @@ public class AncestorEvent extends AWTEvent {
         this.ancestorParent = ancestorParent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ancestor that the event actually occurred on.
      */
     public Container getAncestor() {
         return ancestor;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the parent of the ancestor the event actually occurred on.
      * This is most interesting in an ANCESTOR_REMOVED event, as
      * the ancestor may no longer be in the component hierarchy.
@@ -94,7 +94,7 @@ public class AncestorEvent extends AWTEvent {
         return ancestorParent;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component that the listener was added to.
      */
     public JComponent getComponent() {

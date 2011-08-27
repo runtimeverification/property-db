@@ -37,7 +37,7 @@ import javax.swing.text.View;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's ToolTipUI.
  *
  * @author Joshua Outwater

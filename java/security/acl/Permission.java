@@ -26,7 +26,7 @@
 package java.security.acl;
 
 
-/**
+/** {@collect.stats}
  * This interface represents a permission, such as that used to grant
  * a particular type of access to a resource.
  *
@@ -34,7 +34,7 @@ package java.security.acl;
  */
 public interface Permission {
 
-    /**
+    /** {@collect.stats}
      * Returns true if the object passed matches the permission represented
      * in this interface.
      *
@@ -44,7 +44,7 @@ public interface Permission {
      */
     public boolean equals(Object another);
 
-    /**
+    /** {@collect.stats}
      * Prints a string representation of this permission.
      *
      * @return the string representation of the permission.

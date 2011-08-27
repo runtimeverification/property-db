@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.SQLException;
 
-/**
+/** {@collect.stats}
  * <P>An <code>Event</code> object that provides information about the
  * source of a connection-related event.  <code>ConnectionEvent</code>
  * objects are generated when an application closes a pooled connection
@@ -44,7 +44,7 @@ import java.sql.SQLException;
 
 public class ConnectionEvent extends java.util.EventObject {
 
-  /**
+  /** {@collect.stats}
    * <P>Constructs a <code>ConnectionEvent</code> object initialized with
    * the given <code>PooledConnection</code> object. <code>SQLException</code>
    * defaults to <code>null</code>.
@@ -56,7 +56,7 @@ public class ConnectionEvent extends java.util.EventObject {
     super(con);
   }
 
-  /**
+  /** {@collect.stats}
    * <P>Constructs a <code>ConnectionEvent</code> object initialized with
    * the given <code>PooledConnection</code> object and
    * <code>SQLException</code> object.
@@ -70,7 +70,7 @@ public class ConnectionEvent extends java.util.EventObject {
     this.ex = ex;
   }
 
-  /**
+  /** {@collect.stats}
    * <P>Retrieves the <code>SQLException</code> for this
    * <code>ConnectionEvent</code> object. May be <code>null</code>.
    *
@@ -78,7 +78,7 @@ public class ConnectionEvent extends java.util.EventObject {
    */
   public SQLException getSQLException() { return ex; }
 
-  /**
+  /** {@collect.stats}
    * The <code>SQLException</code> that the driver will throw to the
    * application when an error occurs and the pooled connection is no
    * longer usable.
@@ -86,7 +86,7 @@ public class ConnectionEvent extends java.util.EventObject {
    */
   private SQLException ex = null;
 
-  /**
+  /** {@collect.stats}
    * Private serial version unique ID to ensure serialization
    * compatibility.
    */

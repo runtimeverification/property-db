@@ -35,7 +35,7 @@
 package java.util;
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * Resizable-array implementation of the {@link Deque} interface.  Array
  * deques have no capacity restrictions; they grow as necessary to support
  * usage.  They are not thread-safe; in the absence of external
@@ -83,7 +83,7 @@ import java.io.*;
 public class ArrayDeque<E> extends AbstractCollection<E>
                            implements Deque<E>, Cloneable, Serializable
 {
-    /**
+    /** {@collect.stats}
      * The array in which the elements of the deque are stored.
      * The capacity of the deque is the length of this array, which is
      * always a power of two. The array is never allowed to become
@@ -95,20 +95,20 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      */
     private transient E[] elements;
 
-    /**
+    /** {@collect.stats}
      * The index of the element at the head of the deque (which is the
      * element that would be removed by remove() or pop()); or an
      * arbitrary number equal to tail if the deque is empty.
      */
     private transient int head;
 
-    /**
+    /** {@collect.stats}
      * The index at which the next element would be added to the tail
      * of the deque (via addLast(E), add(E), or push(E)).
      */
     private transient int tail;
 
-    /**
+    /** {@collect.stats}
      * The minimum capacity that we'll use for a newly created deque.
      * Must be a power of 2.
      */
@@ -116,7 +116,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     // ******  Array allocation and resizing utilities ******
 
-    /**
+    /** {@collect.stats}
      * Allocate empty array to hold the given number of elements.
      *
      * @param numElements  the number of elements to hold
@@ -140,7 +140,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         elements = (E[]) new Object[initialCapacity];
     }
 
-    /**
+    /** {@collect.stats}
      * Double the capacity of this deque.  Call only when full, i.e.,
      * when head and tail have wrapped around to become equal.
      */
@@ -160,7 +160,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         tail = n;
     }
 
-    /**
+    /** {@collect.stats}
      * Copies the elements from our element array into the specified array,
      * in order (from first to last element in the deque).  It is assumed
      * that the array is large enough to hold all elements in the deque.
@@ -178,7 +178,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty array deque with an initial capacity
      * sufficient to hold 16 elements.
      */
@@ -186,7 +186,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         elements = (E[]) new Object[16];
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an empty array deque with an initial capacity
      * sufficient to hold the specified number of elements.
      *
@@ -196,7 +196,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         allocateElements(numElements);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a deque containing the elements of the specified
      * collection, in the order they are returned by the collection's
      * iterator.  (The first element returned by the collection's
@@ -215,7 +215,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     // addLast, pollFirst, pollLast. The other methods are defined in
     // terms of these.
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque.
      *
      * @param e the element to add
@@ -229,7 +229,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
             doubleCapacity();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque.
      *
      * <p>This method is equivalent to {@link #add}.
@@ -245,7 +245,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
             doubleCapacity();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the front of this deque.
      *
      * @param e the element to add
@@ -257,7 +257,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque.
      *
      * @param e the element to add
@@ -269,7 +269,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E removeFirst() {
@@ -279,7 +279,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E removeLast() {
@@ -309,7 +309,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E getFirst() {
@@ -319,7 +319,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return x;
     }
 
-    /**
+    /** {@collect.stats}
      * @throws NoSuchElementException {@inheritDoc}
      */
     public E getLast() {
@@ -337,7 +337,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return elements[(tail - 1) & (elements.length - 1)];
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of the specified element in this
      * deque (when traversing the deque from head to tail).
      * If the deque does not contain the element, it is unchanged.
@@ -365,7 +365,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the last occurrence of the specified element in this
      * deque (when traversing the deque from head to tail).
      * If the deque does not contain the element, it is unchanged.
@@ -395,7 +395,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     // *** Queue methods ***
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque.
      *
      * <p>This method is equivalent to {@link #addLast}.
@@ -409,7 +409,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the end of this deque.
      *
      * <p>This method is equivalent to {@link #offerLast}.
@@ -422,7 +422,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return offerLast(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque.
      *
      * This method differs from {@link #poll poll} only in that it throws an
@@ -437,7 +437,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return removeFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves and removes the head of the queue represented by this deque
      * (in other words, the first element of this deque), or returns
      * <tt>null</tt> if this deque is empty.
@@ -451,7 +451,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return pollFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque.  This method differs from {@link #peek peek} only in
      * that it throws an exception if this deque is empty.
@@ -465,7 +465,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return getFirst();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves, but does not remove, the head of the queue represented by
      * this deque, or returns <tt>null</tt> if this deque is empty.
      *
@@ -480,7 +480,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     // *** Stack methods ***
 
-    /**
+    /** {@collect.stats}
      * Pushes an element onto the stack represented by this deque.  In other
      * words, inserts the element at the front of this deque.
      *
@@ -493,7 +493,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         addFirst(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Pops an element from the stack represented by this deque.  In other
      * words, removes and returns the first element of this deque.
      *
@@ -515,7 +515,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         assert elements[(head - 1) & (elements.length - 1)] == null;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the element at the specified position in the elements array,
      * adjusting head and tail as necessary.  This can result in motion of
      * elements backwards or forwards in the array.
@@ -566,7 +566,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     // *** Collection Methods ***
 
-    /**
+    /** {@collect.stats}
      * Returns the number of elements in this deque.
      *
      * @return the number of elements in this deque
@@ -575,7 +575,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return (tail - head) & (elements.length - 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this deque contains no elements.
      *
      * @return <tt>true</tt> if this deque contains no elements
@@ -584,7 +584,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return head == tail;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this deque.  The elements
      * will be ordered from first (head) to last (tail).  This is the same
      * order that elements would be dequeued (via successive calls to
@@ -601,18 +601,18 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     private class DeqIterator implements Iterator<E> {
-        /**
+        /** {@collect.stats}
          * Index of element to be returned by subsequent call to next.
          */
         private int cursor = head;
 
-        /**
+        /** {@collect.stats}
          * Tail recorded at construction (also in remove), to stop
          * iterator and also to check for comodification.
          */
         private int fence = tail;
 
-        /**
+        /** {@collect.stats}
          * Index of element returned by most recent call to next.
          * Reset to -1 if element is deleted by a call to remove.
          */
@@ -682,7 +682,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this deque contains the specified element.
      * More formally, returns <tt>true</tt> if and only if this deque contains
      * at least one element <tt>e</tt> such that <tt>o.equals(e)</tt>.
@@ -704,7 +704,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a single instance of the specified element from this deque.
      * If the deque does not contain the element, it is unchanged.
      * More formally, removes the first element <tt>e</tt> such that
@@ -721,7 +721,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return removeFirstOccurrence(o);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all of the elements from this deque.
      * The deque will be empty after this call returns.
      */
@@ -739,7 +739,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this deque
      * in proper sequence (from first to last element).
      *
@@ -756,7 +756,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         return copyElements(new Object[size()]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array containing all of the elements in this deque in
      * proper sequence (from first to last element); the runtime type of the
      * returned array is that of the specified array.  If the deque fits in
@@ -806,7 +806,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
     // *** Object methods ***
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of this deque.
      *
      * @return a copy of this deque
@@ -822,12 +822,12 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appease the serialization gods.
      */
     private static final long serialVersionUID = 2340985798034038923L;
 
-    /**
+    /** {@collect.stats}
      * Serialize this deque.
      *
      * @serialData The current size (<tt>int</tt>) of the deque,
@@ -846,7 +846,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
             s.writeObject(elements[i]);
     }
 
-    /**
+    /** {@collect.stats}
      * Deserialize this deque.
      */
     private void readObject(ObjectInputStream s)

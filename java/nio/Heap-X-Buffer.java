@@ -28,7 +28,7 @@
 package java.nio;
 
 
-/**
+/** {@collect.stats}
 #if[rw]
  * A read/write Heap$Type$Buffer.
 #else[rw]

@@ -28,24 +28,24 @@ package javax.swing.event;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * MenuKeyListener
  *
  * @author Georges Saab
  */
 public interface MenuKeyListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked when a key has been typed.
      * This event occurs when a key press is followed by a key release.
      */
     void menuKeyTyped(MenuKeyEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a key has been pressed.
      */
     void menuKeyPressed(MenuKeyEvent e);
 
-    /**
+    /** {@collect.stats}
      * Invoked when a key has been released.
      */
     void menuKeyReleased(MenuKeyEvent e);

@@ -25,7 +25,7 @@
 
 package javax.naming;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when attempting to perform an operation
   * for which the client has no permission. The access control/permission
   * model is dictated by the directory/naming server.
@@ -40,7 +40,7 @@ package javax.naming;
   */
 
 public class NoPermissionException extends NamingSecurityException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of NoPermissionException using an
      * explanation. All other fields default to null.
      *
@@ -50,14 +50,14 @@ public class NoPermissionException extends NamingSecurityException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of NoPermissionException.
       * All fields are initialized to null.
       */
     public NoPermissionException() {
         super();
     }
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = 8395332708699751775L;

@@ -24,7 +24,7 @@
  */
 package javax.swing.text;
 
-/**
+/** {@collect.stats}
  * This exception is to report the failure of state invarient
  * assertion that was made.  This indicates an internal error
  * has occurred.
@@ -33,7 +33,7 @@ package javax.swing.text;
  */
 class StateInvariantError extends Error
 {
-    /**
+    /** {@collect.stats}
      * Creates a new StateInvariantFailure object.
      *
      * @param s         a string indicating the assertion that failed

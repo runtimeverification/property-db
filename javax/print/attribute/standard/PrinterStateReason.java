@@ -27,7 +27,7 @@ package javax.print.attribute.standard;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterStateReason is a printing attribute class, an enumeration,
  * that provides additional information about the printer's current state,
  * i.e., information that augments the value of the printer's
@@ -69,24 +69,24 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
 
     private static final long serialVersionUID = -1623720656201472593L;
 
-    /**
+    /** {@collect.stats}
      * The printer has detected an error other than ones listed below.
      */
     public static final PrinterStateReason OTHER = new PrinterStateReason(0);
 
-    /**
+    /** {@collect.stats}
      * A tray has run out of media.
      */
     public static final PrinterStateReason
         MEDIA_NEEDED = new PrinterStateReason(1);
 
-    /**
+    /** {@collect.stats}
      * The device has a media jam.
      */
     public static final PrinterStateReason
         MEDIA_JAM = new PrinterStateReason(2);
 
-    /**
+    /** {@collect.stats}
      * Someone has paused the printer, but the device(s) are taking an
      * appreciable time to stop. Later, when all output has stopped,
      * the {@link  PrinterState PrinterState} becomes STOPPED,
@@ -99,7 +99,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         MOVING_TO_PAUSED = new PrinterStateReason(3);
 
-    /**
+    /** {@collect.stats}
      * Someone has paused the printer and the printer's {@link PrinterState
      * PrinterState} is STOPPED. In this state, a printer must not produce
      * printed output, but it must perform other operations requested by a
@@ -112,7 +112,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         PAUSED = new PrinterStateReason(4);
 
-    /**
+    /** {@collect.stats}
      * Someone has removed a printer from service, and the device may be
      * powered down or physically removed.
      * In this state, a printer must not produce
@@ -129,7 +129,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         SHUTDOWN = new PrinterStateReason(5);
 
-    /**
+    /** {@collect.stats}
      * The printer has scheduled a job on the output device and is in the
      * process of connecting to a shared network output device (and might not
      * be able to actually start printing the job for an arbitrarily long time
@@ -139,14 +139,14 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         CONNECTING_TO_DEVICE = new PrinterStateReason(6);
 
-    /**
+    /** {@collect.stats}
      * The server was able to connect to the output device (or is always
      * connected), but was unable to get a response from the output device.
      */
     public static final PrinterStateReason
         TIMED_OUT = new PrinterStateReason(7);
 
-    /**
+    /** {@collect.stats}
      * The printer is in the process of stopping the device and will be
      * stopped in a while.
      * When the device is stopped, the printer will change the
@@ -159,7 +159,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         STOPPING = new PrinterStateReason(8);
 
-    /**
+    /** {@collect.stats}
      * When a printer controls more than one output device, this reason
      * indicates that one or more output devices are stopped. If the reason's
      * severity is a report, fewer than half of the output devices are
@@ -170,19 +170,19 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         STOPPED_PARTLY = new PrinterStateReason(9);
 
-    /**
+    /** {@collect.stats}
      * The device is low on toner.
      */
     public static final PrinterStateReason
         TONER_LOW = new PrinterStateReason(10);
 
-    /**
+    /** {@collect.stats}
      * The device is out of toner.
      */
     public static final PrinterStateReason
         TONER_EMPTY = new PrinterStateReason(11);
 
-    /**
+    /** {@collect.stats}
      * The limit of persistent storage allocated for spooling has been
      * reached.
      * The printer is temporarily unable to accept more jobs. The printer will
@@ -194,130 +194,130 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     public static final PrinterStateReason
         SPOOL_AREA_FULL = new PrinterStateReason(12);
 
-    /**
+    /** {@collect.stats}
      * One or more covers on the device are open.
      */
     public static final PrinterStateReason
         COVER_OPEN = new PrinterStateReason(13);
 
-    /**
+    /** {@collect.stats}
      * One or more interlock devices on the printer are unlocked.
      */
     public static final PrinterStateReason
         INTERLOCK_OPEN = new PrinterStateReason(14);
 
-    /**
+    /** {@collect.stats}
      * One or more doors on the device are open.
      */
     public static final PrinterStateReason
         DOOR_OPEN = new PrinterStateReason(15);
 
-    /**
+    /** {@collect.stats}
      * One or more input trays are not in the device.
      */
     public static final PrinterStateReason
         INPUT_TRAY_MISSING = new PrinterStateReason(16);
 
-    /**
+    /** {@collect.stats}
      * At least one input tray is low on media.
      */
     public static final PrinterStateReason
         MEDIA_LOW = new PrinterStateReason(17);
 
-    /**
+    /** {@collect.stats}
      * At least one input tray is empty.
      */
     public static final PrinterStateReason
         MEDIA_EMPTY = new PrinterStateReason(18);
 
-    /**
+    /** {@collect.stats}
      * One or more output trays are not in the device.
      */
     public static final PrinterStateReason
         OUTPUT_TRAY_MISSING = new PrinterStateReason(19);
 
-    /**
+    /** {@collect.stats}
      * One or more output areas are almost full
      * (e.g. tray, stacker, collator).
      */
     public static final PrinterStateReason
         OUTPUT_AREA_ALMOST_FULL = new PrinterStateReason(20);
 
-    /**
+    /** {@collect.stats}
      * One or more output areas are full (e.g. tray, stacker, collator).
      */
     public static final PrinterStateReason
         OUTPUT_AREA_FULL = new PrinterStateReason(21);
 
-    /**
+    /** {@collect.stats}
      * The device is low on at least one marker supply (e.g. toner, ink,
      * ribbon).
      */
     public static final PrinterStateReason
         MARKER_SUPPLY_LOW = new PrinterStateReason(22);
 
-    /**
+    /** {@collect.stats}
      * The device is out of at least one marker supply (e.g. toner, ink,
      * ribbon).
      */
     public static final PrinterStateReason
         MARKER_SUPPLY_EMPTY = new PrinterStateReason(23);
 
-    /**
+    /** {@collect.stats}
      * The device marker supply waste receptacle is almost full.
      */
     public static final PrinterStateReason
         MARKER_WASTE_ALMOST_FULL = new PrinterStateReason(24);
 
-    /**
+    /** {@collect.stats}
      * The device marker supply waste receptacle is full.
      */
     public static final PrinterStateReason
         MARKER_WASTE_FULL = new PrinterStateReason(25);
 
-    /**
+    /** {@collect.stats}
      * The fuser temperature is above normal.
      */
     public static final PrinterStateReason
         FUSER_OVER_TEMP = new PrinterStateReason(26);
 
-    /**
+    /** {@collect.stats}
      * The fuser temperature is below normal.
      */
     public static final PrinterStateReason
         FUSER_UNDER_TEMP = new PrinterStateReason(27);
 
-    /**
+    /** {@collect.stats}
      * The optical photo conductor is near end of life.
      */
     public static final PrinterStateReason
         OPC_NEAR_EOL = new PrinterStateReason(28);
 
-    /**
+    /** {@collect.stats}
      * The optical photo conductor is no longer functioning.
      */
     public static final PrinterStateReason
         OPC_LIFE_OVER = new PrinterStateReason(29);
 
-    /**
+    /** {@collect.stats}
      * The device is low on developer.
      */
     public static final PrinterStateReason
         DEVELOPER_LOW = new PrinterStateReason(30);
 
-    /**
+    /** {@collect.stats}
      * The device is out of developer.
      */
     public static final PrinterStateReason
         DEVELOPER_EMPTY = new PrinterStateReason(31);
 
-    /**
+    /** {@collect.stats}
      * An interpreter resource is unavailable (e.g., font, form).
      */
     public static final PrinterStateReason
         INTERPRETER_RESOURCE_UNAVAILABLE = new PrinterStateReason(32);
 
-    /**
+    /** {@collect.stats}
      * Construct a new printer state reason enumeration value with
      * the given integer value.
      *
@@ -399,14 +399,14 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
         INTERPRETER_RESOURCE_UNAVAILABLE
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class PrinterStateReason.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class PrinterStateReason.
      */
     protected EnumSyntax[] getEnumValueTable() {
@@ -414,7 +414,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -428,7 +428,7 @@ public class PrinterStateReason extends EnumSyntax implements Attribute {
         return PrinterStateReason.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

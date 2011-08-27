@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * A filter for abstract pathnames.
  *
  * <p> Instances of this interface may be passed to the <code>{@link
@@ -37,7 +37,7 @@ package java.io;
  */
 public interface FileFilter {
 
-    /**
+    /** {@collect.stats}
      * Tests whether or not the specified abstract pathname should be
      * included in a pathname list.
      *

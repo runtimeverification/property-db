@@ -29,7 +29,7 @@ package javax.management;
 import java.util.List;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * Provides an implementation of the {@link javax.management.NotificationFilter} interface.
  * The filtering is performed on the notification type attribute.
  * <P>
@@ -60,14 +60,14 @@ public class NotificationFilterSupport implements NotificationFilter {
     /* Serial version */
     private static final long serialVersionUID = 6579080007561786969L;
 
-    /**
+    /** {@collect.stats}
      * @serial {@link Vector} that contains the enabled notification types.
      *         The default value is an empty vector.
      */
     private List<String> enabledTypes = new Vector<String>();
 
 
-    /**
+    /** {@collect.stats}
      * Invoked before sending the specified notification to the listener.
      * <BR>This filter compares the type of the specified notification with each enabled type.
      * If the notification type matches one of the enabled types,
@@ -96,7 +96,7 @@ public class NotificationFilterSupport implements NotificationFilter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables all the notifications the type of which starts with the specified prefix
      * to be sent to the listener.
      * <BR>If the specified prefix is already in the list of enabled notification types,
@@ -132,7 +132,7 @@ public class NotificationFilterSupport implements NotificationFilter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the given prefix from the prefix list.
      * <BR>If the specified prefix is not in the list of enabled notification types,
      * this method has no effect.
@@ -143,7 +143,7 @@ public class NotificationFilterSupport implements NotificationFilter {
         enabledTypes.remove(prefix);
     }
 
-    /**
+    /** {@collect.stats}
      * Disables all notification types.
      */
     public synchronized void disableAllTypes() {
@@ -151,7 +151,7 @@ public class NotificationFilterSupport implements NotificationFilter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets all the enabled notification types for this filter.
      *
      * @return The list containing all the enabled notification types.

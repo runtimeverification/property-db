@@ -27,7 +27,7 @@ package javax.management;
 
 import com.sun.jmx.defaults.ServiceName;
 
-/**
+/** {@collect.stats}
  * Represents  the MBean server from the management point of view.
  * The MBeanServerDelegate MBean emits the MBeanServerNotifications when
  * an MBean is registered/unregistered in the MBean server.
@@ -37,10 +37,10 @@ import com.sun.jmx.defaults.ServiceName;
 public class MBeanServerDelegate implements MBeanServerDelegateMBean,
                                             NotificationEmitter   {
 
-    /** The MBean server agent identification.*/
+    /** {@collect.stats} The MBean server agent identification.*/
     private String mbeanServerId ;
 
-    /** The NotificationBroadcasterSupport object that sends the
+    /** {@collect.stats} The NotificationBroadcasterSupport object that sends the
         notifications */
     private final NotificationBroadcasterSupport broadcaster;
 
@@ -62,7 +62,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
                     "Notifications sent by the MBeanServerDelegate MBean");
     }
 
-    /**
+    /** {@collect.stats}
      * Create a MBeanServerDelegate object.
      */
     public MBeanServerDelegate () {
@@ -71,7 +71,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the MBean server agent identity.
      *
      * @return the identity.
@@ -89,7 +89,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         return mbeanServerId;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the full name of the JMX specification implemented
      * by this product.
      *
@@ -99,7 +99,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         return ServiceName.JMX_SPEC_NAME;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the version of the JMX specification implemented
      * by this product.
      *
@@ -109,7 +109,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         return ServiceName.JMX_SPEC_VERSION;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the vendor of the JMX specification implemented
      * by this product.
      *
@@ -119,7 +119,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         return ServiceName.JMX_SPEC_VENDOR;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation name (the name of this product).
      *
      * @return the implementation name.
@@ -128,7 +128,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         return ServiceName.JMX_IMPL_NAME;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation version (the version of this product).
      *
      * @return the implementation version.
@@ -141,7 +141,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the JMX implementation vendor (the vendor of this product).
      *
      * @return the implementation vendor.
@@ -188,7 +188,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         broadcaster.removeNotificationListener(listener) ;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables the MBean server to send a notification.
      * If the passed <var>notification</var> has a sequence number lesser
      * or equal to 0, then replace it with the delegate's own sequence
@@ -205,7 +205,7 @@ public class MBeanServerDelegate implements MBeanServerDelegateMBean,
         broadcaster.sendNotification(notification);
     }
 
-    /**
+    /** {@collect.stats}
      * Defines the default ObjectName of the MBeanServerDelegate.
      *
      * @since 1.6

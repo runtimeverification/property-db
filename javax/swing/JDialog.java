@@ -28,7 +28,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * The main class for creating a dialog window. You can use this class
  * to create a custom dialog, or invoke the many class methods
  * in {@link JOptionPane} to create a variety of standard dialogs.
@@ -99,7 +99,7 @@ public class JDialog extends Dialog implements WindowConstants,
                                                RootPaneContainer,
                                TransferHandler.HasGetTransferHandler
 {
-    /**
+    /** {@collect.stats}
      * Key into the AppContext, used to check if should provide decorations
      * by default.
      */
@@ -107,13 +107,13 @@ public class JDialog extends Dialog implements WindowConstants,
 
     private int defaultCloseOperation = HIDE_ON_CLOSE;
 
-    /**
+    /** {@collect.stats}
      * @see #getRootPane
      * @see #setRootPane
      */
     protected JRootPane rootPane;
 
-    /**
+    /** {@collect.stats}
      * If true then calls to <code>add</code> and <code>setLayout</code>
      * will be forwarded to the <code>contentPane</code>. This is initially
      * false, but is set to true when the <code>JDialog</code> is constructed.
@@ -124,12 +124,12 @@ public class JDialog extends Dialog implements WindowConstants,
      */
     protected boolean rootPaneCheckingEnabled = false;
 
-    /**
+    /** {@collect.stats}
      * The <code>TransferHandler</code> for this dialog.
      */
     private TransferHandler transferHandler;
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog without a title and without a specified
      * <code>Frame</code> owner.  A shared, hidden frame will be
      * set as the owner of the dialog.
@@ -152,7 +152,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this((Frame)null, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog without a title with the
      * specified <code>Frame</code> as its owner.  If <code>owner</code>
      * is <code>null</code>, a shared, hidden frame will be set as the
@@ -177,7 +177,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified owner <code>Frame</code>, modality
      * and an empty title. If <code>owner</code> is <code>null</code>,
      * a shared, hidden frame will be set as the owner of the dialog.
@@ -204,7 +204,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, null, modal);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog with the specified title and
      * with the specified owner frame.  If <code>owner</code>
      * is <code>null</code>, a shared, hidden frame will be set as the
@@ -231,7 +231,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, title, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title, owner <code>Frame</code>
      * and modality. If <code>owner</code> is <code>null</code>,
      * a shared, hidden frame will be set as the owner of this dialog.
@@ -277,7 +277,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title,
      * owner <code>Frame</code>, modality and <code>GraphicsConfiguration</code>.
      * If <code>owner</code> is <code>null</code>,
@@ -329,7 +329,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog without a title with the
      * specified <code>Dialog</code> as its owner.
      * <p>
@@ -347,7 +347,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified owner <code>Dialog</code> and modality.
      * <p>
      * This constructor sets the component's locale property to the value
@@ -372,7 +372,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, null, modal);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog with the specified title and
      * with the specified owner dialog.
      * <p>
@@ -392,7 +392,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, title, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title, modality
      * and the specified owner <code>Dialog</code>.
      * <p>
@@ -421,7 +421,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title, owner <code>Dialog</code>,
      * modality and <code>GraphicsConfiguration</code>.
      *
@@ -461,7 +461,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog with the specified owner <code>Window</code> and
      * an empty title.
      * <p>
@@ -482,7 +482,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, Dialog.ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified owner <code>Window</code>, modality
      * and an empty title.
      * <p>
@@ -509,7 +509,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, null, modalityType);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a modeless dialog with the specified title and owner
      * <code>Window</code>.
      * <p>
@@ -532,7 +532,7 @@ public class JDialog extends Dialog implements WindowConstants,
         this(owner, title, Dialog.ModalityType.MODELESS);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title, owner <code>Window</code> and
      * modality.
      * <p>
@@ -562,7 +562,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a dialog with the specified title, owner <code>Window</code>,
      * modality and <code>GraphicsConfiguration</code>.
      * <p>
@@ -601,7 +601,7 @@ public class JDialog extends Dialog implements WindowConstants,
         dialogInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructors to init the <code>JDialog</code> properly.
      */
     protected void dialogInit() {
@@ -620,7 +620,7 @@ public class JDialog extends Dialog implements WindowConstants,
         sun.awt.SunToolkit.checkAndSetPolicy(this, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructor methods to create the default
      * <code>rootPane</code>.
      */
@@ -634,7 +634,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return rp;
     }
 
-    /**
+    /** {@collect.stats}
      * Handles window events depending on the state of the
      * <code>defaultCloseOperation</code> property.
      *
@@ -659,7 +659,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the operation that will happen by default when
      * the user initiates a "close" on this dialog.
      * You must specify one of the following choices:
@@ -721,7 +721,7 @@ public class JDialog extends Dialog implements WindowConstants,
         firePropertyChange("defaultCloseOperation", oldValue, operation);
     }
 
-   /**
+   /** {@collect.stats}
     * Returns the operation which occurs when the user
     * initiates a "close" on this dialog.
     *
@@ -732,7 +732,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return defaultCloseOperation;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code transferHandler} property, which is a mechanism to
      * support transfer of data into this component. Use {@code null}
      * if the component does not support data transfer operations.
@@ -772,7 +772,7 @@ public class JDialog extends Dialog implements WindowConstants,
         firePropertyChange("transferHandler", oldHandler, newHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>transferHandler</code> property.
      *
      * @return the value of the <code>transferHandler</code> property
@@ -785,7 +785,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return transferHandler;
     }
 
-    /**
+    /** {@collect.stats}
      * Calls <code>paint(g)</code>.  This method was overridden to
      * prevent an unnecessary call to clear the background.
      *
@@ -795,7 +795,7 @@ public class JDialog extends Dialog implements WindowConstants,
         paint(g);
     }
 
-   /**
+   /** {@collect.stats}
     * Sets the menubar for this dialog.
     *
     * @param menu the menubar being placed in the dialog
@@ -810,7 +810,7 @@ public class JDialog extends Dialog implements WindowConstants,
         getRootPane().setMenuBar(menu);
     }
 
-   /**
+   /** {@collect.stats}
     * Returns the menubar set on this dialog.
     *
     * @see #setJMenuBar
@@ -820,7 +820,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -837,7 +837,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -857,7 +857,7 @@ public class JDialog extends Dialog implements WindowConstants,
         rootPaneCheckingEnabled = enabled;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified child <code>Component</code>.
      * This method is overridden to conditionally forward calls to the
      * <code>contentPane</code>.
@@ -886,7 +886,7 @@ public class JDialog extends Dialog implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the container. If
      * <code>comp</code> is not the <code>rootPane</code>, this will forward
      * the call to the <code>contentPane</code>. This will do nothing if
@@ -907,7 +907,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>LayoutManager</code>.
      * Overridden to conditionally forward the call to the
      * <code>contentPane</code>.
@@ -928,7 +928,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>rootPane</code> object for this dialog.
      *
      * @see #setRootPane
@@ -939,7 +939,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>rootPane</code> property.
      * This method is called by the constructor.
      *
@@ -969,7 +969,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>contentPane</code> object for this dialog.
      *
      * @return the <code>contentPane</code> property
@@ -982,7 +982,7 @@ public class JDialog extends Dialog implements WindowConstants,
     }
 
 
-   /**
+   /** {@collect.stats}
      * Sets the <code>contentPane</code> property.
      * This method is called by the constructor.
      * <p>
@@ -1008,7 +1008,7 @@ public class JDialog extends Dialog implements WindowConstants,
         getRootPane().setContentPane(contentPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>layeredPane</code> object for this dialog.
      *
      * @return the <code>layeredPane</code> property
@@ -1020,7 +1020,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return getRootPane().getLayeredPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>layeredPane</code> property.
      * This method is called by the constructor.
      *
@@ -1039,7 +1039,7 @@ public class JDialog extends Dialog implements WindowConstants,
         getRootPane().setLayeredPane(layeredPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>glassPane</code> object for this dialog.
      *
      * @return the <code>glassPane</code> property
@@ -1051,7 +1051,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return getRootPane().getGlassPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>glassPane</code> property.
      * This method is called by the constructor.
      *
@@ -1067,7 +1067,7 @@ public class JDialog extends Dialog implements WindowConstants,
         getRootPane().setGlassPane(glassPane);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @since 1.6
@@ -1077,7 +1077,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return super.getGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified rectangle of this component within
      * <code>time</code> milliseconds.  Refer to <code>RepaintManager</code>
      * for details on how the repaint is handled.
@@ -1100,7 +1100,7 @@ public class JDialog extends Dialog implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint as to whether or not newly created <code>JDialog</code>s
      * should have their Window decorations (such as borders, widgets to
      * close the window, title...) provided by the current look
@@ -1132,7 +1132,7 @@ public class JDialog extends Dialog implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if newly created <code>JDialog</code>s should have their
      * Window decorations provided by the current look and feel. This is only
      * a hint, as certain look and feels may not support this feature.
@@ -1149,7 +1149,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return defaultLookAndFeelDecorated.booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JDialog</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -1186,7 +1186,7 @@ public class JDialog extends Dialog implements WindowConstants,
 
     protected AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JDialog.
      * For JDialogs, the AccessibleContext takes the form of an
      * AccessibleJDialog.
@@ -1202,7 +1202,7 @@ public class JDialog extends Dialog implements WindowConstants,
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JDialog</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to dialog user-interface
@@ -1212,7 +1212,7 @@ public class JDialog extends Dialog implements WindowConstants,
 
         // AccessibleContext methods
         //
-        /**
+        /** {@collect.stats}
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -1230,7 +1230,7 @@ public class JDialog extends Dialog implements WindowConstants,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current

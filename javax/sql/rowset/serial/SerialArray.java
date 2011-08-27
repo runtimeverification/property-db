@@ -31,7 +31,7 @@ import java.util.Map;
 import java.net.URL;
 
 
-/**
+/** {@collect.stats}
  * A serialized version of an <code>Array</code>
  * object, which is the mapping in the Java programming language of an SQL
  * <code>ARRAY</code> value.
@@ -50,7 +50,7 @@ import java.net.URL;
  */
 public class SerialArray implements Array, Serializable, Cloneable {
 
-        /**
+        /** {@collect.stats}
          * A serialized array in which each element is an <code>Object</code>
          * in the Java programming language that represents an element
          * in the SQL <code>ARRAY</code> value.
@@ -58,7 +58,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
          */
     private Object[] elements;
 
-        /**
+        /** {@collect.stats}
          * The SQL type of the elements in this <code>SerialArray</code> object.  The
          * type is expressed as one of the constants from the class
          * <code>java.sql.Types</code>.
@@ -66,14 +66,14 @@ public class SerialArray implements Array, Serializable, Cloneable {
          */
     private int baseType;
 
-        /**
+        /** {@collect.stats}
          * The type name used by the DBMS for the elements in the SQL <code>ARRAY</code>
          * value that this <code>SerialArray</code> object represents.
          * @serial
          */
     private String baseTypeName;
 
-        /**
+        /** {@collect.stats}
          * The number of elements in this <code>SerialArray</code> object, which
          * is also the number of elements in the SQL <code>ARRAY</code> value
          * that this <code>SerialArray</code> object represents.
@@ -81,7 +81,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
          */
     private int len;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SerialArray</code> object from the given
      * <code>Array</code> object, using the given type map for the custom
      * mapping of each element when the elements are SQL UDTs.
@@ -193,7 +193,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         }
   }
 
-    /**
+    /** {@collect.stats}
      * This method frees the <code>Array</code> object and releases the resources that
      * it holds. The object is invalid once the <code>free</code>
      * method is called.
@@ -214,7 +214,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
          throw new SQLFeatureNotSupportedException("Feature not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>SerialArray</code> object from the given
      * <code>Array</code> object.
      * <P>
@@ -295,7 +295,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
 
     }
 
-        /**
+        /** {@collect.stats}
          * Returns a new array that is a copy of this <code>SerialArray</code>
          * object.
          *
@@ -311,7 +311,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
     }
 
  //[if an error occurstype map used??]
-        /**
+        /** {@collect.stats}
          * Returns a new array that is a copy of this <code>SerialArray</code>
          * object, using the given type map for the custom
          * mapping of each element when the elements are SQL UDTs.
@@ -339,7 +339,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         return dst;
     }
 
-        /**
+        /** {@collect.stats}
          * Returns a new array that is a copy of a slice
          * of this <code>SerialArray</code> object, starting with the
          * element at the given index and containing the given number
@@ -360,7 +360,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         return dst;
     }
 
-        /**
+        /** {@collect.stats}
          * Returns a new array that is a copy of a slice
          * of this <code>SerialArray</code> object, starting with the
          * element at the given index and containing the given number
@@ -396,7 +396,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         return dst;
     }
 
-        /**
+        /** {@collect.stats}
          * Retrieves the SQL type of the elements in this <code>SerialArray</code>
          * object.  The <code>int</code> returned is one of the constants in the class
          * <code>java.sql.Types</code>.
@@ -409,7 +409,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         return baseType;
     }
 
-        /**
+        /** {@collect.stats}
          * Retrieves the DBMS-specific type name for the elements in this
          * <code>SerialArray</code> object.
          *
@@ -421,7 +421,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         return baseTypeName;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a <code>ResultSet</code> object holding the elements of
      * the subarray that starts at
      * index <i>index</i> and contains up to <i>count</i> successive elements.
@@ -444,7 +444,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      *
      * Retrieves a <code>ResultSet</code> object that contains all of
      * the elements of the SQL <code>ARRAY</code>
@@ -473,7 +473,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves a <code>ResultSet</code> object that contains all of
      * the elements in the <code>ARRAY</code> value that this
      * <code>SerialArray</code> object represents.
@@ -491,7 +491,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves a result set holding the elements of the subarray that starts at
      * Retrieves a <code>ResultSet</code> object that contains a subarray of the
      * elements in this <code>SerialArray</code> object, starting at
@@ -527,7 +527,7 @@ public class SerialArray implements Array, Serializable, Cloneable {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * The identifier that assists in the serialization of this <code>SerialArray</code>
      * object.
      */

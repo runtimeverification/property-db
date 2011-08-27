@@ -29,7 +29,7 @@ import java.security.AccessController;
 import java.io.ObjectStreamException;
 import sun.security.action.*;
 
-/**
+/** {@collect.stats}
  * This class represents an Internet Protocol version 4 (IPv4) address.
  * Defined by <a href="http://www.ietf.org/rfc/rfc790.txt">
  * <i>RFC&nbsp;790: Assigned Numbers</i></a>,
@@ -88,7 +88,7 @@ public final
 class Inet4Address extends InetAddress {
     final static int INADDRSZ = 4;
 
-    /** use serialVersionUID from InetAddress, but Inet4Address instance
+    /** {@collect.stats} use serialVersionUID from InetAddress, but Inet4Address instance
      *  is always replaced by an InetAddress instance before being
      *  serialized */
     private static final long serialVersionUID = 3286316764910316507L;
@@ -125,7 +125,7 @@ class Inet4Address extends InetAddress {
         this.address = address;
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the object to be serialized with an InetAddress object.
      *
      * @return the alternate object to be serialized.
@@ -139,7 +139,7 @@ class Inet4Address extends InetAddress {
         inet.hostName = this.hostName;
         inet.address = this.address;
 
-        /**
+        /** {@collect.stats}
          * Prior to 1.4 an InetAddress was created with a family
          * based on the platform AF_INET value (usually 2).
          * For compatibility reasons we must therefore write the
@@ -150,7 +150,7 @@ class Inet4Address extends InetAddress {
         return inet;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the InetAddress is an
      * IP multicast address. IP multicast address is a Class D
      * address i.e first four bits of the address are 1110.
@@ -162,7 +162,7 @@ class Inet4Address extends InetAddress {
         return ((address & 0xf0000000) == 0xe0000000);
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the InetAddress in a wildcard address.
      * @return a <code>boolean</code> indicating if the Inetaddress is
      *         a wildcard address.
@@ -172,7 +172,7 @@ class Inet4Address extends InetAddress {
         return address == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the InetAddress is a loopback address.
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
@@ -186,7 +186,7 @@ class Inet4Address extends InetAddress {
         return byteAddr[0] == 127;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the InetAddress is an link local address.
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
@@ -202,7 +202,7 @@ class Inet4Address extends InetAddress {
             && (((address >>> 16) & 0xFF) == 254);
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the InetAddress is a site local address.
      *
      * @return a <code>boolean</code> indicating if the InetAddress is
@@ -221,7 +221,7 @@ class Inet4Address extends InetAddress {
                 && (((address >>> 16) & 0xFF) == 168));
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the multicast address has global scope.
      *
      * @return a <code>boolean</code> indicating if the address has
@@ -237,7 +237,7 @@ class Inet4Address extends InetAddress {
               byteAddr[2] == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the multicast address has node scope.
      *
      * @return a <code>boolean</code> indicating if the address has
@@ -250,7 +250,7 @@ class Inet4Address extends InetAddress {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the multicast address has link scope.
      *
      * @return a <code>boolean</code> indicating if the address has
@@ -265,7 +265,7 @@ class Inet4Address extends InetAddress {
             && (((address >>> 8) & 0xFF) == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the multicast address has site scope.
      *
      * @return a <code>boolean</code> indicating if the address has
@@ -279,7 +279,7 @@ class Inet4Address extends InetAddress {
             && (((address >>> 16) & 0xFF) == 255);
     }
 
-    /**
+    /** {@collect.stats}
      * Utility routine to check if the multicast address has organization scope.
      *
      * @return a <code>boolean</code> indicating if the address has
@@ -295,7 +295,7 @@ class Inet4Address extends InetAddress {
             && (((address >>> 16) & 0xFF) <= 195);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the raw IP address of this <code>InetAddress</code>
      * object. The result is in network byte order: the highest order
      * byte of the address is in <code>getAddress()[0]</code>.
@@ -312,7 +312,7 @@ class Inet4Address extends InetAddress {
         return addr;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the IP address string in textual presentation form.
      *
      * @return  the raw IP address in a string format.
@@ -322,7 +322,7 @@ class Inet4Address extends InetAddress {
         return numericToTextFormat(getAddress());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this IP address.
      *
      * @return  a hash code value for this IP address.
@@ -331,7 +331,7 @@ class Inet4Address extends InetAddress {
         return address;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this object against the specified object.
      * The result is <code>true</code> if and only if the argument is
      * not <code>null</code> and it represents the same IP address as
@@ -367,7 +367,7 @@ class Inet4Address extends InetAddress {
         return (src[0] & 0xff) + "." + (src[1] & 0xff) + "." + (src[2] & 0xff) + "." + (src[3] & 0xff);
     }
 
-    /**
+    /** {@collect.stats}
      * Perform class load-time initializations.
      */
     private static native void init();

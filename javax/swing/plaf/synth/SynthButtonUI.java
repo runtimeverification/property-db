@@ -40,7 +40,7 @@ import javax.swing.text.View;
 import sun.swing.plaf.synth.SynthUI;
 import sun.swing.plaf.synth.DefaultSynthStyle;
 
-/**
+/** {@collect.stats}
  * Synth's ButtonUI implementation.
  *
  * @author Scott Violet
@@ -126,7 +126,7 @@ class SynthButtonUI extends BasicButtonUI implements
         return SynthLookAndFeel.getRegion(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current state of the passed in <code>AbstractButton</code>.
      */
     private int getComponentState(JComponent c) {
@@ -258,7 +258,7 @@ class SynthButtonUI extends BasicButtonUI implements
         context.getPainter().paintButtonBorder(context, g, x, y, w, h);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default icon. This should NOT callback
      * to the JComponent.
      *
@@ -273,7 +273,7 @@ class SynthButtonUI extends BasicButtonUI implements
         return icon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Icon to use in painting the button.
      */
     protected Icon getIcon(AbstractButton b) {
@@ -297,7 +297,7 @@ class SynthButtonUI extends BasicButtonUI implements
         return icon;
     }
 
-    /**
+    /** {@collect.stats}
      * This method will return the icon that should be used for a button.  We
      * only want to use the synth icon defined by the style if the specific
      * icon has not been defined for the button state and the backup icon is a
@@ -371,7 +371,7 @@ class SynthButtonUI extends BasicButtonUI implements
         return icon;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount to shift the text/icon when painting.
      */
     protected int getTextShiftOffset(SynthContext state) {
@@ -441,7 +441,7 @@ class SynthButtonUI extends BasicButtonUI implements
         return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Icon used in calculating the pref/min/max size.
      */
     protected Icon getSizingIcon(AbstractButton b) {

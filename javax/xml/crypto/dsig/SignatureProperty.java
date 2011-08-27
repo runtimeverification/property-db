@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig;
 import javax.xml.crypto.XMLStructure;
 import java.util.List;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>SignatureProperty</code> element as
  * defined in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>.
@@ -65,7 +65,7 @@ import java.util.List;
  */
 public interface SignatureProperty extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * Returns the target URI of this <code>SignatureProperty</code>.
      *
      * @return the target URI of this <code>SignatureProperty</code> (never
@@ -73,7 +73,7 @@ public interface SignatureProperty extends XMLStructure {
      */
     String getTarget();
 
-    /**
+    /** {@collect.stats}
      * Returns the Id of this <code>SignatureProperty</code>.
      *
      * @return the Id of this <code>SignatureProperty</code> (or
@@ -81,7 +81,7 @@ public interface SignatureProperty extends XMLStructure {
      */
     String getId();
 
-    /**
+    /** {@collect.stats}
      * Returns an {@link java.util.Collections#unmodifiableList unmodifiable
      * list} of one or more {@link XMLStructure}s that are contained in
      * this <code>SignatureProperty</code>. These represent additional

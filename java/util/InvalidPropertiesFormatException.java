@@ -28,7 +28,7 @@ package java.util;
 import java.io.NotSerializableException;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that an operation could not complete because
  * the input did not conform to the appropriate XML document type
  * for a collection of properties, as per the {@link Properties}
@@ -44,7 +44,7 @@ import java.io.IOException;
  */
 
 public class InvalidPropertiesFormatException extends IOException {
-    /**
+    /** {@collect.stats}
      * Constructs an InvalidPropertiesFormatException with the specified
      * cause.
      *
@@ -56,7 +56,7 @@ public class InvalidPropertiesFormatException extends IOException {
         this.initCause(cause);
     }
 
-   /**
+   /** {@collect.stats}
     * Constructs an InvalidPropertiesFormatException with the specified
     * detail message.
     *
@@ -67,7 +67,7 @@ public class InvalidPropertiesFormatException extends IOException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Throws NotSerializableException, since InvalidPropertiesFormatException
      * objects are not intended to be serializable.
      */
@@ -77,7 +77,7 @@ public class InvalidPropertiesFormatException extends IOException {
         throw new NotSerializableException("Not serializable.");
     }
 
-    /**
+    /** {@collect.stats}
      * Throws NotSerializableException, since InvalidPropertiesFormatException
      * objects are not intended to be serializable.
      */

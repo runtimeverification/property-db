@@ -28,7 +28,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.UIResource;
 
-/**
+/** {@collect.stats}
  * JButton object that draws a scaled Arrow in one of the cardinal directions.
  *
  * @author Scott Violet

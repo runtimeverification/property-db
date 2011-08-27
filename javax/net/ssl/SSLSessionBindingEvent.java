@@ -29,7 +29,7 @@ package javax.net.ssl;
 import java.util.EventObject;
 
 
-/**
+/** {@collect.stats}
  * This event is propagated to a SSLSessionBindingListener.
  * When a listener object is bound or unbound to an SSLSession by
  * {@link SSLSession#putValue(String, Object)}
@@ -51,12 +51,12 @@ extends EventObject
 {
     private static final long serialVersionUID = 3989172637106345L;
 
-    /**
+    /** {@collect.stats}
      * @serial The name to which the object is being bound or unbound
      */
     private String name;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new SSLSessionBindingEvent.
      *
      * @param session the SSLSession acting as the source of the event
@@ -69,7 +69,7 @@ extends EventObject
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name to which the object is being bound, or the name
      * from which the object is being unbound.
      *
@@ -80,7 +80,7 @@ extends EventObject
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the SSLSession into which the listener is being bound or
      * from which the listener is being unbound.
      *

@@ -33,7 +33,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 
-/**
+/** {@collect.stats}
  * This class enables a programmer to create an object and protect its
  * confidentiality with a cryptographic algorithm.
  *
@@ -95,28 +95,28 @@ public class SealedObject implements Serializable {
 
     static final long serialVersionUID = 4482838265551344752L;
 
-    /**
+    /** {@collect.stats}
      * The serialized object contents in encrypted format.
      *
      * @serial
      */
     private byte[] encryptedContent = null;
 
-    /**
+    /** {@collect.stats}
      * The algorithm that was used to seal this object.
      *
      * @serial
      */
     private String sealAlg = null;
 
-    /**
+    /** {@collect.stats}
      * The algorithm of the parameters used.
      *
      * @serial
      */
     private String paramsAlg = null;
 
-    /**
+    /** {@collect.stats}
      * The cryptographic parameters used by the sealing Cipher,
      * encoded in the default format.
      * <p>
@@ -126,7 +126,7 @@ public class SealedObject implements Serializable {
      */
     protected byte[] encodedParams = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a SealedObject from any Serializable object.
      *
      * <p>The given object is serialized, and its serialized contents are
@@ -186,7 +186,7 @@ public class SealedObject implements Serializable {
         this.sealAlg = c.getAlgorithm();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SealedObject object from the passed-in SealedObject.
      *
      * @param so a SealedObject object
@@ -203,7 +203,7 @@ public class SealedObject implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm that was used to seal this object.
      *
      * @return the algorithm that was used to seal this object.
@@ -212,7 +212,7 @@ public class SealedObject implements Serializable {
         return this.sealAlg;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the original (encapsulated) object.
      *
      * <p>This method creates a cipher for the algorithm that had been used in
@@ -263,7 +263,7 @@ public class SealedObject implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the original (encapsulated) object.
      *
      * <p>The encapsulated object is unsealed (using the given Cipher,
@@ -308,7 +308,7 @@ public class SealedObject implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the original (encapsulated) object.
      *
      * <p>This method creates a cipher for the algorithm that had been used in
@@ -440,7 +440,7 @@ public class SealedObject implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Restores the state of the SealedObject from a stream.
      * @param s the object input stream.
      * @exception NullPointerException if s is null.

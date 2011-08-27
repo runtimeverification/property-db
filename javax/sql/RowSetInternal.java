@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * The interface that a <code>RowSet</code> object implements in order to
  * present itself to a <code>RowSetReader</code> or <code>RowSetWriter</code>
  * object. The <code>RowSetInternal</code> interface contains
@@ -39,7 +39,7 @@ import java.sql.*;
 
 public interface RowSetInternal {
 
-  /**
+  /** {@collect.stats}
    * Retrieves the parameters that have been set for this
    * <code>RowSet</code> object's command.
    *
@@ -49,7 +49,7 @@ public interface RowSetInternal {
    */
   Object[] getParams() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves the <code>Connection</code> object that was passed to this
    * <code>RowSet</code> object.
    *
@@ -59,7 +59,7 @@ public interface RowSetInternal {
    */
   Connection getConnection() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the given <code>RowSetMetaData</code> object as the
    * <code>RowSetMetaData</code> object for this <code>RowSet</code>
    * object. The <code>RowSetReader</code> object associated with the rowset
@@ -73,7 +73,7 @@ public interface RowSetInternal {
    */
   void setMetaData(RowSetMetaData md) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves a <code>ResultSet</code> object containing the original
    * value of this <code>RowSet</code> object.
    * <P>
@@ -86,7 +86,7 @@ public interface RowSetInternal {
    */
   public ResultSet getOriginal() throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Retrieves a <code>ResultSet</code> object containing the original value
    * of the current row only.  If the current row has no original value,
    * an empty result set is returned. If there is no current row,

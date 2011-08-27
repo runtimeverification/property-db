@@ -43,7 +43,7 @@ import javax.swing.plaf.*;
 import javax.swing.plaf.basic.*;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's MenuBarUI.
  *
  * @author Scott Violet

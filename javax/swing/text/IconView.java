@@ -28,7 +28,7 @@ import java.awt.*;
 import javax.swing.Icon;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * Icon decorator that implements the view interface.  The
  * entire element is used to represent the icon.  This acts
  * as a gateway from the display-only View implementations to
@@ -41,7 +41,7 @@ import javax.swing.event.*;
  */
 public class IconView extends View  {
 
-    /**
+    /** {@collect.stats}
      * Creates a new icon view that represents an element.
      *
      * @param elem the element to create a view for
@@ -54,7 +54,7 @@ public class IconView extends View  {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Paints the icon.
      * The real paint behavior occurs naturally from the association
      * that the icon has with its parent container (the same
@@ -72,7 +72,7 @@ public class IconView extends View  {
         c.paintIcon(getContainer(), g, alloc.x, alloc.y);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred span for this view along an
      * axis.
      *
@@ -94,7 +94,7 @@ public class IconView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the desired alignment for this view along an
      * axis.  This is implemented to give the alignment to the
      * bottom of the icon along the y axis, and the default
@@ -116,7 +116,7 @@ public class IconView extends View  {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -141,7 +141,7 @@ public class IconView extends View  {
         throw new BadLocationException(pos + " not in range " + p0 + "," + p1, pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *

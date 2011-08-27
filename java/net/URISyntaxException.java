@@ -26,7 +26,7 @@
 package java.net;
 
 
-/**
+/** {@collect.stats}
  * Checked exception thrown to indicate that a string could not be parsed as a
  * URI reference.
  *
@@ -41,7 +41,7 @@ public class URISyntaxException
     private String input;
     private int index;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance from the given input string, reason, and error
      * index.
      *
@@ -66,7 +66,7 @@ public class URISyntaxException
         this.index = index;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance from the given input string and reason.  The
      * resulting object will have an error index of <tt>-1</tt>.
      *
@@ -80,7 +80,7 @@ public class URISyntaxException
         this(input, reason, -1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the input string.
      *
      * @return  The input string
@@ -89,7 +89,7 @@ public class URISyntaxException
         return input;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string explaining why the input string could not be parsed.
      *
      * @return  The reason string
@@ -98,7 +98,7 @@ public class URISyntaxException
         return super.getMessage();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an index into the input string of the position at which the
      * parse error occurred, or <tt>-1</tt> if this position is not known.
      *
@@ -108,7 +108,7 @@ public class URISyntaxException
         return index;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the parse error.  The resulting string
      * consists of the reason string followed by a colon character
      * (<tt>':'</tt>), a space, and the input string.  If the error index is

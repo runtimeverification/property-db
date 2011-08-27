@@ -30,7 +30,7 @@ package javax.xml.crypto.dsig.spec;
 import javax.xml.crypto.dsig.Transform;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * Parameters for the <a href="http://www.w3.org/TR/1999/REC-xslt-19991116">
  * XSLT Transform Algorithm</a>.
  * The parameters include a namespace-qualified stylesheet element.
@@ -52,7 +52,7 @@ import javax.xml.crypto.XMLStructure;
 public final class XSLTTransformParameterSpec implements TransformParameterSpec{
     private XMLStructure stylesheet;
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>XSLTTransformParameterSpec</code> with the specified
      * stylesheet.
      *
@@ -67,7 +67,7 @@ public final class XSLTTransformParameterSpec implements TransformParameterSpec{
         this.stylesheet = stylesheet;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the stylesheet.
      *
      * @return the stylesheet

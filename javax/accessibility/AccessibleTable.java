@@ -25,7 +25,7 @@
 
 package javax.accessibility;
 
-/**
+/** {@collect.stats}
  * Class AccessibleTable describes a user-interface component that
  * presents data in a two-dimensional table format.
  *
@@ -34,49 +34,49 @@ package javax.accessibility;
  */
 public interface AccessibleTable {
 
-    /**
+    /** {@collect.stats}
      * Returns the caption for the table.
      *
      * @return the caption for the table
      */
     public Accessible getAccessibleCaption();
 
-    /**
+    /** {@collect.stats}
      * Sets the caption for the table.
      *
      * @param a the caption for the table
      */
     public void setAccessibleCaption(Accessible a);
 
-    /**
+    /** {@collect.stats}
      * Returns the summary description of the table.
      *
      * @return the summary description of the table
      */
     public Accessible getAccessibleSummary();
 
-    /**
+    /** {@collect.stats}
      * Sets the summary description of the table
      *
      * @param a the summary description of the table
      */
     public void setAccessibleSummary(Accessible a);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the table.
      *
      * @return the number of rows in the table
      */
     public int getAccessibleRowCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the table.
      *
      * @return the number of columns in the table
      */
     public int getAccessibleColumnCount();
 
-    /**
+    /** {@collect.stats}
      * Returns the Accessible at a specified row and column
      * in the table.
      *
@@ -86,7 +86,7 @@ public interface AccessibleTable {
      */
     public Accessible getAccessibleAt(int r, int c);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows occupied by the Accessible at
      * a specified row and column in the table.
      *
@@ -95,7 +95,7 @@ public interface AccessibleTable {
      */
     public int getAccessibleRowExtentAt(int r, int c);
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns occupied by the Accessible at
      * a specified row and column in the table.
      *
@@ -104,7 +104,7 @@ public interface AccessibleTable {
      */
     public int getAccessibleColumnExtentAt(int r, int c);
 
-    /**
+    /** {@collect.stats}
      * Returns the row headers as an AccessibleTable.
      *
      * @return an AccessibleTable representing the row
@@ -112,7 +112,7 @@ public interface AccessibleTable {
      */
     public AccessibleTable getAccessibleRowHeader();
 
-    /**
+    /** {@collect.stats}
      * Sets the row headers.
      *
      * @param table an AccessibleTable representing the
@@ -120,7 +120,7 @@ public interface AccessibleTable {
      */
     public void setAccessibleRowHeader(AccessibleTable table);
 
-    /**
+    /** {@collect.stats}
      * Returns the column headers as an AccessibleTable.
      *
      * @return an AccessibleTable representing the column
@@ -128,7 +128,7 @@ public interface AccessibleTable {
      */
     public AccessibleTable getAccessibleColumnHeader();
 
-    /**
+    /** {@collect.stats}
      * Sets the column headers.
      *
      * @param table an AccessibleTable representing the
@@ -136,7 +136,7 @@ public interface AccessibleTable {
      */
     public void setAccessibleColumnHeader(AccessibleTable table);
 
-    /**
+    /** {@collect.stats}
      * Returns the description of the specified row in the table.
      *
      * @param r zero-based row of the table
@@ -144,7 +144,7 @@ public interface AccessibleTable {
      */
     public Accessible getAccessibleRowDescription(int r);
 
-    /**
+    /** {@collect.stats}
      * Sets the description text of the specified row of the table.
      *
      * @param r zero-based row of the table
@@ -152,7 +152,7 @@ public interface AccessibleTable {
      */
     public void setAccessibleRowDescription(int r, Accessible a);
 
-    /**
+    /** {@collect.stats}
      * Returns the description text of the specified column in the table.
      *
      * @param c zero-based column of the table
@@ -160,7 +160,7 @@ public interface AccessibleTable {
      */
     public Accessible getAccessibleColumnDescription(int c);
 
-    /**
+    /** {@collect.stats}
      * Sets the description text of the specified column in the table.
      *
      * @param c zero-based column of the table
@@ -168,7 +168,7 @@ public interface AccessibleTable {
      */
     public void setAccessibleColumnDescription(int c, Accessible a);
 
-    /**
+    /** {@collect.stats}
      * Returns a boolean value indicating whether the accessible at
      * a specified row and column is selected.
      *
@@ -180,7 +180,7 @@ public interface AccessibleTable {
      */
     public boolean isAccessibleSelected(int r, int c);
 
-    /**
+    /** {@collect.stats}
      * Returns a boolean value indicating whether the specified row
      * is selected.
      *
@@ -190,7 +190,7 @@ public interface AccessibleTable {
      */
     public boolean isAccessibleRowSelected(int r);
 
-    /**
+    /** {@collect.stats}
      * Returns a boolean value indicating whether the specified column
      * is selected.
      *
@@ -200,7 +200,7 @@ public interface AccessibleTable {
      */
     public boolean isAccessibleColumnSelected(int c);
 
-    /**
+    /** {@collect.stats}
      * Returns the selected rows in a table.
      *
      * @return an array of selected rows where each element is a
@@ -208,7 +208,7 @@ public interface AccessibleTable {
      */
     public int [] getSelectedAccessibleRows();
 
-    /**
+    /** {@collect.stats}
      * Returns the selected columns in a table.
      *
      * @return an array of selected columns where each element is a

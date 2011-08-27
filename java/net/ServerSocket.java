@@ -31,7 +31,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 
-/**
+/** {@collect.stats}
  * This class implements server sockets. A server socket waits for
  * requests to come in over the network. It performs some operation
  * based on that request, and then possibly returns a result to the requester.
@@ -50,7 +50,7 @@ import java.security.PrivilegedExceptionAction;
  */
 public
 class ServerSocket {
-    /**
+    /** {@collect.stats}
      * Various states of this socket.
      */
     private boolean created = false;
@@ -58,17 +58,17 @@ class ServerSocket {
     private boolean closed = false;
     private Object closeLock = new Object();
 
-    /**
+    /** {@collect.stats}
      * The implementation of this Socket.
      */
     private SocketImpl impl;
 
-    /**
+    /** {@collect.stats}
      * Are we using an older SocketImpl?
      */
     private boolean oldImpl = false;
 
-    /**
+    /** {@collect.stats}
      * Creates an unbound server socket.
      *
      * @exception IOException IO error when opening the socket.
@@ -78,7 +78,7 @@ class ServerSocket {
         setImpl();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a server socket, bound to the specified port. A port of
      * <code>0</code> creates a socket on any free port.
      * <p>
@@ -114,7 +114,7 @@ class ServerSocket {
         this(port, 50, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a server socket and binds it to the specified local port
      * number, with the specified backlog.
      * A port number of <code>0</code> creates a socket on any
@@ -158,7 +158,7 @@ class ServerSocket {
         this(port, backlog, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a server with the specified port, listen backlog, and
      * local IP address to bind to.  The <i>bindAddr</i> argument
      * can be used on a multi-homed host for a ServerSocket that
@@ -209,7 +209,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get the <code>SocketImpl</code> attached to this socket, creating
      * it if necessary.
      *
@@ -256,7 +256,7 @@ class ServerSocket {
             impl.setServerSocket(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the socket implementation.
      *
      * @throws IOException if creation fails
@@ -273,7 +273,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      *
      * Binds the <code>ServerSocket</code> to a specific address
      * (IP address and port number).
@@ -294,7 +294,7 @@ class ServerSocket {
         bind(endpoint, 50);
     }
 
-    /**
+    /** {@collect.stats}
      *
      * Binds the <code>ServerSocket</code> to a specific address
      * (IP address and port number).
@@ -345,7 +345,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the local address of this server socket.
      *
      * @return  the address to which this socket is bound,
@@ -364,7 +364,7 @@ class ServerSocket {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the port number on which this socket is listening.
      *
      * @return  the port number to which this socket is listening or
@@ -383,7 +383,7 @@ class ServerSocket {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      *
@@ -401,7 +401,7 @@ class ServerSocket {
         return new InetSocketAddress(getInetAddress(), getLocalPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Listens for a connection to be made to this socket and accepts
      * it. The method blocks until a connection is made.
      *
@@ -439,7 +439,7 @@ class ServerSocket {
         return s;
     }
 
-    /**
+    /** {@collect.stats}
      * Subclasses of ServerSocket use this method to override accept()
      * to return their own subclass of socket.  So a FooServerSocket
      * will typically hand this method an <i>empty</i> FooSocket.  On
@@ -489,7 +489,7 @@ class ServerSocket {
         s.postAccept();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this socket.
      *
      * Any thread currently blocked in {@link #accept()} will throw
@@ -512,7 +512,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.ServerSocketChannel} object
      * associated with this socket, if any.
      *
@@ -532,7 +532,7 @@ class ServerSocket {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the binding state of the ServerSocket.
      *
      * @return true if the ServerSocket succesfuly bound to an address
@@ -543,7 +543,7 @@ class ServerSocket {
         return bound || oldImpl;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closed state of the ServerSocket.
      *
      * @return true if the socket has been closed
@@ -555,7 +555,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable SO_TIMEOUT with the specified timeout, in
      * milliseconds.  With this option set to a non-zero timeout,
      * a call to accept() for this ServerSocket
@@ -577,7 +577,7 @@ class ServerSocket {
         getImpl().setOption(SocketOptions.SO_TIMEOUT, new Integer(timeout));
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
      * @return the SO_TIMEOUT value
@@ -597,7 +597,7 @@ class ServerSocket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * When a TCP connection is closed the connection may remain
@@ -639,7 +639,7 @@ class ServerSocket {
         getImpl().setOption(SocketOptions.SO_REUSEADDR, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if SO_REUSEADDR is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
@@ -654,7 +654,7 @@ class ServerSocket {
         return ((Boolean) (getImpl().getOption(SocketOptions.SO_REUSEADDR))).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the implementation address and implementation port of
      * this socket as a <code>String</code>.
      *
@@ -676,12 +676,12 @@ class ServerSocket {
         created = true;
     }
 
-    /**
+    /** {@collect.stats}
      * The factory for all server sockets.
      */
     private static SocketImplFactory factory = null;
 
-    /**
+    /** {@collect.stats}
      * Sets the server socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -717,7 +717,7 @@ class ServerSocket {
         factory = fac;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a default proposed value for the SO_RCVBUF option for sockets
      * accepted from this <tt>ServerSocket</tt>. The value actually set
      * in the accepted socket must be determined by calling
@@ -761,7 +761,7 @@ class ServerSocket {
         getImpl().setOption(SocketOptions.SO_RCVBUF, new Integer(size));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the SO_RCVBUF option for this <tt>ServerSocket</tt>,
      * that is the proposed buffer size that will be used for Sockets accepted
      * from this <tt>ServerSocket</tt>.
@@ -786,7 +786,7 @@ class ServerSocket {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets performance preferences for this ServerSocket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations

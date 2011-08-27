@@ -28,13 +28,13 @@ package javax.swing.event;
 import java.util.EventListener;
 
 
-/**
+/** {@collect.stats}
  * Defines an object which listens for ChangeEvents.
  *
  * @author Jeff Dinkins
  */
 public interface ChangeListener extends EventListener {
-    /**
+    /** {@collect.stats}
      * Invoked when the target of the listener has changed its state.
      *
      * @param e  a ChangeEvent object

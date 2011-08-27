@@ -37,7 +37,7 @@ import java.util.WeakHashMap;
 
 import sun.font.FontManager;
 
-/**
+/** {@collect.stats}
  * A pool of styles and their associated resources.  This class determines
  * the lifetime of a group of resources by being a container that holds
  * caches for various resources such as font and color that get reused
@@ -64,7 +64,7 @@ import sun.font.FontManager;
  */
 public class StyleContext implements Serializable, AbstractDocument.AttributeContext {
 
-    /**
+    /** {@collect.stats}
      * Returns default AttributeContext shared by all documents that
      * don't bother to define/supply their own context.
      *
@@ -79,7 +79,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     private static StyleContext defaultContext;
 
-    /**
+    /** {@collect.stats}
      * Creates a new StyleContext object.
      */
     public StyleContext() {
@@ -87,7 +87,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         addStyle(DEFAULT_STYLE, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a new style into the style hierarchy.  Style attributes
      * resolve from bottom up so an attribute specified in a child
      * will override an attribute specified in the parent.
@@ -112,7 +112,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return style;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a named style previously added to the document.
      *
      * @param nm  the name of the style to remove
@@ -121,7 +121,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         styles.removeAttribute(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches a named style previously added to the document
      *
      * @param nm  the name of the style
@@ -131,7 +131,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return (Style) styles.getAttribute(nm);
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the names of the styles defined.
      *
      * @return the list of names as an enumeration
@@ -140,7 +140,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return styles.getAttributeNames();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to track when styles are added
      * or removed.
      *
@@ -150,7 +150,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         styles.addChangeListener(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener that was tracking styles being
      * added or removed.
      *
@@ -160,7 +160,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         styles.removeChangeListener(l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this StyleContext with addChangeListener().
      *
@@ -172,7 +172,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ((NamedStyle)styles).getChangeListeners();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font from an attribute set.  This is
      * implemented to try and fetch a cached font
      * for the given AttributeSet, and if that fails
@@ -194,7 +194,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         String family = StyleConstants.getFontFamily(attr);
         int size = StyleConstants.getFontSize(attr);
 
-        /**
+        /** {@collect.stats}
          * if either superscript or subscript is
          * is set, we need to reduce the font size
          * by 2.
@@ -207,7 +207,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return getFont(family, style, size);
     }
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a foreground color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.  By default it simply returns
@@ -220,7 +220,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return StyleConstants.getForeground(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Takes a set of attributes and turn it into a background color
      * specification.  This might be used to specify things
      * like brighter, more hue, etc.  By default it simply returns
@@ -233,7 +233,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return StyleConstants.getBackground(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a new font.  This returns a Font from a cache
      * if a cached font exists.  If not, a Font is added to
      * the cache.  This is basically a low-level cache for
@@ -272,7 +272,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns font metrics for a font.
      *
      * @param f the font
@@ -286,7 +286,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     // --- AttributeContext methods --------------------
 
-    /**
+    /** {@collect.stats}
      * Adds an attribute to the given set, and returns
      * the new representative set.
      * <p>
@@ -316,7 +316,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ma;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a set of attributes to the element.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -344,7 +344,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ma;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an attribute from the set.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -372,7 +372,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ma;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes for the element.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -400,7 +400,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ma;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a set of attributes for the element.
      * <p>
      * This method is thread safe, although most Swing methods
@@ -428,7 +428,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return ma;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches an empty AttributeSet.
      *
      * @return the set
@@ -437,7 +437,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return SimpleAttributeSet.EMPTY;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a set no longer needed by the MutableAttributeSet implmentation.
      * This is useful for operation under 1.1 where there are no weak
      * references.  This would typically be called by the finalize method
@@ -460,7 +460,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     // --- local methods -----------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum number of key/value pairs to try and
      * compress into unique/immutable sets.  Any sets above this
      * limit will use hashtables and be a MutableAttributeSet.
@@ -471,7 +471,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return THRESHOLD;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a compact set of attributes that might be shared.
      * This is a hook for subclasses that want to alter the
      * behavior of SmallAttributeSet.  This can be reimplemented
@@ -485,7 +485,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return new SmallAttributeSet(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a large set of attributes that should trade off
      * space for time.  This set will not be shared.  This is
      * a hook for subclasses that want to alter the behavior
@@ -501,14 +501,14 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return new SimpleAttributeSet(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Clean the unused immutable sets out of the hashtable.
      */
     synchronized void removeUnusedSets() {
         attributesPool.size(); // force WeakHashMap to expunge stale entries
     }
 
-    /**
+    /** {@collect.stats}
      * Search for an existing attribute set using the current search
      * parameters.  If a matching set is found, return it.  If a match
      * is not found, we create a new set and add it to the pool.
@@ -527,7 +527,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return a;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a mutable attribute set to hand out because the current
      * needs are too big to try and use a shared version.
      */
@@ -539,7 +539,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return createLargeAttributeSet(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a StyleContext to a String.
      *
      * @return the string
@@ -557,7 +557,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     // --- serialization ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Context-specific handling of writing out attributes
      */
     public void writeAttributes(ObjectOutputStream out,
@@ -565,7 +565,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         writeAttributeSet(out, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Context-specific handling of reading in attributes
      */
     public void readAttributes(ObjectInputStream in,
@@ -573,7 +573,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         readAttributeSet(in, a);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a set of attributes to the given object stream
      * for the purpose of serialization.  This will take
      * special care to deal with static attribute keys that
@@ -618,7 +618,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a set of attributes from the given object input
      * stream that have been previously written out with
      * <code>writeAttributeSet</code>.  This will try to restore
@@ -658,7 +658,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Registers an object as a static object that is being
      * used as a key in attribute sets.  This allows the key
      * to be treated specially for serialization.
@@ -683,7 +683,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         thawKeyMap.put(ioFmt, key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object previously registered with
      * <code>registerStaticAttributeKey</code>.
      */
@@ -694,7 +694,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         return thawKeyMap.get(key);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String that <code>key</code> will be registered with
      * @see #getStaticAttribute
      * @see #registerStaticAttributeKey
@@ -725,7 +725,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     // --- variables ---------------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * The name given to the default logical style attached
      * to paragraphs.
      */
@@ -742,7 +742,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         synchronizedMap(new WeakHashMap());
     private transient MutableAttributeSet search = new SimpleAttributeSet();
 
-    /**
+    /** {@collect.stats}
      * Number of immutable sets that are not currently
      * being used.  This helps indicate when the sets need
      * to be cleaned out of the hashtable they are stored
@@ -750,13 +750,13 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
      */
     private int unusedSets;
 
-    /**
+    /** {@collect.stats}
      * The threshold for no longer sharing the set of attributes
      * in an immutable table.
      */
     static final int THRESHOLD = 9;
 
-    /**
+    /** {@collect.stats}
      * This class holds a small number of attributes in an array.
      * The storage format is key, value, key, value, etc.  The size
      * of the set is the length of the array divided by two.  By
@@ -810,7 +810,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
         // --- Object methods -------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns a string showing the key/value pairs
          */
         public String toString() {
@@ -828,7 +828,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return s;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a hashcode for this set of attributes.
          * @return     a hashcode value for this set of attributes.
          */
@@ -841,7 +841,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return code;
         }
 
-        /**
+        /** {@collect.stats}
          * Compares this object to the specifed object.
          * The result is <code>true</code> if the object is an equivalent
          * set of attributes.
@@ -858,7 +858,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Clones a set of attributes.  Since the set is immutable, a
          * clone is basically the same set.
          *
@@ -870,7 +870,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
         //  --- AttributeSet methods ----------------------------
 
-        /**
+        /** {@collect.stats}
          * Gets the number of attributes that are defined.
          *
          * @return the number of attributes
@@ -880,7 +880,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.length / 2;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          *
          * @param key the attribute key
@@ -898,7 +898,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether two attribute sets are equal.
          *
          * @param attr the attribute set to check against
@@ -913,7 +913,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
                     containsAttributes(attr));
         }
 
-        /**
+        /** {@collect.stats}
          * Copies a set of attributes.
          *
          * @return the copy
@@ -923,7 +923,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.
          *
          * @param key the attribute name
@@ -940,7 +940,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the names of all attributes.
          *
          * @return the attribute names
@@ -950,7 +950,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return new KeyEnumeration(attributes);
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute name/value is defined.
          *
          * @param name the attribute name
@@ -962,7 +962,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return value.equals(getAttribute(name));
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether the attribute set contains all of
          * the given attributes.
          *
@@ -982,7 +982,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return result;
         }
 
-        /**
+        /** {@collect.stats}
          * If not overriden, the resolving parent defaults to
          * the parent element.
          *
@@ -1000,7 +1000,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         AttributeSet resolveParent;
     }
 
-    /**
+    /** {@collect.stats}
      * An enumeration of the keys in a SmallAttributeSet.
      */
     class KeyEnumeration implements Enumeration<Object> {
@@ -1010,7 +1010,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             i = 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Tests if this enumeration contains more elements.
          *
          * @return  <code>true</code> if this enumeration contains more elements;
@@ -1021,7 +1021,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return i < attr.length;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the next element of this enumeration.
          *
          * @return     the next element of this enumeration.
@@ -1041,7 +1041,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         int i;
     }
 
-    /**
+    /** {@collect.stats}
      * Sorts the key strings so that they can be very quickly compared
      * in the attribute set searchs.
      */
@@ -1061,7 +1061,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Initialize with a set of already sorted
          * keys (data from an existing SmallAttributeSet).
          */
@@ -1075,7 +1075,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a table of sorted key/value entries
          * suitable for creation of an instance of
          * SmallAttributeSet.
@@ -1091,7 +1091,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return tbl;
         }
 
-        /**
+        /** {@collect.stats}
          * The number of key/value pairs contained
          * in the current key being forged.
          */
@@ -1099,7 +1099,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return keys.size();
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a key/value to the set.
          */
         public void addAttribute(Object key, Object value) {
@@ -1107,7 +1107,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             data.addElement(value);
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a set of key/value pairs to the set.
          */
         public void addAttributes(AttributeSet attr) {
@@ -1127,7 +1127,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the given name from the set.
          */
         public void removeAttribute(Object key) {
@@ -1141,7 +1141,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the set of keys from the set.
          */
         public void removeAttributes(Enumeration names) {
@@ -1151,7 +1151,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the set of matching attributes from the set.
          */
         public void removeAttributes(AttributeSet attr) {
@@ -1180,7 +1180,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         private Vector data = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * key for a font table
      */
     static class FontKey {
@@ -1189,7 +1189,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         private int style;
         private int size;
 
-        /**
+        /** {@collect.stats}
          * Constructs a font key.
          */
         public FontKey(String family, int style, int size) {
@@ -1202,7 +1202,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             this.size = size;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a hashcode for this font.
          * @return     a hashcode value for this font.
          */
@@ -1211,7 +1211,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return fhash ^ style ^ size;
         }
 
-        /**
+        /** {@collect.stats}
          * Compares this object to the specifed object.
          * The result is <code>true</code> if and only if the argument is not
          * <code>null</code> and is a <code>Font</code> object with the same
@@ -1230,7 +1230,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
     }
 
-    /**
+    /** {@collect.stats}
      * A collection of attributes, typically used to represent
      * character and paragraph styles.  This is an implementation
      * of MutableAttributeSet that can be observed if desired.
@@ -1249,7 +1249,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
      */
     public class NamedStyle implements Style, Serializable {
 
-        /**
+        /** {@collect.stats}
          * Creates a new named style.
          *
          * @param name the style name, null for unnamed
@@ -1266,7 +1266,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new named style.
          *
          * @param parent the parent style, null if none
@@ -1276,14 +1276,14 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             this(null, parent);
         }
 
-        /**
+        /** {@collect.stats}
          * Creates a new named style, with a null name and parent.
          */
         public NamedStyle() {
             attributes = getEmptySet();
         }
 
-        /**
+        /** {@collect.stats}
          * Converts the style to a string.
          *
          * @return the string
@@ -1292,7 +1292,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return "NamedStyle:" + getName() + " " + attributes;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the name of the style.   A style is not required to be named,
          * so null is returned if there is no name associated with the style.
          *
@@ -1305,7 +1305,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Changes the name of the style.  Does nothing with a null name.
          *
          * @param name the new name
@@ -1316,7 +1316,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a change listener.
          *
          * @param l the change listener
@@ -1325,7 +1325,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             listenerList.add(ChangeListener.class, l);
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a change listener.
          *
          * @param l the change listener
@@ -1335,7 +1335,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         }
 
 
-        /**
+        /** {@collect.stats}
          * Returns an array of all the <code>ChangeListener</code>s added
          * to this NamedStyle with addChangeListener().
          *
@@ -1349,7 +1349,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         }
 
 
-        /**
+        /** {@collect.stats}
          * Notifies all listeners that have registered interest for
          * notification on this event type.  The event instance
          * is lazily created using the parameters passed into
@@ -1372,7 +1372,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Return an array of all the listeners of the given type that
          * were added to this model.
          *
@@ -1388,7 +1388,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         // --- AttributeSet ----------------------------
         // delegated to the immutable field "attributes"
 
-        /**
+        /** {@collect.stats}
          * Gets the number of attributes that are defined.
          *
          * @return the number of attributes >= 0
@@ -1398,7 +1398,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.getAttributeCount();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute is defined.
          *
          * @param attrName the non-null attribute name
@@ -1409,7 +1409,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.isDefined(attrName);
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether two attribute sets are equal.
          *
          * @param attr the attribute set to check against
@@ -1420,7 +1420,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.isEqual(attr);
         }
 
-        /**
+        /** {@collect.stats}
          * Copies a set of attributes.
          *
          * @return the copy
@@ -1432,7 +1432,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return a;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the value of an attribute.
          *
          * @param attrName the non-null attribute name
@@ -1443,7 +1443,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.getAttribute(attrName);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the names of all attributes.
          *
          * @return the attribute names as an enumeration
@@ -1453,7 +1453,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.getAttributeNames();
         }
 
-        /**
+        /** {@collect.stats}
          * Checks whether a given attribute name/value is defined.
          *
          * @param name the non-null attribute name
@@ -1466,7 +1466,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         }
 
 
-        /**
+        /** {@collect.stats}
          * Checks whether the element contains all the attributes.
          *
          * @param attrs the attributes to check
@@ -1477,7 +1477,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             return attributes.containsAttributes(attrs);
         }
 
-        /**
+        /** {@collect.stats}
          * Gets attributes from the parent.
          * If not overriden, the resolving parent defaults to
          * the parent element.
@@ -1493,7 +1493,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
         // should fetch a new immutable record for the field
         // "attributes".
 
-        /**
+        /** {@collect.stats}
          * Adds an attribute.
          *
          * @param name the non-null attribute name
@@ -1506,7 +1506,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             fireStateChanged();
         }
 
-        /**
+        /** {@collect.stats}
          * Adds a set of attributes to the element.
          *
          * @param attr the attributes to add
@@ -1518,7 +1518,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             fireStateChanged();
         }
 
-        /**
+        /** {@collect.stats}
          * Removes an attribute from the set.
          *
          * @param name the non-null attribute name
@@ -1530,7 +1530,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             fireStateChanged();
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param names the attribute names
@@ -1542,7 +1542,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             fireStateChanged();
         }
 
-        /**
+        /** {@collect.stats}
          * Removes a set of attributes for the element.
          *
          * @param attrs the attributes
@@ -1558,7 +1558,7 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
             fireStateChanged();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the resolving parent.
          *
          * @param parent the parent, null if none
@@ -1589,19 +1589,19 @@ public class StyleContext implements Serializable, AbstractDocument.AttributeCon
 
         // --- member variables -----------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * The change listeners for the model.
          */
         protected EventListenerList listenerList = new EventListenerList();
 
-        /**
+        /** {@collect.stats}
          * Only one ChangeEvent is needed per model instance since the
          * event's only (read-only) state is the source property.  The source
          * of events generated here is always "this".
          */
         protected transient ChangeEvent changeEvent = null;
 
-        /**
+        /** {@collect.stats}
          * Inner AttributeSet implementation, which may be an
          * immutable unique set being shared.
          */

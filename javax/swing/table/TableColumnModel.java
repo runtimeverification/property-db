@@ -31,7 +31,7 @@ import javax.swing.event.*;
 import javax.swing.*;
 
 
-/**
+/** {@collect.stats}
  * Defines the requirements for a table column model object suitable for
  * use with <code>JTable</code>.
  *
@@ -45,7 +45,7 @@ public interface TableColumnModel
 // Modifying the model
 //
 
-    /**
+    /** {@collect.stats}
      *  Appends <code>aColumn</code> to the end of the
      *  <code>tableColumns</code> array.
      *  This method posts a <code>columnAdded</code>
@@ -56,7 +56,7 @@ public interface TableColumnModel
      */
     public void addColumn(TableColumn aColumn);
 
-    /**
+    /** {@collect.stats}
      *  Deletes the <code>TableColumn</code> <code>column</code> from the
      *  <code>tableColumns</code> array.  This method will do nothing if
      *  <code>column</code> is not in the table's column list.
@@ -68,7 +68,7 @@ public interface TableColumnModel
      */
     public void removeColumn(TableColumn column);
 
-    /**
+    /** {@collect.stats}
      * Moves the column and its header at <code>columnIndex</code> to
      * <code>newIndex</code>.  The old column at <code>columnIndex</code>
      * will now be found at <code>newIndex</code>.  The column that used
@@ -85,7 +85,7 @@ public interface TableColumnModel
      */
     public void moveColumn(int columnIndex, int newIndex);
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>TableColumn</code>'s column margin to
      * <code>newMargin</code>.  This method posts
      * a <code>columnMarginChanged</code> event to its listeners.
@@ -99,19 +99,19 @@ public interface TableColumnModel
 // Querying the model
 //
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in the model.
      * @return the number of columns in the model
      */
     public int getColumnCount();
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Enumeration</code> of all the columns in the model.
      * @return an <code>Enumeration</code> of all the columns in the model
      */
     public Enumeration<TableColumn> getColumns();
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the first column in the table
      * whose identifier is equal to <code>identifier</code>,
      * when compared using <code>equals</code>.
@@ -127,7 +127,7 @@ public interface TableColumnModel
      */
     public int getColumnIndex(Object columnIdentifier);
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>TableColumn</code> object for the column at
      * <code>columnIndex</code>.
      *
@@ -137,13 +137,13 @@ public interface TableColumnModel
      */
     public TableColumn getColumn(int columnIndex);
 
-    /**
+    /** {@collect.stats}
      * Returns the width between the cells in each column.
      * @return the margin, in pixels, between the cells
      */
     public int getColumnMargin();
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the column that lies on the
      * horizontal point, <code>xPosition</code>;
      * or -1 if it lies outside the any of the column's bounds.
@@ -167,7 +167,7 @@ public interface TableColumnModel
      */
     public int getColumnIndexAtX(int xPosition);
 
-    /**
+    /** {@collect.stats}
      * Returns the total width of all the columns.
      * @return the total computed width of all columns
      */
@@ -177,35 +177,35 @@ public interface TableColumnModel
 // Selection
 //
 
-    /**
+    /** {@collect.stats}
      * Sets whether the columns in this model may be selected.
      * @param flag   true if columns may be selected; otherwise false
      * @see #getColumnSelectionAllowed
      */
     public void setColumnSelectionAllowed(boolean flag);
 
-    /**
+    /** {@collect.stats}
      * Returns true if columns may be selected.
      * @return true if columns may be selected
      * @see #setColumnSelectionAllowed
      */
     public boolean getColumnSelectionAllowed();
 
-    /**
+    /** {@collect.stats}
      * Returns an array of indicies of all selected columns.
      * @return an array of integers containing the indicies of all
      *          selected columns; or an empty array if nothing is selected
      */
     public int[] getSelectedColumns();
 
-    /**
+    /** {@collect.stats}
      * Returns the number of selected columns.
      *
      * @return the number of selected columns; or 0 if no columns are selected
      */
     public int getSelectedColumnCount();
 
-    /**
+    /** {@collect.stats}
      * Sets the selection model.
      *
      * @param newModel  a <code>ListSelectionModel</code> object
@@ -213,7 +213,7 @@ public interface TableColumnModel
      */
     public void setSelectionModel(ListSelectionModel newModel);
 
-    /**
+    /** {@collect.stats}
      * Returns the current selection model.
      *
      * @return a <code>ListSelectionModel</code> object
@@ -225,14 +225,14 @@ public interface TableColumnModel
 // Listener
 //
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for table column model events.
      *
      * @param x  a <code>TableColumnModelListener</code> object
      */
     public void addColumnModelListener(TableColumnModelListener x);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener for table column model events.
      *
      * @param x  a <code>TableColumnModelListener</code> object

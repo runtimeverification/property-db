@@ -36,7 +36,7 @@ import java.io.Serializable;
 import sun.swing.DefaultLookup;
 
 
-/**
+/** {@collect.stats}
  * The standard class for rendering (displaying) individual cells
  * in a <code>JTable</code>.
  * <p>
@@ -86,7 +86,7 @@ public class DefaultTableCellRenderer extends JLabel
     implements TableCellRenderer, Serializable
 {
 
-   /**
+   /** {@collect.stats}
     * An empty <code>Border</code>. This field might not be used. To change the
     * <code>Border</code> used by this renderer override the
     * <code>getTableCellRendererComponent</code> method and set the border
@@ -103,7 +103,7 @@ public class DefaultTableCellRenderer extends JLabel
     private Color unselectedForeground;
     private Color unselectedBackground;
 
-    /**
+    /** {@collect.stats}
      * Creates a default table cell renderer.
      */
     public DefaultTableCellRenderer() {
@@ -126,7 +126,7 @@ public class DefaultTableCellRenderer extends JLabel
         return noFocusBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>JComponent.setForeground</code> to assign
      * the unselected-foreground color to the specified color.
      *
@@ -137,7 +137,7 @@ public class DefaultTableCellRenderer extends JLabel
         unselectedForeground = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Overrides <code>JComponent.setBackground</code> to assign
      * the unselected-background color to the specified color.
      *
@@ -148,7 +148,7 @@ public class DefaultTableCellRenderer extends JLabel
         unselectedBackground = c;
     }
 
-    /**
+    /** {@collect.stats}
      * Notification from the <code>UIManager</code> that the look and feel
      * [L&F] has changed.
      * Replaces the current UI object with the latest version from the
@@ -163,7 +163,7 @@ public class DefaultTableCellRenderer extends JLabel
     }
 
     // implements javax.swing.table.TableCellRenderer
-    /**
+    /** {@collect.stats}
      *
      * Returns the default table cell renderer.
      * <p>
@@ -264,7 +264,7 @@ public class DefaultTableCellRenderer extends JLabel
      * drawbacks of overriding methods like these.
      */
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -283,7 +283,7 @@ public class DefaultTableCellRenderer extends JLabel
         return !colorMatch && super.isOpaque();
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -292,35 +292,35 @@ public class DefaultTableCellRenderer extends JLabel
      */
     public void invalidate() {}
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
      */
     public void validate() {}
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
      */
     public void revalidate() {}
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
      */
     public void repaint(long tm, int x, int y, int width, int height) {}
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
      */
     public void repaint(Rectangle r) { }
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -330,7 +330,7 @@ public class DefaultTableCellRenderer extends JLabel
     public void repaint() {
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -348,7 +348,7 @@ public class DefaultTableCellRenderer extends JLabel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden for performance reasons.
      * See the <a href="#override">Implementation Note</a>
      * for more information.
@@ -356,7 +356,7 @@ public class DefaultTableCellRenderer extends JLabel
     public void firePropertyChange(String propertyName, boolean oldValue, boolean newValue) { }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>String</code> object for the cell being rendered to
      * <code>value</code>.
      *
@@ -370,7 +370,7 @@ public class DefaultTableCellRenderer extends JLabel
     }
 
 
-    /**
+    /** {@collect.stats}
      * A subclass of <code>DefaultTableCellRenderer</code> that
      * implements <code>UIResource</code>.
      * <code>DefaultTableCellRenderer</code> doesn't implement

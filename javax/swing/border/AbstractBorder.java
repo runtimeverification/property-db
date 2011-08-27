@@ -30,7 +30,7 @@ import java.awt.Rectangle;
 import java.awt.Component;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A class that implements an empty border with no size.
  * This provides a convenient base class from which other border
  * classes can be easily derived.
@@ -49,7 +49,7 @@ import java.io.Serializable;
 public abstract class AbstractBorder implements Border, Serializable
 {
 
-    /**
+    /** {@collect.stats}
      * This default implementation does no painting.
      * @param c the component for which this border is being painted
      * @param g the paint graphics
@@ -61,7 +61,7 @@ public abstract class AbstractBorder implements Border, Serializable
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns a new <code>Insets</code>
      * instance where the <code>top</code>, <code>left</code>,
      * <code>bottom</code>, and
@@ -73,7 +73,7 @@ public abstract class AbstractBorder implements Border, Serializable
         return new Insets(0, 0, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Reinitializes the insets parameter with this Border's current Insets.
      * @param c the component for which this border insets value applies
      * @param insets the object to be reinitialized
@@ -84,13 +84,13 @@ public abstract class AbstractBorder implements Border, Serializable
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * This default implementation returns false.
      * @return false
      */
     public boolean isBorderOpaque() { return false; }
 
-    /**
+    /** {@collect.stats}
      * This convenience method calls the static method.
      * @param c the component for which this border is being computed
      * @param x the x position of the border
@@ -103,7 +103,7 @@ public abstract class AbstractBorder implements Border, Serializable
         return getInteriorRectangle(c, this, x, y, width, height);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a rectangle using the arguments minus the
      * insets of the border. This is useful for determining the area
      * that components should draw in that will not intersect the border.
@@ -127,7 +127,7 @@ public abstract class AbstractBorder implements Border, Serializable
                                     height - insets.top - insets.bottom);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline.  A return value less than 0 indicates the border
      * does not have a reasonable baseline.
      * <p>
@@ -155,7 +155,7 @@ public abstract class AbstractBorder implements Border, Serializable
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enum indicating how the baseline of a component
      * changes as the size changes.  This method is primarily meant for
      * layout managers and GUI builders.

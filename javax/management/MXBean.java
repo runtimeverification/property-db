@@ -52,7 +52,7 @@ import javax.management.openmbean.TabularData;
 import javax.management.openmbean.TabularDataSupport;
 import javax.management.openmbean.TabularType;
 
-/**
+/** {@collect.stats}
     <p>Annotation to mark an interface explicitly as being an MXBean
     interface, or as not being an MXBean interface.  By default, an
     interface is an MXBean interface if its name ends with {@code
@@ -1170,7 +1170,7 @@ public interface Node {
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface MXBean {
-    /**
+    /** {@collect.stats}
        True if the annotated interface is an MXBean interface.
        @return true if the annotated interface is an MXBean interface.
     */

@@ -27,7 +27,7 @@ package javax.print;
 
 import javax.print.DocFlavor;
 
-/**
+/** {@collect.stats}
  * Interface FlavorException is a mixin interface which a subclass of {@link
  * PrintException PrintException} can implement to report an error condition
  * involving a doc flavor or flavors (class {@link javax.print.DocFlavor
@@ -38,7 +38,7 @@ import javax.print.DocFlavor;
  */
 public interface FlavorException {
 
-    /**
+    /** {@collect.stats}
      * Returns the unsupported flavors.
      * @return the unsupported doc flavors.
      */

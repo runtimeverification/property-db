@@ -27,7 +27,7 @@ package javax.net.ssl;
 
 import java.security.Principal;
 
-/**
+/** {@collect.stats}
  * Abstract class that provides for extension of the X509KeyManager
  * interface.
  * <P>
@@ -39,13 +39,13 @@ import java.security.Principal;
  */
 public abstract class X509ExtendedKeyManager implements X509KeyManager {
 
-    /**
+    /** {@collect.stats}
      * Constructor used by subclasses only.
      */
     protected X509ExtendedKeyManager() {
     }
 
-    /**
+    /** {@collect.stats}
      * Choose an alias to authenticate the client side of an
      * <code>SSLEngine</code> connection given the public key type
      * and the list of certificate issuer authorities recognized by
@@ -69,7 +69,7 @@ public abstract class X509ExtendedKeyManager implements X509KeyManager {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Choose an alias to authenticate the server side of an
      * <code>SSLEngine</code> connection given the public key type
      * and the list of certificate issuer authorities recognized by

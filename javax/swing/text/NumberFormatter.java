@@ -29,7 +29,7 @@ import java.text.*;
 import java.util.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * <code>NumberFormatter</code> subclasses <code>InternationalFormatter</code>
  * adding special behavior for numbers. Among the specializations are
  * (these are only used if the <code>NumberFormatter</code> does not display
@@ -91,10 +91,10 @@ import javax.swing.text.*;
  * @since 1.4
  */
 public class NumberFormatter extends InternationalFormatter {
-    /** The special characters from the Format instance. */
+    /** {@collect.stats} The special characters from the Format instance. */
     private String specialChars;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>NumberFormatter</code> with the a default
      * <code>NumberFormat</code> instance obtained from
      * <code>NumberFormat.getNumberInstance()</code>.
@@ -103,7 +103,7 @@ public class NumberFormatter extends InternationalFormatter {
         this(NumberFormat.getNumberInstance());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a NumberFormatter with the specified Format instance.
      *
      * @param format Format used to dictate legal values
@@ -116,7 +116,7 @@ public class NumberFormatter extends InternationalFormatter {
         setOverwriteMode(false);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the format that dictates the legal values that can be edited
      * and displayed.
      * <p>
@@ -151,7 +151,7 @@ public class NumberFormatter extends InternationalFormatter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Invokes <code>parseObject</code> on <code>f</code>, returning
      * its value.
      */
@@ -164,7 +164,7 @@ public class NumberFormatter extends InternationalFormatter {
         return convertValueToValueClass(value, getValueClass());
     }
 
-    /**
+    /** {@collect.stats}
      * Converts the passed in value to the passed in class. This only
      * works if <code>valueClass</code> is one of <code>Integer</code>,
      * <code>Long</code>, <code>Float</code>, <code>Double</code>,
@@ -195,14 +195,14 @@ public class NumberFormatter extends InternationalFormatter {
         return value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character that is used to toggle to positive values.
      */
     private char getPositiveSign() {
         return '+';
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character that is used to toggle to negative values.
      */
     private char getMinusSign() {
@@ -214,7 +214,7 @@ public class NumberFormatter extends InternationalFormatter {
         return '-';
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the character that is used to toggle to negative values.
      */
     private char getDecimalSeparator() {
@@ -226,7 +226,7 @@ public class NumberFormatter extends InternationalFormatter {
         return '.';
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the DecimalFormatSymbols from the Format instance.
      */
     private DecimalFormatSymbols getDecimalFormatSymbols() {
@@ -238,14 +238,14 @@ public class NumberFormatter extends InternationalFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      */
     private boolean isValidInsertionCharacter(char aChar) {
         return (Character.isDigit(aChar) || specialChars.indexOf(aChar) != -1);
     }
 
 
-    /**
+    /** {@collect.stats}
      * Subclassed to return false if <code>text</code> contains in an invalid
      * character to insert, that is, it is not a digit
      * (<code>Character.isDigit()</code>) and
@@ -266,7 +266,7 @@ public class NumberFormatter extends InternationalFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Subclassed to treat the decimal separator, grouping separator,
      * exponent symbol, percent, permille, currency and sign as literals.
      */
@@ -306,7 +306,7 @@ public class NumberFormatter extends InternationalFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Subclassed to make the decimal separator navigatable, as well
      * as making the character between the integer field and the next
      * field navigatable.
@@ -322,7 +322,7 @@ public class NumberFormatter extends InternationalFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first <code>NumberFormat.Field</code> starting
      * <code>index</code> incrementing by <code>direction</code>.
      */
@@ -356,7 +356,7 @@ public class NumberFormatter extends InternationalFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Overriden to toggle the value if the positive/minus sign
      * is inserted.
      */
@@ -370,7 +370,7 @@ public class NumberFormatter extends InternationalFormatter {
         super.replace(fb, offset, length, string, attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Will change the sign of the integer or exponent field if
      * <code>aChar</code> is the positive or minus sign. Returns
      * true if a sign change was attempted.
@@ -411,7 +411,7 @@ public class NumberFormatter extends InternationalFormatter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the range offset to length identifies the only
      * integer field.
      */
@@ -433,7 +433,7 @@ public class NumberFormatter extends InternationalFormatter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked to toggle the sign. For this to work the value class
      * must have a single arg constructor that takes a String.
      */
@@ -479,7 +479,7 @@ public class NumberFormatter extends InternationalFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked to toggle the sign of the exponent (for scientific
      * numbers).
      */

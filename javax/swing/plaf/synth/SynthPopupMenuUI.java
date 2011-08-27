@@ -49,7 +49,7 @@ import java.beans.PropertyChangeEvent;
 import java.util.*;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's PopupMenuUI.
  *
  * @author Georges Saab

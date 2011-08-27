@@ -32,7 +32,7 @@ import java.io.*;
 import java.lang.reflect.Array;
 
 
-/**
+/** {@collect.stats}
  * This subclass of ObjectInputStream delegates loading of classes to
  * an existing MLetClassLoader.
  *
@@ -42,7 +42,7 @@ class MLetObjectInputStream extends ObjectInputStream {
 
     private MLet loader;
 
-    /**
+    /** {@collect.stats}
      * Loader must be non-null;
      */
     public MLetObjectInputStream(InputStream in, MLet loader)
@@ -84,7 +84,7 @@ class MLetObjectInputStream extends ObjectInputStream {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Use the given ClassLoader rather than using the system class
      */
     protected Class resolveClass(ObjectStreamClass objectstreamclass)
@@ -112,7 +112,7 @@ class MLetObjectInputStream extends ObjectInputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ClassLoader being used
      */
     public ClassLoader getClassLoader() {

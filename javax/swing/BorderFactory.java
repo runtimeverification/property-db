@@ -29,7 +29,7 @@ import java.awt.Font;
 import javax.swing.JComponent;
 import javax.swing.border.*;
 
-/**
+/** {@collect.stats}
  * Factory class for vending standard <code>Border</code> objects.  Wherever
  * possible, this factory will hand out references to shared
  * <code>Border</code> instances.
@@ -43,13 +43,13 @@ import javax.swing.border.*;
 public class BorderFactory
 {
 
-    /** Don't let anyone instantiate this class */
+    /** {@collect.stats} Don't let anyone instantiate this class */
     private BorderFactory() {
     }
 
 
 //// LineBorder ///////////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Creates a line border withe the specified color.
      *
      * @param color  a <code>Color</code> to use for the line
@@ -59,7 +59,7 @@ public class BorderFactory
         return new LineBorder(color, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a line border with the specified color
      * and width. The width applies to all four sides of the
      * border. To specify widths individually for the top,
@@ -84,7 +84,7 @@ public class BorderFactory
     static final Border sharedRaisedBevel = new BevelBorder(BevelBorder.RAISED);
     static final Border sharedLoweredBevel = new BevelBorder(BevelBorder.LOWERED);
 
-    /**
+    /** {@collect.stats}
      * Creates a border with a raised beveled edge, using
      * brighter shades of the component's current background color
      * for highlighting, and darker shading for shadows.
@@ -97,7 +97,7 @@ public class BorderFactory
         return createSharedBevel(BevelBorder.RAISED);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a border with a lowered beveled edge, using
      * brighter shades of the component's current background color
      * for highlighting, and darker shading for shadows.
@@ -110,7 +110,7 @@ public class BorderFactory
         return createSharedBevel(BevelBorder.LOWERED);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a beveled border of the specified type, using
      * brighter shades of the component's current background color
      * for highlighting, and darker shading for shadows.
@@ -126,7 +126,7 @@ public class BorderFactory
         return createSharedBevel(type);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a beveled border of the specified type, using
      * the specified highlighting and shadowing. The outer
      * edge of the highlighted area uses a brighter shade of
@@ -144,7 +144,7 @@ public class BorderFactory
         return new BevelBorder(type, highlight, shadow);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a beveled border of the specified type, using
      * the specified colors for the inner and outer highlight
      * and shadow areas.
@@ -184,7 +184,7 @@ public class BorderFactory
     static final Border sharedEtchedBorder = new EtchedBorder();
     private static Border sharedRaisedEtchedBorder;
 
-    /**
+    /** {@collect.stats}
      * Creates a border with an "etched" look using
      * the component's current background color for
      * highlighting and shading.
@@ -195,7 +195,7 @@ public class BorderFactory
         return sharedEtchedBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a border with an "etched" look using
      * the specified highlighting and shading colors.
      *
@@ -207,7 +207,7 @@ public class BorderFactory
         return new EtchedBorder(highlight, shadow);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a border with an "etched" look using
      * the component's current background color for
      * highlighting and shading.
@@ -235,7 +235,7 @@ public class BorderFactory
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a border with an "etched" look using
      * the specified highlighting and shading colors.
      *
@@ -252,7 +252,7 @@ public class BorderFactory
     }
 
 //// TitledBorder ////////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Creates a new titled border with the specified title,
      * the default border type (determined by the current look and feel),
      * the default text position (sitting on the top line),
@@ -266,7 +266,7 @@ public class BorderFactory
         return new TitledBorder(title);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new titled border with an empty title,
      * the specified border object,
      * the default text position (sitting on the top line),
@@ -282,7 +282,7 @@ public class BorderFactory
         return new TitledBorder(border);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a title to an existing border,
      * with default positioning (sitting on the top line),
      * default justification (leading) and the default
@@ -297,7 +297,7 @@ public class BorderFactory
         return new TitledBorder(border, title);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a title to an existing border, with the specified
      * positioning and using the default
      * font and text color (determined by the current look and feel).
@@ -335,7 +335,7 @@ public class BorderFactory
                         titlePosition);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a title to an existing border, with the specified
      * positioning and font, and using the default text color
      * (determined by the current look and feel).
@@ -375,7 +375,7 @@ public class BorderFactory
                         titlePosition, titleFont);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a title to an existing border, with the specified
      * positioning, font and color.
      *
@@ -418,7 +418,7 @@ public class BorderFactory
 //// EmptyBorder ///////////////////////////////////////////////////////////
     final static Border emptyBorder = new EmptyBorder(0, 0, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * Creates an empty border that takes up no space. (The width
      * of the top, bottom, left, and right sides are all zero.)
      *
@@ -428,7 +428,7 @@ public class BorderFactory
         return emptyBorder;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty border that takes up space but which does
      * no drawing, specifying the width of the top, left, bottom, and
      * right sides.
@@ -449,7 +449,7 @@ public class BorderFactory
     }
 
 //// CompoundBorder ////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Creates a compound border with a <code>null</code> inside edge and a
      * <code>null</code> outside edge.
      *
@@ -459,7 +459,7 @@ public class BorderFactory
         return new CompoundBorder();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a compound border specifying the border objects to use
      * for the outside and inside edges.
      *
@@ -475,7 +475,7 @@ public class BorderFactory
     }
 
 //// MatteBorder ////////////////////////////////////////////////////////
-    /**
+    /** {@collect.stats}
      * Creates a matte-look border using a solid color. (The difference between
      * this border and a line border is that you can specify the individual
      * border dimensions.)
@@ -496,7 +496,7 @@ public class BorderFactory
         return new MatteBorder(top, left, bottom, right, color);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a matte-look border that consists of multiple tiles of a
      * specified icon. Multiple copies of the icon are placed side-by-side
      * to fill up the border area.

@@ -34,7 +34,7 @@ import javax.swing.text.html.*;
 
 import sun.swing.SwingUtilities2;
 
-/**
+/** {@collect.stats}
  * Support for providing html views for the swing components.
  * This translates a simple html string to a javax.swing.text.View
  * implementation that can render the html and provide the necessary
@@ -45,7 +45,7 @@ import sun.swing.SwingUtilities2;
  */
 public class BasicHTML {
 
-    /**
+    /** {@collect.stats}
      * Create an html renderer for the given component and
      * string of html.
      */
@@ -68,7 +68,7 @@ public class BasicHTML {
         return v;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the baseline for the html renderer.
      *
      * @param view the View to get the baseline for
@@ -92,7 +92,7 @@ public class BasicHTML {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the baseline for the specified component.  This digs out
      * the View client property, and if non-null the baseline is calculated
      * from it.  Otherwise the baseline is the value <code>y + ascent</code>.
@@ -110,7 +110,7 @@ public class BasicHTML {
         return y + ascent;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the baseline for the specified View.
      */
     static int getBaseline(View view, int w, int h) {
@@ -174,7 +174,7 @@ public class BasicHTML {
         return hasParagraph(view.getView(index));
     }
 
-    /**
+    /** {@collect.stats}
      * Check the given string to see if it should trigger the
      * html rendering logic in a non-text component that supports
      * html rendering.
@@ -189,7 +189,7 @@ public class BasicHTML {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Stash the HTML render for the given text into the client
      * properties of the given JComponent. If the given text is
      * <em>NOT HTML</em> the property will be cleared of any
@@ -214,19 +214,19 @@ public class BasicHTML {
         c.putClientProperty(BasicHTML.propertyKey, value);
     }
 
-    /**
+    /** {@collect.stats}
      * If this client property of a JComponent is set to Boolean.TRUE
      * the component's 'text' property is never treated as HTML.
      */
     private static final String htmlDisable = "html.disable";
 
-    /**
+    /** {@collect.stats}
      * Key to use for the html renderer when stored as a
      * client property of a JComponent.
      */
     public static final String propertyKey = "html";
 
-    /**
+    /** {@collect.stats}
      * Key stored as a client property to indicate the base that relative
      * references are resolved against. For example, lets say you keep
      * your images in the directory resources relative to the code path,
@@ -246,17 +246,17 @@ public class BasicHTML {
         return basicHTMLFactory;
     }
 
-    /**
+    /** {@collect.stats}
      * The source of the html renderers
      */
     private static BasicEditorKit basicHTMLFactory;
 
-    /**
+    /** {@collect.stats}
      * Creates the Views that visually represent the model.
      */
     private static ViewFactory basicHTMLViewFactory;
 
-    /**
+    /** {@collect.stats}
      * Overrides to the default stylesheet.  Should consider
      * just creating a completely fresh stylesheet.
      */
@@ -264,7 +264,7 @@ public class BasicHTML {
     "p { margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0 }" +
     "body { margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0 }";
 
-    /**
+    /** {@collect.stats}
      * The views produced for the ComponentUI implementations aren't
      * going to be edited and don't need full html support.  This kit
      * alters the HTMLEditorKit to try and trim things down a bit.
@@ -277,10 +277,10 @@ public class BasicHTML {
      * </ul>
      */
     static class BasicEditorKit extends HTMLEditorKit {
-        /** Shared base style for all documents created by us use. */
+        /** {@collect.stats} Shared base style for all documents created by us use. */
         private static StyleSheet defaultStyles;
 
-        /**
+        /** {@collect.stats}
          * Overriden to return our own slimmed down style sheet.
          */
         public StyleSheet getStyleSheet() {
@@ -299,7 +299,7 @@ public class BasicHTML {
             return defaultStyles;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the async policy to flush everything in one chunk, and
          * to not display unknown tags.
          */
@@ -314,7 +314,7 @@ public class BasicHTML {
             return doc;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the ViewFactory that is used to make sure the Views don't
          * load in the background.
          */
@@ -324,7 +324,7 @@ public class BasicHTML {
     }
 
 
-    /**
+    /** {@collect.stats}
      * BasicHTMLViewFactory extends HTMLFactory to force images to be loaded
      * synchronously.
      */
@@ -340,13 +340,13 @@ public class BasicHTML {
     }
 
 
-    /**
+    /** {@collect.stats}
      * The subclass of HTMLDocument that is used as the model. getForeground
      * is overridden to return the foreground property from the Component this
      * was created for.
      */
     static class BasicDocument extends HTMLDocument {
-        /** The host, that is where we are rendering. */
+        /** {@collect.stats} The host, that is where we are rendering. */
         // private JComponent host;
 
         BasicDocument(StyleSheet s, Font defaultFont, Color foreground) {
@@ -355,7 +355,7 @@ public class BasicHTML {
             setFontAndColor(defaultFont, foreground);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the default font and default color. These are set by
          * adding a rule for the body that specifies the font and color.
          * This allows the html to override these should it wish to have
@@ -368,7 +368,7 @@ public class BasicHTML {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Root text view that acts as an HTML renderer.
      */
     static class Renderer extends View {
@@ -383,7 +383,7 @@ public class BasicHTML {
             setSize(view.getPreferredSpan(X_AXIS), view.getPreferredSpan(Y_AXIS));
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the attributes to use when rendering.  At the root
          * level there are no attributes.  If an attribute is resolved
          * up the view hierarchy this is the end of the line.
@@ -392,7 +392,7 @@ public class BasicHTML {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the preferred span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -409,7 +409,7 @@ public class BasicHTML {
             return view.getPreferredSpan(axis);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the minimum span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -422,7 +422,7 @@ public class BasicHTML {
             return view.getMinimumSpan(axis);
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the maximum span for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -435,7 +435,7 @@ public class BasicHTML {
             return Integer.MAX_VALUE;
         }
 
-        /**
+        /** {@collect.stats}
          * Specifies that a preference has changed.
          * Child views can call this on the parent to indicate that
          * the preference has changed.  The root view routes this to
@@ -458,7 +458,7 @@ public class BasicHTML {
             host.repaint();
         }
 
-        /**
+        /** {@collect.stats}
          * Determines the desired alignment for this view along an axis.
          *
          * @param axis may be either X_AXIS or Y_AXIS
@@ -469,7 +469,7 @@ public class BasicHTML {
             return view.getAlignment(axis);
         }
 
-        /**
+        /** {@collect.stats}
          * Renders the view.
          *
          * @param g the graphics context
@@ -481,7 +481,7 @@ public class BasicHTML {
             view.paint(g, allocation);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the view parent.
          *
          * @param parent the parent view
@@ -490,7 +490,7 @@ public class BasicHTML {
             throw new Error("Can't set parent on root view");
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of views in this view.  Since
          * this view simply wraps the root of the view hierarchy
          * it has exactly one child.
@@ -502,7 +502,7 @@ public class BasicHTML {
             return 1;
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the n-th view in this container.
          *
          * @param n the number of the view to get
@@ -512,7 +512,7 @@ public class BasicHTML {
             return view;
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -524,7 +524,7 @@ public class BasicHTML {
             return view.modelToView(pos, a, b);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the document model coordinate space
          * to the coordinate space of the view mapped to it.
          *
@@ -548,7 +548,7 @@ public class BasicHTML {
             return view.modelToView(p0, b0, p1, b1, a);
         }
 
-        /**
+        /** {@collect.stats}
          * Provides a mapping from the view coordinate space to the logical
          * coordinate space of the model.
          *
@@ -562,7 +562,7 @@ public class BasicHTML {
             return view.viewToModel(x, y, a, bias);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the document model underlying the view.
          *
          * @return the model
@@ -571,7 +571,7 @@ public class BasicHTML {
             return view.getDocument();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the starting offset into the model for this view.
          *
          * @return the starting offset
@@ -580,7 +580,7 @@ public class BasicHTML {
             return view.getStartOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the ending offset into the model for this view.
          *
          * @return the ending offset
@@ -589,7 +589,7 @@ public class BasicHTML {
             return view.getEndOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Gets the element that this view is mapped to.
          *
          * @return the view
@@ -598,7 +598,7 @@ public class BasicHTML {
             return view.getElement();
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the view size.
          *
          * @param width the width
@@ -609,7 +609,7 @@ public class BasicHTML {
             view.setSize(width, height);
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the container hosting the view.  This is useful for
          * things like scheduling a repaint, finding out the host
          * components font, etc.  The default implementation
@@ -621,7 +621,7 @@ public class BasicHTML {
             return host;
         }
 
-        /**
+        /** {@collect.stats}
          * Fetches the factory to be used for building the
          * various view fragments that make up the view that
          * represents the model.  This is what determines

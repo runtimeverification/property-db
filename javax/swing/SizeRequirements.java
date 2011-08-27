@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.*;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * For the convenience of layout managers,
  * calculates information about the size and position of components.
  * All size and position calculation methods are class methods
@@ -95,7 +95,7 @@ import java.io.Serializable;
  */
 public class SizeRequirements implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * The minimum size required.
      * For a component <code>comp</code>, this should be equal to either
      * <code>comp.getMinimumSize().width</code> or
@@ -103,7 +103,7 @@ public class SizeRequirements implements Serializable {
      */
     public int minimum;
 
-    /**
+    /** {@collect.stats}
      * The preferred (natural) size.
      * For a component <code>comp</code>, this should be equal to either
      * <code>comp.getPreferredSize().width</code> or
@@ -111,7 +111,7 @@ public class SizeRequirements implements Serializable {
      */
     public int preferred;
 
-    /**
+    /** {@collect.stats}
      * The maximum size allowed.
      * For a component <code>comp</code>, this should be equal to either
      * <code>comp.getMaximumSize().width</code> or
@@ -119,14 +119,14 @@ public class SizeRequirements implements Serializable {
      */
     public int maximum;
 
-    /**
+    /** {@collect.stats}
      * The alignment, specified as a value between 0.0 and 1.0,
      * inclusive.
      * To specify centering, the alignment should be 0.5.
      */
     public float alignment;
 
-    /**
+    /** {@collect.stats}
      * Creates a SizeRequirements object with the minimum, preferred,
      * and maximum sizes set to zero and an alignment value of 0.5
      * (centered).
@@ -138,7 +138,7 @@ public class SizeRequirements implements Serializable {
         alignment = 0.5f;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a SizeRequirements object with the specified minimum, preferred,
      * and maximum sizes and the specified alignment.
      *
@@ -154,7 +154,7 @@ public class SizeRequirements implements Serializable {
         alignment = a > 1.0f ? 1.0f : a < 0.0f ? 0.0f : a;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string describing the minimum, preferred, and maximum
      * size requirements, along with the alignment.
      *
@@ -164,7 +164,7 @@ public class SizeRequirements implements Serializable {
         return "[" + minimum + "," + preferred + "," + maximum + "]@" + alignment;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the total space necessary to
      * place a set of components end-to-end.  The needs
      * of each component in the set are represented by an entry in the
@@ -190,7 +190,7 @@ public class SizeRequirements implements Serializable {
         return total;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the total space necessary to
      * align a set of components.  The needs
      * of each component in the set are represented by an entry in the
@@ -234,7 +234,7 @@ public class SizeRequirements implements Serializable {
         return new SizeRequirements(min, pref, max, alignment);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a set of offset/span pairs representing how to
      * lay out a set of components end-to-end.
      * This method requires that you specify
@@ -263,7 +263,7 @@ public class SizeRequirements implements Serializable {
         calculateTiledPositions(allocated, total, children, offsets, spans, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a set of offset/span pairs representing how to
      * lay out a set of components end-to-end.
      * This method requires that you specify
@@ -388,7 +388,7 @@ public class SizeRequirements implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a bunch of offset/span pairs specifying how to
      * lay out a set of components with the specified alignments.
      * The resulting span allocations will overlap, with each one
@@ -421,7 +421,7 @@ public class SizeRequirements implements Serializable {
         calculateAlignedPositions( allocated, total, children, offsets, spans, true );
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a set of offset/span pairs specifying how to
      * lay out a set of components with the specified alignments.
      * The resulting span allocations will overlap, with each one
@@ -475,7 +475,7 @@ public class SizeRequirements implements Serializable {
     }
 
     // This method was used by the JTable - which now uses a different technique.
-    /**
+    /** {@collect.stats}
      * Adjust a specified array of sizes by a given amount.
      *
      * @param delta     an int specifying the size difference

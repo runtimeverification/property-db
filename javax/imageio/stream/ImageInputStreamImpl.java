@@ -32,7 +32,7 @@ import java.nio.ByteOrder;
 import java.util.Stack;
 import javax.imageio.IIOException;
 
-/**
+/** {@collect.stats}
  * An abstract class implementing the <code>ImageInputStream</code> interface.
  * This class is designed to reduce the number of methods that must
  * be implemented by subclasses.
@@ -52,7 +52,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
     // Length of the buffer used for readFully(type[], int, int)
     private static final int BYTE_BUF_LENGTH = 8192;
 
-    /**
+    /** {@collect.stats}
      * Byte buffer used for readFully(type[], int, int).  Note that this
      * array is also used for bulk reads in readShort(), readInt(), etc, so
      * it should be large enough to hold a primitive value (i.e. >= 8 bytes).
@@ -61,7 +61,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
      */
     byte[] byteBuf = new byte[BYTE_BUF_LENGTH];
 
-    /**
+    /** {@collect.stats}
      * The byte order of the stream as an instance of the enumeration
      * class <code>java.nio.ByteOrder</code>, where
      * <code>ByteOrder.BIG_ENDIAN</code> indicates network byte order
@@ -71,34 +71,34 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
      */
     protected ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
 
-    /**
+    /** {@collect.stats}
      * The current read position within the stream.  Subclasses are
      * responsible for keeping this value current from any method they
      * override that alters the read position.
      */
     protected long streamPos;
 
-    /**
+    /** {@collect.stats}
      * The current bit offset within the stream.  Subclasses are
      * responsible for keeping this value current from any method they
      * override that alters the bit offset.
      */
     protected int bitOffset;
 
-    /**
+    /** {@collect.stats}
      * The position prior to which data may be discarded.  Seeking
      * to a smaller position is not allowed.  <code>flushedPos</code>
      * will always be >= 0.
      */
     protected long flushedPos = 0;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageInputStreamImpl</code>.
      */
     public ImageInputStreamImpl() {
     }
 
-    /**
+    /** {@collect.stats}
      * Throws an <code>IOException</code> if the stream has been closed.
      * Subclasses may call this method from any of their methods that
      * require the stream not to be closed.
@@ -119,7 +119,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return byteOrder;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single byte from the stream and returns it as an
      * <code>int</code> between 0 and 255.  If EOF is reached,
      * <code>-1</code> is returned.
@@ -138,7 +138,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
      */
     public abstract int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * A convenience method that calls <code>read(b, 0, b.length)</code>.
      *
      * <p> The bit offset within the stream is reset to zero before
@@ -155,7 +155,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return read(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes from the stream, and stores
      * them into <code>b</code> starting at index <code>off</code>.
      * If no bytes can be read because the end of the stream has been
@@ -707,7 +707,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return accum;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>-1L</code> to indicate that the stream has unknown
      * length.  Subclasses must override this method to provide actual
      * length information.
@@ -718,7 +718,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return -1L;
     }
 
-    /**
+    /** {@collect.stats}
      * Advances the current stream position by calling
      * <code>seek(getStreamPosition() + n)</code>.
      *
@@ -739,7 +739,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return (int)(getStreamPosition() - pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Advances the current stream position by calling
      * <code>seek(getStreamPosition() + n)</code>.
      *
@@ -772,7 +772,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         this.bitOffset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Pushes the current stream position onto a stack of marked
      * positions.
      */
@@ -784,7 +784,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the current stream byte and bit positions from the stack
      * of marked positions.
      *
@@ -829,7 +829,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return flushedPos;
     }
 
-    /**
+    /** {@collect.stats}
      * Default implementation returns false.  Subclasses should
      * override this if they cache data.
      */
@@ -837,7 +837,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Default implementation returns false.  Subclasses should
      * override this if they cache data in main memory.
      */
@@ -845,7 +845,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Default implementation returns false.  Subclasses should
      * override this if they cache data in a temporary file.
      */
@@ -859,7 +859,7 @@ public abstract class ImageInputStreamImpl implements ImageInputStream {
         isClosed = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Finalizes this object prior to garbage collection.  The
      * <code>close</code> method is called to close any open input
      * source.  This method should not be called from application

@@ -29,7 +29,7 @@ import java.awt.Component;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 
-/**
+/** {@collect.stats}
  * <p>
  * A collection of <em>well known</em> or common attribute keys
  * and methods to apply to an AttributeSet or MutableAttributeSet
@@ -48,35 +48,35 @@ import javax.swing.Icon;
  */
 public class StyleConstants {
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to represent components.
      */
     public static final String ComponentElementName = "component";
 
-    /**
+    /** {@collect.stats}
      * Name of elements used to represent icons.
      */
     public static final String IconElementName = "icon";
 
-    /**
+    /** {@collect.stats}
      * Attribute name used to name the collection of
      * attributes.
      */
     public static final Object NameAttribute = new StyleConstants("name");
 
-    /**
+    /** {@collect.stats}
      * Attribute name used to identifiy the resolving parent
      * set of attributes, if one is defined.
      */
     public static final Object ResolveAttribute = new StyleConstants("resolver");
 
-    /**
+    /** {@collect.stats}
      * Attribute used to identify the model for embedded
      * objects that have a model view separation.
      */
     public static final Object ModelAttribute = new StyleConstants("model");
 
-    /**
+    /** {@collect.stats}
      * Returns the string representation.
      *
      * @return the string
@@ -87,94 +87,94 @@ public class StyleConstants {
 
     // ---- character constants -----------------------------------
 
-    /**
+    /** {@collect.stats}
      * Bidirectional level of a character as assigned by the Unicode bidi
      * algorithm.
      */
     public static final Object BidiLevel = new CharacterConstants("bidiLevel");
 
-    /**
+    /** {@collect.stats}
      * Name of the font family.
      */
     public static final Object FontFamily = new FontConstants("family");
 
-    /**
+    /** {@collect.stats}
      * Name of the font family.
      *
      * @since 1.5
      */
     public static final Object Family = FontFamily;
 
-    /**
+    /** {@collect.stats}
      * Name of the font size.
      */
     public static final Object FontSize = new FontConstants("size");
 
-    /**
+    /** {@collect.stats}
      * Name of the font size.
      *
      * @since 1.5
      */
     public static final Object Size = FontSize;
 
-    /**
+    /** {@collect.stats}
      * Name of the bold attribute.
      */
     public static final Object Bold = new FontConstants("bold");
 
-    /**
+    /** {@collect.stats}
      * Name of the italic attribute.
      */
     public static final Object Italic = new FontConstants("italic");
 
-    /**
+    /** {@collect.stats}
      * Name of the underline attribute.
      */
     public static final Object Underline = new CharacterConstants("underline");
 
-    /**
+    /** {@collect.stats}
      * Name of the Strikethrough attribute.
      */
     public static final Object StrikeThrough = new CharacterConstants("strikethrough");
 
-    /**
+    /** {@collect.stats}
      * Name of the Superscript attribute.
      */
     public static final Object Superscript = new CharacterConstants("superscript");
 
-    /**
+    /** {@collect.stats}
      * Name of the Subscript attribute.
      */
     public static final Object Subscript = new CharacterConstants("subscript");
 
-    /**
+    /** {@collect.stats}
      * Name of the foreground color attribute.
      */
     public static final Object Foreground = new ColorConstants("foreground");
 
-    /**
+    /** {@collect.stats}
      * Name of the background color attribute.
      */
     public static final Object Background = new ColorConstants("background");
 
-    /**
+    /** {@collect.stats}
      * Name of the component attribute.
      */
     public static final Object ComponentAttribute = new CharacterConstants("component");
 
-    /**
+    /** {@collect.stats}
      * Name of the icon attribute.
      */
     public static final Object IconAttribute = new CharacterConstants("icon");
 
-    /**
+    /** {@collect.stats}
      * Name of the input method composed text attribute. The value of
      * this attribute is an instance of AttributedString which represents
      * the composed text.
      */
     public static final Object ComposedTextAttribute = new StyleConstants("composed text");
 
-    /**
+    /** {@collect.stats}
      * The amount of space to indent the first
      * line of the paragraph.  This value may be negative
      * to offset in the reverse direction.  The type
@@ -183,40 +183,40 @@ public class StyleConstants {
      */
     public static final Object FirstLineIndent = new ParagraphConstants("FirstLineIndent");
 
-    /**
+    /** {@collect.stats}
      * The amount to indent the left side
      * of the paragraph.
      * Type is float and specifies the size in points.
      */
     public static final Object LeftIndent = new ParagraphConstants("LeftIndent");
 
-    /**
+    /** {@collect.stats}
      * The amount to indent the right side
      * of the paragraph.
      * Type is float and specifies the size in points.
      */
     public static final Object RightIndent = new ParagraphConstants("RightIndent");
 
-    /**
+    /** {@collect.stats}
      * The amount of space between lines
      * of the paragraph.
      * Type is float and specifies the size as a factor of the line height
      */
     public static final Object LineSpacing = new ParagraphConstants("LineSpacing");
 
-    /**
+    /** {@collect.stats}
      * The amount of space above the paragraph.
      * Type is float and specifies the size in points.
      */
     public static final Object SpaceAbove = new ParagraphConstants("SpaceAbove");
 
-    /**
+    /** {@collect.stats}
      * The amount of space below the paragraph.
      * Type is float and specifies the size in points.
      */
     public static final Object SpaceBelow = new ParagraphConstants("SpaceBelow");
 
-    /**
+    /** {@collect.stats}
      * Alignment for the paragraph.  The type is
      * Integer.  Valid values are:
      * <ul>
@@ -229,17 +229,17 @@ public class StyleConstants {
      */
     public static final Object Alignment = new ParagraphConstants("Alignment");
 
-    /**
+    /** {@collect.stats}
      * TabSet for the paragraph, type is a TabSet containing
      * TabStops.
      */
     public static final Object TabSet = new ParagraphConstants("TabSet");
 
-    /**
+    /** {@collect.stats}
      * Orientation for a paragraph.
      */
     public static final Object Orientation = new ParagraphConstants("Orientation");
-    /**
+    /** {@collect.stats}
      * A possible value for paragraph alignment.  This
      * specifies that the text is aligned to the left
      * indent and extra whitespace should be placed on
@@ -247,7 +247,7 @@ public class StyleConstants {
      */
     public static final int ALIGN_LEFT = 0;
 
-    /**
+    /** {@collect.stats}
      * A possible value for paragraph alignment.  This
      * specifies that the text is aligned to the center
      * and extra whitespace should be placed equally on
@@ -255,7 +255,7 @@ public class StyleConstants {
      */
     public static final int ALIGN_CENTER = 1;
 
-    /**
+    /** {@collect.stats}
      * A possible value for paragraph alignment.  This
      * specifies that the text is aligned to the right
      * indent and extra whitespace should be placed on
@@ -263,7 +263,7 @@ public class StyleConstants {
      */
     public static final int ALIGN_RIGHT = 2;
 
-    /**
+    /** {@collect.stats}
      * A possible value for paragraph alignment.  This
      * specifies that extra whitespace should be spread
      * out through the rows of the paragraph with the
@@ -275,7 +275,7 @@ public class StyleConstants {
 
     // --- character attribute accessors ---------------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the BidiLevel setting.
      *
      * @param a the attribute set
@@ -289,7 +289,7 @@ public class StyleConstants {
         return 0;  // Level 0 is base level (non-embedded) left-to-right
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the BidiLevel.
      *
      * @param a the attribute set
@@ -299,7 +299,7 @@ public class StyleConstants {
         a.addAttribute(BidiLevel, new Integer(o));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the component setting from the attribute list.
      *
      * @param a the attribute set
@@ -309,7 +309,7 @@ public class StyleConstants {
         return (Component) a.getAttribute(ComponentAttribute);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the component attribute.
      *
      * @param a the attribute set
@@ -320,7 +320,7 @@ public class StyleConstants {
         a.addAttribute(ComponentAttribute, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the icon setting from the attribute list.
      *
      * @param a the attribute set
@@ -330,7 +330,7 @@ public class StyleConstants {
         return (Icon) a.getAttribute(IconAttribute);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the icon attribute.
      *
      * @param a the attribute set
@@ -341,7 +341,7 @@ public class StyleConstants {
         a.addAttribute(IconAttribute, c);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font family setting from the attribute list.
      *
      * @param a the attribute set
@@ -355,7 +355,7 @@ public class StyleConstants {
         return family;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the font attribute.
      *
      * @param a the attribute set
@@ -365,7 +365,7 @@ public class StyleConstants {
         a.addAttribute(FontFamily, fam);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the font size setting from the attribute list.
      *
      * @param a the attribute set
@@ -379,7 +379,7 @@ public class StyleConstants {
         return 12;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the font size attribute.
      *
      * @param a the attribute set
@@ -389,7 +389,7 @@ public class StyleConstants {
         a.addAttribute(FontSize, new Integer(s));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the bold attribute is set.
      *
      * @param a the attribute set
@@ -403,7 +403,7 @@ public class StyleConstants {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the bold attribute.
      *
      * @param a the attribute set
@@ -413,7 +413,7 @@ public class StyleConstants {
         a.addAttribute(Bold, Boolean.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the italic attribute is set.
      *
      * @param a the attribute set
@@ -427,7 +427,7 @@ public class StyleConstants {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the italic attribute.
      *
      * @param a the attribute set
@@ -437,7 +437,7 @@ public class StyleConstants {
         a.addAttribute(Italic, Boolean.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the underline attribute is set.
      *
      * @param a the attribute set
@@ -451,7 +451,7 @@ public class StyleConstants {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Checks whether the strikethrough attribute is set.
      *
      * @param a the attribute set
@@ -466,7 +466,7 @@ public class StyleConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Checks whether the superscript attribute is set.
      *
      * @param a the attribute set
@@ -481,7 +481,7 @@ public class StyleConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Checks whether the subscript attribute is set.
      *
      * @param a the attribute set
@@ -496,7 +496,7 @@ public class StyleConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the underline attribute.
      *
      * @param a the attribute set
@@ -506,7 +506,7 @@ public class StyleConstants {
         a.addAttribute(Underline, Boolean.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the strikethrough attribute.
      *
      * @param a the attribute set
@@ -516,7 +516,7 @@ public class StyleConstants {
         a.addAttribute(StrikeThrough, Boolean.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the superscript attribute.
      *
      * @param a the attribute set
@@ -526,7 +526,7 @@ public class StyleConstants {
         a.addAttribute(Superscript, Boolean.valueOf(b));
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the subscript attribute.
      *
      * @param a the attribute set
@@ -537,7 +537,7 @@ public class StyleConstants {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Gets the foreground color setting from the attribute list.
      *
      * @param a the attribute set
@@ -551,7 +551,7 @@ public class StyleConstants {
         return fg;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the foreground color.
      *
      * @param a the attribute set
@@ -561,7 +561,7 @@ public class StyleConstants {
         a.addAttribute(Foreground, fg);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the background color setting from the attribute list.
      *
      * @param a the attribute set
@@ -575,7 +575,7 @@ public class StyleConstants {
         return fg;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the background color.
      *
      * @param a the attribute set
@@ -588,7 +588,7 @@ public class StyleConstants {
 
     // --- paragraph attribute accessors ----------------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the first line indent setting.
      *
      * @param a the attribute set
@@ -602,7 +602,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the first line indent.
      *
      * @param a the attribute set
@@ -612,7 +612,7 @@ public class StyleConstants {
         a.addAttribute(FirstLineIndent, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the right indent setting.
      *
      * @param a the attribute set
@@ -626,7 +626,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets right indent.
      *
      * @param a the attribute set
@@ -636,7 +636,7 @@ public class StyleConstants {
         a.addAttribute(RightIndent, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the left indent setting.
      *
      * @param a the attribute set
@@ -650,7 +650,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets left indent.
      *
      * @param a the attribute set
@@ -660,7 +660,7 @@ public class StyleConstants {
         a.addAttribute(LeftIndent, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the line spacing setting.
      *
      * @param a the attribute set
@@ -674,7 +674,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets line spacing.
      *
      * @param a the attribute set
@@ -684,7 +684,7 @@ public class StyleConstants {
         a.addAttribute(LineSpacing, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the space above setting.
      *
      * @param a the attribute set
@@ -698,7 +698,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets space above.
      *
      * @param a the attribute set
@@ -708,7 +708,7 @@ public class StyleConstants {
         a.addAttribute(SpaceAbove, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the space below setting.
      *
      * @param a the attribute set
@@ -722,7 +722,7 @@ public class StyleConstants {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets space below.
      *
      * @param a the attribute set
@@ -732,7 +732,7 @@ public class StyleConstants {
         a.addAttribute(SpaceBelow, new Float(i));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the alignment setting.
      *
      * @param a the attribute set
@@ -746,7 +746,7 @@ public class StyleConstants {
         return ALIGN_LEFT;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets alignment.
      *
      * @param a the attribute set
@@ -756,7 +756,7 @@ public class StyleConstants {
         a.addAttribute(Alignment, new Integer(align));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the TabSet.
      *
      * @param a the attribute set
@@ -768,7 +768,7 @@ public class StyleConstants {
         return tabs;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the TabSet.
      *
      * @param a the attribute set.
@@ -796,7 +796,7 @@ public class StyleConstants {
 
     private String representation;
 
-    /**
+    /** {@collect.stats}
      * This is a typesafe enumeration of the <em>well-known</em>
      * attributes that contribute to a paragraph style.  These are
      * aliased by the outer class for general presentation.
@@ -809,7 +809,7 @@ public class StyleConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is a typesafe enumeration of the <em>well-known</em>
      * attributes that contribute to a character style.  These are
      * aliased by the outer class for general presentation.
@@ -822,7 +822,7 @@ public class StyleConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is a typesafe enumeration of the <em>well-known</em>
      * attributes that contribute to a color.  These are aliased
      * by the outer class for general presentation.
@@ -835,7 +835,7 @@ public class StyleConstants {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is a typesafe enumeration of the <em>well-known</em>
      * attributes that contribute to a font.  These are aliased
      * by the outer class for general presentation.

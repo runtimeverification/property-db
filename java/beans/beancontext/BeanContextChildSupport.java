@@ -39,7 +39,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * <p>
  * This is a general support class to provide support for implementing the
  * BeanContextChild protocol.
@@ -60,7 +60,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
 
     static final long serialVersionUID = 6328947014421475877L;
 
-    /**
+    /** {@collect.stats}
      * construct a BeanContextChildSupport where this class has been
      * subclassed in order to implement the JavaBean component itself.
      */
@@ -74,7 +74,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         vcSupport = new VetoableChangeSupport(beanContextChildPeer);
     }
 
-    /**
+    /** {@collect.stats}
      * construct a BeanContextChildSupport where the JavaBean component
      * itself implements BeanContextChild, and encapsulates this, delegating
      * that interface to this implementation
@@ -89,7 +89,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         vcSupport = new VetoableChangeSupport(beanContextChildPeer);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>BeanContext</code> for
      * this <code>BeanContextChildSupport</code>.
      * @param bc the new value to be assigned to the <code>BeanContext</code>
@@ -135,7 +135,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         if (beanContext != null) initializeBeanContextResources();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the nesting <code>BeanContext</code>
      * for this <code>BeanContextChildSupport</code>.
      * @return the nesting <code>BeanContext</code> for
@@ -143,7 +143,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
      */
     public synchronized BeanContext getBeanContext() { return beanContext; }
 
-    /**
+    /** {@collect.stats}
      * Add a PropertyChangeListener for a specific property.
      * The same listener object may be added more than once.  For each
      * property,  the listener will be invoked the number of times it was added
@@ -158,7 +158,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         pcSupport.addPropertyChangeListener(name, pcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Remove a PropertyChangeListener for a specific property.
      * If <code>pcl</code> was added more than once to the same event
      * source for the specified property, it will be notified one less time
@@ -175,7 +175,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         pcSupport.removePropertyChangeListener(name, pcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Add a VetoableChangeListener for a specific property.
      * The same listener object may be added more than once.  For each
      * property,  the listener will be invoked the number of times it was added
@@ -190,7 +190,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         vcSupport.addVetoableChangeListener(name, vcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>VetoableChangeListener</code>.
      * If <code>pcl</code> was added more than once to the same event
      * source for the specified property, it will be notified one less time
@@ -207,7 +207,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         vcSupport.removeVetoableChangeListener(name, vcl);
     }
 
-    /**
+    /** {@collect.stats}
      * A service provided by the nesting BeanContext has been revoked.
      *
      * Subclasses may override this method in order to implement their own
@@ -217,7 +217,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
      */
     public void serviceRevoked(BeanContextServiceRevokedEvent bcsre) { }
 
-    /**
+    /** {@collect.stats}
      * A new service is available from the nesting BeanContext.
      *
      * Subclasses may override this method in order to implement their own
@@ -228,7 +228,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
      */
     public void serviceAvailable(BeanContextServiceAvailableEvent bcsae) { }
 
-    /**
+    /** {@collect.stats}
      * Gets the <tt>BeanContextChild</tt> associated with this
      * <tt>BeanContextChildSupport</tt>.
      *
@@ -236,14 +236,14 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
      */
     public BeanContextChild getBeanContextChildPeer() { return beanContextChildPeer; }
 
-    /**
+    /** {@collect.stats}
      * Reports whether or not this class is a delegate of another.
      *
      * @return true if this class is a delegate of another
      */
     public boolean isDelegated() { return !this.equals(beanContextChildPeer); }
 
-    /**
+    /** {@collect.stats}
      * Report a bound property update to any registered listeners. No event is
      * fired if old and new are equal and non-null.
      * @param name The programmatic name of the property that was changed
@@ -254,7 +254,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         pcSupport.firePropertyChange(name, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Report a vetoable property update to any registered listeners.
      * If anyone vetos the change, then fire a new event
      * reverting everyone to the old value and then rethrow
@@ -275,7 +275,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         vcSupport.fireVetoableChange(name, oldValue, newValue);
     }
 
-    /**
+    /** {@collect.stats}
      * Called from setBeanContext to validate (or otherwise) the
      * pending change in the nesting BeanContext property value.
      * Returning false will cause setBeanContext to throw
@@ -288,7 +288,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * This method may be overridden by subclasses to provide their own
      * release behaviors. When invoked any resources held by this instance
      * obtained from its current BeanContext property should be released
@@ -299,7 +299,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         // do nothing
     }
 
-    /**
+    /** {@collect.stats}
      * This method may be overridden by subclasses to provide their own
      * initialization behaviors. When invoked any resources requried by the
      * BeanContextChild should be obtained from the current BeanContext.
@@ -309,7 +309,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
         // do nothing
     }
 
-    /**
+    /** {@collect.stats}
      * Write the persistence state of the object.
      */
 
@@ -329,7 +329,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
     }
 
 
-    /**
+    /** {@collect.stats}
      * Restore a persistent object, must wait for subsequent setBeanContext()
      * to fully restore any resources obtained from the new nesting
      * BeanContext
@@ -343,19 +343,19 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
      * fields
      */
 
-    /**
+    /** {@collect.stats}
      * The <code>BeanContext</code> in which
      * this <code>BeanContextChild</code> is nested.
      */
     public    BeanContextChild      beanContextChildPeer;
 
-   /**
+   /** {@collect.stats}
     * The <tt>PropertyChangeSupport</tt> associated with this
     * <tt>BeanContextChildSupport</tt>.
     */
     protected PropertyChangeSupport pcSupport;
 
-   /**
+   /** {@collect.stats}
     * The <tt>VetoableChangeSupport</tt> associated with this
     * <tt>BeanContextChildSupport</tt>.
     */
@@ -363,7 +363,7 @@ public class BeanContextChildSupport implements BeanContextChild, BeanContextSer
 
     protected transient BeanContext           beanContext;
 
-   /**
+   /** {@collect.stats}
     * A flag indicating that there has been
     * at least one <code>PropertyChangeVetoException</code>
     * thrown for the attempted setBeanContext operation.

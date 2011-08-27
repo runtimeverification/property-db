@@ -32,7 +32,7 @@ import java.util.Enumeration;
 import javax.naming.NamingException;
 import javax.naming.NamingEnumeration;
 
-/**
+/** {@collect.stats}
   * This class provides a basic implementation
   * of the Attributes interface.
   *<p>
@@ -68,7 +68,7 @@ import javax.naming.NamingEnumeration;
   */
 
 public class BasicAttributes implements Attributes {
-    /**
+    /** {@collect.stats}
      * Indicates whether case of attribute ids is ignored.
      * @serial
      */
@@ -80,7 +80,7 @@ public class BasicAttributes implements Attributes {
     // %%% Not declared "private" due to bug 4064984.
     transient Hashtable attrs = new Hashtable(11);
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of Attributes.
       * The character case of attribute identifiers
       * is significant when subsequently retrieving or adding attributes.
@@ -88,7 +88,7 @@ public class BasicAttributes implements Attributes {
     public BasicAttributes() {
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of Attributes.
       * If <code>ignoreCase</code> is true, the character case of attribute
       * identifiers is ignored; otherwise the case is significant.
@@ -101,7 +101,7 @@ public class BasicAttributes implements Attributes {
         this.ignoreCase = ignoreCase;
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of Attributes with one attribute.
       * The attribute specified by attrID and val are added to the newly
       * created attribute.
@@ -116,7 +116,7 @@ public class BasicAttributes implements Attributes {
         this.put(new BasicAttribute(attrID, val));
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of Attributes with one attribute.
       * The attribute specified by attrID and val are added to the newly
       * created attribute.
@@ -188,7 +188,7 @@ public class BasicAttributes implements Attributes {
         return (Attribute)attrs.remove(id);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the string representation of this attribute set.
      * The string consists of each attribute identifier and the contents
      * of each attribute. The contents of this string is useful
@@ -204,7 +204,7 @@ public class BasicAttributes implements Attributes {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether this <tt>BasicAttributes</tt> is equal to another
      * <tt>Attributes</tt>
      * Two <tt>Attributes</tt> are equal if they are both instances of
@@ -251,7 +251,7 @@ public class BasicAttributes implements Attributes {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculates the hash code of this BasicAttributes.
      *<p>
      * The hash code is computed by adding the hash code of
@@ -276,7 +276,7 @@ public class BasicAttributes implements Attributes {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid exposing implementation details.
      * @serialData Default field (ignoreCase flag -- a boolean), followed by
      * the number of attributes in the set
@@ -292,7 +292,7 @@ public class BasicAttributes implements Attributes {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Overridden to avoid exposing implementation details.
      */
     private void readObject(java.io.ObjectInputStream s)
@@ -369,7 +369,7 @@ class IDEnumImpl implements NamingEnumeration<String> {
     }
 }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability.
      */
     private static final long serialVersionUID = 4980164073184639448L;

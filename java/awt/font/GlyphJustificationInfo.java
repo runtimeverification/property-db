@@ -39,7 +39,7 @@
 
 package java.awt.font;
 
-/**
+/** {@collect.stats}
  * The <code>GlyphJustificationInfo</code> class represents information
  * about the justification properties of a glyph.  A glyph is the visual
  * representation of one or more characters.  Many different glyphs can
@@ -76,7 +76,7 @@ package java.awt.font;
 
 public final class GlyphJustificationInfo {
 
-    /**
+    /** {@collect.stats}
      * Constructs information about the justification properties of a
      * glyph.
      * @param weight the weight of this glyph when allocating space.  Must be non-negative.
@@ -149,62 +149,62 @@ public final class GlyphJustificationInfo {
         return priority >= PRIORITY_KASHIDA && priority <= PRIORITY_NONE;
     }
 
-    /** The highest justification priority. */
+    /** {@collect.stats} The highest justification priority. */
     public static final int PRIORITY_KASHIDA = 0;
 
-    /** The second highest justification priority. */
+    /** {@collect.stats} The second highest justification priority. */
     public static final int PRIORITY_WHITESPACE = 1;
 
-    /** The second lowest justification priority. */
+    /** {@collect.stats} The second lowest justification priority. */
     public static final int PRIORITY_INTERCHAR = 2;
 
-    /** The lowest justification priority. */
+    /** {@collect.stats} The lowest justification priority. */
     public static final int PRIORITY_NONE = 3;
 
-    /**
+    /** {@collect.stats}
      * The weight of this glyph.
      */
     public final float weight;
 
-    /**
+    /** {@collect.stats}
      * The priority level of this glyph as it is growing.
      */
     public final int growPriority;
 
-    /**
+    /** {@collect.stats}
      * If <code>true</code>, this glyph absorbs all extra
      * space at this and lower priority levels when it grows.
      */
     public final boolean growAbsorb;
 
-    /**
+    /** {@collect.stats}
      * The maximum amount by which the left side of this glyph can grow.
      */
     public final float growLeftLimit;
 
-    /**
+    /** {@collect.stats}
      * The maximum amount by which the right side of this glyph can grow.
      */
     public final float growRightLimit;
 
-    /**
+    /** {@collect.stats}
      * The priority level of this glyph as it is shrinking.
      */
     public final int shrinkPriority;
 
-    /**
+    /** {@collect.stats}
      * If <code>true</code>,this glyph absorbs all remaining shrinkage at
      * this and lower priority levels as it shrinks.
      */
     public final boolean shrinkAbsorb;
 
-    /**
+    /** {@collect.stats}
      * The maximum amount by which the left side of this glyph can shrink
      * (a positive number).
      */
     public final float shrinkLeftLimit;
 
-    /**
+    /** {@collect.stats}
      * The maximum amount by which the right side of this glyph can shrink
      * (a positive number).
      */

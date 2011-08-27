@@ -38,7 +38,7 @@ import java.io.Serializable;
 import javax.swing.text.View;
 
 
-/**
+/** {@collect.stats}
  * RadioButtonUI implementation for MetalRadioButtonUI
  * <p>
  * <strong>Warning:</strong>

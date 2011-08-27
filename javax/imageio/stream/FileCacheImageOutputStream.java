@@ -31,7 +31,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import com.sun.imageio.stream.StreamCloser;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageOutputStream</code> that writes its
  * output to a regular <code>OutputStream</code>.  A file is used to
  * cache data until it is flushed to the output stream.
@@ -48,11 +48,11 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
     // Pos after last (rightmost) byte written
     private long maxStreamPos = 0L;
 
-    /** The CloseAction that closes the stream in
+    /** {@collect.stats} The CloseAction that closes the stream in
      *  the StreamCloser's shutdown hook                     */
     private final StreamCloser.CloseAction closeAction;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileCacheImageOutputStream</code> that will write
      * to a given <code>outputStream</code>.
      *
@@ -148,7 +148,7 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current stream position and resets the bit offset to
      * 0.  It is legal to seek past the end of the file; an
      * <code>EOFException</code> will be thrown only if a read is
@@ -172,7 +172,7 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
         this.bitOffset = 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageOutputStream</code> caches data in order to allow
      * seeking backwards.
@@ -186,7 +186,7 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> since this
      * <code>ImageOutputStream</code> maintains a file cache.
      *
@@ -199,7 +199,7 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since this
      * <code>ImageOutputStream</code> does not maintain a main memory
      * cache.
@@ -213,7 +213,7 @@ public class FileCacheImageOutputStream extends ImageOutputStreamImpl {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this <code>FileCacheImageOututStream</code>.  All
      * pending data is flushed to the output, and the cache file
      * is closed and removed.  The destination <code>OutputStream</code>

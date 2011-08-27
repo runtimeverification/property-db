@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class QueuedJobCount is an integer valued printing attribute that indicates
  * the number of jobs in the printer whose {@link JobState JobState} is either
  * PENDING, PENDING_HELD, PROCESSING, or PROCESSING_STOPPED.
@@ -45,7 +45,7 @@ public final class QueuedJobCount extends IntegerSyntax
 
     private static final long serialVersionUID = 7499723077864047742L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new queued job count attribute with the given integer
      * value.
      *
@@ -58,7 +58,7 @@ public final class QueuedJobCount extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this queued job count attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions
      * mus  be true:
@@ -82,7 +82,7 @@ public final class QueuedJobCount extends IntegerSyntax
                object instanceof QueuedJobCount);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -95,7 +95,7 @@ public final class QueuedJobCount extends IntegerSyntax
         return QueuedJobCount.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

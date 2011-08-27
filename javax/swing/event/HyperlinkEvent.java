@@ -29,7 +29,7 @@ import java.net.URL;
 import javax.swing.text.Element;
 
 
-/**
+/** {@collect.stats}
  * HyperlinkEvent is used to notify interested parties that
  * something has happened with respect to a hypertext link.
  * <p>
@@ -46,7 +46,7 @@ import javax.swing.text.Element;
  */
 public class HyperlinkEvent extends EventObject {
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      * The other constructor is preferred, as it provides more
      * information if a URL could not be formed.  This constructor
@@ -60,7 +60,7 @@ public class HyperlinkEvent extends EventObject {
         this(source, type, u, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      *
      * @param source the object responsible for the event
@@ -76,7 +76,7 @@ public class HyperlinkEvent extends EventObject {
         this(source, type, u, desc, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new object representing a hypertext link event.
      *
      * @param source the object responsible for the event
@@ -100,7 +100,7 @@ public class HyperlinkEvent extends EventObject {
         this.sourceElement = sourceElement;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the type of event.
      *
      * @return the type
@@ -109,7 +109,7 @@ public class HyperlinkEvent extends EventObject {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the description of the link as a string.
      * This may be useful if a URL can't be formed
      * from the description, in which case the associated
@@ -119,7 +119,7 @@ public class HyperlinkEvent extends EventObject {
         return desc;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the URL that the link refers to.
      *
      * @return the URL
@@ -128,7 +128,7 @@ public class HyperlinkEvent extends EventObject {
         return u;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>Element</code> that corresponds to the source of the
      * event. This will typically be an <code>Element</code> representing
      * an anchor. If a constructur that is used that does not specify a source
@@ -148,7 +148,7 @@ public class HyperlinkEvent extends EventObject {
     private Element sourceElement;
 
 
-    /**
+    /** {@collect.stats}
      * Defines the ENTERED, EXITED, and ACTIVATED event types, along
      * with their string representations, returned by toString().
      */
@@ -158,22 +158,22 @@ public class HyperlinkEvent extends EventObject {
             typeString = s;
         }
 
-        /**
+        /** {@collect.stats}
          * Entered type.
          */
         public static final EventType ENTERED = new EventType("ENTERED");
 
-        /**
+        /** {@collect.stats}
          * Exited type.
          */
         public static final EventType EXITED = new EventType("EXITED");
 
-        /**
+        /** {@collect.stats}
          * Activated type.
          */
         public static final EventType ACTIVATED = new EventType("ACTIVATED");
 
-        /**
+        /** {@collect.stats}
          * Converts the type to a string.
          *
          * @return the string

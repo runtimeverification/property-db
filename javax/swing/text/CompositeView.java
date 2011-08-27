@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.event.*;
 import javax.swing.SwingConstants;
 
-/**
+/** {@collect.stats}
  * <code>CompositeView</code> is an abstract <code>View</code>
  * implementation which manages one or more child views.
  * (Note that <code>CompositeView</code> is intended
@@ -75,7 +75,7 @@ import javax.swing.SwingConstants;
  */
 public abstract class CompositeView extends View {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>CompositeView</code> for the given element.
      *
      * @param elem  the element this view is responsible for
@@ -87,7 +87,7 @@ public abstract class CompositeView extends View {
         childAlloc = new Rectangle();
     }
 
-    /**
+    /** {@collect.stats}
      * Loads all of the children to initialize the view.
      * This is called by the {@link #setParent}
      * method.  Subclasses can reimplement this to initialize
@@ -117,7 +117,7 @@ public abstract class CompositeView extends View {
 
     // --- View methods ---------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the parent of the view.
      * This is reimplemented to provide the superclass
      * behavior as well as calling the <code>loadChildren</code>
@@ -140,7 +140,7 @@ public abstract class CompositeView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of child views of this view.
      *
      * @return the number of views >= 0
@@ -150,7 +150,7 @@ public abstract class CompositeView extends View {
         return nchildren;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the n-th view in this container.
      *
      * @param n the number of the desired view, >= 0 && < getViewCount()
@@ -160,7 +160,7 @@ public abstract class CompositeView extends View {
         return children[n];
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces child views.  If there are no views to remove
      * this acts as an insert.  If there are no views to
      * add this acts as a remove.  Views being removed will
@@ -218,7 +218,7 @@ public abstract class CompositeView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the allocation for the given child view to
      * render into. This enables finding out where various views
      * are located.
@@ -233,7 +233,7 @@ public abstract class CompositeView extends View {
         return alloc;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -276,7 +276,7 @@ public abstract class CompositeView extends View {
                                        pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the document model coordinate space
      * to the coordinate space of the view mapped to it.
      *
@@ -374,7 +374,7 @@ public abstract class CompositeView extends View {
         throw new BadLocationException("Position not represented by view", p0);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -428,7 +428,7 @@ public abstract class CompositeView extends View {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a way to determine the next visually represented model
      * location that one might place a caret.  Some views may not be visible,
      * they might not be in the same order found in the model, or they just
@@ -478,7 +478,7 @@ public abstract class CompositeView extends View {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the child view index representing the given
      * position in the model.  This is implemented to call the
      * <code>getViewIndexByPosition</code>
@@ -502,7 +502,7 @@ public abstract class CompositeView extends View {
     // --- local methods ----------------------------------------------------
 
 
-    /**
+    /** {@collect.stats}
      * Tests whether a point lies before the rectangle range.
      *
      * @param x the X coordinate >= 0
@@ -512,7 +512,7 @@ public abstract class CompositeView extends View {
      */
     protected abstract boolean isBefore(int x, int y, Rectangle alloc);
 
-    /**
+    /** {@collect.stats}
      * Tests whether a point lies after the rectangle range.
      *
      * @param x the X coordinate >= 0
@@ -522,7 +522,7 @@ public abstract class CompositeView extends View {
      */
     protected abstract boolean isAfter(int x, int y, Rectangle alloc);
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view at the given coordinates.
      *
      * @param x the X coordinate >= 0
@@ -533,7 +533,7 @@ public abstract class CompositeView extends View {
      */
     protected abstract View getViewAtPoint(int x, int y, Rectangle alloc);
 
-    /**
+    /** {@collect.stats}
      * Returns the allocation for a given child.
      *
      * @param index the index of the child, >= 0 && < getViewCount()
@@ -542,7 +542,7 @@ public abstract class CompositeView extends View {
      */
     protected abstract void childAllocation(int index, Rectangle a);
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view that represents the given position in
      * the model.  This is implemented to fetch the view in the case
      * where there is a child view for each child element.
@@ -565,7 +565,7 @@ public abstract class CompositeView extends View {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the child view index representing the given position in
      * the model.  This is implemented to fetch the view in the case
      * where there is a child view for each child element.
@@ -579,7 +579,7 @@ public abstract class CompositeView extends View {
         return elem.getElementIndex(pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Translates the immutable allocation given to the view
      * to a mutable allocation that represents the interior
      * allocation (i.e. the bounds of the given allocation
@@ -620,7 +620,7 @@ public abstract class CompositeView extends View {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the insets from the paragraph attributes specified in
      * the given attributes.
      *
@@ -636,7 +636,7 @@ public abstract class CompositeView extends View {
         right = (short) StyleConstants.getRightIndent(attr);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the insets for the view.
      *
      * @param top the top inset >= 0
@@ -651,7 +651,7 @@ public abstract class CompositeView extends View {
         this.bottom = bottom;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the left inset.
      *
      * @return the inset >= 0
@@ -660,7 +660,7 @@ public abstract class CompositeView extends View {
         return left;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the right inset.
      *
      * @return the inset >= 0
@@ -669,7 +669,7 @@ public abstract class CompositeView extends View {
         return right;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the top inset.
      *
      * @return the inset >= 0
@@ -678,7 +678,7 @@ public abstract class CompositeView extends View {
         return top;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the bottom inset.
      *
      * @return the inset >= 0
@@ -687,7 +687,7 @@ public abstract class CompositeView extends View {
         return bottom;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next visual position for the cursor, in either the
      * north or south direction.
      *
@@ -719,7 +719,7 @@ public abstract class CompositeView extends View {
                             this, pos, b, a, direction, biasRet);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next visual position for the cursor, in either the
      * east or west direction.
      *
@@ -750,7 +750,7 @@ public abstract class CompositeView extends View {
                             this, pos, b, a, direction, biasRet);
     }
 
-    /**
+    /** {@collect.stats}
      * Determines in which direction the next view lays.
      * Consider the <code>View</code> at index n. Typically the
      * <code>View</code>s are layed out from left to right,

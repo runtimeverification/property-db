@@ -26,13 +26,13 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * Package-private abstract class for the local filesystem abstraction.
  */
 
 abstract class FileSystem {
 
-    /**
+    /** {@collect.stats}
      * Return the FileSystem object representing this platform's local
      * filesystem.
      */
@@ -41,43 +41,43 @@ abstract class FileSystem {
 
     /* -- Normalization and construction -- */
 
-    /**
+    /** {@collect.stats}
      * Return the local filesystem's name-separator character.
      */
     public abstract char getSeparator();
 
-    /**
+    /** {@collect.stats}
      * Return the local filesystem's path-separator character.
      */
     public abstract char getPathSeparator();
 
-    /**
+    /** {@collect.stats}
      * Convert the given pathname string to normal form.  If the string is
      * already in normal form then it is simply returned.
      */
     public abstract String normalize(String path);
 
-    /**
+    /** {@collect.stats}
      * Compute the length of this pathname string's prefix.  The pathname
      * string must be in normal form.
      */
     public abstract int prefixLength(String path);
 
-    /**
+    /** {@collect.stats}
      * Resolve the child pathname string against the parent.
      * Both strings must be in normal form, and the result
      * will be in normal form.
      */
     public abstract String resolve(String parent, String child);
 
-    /**
+    /** {@collect.stats}
      * Return the parent pathname string to be used when the parent-directory
      * argument in one of the two-argument File constructors is the empty
      * pathname.
      */
     public abstract String getDefaultParent();
 
-    /**
+    /** {@collect.stats}
      * Post-process the given URI path string if necessary.  This is used on
      * win32, e.g., to transform "/c:/foo" into "c:/foo".  The path string
      * still has slash separators; code in the File class will translate them
@@ -88,12 +88,12 @@ abstract class FileSystem {
 
     /* -- Path operations -- */
 
-    /**
+    /** {@collect.stats}
      * Tell whether or not the given abstract pathname is absolute.
      */
     public abstract boolean isAbsolute(File f);
 
-    /**
+    /** {@collect.stats}
      * Resolve the given abstract pathname into absolute form.  Invoked by the
      * getAbsolutePath and getCanonicalPath methods in the File class.
      */
@@ -110,7 +110,7 @@ abstract class FileSystem {
     public static final int BA_DIRECTORY = 0x04;
     public static final int BA_HIDDEN    = 0x08;
 
-    /**
+    /** {@collect.stats}
      * Return the simple boolean attributes for the file or directory denoted
      * by the given abstract pathname, or zero if it does not exist or some
      * other I/O error occurs.
@@ -121,28 +121,28 @@ abstract class FileSystem {
     public static final int ACCESS_WRITE   = 0x02;
     public static final int ACCESS_EXECUTE = 0x01;
 
-    /**
+    /** {@collect.stats}
      * Check whether the file or directory denoted by the given abstract
      * pathname may be accessed by this process.  The second argument specifies
      * which access, ACCESS_READ, ACCESS_WRITE or ACCESS_EXECUTE, to check.
      * Return false if access is denied or an I/O error occurs
      */
     public abstract boolean checkAccess(File f, int access);
-    /**
+    /** {@collect.stats}
      * Set on or off the access permission (to owner only or to all) to the file
      * or directory denoted by the given abstract pathname, based on the parameters
      * enable, access and oweronly.
      */
     public abstract boolean setPermission(File f, int access, boolean enable, boolean owneronly);
 
-    /**
+    /** {@collect.stats}
      * Return the time at which the file or directory denoted by the given
      * abstract pathname was last modified, or zero if it does not exist or
      * some other I/O error occurs.
      */
     public abstract long getLastModifiedTime(File f);
 
-    /**
+    /** {@collect.stats}
      * Return the length in bytes of the file denoted by the given abstract
      * pathname, or zero if it does not exist, is a directory, or some other
      * I/O error occurs.
@@ -152,7 +152,7 @@ abstract class FileSystem {
 
     /* -- File operations -- */
 
-    /**
+    /** {@collect.stats}
      * Create a new empty file with the given pathname.  Return
      * <code>true</code> if the file was created and <code>false</code> if a
      * file or directory with the given pathname already exists.  Throw an
@@ -161,40 +161,40 @@ abstract class FileSystem {
     public abstract boolean createFileExclusively(String pathname)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Delete the file or directory denoted by the given abstract pathname,
      * returning <code>true</code> if and only if the operation succeeds.
      */
     public abstract boolean delete(File f);
 
-    /**
+    /** {@collect.stats}
      * List the elements of the directory denoted by the given abstract
      * pathname.  Return an array of strings naming the elements of the
      * directory if successful; otherwise, return <code>null</code>.
      */
     public abstract String[] list(File f);
 
-    /**
+    /** {@collect.stats}
      * Create a new directory denoted by the given abstract pathname,
      * returning <code>true</code> if and only if the operation succeeds.
      */
     public abstract boolean createDirectory(File f);
 
-    /**
+    /** {@collect.stats}
      * Rename the file or directory denoted by the first abstract pathname to
      * the second abstract pathname, returning <code>true</code> if and only if
      * the operation succeeds.
      */
     public abstract boolean rename(File f1, File f2);
 
-    /**
+    /** {@collect.stats}
      * Set the last-modified time of the file or directory denoted by the
      * given abstract pathname, returning <code>true</code> if and only if the
      * operation succeeds.
      */
     public abstract boolean setLastModifiedTime(File f, long time);
 
-    /**
+    /** {@collect.stats}
      * Mark the file or directory denoted by the given abstract pathname as
      * read-only, returning <code>true</code> if and only if the operation
      * succeeds.
@@ -204,7 +204,7 @@ abstract class FileSystem {
 
     /* -- Filesystem interface -- */
 
-    /**
+    /** {@collect.stats}
      * List the available filesystem roots.
      */
     public abstract File[] listRoots();
@@ -218,12 +218,12 @@ abstract class FileSystem {
 
     /* -- Basic infrastructure -- */
 
-    /**
+    /** {@collect.stats}
      * Compare two abstract pathnames lexicographically.
      */
     public abstract int compare(File f1, File f2);
 
-    /**
+    /** {@collect.stats}
      * Compute the hash code of an abstract pathname.
      */
     public abstract int hashCode(File f);

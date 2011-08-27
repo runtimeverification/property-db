@@ -34,7 +34,7 @@ import java.io.IOException;
 
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * The <code>Choice</code> class presents a pop-up menu of choices.
  * The current choice is displayed as the title of the menu.
  * <p>
@@ -70,7 +70,7 @@ import javax.accessibility.*;
  * @since       JDK1.0
  */
 public class Choice extends Component implements ItemSelectable, Accessible {
-    /**
+    /** {@collect.stats}
      * The items for the <code>Choice</code>.
      * This can be a <code>null</code> value.
      * @serial
@@ -83,7 +83,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
      */
     Vector pItems;
 
-    /**
+    /** {@collect.stats}
      * The index of the current choice for this <code>Choice</code>
      * or -1 if nothing is selected.
      * @serial
@@ -102,7 +102,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
      */
      private static final long serialVersionUID = -4075310674757313071L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new choice menu. The menu initially has no items in it.
      * <p>
      * By default, the first item added to the choice menu becomes the
@@ -119,7 +119,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         pItems = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a name for this component.  Called by
      * <code>getName</code> when the name is <code>null</code>.
      */
@@ -129,7 +129,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the <code>Choice</code>'s peer.  This peer allows us
      * to change the look
      * of the <code>Choice</code> without changing its functionality.
@@ -144,7 +144,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of items in this <code>Choice</code> menu.
      * @return the number of items in this <code>Choice</code> menu
      * @see     #getItem
@@ -154,7 +154,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return countItems();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getItemCount()</code>.
      */
@@ -163,7 +163,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return pItems.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the string at the specified index in this
      * <code>Choice</code> menu.
      * @param      index the index at which to begin
@@ -181,7 +181,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return (String)pItems.elementAt(index);
     }
 
-    /**
+    /** {@collect.stats}
      * Adds an item to this <code>Choice</code> menu.
      * @param      item    the item to be added
      * @exception  NullPointerException   if the item's value is
@@ -192,7 +192,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         addItem(item);
     }
 
-    /**
+    /** {@collect.stats}
      * Obsolete as of Java 2 platform v1.1.  Please use the
      * <code>add</code> method instead.
      * <p>
@@ -212,7 +212,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts an item to this <code>Choice</code>,
      * but does not invalidate the <code>Choice</code>.
      * Client methods must provide their own synchronization before
@@ -239,7 +239,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Inserts the item into this choice at the specified position.
      * Existing items at an index greater than or equal to
      * <code>index</code> are shifted up by one to accommodate
@@ -274,7 +274,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the first occurrence of <code>item</code>
      * from the <code>Choice</code> menu.  If the item
      * being removed is the currently selected item,
@@ -304,7 +304,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an item from the choice menu
      * at the specified position.  If the item
      * being removed is the currently selected item,
@@ -328,7 +328,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes an item from the <code>Choice</code> at the
      * specified position, but does not invalidate the <code>Choice</code>.
      * Client methods must provide their
@@ -352,7 +352,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Removes all items from the choice menu.
      * @see       #remove
      * @since     JDK1.1
@@ -372,7 +372,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a representation of the current choice as a string.
      * @return    a string representation of the currently
      *                     selected item in this choice menu
@@ -382,7 +382,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return (selectedIndex >= 0) ? getItem(selectedIndex) : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array (length 1) containing the currently selected
      * item.  If this choice has no items, returns <code>null</code>.
      * @see ItemSelectable
@@ -396,7 +396,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the index of the currently selected item.
      * If nothing is selected, returns -1.
      *
@@ -408,7 +408,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return selectedIndex;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected item in this <code>Choice</code> menu to be the
      * item at the specified position.
      *
@@ -438,7 +438,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected item in this <code>Choice</code> menu
      * to be the item whose name is equal to the specified string.
      * If more than one item matches (is equal to) the specified string,
@@ -461,7 +461,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified item listener to receive item events from
      * this <code>Choice</code> menu.  Item events are sent in response
      * to user input, but not in response to calls to <code>select</code>.
@@ -485,7 +485,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         newEventsOnly = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified item listener so that it no longer receives
      * item events from this <code>Choice</code> menu.
      * If l is <code>null</code>, no exception is thrown and no
@@ -506,7 +506,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         itemListener = AWTEventMulticaster.remove(itemListener, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the item listeners
      * registered on this choice.
      *
@@ -524,7 +524,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return (ItemListener[])(getListeners(ItemListener.class));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the objects currently registered
      * as <code><em>Foo</em>Listener</code>s
      * upon this <code>Choice</code>.
@@ -579,7 +579,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return super.eventEnabled(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes events on this choice. If the event is an
      * instance of <code>ItemEvent</code>, it invokes the
      * <code>processItemEvent</code> method. Otherwise, it calls its
@@ -601,7 +601,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         super.processEvent(e);
     }
 
-    /**
+    /** {@collect.stats}
      * Processes item events occurring on this <code>Choice</code>
      * menu by dispatching them to any registered
      * <code>ItemListener</code> objects.
@@ -632,7 +632,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this <code>Choice</code>
      * menu. This method is intended to be used only for debugging purposes,
      * and the content and format of the returned string may vary between
@@ -655,7 +655,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
      */
     private int choiceSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.  Writes
      * a list of serializable <code>ItemListeners</code>
      * as optional data. The non-serializable
@@ -683,7 +683,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
       s.writeObject(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code> and if it
      * isn't <code>null</code> adds a listener to receive
      * item events fired by the <code>Choice</code> item.
@@ -723,7 +723,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>AccessibleContext</code> associated with this
      * <code>Choice</code>. For <code>Choice</code> components,
      * the <code>AccessibleContext</code> takes the form of an
@@ -741,7 +741,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Choice</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to choice user-interface elements.
@@ -759,7 +759,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
             super();
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleAction associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -772,7 +772,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -783,7 +783,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
             return AccessibleRole.COMBO_BOX;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible actions available in this object
          * If there are more than one, the first one is considered the "default"
          * action of the object.
@@ -794,7 +794,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
             return 0;  //  To be fully implemented in a future release
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a description of the specified action of the object.
          *
          * @param i zero-based index of the actions
@@ -805,7 +805,7 @@ public class Choice extends Component implements ItemSelectable, Accessible {
             return null;  //  To be fully implemented in a future release
         }
 
-        /**
+        /** {@collect.stats}
          * Perform the specified Action on the object
          *
          * @param i zero-based index of actions

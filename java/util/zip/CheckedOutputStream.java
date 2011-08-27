@@ -29,7 +29,7 @@ import java.io.FilterOutputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * An output stream that also maintains a checksum of the data being
  * written. The checksum can then be used to verify the integrity of
  * the output data.
@@ -41,7 +41,7 @@ public
 class CheckedOutputStream extends FilterOutputStream {
     private Checksum cksum;
 
-    /**
+    /** {@collect.stats}
      * Creates an output stream with the specified Checksum.
      * @param out the output stream
      * @param cksum the checksum
@@ -51,7 +51,7 @@ class CheckedOutputStream extends FilterOutputStream {
         this.cksum = cksum;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a byte. Will block until the byte is actually written.
      * @param b the byte to be written
      * @exception IOException if an I/O error has occurred
@@ -61,7 +61,7 @@ class CheckedOutputStream extends FilterOutputStream {
         cksum.update(b);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an array of bytes. Will block until the bytes are
      * actually written.
      * @param b the data to be written
@@ -74,7 +74,7 @@ class CheckedOutputStream extends FilterOutputStream {
         cksum.update(b, off, len);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Checksum for this output stream.
      * @return the Checksum
      */

@@ -48,7 +48,7 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
-/**
+/** {@collect.stats}
  * The <code>ShapeGraphicAttribute</code> class is an implementation of
  * {@link GraphicAttribute} that draws shapes in a {@link TextLayout}.
  * @see GraphicAttribute
@@ -58,12 +58,12 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
     private Shape fShape;
     private boolean fStroke;
 
-    /**
+    /** {@collect.stats}
      * A key indicating the shape should be stroked with a 1-pixel wide stroke.
      */
     public static final boolean STROKE = true;
 
-    /**
+    /** {@collect.stats}
      * A key indicating the shape should be filled.
      */
     public static final boolean FILL = false;
@@ -71,7 +71,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
     // cache shape bounds, since GeneralPath doesn't
     private Rectangle2D fShapeBounds;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ShapeGraphicAttribute</code> for the specified
      * {@link Shape}.
      * @param shape the <code>Shape</code> to render.  The
@@ -96,7 +96,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         fShapeBounds = fShape.getBounds2D();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ascent of this <code>ShapeGraphicAttribute</code>.  The
      * ascent of a <code>ShapeGraphicAttribute</code> is the positive
      * distance from the origin of its <code>Shape</code> to the top of
@@ -108,7 +108,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return (float) Math.max(0, -fShapeBounds.getMinY());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the descent of this <code>ShapeGraphicAttribute</code>.
      * The descent of a <code>ShapeGraphicAttribute</code> is the distance
      * from the origin of its <code>Shape</code> to the bottom of the
@@ -120,7 +120,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return (float) Math.max(0, fShapeBounds.getMaxY());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the advance of this <code>ShapeGraphicAttribute</code>.
      * The advance of a <code>ShapeGraphicAttribute</code> is the distance
      * from the origin of its <code>Shape</code> to the right side of the
@@ -132,7 +132,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return (float) Math.max(0, fShapeBounds.getMaxX());
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void draw(Graphics2D graphics, float x, float y) {
@@ -154,7 +154,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a {@link Rectangle2D} that encloses all of the
      * bits drawn by this <code>ShapeGraphicAttribute</code> relative to
      * the rendering position.  A graphic can be rendered beyond its
@@ -176,7 +176,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return bounds;
     }
 
-    /**
+    /** {@collect.stats}
      * Return a {@link java.awt.Shape} that represents the region that
      * this <code>ShapeGraphicAttribute</code> renders.  This is used when a
      * {@link TextLayout} is requested to return the outline of the text.
@@ -192,7 +192,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return tx == null ? fShape : tx.createTransformedShape(fShape);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this <code>ShapeGraphicAttribute</code>.
      * @return  a hash code value for this
      * <code>ShapeGraphicAttribute</code>.
@@ -202,7 +202,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         return fShape.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this <code>ShapeGraphicAttribute</code> to the specified
      * <code>Object</code>.
      * @param rhs the <code>Object</code> to compare for equality
@@ -220,7 +220,7 @@ public final class ShapeGraphicAttribute extends GraphicAttribute {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this <code>ShapeGraphicAttribute</code> to the specified
      * <code>ShapeGraphicAttribute</code>.
      * @param rhs the <code>ShapeGraphicAttribute</code> to compare for

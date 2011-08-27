@@ -38,7 +38,7 @@ import java.security.SecureRandom;
 import sun.security.action.GetPropertyAction;
 
 
-/**
+/** {@collect.stats}
  * An abstract representation of file and directory pathnames.
  *
  * <p> User interfaces and operating systems use system-dependent <em>pathname
@@ -138,12 +138,12 @@ public class File
     implements Serializable, Comparable<File>
 {
 
-    /**
+    /** {@collect.stats}
      * The FileSystem object representing the platform's local file system.
      */
     static private FileSystem fs = FileSystem.getFileSystem();
 
-    /**
+    /** {@collect.stats}
      * This abstract pathname's normalized pathname string.  A normalized
      * pathname string uses the default name-separator character and does not
      * contain any duplicate or redundant separators.
@@ -152,13 +152,13 @@ public class File
      */
     private String path;
 
-    /**
+    /** {@collect.stats}
      * The length of this abstract pathname's prefix, or zero if it has no
      * prefix.
      */
     private transient int prefixLength;
 
-    /**
+    /** {@collect.stats}
      * Returns the length of this abstract pathname's prefix.
      * For use by FileSystem classes.
      */
@@ -166,7 +166,7 @@ public class File
         return prefixLength;
     }
 
-    /**
+    /** {@collect.stats}
      * The system-dependent default name-separator character.  This field is
      * initialized to contain the first character of the value of the system
      * property <code>file.separator</code>.  On UNIX systems the value of this
@@ -176,14 +176,14 @@ public class File
      */
     public static final char separatorChar = fs.getSeparator();
 
-    /**
+    /** {@collect.stats}
      * The system-dependent default name-separator character, represented as a
      * string for convenience.  This string contains a single character, namely
      * <code>{@link #separatorChar}</code>.
      */
     public static final String separator = "" + separatorChar;
 
-    /**
+    /** {@collect.stats}
      * The system-dependent path-separator character.  This field is
      * initialized to contain the first character of the value of the system
      * property <code>path.separator</code>.  This character is used to
@@ -195,7 +195,7 @@ public class File
      */
     public static final char pathSeparatorChar = fs.getPathSeparator();
 
-    /**
+    /** {@collect.stats}
      * The system-dependent path-separator character, represented as a string
      * for convenience.  This string contains a single character, namely
      * <code>{@link #pathSeparatorChar}</code>.
@@ -205,7 +205,7 @@ public class File
 
     /* -- Constructors -- */
 
-    /**
+    /** {@collect.stats}
      * Internal constructor for already-normalized pathname strings.
      */
     private File(String pathname, int prefixLength) {
@@ -213,7 +213,7 @@ public class File
         this.prefixLength = prefixLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Internal constructor for already-normalized pathname strings.
      * The parameter order is used to disambiguate this method from the
      * public(File, String) constructor.
@@ -225,7 +225,7 @@ public class File
         this.prefixLength = parent.prefixLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>File</code> instance by converting the given
      * pathname string into an abstract pathname.  If the given string is
      * the empty string, then the result is the empty abstract pathname.
@@ -249,7 +249,7 @@ public class File
        this default is "/", while on Microsoft Windows it is "\\".  This is required for
        compatibility with the original behavior of this class. */
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>File</code> instance from a parent pathname string
      * and a child pathname string.
      *
@@ -292,7 +292,7 @@ public class File
         this.prefixLength = fs.prefixLength(this.path);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>File</code> instance from a parent abstract
      * pathname and a child pathname string.
      *
@@ -335,7 +335,7 @@ public class File
         this.prefixLength = fs.prefixLength(this.path);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <tt>File</tt> instance by converting the given
      * <tt>file:</tt> URI into an abstract pathname.
      *
@@ -402,7 +402,7 @@ public class File
 
     /* -- Path-component accessors -- */
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the file or directory denoted by this abstract
      * pathname.  This is just the last name in the pathname's name
      * sequence.  If the pathname's name sequence is empty, then the empty
@@ -418,7 +418,7 @@ public class File
         return path.substring(index + 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the pathname string of this abstract pathname's parent, or
      * <code>null</code> if this pathname does not name a parent directory.
      *
@@ -441,7 +441,7 @@ public class File
         return path.substring(0, index);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the abstract pathname of this abstract pathname's parent,
      * or <code>null</code> if this pathname does not name a parent
      * directory.
@@ -463,7 +463,7 @@ public class File
         return new File(p, this.prefixLength);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts this abstract pathname into a pathname string.  The resulting
      * string uses the {@link #separator default name-separator character} to
      * separate the names in the name sequence.
@@ -477,7 +477,7 @@ public class File
 
     /* -- Path operations -- */
 
-    /**
+    /** {@collect.stats}
      * Tests whether this abstract pathname is absolute.  The definition of
      * absolute pathname is system dependent.  On UNIX systems, a pathname is
      * absolute if its prefix is <code>"/"</code>.  On Microsoft Windows systems, a
@@ -491,7 +491,7 @@ public class File
         return fs.isAbsolute(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the absolute pathname string of this abstract pathname.
      *
      * <p> If this abstract pathname is already absolute, then the pathname
@@ -518,7 +518,7 @@ public class File
         return fs.resolve(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the absolute form of this abstract pathname.  Equivalent to
      * <code>new&nbsp;File(this.{@link #getAbsolutePath})</code>.
      *
@@ -535,7 +535,7 @@ public class File
         return new File(absPath, fs.prefixLength(absPath));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical pathname string of this abstract pathname.
      *
      * <p> A canonical pathname is both absolute and unique.  The precise
@@ -576,7 +576,7 @@ public class File
         return fs.canonicalize(fs.resolve(this));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the canonical form of this abstract pathname.  Equivalent to
      * <code>new&nbsp;File(this.{@link #getCanonicalPath})</code>.
      *
@@ -612,7 +612,7 @@ public class File
         return p;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts this abstract pathname into a <code>file:</code> URL.  The
      * exact form of the URL is system-dependent.  If it can be determined that
      * the file denoted by this abstract pathname is a directory, then the
@@ -640,7 +640,7 @@ public class File
         return new URL("file", "", slashify(getAbsolutePath(), isDirectory()));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <tt>file:</tt> URI that represents this abstract pathname.
      *
      * <p> The exact form of the URI is system-dependent.  If it can be
@@ -687,7 +687,7 @@ public class File
 
     /* -- Attribute accessors -- */
 
-    /**
+    /** {@collect.stats}
      * Tests whether the application can read the file denoted by this
      * abstract pathname.
      *
@@ -708,7 +708,7 @@ public class File
         return fs.checkAccess(this, FileSystem.ACCESS_READ);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the application can modify the file denoted by this
      * abstract pathname.
      *
@@ -730,7 +730,7 @@ public class File
         return fs.checkAccess(this, FileSystem.ACCESS_WRITE);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the file or directory denoted by this abstract pathname
      * exists.
      *
@@ -750,7 +750,7 @@ public class File
         return ((fs.getBooleanAttributes(this) & FileSystem.BA_EXISTS) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the file denoted by this abstract pathname is a
      * directory.
      *
@@ -772,7 +772,7 @@ public class File
                 != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the file denoted by this abstract pathname is a normal
      * file.  A file is <em>normal</em> if it is not a directory and, in
      * addition, satisfies other system-dependent criteria.  Any non-directory
@@ -795,7 +795,7 @@ public class File
         return ((fs.getBooleanAttributes(this) & FileSystem.BA_REGULAR) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the file named by this abstract pathname is a hidden
      * file.  The exact definition of <em>hidden</em> is system-dependent.  On
      * UNIX systems, a file is considered to be hidden if its name begins with
@@ -821,7 +821,7 @@ public class File
         return ((fs.getBooleanAttributes(this) & FileSystem.BA_HIDDEN) != 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the time that the file denoted by this abstract pathname was
      * last modified.
      *
@@ -843,7 +843,7 @@ public class File
         return fs.getLastModifiedTime(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the file denoted by this abstract pathname.
      * The return value is unspecified if this pathname denotes a directory.
      *
@@ -868,7 +868,7 @@ public class File
 
     /* -- File operations -- */
 
-    /**
+    /** {@collect.stats}
      * Atomically creates a new, empty file named by this abstract pathname if
      * and only if a file with this name does not yet exist.  The check for the
      * existence of the file and the creation of the file if it does not exist
@@ -900,7 +900,7 @@ public class File
         return fs.createFileExclusively(path);
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the file or directory denoted by this abstract pathname.  If
      * this pathname denotes a directory, then the directory must be empty in
      * order to be deleted.
@@ -921,7 +921,7 @@ public class File
         return fs.delete(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that the file or directory denoted by this abstract
      * pathname be deleted when the virtual machine terminates.
      * Files (or directories) are deleted in the reverse order that
@@ -956,7 +956,7 @@ public class File
         DeleteOnExitHook.add(path);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of strings naming the files and directories in the
      * directory denoted by this abstract pathname.
      *
@@ -990,7 +990,7 @@ public class File
         return fs.list(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of strings naming the files and directories in the
      * directory denoted by this abstract pathname that satisfy the specified
      * filter.  The behavior of this method is the same as that of the
@@ -1031,7 +1031,7 @@ public class File
         return (String[])(v.toArray(new String[v.size()]));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of abstract pathnames denoting the files in the
      * directory denoted by this abstract pathname.
      *
@@ -1074,7 +1074,7 @@ public class File
         return fs;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of abstract pathnames denoting the files and
      * directories in the directory denoted by this abstract pathname that
      * satisfy the specified filter.  The behavior of this method is the same
@@ -1113,7 +1113,7 @@ public class File
         return files.toArray(new File[files.size()]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of abstract pathnames denoting the files and
      * directories in the directory denoted by this abstract pathname that
      * satisfy the specified filter.  The behavior of this method is the same
@@ -1152,7 +1152,7 @@ public class File
         return files.toArray(new File[files.size()]);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the directory named by this abstract pathname.
      *
      * @return  <code>true</code> if and only if the directory was
@@ -1171,7 +1171,7 @@ public class File
         return fs.createDirectory(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the directory named by this abstract pathname, including any
      * necessary but nonexistent parent directories.  Note that if this
      * operation fails it may have succeeded in creating some of the necessary
@@ -1210,7 +1210,7 @@ public class File
                 canonFile.mkdir());
     }
 
-    /**
+    /** {@collect.stats}
      * Renames the file denoted by this abstract pathname.
      *
      * <p> Many aspects of the behavior of this method are inherently
@@ -1242,7 +1242,7 @@ public class File
         return fs.rename(this, dest);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the last-modified time of the file or directory named by this
      * abstract pathname.
      *
@@ -1277,7 +1277,7 @@ public class File
         return fs.setLastModifiedTime(this, time);
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the file or directory named by this abstract pathname so that
      * only read operations are allowed.  After invoking this method the file
      * or directory is guaranteed not to change until it is either deleted or
@@ -1302,7 +1302,7 @@ public class File
         return fs.setReadOnly(this);
     }
 
-   /**
+   /** {@collect.stats}
      * Sets the owner's or everybody's write permission for this abstract
      * pathname.
      *
@@ -1336,7 +1336,7 @@ public class File
         return fs.setPermission(this, FileSystem.ACCESS_WRITE, writable, ownerOnly);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to set the owner's write permission for this abstract
      * pathname.
      *
@@ -1365,7 +1365,7 @@ public class File
         return setWritable(writable, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the owner's or everybody's read permission for this abstract
      * pathname.
      *
@@ -1402,7 +1402,7 @@ public class File
         return fs.setPermission(this, FileSystem.ACCESS_READ, readable, ownerOnly);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to set the owner's read permission for this abstract
      * pathname.
      *
@@ -1434,7 +1434,7 @@ public class File
         return setReadable(readable, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the owner's or everybody's execute permission for this abstract
      * pathname.
      *
@@ -1471,7 +1471,7 @@ public class File
         return fs.setPermission(this, FileSystem.ACCESS_EXECUTE, executable, ownerOnly);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to set the owner's execute permission for this abstract
      * pathname.
      *
@@ -1503,7 +1503,7 @@ public class File
         return setExecutable(executable, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests whether the application can execute the file denoted by this
      * abstract pathname.
      *
@@ -1528,7 +1528,7 @@ public class File
 
     /* -- Filesystem interface -- */
 
-    /**
+    /** {@collect.stats}
      * List the available filesystem roots.
      *
      * <p> A particular Java platform may support zero or more
@@ -1576,7 +1576,7 @@ public class File
 
     /* -- Disk usage -- */
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the partition <a href="#partName">named</a> by this
      * abstract pathname.
      *
@@ -1600,7 +1600,7 @@ public class File
         return fs.getSpace(this, FileSystem.SPACE_TOTAL);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of unallocated bytes in the partition <a
      * href="#partName">named</a> by this abstract path name.
      *
@@ -1635,7 +1635,7 @@ public class File
         return fs.getSpace(this, FileSystem.SPACE_FREE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of bytes available to this virtual machine on the
      * partition <a href="#partName">named</a> by this abstract pathname.  When
      * possible, this method checks for write permissions and other operating
@@ -1716,7 +1716,7 @@ public class File
         return fs.createFileExclusively(filename);
     }
 
-    /**
+    /** {@collect.stats}
      * <p> Creates a new empty file in the specified directory, using the
      * given prefix and suffix strings to generate its name.  If this method
      * returns successfully then it is guaranteed that:
@@ -1805,7 +1805,7 @@ public class File
         return f;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an empty file in the default temporary-file directory, using
      * the given prefix and suffix to generate its name.  Invoking this method
      * is equivalent to invoking <code>{@link #createTempFile(java.lang.String,
@@ -1843,7 +1843,7 @@ public class File
 
     /* -- Basic infrastructure -- */
 
-    /**
+    /** {@collect.stats}
      * Compares two abstract pathnames lexicographically.  The ordering
      * defined by this method depends upon the underlying system.  On UNIX
      * systems, alphabetic case is significant in comparing pathnames; on Microsoft Windows
@@ -1864,7 +1864,7 @@ public class File
         return fs.compare(this, pathname);
     }
 
-    /**
+    /** {@collect.stats}
      * Tests this abstract pathname for equality with the given object.
      * Returns <code>true</code> if and only if the argument is not
      * <code>null</code> and is an abstract pathname that denotes the same file
@@ -1885,7 +1885,7 @@ public class File
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Computes a hash code for this abstract pathname.  Because equality of
      * abstract pathnames is inherently system-dependent, so is the computation
      * of their hash codes.  On UNIX systems, the hash code of an abstract
@@ -1903,7 +1903,7 @@ public class File
         return fs.hashCode(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the pathname string of this abstract pathname.  This is just the
      * string returned by the <code>{@link #getPath}</code> method.
      *
@@ -1913,7 +1913,7 @@ public class File
         return getPath();
     }
 
-    /**
+    /** {@collect.stats}
      * WriteObject is called to save this filename.
      * The separator character is saved also so it can be replaced
      * in case the path is reconstituted on a different host type.
@@ -1927,7 +1927,7 @@ public class File
         s.writeChar(this.separatorChar); // Add the separator character
     }
 
-    /**
+    /** {@collect.stats}
      * readObject is called to restore this filename.
      * The original separator character is read.  If it is different
      * than the separator character on this system, then the old separator
@@ -1945,7 +1945,7 @@ public class File
         this.prefixLength = fs.prefixLength(this.path);
     }
 
-    /** use serialVersionUID from JDK 1.0.2 for interoperability */
+    /** {@collect.stats} use serialVersionUID from JDK 1.0.2 for interoperability */
     private static final long serialVersionUID = 301077366599181567L;
 
     // Set up JavaIODeleteOnExitAccess in SharedSecrets

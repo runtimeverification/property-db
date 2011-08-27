@@ -29,7 +29,7 @@ import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobPriority is an integer valued printing attribute class that
  * specifies a print job's priority.
  * <P>
@@ -63,7 +63,7 @@ public final class JobPriority extends IntegerSyntax
 
     private static final long serialVersionUID = -4599900369040602769L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job priority attribute with the given integer value.
      *
      * @param  value  Integer value.
@@ -76,7 +76,7 @@ public final class JobPriority extends IntegerSyntax
         super (value, 1, 100);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job priority attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -99,7 +99,7 @@ public final class JobPriority extends IntegerSyntax
         return (super.equals (object) && object instanceof JobPriority);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public final class JobPriority extends IntegerSyntax
         return JobPriority.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

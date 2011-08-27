@@ -27,7 +27,7 @@ package java.awt.print;
 
 import java.awt.Graphics;
 
-/**
+/** {@collect.stats}
  * The <code>Printable</code> interface is implemented
  * by the <code>print</code> methods of the current
  * page painter, which is called by the printing
@@ -100,20 +100,20 @@ import java.awt.Graphics;
  */
 public interface Printable {
 
-    /**
+    /** {@collect.stats}
      * Returned from {@link #print(Graphics, PageFormat, int)}
      * to signify that the requested page was rendered.
      */
     int PAGE_EXISTS = 0;
 
-    /**
+    /** {@collect.stats}
      * Returned from <code>print</code> to signify that the
      * <code>pageIndex</code> is too large and that the requested page
      * does not exist.
      */
     int NO_SUCH_PAGE = 1;
 
-    /**
+    /** {@collect.stats}
      * Prints the page at the specified index into the specified
      * {@link Graphics} context in the specified
      * format.  A <code>PrinterJob</code> calls the

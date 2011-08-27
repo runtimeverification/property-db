@@ -31,7 +31,7 @@ import java.io.*;
 import java.math.*;
 import java.util.Map;
 
-/**
+/** {@collect.stats}
  * An input stream used for custom mapping user-defined types (UDTs).
  * An <code>SQLInputImpl</code> object is an input stream that contains a
  * stream of values that are the attributes of a UDT.
@@ -62,27 +62,27 @@ import java.util.Map;
  */
 public class SQLInputImpl implements SQLInput {
 
-    /**
+    /** {@collect.stats}
      * <code>true</code> if the last value returned was <code>SQL NULL</code>;
      * <code>false</code> otherwise.
      */
     private boolean lastValueWasNull;
 
-    /**
+    /** {@collect.stats}
      * The current index into the array of SQL structured type attributes
      * that will be read from this <code>SQLInputImpl</code> object and
      * mapped to the fields of a class in the Java programming language.
      */
     private int idx;
 
-    /**
+    /** {@collect.stats}
      * The array of attributes to be read from this stream.  The order
      * of the attributes is the same as the order in which they were
      * listed in the SQL definition of the UDT.
      */
     private Object attrib[];
 
-    /**
+    /** {@collect.stats}
      * The type map to use when the method <code>readObject</code>
      * is invoked. This is a <code>java.util.Map</code> object in which
      * there may be zero or more entries.  Each entry consists of the
@@ -94,7 +94,7 @@ public class SQLInputImpl implements SQLInput {
     private Map map;
 
 
-    /**
+    /** {@collect.stats}
      * Creates an <code>SQLInputImpl</code> object initialized with the
      * given array of attributes and the given type map. If any of the
      * attributes is a UDT whose name is in an entry in the type map,
@@ -131,7 +131,7 @@ public class SQLInputImpl implements SQLInput {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as an <code>Object</code> in the Java programming language.
      *
@@ -156,7 +156,7 @@ public class SQLInputImpl implements SQLInput {
     // java.sql.ResultSet.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object as
      * a <code>String</code> in the Java programming language.
      * <p>
@@ -183,7 +183,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object as
      * a <code>boolean</code> in the Java programming language.
      * <p>
@@ -210,7 +210,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object as
      * a <code>byte</code> in the Java programming language.
      * <p>
@@ -236,7 +236,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a <code>short</code> in the Java programming language.
      * <P>
@@ -261,7 +261,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as an <code>int</code> in the Java programming language.
      * <P>
@@ -286,7 +286,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a <code>long</code> in the Java programming language.
      * <P>
@@ -311,7 +311,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a <code>float</code> in the Java programming language.
      * <P>
@@ -336,7 +336,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a <code>double</code> in the Java programming language.
      * <P>
@@ -361,7 +361,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a <code>java.math.BigDecimal</code>.
      * <P>
@@ -386,7 +386,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as an array of bytes.
      * <p>
@@ -411,7 +411,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> as
      * a <code>java.sql.Date</code> object.
      * <P>
@@ -436,7 +436,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object as
      * a <code>java.sql.Time</code> object.
      * <P>
@@ -462,7 +462,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object as
      * a <code>java.sql.Timestamp</code> object.
      *
@@ -483,7 +483,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the next attribute in this <code>SQLInputImpl</code> object
      * as a stream of Unicode characters.
      * <P>
@@ -508,7 +508,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next attribute in this <code>SQLInputImpl</code> object
      * as a stream of ASCII characters.
      * <P>
@@ -534,7 +534,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the next attribute in this <code>SQLInputImpl</code> object
      * as a stream of uninterpreted bytes.
      * <P>
@@ -564,7 +564,7 @@ public class SQLInputImpl implements SQLInput {
     // Methods for reading items of SQL user-defined types from the stream.
     //================================================================
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value at the head of this <code>SQLInputImpl</code>
      * object as an <code>Object</code> in the Java programming language.  The
      * actual type of the object returned is determined by the default
@@ -627,7 +627,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the value at the head of this <code>SQLInputImpl</code> object
      * as a <code>Ref</code> object in the Java programming language.
      *
@@ -649,7 +649,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>BLOB</code> value at the head of this
      * <code>SQLInputImpl</code> object as a <code>Blob</code> object
      * in the Java programming language.
@@ -678,7 +678,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the <code>CLOB</code> value at the head of this
      * <code>SQLInputImpl</code> object as a <code>Clob</code> object
      * in the Java programming language.
@@ -707,7 +707,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>ARRAY</code> value from the stream and
      * returns it as an <code>Array</code> object in the Java programming
      * language.
@@ -737,7 +737,7 @@ public class SQLInputImpl implements SQLInput {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Ascertains whether the last value read from this
      * <code>SQLInputImpl</code> object was <code>null</code>.
      *
@@ -751,7 +751,7 @@ public class SQLInputImpl implements SQLInput {
         return lastValueWasNull;
     }
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>DATALINK</code> value from the stream and
      * returns it as an <code>URL</code> object in the Java programming
      * language.
@@ -774,7 +774,7 @@ public class SQLInputImpl implements SQLInput {
 
     //---------------------------- JDBC 4.0 -------------------------
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>NCLOB</code> value from the stream and returns it as a
      * <code>Clob</code> object in the Java programming language.
      *
@@ -787,7 +787,7 @@ public class SQLInputImpl implements SQLInput {
         throw new UnsupportedOperationException("Operation not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the next attribute in the stream and returns it as a <code>String</code>
      * in the Java programming language. It is intended for use when
      * accessing  <code>NCHAR</code>,<code>NVARCHAR</code>
@@ -800,7 +800,7 @@ public class SQLInputImpl implements SQLInput {
         throw new UnsupportedOperationException("Operation not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * Reads an SQL <code>XML</code> value from the stream and returns it as a
      * <code>SQLXML</code> object in the Java programming language.
      *
@@ -813,7 +813,7 @@ public class SQLInputImpl implements SQLInput {
         throw new UnsupportedOperationException("Operation not supported");
     }
 
-     /**
+     /** {@collect.stats}
      * Reads an SQL <code>ROWID</code> value from the stream and returns it as a
      * <code>RowId</code> object in the Java programming language.
      *

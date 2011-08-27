@@ -28,7 +28,7 @@ package javax.crypto;
 import java.security.*;
 import java.security.spec.*;
 
-/**
+/** {@collect.stats}
  * This class provides a delegate for the identity cipher - one that does not
  * tranform the plaintext.
  *

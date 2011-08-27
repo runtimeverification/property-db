@@ -32,7 +32,7 @@ import java.io.Serializable;
 import javax.management.ObjectName;
 
 
-/**
+/** {@collect.stats}
  * Used to represent the object name of an MBean and its class name.
  * If the MBean is a Dynamic MBean the class name should be retrieved from
  * the <CODE>MBeanInfo</CODE> it provides.
@@ -45,17 +45,17 @@ public class ObjectInstance implements Serializable   {
     /* Serial version */
     private static final long serialVersionUID = -4099952623687795850L;
 
-    /**
+    /** {@collect.stats}
      * @serial Object name.
      */
     private ObjectName name;
 
-    /**
+    /** {@collect.stats}
      * @serial Class name.
      */
     private String className;
 
-    /**
+    /** {@collect.stats}
      * Allows an object instance to be created given a string representation of
      * an object name and the full class name, including the package name.
      *
@@ -75,7 +75,7 @@ public class ObjectInstance implements Serializable   {
         this(new ObjectName(objectName), className);
     }
 
-    /**
+    /** {@collect.stats}
      * Allows an object instance to be created given an object name and
      * the full class name, including the package name.
      *
@@ -101,7 +101,7 @@ public class ObjectInstance implements Serializable   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Compares the current object instance with another object instance.
      *
      * @param object  The object instance that the current object instance is
@@ -125,7 +125,7 @@ public class ObjectInstance implements Serializable   {
         return name.hashCode() ^ classHash;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the object name part.
      *
      * @return the object name.
@@ -134,7 +134,7 @@ public class ObjectInstance implements Serializable   {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the class part.
      *
      * @return the class name.
@@ -143,7 +143,7 @@ public class ObjectInstance implements Serializable   {
         return className;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing this ObjectInstance object. The format of this string
      * is not specified, but users can expect that two ObjectInstances return the same
      * string if and only if they are equal.

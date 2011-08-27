@@ -29,7 +29,7 @@ import java.nio.ByteBuffer;
 
 import sun.security.jca.JCAUtil;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>MessageDigest</code> class, which provides the functionality
  * of a message digest algorithm, such as MD5 or SHA. Message digests are
@@ -53,7 +53,7 @@ public abstract class MessageDigestSpi {
     // for re-use in engineUpdate(ByteBuffer input)
     private byte[] tempArray;
 
-    /**
+    /** {@collect.stats}
      * Returns the digest length in bytes.
      *
      * <p>This concrete method has been added to this previously-defined
@@ -72,14 +72,14 @@ public abstract class MessageDigestSpi {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the digest using the specified byte.
      *
      * @param input the byte to use for the update.
      */
     protected abstract void engineUpdate(byte input);
 
-    /**
+    /** {@collect.stats}
      * Updates the digest using the specified array of bytes,
      * starting at the specified offset.
      *
@@ -92,7 +92,7 @@ public abstract class MessageDigestSpi {
      */
     protected abstract void engineUpdate(byte[] input, int offset, int len);
 
-    /**
+    /** {@collect.stats}
      * Update the digest using the specified ByteBuffer. The digest is
      * updated using the <code>input.remaining()</code> bytes starting
      * at <code>input.position()</code>.
@@ -128,7 +128,7 @@ public abstract class MessageDigestSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Completes the hash computation by performing final
      * operations such as padding. Once <code>engineDigest</code> has
      * been called, the engine should be reset (see
@@ -140,7 +140,7 @@ public abstract class MessageDigestSpi {
      */
     protected abstract byte[] engineDigest();
 
-    /**
+    /** {@collect.stats}
      * Completes the hash computation by performing final
      * operations such as padding. Once <code>engineDigest</code> has
      * been called, the engine should be reset (see
@@ -183,12 +183,12 @@ public abstract class MessageDigestSpi {
         return digest.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the digest for further use.
      */
     protected abstract void engineReset();
 
-    /**
+    /** {@collect.stats}
      * Returns a clone if the implementation is cloneable.
      *
      * @return a clone if the implementation is cloneable.

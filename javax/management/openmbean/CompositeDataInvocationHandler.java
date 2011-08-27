@@ -31,7 +31,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-/**
+/** {@collect.stats}
    <p>An {@link InvocationHandler} that forwards getter methods to a
    {@link CompositeData}.  If you have an interface that contains
    only getter methods (such as {@code String getName()} or
@@ -104,7 +104,7 @@ import java.lang.reflect.Proxy;
    @since 1.6
 */
 public class CompositeDataInvocationHandler implements InvocationHandler {
-    /**
+    /** {@collect.stats}
        <p>Construct a handler backed by the given {@code
        CompositeData}.</p>
 
@@ -118,7 +118,7 @@ public class CompositeDataInvocationHandler implements InvocationHandler {
         this(compositeData, null);
     }
 
-    /**
+    /** {@collect.stats}
        <p>Construct a handler backed by the given {@code
        CompositeData}.</p>
 
@@ -141,7 +141,7 @@ public class CompositeDataInvocationHandler implements InvocationHandler {
         this.lookup = lookup;
     }
 
-    /**
+    /** {@collect.stats}
        Return the {@code CompositeData} that was supplied to the
        constructor.
        @return the {@code CompositeData} that this handler is backed

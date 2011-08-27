@@ -30,7 +30,7 @@ import java.beans.*;
 import java.util.Set;
 
 
-/**
+/** {@collect.stats}
  * Provides a javax.swing.DefaultFocusManager view onto an arbitrary
  * java.awt.KeyboardFocusManager. We subclass DefaultFocusManager instead of
  * FocusManager because it seems more backward-compatible. It is likely that

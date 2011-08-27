@@ -25,7 +25,7 @@
 
 package javax.security.sasl;
 
-/**
+/** {@collect.stats}
  * This exception is thrown by a SASL mechanism implementation
  * to indicate that the SASL
  * exchange has failed due to reasons related to authentication, such as
@@ -44,7 +44,7 @@ package javax.security.sasl;
  * @author Rob Weltman
  */
 public class AuthenticationException extends SaslException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>AuthenticationException</tt>.
      * The root exception and the detailed message are null.
      */
@@ -52,7 +52,7 @@ public class AuthenticationException extends SaslException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>AuthenticationException</tt>
      * with a detailed message.
      * The root exception is null.
@@ -64,7 +64,7 @@ public class AuthenticationException extends SaslException {
         super(detail);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of <tt>AuthenticationException</tt> with a detailed message
      * and a root exception.
      *
@@ -78,6 +78,6 @@ public class AuthenticationException extends SaslException {
         super(detail, ex);
     }
 
-    /** Use serialVersionUID from JSR 28 RI for interoperability */
+    /** {@collect.stats} Use serialVersionUID from JSR 28 RI for interoperability */
     private static final long serialVersionUID = -3579708765071815007L;
 }

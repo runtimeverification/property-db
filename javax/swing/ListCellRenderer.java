@@ -28,7 +28,7 @@ package javax.swing;
 import java.awt.Component;
 
 
-/**
+/** {@collect.stats}
  * Identifies components that can be used as "rubber stamps" to paint
  * the cells in a JList.  For example, to use a JLabel as a
  * ListCellRenderer, you would write something like this:
@@ -84,7 +84,7 @@ import java.awt.Component;
  */
 public interface ListCellRenderer
 {
-    /**
+    /** {@collect.stats}
      * Return a component that has been configured to display the specified
      * value. That component's <code>paint</code> method is then called to
      * "render" the cell.  If it is necessary to compute the dimensions

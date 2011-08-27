@@ -35,7 +35,7 @@ import java.security.AccessController;
 
 import com.sun.jmx.mbeanserver.GetPropertyAction;
 
-/**
+/** {@collect.stats}
  * <p>The Notification class represents a notification emitted by an
  * MBean.  It contains a reference to the source MBean: if the
  * notification has been forwarded through the MBean server, and the
@@ -93,7 +93,7 @@ public class Notification extends EventObject {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField type String The notification type.
      *              A string expressed in a dot notation similar to Java properties.
      *              An example of a notification type is network.alarm.router
@@ -129,39 +129,39 @@ public class Notification extends EventObject {
     //
     // END Serialization compatibility stuff
 
-    /**
+    /** {@collect.stats}
      * @serial The notification type.
      *         A string expressed in a dot notation similar to Java properties.
      *         An example of a notification type is network.alarm.router
      */
     private String type;
 
-    /**
+    /** {@collect.stats}
      * @serial The notification sequence number.
      *         A serial number which identify particular instance
      *         of notification in the context of the notification source.
      */
     private long sequenceNumber;
 
-    /**
+    /** {@collect.stats}
      * @serial The notification timestamp.
      *         Indicating when the notification was generated
      */
     private long timeStamp;
 
-    /**
+    /** {@collect.stats}
      * @serial The notification user data.
      *         Used for whatever other data the notification
      *         source wishes to communicate to its consumers
      */
     private Object userData = null;
 
-    /**
+    /** {@collect.stats}
      * @serial The notification message.
      */
     private String message  = "";
 
-    /**
+    /** {@collect.stats}
      * <p>This field hides the {@link EventObject#source} field in the
      * parent class to make it non-transient and therefore part of the
      * serialized form.</p>
@@ -171,7 +171,7 @@ public class Notification extends EventObject {
     protected Object source = null;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a Notification object.
      * The notification timeStamp is set to the current date.
      *
@@ -188,7 +188,7 @@ public class Notification extends EventObject {
         this.timeStamp = (new java.util.Date()).getTime() ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a Notification object.
      * The notification timeStamp is set to the current date.
      *
@@ -207,7 +207,7 @@ public class Notification extends EventObject {
         this.message = message ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a Notification object.
      *
      * @param type The notification type.
@@ -224,7 +224,7 @@ public class Notification extends EventObject {
         this.timeStamp = timeStamp ;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a Notification object.
      *
      * @param type The notification type.
@@ -243,7 +243,7 @@ public class Notification extends EventObject {
         this.message = message ;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the source.
      *
      * @param source the new source for this object.
@@ -255,7 +255,7 @@ public class Notification extends EventObject {
         this.source = source;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the notification sequence number.
      *
      * @return The notification sequence number within the source object. It's a serial number
@@ -269,7 +269,7 @@ public class Notification extends EventObject {
         return sequenceNumber ;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the notification sequence number.
      *
      * @param sequenceNumber The notification sequence number within the source object. It is
@@ -282,7 +282,7 @@ public class Notification extends EventObject {
         this.sequenceNumber = sequenceNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the notification type.
      *
      * @return The notification type. It's a string expressed in a dot notation similar
@@ -292,7 +292,7 @@ public class Notification extends EventObject {
         return type ;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the notification timestamp.
      *
      * @return The notification timestamp.
@@ -303,7 +303,7 @@ public class Notification extends EventObject {
         return timeStamp ;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the notification timestamp.
      *
      * @param timeStamp The notification timestamp. It indicates when the notification was generated.
@@ -314,7 +314,7 @@ public class Notification extends EventObject {
         this.timeStamp = timeStamp;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the notification message.
      *
      * @return The message string of this notification object. It contains in a string,
@@ -325,7 +325,7 @@ public class Notification extends EventObject {
         return message ;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the user data.
      *
      * @return The user data object. It is used for whatever data
@@ -337,7 +337,7 @@ public class Notification extends EventObject {
         return userData ;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the user data.
      *
      * @param userData The user data object. It is used for whatever data
@@ -350,7 +350,7 @@ public class Notification extends EventObject {
         this.userData = userData ;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a String representation of this notification.
      *
      * @return A String representation of this notification.
@@ -359,7 +359,7 @@ public class Notification extends EventObject {
         return super.toString()+"[type="+type+"][message="+message+"]";
     }
 
-    /**
+    /** {@collect.stats}
      * Deserializes a {@link Notification} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -370,7 +370,7 @@ public class Notification extends EventObject {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes a {@link Notification} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

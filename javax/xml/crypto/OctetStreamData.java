@@ -29,7 +29,7 @@ package javax.xml.crypto;
 
 import java.io.InputStream;
 
-/**
+/** {@collect.stats}
  * A representation of a <code>Data</code> type containing an octet stream.
  *
  * @since 1.6
@@ -40,7 +40,7 @@ public class OctetStreamData implements Data {
     private String uri;
     private String mimeType;
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>OctetStreamData</code>.
      *
      * @param octetStream the input stream containing the octets
@@ -54,7 +54,7 @@ public class OctetStreamData implements Data {
         this.octetStream = octetStream;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new <code>OctetStreamData</code>.
      *
      * @param octetStream the input stream containing the octets
@@ -75,7 +75,7 @@ public class OctetStreamData implements Data {
         this.mimeType = mimeType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the input stream of this <code>OctetStreamData</code>.
      *
      * @return the input stream of this <code>OctetStreamData</code>.
@@ -84,7 +84,7 @@ public class OctetStreamData implements Data {
         return octetStream;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the URI String identifying the data object represented by this
      * <code>OctetStreamData</code>.
      *
@@ -94,7 +94,7 @@ public class OctetStreamData implements Data {
         return uri;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the MIME type associated with the data object represented by this
      * <code>OctetStreamData</code>.
      *

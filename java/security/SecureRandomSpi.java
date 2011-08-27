@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>SecureRandom</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -41,7 +41,7 @@ public abstract class SecureRandomSpi implements java.io.Serializable {
 
     private static final long serialVersionUID = -2991854161009191830L;
 
-    /**
+    /** {@collect.stats}
      * Reseeds this random object. The given seed supplements, rather than
      * replaces, the existing seed. Thus, repeated calls are guaranteed
      * never to reduce randomness.
@@ -50,7 +50,7 @@ public abstract class SecureRandomSpi implements java.io.Serializable {
      */
     protected abstract void engineSetSeed(byte[] seed);
 
-    /**
+    /** {@collect.stats}
      * Generates a user-specified number of random bytes.
      *
      * <p> If a call to <code>engineSetSeed</code> had not occurred previously,
@@ -62,7 +62,7 @@ public abstract class SecureRandomSpi implements java.io.Serializable {
      */
     protected abstract void engineNextBytes(byte[] bytes);
 
-    /**
+    /** {@collect.stats}
      * Returns the given number of seed bytes.  This call may be used to
      * seed other random number generators.
      *

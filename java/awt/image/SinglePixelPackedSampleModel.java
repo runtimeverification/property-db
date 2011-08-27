@@ -37,7 +37,7 @@ package java.awt.image;
 
 import java.util.Arrays;
 
-/**
+/** {@collect.stats}
  *  This class represents pixel data packed such that the N samples which make
  *  up a single pixel are stored in a single data array element, and each data
  *  data array element holds samples for only one pixel.
@@ -65,19 +65,19 @@ import java.util.Arrays;
 
 public class SinglePixelPackedSampleModel extends SampleModel
 {
-    /** Bit masks for all bands of the image data. */
+    /** {@collect.stats} Bit masks for all bands of the image data. */
     private int bitMasks[];
 
-    /** Bit Offsets for all bands of the image data. */
+    /** {@collect.stats} Bit Offsets for all bands of the image data. */
     private int bitOffsets[];
 
-    /** Bit sizes for all the bands of the image data. */
+    /** {@collect.stats} Bit sizes for all the bands of the image data. */
     private int bitSizes[];
 
-    /** Maximum bit size. */
+    /** {@collect.stats} Maximum bit size. */
     private int maxBitSize;
 
-    /** Line stride of the region of image data described by this
+    /** {@collect.stats} Line stride of the region of image data described by this
      *  SinglePixelPackedSampleModel.
      */
     private int scanlineStride;
@@ -88,7 +88,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         initIDs();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SinglePixelPackedSampleModel with bitMasks.length bands.
      * Each sample is stored in a data array element in the position of
      * its corresponding bit mask.  Each bit mask must be contiguous and
@@ -115,7 +115,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a SinglePixelPackedSampleModel with bitMasks.length bands
      * and a scanline stride equal to scanlineStride data array elements.
      * Each sample is stored in a data array element in the position of
@@ -180,7 +180,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of data elements needed to transfer one pixel
      * via the getDataElements and setDataElements methods.
      * For a SinglePixelPackedSampleModel, this is one.
@@ -189,7 +189,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return 1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the size of the buffer (in data array elements)
      * needed for a data buffer that matches this
      * SinglePixelPackedSampleModel.
@@ -199,7 +199,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
       return size;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new SinglePixelPackedSampleModel with the specified
      * width and height.  The new SinglePixelPackedSampleModel will have the
      * same storage data type and bit masks as this
@@ -217,7 +217,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
       return sampleModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a DataBuffer that corresponds to this
      * SinglePixelPackedSampleModel.  The DataBuffer's data type and size
      * will be consistent with this SinglePixelPackedSampleModel.  The
@@ -241,7 +241,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return dataBuffer;
     }
 
-    /** Returns the number of bits per sample for all bands. */
+    /** {@collect.stats} Returns the number of bits per sample for all bands. */
     public int[] getSampleSize() {
         int mask;
         int sampleSize[] = new int [numBands];
@@ -257,7 +257,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return sampleSize;
     }
 
-    /** Returns the number of bits per sample for the specified band. */
+    /** {@collect.stats} Returns the number of bits per sample for the specified band. */
     public int getSampleSize(int band) {
         int sampleSize = 0;
         int mask = bitMasks[band] >>> bitOffsets[band];
@@ -269,7 +269,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return sampleSize;
     }
 
-    /** Returns the offset (in data array elements) of pixel (x,y).
+    /** {@collect.stats} Returns the offset (in data array elements) of pixel (x,y).
      *  The data element containing pixel <code>x,y</code>
      *  can be retrieved from a DataBuffer <code>data</code> with a
      *  SinglePixelPackedSampleModel <code>sppsm</code> as:
@@ -285,7 +285,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return offset;
     }
 
-    /** Returns the bit offsets into the data array element representing
+    /** {@collect.stats} Returns the bit offsets into the data array element representing
      *  a pixel for all bands.
      *  @return the bit offsets representing a pixel for all bands.
      */
@@ -293,14 +293,14 @@ public class SinglePixelPackedSampleModel extends SampleModel
       return (int[])bitOffsets.clone();
     }
 
-    /** Returns the bit masks for all bands.
+    /** {@collect.stats} Returns the bit masks for all bands.
      *  @return the bit masks for all bands.
      */
     public int [] getBitMasks() {
       return (int[])bitMasks.clone();
     }
 
-    /** Returns the scanline stride of this SinglePixelPackedSampleModel.
+    /** {@collect.stats} Returns the scanline stride of this SinglePixelPackedSampleModel.
      *  @return the scanline stride of this
      *          <code>SinglePixelPackedSampleModel</code>.
      */
@@ -308,7 +308,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
       return scanlineStride;
     }
 
-    /**
+    /** {@collect.stats}
      * This creates a new SinglePixelPackedSampleModel with a subset of the
      * bands of this SinglePixelPackedSampleModel.  The new
      * SinglePixelPackedSampleModel can be used with any DataBuffer that the
@@ -333,7 +333,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
                                            this.scanlineStride, newBitMasks);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns data for a single pixel in a primitive array of type
      * TransferType.  For a SinglePixelPackedSampleModel, the array will
      * have one element, and the type will be the same as the storage
@@ -429,7 +429,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return obj;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples in for the specified pixel in an int array.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -459,7 +459,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns all samples for the specified rectangle of pixels in
      * an int array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -501,7 +501,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return pixels;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns as int the sample in a specified band for the pixel
      * located at (x,y).
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -524,7 +524,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return ((sample & bitMasks[b]) >>> bitOffsets[b]);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the samples for a specified band for the specified rectangle
      * of pixels in an int array, one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -567,7 +567,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         return samples;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the data for a single pixel in the specified DataBuffer from a
      * primitive array of type TransferType.  For a
      * SinglePixelPackedSampleModel, only the first element of the array
@@ -632,7 +632,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a pixel in the DataBuffer using an int array of samples for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
      * not in bounds.
@@ -658,7 +658,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         data.setElem(lineOffset, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets all samples for a rectangle of pixels from an int array containing
      * one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -696,7 +696,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets a sample in the specified band for the pixel located at (x,y)
      * in the DataBuffer using an int for input.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are
@@ -721,7 +721,7 @@ public class SinglePixelPackedSampleModel extends SampleModel
         data.setElem(y*scanlineStride + x,value);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the samples in the specified band for the specified rectangle
      * of pixels from an int array containing one sample per array element.
      * ArrayIndexOutOfBoundsException may be thrown if the coordinates are

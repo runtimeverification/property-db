@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * This exception is thrown by
  * <code>doPrivileged(PrivilegedExceptionAction)</code> and
  * <code>doPrivileged(PrivilegedExceptionAction,
@@ -51,12 +51,12 @@ public class PrivilegedActionException extends Exception {
     // use serialVersionUID from JDK 1.2.2 for interoperability
     private static final long serialVersionUID = 4724086851538908602L;
 
-    /**
+    /** {@collect.stats}
      * @serial
      */
     private Exception exception;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new PrivilegedActionException &quot;wrapping&quot;
      * the specific Exception.
      *
@@ -67,7 +67,7 @@ public class PrivilegedActionException extends Exception {
         this.exception = exception;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the exception thrown by the privileged computation that
      * resulted in this <code>PrivilegedActionException</code>.
      *
@@ -86,7 +86,7 @@ public class PrivilegedActionException extends Exception {
         return exception;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the the cause of this exception (the exception thrown by
      * the privileged computation that resulted in this
      * <code>PrivilegedActionException</code>).

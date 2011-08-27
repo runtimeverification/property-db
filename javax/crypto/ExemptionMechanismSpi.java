@@ -31,7 +31,7 @@ import java.security.InvalidKeyException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.spec.AlgorithmParameterSpec;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>ExemptionMechanism</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -45,7 +45,7 @@ import java.security.spec.AlgorithmParameterSpec;
 
 public abstract class ExemptionMechanismSpi {
 
-    /**
+    /** {@collect.stats}
      * Returns the length in bytes that an output buffer would need to be in
      * order to hold the result of the next
      * {@link #engineGenExemptionBlob(byte[], int) engineGenExemptionBlob}
@@ -61,7 +61,7 @@ public abstract class ExemptionMechanismSpi {
      */
     protected abstract int engineGetOutputSize(int inputLen);
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key.
      *
      * <p>If this exemption mechanism requires any algorithm parameters
@@ -81,7 +81,7 @@ public abstract class ExemptionMechanismSpi {
     protected abstract void engineInit(Key key)
     throws InvalidKeyException, ExemptionMechanismException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key and a set of algorithm
      * parameters.
      *
@@ -106,7 +106,7 @@ public abstract class ExemptionMechanismSpi {
     throws InvalidKeyException, InvalidAlgorithmParameterException,
     ExemptionMechanismException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this exemption mechanism with a key and a set of algorithm
      * parameters.
      *
@@ -131,7 +131,7 @@ public abstract class ExemptionMechanismSpi {
     throws InvalidKeyException, InvalidAlgorithmParameterException,
     ExemptionMechanismException;
 
-    /**
+    /** {@collect.stats}
      * Generates the exemption mechanism key blob.
      *
      * @return the new buffer with the result key blob.
@@ -142,7 +142,7 @@ public abstract class ExemptionMechanismSpi {
     protected abstract byte[] engineGenExemptionBlob()
         throws ExemptionMechanismException;
 
-    /**
+    /** {@collect.stats}
      * Generates the exemption mechanism key blob, and stores the result in
      * the <code>output</code> buffer, starting at <code>outputOffset</code>
      * inclusive.

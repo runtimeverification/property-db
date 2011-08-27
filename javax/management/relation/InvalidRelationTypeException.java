@@ -25,7 +25,7 @@
 
 package javax.management.relation;
 
-/**
+/** {@collect.stats}
  * Invalid relation type.
  * This exception is raised when, in a relation type, there is already a
  * relation type with that name, or the same name has been used for two
@@ -39,14 +39,14 @@ public class InvalidRelationTypeException extends RelationException {
     /* Serial version */
     private static final long serialVersionUID = 3007446608299169961L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, no message put in exception.
      */
     public InvalidRelationTypeException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor with given message put in exception.
      *
      * @param message the detail message.

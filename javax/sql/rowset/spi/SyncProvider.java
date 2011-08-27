@@ -27,7 +27,7 @@ package javax.sql.rowset.spi;
 
 import javax.sql.*;
 
-/**
+/** {@collect.stats}
  * The synchronization mechanism that provides reader/writer capabilities for
  * disconnected <code>RowSet</code> objects.
  * A <code>SyncProvider</code> implementation is a class that extends the
@@ -212,13 +212,13 @@ import javax.sql.*;
  */
 public abstract class SyncProvider {
 
-   /**
+   /** {@collect.stats}
     * Creates a default <code>SyncProvider</code> object.
     */
     public SyncProvider() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique identifier for this <code>SyncProvider</code> object.
      *
      * @return a <code>String</code> object with the fully qualified class name of
@@ -226,7 +226,7 @@ public abstract class SyncProvider {
      */
     public abstract String getProviderID();
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>javax.sql.RowSetReader</code> object, which can be used to
      * populate a <code>RowSet</code> object with data.
      *
@@ -234,7 +234,7 @@ public abstract class SyncProvider {
      */
     public abstract RowSetReader getRowSetReader();
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>javax.sql.RowSetWriter</code> object, which can be
      * used to write a <code>RowSet</code> object's data back to the
      * underlying data source.
@@ -243,7 +243,7 @@ public abstract class SyncProvider {
      */
     public abstract RowSetWriter getRowSetWriter();
 
-    /**
+    /** {@collect.stats}
      * Returns a constant indicating the
      * grade of synchronization a <code>RowSet</code> object can expect from
      * this <code>SyncProvider</code> object.
@@ -258,7 +258,7 @@ public abstract class SyncProvider {
     public abstract int getProviderGrade();
 
 
-    /**
+    /** {@collect.stats}
      * Sets a lock on the underlying data source at the level indicated by
      * <i>datasource_lock</i>. This should cause the
      * <code>SyncProvider</code> to adjust its behavior by increasing or
@@ -280,7 +280,7 @@ public abstract class SyncProvider {
     public abstract void setDataSourceLock(int datasource_lock)
         throws SyncProviderException;
 
-    /**
+    /** {@collect.stats}
      * Returns the current data source lock severity level active in this
      * <code>SyncProvider</code> implementation.
      *
@@ -301,7 +301,7 @@ public abstract class SyncProvider {
     public abstract int getDataSourceLock()
         throws SyncProviderException;
 
-    /**
+    /** {@collect.stats}
      * Returns whether this <code>SyncProvider</code> implementation
      * can perform synchronization between a <code>RowSet</code> object
      * and the SQL <code>VIEW</code> in the data source from which
@@ -315,7 +315,7 @@ public abstract class SyncProvider {
      */
     public abstract int supportsUpdatableView();
 
-    /**
+    /** {@collect.stats}
      * Returns the release version of this <code>SyncProvider</code> instance.
      *
      * @return a <code>String</code> detailing the release version of the
@@ -323,7 +323,7 @@ public abstract class SyncProvider {
      */
     public abstract String getVersion();
 
-    /**
+    /** {@collect.stats}
      * Returns the vendor name of this <code>SyncProvider</code> instance
      *
      * @return a <code>String</code> detailing the vendor name of this
@@ -336,7 +336,7 @@ public abstract class SyncProvider {
      * could provide.
      */
 
-    /**
+    /** {@collect.stats}
      * Indicates that no synchronization with the originating data source is
      * provided. A <code>SyncProvider</code>
      * implementation returning this grade will simply attempt to write
@@ -346,7 +346,7 @@ public abstract class SyncProvider {
      */
     public static int GRADE_NONE = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates a low level optimistic synchronization grade with
      * respect to the originating data source.
      *
@@ -356,7 +356,7 @@ public abstract class SyncProvider {
      */
     public static int GRADE_CHECK_MODIFIED_AT_COMMIT = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates a high level optimistic synchronization grade with
      * respect to the originating data source.
      *
@@ -366,7 +366,7 @@ public abstract class SyncProvider {
      */
     public static int GRADE_CHECK_ALL_AT_COMMIT = 3;
 
-    /**
+    /** {@collect.stats}
      * Indicates a pessimistic synchronization grade with
      * respect to the originating data source.
      *
@@ -376,7 +376,7 @@ public abstract class SyncProvider {
      */
     public static int GRADE_LOCK_WHEN_MODIFIED = 4;
 
-    /**
+    /** {@collect.stats}
      * Indicates the most pessimistic synchronization grade with
      * respect to the originating
      * data source. A <code>SyncProvider</code>
@@ -386,42 +386,42 @@ public abstract class SyncProvider {
      */
     public static int GRADE_LOCK_WHEN_LOADED = 5;
 
-    /**
+    /** {@collect.stats}
      * Indicates that no locks remain on the originating data source. This is the default
      * lock setting for all <code>SyncProvider</code> implementations unless
      * otherwise directed by a <code>RowSet</code> object.
      */
     public static int DATASOURCE_NO_LOCK = 1;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a lock is placed on the rows that are touched by the original
      * SQL statement used to populate the <code>RowSet</code> object
      * that is using this <code>SyncProvider</code> object.
      */
     public static int DATASOURCE_ROW_LOCK = 2;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a lock is placed on all tables that are touched by the original
      * SQL statement used to populate the <code>RowSet</code> object
      * that is using this <code>SyncProvider</code> object.
      */
     public static int DATASOURCE_TABLE_LOCK = 3;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a lock is placed on the entire data source that is the source of
      * data for the <code>RowSet</code> object
      * that is using this <code>SyncProvider</code> object.
      */
     public static int DATASOURCE_DB_LOCK = 4;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a <code>SyncProvider</code> implementation
      * supports synchronization between a <code>RowSet</code> object and
      * the SQL <code>VIEW</code> used to populate it.
      */
     public static int UPDATABLE_VIEW_SYNC = 5;
 
-    /**
+    /** {@collect.stats}
      * Indicates that a <code>SyncProvider</code> implementation
      * does <B>not</B> support synchronization between a <code>RowSet</code>
      * object and the SQL <code>VIEW</code> used to populate it.

@@ -28,7 +28,7 @@ package javax.net.ssl;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Indicates some kind of error detected by an SSL subsystem.
  * This class is the general class of exceptions produced
  * by failed SSL-related operations.
@@ -41,7 +41,7 @@ class SSLException extends IOException
 {
     private static final long serialVersionUID = 4511006460650708967L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an exception reporting an error found by
      * an SSL subsystem.
      *
@@ -52,7 +52,7 @@ class SSLException extends IOException
         super(reason);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SSLException</code> with the specified
      * detail message and cause.
      *
@@ -69,7 +69,7 @@ class SSLException extends IOException
         initCause(cause);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>SSLException</code> with the specified cause
      * and a detail message of <tt>(cause==null ? null : cause.toString())</tt>
      * (which typically contains the class and detail message of

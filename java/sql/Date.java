@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * <P>A thin wrapper around a millisecond value that allows
  * JDBC to identify this as an SQL <code>DATE</code> value.  A
  * milliseconds value represents the number of milliseconds that
@@ -39,7 +39,7 @@ package java.sql;
  */
 public class Date extends java.util.Date {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Date</code> object initialized with the given
      * year, month, and day.
      * <P>
@@ -55,7 +55,7 @@ public class Date extends java.util.Date {
         super(year, month, day);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>Date</code> object using the given milliseconds
      * time value.  If the given milliseconds value contains time
      * information, the driver will set the time components to the
@@ -73,7 +73,7 @@ public class Date extends java.util.Date {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Sets an existing <code>Date</code> object
      * using the given milliseconds time value.
      * If the given milliseconds value contains time information,
@@ -91,7 +91,7 @@ public class Date extends java.util.Date {
         super.setTime(date);
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a string in JDBC date escape format to
      * a <code>Date</code> value.
      *
@@ -124,7 +124,7 @@ public class Date extends java.util.Date {
         return new Date(year, month, day);
     }
 
-    /**
+    /** {@collect.stats}
      * Formats a date in the date escape format yyyy-mm-dd.
      * <P>
      * @return a String in yyyy-mm-dd format
@@ -149,7 +149,7 @@ public class Date extends java.util.Date {
 
     // Override all the time operations inherited from java.util.Date;
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -161,7 +161,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -173,7 +173,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -185,7 +185,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -197,7 +197,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -209,7 +209,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * This method is deprecated and should not be used because SQL Date
     * values do not have a time component.
     *
@@ -221,7 +221,7 @@ public class Date extends java.util.Date {
         throw new java.lang.IllegalArgumentException();
     }
 
-   /**
+   /** {@collect.stats}
     * Private serial version unique ID to ensure serialization
     * compatibility.
     */

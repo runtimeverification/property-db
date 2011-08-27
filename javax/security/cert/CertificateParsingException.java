@@ -26,7 +26,7 @@
 
 package javax.security.cert;
 
-/**
+/** {@collect.stats}
  * Certificate Parsing Exception. This is thrown whenever
  * invalid DER encoded certificate is parsed or unsupported DER features
  * are found in the Certificate.
@@ -42,7 +42,7 @@ package javax.security.cert;
  */
 public class CertificateParsingException extends CertificateException {
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateParsingException with no detail message. A
      * detail message is a String that describes this particular
      * exception.
@@ -51,7 +51,7 @@ public class CertificateParsingException extends CertificateException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a CertificateParsingException with the specified detail
      * message. A detail message is a String that describes this
      * particular exception.

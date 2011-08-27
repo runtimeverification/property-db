@@ -26,7 +26,7 @@
 
 package javax.print.attribute;
 
-/**
+/** {@collect.stats}
  * Interface SupportedValuesAttribute is a tagging interface which a printing
  * attribute class implements to indicate the attribute describes the supported
  * values for another attribute. For example, if a Print Service instance

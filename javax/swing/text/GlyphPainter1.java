@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.awt.*;
 
-/**
+/** {@collect.stats}
  * A class to perform rendering of the glyphs.
  * This can be implemented to be stateless, or
  * to hold some information as a cache to
@@ -50,7 +50,7 @@ import java.awt.*;
  */
 class GlyphPainter1 extends GlyphView.GlyphPainter {
 
-    /**
+    /** {@collect.stats}
      * Determine the span the glyphs given a start location
      * (for tab expansion).
      */
@@ -70,7 +70,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
         return metrics.getHeight();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the ascent above the baseline for the glyphs
      * corresponding to the given range in the model.
      */
@@ -79,7 +79,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
         return metrics.getAscent();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the descent below the baseline for the glyphs
      * corresponding to the given range in the model.
      */
@@ -88,7 +88,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
         return metrics.getDescent();
     }
 
-    /**
+    /** {@collect.stats}
      * Paints the glyphs representing the given range.
      */
     public void paint(GlyphView v, Graphics g, Shape a, int p0, int p1) {
@@ -149,7 +149,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
         throw new BadLocationException("modelToView - can't convert", p1);
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a mapping from the view coordinate space to the logical
      * coordinate space of the model.
      *
@@ -187,7 +187,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
         return retValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the best location (in the model) to break
      * the given view.
      * This method attempts to break on a whitespace
@@ -230,7 +230,7 @@ class GlyphPainter1 extends GlyphView.GlyphPainter {
 
 
 
-    /**
+    /** {@collect.stats}
      * @return justificationData from the ParagraphRow this GlyphView
      * is in or {@code null} if no justification is needed
      */

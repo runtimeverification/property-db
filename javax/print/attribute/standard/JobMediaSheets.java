@@ -29,7 +29,7 @@ import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintRequestAttribute;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobMediaSheets is an integer valued printing attribute class that
  * specifies the total number of media sheets to be produced for this job.
  * <P>
@@ -72,7 +72,7 @@ public class JobMediaSheets extends IntegerSyntax
 
     private static final long serialVersionUID = 408871131531979741L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job media sheets attribute with the given integer
      * value.
      *
@@ -85,7 +85,7 @@ public class JobMediaSheets extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job media sheets attribute is equivalent to the
      * passed in object. To be equivalent, all of the following conditions must
      * be true:
@@ -108,7 +108,7 @@ public class JobMediaSheets extends IntegerSyntax
         return super.equals(object) && object instanceof JobMediaSheets;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -122,7 +122,7 @@ public class JobMediaSheets extends IntegerSyntax
         return JobMediaSheets.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

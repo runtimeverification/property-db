@@ -42,7 +42,7 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class represents a relative distinguished name, or RDN, which is a
  * component of a distinguished name as specified by
  * <a href="http://ietf.org/rfc/rfc2253.txt">RFC 2253</a>.
@@ -112,7 +112,7 @@ public class Rdn implements Serializable, Comparable<Object> {
 
     private static final long serialVersionUID = -5994465067210009656L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an Rdn from the given attribute set. See
      * {@link javax.naming.directory.Attributes Attributes}.
      * <p>
@@ -149,7 +149,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         sort(); // arrange entries for comparison
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an Rdn from the given string.
      * This constructor takes a string formatted according to the rules
      * defined in <a href="http://ietf.org//rfc/rfc2253.txt">RFC 2253</a>
@@ -165,7 +165,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         (new Rfc2253Parser(rdnString)).parseRdn(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an Rdn from the given <tt>rdn</tt>.
      * The contents of the <tt>rdn</tt> are simply copied into the newly
      * created Rdn.
@@ -176,7 +176,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         entries.addAll(rdn.entries);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an Rdn from the given attribute type and
      * value.
      * The string attribute values are not interpretted as
@@ -245,7 +245,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves one of this Rdn's value.
      * This is a convenience method for obtaining the value,
      * when the RDN contains a single type and value mapping,
@@ -260,7 +260,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return ((RdnEntry) entries.get(0)).getValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves one of this Rdn's type.
      * This is a convenience method for obtaining the type,
      * when the RDN contains a single type and value mapping,
@@ -278,7 +278,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return ((RdnEntry) entries.get(0)).getType();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns this Rdn as a string represented in a format defined by
      * <a href="http://ietf.org//rfc/rfc2253.txt">RFC 2253</a> and described
      * in the class description for {@link javax.naming.ldap.LdapName LdapName}.
@@ -298,7 +298,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return builder.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Compares this Rdn with the specified Object for order.
      * Returns a negative integer, zero, or a positive integer as this
      * Rdn is less than, equal to, or greater than the given Object.
@@ -338,7 +338,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return (entries.size() - that.entries.size());  // longer RDN wins
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Object with this Rdn for equality.
      * Returns true if the given object is also a Rdn and the two Rdns
      * represent the same attribute type and value mappings. The order of
@@ -378,7 +378,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code of this RDN. Two RDNs that are
      * equal (according to the equals method) will have the same
      * hash code.
@@ -398,7 +398,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return hash;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the {@link javax.naming.directory.Attributes Attributes}
      * view of the type/value mappings contained in this Rdn.
      *
@@ -492,7 +492,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of attribute type/value pairs in this Rdn.
      * @return The non-negative number of type/value pairs in this Rdn.
      */
@@ -500,7 +500,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return entries.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Given the value of an attribute, returns a string escaped according
      * to the rules specified in
      * <a href="http://ietf.org/rfc/rfc2253.txt">RFC 2253</a>.
@@ -579,7 +579,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         // return builder.toString().toUpperCase();
     }
 
-    /**
+    /** {@collect.stats}
      * Given an attribute value string formated according to the rules
      * specified in
      * <a href="http://ietf.org//rfc/rfc2253.txt">RFC 2253</a>,
@@ -740,7 +740,7 @@ public class Rdn implements Serializable, Comparable<Object> {
         return (c == ' ' || c == '\r');
     }
 
-    /**
+    /** {@collect.stats}
      * Serializes only the unparsed RDN, for compactness and to avoid
      * any implementation dependency.
      *

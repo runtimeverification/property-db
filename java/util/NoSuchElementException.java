@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Thrown by the <code>nextElement</code> method of an
  * <code>Enumeration</code> to indicate that there are no more
  * elements in the enumeration.
@@ -37,7 +37,7 @@ package java.util;
  */
 public
 class NoSuchElementException extends RuntimeException {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchElementException</code> with <tt>null</tt>
      * as its error message string.
      */
@@ -45,7 +45,7 @@ class NoSuchElementException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchElementException</code>, saving a reference
      * to the error message string <tt>s</tt> for later retrieval by the
      * <tt>getMessage</tt> method.

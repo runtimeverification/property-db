@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Can be implemented by an MBean in order to
  * carry out operations before and after being registered or unregistered from
  * the MBean server.
@@ -36,7 +36,7 @@ package javax.management;
 public interface MBeanRegistration   {
 
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations it needs before
      * being registered in the MBean server.  If the name of the MBean
      * is not specified, the MBean can provide a name for its
@@ -63,7 +63,7 @@ public interface MBeanRegistration   {
     public ObjectName preRegister(MBeanServer server,
                                   ObjectName name) throws java.lang.Exception;
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations needed after having been
      * registered in the MBean server or after the registration has failed.
      *
@@ -73,7 +73,7 @@ public interface MBeanRegistration   {
      */
     public void postRegister(Boolean registrationDone);
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations it needs before
      * being unregistered by the MBean server.
      *
@@ -83,7 +83,7 @@ public interface MBeanRegistration   {
      */
     public void preDeregister() throws java.lang.Exception ;
 
-    /**
+    /** {@collect.stats}
      * Allows the MBean to perform any operations needed after having been
      * unregistered in the MBean server.
      */

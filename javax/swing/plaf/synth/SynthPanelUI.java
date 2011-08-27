@@ -35,7 +35,7 @@ import java.awt.event.*;
 import java.beans.*;
 import sun.swing.plaf.synth.SynthUI;
 
-/**
+/** {@collect.stats}
  * Synth's PanelUI.
  *
  * @author Steve Wilson

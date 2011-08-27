@@ -24,7 +24,7 @@
  */
 package java.rmi;
 
-/**
+/** {@collect.stats}
  * An <code>RMISecurityException</code> signals that a security exception
  * has occurred during the execution of one of
  * <code>java.rmi.RMISecurityManager</code>'s methods.
@@ -42,7 +42,7 @@ public class RMISecurityException extends java.lang.SecurityException {
     /* indicate compatibility with JDK 1.1.x version of class */
      private static final long serialVersionUID = -8433406075740433514L;
 
-    /**
+    /** {@collect.stats}
      * Construct an <code>RMISecurityException</code> with a detail message.
      * @param name the detail message
      * @since JDK1.1
@@ -53,7 +53,7 @@ public class RMISecurityException extends java.lang.SecurityException {
         super(name);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct an <code>RMISecurityException</code> with a detail message.
      * @param name the detail message
      * @param arg ignored

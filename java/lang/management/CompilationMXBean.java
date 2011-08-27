@@ -25,7 +25,7 @@
 
 package java.lang.management;
 
-/**
+/** {@collect.stats}
  * The management interface for the compilation system of
  * the Java virtual machine.
  *
@@ -53,14 +53,14 @@ package java.lang.management;
  * @since   1.5
  */
 public interface CompilationMXBean {
-    /**
+    /** {@collect.stats}
      * Returns the name of the Just-in-time (JIT) compiler.
      *
      * @return the name of the JIT compiler.
      */
     public java.lang.String    getName();
 
-    /**
+    /** {@collect.stats}
      * Tests if the Java virtual machine supports the monitoring of
      * compilation time.
      *
@@ -69,7 +69,7 @@ public interface CompilationMXBean {
      */
     public boolean isCompilationTimeMonitoringSupported();
 
-    /**
+    /** {@collect.stats}
      * Returns the approximate accumlated elapsed time (in milliseconds)
      * spent in compilation.
      * If multiple threads are used for compilation, this value is

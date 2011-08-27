@@ -30,7 +30,7 @@ import javax.swing.event.*;
 import java.awt.Color;
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * A generic implementation of <code>ColorSelectionModel</code>.
  *
  * @author Steve Wilson
@@ -39,7 +39,7 @@ import java.io.Serializable;
  */
 public class DefaultColorSelectionModel implements ColorSelectionModel, Serializable {
 
-    /**
+    /** {@collect.stats}
      * Only one <code>ChangeEvent</code> is needed per model instance
      * since the event's only (read-only) state is the source property.
      * The source of events generated here is always "this".
@@ -50,7 +50,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
 
     private Color selectedColor;
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DefaultColorSelectionModel</code> with the
      * current color set to <code>Color.white</code>.  This is
      * the default constructor.
@@ -59,7 +59,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
         selectedColor = Color.white;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>DefaultColorSelectionModel</code> with the
      * current color set to <code>color</code>, which should be
      * non-<code>null</code>.  Note that setting the color to
@@ -72,7 +72,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
         selectedColor = color;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the selected <code>Color</code> which should be
      * non-<code>null</code>.
      *
@@ -82,7 +82,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
         return selectedColor;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selected color to <code>color</code>.
      * Note that setting the color to <code>null</code>
      * is undefined and may have unpredictable results.
@@ -101,7 +101,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds a <code>ChangeListener</code> to the model.
      *
      * @param l the <code>ChangeListener</code> to be added
@@ -110,7 +110,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
         listenerList.add(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a <code>ChangeListener</code> from the model.
      * @param l the <code>ChangeListener</code> to be removed
      */
@@ -118,7 +118,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
         listenerList.remove(ChangeListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>ChangeListener</code>s added
      * to this <code>DefaultColorSelectionModel</code> with
      * <code>addChangeListener</code>.
@@ -132,7 +132,7 @@ public class DefaultColorSelectionModel implements ColorSelectionModel, Serializ
                 ChangeListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Runs each <code>ChangeListener</code>'s
      * <code>stateChanged</code> method.
      *

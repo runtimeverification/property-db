@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Collection;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * A simple implementation of Bindings backed by
  * a <code>HashMap</code> or some other specified <code>Map</code>.
  *
@@ -39,12 +39,12 @@ import java.util.Set;
  */
 public class SimpleBindings implements Bindings {
 
-    /**
+    /** {@collect.stats}
      * The <code>Map</code> field stores the attributes.
      */
     private Map<String,Object> map;
 
-    /**
+    /** {@collect.stats}
      * Constructor uses an existing <code>Map</code> to store the values.
      * @param m The <code>Map</code> backing this <code>SimpleBindings</code>.
      * @throws NullPointerException if m is null
@@ -56,14 +56,14 @@ public class SimpleBindings implements Bindings {
         this.map = m;
     }
 
-    /**
+    /** {@collect.stats}
      * Default constructor uses a <code>HashMap</code>.
      */
     public SimpleBindings() {
         this(new HashMap<String,Object>());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified key/value in the underlying <code>map</code> field.
      *
      * @param name Name of value
@@ -80,7 +80,7 @@ public class SimpleBindings implements Bindings {
         return map.put(name,value);
     }
 
-    /**
+    /** {@collect.stats}
      * <code>putAll</code> is implemented using <code>Map.putAll</code>.
      *
      * @param toMerge The <code>Map</code> of values to add.
@@ -101,12 +101,12 @@ public class SimpleBindings implements Bindings {
         }
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public void clear() {
         map.clear();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <tt>true</tt> if this map contains a mapping for the specified
      * key.  More formally, returns <tt>true</tt> if and only if
      * this map contains a mapping for a key <tt>k</tt> such that
@@ -126,17 +126,17 @@ public class SimpleBindings implements Bindings {
         return map.containsKey(key);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public boolean containsValue(Object value) {
         return map.containsValue(value);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public Set<Map.Entry<String, Object>> entrySet() {
         return map.entrySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value to which this map maps the specified key.  Returns
      * <tt>null</tt> if the map contains no mapping for this key.  A return
      * value of <tt>null</tt> does not <i>necessarily</i> indicate that the
@@ -162,17 +162,17 @@ public class SimpleBindings implements Bindings {
         return map.get(key);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public boolean isEmpty() {
         return map.isEmpty();
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public Set<String> keySet() {
         return map.keySet();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the mapping for this key from this map if it is present
      * (optional operation).   More formally, if this map contains a mapping
      * from key <tt>k</tt> to value <tt>v</tt> such that
@@ -199,12 +199,12 @@ public class SimpleBindings implements Bindings {
         return map.remove(key);
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public int size() {
         return map.size();
     }
 
-    /** {@inheritDoc} */
+    /** {@collect.stats} {@inheritDoc} */
     public Collection<Object> values() {
         return map.values();
     }

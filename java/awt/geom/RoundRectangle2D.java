@@ -27,7 +27,7 @@ package java.awt.geom;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * The <code>RoundRectangle2D</code> class defines a rectangle with
  * rounded corners defined by a location {@code (x,y)}, a
  * dimension {@code (w x h)}, and the width and height of an arc
@@ -43,7 +43,7 @@ import java.io.Serializable;
  */
 public abstract class RoundRectangle2D extends RectangularShape {
 
-    /**
+    /** {@collect.stats}
      * The <code>Float</code> class defines a rectangle with rounded
      * corners all specified in <code>float</code> coordinates.
      * @since 1.2
@@ -51,49 +51,49 @@ public abstract class RoundRectangle2D extends RectangularShape {
     public static class Float extends RoundRectangle2D
         implements Serializable
     {
-        /**
+        /** {@collect.stats}
          * The X coordinate of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public float x;
 
-        /**
+        /** {@collect.stats}
          * The Y coordinate of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public float y;
 
-        /**
+        /** {@collect.stats}
          * The width of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public float width;
 
-        /**
+        /** {@collect.stats}
          * The height of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public float height;
 
-        /**
+        /** {@collect.stats}
          * The width of the arc that rounds off the corners.
          * @since 1.2
          * @serial
          */
         public float arcwidth;
 
-        /**
+        /** {@collect.stats}
          * The height of the arc that rounds off the corners.
          * @since 1.2
          * @serial
          */
         public float archeight;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new <code>RoundRectangle2D</code>, initialized to
          * location (0.0,&nbsp;0.0), size (0.0,&nbsp;0.0), and corner arcs
          * of radius 0.0.
@@ -102,7 +102,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         public Float() {
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs and initializes a <code>RoundRectangle2D</code>
          * from the specified <code>float</code> coordinates.
          *
@@ -128,7 +128,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             setRoundRect(x, y, w, h, arcw, arch);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -136,7 +136,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) x;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -144,7 +144,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) y;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -152,7 +152,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) width;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -160,7 +160,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) height;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -168,7 +168,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) arcwidth;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -176,7 +176,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (double) archeight;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -184,7 +184,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (width <= 0.0f) || (height <= 0.0f);
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the location, size, and corner radii of this
          * <code>RoundRectangle2D</code> to the specified
          * <code>float</code> values.
@@ -214,7 +214,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             this.archeight = arch;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -229,7 +229,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             this.archeight = (float) arch;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -242,7 +242,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             this.archeight = (float) rr.getArcHeight();
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -256,7 +256,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         private static final long serialVersionUID = -3423150618393866922L;
     }
 
-    /**
+    /** {@collect.stats}
      * The <code>Double</code> class defines a rectangle with rounded
      * corners all specified in <code>double</code> coordinates.
      * @since 1.2
@@ -264,49 +264,49 @@ public abstract class RoundRectangle2D extends RectangularShape {
     public static class Double extends RoundRectangle2D
         implements Serializable
     {
-        /**
+        /** {@collect.stats}
          * The X coordinate of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public double x;
 
-        /**
+        /** {@collect.stats}
          * The Y coordinate of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public double y;
 
-        /**
+        /** {@collect.stats}
          * The width of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public double width;
 
-        /**
+        /** {@collect.stats}
          * The height of this <code>RoundRectangle2D</code>.
          * @since 1.2
          * @serial
          */
         public double height;
 
-        /**
+        /** {@collect.stats}
          * The width of the arc that rounds off the corners.
          * @since 1.2
          * @serial
          */
         public double arcwidth;
 
-        /**
+        /** {@collect.stats}
          * The height of the arc that rounds off the corners.
          * @since 1.2
          * @serial
          */
         public double archeight;
 
-        /**
+        /** {@collect.stats}
          * Constructs a new <code>RoundRectangle2D</code>, initialized to
          * location (0.0,&nbsp;0.0), size (0.0,&nbsp;0.0), and corner arcs
          * of radius 0.0.
@@ -315,7 +315,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         public Double() {
         }
 
-        /**
+        /** {@collect.stats}
          * Constructs and initializes a <code>RoundRectangle2D</code>
          * from the specified <code>double</code> coordinates.
          *
@@ -341,7 +341,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             setRoundRect(x, y, w, h, arcw, arch);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -349,7 +349,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return x;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -357,7 +357,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return y;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -365,7 +365,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return width;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -373,7 +373,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return height;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -381,7 +381,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return arcwidth;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -389,7 +389,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return archeight;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -397,7 +397,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             return (width <= 0.0f) || (height <= 0.0f);
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -412,7 +412,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             this.archeight = arch;
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -425,7 +425,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
             this.archeight = rr.getArcHeight();
         }
 
-        /**
+        /** {@collect.stats}
          * {@inheritDoc}
          * @since 1.2
          */
@@ -439,7 +439,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         private static final long serialVersionUID = 1048939333485206117L;
     }
 
-    /**
+    /** {@collect.stats}
      * This is an abstract class that cannot be instantiated directly.
      * Type-specific implementation subclasses are available for
      * instantiation and provide a number of formats for storing
@@ -453,7 +453,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
     protected RoundRectangle2D() {
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the width of the arc that rounds off the corners.
      * @return the width of the arc that rounds off the corners
      * of this <code>RoundRectangle2D</code>.
@@ -461,7 +461,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
      */
     public abstract double getArcWidth();
 
-    /**
+    /** {@collect.stats}
      * Gets the height of the arc that rounds off the corners.
      * @return the height of the arc that rounds off the corners
      * of this <code>RoundRectangle2D</code>.
@@ -469,7 +469,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
      */
     public abstract double getArcHeight();
 
-    /**
+    /** {@collect.stats}
      * Sets the location, size, and corner radii of this
      * <code>RoundRectangle2D</code> to the specified
      * <code>double</code> values.
@@ -491,7 +491,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
     public abstract void setRoundRect(double x, double y, double w, double h,
                                       double arcWidth, double arcHeight);
 
-    /**
+    /** {@collect.stats}
      * Sets this <code>RoundRectangle2D</code> to be the same as the
      * specified <code>RoundRectangle2D</code>.
      * @param rr the specified <code>RoundRectangle2D</code>
@@ -502,7 +502,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
                      rr.getArcWidth(), rr.getArcHeight());
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -510,7 +510,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         setRoundRect(x, y, w, h, getArcWidth(), getArcHeight());
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -557,7 +557,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -600,7 +600,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         return (x * x + y * y <= 1.0);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.2
      */
@@ -614,7 +614,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
                 contains(x + w, y + h));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iteration object that defines the boundary of this
      * <code>RoundRectangle2D</code>.
      * The iterator for this class is multi-threaded safe, which means
@@ -634,7 +634,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         return new RoundRectIterator(this, at);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hashcode for this <code>RoundRectangle2D</code>.
      * @return the hashcode for this <code>RoundRectangle2D</code>.
      * @since 1.6
@@ -649,7 +649,7 @@ public abstract class RoundRectangle2D extends RectangularShape {
         return (((int) bits) ^ ((int) (bits >> 32)));
     }
 
-    /**
+    /** {@collect.stats}
      * Determines whether or not the specified <code>Object</code> is
      * equal to this <code>RoundRectangle2D</code>.  The specified
      * <code>Object</code> is equal to this <code>RoundRectangle2D</code>

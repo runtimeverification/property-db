@@ -30,7 +30,7 @@ import javax.imageio.ImageWriteParam;
 
 import com.sun.imageio.plugins.jpeg.JPEG;
 
-/**
+/** {@collect.stats}
  * This class adds the ability to set JPEG quantization and Huffman
  * tables when using the built-in JPEG writer plug-in, and to request that
  * optimized Huffman tables be computed for an image.  An instance of
@@ -103,7 +103,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         "Visually lossless"  // 0.75 -> 1.00
     };
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>JPEGImageWriteParam</code>.  Tiling is not
      * supported.  Progressive encoding is supported. The default
      * progressive mode is MODE_DISABLED.  A single form of compression,
@@ -124,7 +124,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         this.compressionQuality = JPEG.DEFAULT_QUALITY;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any previous compression quality setting.
      *
      * <p> The default implementation resets the compression quality
@@ -141,7 +141,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         this.compressionQuality = JPEG.DEFAULT_QUALITY;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code> since the JPEG plug-in only supports
      * lossy compression.
      *
@@ -181,7 +181,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         }
         return (float[])qualityVals.clone();
     }
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if tables are currently set.
      *
      * @return <code>true</code> if tables are present.
@@ -190,7 +190,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         return (qTables != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the quantization and Huffman tables to use in encoding
      * abbreviated streams.  There may be a maximum of 4 tables of
      * each type.  These tables are ignored if tables are specified in
@@ -227,7 +227,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         this.ACHuffmanTables = (JPEGHuffmanTable[])ACHuffmanTables.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Removes any quantization and Huffman tables that are currently
      * set.
      *
@@ -239,7 +239,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         this.ACHuffmanTables = null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of quantization tables set on the
      * most recent call to <code>setEncodeTables</code>, or
      * <code>null</code> if tables are not currently set.
@@ -253,7 +253,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         return (qTables != null) ? (JPEGQTable[])qTables.clone() : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of DC Huffman tables set on the
      * most recent call to <code>setEncodeTables</code>, or
      * <code>null</code> if tables are not currently set.
@@ -269,7 +269,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the array of AC Huffman tables set on the
      * most recent call to <code>setEncodeTables</code>, or
      * <code>null</code> if tables are not currently set.
@@ -285,7 +285,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
             : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Tells the writer to generate optimized Huffman tables
      * for the image as part of the writing process.  The
      * default is <code>false</code>.  If this flag is set
@@ -303,7 +303,7 @@ public class JPEGImageWriteParam extends ImageWriteParam {
         optimizeHuffman = optimize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value passed into the most recent call
      * to <code>setOptimizeHuffmanTables</code>, or
      * <code>false</code> if <code>setOptimizeHuffmanTables</code>

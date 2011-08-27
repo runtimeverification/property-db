@@ -27,7 +27,7 @@ package javax.swing.event;
 
 import javax.swing.undo.*;
 
-/**
+/** {@collect.stats}
  * Interface implemented by a class interested in hearing about
  * undoable operations.
  *
@@ -36,7 +36,7 @@ import javax.swing.undo.*;
 
 public interface UndoableEditListener extends java.util.EventListener {
 
-    /**
+    /** {@collect.stats}
      * An undoable edit happened
      */
     void undoableEditHappened(UndoableEditEvent e);

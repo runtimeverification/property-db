@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import javax.swing.*;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * <p>A multiplexing look and feel that allows more than one UI
  * to be associated with a component at the same time.
  * The primary look and feel is called
@@ -62,7 +62,7 @@ public class MultiLookAndFeel extends LookAndFeel {
 // LookAndFeel methods
 //////////////////////////////
 
-    /**
+    /** {@collect.stats}
      * Returns a string, suitable for use in menus,
      * that identifies this look and feel.
      *
@@ -72,7 +72,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         return "Multiplexing Look and Feel";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string, suitable for use by applications/services,
      * that identifies this look and feel.
      *
@@ -82,7 +82,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         return "Multiplex";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a one-line description of this look and feel.
      *
      * @return a descriptive string such as "Allows multiple UI instances per component instance"
@@ -91,7 +91,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         return "Allows multiple UI instances per component instance";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>false</code>;
      * this look and feel is not native to any platform.
      *
@@ -101,7 +101,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code>;
      * every platform permits this look and feel.
      *
@@ -111,7 +111,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates, initializes, and returns
      * the look and feel specific defaults.
      * For this look and feel,
@@ -181,7 +181,7 @@ public class MultiLookAndFeel extends LookAndFeel {
 // Utility methods for the UI's
 ///////////////////////////////
 
-    /**
+    /** {@collect.stats}
      * Creates the <code>ComponentUI</code> objects
      * required to present
      * the <code>target</code> component,
@@ -253,7 +253,7 @@ public class MultiLookAndFeel extends LookAndFeel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an array,
      * populates it with UI objects from the passed-in vector,
      * and returns the array.
@@ -286,7 +286,7 @@ public class MultiLookAndFeel extends LookAndFeel {
     }
 }
 
-/**
+/** {@collect.stats}
  * We want the Multiplexing LookAndFeel to be quiet and fallback
  * gracefully if it cannot find a UI.  This class overrides the
  * getUIError method of UIDefaults, which is the method that

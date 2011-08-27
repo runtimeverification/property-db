@@ -34,7 +34,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-/**
+/** {@collect.stats}
  * The FeatureDescriptor class is the common baseclass for PropertyDescriptor,
  * EventSetDescriptor, and MethodDescriptor, etc.
  * <p>
@@ -49,13 +49,13 @@ public class FeatureDescriptor {
 
     private Reference<Class> classRef;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FeatureDescriptor</code>.
      */
     public FeatureDescriptor() {
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the programmatic name of this feature.
      *
      * @return The programmatic name of the property/method/event
@@ -64,7 +64,7 @@ public class FeatureDescriptor {
         return name;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the programmatic name of this feature.
      *
      * @param name  The programmatic name of the property/method/event
@@ -73,7 +73,7 @@ public class FeatureDescriptor {
         this.name = name;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the localized display name of this feature.
      *
      * @return The localized display name for the property/method/event.
@@ -86,7 +86,7 @@ public class FeatureDescriptor {
         return displayName;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the localized display name of this feature.
      *
      * @param displayName  The localized display name for the
@@ -96,7 +96,7 @@ public class FeatureDescriptor {
         this.displayName = displayName;
     }
 
-    /**
+    /** {@collect.stats}
      * The "expert" flag is used to distinguish between those features that are
      * intended for expert users from those that are intended for normal users.
      *
@@ -106,7 +106,7 @@ public class FeatureDescriptor {
         return expert;
     }
 
-    /**
+    /** {@collect.stats}
      * The "expert" flag is used to distinguish between features that are
      * intended for expert users from those that are intended for normal users.
      *
@@ -116,7 +116,7 @@ public class FeatureDescriptor {
         this.expert = expert;
     }
 
-    /**
+    /** {@collect.stats}
      * The "hidden" flag is used to identify features that are intended only
      * for tool use, and which should not be exposed to humans.
      *
@@ -126,7 +126,7 @@ public class FeatureDescriptor {
         return hidden;
     }
 
-    /**
+    /** {@collect.stats}
      * The "hidden" flag is used to identify features that are intended only
      * for tool use, and which should not be exposed to humans.
      *
@@ -136,7 +136,7 @@ public class FeatureDescriptor {
         this.hidden = hidden;
     }
 
-    /**
+    /** {@collect.stats}
      * The "preferred" flag is used to identify features that are particularly
      * important for presenting to humans.
      *
@@ -146,7 +146,7 @@ public class FeatureDescriptor {
         return preferred;
     }
 
-    /**
+    /** {@collect.stats}
      * The "preferred" flag is used to identify features that are particularly
      * important for presenting to humans.
      *
@@ -157,7 +157,7 @@ public class FeatureDescriptor {
         this.preferred = preferred;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the short description of this feature.
      *
      * @return  A localized short description associated with this
@@ -170,7 +170,7 @@ public class FeatureDescriptor {
         return shortDescription;
     }
 
-    /**
+    /** {@collect.stats}
      * You can associate a short descriptive string with a feature.  Normally
      * these descriptive strings should be less than about 40 characters.
      * @param text  A (localized) short description to be associated with
@@ -180,7 +180,7 @@ public class FeatureDescriptor {
         shortDescription = text;
     }
 
-    /**
+    /** {@collect.stats}
      * Associate a named attribute with this feature.
      *
      * @param attributeName  The locale-independent name of the attribute
@@ -193,7 +193,7 @@ public class FeatureDescriptor {
         table.put(attributeName, value);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieve a named attribute with this feature.
      *
      * @param attributeName  The locale-independent name of the attribute
@@ -207,7 +207,7 @@ public class FeatureDescriptor {
         return table.get(attributeName);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an enumeration of the locale-independent names of this
      * feature.
      *
@@ -221,7 +221,7 @@ public class FeatureDescriptor {
         return table.keys();
     }
 
-    /**
+    /** {@collect.stats}
      * Package-private constructor,
      * Merge information from two FeatureDescriptors.
      * The merged hidden and expert flags are formed by or-ing the values.
@@ -292,7 +292,7 @@ public class FeatureDescriptor {
                 : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a Reference wrapper for the object.
      *
      * @param obj object that will be wrapped
@@ -316,7 +316,7 @@ public class FeatureDescriptor {
         return createReference(obj, false);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object from a Reference wrapper.
      *
      * @return the Object in a wrapper or null.
@@ -325,7 +325,7 @@ public class FeatureDescriptor {
         return (ref == null) ? null : (Object)ref.get();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new soft reference that refers to the given object.
      *
      * @return a new soft reference or <code>null</code> if object is <code>null</code>
@@ -338,7 +338,7 @@ public class FeatureDescriptor {
                 : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new weak reference that refers to the given object.
      *
      * @return a new weak reference or <code>null</code> if object is <code>null</code>
@@ -351,7 +351,7 @@ public class FeatureDescriptor {
                 : null;
     }
 
-    /**
+    /** {@collect.stats}
      * Resolves the return type of the method.
      *
      * @param base    the class that contains the method in the hierarchy
@@ -368,7 +368,7 @@ public class FeatureDescriptor {
         return TypeResolver.erase(TypeResolver.resolveInClass(base, method.getGenericReturnType()));
     }
 
-    /**
+    /** {@collect.stats}
      * Resolves the parameter types of the method.
      *
      * @param base    the class that contains the method in the hierarchy

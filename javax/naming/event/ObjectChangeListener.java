@@ -25,7 +25,7 @@
 
 package javax.naming.event;
 
-/**
+/** {@collect.stats}
   * Specifies the method that a listener of a <tt>NamingEvent</tt>
   * with event type of <tt>OBJECT_CHANGED</tt> must implement.
   *<p>
@@ -60,7 +60,7 @@ package javax.naming.event;
   */
 public interface ObjectChangeListener extends NamingListener {
 
-    /**
+    /** {@collect.stats}
      * Called when an object has been changed.
      *<p>
      * The binding of the changed object can be obtained using

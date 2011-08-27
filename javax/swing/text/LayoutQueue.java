@@ -27,7 +27,7 @@ package javax.swing.text;
 import java.util.Vector;
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * A queue of text layout tasks.
  *
  * @author  Timothy Prinzing
@@ -41,14 +41,14 @@ public class LayoutQueue {
     private Vector tasks;
     private Thread worker;
 
-    /**
+    /** {@collect.stats}
      * Construct a layout queue.
      */
     public LayoutQueue() {
         tasks = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Fetch the default layout queue.
      */
     public static LayoutQueue getDefaultQueue() {
@@ -63,7 +63,7 @@ public class LayoutQueue {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Set the default layout queue.
      *
      * @param q the new queue.
@@ -74,7 +74,7 @@ public class LayoutQueue {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Add a task that is not needed immediately because
      * the results are not believed to be visible.
      */
@@ -87,7 +87,7 @@ public class LayoutQueue {
         notifyAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Used by the worker thread to get a new task to execute
      */
     protected synchronized Runnable waitForWork() {
@@ -103,7 +103,7 @@ public class LayoutQueue {
         return work;
     }
 
-    /**
+    /** {@collect.stats}
      * low priority thread to perform layout work forever
      */
     class LayoutThread extends Thread {

@@ -42,7 +42,7 @@ import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * A Service Provider Interface for transform and canonicalization algorithms.
  *
  * <p>Each instance of <code>TransformService</code> supports a specific
@@ -114,12 +114,12 @@ public abstract class TransformService implements Transform {
     private String mechanism;
     private Provider provider;
 
-    /**
+    /** {@collect.stats}
      * Default constructor, for invocation by subclasses.
      */
     protected TransformService() {}
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TransformService</code> that supports the specified
      * algorithm URI (ex: {@link Transform#XPATH2}) and mechanism type
      * (ex: DOM).
@@ -176,7 +176,7 @@ public abstract class TransformService implements Transform {
                  + " mechanism not available");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TransformService</code> that supports the specified
      * algorithm URI (ex: {@link Transform#XPATH2}) and mechanism type
      * (ex: DOM) as supplied by the specified provider. Note that the specified
@@ -224,7 +224,7 @@ public abstract class TransformService implements Transform {
                  + " mechanism not available");
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TransformService</code> that supports the specified
      * algorithm URI (ex: {@link Transform#XPATH2}) and mechanism type
      * (ex: DOM) as supplied by the specified provider. The specified provider
@@ -311,7 +311,7 @@ public abstract class TransformService implements Transform {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the mechanism type supported by this <code>TransformService</code>.
      *
      * @return the mechanism type
@@ -320,7 +320,7 @@ public abstract class TransformService implements Transform {
         return mechanism;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the URI of the algorithm supported by this
      * <code>TransformService</code>.
      *
@@ -330,7 +330,7 @@ public abstract class TransformService implements Transform {
         return algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>TransformService</code>.
      *
      * @return the provider
@@ -339,7 +339,7 @@ public abstract class TransformService implements Transform {
         return provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Initializes this <code>TransformService</code> with the specified
      * parameters.
      *
@@ -355,7 +355,7 @@ public abstract class TransformService implements Transform {
     public abstract void init(TransformParameterSpec params)
         throws InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Marshals the algorithm-specific parameters. If there are no parameters
      * to be marshalled, this method returns without throwing an exception.
      *
@@ -373,7 +373,7 @@ public abstract class TransformService implements Transform {
         (XMLStructure parent, XMLCryptoContext context)
         throws MarshalException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this <code>TransformService</code> with the specified
      * parameters and document context.
      *

@@ -26,7 +26,7 @@
 package java.io;
 
 
-/**
+/** {@collect.stats}
  * A character stream whose source is a string.
  *
  * @author      Mark Reinhold
@@ -40,7 +40,7 @@ public class StringReader extends Reader {
     private int next = 0;
     private int mark = 0;
 
-    /**
+    /** {@collect.stats}
      * Creates a new string reader.
      *
      * @param s  String providing the character stream.
@@ -50,13 +50,13 @@ public class StringReader extends Reader {
         this.length = s.length();
     }
 
-    /** Check to make sure that the stream has not been closed */
+    /** {@collect.stats} Check to make sure that the stream has not been closed */
     private void ensureOpen() throws IOException {
         if (str == null)
             throw new IOException("Stream closed");
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a single character.
      *
      * @return     The character read, or -1 if the end of the stream has been
@@ -73,7 +73,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Reads characters into a portion of an array.
      *
      * @param      cbuf  Destination buffer
@@ -103,7 +103,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Skips the specified number of characters in the stream. Returns
      * the number of characters that were skipped.
      *
@@ -132,7 +132,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream is ready to be read.
      *
      * @return True if the next read() is guaranteed not to block for input
@@ -146,14 +146,14 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tells whether this stream supports the mark() operation, which it does.
      */
     public boolean markSupported() {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will reposition the stream to this point.
      *
@@ -176,7 +176,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the stream to the most recent mark, or to the beginning of the
      * string if it has never been marked.
      *
@@ -189,7 +189,7 @@ public class StringReader extends Reader {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes the stream and releases any system resources associated with
      * it. Once the stream has been closed, further read(),
      * ready(), mark(), or reset() invocations will throw an IOException.

@@ -35,7 +35,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import javax.swing.plaf.*;
 
-/**
+/** {@collect.stats}
  * Metal implementation of JInternalFrame.
  * <p>
  *
@@ -240,7 +240,7 @@ public class MetalInternalFrameUI extends BasicInternalFrameUI {
     };    /// End BorderListener Class
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>MouseInputAdapter</code> that will be installed
      * on the TitlePane.
      *

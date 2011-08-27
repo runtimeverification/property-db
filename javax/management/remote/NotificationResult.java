@@ -27,7 +27,7 @@ package javax.management.remote;
 
 import java.io.Serializable;
 
-/**
+/** {@collect.stats}
  * <p>Result of a query for buffered notifications.  Notifications in
  * a notification buffer have positive, monotonically increasing
  * sequence numbers.  The result of a notification query contains the
@@ -57,7 +57,7 @@ public class NotificationResult implements Serializable {
 
     private static final long serialVersionUID = 1191800228721395279L;
 
-    /**
+    /** {@collect.stats}
      * <p>Constructs a notification query result.</p>
      *
      * @param earliestSequenceNumber the sequence number of the
@@ -92,7 +92,7 @@ public class NotificationResult implements Serializable {
         this.targetedNotifications = targetedNotifications;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sequence number of the earliest notification still
      * in the buffer.
      *
@@ -103,7 +103,7 @@ public class NotificationResult implements Serializable {
         return earliestSequenceNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the sequence number of the next notification available
      * for querying.
      *
@@ -114,7 +114,7 @@ public class NotificationResult implements Serializable {
         return nextSequenceNumber;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the notifications resulting from the query, and the
      * listeners they correspond to.
      *
@@ -125,7 +125,7 @@ public class NotificationResult implements Serializable {
         return targetedNotifications;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the object.  The result
      * should be a concise but informative representation that is easy
      * for a person to read.

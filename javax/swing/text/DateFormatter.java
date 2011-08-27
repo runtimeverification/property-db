@@ -30,7 +30,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.text.*;
 
-/**
+/** {@collect.stats}
  * DateFormatter is an <code>InternationalFormatter</code> that does its
  * formatting by way of an instance of <code>java.text.DateFormat</code>.
  * <p>
@@ -48,7 +48,7 @@ import javax.swing.text.*;
  * @since 1.4
  */
 public class DateFormatter extends InternationalFormatter {
-    /**
+    /** {@collect.stats}
      * This is shorthand for
      * <code>new DateFormatter(DateFormat.getDateInstance())</code>.
      */
@@ -56,7 +56,7 @@ public class DateFormatter extends InternationalFormatter {
         this(DateFormat.getDateInstance());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a DateFormatter configured with the specified
      * <code>Format</code> instance.
      *
@@ -67,7 +67,7 @@ public class DateFormatter extends InternationalFormatter {
         setFormat(format);
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the format that dictates the legal values that can be edited
      * and displayed.
      * <p>
@@ -81,7 +81,7 @@ public class DateFormatter extends InternationalFormatter {
         super.setFormat(format);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Calendar that <code>DateFormat</code> is associated with,
      * or if the <code>Format</code> is not a <code>DateFormat</code>
      * <code>Calendar.getInstance</code> is returned.
@@ -96,7 +96,7 @@ public class DateFormatter extends InternationalFormatter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true, as DateFormatterFilter will support
      * incrementing/decrementing of the value.
      */
@@ -104,7 +104,7 @@ public class DateFormatter extends InternationalFormatter {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the field that will be adjusted by adjustValue.
      */
     Object getAdjustField(int start, Map attributes) {
@@ -122,7 +122,7 @@ public class DateFormatter extends InternationalFormatter {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the Date if FieldPosition identifies a known calendar
      * field.
      */

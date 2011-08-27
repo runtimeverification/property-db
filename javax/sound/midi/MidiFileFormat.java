@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
+/** {@collect.stats}
  * A <code>MidiFileFormat</code> object encapsulates a MIDI file's
  * type, as well as its length and timing information.
  *
@@ -92,7 +92,7 @@ import java.util.Map;
 public class MidiFileFormat {
 
 
-    /**
+    /** {@collect.stats}
      * Represents unknown length.
      * @see #getByteLength
      * @see #getMicrosecondLength
@@ -100,12 +100,12 @@ public class MidiFileFormat {
     public static final int UNKNOWN_LENGTH = -1;
 
 
-    /**
+    /** {@collect.stats}
      * The type of MIDI file.
      */
     protected int type;
 
-    /**
+    /** {@collect.stats}
      * The division type of the MIDI file.
      *
      * @see Sequence#PPQ
@@ -116,27 +116,27 @@ public class MidiFileFormat {
      */
     protected float divisionType;
 
-    /**
+    /** {@collect.stats}
      * The timing resolution of the MIDI file.
      */
     protected int resolution;
 
-    /**
+    /** {@collect.stats}
      * The length of the MIDI file in bytes.
      */
     protected int byteLength;
 
-    /**
+    /** {@collect.stats}
      * The duration of the MIDI file in microseconds.
      */
     protected long microsecondLength;
 
 
-    /** The set of properties */
+    /** {@collect.stats} The set of properties */
     private HashMap<String, Object> properties;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>MidiFileFormat</code>.
      *
      * @param type the MIDI file type (0, 1, or 2)
@@ -162,7 +162,7 @@ public class MidiFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Construct a <code>MidiFileFormat</code> with a set of properties.
      *
      * @param type         the MIDI file type (0, 1, or 2)
@@ -193,7 +193,7 @@ public class MidiFileFormat {
 
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI file type.
      * @return the file's type (0, 1, or 2)
      */
@@ -201,7 +201,7 @@ public class MidiFileFormat {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the timing division type for the MIDI file.
      *
      * @return the division type (PPQ or one of the SMPTE types)
@@ -219,7 +219,7 @@ public class MidiFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the timing resolution for the MIDI file.
      * If the division type is PPQ, the resolution is specified in ticks per beat.
      * For SMTPE timing, the resolution is specified in ticks per frame.
@@ -233,7 +233,7 @@ public class MidiFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the MIDI file, expressed in 8-bit bytes.
      * @return the number of bytes in the file, or UNKNOWN_LENGTH if not known
      * @see #UNKNOWN_LENGTH
@@ -242,7 +242,7 @@ public class MidiFileFormat {
         return byteLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtains the length of the MIDI file, expressed in microseconds.
      * @return the file's duration in microseconds, or UNKNOWN_LENGTH if not known
      * @see Sequence#getMicrosecondLength()
@@ -253,7 +253,7 @@ public class MidiFileFormat {
         return microsecondLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Obtain an unmodifiable map of properties.
      * The concept of properties is further explained in
      * the {@link MidiFileFormat class description}.
@@ -276,7 +276,7 @@ public class MidiFileFormat {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtain the property value specified by the key.
      * The concept of properties is further explained in
      * the {@link MidiFileFormat class description}.

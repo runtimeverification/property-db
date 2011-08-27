@@ -27,7 +27,7 @@ package javax.crypto;
 
 import java.io.*;
 
-/**
+/** {@collect.stats}
  * A CipherOutputStream is composed of an OutputStream and a Cipher so
  * that write() methods first process the data before writing them out
  * to the underlying OutputStream.  The cipher must be fully
@@ -74,7 +74,7 @@ public class CipherOutputStream extends FilterOutputStream {
     // the buffer holding data ready to be written out
     private byte[] obuffer;
 
-    /**
+    /** {@collect.stats}
      *
      * Constructs a CipherOutputStream from an OutputStream and a
      * Cipher.
@@ -91,7 +91,7 @@ public class CipherOutputStream extends FilterOutputStream {
         cipher = c;
     };
 
-    /**
+    /** {@collect.stats}
      * Constructs a CipherOutputStream from an OutputStream without
      * specifying a Cipher. This has the effect of constructing a
      * CipherOutputStream using a NullCipher.
@@ -106,7 +106,7 @@ public class CipherOutputStream extends FilterOutputStream {
         cipher = new NullCipher();
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the specified byte to this output stream.
      *
      * @param      b   the <code>byte</code>.
@@ -122,7 +122,7 @@ public class CipherOutputStream extends FilterOutputStream {
         }
     };
 
-    /**
+    /** {@collect.stats}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this output stream.
      * <p>
@@ -141,7 +141,7 @@ public class CipherOutputStream extends FilterOutputStream {
         write(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this output stream.
      *
@@ -159,7 +159,7 @@ public class CipherOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes this output stream by forcing any buffered output bytes
      * that have already been processed by the encapsulated cipher object
      * to be written out.
@@ -181,7 +181,7 @@ public class CipherOutputStream extends FilterOutputStream {
         output.flush();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this output stream and releases any system resources
      * associated with this stream.
      * <p>

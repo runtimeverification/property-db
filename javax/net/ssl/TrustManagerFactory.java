@@ -30,7 +30,7 @@ import java.security.*;
 
 import sun.security.jca.GetInstance;
 
-/**
+/** {@collect.stats}
  * This class acts as a factory for trust managers based on a
  * source of trust material. Each trust manager manages a specific
  * type of trust material for use by secure sockets. The trust
@@ -49,7 +49,7 @@ public class TrustManagerFactory {
     // The name of the trust management algorithm.
     private String algorithm;
 
-    /**
+    /** {@collect.stats}
      * Obtains the default TrustManagerFactory algorithm name.
      *
      * <p>The default TrustManager can be changed at runtime by setting
@@ -76,7 +76,7 @@ public class TrustManagerFactory {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a TrustManagerFactory object.
      *
      * @param factorySpi the delegate
@@ -90,7 +90,7 @@ public class TrustManagerFactory {
         this.algorithm = algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the algorithm name of this <code>TrustManagerFactory</code>
      * object.
      *
@@ -105,7 +105,7 @@ public class TrustManagerFactory {
         return this.algorithm;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TrustManagerFactory</code> object that acts as a
      * factory for trust managers.
      *
@@ -141,7 +141,7 @@ public class TrustManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TrustManagerFactory</code> object that acts as a
      * factory for trust managers.
      *
@@ -184,7 +184,7 @@ public class TrustManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>TrustManagerFactory</code> object that acts as a
      * factory for trust managers.
      *
@@ -220,7 +220,7 @@ public class TrustManagerFactory {
                 instance.provider, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this <code>TrustManagerFactory</code> object.
      *
      * @return the provider of this <code>TrustManagerFactory</code> object
@@ -230,7 +230,7 @@ public class TrustManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of certificate
      * authorities and related trust material.
      * <P>
@@ -248,7 +248,7 @@ public class TrustManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Initializes this factory with a source of provider-specific
      * trust material.
      * <P>
@@ -271,7 +271,7 @@ public class TrustManagerFactory {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns one trust manager for each type of trust material.
      *
      * @return the trust managers

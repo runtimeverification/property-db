@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-/**
+/** {@collect.stats}
  * A data model for a combo box. This interface extends <code>ListDataModel</code>
  * and adds the concept of a <i>selected item</i>. The selected item is generally
  * the item which is visible in the combo box display area.
@@ -37,7 +37,7 @@ package javax.swing;
  */
 public interface ComboBoxModel extends ListModel {
 
-  /**
+  /** {@collect.stats}
    * Set the selected item. The implementation of this  method should notify
    * all registered <code>ListDataListener</code>s that the contents
    * have changed.
@@ -47,7 +47,7 @@ public interface ComboBoxModel extends ListModel {
    */
   void setSelectedItem(Object anItem);
 
-  /**
+  /** {@collect.stats}
    * Returns the selected item
    * @return The selected item or <code>null</code> if there is no selection
    */

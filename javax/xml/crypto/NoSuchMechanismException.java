@@ -35,7 +35,7 @@ import javax.xml.crypto.dsig.XMLSignatureFactory;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
 
-/**
+/** {@collect.stats}
  * This exception is thrown when a particular XML mechanism is requested but
  * is not available in the environment.
  *
@@ -53,7 +53,7 @@ public class NoSuchMechanismException extends RuntimeException {
 
     private static final long serialVersionUID = 4189669069570660166L;
 
-    /**
+    /** {@collect.stats}
      * The throwable that caused this exception to get thrown, or null if this
      * exception was not caused by another throwable or if the causative
      * throwable is unknown.
@@ -62,7 +62,7 @@ public class NoSuchMechanismException extends RuntimeException {
      */
     private Throwable cause;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>NoSuchMechanismException</code> with
      * <code>null</code> as its detail message.
      */
@@ -70,7 +70,7 @@ public class NoSuchMechanismException extends RuntimeException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>NoSuchMechanismException</code> with the
      * specified detail message.
      *
@@ -80,7 +80,7 @@ public class NoSuchMechanismException extends RuntimeException {
         super(message);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>NoSuchMechanismException</code> with the
      * specified detail message and cause.
      * <p>Note that the detail message associated with
@@ -96,7 +96,7 @@ public class NoSuchMechanismException extends RuntimeException {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>NoSuchMechanismException</code> with the
      * specified cause and a detail message of
      * <code>(cause==null ? null : cause.toString())</code> (which typically
@@ -110,7 +110,7 @@ public class NoSuchMechanismException extends RuntimeException {
         this.cause = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this <code>NoSuchMechanismException</code> or
      * <code>null</code> if the cause is nonexistent or unknown.  (The
      * cause is the throwable that caused this
@@ -123,7 +123,7 @@ public class NoSuchMechanismException extends RuntimeException {
         return cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>NoSuchMechanismException</code>, its backtrace and
      * the cause's backtrace to the standard error stream.
      */
@@ -132,7 +132,7 @@ public class NoSuchMechanismException extends RuntimeException {
         //XXX print backtrace of cause
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>NoSuchMechanismException</code>, its backtrace and
      * the cause's backtrace to the specified print stream.
      *
@@ -143,7 +143,7 @@ public class NoSuchMechanismException extends RuntimeException {
         //XXX print backtrace of cause
     }
 
-    /**
+    /** {@collect.stats}
      * Prints this <code>NoSuchMechanismException</code>, its backtrace and
      * the cause's backtrace to the specified print writer.
      *

@@ -43,7 +43,7 @@ import sun.security.action.*;
 import sun.swing.*;
 import sun.swing.plaf.synth.*;
 
-/**
+/** {@collect.stats}
  * SynthLookAndFeel provides the basis for creating a customized look and
  * feel. SynthLookAndFeel does not directly provide a look, all painting is
  * delegated.
@@ -66,30 +66,30 @@ import sun.swing.plaf.synth.*;
  * @author Scott Violet
  */
 public class SynthLookAndFeel extends BasicLookAndFeel {
-    /**
+    /** {@collect.stats}
      * Used in a handful of places where we need an empty Insets.
      */
     static final Insets EMPTY_UIRESOURCE_INSETS = new InsetsUIResource(
                                                             0, 0, 0, 0);
 
-    /**
+    /** {@collect.stats}
      * AppContext key to get the current SynthStyleFactory.
      */
     private static final Object STYLE_FACTORY_KEY = new Object(); // com.sun.java.swing.plaf.gtk.StyleCache
 
-    /**
+    /** {@collect.stats}
      * The last SynthStyleFactory that was asked for from AppContext
      * <code>lastContext</code>.
      */
     private static SynthStyleFactory lastFactory;
-    /**
+    /** {@collect.stats}
      * If this is true it indicates there is more than one AppContext active
      * and that we need to make sure in getStyleCache the requesting
      * AppContext matches that of <code>lastContext</code> before returning
      * it.
      */
     private static boolean multipleApps;
-    /**
+    /** {@collect.stats}
      * AppContext lastLAF came from.
      */
     private static AppContext lastContext;
@@ -99,12 +99,12 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
     // Refer to setSelectedUI
     static int selectedUIState;
 
-    /**
+    /** {@collect.stats}
      * SynthStyleFactory for the this SynthLookAndFeel.
      */
     private SynthStyleFactory factory;
 
-    /**
+    /** {@collect.stats}
      * Map of defaults table entries. This is populated via the load
      * method.
      */
@@ -112,7 +112,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
 
     private Handler _handler;
 
-    /**
+    /** {@collect.stats}
      * Used by the renderers. For the most part the renderers are implemented
      * as Labels, which is problematic in so far as they are never selected.
      * To accomodate this SynthLabelUI checks if the current
@@ -149,7 +149,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Clears out the selected UI that was last set in setSelectedUI.
      */
     static void resetSelectedUI() {
@@ -157,7 +157,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the SynthStyleFactory that the UI classes provided by
      * synth will use to obtain a SynthStyle.
      *
@@ -178,7 +178,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current SynthStyleFactory.
      *
      * @return SynthStyleFactory
@@ -200,7 +200,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component state for the specified component. This should
      * only be used for Components that don't have any special state beyond
      * that of ENABLED, DISABLED or FOCUSED. For example, buttons shouldn't
@@ -216,7 +216,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return SynthUI.DISABLED;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets a SynthStyle for the specified region of the specified component.
      * This is not for general consumption, only custom UIs should call this
      * method.
@@ -229,7 +229,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return getStyleFactory().getStyle(c, region);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the Style should be updated in response to the
      * specified PropertyChangeEvent. This forwards to
      * <code>shouldUpdateStyleOnAncestorChanged</code> as necessary.
@@ -265,7 +265,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * A convience method that will reset the Style of StyleContext if
      * necessary.
      *
@@ -286,7 +286,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return newStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Updates the style associated with <code>c</code>, and all its children.
      * This is a lighter version of
      * <code>SwingUtilities.updateComponentTreeUI</code>.
@@ -325,7 +325,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Region for the JComponent <code>c</code>.
      *
      * @param c JComponent to fetch the Region for
@@ -335,7 +335,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return Region.getRegion(c);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method to return where the foreground should be
      * painted for the Component identified by the passed in
      * AbstractSynthContext.
@@ -350,7 +350,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return insets;
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method that handles painting of the background.
      * All SynthUI implementations should override update and invoke
      * this method.
@@ -359,7 +359,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         paintRegion(state, g, null);
     }
 
-    /**
+    /** {@collect.stats}
      * A convenience method that handles painting of the background for
      * subregions. All SynthUI's that have subregions should invoke
      * this method, than paint the foreground.
@@ -401,7 +401,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return c.getComponentOrientation().isLeftToRight();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the ui that is of type <code>klass</code>, or null if
      * one can not be found.
      */
@@ -412,7 +412,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the Synth look and feel <code>ComponentUI</code> for
      * the passed in <code>JComponent</code>.
      *
@@ -555,7 +555,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a SynthLookAndFeel.
      * <p>
      * For the returned <code>SynthLookAndFeel</code> to be useful you need to
@@ -570,7 +570,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         _handler = new Handler();
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the set of <code>SynthStyle</code>s that will be used by
      * this <code>SynthLookAndFeel</code>. <code>resourceBase</code> is
      * used to resolve any path based resources, for example an
@@ -599,7 +599,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
                                 null, resourceBase, defaultsMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Loads the set of <code>SynthStyle</code>s that will be used by
      * this <code>SynthLookAndFeel</code>. Path based resources are resolved
      * relatively to the specified <code>URL</code> of the style. For example
@@ -630,7 +630,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
                                 url, null, defaultsMap);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by UIManager when this look and feel is installed.
      */
     @Override
@@ -642,7 +642,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
             addPropertyChangeListener(_handler);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by UIManager when this look and feel is uninstalled.
      */
     @Override
@@ -655,7 +655,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         super.uninitialize();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the defaults for this SynthLookAndFeel.
      *
      * @return Defaults table.
@@ -721,7 +721,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return table;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true, SynthLookAndFeel is always supported.
      *
      * @return true.
@@ -731,7 +731,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns false, SynthLookAndFeel is not a native look and feel.
      *
      * @return false
@@ -741,7 +741,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a textual description of SynthLookAndFeel.
      *
      * @return textual description of synth.
@@ -751,7 +751,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return "Synth look and feel";
     }
 
-    /**
+    /** {@collect.stats}
      * Return a short string that identifies this look and feel.
      *
      * @return a short string identifying this look and feel.
@@ -761,7 +761,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return "Synth look and feel";
     }
 
-    /**
+    /** {@collect.stats}
      * Return a string that identifies this look and feel.
      *
      * @return a short string identifying this look and feel.
@@ -771,7 +771,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return "Synth";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the UIs should update their
      * <code>SynthStyles</code> from the <code>SynthStyleFactory</code>
      * when the ancestor of the <code>JComponent</code> changes. A subclass
@@ -787,7 +787,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the antialiasing information as specified by the host desktop.
      * Antialiasing might be forced off if the desktop is GNOME and the user
      * has set his locale to Chinese, Japanese or Korean. This is consistent
@@ -857,7 +857,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
             tk.removePropertyChangeListener(key, this);
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the UI of the passed in window and all its children.
          */
         private static void updateWindowUI(Window window) {
@@ -868,7 +868,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Updates the UIs of all the known Frames.
          */
         private static void updateAllUIs() {
@@ -878,19 +878,19 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Indicates if an updateUI call is pending.
          */
         private static boolean updatePending;
 
-        /**
+        /** {@collect.stats}
          * Sets whether or not an updateUI call is pending.
          */
         private static synchronized void setUpdatePending(boolean update) {
             updatePending = update;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if a UI update is pending.
          */
         private static synchronized boolean isUpdatePending() {
@@ -948,7 +948,7 @@ public class SynthLookAndFeel extends BasicLookAndFeel {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * This is a support method that will check if the background colors of
          * the specified component differ between focused and unfocused states.
          * If the color differ the component will then repaint itself.

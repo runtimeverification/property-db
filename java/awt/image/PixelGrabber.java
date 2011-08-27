@@ -31,7 +31,7 @@ import java.awt.image.ImageConsumer;
 import java.awt.image.ColorModel;
 import java.awt.Image;
 
-/**
+/** {@collect.stats}
  * The PixelGrabber class implements an ImageConsumer which can be attached
  * to an Image or ImageProducer object to retrieve a subset of the pixels
  * in that image.  Here is an example:
@@ -93,7 +93,7 @@ public class PixelGrabber implements ImageConsumer {
     private static final int DONEBITS = (GRABBEDBITS
                                          | ImageObserver.ERROR);
 
-    /**
+    /** {@collect.stats}
      * Create a PixelGrabber object to grab the (x, y, w, h) rectangular
      * section of pixels from the specified image into the given array.
      * The pixels are stored into the array in the default RGB ColorModel.
@@ -120,7 +120,7 @@ public class PixelGrabber implements ImageConsumer {
         this(img.getSource(), x, y, w, h, pix, off, scansize);
     }
 
-    /**
+    /** {@collect.stats}
      * Create a PixelGrabber object to grab the (x, y, w, h) rectangular
      * section of pixels from the image produced by the specified
      * ImageProducer into the given array.
@@ -157,7 +157,7 @@ public class PixelGrabber implements ImageConsumer {
         imageModel = ColorModel.getRGBdefault();
     }
 
-    /**
+    /** {@collect.stats}
      * Create a PixelGrabber object to grab the (x, y, w, h) rectangular
      * section of pixels from the specified image.  The pixels are
      * accumulated in the original ColorModel if the same ColorModel
@@ -192,7 +192,7 @@ public class PixelGrabber implements ImageConsumer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Request the PixelGrabber to start fetching the pixels.
      */
     public synchronized void startGrabbing() {
@@ -206,14 +206,14 @@ public class PixelGrabber implements ImageConsumer {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Request the PixelGrabber to abort the image fetch.
      */
     public synchronized void abortGrabbing() {
         imageComplete(IMAGEABORTED);
     }
 
-    /**
+    /** {@collect.stats}
      * Request the Image or ImageProducer to start delivering pixels and
      * wait for all of the pixels in the rectangle of interest to be
      * delivered.
@@ -226,7 +226,7 @@ public class PixelGrabber implements ImageConsumer {
         return grabPixels(0);
     }
 
-    /**
+    /** {@collect.stats}
      * Request the Image or ImageProducer to start delivering pixels and
      * wait for all of the pixels in the rectangle of interest to be
      * delivered or until the specified timeout has elapsed.  This method
@@ -273,7 +273,7 @@ public class PixelGrabber implements ImageConsumer {
         return (flags & GRABBEDBITS) != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the status of the pixels.  The ImageObserver flags
      * representing the available pixel information are returned.
      * @return the bitwise OR of all relevant ImageObserver flags
@@ -283,7 +283,7 @@ public class PixelGrabber implements ImageConsumer {
         return flags;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the width of the pixel buffer (after adjusting for image width).
      * If no width was specified for the rectangle of pixels to grab then
      * then this information will only be available after the image has
@@ -296,7 +296,7 @@ public class PixelGrabber implements ImageConsumer {
         return (dstW < 0) ? -1 : dstW;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the height of the pixel buffer (after adjusting for image height).
      * If no width was specified for the rectangle of pixels to grab then
      * then this information will only be available after the image has
@@ -309,7 +309,7 @@ public class PixelGrabber implements ImageConsumer {
         return (dstH < 0) ? -1 : dstH;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the pixel buffer.  If the PixelGrabber was not constructed
      * with an explicit pixel buffer to hold the pixels then this method
      * will return null until the size and format of the image data is
@@ -330,7 +330,7 @@ public class PixelGrabber implements ImageConsumer {
             : ((Object) bytePixels);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the ColorModel for the pixels stored in the array.  If the
      * PixelGrabber was constructed with an explicit pixel buffer then
      * this method will always return the default RGB ColorModel,
@@ -351,7 +351,7 @@ public class PixelGrabber implements ImageConsumer {
         return imageModel;
     }
 
-    /**
+    /** {@collect.stats}
      * The setDimensions method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -381,7 +381,7 @@ public class PixelGrabber implements ImageConsumer {
         flags |= (ImageObserver.WIDTH | ImageObserver.HEIGHT);
     }
 
-    /**
+    /** {@collect.stats}
      * The setHints method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -396,7 +396,7 @@ public class PixelGrabber implements ImageConsumer {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * The setProperties method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -411,7 +411,7 @@ public class PixelGrabber implements ImageConsumer {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * The setColorModel method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -446,7 +446,7 @@ public class PixelGrabber implements ImageConsumer {
         imageModel = ColorModel.getRGBdefault();
     }
 
-    /**
+    /** {@collect.stats}
      * The setPixels method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -533,7 +533,7 @@ public class PixelGrabber implements ImageConsumer {
         flags |= ImageObserver.SOMEBITS;
     }
 
-    /**
+    /** {@collect.stats}
      * The setPixels method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -622,7 +622,7 @@ public class PixelGrabber implements ImageConsumer {
         flags |= ImageObserver.SOMEBITS;
     }
 
-    /**
+    /** {@collect.stats}
      * The imageComplete method is part of the ImageConsumer API which
      * this class must implement to retrieve the pixels.
      * <p>
@@ -654,7 +654,7 @@ public class PixelGrabber implements ImageConsumer {
         notifyAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the status of the pixels.  The ImageObserver flags
      * representing the available pixel information are returned.
      * This method and {@link #getStatus() getStatus} have the

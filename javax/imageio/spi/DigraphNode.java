@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-/**
+/** {@collect.stats}
  * A node in a directed graph.  In addition to an arbitrary
  * <code>Object</code> containing user data associated with the node,
  * each node maintains a <code>Set</code>s of nodes which are pointed
@@ -41,19 +41,19 @@ import java.util.Set;
  */
 class DigraphNode implements Cloneable, Serializable {
 
-    /** The data associated with this node. */
+    /** {@collect.stats} The data associated with this node. */
     protected Object data;
 
-    /**
+    /** {@collect.stats}
      * A <code>Set</code> of neighboring nodes pointed to by this
      * node.
      */
     protected Set outNodes = new HashSet();
 
-    /** The in-degree of the node. */
+    /** {@collect.stats} The in-degree of the node. */
     protected int inDegree = 0;
 
-    /**
+    /** {@collect.stats}
      * A <code>Set</code> of neighboring nodes that point to this
      * node.
      */
@@ -63,12 +63,12 @@ class DigraphNode implements Cloneable, Serializable {
         this.data = data;
     }
 
-    /** Returns the <code>Object</code> referenced by this node. */
+    /** {@collect.stats} Returns the <code>Object</code> referenced by this node. */
     public Object getData() {
         return data;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Iterator</code> containing the nodes pointed
      * to by this node.
      */
@@ -76,7 +76,7 @@ class DigraphNode implements Cloneable, Serializable {
         return outNodes.iterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a directed edge to the graph.  The outNodes list of this
      * node is updated and the in-degree of the other node is incremented.
      *
@@ -96,7 +96,7 @@ class DigraphNode implements Cloneable, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if an edge exists between this node
      * and the given node.
      *
@@ -108,7 +108,7 @@ class DigraphNode implements Cloneable, Serializable {
         return outNodes.contains(node);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a directed edge from the graph.  The outNodes list of this
      * node is updated and the in-degree of the other node is decremented.
      *
@@ -126,7 +126,7 @@ class DigraphNode implements Cloneable, Serializable {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Removes this node from the graph, updating neighboring nodes
      * appropriately.
      */
@@ -144,17 +144,17 @@ class DigraphNode implements Cloneable, Serializable {
         }
     }
 
-    /** Returns the in-degree of this node. */
+    /** {@collect.stats} Returns the in-degree of this node. */
     public int getInDegree() {
         return inDegree;
     }
 
-    /** Increments the in-degree of this node. */
+    /** {@collect.stats} Increments the in-degree of this node. */
     private void incrementInDegree() {
         ++inDegree;
     }
 
-    /** Decrements the in-degree of this node. */
+    /** {@collect.stats} Decrements the in-degree of this node. */
     private void decrementInDegree() {
         --inDegree;
     }

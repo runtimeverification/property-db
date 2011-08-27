@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * A <code>TextArea</code> object is a multi-line region
  * that displays text. It can be set to allow editing or
  * to be read-only.
@@ -55,7 +55,7 @@ import javax.accessibility.*;
  */
 public class TextArea extends TextComponent {
 
-    /**
+    /** {@collect.stats}
      * The number of rows in the <code>TextArea</code>.
      * This parameter will determine the text area's height.
      * Guaranteed to be non-negative.
@@ -66,7 +66,7 @@ public class TextArea extends TextComponent {
      */
     int rows;
 
-    /**
+    /** {@collect.stats}
      * The number of columns in the <code>TextArea</code>.
      * A column is an approximate average character
      * width that is platform-dependent.
@@ -82,31 +82,31 @@ public class TextArea extends TextComponent {
     private static final String base = "text";
     private static int nameCounter = 0;
 
-    /**
+    /** {@collect.stats}
      * Create and display both vertical and horizontal scrollbars.
      * @since JDK1.1
      */
     public static final int SCROLLBARS_BOTH = 0;
 
-    /**
+    /** {@collect.stats}
      * Create and display vertical scrollbar only.
      * @since JDK1.1
      */
     public static final int SCROLLBARS_VERTICAL_ONLY = 1;
 
-    /**
+    /** {@collect.stats}
      * Create and display horizontal scrollbar only.
      * @since JDK1.1
      */
     public static final int SCROLLBARS_HORIZONTAL_ONLY = 2;
 
-    /**
+    /** {@collect.stats}
      * Do not create or display any scrollbars for the text area.
      * @since JDK1.1
      */
     public static final int SCROLLBARS_NONE = 3;
 
-    /**
+    /** {@collect.stats}
      * Determines which scrollbars are created for the
      * text area. It can be one of four values :
      * <code>SCROLLBARS_BOTH</code> = both scrollbars.<BR>
@@ -119,7 +119,7 @@ public class TextArea extends TextComponent {
      */
     private int scrollbarVisibility;
 
-    /**
+    /** {@collect.stats}
      * Cache the Sets of forward and backward traversal keys so we need not
      * look them up each time.
      */
@@ -130,7 +130,7 @@ public class TextArea extends TextComponent {
      */
      private static final long serialVersionUID = 3692302836626095722L;
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method ids
      */
     private static native void initIDs();
@@ -149,7 +149,7 @@ public class TextArea extends TextComponent {
             new HashSet());
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text area with the empty string as text.
      * This text area is created with scrollbar visibility equal to
      * {@link #SCROLLBARS_BOTH}, so both vertical and horizontal
@@ -162,7 +162,7 @@ public class TextArea extends TextComponent {
         this("", 0, 0, SCROLLBARS_BOTH);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text area with the specified text.
      * This text area is created with scrollbar visibility equal to
      * {@link #SCROLLBARS_BOTH}, so both vertical and horizontal
@@ -178,7 +178,7 @@ public class TextArea extends TextComponent {
         this(text, 0, 0, SCROLLBARS_BOTH);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text area with the specified number of
      * rows and columns and the empty string as text.
      * A column is an approximate average character
@@ -196,7 +196,7 @@ public class TextArea extends TextComponent {
         this("", rows, columns, SCROLLBARS_BOTH);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text area with the specified text,
      * and with the specified number of rows and columns.
      * A column is an approximate average character
@@ -218,7 +218,7 @@ public class TextArea extends TextComponent {
         this(text, rows, columns, SCROLLBARS_BOTH);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new text area with the specified text,
      * and with the rows, columns, and scroll bar visibility
      * as specified.  All <code>TextArea</code> constructors defer to
@@ -272,7 +272,7 @@ public class TextArea extends TextComponent {
                               backwardTraversalKeys);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this component.  Called by <code>getName</code>
      * when the name is <code>null</code>.
      */
@@ -282,7 +282,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the <code>TextArea</code>'s peer.  The peer allows us to modify
      * the appearance of the <code>TextArea</code> without changing any of its
      * functionality.
@@ -295,7 +295,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified text at the specified position
      * in this text area.
      * <p>Note that passing <code>null</code> or inconsistent
@@ -313,7 +313,7 @@ public class TextArea extends TextComponent {
         insertText(str, pos);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>insert(String, int)</code>.
      */
@@ -327,7 +327,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Appends the given text to the text area's current text.
      * <p>Note that passing <code>null</code> or inconsistent
      * parameters is invalid and will result in unspecified
@@ -341,7 +341,7 @@ public class TextArea extends TextComponent {
         appendText(str);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>append(String)</code>.
      */
@@ -354,7 +354,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces text between the indicated start and end positions
      * with the specified replacement text.  The text at the end
      * position will not be replaced.  The text at the start
@@ -377,7 +377,7 @@ public class TextArea extends TextComponent {
         replaceText(str, start, end);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>replaceRange(String, int, int)</code>.
      */
@@ -391,7 +391,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows in the text area.
      * @return    the number of rows in the text area
      * @see       #setRows(int)
@@ -402,7 +402,7 @@ public class TextArea extends TextComponent {
         return rows;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of rows for this text area.
      * @param       rows   the number of rows
      * @see         #getRows()
@@ -423,7 +423,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of columns in this text area.
      * @return    the number of columns in the text area
      * @see       #setColumns(int)
@@ -433,7 +433,7 @@ public class TextArea extends TextComponent {
         return columns;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the number of columns for this text area.
      * @param       columns   the number of columns
      * @see         #getColumns()
@@ -454,7 +454,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an enumerated value that indicates which scroll bars
      * the text area uses.
      * <p>
@@ -476,7 +476,7 @@ public class TextArea extends TextComponent {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred size of a text area with the specified
      * number of rows and columns.
      * @param     rows   the number of rows
@@ -491,7 +491,7 @@ public class TextArea extends TextComponent {
         return preferredSize(rows, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize(int, int)</code>.
      */
@@ -505,7 +505,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the preferred size of this text area.
      * @return    the preferred dimensions needed for this text area
      * @see       java.awt.Component#getPreferredSize
@@ -515,7 +515,7 @@ public class TextArea extends TextComponent {
         return preferredSize();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getPreferredSize()</code>.
      */
@@ -528,7 +528,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum size of a text area with the specified
      * number of rows and columns.
      * @param     rows   the number of rows
@@ -543,7 +543,7 @@ public class TextArea extends TextComponent {
         return minimumSize(rows, columns);
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize(int, int)</code>.
      */
@@ -557,7 +557,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the minimum size of this text area.
      * @return    the preferred dimensions needed for this text area
      * @see       java.awt.Component#getPreferredSize
@@ -567,7 +567,7 @@ public class TextArea extends TextComponent {
         return minimumSize();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMinimumSize()</code>.
      */
@@ -580,7 +580,7 @@ public class TextArea extends TextComponent {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representing the state of this <code>TextArea</code>.
      * This method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -617,14 +617,14 @@ public class TextArea extends TextComponent {
     /*
      * Serialization support.
      */
-    /**
+    /** {@collect.stats}
      * The textArea Serialized Data Version.
      *
      * @serial
      */
     private int textAreaSerializedDataVersion = 2;
 
-    /**
+    /** {@collect.stats}
      * Read the ObjectInputStream.
      * @exception HeadlessException if
      * <code>GraphicsEnvironment.isHeadless()</code> returns
@@ -665,7 +665,7 @@ public class TextArea extends TextComponent {
 ////////////////
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AccessibleContext</code> associated with
      * this <code>TextArea</code>. For text areas, the
      * <code>AccessibleContext</code> takes the form of an
@@ -683,7 +683,7 @@ public class TextArea extends TextComponent {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>TextArea</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to text area user-interface elements.
@@ -696,7 +696,7 @@ public class TextArea extends TextComponent {
          */
         private static final long serialVersionUID = 3472827823632144419L;
 
-        /**
+        /** {@collect.stats}
          * Gets the state set of this object.
          *
          * @return an instance of AccessibleStateSet describing the states

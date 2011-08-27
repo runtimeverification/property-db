@@ -44,20 +44,20 @@ import java.awt.geom.AffineTransform;
 import java.io.Serializable;
 import java.io.ObjectStreamException;
 
-/**
+/** {@collect.stats}
  * The <code>TransformAttribute</code> class provides an immutable
  * wrapper for a transform so that it is safe to use as an attribute.
  */
 public final class TransformAttribute implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * The <code>AffineTransform</code> for this
      * <code>TransformAttribute</code>, or <code>null</code>
      * if <code>AffineTransform</code> is the identity transform.
      */
     private AffineTransform transform;
 
-    /**
+    /** {@collect.stats}
      * Wraps the specified transform.  The transform is cloned and a
      * reference to the clone is kept.  The original transform is unchanged.
      * If null is passed as the argument, this constructor behaves as though
@@ -72,7 +72,7 @@ public final class TransformAttribute implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a copy of the wrapped transform.
      * @return a <code>AffineTransform</code> that is a copy of the wrapped
      * transform of this <code>TransformAttribute</code>.
@@ -82,7 +82,7 @@ public final class TransformAttribute implements Serializable {
         return (at == null) ? new AffineTransform() : new AffineTransform(at);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the wrapped transform is
      * an identity transform.
      * @return <code>true</code> if the wrapped transform is
@@ -93,7 +93,7 @@ public final class TransformAttribute implements Serializable {
         return transform == null;
     }
 
-    /**
+    /** {@collect.stats}
      * A <code>TransformAttribute</code> representing the identity transform.
      * @since 1.6
      */
@@ -123,14 +123,14 @@ public final class TransformAttribute implements Serializable {
     // Added for serial backwards compatability (4348425)
     static final long serialVersionUID = 3356247357827709530L;
 
-    /**
+    /** {@collect.stats}
      * @since 1.6
      */
     public int hashCode() {
         return transform == null ? 0 : transform.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if rhs is a <code>TransformAttribute</code>
      * whose transform is equal to this <code>TransformAttribute</code>'s
      * transform.

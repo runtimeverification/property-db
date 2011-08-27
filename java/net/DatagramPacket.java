@@ -25,7 +25,7 @@
 
 package java.net;
 
-/**
+/** {@collect.stats}
  * This class represents a datagram packet.
  * <p>
  * Datagram packets are used to implement a connectionless packet
@@ -42,7 +42,7 @@ package java.net;
 public final
 class DatagramPacket {
 
-    /**
+    /** {@collect.stats}
      * Perform class initialization
      */
     static {
@@ -62,7 +62,7 @@ class DatagramPacket {
     InetAddress address;
     int port;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>, specifying an offset into the buffer.
      * <p>
@@ -81,7 +81,7 @@ class DatagramPacket {
         this.port = -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>DatagramPacket</code> for receiving packets of
      * length <code>length</code>.
      * <p>
@@ -95,7 +95,7 @@ class DatagramPacket {
         this (buf, 0, length);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> with offset <code>ioffset</code>to the
      * specified port number on the specified host. The
@@ -118,7 +118,7 @@ class DatagramPacket {
         setPort(port);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> with offset <code>ioffset</code>to the
      * specified port number on the specified host. The
@@ -140,7 +140,7 @@ class DatagramPacket {
         setSocketAddress(address);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> to the specified port number on the specified
      * host. The <code>length</code> argument must be less than or equal
@@ -157,7 +157,7 @@ class DatagramPacket {
         this(buf, 0, length, address, port);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a datagram packet for sending packets of length
      * <code>length</code> to the specified port number on the specified
      * host. The <code>length</code> argument must be less than or equal
@@ -175,7 +175,7 @@ class DatagramPacket {
         this(buf, 0, length, address);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the IP address of the machine to which this datagram is being
      * sent or from which the datagram was received.
      *
@@ -188,7 +188,7 @@ class DatagramPacket {
         return address;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the port number on the remote host to which this datagram is
      * being sent or from which the datagram was received.
      *
@@ -200,7 +200,7 @@ class DatagramPacket {
         return port;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the data buffer. The data received or the data to be sent
      * starts from the <code>offset</code> in the buffer,
      * and runs for <code>length</code> long.
@@ -212,7 +212,7 @@ class DatagramPacket {
         return buf;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset of the data to be sent or the offset of the
      * data received.
      *
@@ -225,7 +225,7 @@ class DatagramPacket {
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the length of the data to be sent or the length of the
      * data received.
      *
@@ -237,7 +237,7 @@ class DatagramPacket {
         return length;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the data buffer for this packet. This sets the
      * data, length and offset of the packet.
      *
@@ -269,7 +269,7 @@ class DatagramPacket {
         this.offset = offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the IP address of the machine to which this datagram
      * is being sent.
      * @param iaddr the <code>InetAddress</code>
@@ -280,7 +280,7 @@ class DatagramPacket {
         address = iaddr;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the port number on the remote host to which this datagram
      * is being sent.
      * @param iport the port number
@@ -294,7 +294,7 @@ class DatagramPacket {
         port = iport;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SocketAddress (usually IP address + port number) of the remote
      * host to which this datagram is being sent.
      *
@@ -315,7 +315,7 @@ class DatagramPacket {
         setPort(addr.getPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the SocketAddress (usually IP address + port number) of the remote
      * host that this packet is being sent to or is coming from.
      *
@@ -327,7 +327,7 @@ class DatagramPacket {
         return new InetSocketAddress(getAddress(), getPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Set the data buffer for this packet. With the offset of
      * this DatagramPacket set to 0, and the length set to
      * the length of <code>buf</code>.
@@ -351,7 +351,7 @@ class DatagramPacket {
         this.bufLength = buf.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Set the length for this packet. The length of the packet is
      * the number of bytes from the packet's data buffer that will be
      * sent, or the number of bytes of the packet's data buffer that
@@ -378,7 +378,7 @@ class DatagramPacket {
         this.bufLength = this.length;
     }
 
-    /**
+    /** {@collect.stats}
      * Perform class load-time initializations.
      */
     private native static void init();

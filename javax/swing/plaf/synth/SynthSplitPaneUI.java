@@ -37,43 +37,43 @@ import javax.swing.plaf.basic.*;
 import sun.swing.plaf.synth.SynthUI;
 
 
-/**
+/** {@collect.stats}
  * Synth's SplitPaneUI.
  *
  * @author Scott Violet
  */
 class SynthSplitPaneUI extends BasicSplitPaneUI implements
                                     PropertyChangeListener, SynthUI {
-    /**
+    /** {@collect.stats}
      * Keys to use for forward focus traversal when the JComponent is
      * managing focus.
      */
     private static Set managingFocusForwardTraversalKeys;
 
-    /**
+    /** {@collect.stats}
      * Keys to use for backward focus traversal when the JComponent is
      * managing focus.
      */
     private static Set managingFocusBackwardTraversalKeys;
 
-    /**
+    /** {@collect.stats}
      * Style for the JSplitPane.
      */
     private SynthStyle style;
-    /**
+    /** {@collect.stats}
      * Style for the divider.
      */
     private SynthStyle dividerStyle;
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new SynthSplitPaneUI instance
      */
     public static ComponentUI createUI(JComponent x) {
         return new SynthSplitPaneUI();
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the UI defaults.
      */
     protected void installDefaults() {
@@ -158,7 +158,7 @@ class SynthSplitPaneUI extends BasicSplitPaneUI implements
         context.dispose();
     }
 
-    /**
+    /** {@collect.stats}
      * Installs the event listeners for the UI.
      */
     protected void installListeners() {
@@ -166,7 +166,7 @@ class SynthSplitPaneUI extends BasicSplitPaneUI implements
         splitPane.addPropertyChangeListener(this);
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the UI defaults.
      */
     protected void uninstallDefaults() {
@@ -185,7 +185,7 @@ class SynthSplitPaneUI extends BasicSplitPaneUI implements
     }
 
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the event listeners for the UI.
      */
     protected void uninstallListeners() {
@@ -240,7 +240,7 @@ class SynthSplitPaneUI extends BasicSplitPaneUI implements
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the default divider.
      */
     public BasicSplitPaneDivider createDefaultDivider() {

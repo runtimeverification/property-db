@@ -26,7 +26,7 @@ package javax.swing.text;
 
 import java.text.CharacterIterator;
 
-/**
+/** {@collect.stats}
  * A segment of a character array representing a fragment
  * of text.  It should be treated as immutable even though
  * the array is directly accessible.  This gives fast access
@@ -42,20 +42,20 @@ import java.text.CharacterIterator;
  */
 public class Segment implements Cloneable, CharacterIterator, CharSequence {
 
-    /**
+    /** {@collect.stats}
      * This is the array containing the text of
      * interest.  This array should never be modified;
      * it is available only for efficiency.
      */
     public char[] array;
 
-    /**
+    /** {@collect.stats}
      * This is the offset into the array that
      * the desired text begins.
      */
     public int offset;
 
-    /**
+    /** {@collect.stats}
      * This is the number of array elements that
      * make up the text of interest.
      */
@@ -63,14 +63,14 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
 
     private boolean partialReturn;
 
-    /**
+    /** {@collect.stats}
      * Creates a new segment.
      */
     public Segment() {
         this(null, 0, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new segment referring to an existing array.
      *
      * @param array the array to refer to
@@ -84,7 +84,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         partialReturn = false;
     }
 
-    /**
+    /** {@collect.stats}
      * Flag to indicate that partial returns are valid.  If the flag is true,
      * an implementation of the interface method Document.getText(position,length,Segment)
      * should return as much text as possible without making a copy.  The default
@@ -99,7 +99,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         partialReturn = p;
     }
 
-    /**
+    /** {@collect.stats}
      * Flag to indicate that partial returns are valid.
      *
      * @return whether or not partial returns are valid.
@@ -109,7 +109,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return partialReturn;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts a segment into a String.
      *
      * @return the string
@@ -123,7 +123,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
 
     // --- CharacterIterator methods -------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getBeginIndex() and returns the character at that
      * position.
      * @return the first character in the text, or DONE if the text is empty
@@ -138,7 +138,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return DONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position to getEndIndex()-1 (getEndIndex() if the text is empty)
      * and returns the character at that position.
      * @return the last character in the text, or DONE if the text is empty
@@ -154,7 +154,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return DONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the character at the current position (as returned by getIndex()).
      * @return the character at the current position or DONE if the current
      * position is off the end of the text.
@@ -168,7 +168,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return DONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Increments the iterator's index by one and returns the character
      * at the new index.  If the resulting index is greater or equal
      * to getEndIndex(), the current index is reset to getEndIndex() and
@@ -187,7 +187,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Decrements the iterator's index by one and returns the character
      * at the new index. If the current index is getBeginIndex(), the index
      * remains at getBeginIndex() and a value of DONE is returned.
@@ -203,7 +203,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return current();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the position to the specified position in the text and returns that
      * character.
      * @param position the position within the text.  Valid values range from
@@ -224,7 +224,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return DONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the start index of the text.
      * @return the index at which the text begins.
      * @since 1.3
@@ -233,7 +233,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return offset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the end index of the text.  This index is the index of the first
      * character following the end of the text.
      * @return the index after the last character in the text
@@ -243,7 +243,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return offset + count;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current index.
      * @return the current index.
      * @since 1.3
@@ -254,7 +254,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
 
     // --- CharSequence methods -------------------------------------
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -266,7 +266,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return array[offset + index];
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -274,7 +274,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return count;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      * @since 1.6
      */
@@ -295,7 +295,7 @@ public class Segment implements Cloneable, CharacterIterator, CharSequence {
         return segment;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a shallow copy.
      *
      * @return the copy

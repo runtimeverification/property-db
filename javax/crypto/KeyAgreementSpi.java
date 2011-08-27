@@ -28,7 +28,7 @@ package javax.crypto;
 import java.security.*;
 import java.security.spec.*;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>KeyAgreement</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -62,7 +62,7 @@ import java.security.spec.*;
 
 public abstract class KeyAgreementSpi {
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key and source of
      * randomness. The given key is required to contain all the algorithm
      * parameters required for this key agreement.
@@ -85,7 +85,7 @@ public abstract class KeyAgreementSpi {
     protected abstract void engineInit(Key key, SecureRandom random)
         throws InvalidKeyException;
 
-    /**
+    /** {@collect.stats}
      * Initializes this key agreement with the given key, set of
      * algorithm parameters, and source of randomness.
      *
@@ -105,7 +105,7 @@ public abstract class KeyAgreementSpi {
                                        SecureRandom random)
         throws InvalidKeyException, InvalidAlgorithmParameterException;
 
-    /**
+    /** {@collect.stats}
      * Executes the next phase of this key agreement with the given
      * key that was received from one of the other parties involved in this key
      * agreement.
@@ -127,7 +127,7 @@ public abstract class KeyAgreementSpi {
     protected abstract Key engineDoPhase(Key key, boolean lastPhase)
         throws InvalidKeyException, IllegalStateException;
 
-    /**
+    /** {@collect.stats}
      * Generates the shared secret and returns it in a new buffer.
      *
      * <p>This method resets this <code>KeyAgreementSpi</code> object,
@@ -145,7 +145,7 @@ public abstract class KeyAgreementSpi {
     protected abstract byte[] engineGenerateSecret()
         throws IllegalStateException;
 
-    /**
+    /** {@collect.stats}
      * Generates the shared secret, and places it into the buffer
      * <code>sharedSecret</code>, beginning at <code>offset</code> inclusive.
      *
@@ -175,7 +175,7 @@ public abstract class KeyAgreementSpi {
                                                 int offset)
         throws IllegalStateException, ShortBufferException;
 
-    /**
+    /** {@collect.stats}
      * Creates the shared secret and returns it as a secret key object
      * of the requested algorithm type.
      *

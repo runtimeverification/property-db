@@ -28,7 +28,7 @@ package javax.swing.event;
 import java.util.EventObject;
 import javax.swing.table.*;
 
-/**
+/** {@collect.stats}
  * <B>TableColumnModelEvent</B> is used to notify listeners that a table
  * column model has changed, such as a column was added, removed, or
  * moved.
@@ -51,17 +51,17 @@ public class TableColumnModelEvent extends java.util.EventObject
 //  Instance Variables
 //
 
-    /** The index of the column from where it was moved or removed */
+    /** {@collect.stats} The index of the column from where it was moved or removed */
     protected int       fromIndex;
 
-    /** The index of the column to where it was moved or added */
+    /** {@collect.stats} The index of the column to where it was moved or added */
     protected int       toIndex;
 
 //
 // Constructors
 //
 
-    /**
+    /** {@collect.stats}
      * Constructs a {@code TableColumnModelEvent} object.
      *
      * @param source  the {@code TableColumnModel} that originated the event
@@ -82,9 +82,9 @@ public class TableColumnModelEvent extends java.util.EventObject
 // Querying Methods
 //
 
-    /** Returns the fromIndex.  Valid for removed or moved events */
+    /** {@collect.stats} Returns the fromIndex.  Valid for removed or moved events */
     public int getFromIndex() { return fromIndex; };
 
-    /** Returns the toIndex.  Valid for add and moved events */
+    /** {@collect.stats} Returns the toIndex.  Valid for add and moved events */
     public int getToIndex() { return toIndex; };
 }

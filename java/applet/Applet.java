@@ -34,7 +34,7 @@ import java.util.Hashtable;
 import java.util.Locale;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * An applet is a small program that is intended not to be run on
  * its own, but rather to be embedded inside another application.
  * <p>
@@ -49,7 +49,7 @@ import javax.accessibility.*;
  */
 public class Applet extends Panel {
 
-    /**
+    /** {@collect.stats}
      * Constructs a new Applet.
      * <p>
      * Note: Many methods in <code>java.applet.Applet</code>
@@ -68,7 +68,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Applets can be serialized but the following conventions MUST be followed:
      *
      * Before Serialization:
@@ -84,7 +84,7 @@ public class Applet extends Panel {
     /* version ID for serialized form. */
     private static final long serialVersionUID = -5836846270535785031L;
 
-    /**
+    /** {@collect.stats}
      * Read an applet from an object input stream.
      * @exception HeadlessException if
      * <code>GraphicsEnvironment.isHeadless()</code> returns
@@ -101,7 +101,7 @@ public class Applet extends Panel {
         s.defaultReadObject();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets this applet's stub. This is done automatically by the system.
      * <p>If there is a security manager, its <code> checkPermission </code>
      * method is called with the
@@ -120,7 +120,7 @@ public class Applet extends Panel {
         this.stub = (AppletStub)stub;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines if this applet is active. An applet is marked active
      * just before its <code>start</code> method is called. It becomes
      * inactive just before its <code>stop</code> method is called.
@@ -138,7 +138,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the URL of the document in which this applet is embedded.
      * For example, suppose an applet is contained
      * within the document:
@@ -158,7 +158,7 @@ public class Applet extends Panel {
         return stub.getDocumentBase();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the base URL. This is the URL of the directory which contains this applet.
      *
      * @return  the base {@link java.net.URL} of
@@ -169,7 +169,7 @@ public class Applet extends Panel {
         return stub.getCodeBase();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the value of the named parameter in the HTML tag. For
      * example, if this applet is specified as
      * <blockquote><pre>
@@ -191,7 +191,7 @@ public class Applet extends Panel {
          return stub.getParameter(name);
      }
 
-    /**
+    /** {@collect.stats}
      * Determines this applet's context, which allows the applet to
      * query and affect the environment in which it runs.
      * <p>
@@ -204,7 +204,7 @@ public class Applet extends Panel {
         return stub.getAppletContext();
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that this applet be resized.
      *
      * @param   width    the new requested width for the applet.
@@ -220,7 +220,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that this applet be resized.
      *
      * @param   d   an object giving the new width and height.
@@ -229,7 +229,7 @@ public class Applet extends Panel {
         resize(d.width, d.height);
     }
 
-    /**
+    /** {@collect.stats}
      * Requests that the argument string be displayed in the
      * "status window". Many browsers and applet viewers
      * provide such a window, where the application can inform users of
@@ -241,7 +241,7 @@ public class Applet extends Panel {
         getAppletContext().showStatus(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Image</code> object that can then be painted on
      * the screen. The <code>url</code> that is passed as an argument
      * must specify an absolute URL.
@@ -259,7 +259,7 @@ public class Applet extends Panel {
         return getAppletContext().getImage(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an <code>Image</code> object that can then be painted on
      * the screen. The <code>url</code> argument must specify an absolute
      * URL. The <code>name</code> argument is a specifier that is
@@ -284,7 +284,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Get an audio clip from the given URL.
      *
      * @param url points to the audio clip
@@ -296,7 +296,7 @@ public class Applet extends Panel {
         return new sun.applet.AppletAudioClip(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AudioClip</code> object specified by the
      * <code>URL</code> argument.
      * <p>
@@ -312,7 +312,7 @@ public class Applet extends Panel {
         return getAppletContext().getAudioClip(url);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>AudioClip</code> object specified by the
      * <code>URL</code> and <code>name</code> arguments.
      * <p>
@@ -335,7 +335,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns information about this applet. An applet should override
      * this method to return a <code>String</code> containing information
      * about the author, version, and copyright of the applet.
@@ -350,7 +350,7 @@ public class Applet extends Panel {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the locale of the applet. It allows the applet
      * to maintain its own locale separated from the locale
      * of the browser or appletviewer.
@@ -367,7 +367,7 @@ public class Applet extends Panel {
       return locale;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns information about the parameters that are understood by
      * this applet. An applet should override this method to return an
      * array of <code>Strings</code> describing these parameters.
@@ -392,7 +392,7 @@ public class Applet extends Panel {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Plays the audio clip at the specified absolute URL. Nothing
      * happens if the audio clip cannot be found.
      *
@@ -405,7 +405,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Plays the audio clip given the URL and a specifier that is
      * relative to it. Nothing happens if the audio clip cannot be found.
      *
@@ -421,7 +421,7 @@ public class Applet extends Panel {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the browser or applet viewer to inform
      * this applet that it has been loaded into the system. It is always
      * called before the first time that the <code>start</code> method is
@@ -442,7 +442,7 @@ public class Applet extends Panel {
     public void init() {
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the browser or applet viewer to inform
      * this applet that it should start its execution. It is called after
      * the <code>init</code> method and each time the applet is revisited
@@ -474,7 +474,7 @@ public class Applet extends Panel {
     public void start() {
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the browser or applet viewer to inform
      * this applet that it should stop its execution. It is called when
      * the Web page that contains this applet has been replaced by
@@ -496,7 +496,7 @@ public class Applet extends Panel {
     public void stop() {
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the browser or applet viewer to inform
      * this applet that it is being reclaimed and that it should destroy
      * any resources that it has allocated. The <code>stop</code> method
@@ -524,7 +524,7 @@ public class Applet extends Panel {
 
     AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this Applet.
      * For applets, the AccessibleContext takes the form of an
      * AccessibleApplet.
@@ -541,7 +541,7 @@ public class Applet extends Panel {
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>Applet</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to applet user-interface elements.
@@ -551,7 +551,7 @@ public class Applet extends Panel {
 
         private static final long serialVersionUID = 8127374778187708896L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -561,7 +561,7 @@ public class Applet extends Panel {
             return AccessibleRole.FRAME;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current

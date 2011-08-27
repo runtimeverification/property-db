@@ -27,7 +27,7 @@ package javax.sql;
 
 import java.sql.*;
 
-/**
+/** {@collect.stats}
  * An object that contains information about the columns in a
  * <code>RowSet</code> object.  This interface is
  * an extension of the <code>ResultSetMetaData</code> interface with
@@ -46,7 +46,7 @@ import java.sql.*;
 
 public interface RowSetMetaData extends ResultSetMetaData {
 
-  /**
+  /** {@collect.stats}
    * Sets the number of columns in the <code>RowSet</code> object to
    * the given number.
    *
@@ -55,7 +55,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setColumnCount(int columnCount) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column is automatically numbered,
    * The default is for a <code>RowSet</code> object's
    * columns not to be automatically numbered.
@@ -68,7 +68,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setAutoIncrement(int columnIndex, boolean property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column is case sensitive.
    * The default is <code>false</code>.
    *
@@ -80,7 +80,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setCaseSensitive(int columnIndex, boolean property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column can be used in a where clause.
    * The default is <code>false</code>.
    *
@@ -92,7 +92,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setSearchable(int columnIndex, boolean property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column is a cash value.
    * The default is <code>false</code>.
    *
@@ -104,7 +104,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setCurrency(int columnIndex, boolean property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column's value can be set to
    * <code>NULL</code>.
    * The default is <code>ResultSetMetaData.columnNullableUnknown</code>
@@ -119,7 +119,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setNullable(int columnIndex, int property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets whether the designated column is a signed number.
    * The default is <code>false</code>.
    *
@@ -131,7 +131,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setSigned(int columnIndex, boolean property) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's normal maximum width in chars to the
    * given <code>int</code>.
    *
@@ -143,7 +143,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setColumnDisplaySize(int columnIndex, int size) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the suggested column title for use in printouts and
    * displays, if any, to the given <code>String</code>.
    *
@@ -153,7 +153,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setColumnLabel(int columnIndex, String label) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the name of the designated column to the given <code>String</code>.
    *
    * @param columnIndex the first column is 1, the second is 2, ...
@@ -162,7 +162,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setColumnName(int columnIndex, String columnName) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the name of the designated column's table's schema, if any, to
    * the given <code>String</code>.
    *
@@ -172,7 +172,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setSchemaName(int columnIndex, String schemaName) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's number of decimal digits to the
    * given <code>int</code>.
    *
@@ -182,7 +182,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setPrecision(int columnIndex, int precision) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's number of digits to the
    * right of the decimal point to the given <code>int</code>.
    *
@@ -192,7 +192,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setScale(int columnIndex, int scale) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's table name, if any, to the given
    * <code>String</code>.
    *
@@ -202,7 +202,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setTableName(int columnIndex, String tableName) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's table's catalog name, if any, to the given
    * <code>String</code>.
    *
@@ -212,7 +212,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setCatalogName(int columnIndex, String catalogName) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's SQL type to the one given.
    *
    * @param columnIndex the first column is 1, the second is 2, ...
@@ -222,7 +222,7 @@ public interface RowSetMetaData extends ResultSetMetaData {
    */
   void setColumnType(int columnIndex, int SQLType) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Sets the designated column's type name that is specific to the
    * data source, if any, to the given <code>String</code>.
    *

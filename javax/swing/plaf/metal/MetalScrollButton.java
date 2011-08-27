@@ -35,7 +35,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 
 
-/**
+/** {@collect.stats}
  * JButton object for Metal scrollbar arrows.
  * <p>
  * <strong>Warning:</strong>

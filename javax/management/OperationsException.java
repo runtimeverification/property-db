@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * Represents exceptions thrown in the MBean server when performing operations
  * on MBeans.
  *
@@ -38,14 +38,14 @@ public class OperationsException extends JMException   {
     /* Serial version */
     private static final long serialVersionUID = -4967597595580536216L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public OperationsException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

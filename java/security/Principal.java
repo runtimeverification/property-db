@@ -25,7 +25,7 @@
 
 package java.security;
 
-/**
+/** {@collect.stats}
  * This interface represents the abstract notion of a principal, which
  * can be used to represent any entity, such as an individual, a
  * corporation, and a login id.
@@ -36,7 +36,7 @@ package java.security;
  */
 public interface Principal {
 
-    /**
+    /** {@collect.stats}
      * Compares this principal to the specified object.  Returns true
      * if the object passed in matches the principal represented by
      * the implementation of this interface.
@@ -49,21 +49,21 @@ public interface Principal {
      */
     public boolean equals(Object another);
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this principal.
      *
      * @return a string representation of this principal.
      */
     public String toString();
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this principal.
      *
      * @return a hashcode for this principal.
      */
     public int hashCode();
 
-    /**
+    /** {@collect.stats}
      * Returns the name of this principal.
      *
      * @return the name of this principal.

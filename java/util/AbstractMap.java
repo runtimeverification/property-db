@@ -26,7 +26,7 @@
 package java.util;
 import java.util.Map.Entry;
 
-/**
+/** {@collect.stats}
  * This class provides a skeletal implementation of the <tt>Map</tt>
  * interface, to minimize the effort required to implement this interface.
  *
@@ -66,7 +66,7 @@ import java.util.Map.Entry;
  */
 
 public abstract class AbstractMap<K,V> implements Map<K,V> {
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
@@ -75,7 +75,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     // Query Operations
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns <tt>entrySet().size()</tt>.
@@ -84,7 +84,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return entrySet().size();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns <tt>size() == 0</tt>.
@@ -93,7 +93,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return size() == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over <tt>entrySet()</tt> searching
@@ -123,7 +123,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over <tt>entrySet()</tt> searching
@@ -154,7 +154,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over <tt>entrySet()</tt> searching
@@ -188,7 +188,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     // Modification Operations
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation always throws an
@@ -203,7 +203,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         throw new UnsupportedOperationException();
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over <tt>entrySet()</tt> searching for an
@@ -252,7 +252,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     // Bulk Operations
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation iterates over the specified map's
@@ -273,7 +273,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             put(e.getKey(), e.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation calls <tt>entrySet().clear()</tt>.
@@ -291,7 +291,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     // Views
 
-    /**
+    /** {@collect.stats}
      * Each of these fields are initialized to contain an instance of the
      * appropriate view the first time this view is requested.  The views are
      * stateless, so there's no reason to create more than one of each.
@@ -299,7 +299,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
     transient volatile Set<K>        keySet = null;
     transient volatile Collection<V> values = null;
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns a set that subclasses {@link AbstractSet}.
@@ -355,7 +355,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return keySet;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * <p>This implementation returns a collection that subclasses {@link
@@ -416,7 +416,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     // Comparison and hashing
 
-    /**
+    /** {@collect.stats}
      * Compares the specified object with this map for equality.  Returns
      * <tt>true</tt> if the given object is also a map and the two maps
      * represent the same mappings.  More formally, two maps <tt>m1</tt> and
@@ -470,7 +470,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the hash code value for this map.  The hash code of a map is
      * defined to be the sum of the hash codes of each entry in the map's
      * <tt>entrySet()</tt> view.  This ensures that <tt>m1.equals(m2)</tt>
@@ -495,7 +495,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return h;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this map.  The string representation
      * consists of a list of key-value mappings in the order returned by the
      * map's <tt>entrySet</tt> view's iterator, enclosed in braces
@@ -527,7 +527,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a shallow copy of this <tt>AbstractMap</tt> instance: the keys
      * and values themselves are not cloned.
      *
@@ -540,7 +540,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Utility method for SimpleEntry and SimpleImmutableEntry.
      * Test for equality, checking for nulls.
      */
@@ -556,7 +556,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
     // exposing a common abstract class.
 
 
-    /**
+    /** {@collect.stats}
      * An Entry maintaining a key and a value.  The value may be
      * changed using the <tt>setValue</tt> method.  This class
      * facilitates the process of building custom map
@@ -574,7 +574,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         private final K key;
         private V value;
 
-        /**
+        /** {@collect.stats}
          * Creates an entry representing a mapping from the specified
          * key to the specified value.
          *
@@ -586,7 +586,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             this.value = value;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates an entry representing the same mapping as the
          * specified entry.
          *
@@ -597,7 +597,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             this.value = entry.getValue();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the key corresponding to this entry.
          *
          * @return the key corresponding to this entry
@@ -606,7 +606,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return key;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the value corresponding to this entry.
          *
          * @return the value corresponding to this entry
@@ -615,7 +615,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the value corresponding to this entry with the specified
          * value.
          *
@@ -628,7 +628,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return oldValue;
         }
 
-        /**
+        /** {@collect.stats}
          * Compares the specified object with this entry for equality.
          * Returns {@code true} if the given object is also a map entry and
          * the two entries represent the same mapping.  More formally, two
@@ -656,7 +656,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return eq(key, e.getKey()) && eq(value, e.getValue());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the hash code value for this map entry.  The hash code
          * of a map entry {@code e} is defined to be: <pre>
          *   (e.getKey()==null   ? 0 : e.getKey().hashCode()) ^
@@ -674,7 +674,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
                    (value == null ? 0 : value.hashCode());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a String representation of this map entry.  This
          * implementation returns the string representation of this
          * entry's key followed by the equals character ("<tt>=</tt>")
@@ -688,7 +688,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
 
     }
 
-    /**
+    /** {@collect.stats}
      * An Entry maintaining an immutable key and value.  This class
      * does not support method <tt>setValue</tt>.  This class may be
      * convenient in methods that return thread-safe snapshots of
@@ -704,7 +704,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         private final K key;
         private final V value;
 
-        /**
+        /** {@collect.stats}
          * Creates an entry representing a mapping from the specified
          * key to the specified value.
          *
@@ -716,7 +716,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             this.value = value;
         }
 
-        /**
+        /** {@collect.stats}
          * Creates an entry representing the same mapping as the
          * specified entry.
          *
@@ -727,7 +727,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             this.value = entry.getValue();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the key corresponding to this entry.
          *
          * @return the key corresponding to this entry
@@ -736,7 +736,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return key;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the value corresponding to this entry.
          *
          * @return the value corresponding to this entry
@@ -745,7 +745,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return value;
         }
 
-        /**
+        /** {@collect.stats}
          * Replaces the value corresponding to this entry with the specified
          * value (optional operation).  This implementation simply throws
          * <tt>UnsupportedOperationException</tt>, as this class implements
@@ -759,7 +759,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             throw new UnsupportedOperationException();
         }
 
-        /**
+        /** {@collect.stats}
          * Compares the specified object with this entry for equality.
          * Returns {@code true} if the given object is also a map entry and
          * the two entries represent the same mapping.  More formally, two
@@ -787,7 +787,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
             return eq(key, e.getKey()) && eq(value, e.getValue());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the hash code value for this map entry.  The hash code
          * of a map entry {@code e} is defined to be: <pre>
          *   (e.getKey()==null   ? 0 : e.getKey().hashCode()) ^
@@ -805,7 +805,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
                    (value == null ? 0 : value.hashCode());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a String representation of this map entry.  This
          * implementation returns the string representation of this
          * entry's key followed by the equals character ("<tt>=</tt>")

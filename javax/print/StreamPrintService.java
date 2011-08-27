@@ -27,7 +27,7 @@ package javax.print;
 
 import java.io.OutputStream;
 
-/**
+/** {@collect.stats}
  * This class extends {@link PrintService} and represents a
  * print service that prints data in different formats to a
  * client-provided output stream.
@@ -61,7 +61,7 @@ public abstract class StreamPrintService implements PrintService {
     private StreamPrintService() {
     };
 
-    /**
+    /** {@collect.stats}
      * Constructs a StreamPrintService object.
      *
      * @param out  stream to which to send formatted print data.
@@ -70,7 +70,7 @@ public abstract class StreamPrintService implements PrintService {
         this.outStream = out;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the output stream.
      *
      * @return the stream to which this service will send formatted print data.
@@ -79,7 +79,7 @@ public abstract class StreamPrintService implements PrintService {
         return outStream;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the document format emitted by this print service.
      * Must be in mimetype format, compatible with the mime type
      * components of DocFlavors @see DocFlavor.
@@ -87,7 +87,7 @@ public abstract class StreamPrintService implements PrintService {
      */
     public abstract String getOutputFormat();
 
-    /**
+    /** {@collect.stats}
      * Disposes this <code>StreamPrintService</code>.
      * If a stream service cannot be re-used, it must be disposed
      * to indicate this. Typically the client will call this method.
@@ -99,7 +99,7 @@ public abstract class StreamPrintService implements PrintService {
         disposed = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a <code>boolean</code> indicating whether or not
      * this <code>StreamPrintService</code> has been disposed.
      * If this object has been disposed, will return true.

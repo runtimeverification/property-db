@@ -34,7 +34,7 @@ import java.util.*;
 import java.io.*;
 import java.net.*;
 
-/**
+/** {@collect.stats}
  * A Parser for HTML Documents (actually, you can specify a DTD, but
  * you should really only use this class with the html dtd in swing).
  * Reads an InputStream of HTML and
@@ -124,7 +124,7 @@ public class DocumentParser extends javax.swing.text.html.parser.Parser {
         callback.handleEndOfLineString(getEndOfLineString());
     }
 
-    /**
+    /** {@collect.stats}
      * Handle Start Tag.
      */
     protected void handleStartTag(TagElement tag) {
@@ -172,7 +172,7 @@ public class DocumentParser extends javax.swing.text.html.parser.Parser {
         callback.handleComment(text, getBlockStartPosition());
     }
 
-    /**
+    /** {@collect.stats}
      * Handle Empty Tag.
      */
     protected void handleEmptyTag(TagElement tag) throws ChangedCharSetException {
@@ -217,7 +217,7 @@ public class DocumentParser extends javax.swing.text.html.parser.Parser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handle End Tag.
      */
     protected void handleEndTag(TagElement tag) {
@@ -241,7 +241,7 @@ public class DocumentParser extends javax.swing.text.html.parser.Parser {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Handle Text.
      */
     protected void handleText(char data[]) {

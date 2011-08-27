@@ -25,7 +25,7 @@
 
 package javax.sound.midi;
 
-/**
+/** {@collect.stats}
  * A <code>ShortMessage</code> contains a MIDI message that has at most
  * two data bytes following its status byte.  The types of MIDI message
  * that satisfy this criterion are channel voice, channel mode, system common,
@@ -60,31 +60,31 @@ public class ShortMessage extends MidiMessage {
 
     // System common messages
 
-    /**
+    /** {@collect.stats}
      * Status byte for MIDI Time Code Quarter Frame message (0xF1, or 241).
      * @see MidiMessage#getStatus
      */
     public static final int MIDI_TIME_CODE                              = 0xF1; // 241
 
-    /**
+    /** {@collect.stats}
      * Status byte for Song Position Pointer message (0xF2, or 242).
      * @see MidiMessage#getStatus
      */
     public static final int SONG_POSITION_POINTER               = 0xF2; // 242
 
-    /**
+    /** {@collect.stats}
      * Status byte for MIDI Song Select message (0xF3, or 243).
      * @see MidiMessage#getStatus
      */
     public static final int SONG_SELECT                                 = 0xF3; // 243
 
-    /**
+    /** {@collect.stats}
      * Status byte for Tune Request message (0xF6, or 246).
      * @see MidiMessage#getStatus
      */
     public static final int TUNE_REQUEST                                = 0xF6; // 246
 
-    /**
+    /** {@collect.stats}
      * Status byte for End of System Exclusive message (0xF7, or 247).
      * @see MidiMessage#getStatus
      */
@@ -93,37 +93,37 @@ public class ShortMessage extends MidiMessage {
 
     // System real-time messages
 
-    /**
+    /** {@collect.stats}
      * Status byte for Timing Clock messagem (0xF8, or 248).
      * @see MidiMessage#getStatus
      */
     public static final int TIMING_CLOCK                                = 0xF8; // 248
 
-    /**
+    /** {@collect.stats}
      * Status byte for Start message (0xFA, or 250).
      * @see MidiMessage#getStatus
      */
     public static final int START                                               = 0xFA; // 250
 
-    /**
+    /** {@collect.stats}
      * Status byte for Continue message (0xFB, or 251).
      * @see MidiMessage#getStatus
      */
     public static final int CONTINUE                                    = 0xFB; // 251
 
-    /**
+    /** {@collect.stats}
      * Status byte for Stop message (0xFC, or 252).
      * @see MidiMessage#getStatus
      */
     public static final int STOP                                                = 0xFC; //252
 
-    /**
+    /** {@collect.stats}
      * Status byte for Active Sensing message (0xFE, or 254).
      * @see MidiMessage#getStatus
      */
     public static final int ACTIVE_SENSING                              = 0xFE; // 254
 
-    /**
+    /** {@collect.stats}
      * Status byte for System Reset message (0xFF, or 255).
      * @see MidiMessage#getStatus
      */
@@ -132,37 +132,37 @@ public class ShortMessage extends MidiMessage {
 
     // Channel voice message upper nibble defines
 
-    /**
+    /** {@collect.stats}
      * Command value for Note Off message (0x80, or 128)
      */
     public static final int NOTE_OFF                                    = 0x80;  // 128
 
-    /**
+    /** {@collect.stats}
      * Command value for Note On message (0x90, or 144)
      */
     public static final int NOTE_ON                                             = 0x90;  // 144
 
-    /**
+    /** {@collect.stats}
      * Command value for Polyphonic Key Pressure (Aftertouch) message (0xA0, or 160)
      */
     public static final int POLY_PRESSURE                               = 0xA0;  // 160
 
-    /**
+    /** {@collect.stats}
      * Command value for Control Change message (0xB0, or 176)
      */
     public static final int CONTROL_CHANGE                              = 0xB0;  // 176
 
-    /**
+    /** {@collect.stats}
      * Command value for Program Change message (0xC0, or 192)
      */
     public static final int PROGRAM_CHANGE                              = 0xC0;  // 192
 
-    /**
+    /** {@collect.stats}
      * Command value for Channel Pressure (Aftertouch) message (0xD0, or 208)
      */
     public static final int CHANNEL_PRESSURE                    = 0xD0;  // 208
 
-    /**
+    /** {@collect.stats}
      * Command value for Pitch Bend message (0xE0, or 224)
      */
     public static final int PITCH_BEND                                  = 0xE0;  // 224
@@ -170,7 +170,7 @@ public class ShortMessage extends MidiMessage {
 
     // Instance variables
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>ShortMessage</code>.  The
      * contents of the new message are guaranteed to specify
      * a valid MIDI message.  Subsequently, you may set the
@@ -188,7 +188,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>ShortMessage</code>.
      * @param data an array of bytes containing the complete message.
      * The message data may be changed using the <code>setMessage</code>
@@ -203,7 +203,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the parameters for a MIDI message that takes no data bytes.
      * @param status    the MIDI status byte
      * @throws  <code>InvalidMidiDataException</code> if <code>status</code> does not
@@ -221,7 +221,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the  parameters for a MIDI message that takes one or two data
      * bytes.  If the message takes only one data byte, the second data
      * byte is ignored; if the message does not take any data bytes, both
@@ -269,7 +269,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the short message parameters for a  channel message
      * which takes up to two data bytes.  If the message only
      * takes one data byte, the second data byte is ignored; if
@@ -303,7 +303,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI channel associated with this event.  This method
      * assumes that the event is a MIDI channel message; if not, the return
      * value will not be meaningful.
@@ -316,7 +316,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the MIDI command associated with this event.  This method
      * assumes that the event is a MIDI channel message; if not, the return
      * value will not be meaningful.
@@ -328,7 +328,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the first data byte in the message.
      * @return the value of the <code>data1</code> field
      * @see #setMessage(int, int, int)
@@ -341,7 +341,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtains the second data byte in the message.
      * @return the value of the <code>data2</code> field
      * @see #setMessage(int, int, int)
@@ -354,7 +354,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new object of the same class and with the same contents
      * as this object.
      * @return a clone of this instance.
@@ -368,7 +368,7 @@ public class ShortMessage extends MidiMessage {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Retrieves the number of data bytes associated with a particular
      * status byte value.
      * @param status status byte value, which must represent a short MIDI message

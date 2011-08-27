@@ -25,7 +25,7 @@
 
 package java.beans;
 
-/**
+/** {@collect.stats}
  * The ParameterDescriptor class allows bean implementors to provide
  * additional information on each of their parameters, beyond the
  * low level type information provided by the java.lang.reflect.Method
@@ -36,13 +36,13 @@ package java.beans;
 
 public class ParameterDescriptor extends FeatureDescriptor {
 
-    /**
+    /** {@collect.stats}
      * Public default constructor.
      */
     public ParameterDescriptor() {
     }
 
-    /**
+    /** {@collect.stats}
      * Package private dup constructor.
      * This must isolate the new object from any changes to the old object.
      */

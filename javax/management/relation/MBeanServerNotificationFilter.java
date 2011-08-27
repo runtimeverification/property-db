@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * Filter for {@link MBeanServerNotification}.
  * This filter filters MBeanServerNotification notifications by
  * selecting the ObjectNames of interest and the operations (registration,
@@ -90,7 +90,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     //
     // Actual serial version and serial form
     private static final long serialVersionUID;
-    /**
+    /** {@collect.stats}
      * @serialField selectedNames List List of {@link ObjectName}s of interest
      *         <ul>
      *         <li><code>null</code> means that all {@link ObjectName}s are implicitly selected
@@ -129,7 +129,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     // Private members
     //
 
-    /**
+    /** {@collect.stats}
      * @serial List of {@link ObjectName}s of interest
      *         <ul>
      *         <li><code>null</code> means that all {@link ObjectName}s are implicitly selected
@@ -139,7 +139,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
      */
     private List<ObjectName> selectedNames = new Vector<ObjectName>();
 
-    /**
+    /** {@collect.stats}
      * @serial List of {@link ObjectName}s with no interest
      *         <ul>
      *         <li><code>null</code> means that all {@link ObjectName}s are implicitly deselected
@@ -153,7 +153,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     // Constructor
     //
 
-    /**
+    /** {@collect.stats}
      * Creates a filter selecting all MBeanServerNotification notifications for
      * all ObjectNames.
      */
@@ -175,7 +175,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     // Accessors
     //
 
-    /**
+    /** {@collect.stats}
      * Disables any MBeanServerNotification (all ObjectNames are
      * deselected).
      */
@@ -192,7 +192,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Disables MBeanServerNotifications concerning given ObjectName.
      *
      * @param objectName  ObjectName no longer of interest
@@ -231,7 +231,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables all MBeanServerNotifications (all ObjectNames are selected).
      */
     public synchronized void enableAllObjectNames() {
@@ -247,7 +247,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables MBeanServerNotifications concerning given ObjectName.
      *
      * @param objectName  ObjectName of interest
@@ -286,7 +286,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
         return;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the ObjectNames enabled.
      *
      * @return Vector of ObjectNames:
@@ -303,7 +303,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets all the ObjectNames disabled.
      *
      * @return Vector of ObjectNames:
@@ -324,7 +324,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     // NotificationFilter interface
     //
 
-    /**
+    /** {@collect.stats}
      * Invoked before sending the specified notification to the listener.
      * <P>If:
      * <P>- the ObjectName of the concerned MBean is selected (explicitly OR
@@ -424,7 +424,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Deserializes an {@link MBeanServerNotificationFilter} from an {@link ObjectInputStream}.
      */
     private void readObject(ObjectInputStream in)
@@ -454,7 +454,7 @@ public class MBeanServerNotificationFilter extends NotificationFilterSupport {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Serializes an {@link MBeanServerNotificationFilter} to an {@link ObjectOutputStream}.
      */
     private void writeObject(ObjectOutputStream out)

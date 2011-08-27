@@ -25,14 +25,14 @@
 
 package java.awt;
 
-/**
+/** {@collect.stats}
  * An abstract class which provides a print graphics context for a page.
  *
  * @author      Amy Fowler
  */
 public interface PrintGraphics {
 
-    /**
+    /** {@collect.stats}
      * Returns the PrintJob object from which this PrintGraphics
      * object originated.
      */

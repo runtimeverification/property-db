@@ -33,7 +33,7 @@ import com.sun.imageio.stream.CloseableDisposerRecord;
 import com.sun.imageio.stream.StreamFinalizer;
 import sun.java2d.Disposer;
 
-/**
+/** {@collect.stats}
  * An implementation of <code>ImageOutputStream</code> that writes its
  * output directly to a <code>File</code> or
  * <code>RandomAccessFile</code>.
@@ -43,13 +43,13 @@ public class FileImageOutputStream extends ImageOutputStreamImpl {
 
     private RandomAccessFile raf;
 
-    /** The referent to be registered with the Disposer. */
+    /** {@collect.stats} The referent to be registered with the Disposer. */
     private final Object disposerReferent;
 
-    /** The DisposerRecord that closes the underlying RandomAccessFile. */
+    /** {@collect.stats} The DisposerRecord that closes the underlying RandomAccessFile. */
     private final CloseableDisposerRecord disposerRecord;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileImageOutputStream</code> that will write
      * to a given <code>File</code>.
      *
@@ -69,7 +69,7 @@ public class FileImageOutputStream extends ImageOutputStreamImpl {
         this(f == null ? null : new RandomAccessFile(f, "rw"));
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>FileImageOutputStream</code> that will write
      * to a given <code>RandomAccessFile</code>.
      *
@@ -134,7 +134,7 @@ public class FileImageOutputStream extends ImageOutputStreamImpl {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current stream position and resets the bit offset to
      * 0.  It is legal to seeking past the end of the file; an
      * <code>EOFException</code> will be thrown only if a read is
@@ -161,7 +161,7 @@ public class FileImageOutputStream extends ImageOutputStreamImpl {
         raf = null;
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     protected void finalize() throws Throwable {

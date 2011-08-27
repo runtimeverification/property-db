@@ -36,7 +36,7 @@ import java.security.PrivilegedAction;
 import sun.nio.ch.Interruptible;
 
 
-/**
+/** {@collect.stats}
  * Base implementation class for interruptible channels.
  *
  * <p> This class encapsulates the low-level machinery required to implement
@@ -90,12 +90,12 @@ public abstract class AbstractInterruptibleChannel
     private Object closeLock = new Object();
     private volatile boolean open = true;
 
-    /**
+    /** {@collect.stats}
      * Initializes a new instance of this class.
      */
     protected AbstractInterruptibleChannel() { }
 
-    /**
+    /** {@collect.stats}
      * Closes this channel.
      *
      * <p> If the channel has already been closed then this method returns
@@ -115,7 +115,7 @@ public abstract class AbstractInterruptibleChannel
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this channel.
      *
      * <p> This method is invoked by the {@link #close close} method in order
@@ -143,7 +143,7 @@ public abstract class AbstractInterruptibleChannel
     private Interruptible interruptor;
     private volatile boolean interrupted = false;
 
-    /**
+    /** {@collect.stats}
      * Marks the beginning of an I/O operation that might block indefinitely.
      *
      * <p> This method should be invoked in tandem with the {@link #end end}
@@ -171,7 +171,7 @@ public abstract class AbstractInterruptibleChannel
             interruptor.interrupt();
     }
 
-    /**
+    /** {@collect.stats}
      * Marks the end of an I/O operation that might block indefinitely.
      *
      * <p> This method should be invoked in tandem with the {@link #begin

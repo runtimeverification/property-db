@@ -28,7 +28,7 @@ package javax.swing;
 import java.util.EventObject;
 import javax.swing.event.*;
 
-/**
+/** {@collect.stats}
  * This interface defines the methods any general editor should be able
  * to implement. <p>
  *
@@ -60,13 +60,13 @@ import javax.swing.event.*;
  */
 public interface CellEditor {
 
-    /**
+    /** {@collect.stats}
      * Returns the value contained in the editor.
      * @return the value contained in the editor
      */
     public Object getCellEditorValue();
 
-    /**
+    /** {@collect.stats}
      * Asks the editor if it can start editing using <code>anEvent</code>.
      * <code>anEvent</code> is in the invoking component coordinate system.
      * The editor can not assume the Component returned by
@@ -82,7 +82,7 @@ public interface CellEditor {
      */
     public boolean isCellEditable(EventObject anEvent);
 
-    /**
+    /** {@collect.stats}
      * Returns true if the editing cell should be selected, false otherwise.
      * Typically, the return value is true, because is most cases the editing
      * cell should be selected.  However, it is useful to return false to
@@ -101,7 +101,7 @@ public interface CellEditor {
      */
     public boolean shouldSelectCell(EventObject anEvent);
 
-    /**
+    /** {@collect.stats}
      * Tells the editor to stop editing and accept any partially edited
      * value as the value of the editor.  The editor returns false if
      * editing was not stopped; this is useful for editors that validate
@@ -111,13 +111,13 @@ public interface CellEditor {
      */
     public boolean stopCellEditing();
 
-    /**
+    /** {@collect.stats}
      * Tells the editor to cancel editing and not accept any partially
      * edited value.
      */
     public void cancelCellEditing();
 
-    /**
+    /** {@collect.stats}
      * Adds a listener to the list that's notified when the editor
      * stops, or cancels editing.
      *
@@ -125,7 +125,7 @@ public interface CellEditor {
      */
     public void addCellEditorListener(CellEditorListener l);
 
-    /**
+    /** {@collect.stats}
      * Removes a listener from the list that's notified
      *
      * @param   l               the CellEditorListener

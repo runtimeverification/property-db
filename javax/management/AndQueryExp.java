@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query building mechanism to represent conjunctions
  * of relational expressions.
  * @serial include
@@ -38,24 +38,24 @@ class AndQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -1081892073854801359L;
 
-    /**
+    /** {@collect.stats}
      * @serial The first QueryExp of the conjunction
      */
     private QueryExp exp1;
 
-    /**
+    /** {@collect.stats}
      * @serial The second QueryExp of the conjunction
      */
     private QueryExp exp2;
 
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public AndQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AndQueryExp with q1 and q2 QueryExp.
      */
     public AndQueryExp(QueryExp q1, QueryExp q2) {
@@ -64,21 +64,21 @@ class AndQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the left query expression.
      */
     public QueryExp getLeftExp()  {
         return exp1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the right query expression.
      */
     public QueryExp getRightExp()  {
         return exp2;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the AndQueryExp on a MBean.
      *
      * @param name The name of the MBean on which the AndQueryExp will be applied.
@@ -97,7 +97,7 @@ class AndQueryExp extends QueryEval implements QueryExp {
         return exp1.apply(name) && exp2.apply(name);
     }
 
-   /**
+   /** {@collect.stats}
     * Returns a string representation of this AndQueryExp
     */
    public String toString() {

@@ -28,7 +28,7 @@ package javax.imageio;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-/**
+/** {@collect.stats}
  * A superclass of all classes describing how streams should be
  * decoded or encoded.  This class contains all the variables and
  * methods that are shared by <code>ImageReadParam</code> and
@@ -48,26 +48,26 @@ import java.awt.Rectangle;
  */
 public abstract class IIOParam {
 
-    /**
+    /** {@collect.stats}
      * The source region, on <code>null</code> if none is set.
      */
     protected Rectangle sourceRegion = null;
 
-    /**
+    /** {@collect.stats}
      * The decimation subsampling to be applied in the horizontal
      * direction.  By default, the value is <code>1</code>.
      * The value must not be negative or 0.
      */
     protected int sourceXSubsampling = 1;
 
-    /**
+    /** {@collect.stats}
      * The decimation subsampling to be applied in the vertical
      * direction.  By default, the value is <code>1</code>.
      * The value must not be negative or 0.
      */
     protected int sourceYSubsampling = 1;
 
-    /**
+    /** {@collect.stats}
      * A horizontal offset to be applied to the subsampling grid before
      * subsampling.  The first pixel to be used will be offset this
      * amount from the origin of the region, or of the image if no
@@ -75,7 +75,7 @@ public abstract class IIOParam {
      */
     protected int subsamplingXOffset = 0;
 
-    /**
+    /** {@collect.stats}
      * A vertical offset to be applied to the subsampling grid before
      * subsampling.  The first pixel to be used will be offset this
      * amount from the origin of the region, or of the image if no
@@ -83,7 +83,7 @@ public abstract class IIOParam {
      */
     protected int subsamplingYOffset = 0;
 
-    /**
+    /** {@collect.stats}
      * An array of <code>int</code>s indicating which source bands
      * will be used, or <code>null</code>.  If <code>null</code>, the
      * set of source bands to be used is as described in the comment
@@ -92,7 +92,7 @@ public abstract class IIOParam {
      */
     protected int[] sourceBands = null;
 
-    /**
+    /** {@collect.stats}
      * An <code>ImageTypeSpecifier</code> to be used to generate a
      * destination image when reading, or to set the output color type
      * when writing.  If non has been setm the value will be
@@ -100,13 +100,13 @@ public abstract class IIOParam {
      */
     protected ImageTypeSpecifier destinationType = null;
 
-    /**
+    /** {@collect.stats}
      * The offset in the destination where the upper-left decoded
      * pixel should be placed.  By default, the value is (0, 0).
      */
     protected Point destinationOffset = new Point(0, 0);
 
-    /**
+    /** {@collect.stats}
      * The default <code>IIOParamController</code> that will be
      * used to provide settings for this <code>IIOParam</code>
      * object when the <code>activateController</code> method
@@ -120,7 +120,7 @@ public abstract class IIOParam {
      */
     protected IIOParamController defaultController = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>IIOParamController</code> that will be
      * used to provide settings for this <code>IIOParam</code>
      * object when the <code>activateController</code> method
@@ -134,14 +134,14 @@ public abstract class IIOParam {
      */
     protected IIOParamController controller = null;
 
-    /**
+    /** {@collect.stats}
      * Protected constructor may be called only by subclasses.
      */
     protected IIOParam() {
         controller = defaultController;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the source region of interest.  The region of interest is
      * described as a rectangle, with the upper-left corner of the
      * source image as pixel (0, 0) and increasing values down and to
@@ -210,7 +210,7 @@ public abstract class IIOParam {
         this.sourceRegion = (Rectangle)sourceRegion.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the source region to be used.  The returned value is
      * that set by the most recent call to
      * <code>setSourceRegion</code>, and will be <code>null</code> if
@@ -228,7 +228,7 @@ public abstract class IIOParam {
         return (Rectangle)sourceRegion.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies a decimation subsampling to apply on I/O.  The
      * <code>sourceXSubsampling</code> and
      * <code>sourceYSubsampling</code> parameters specify the
@@ -331,7 +331,7 @@ public abstract class IIOParam {
         this.subsamplingYOffset = subsamplingYOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of source columns to advance for each pixel.
      *
      * <p>If <code>setSourceSubsampling</code> has not been called, 1
@@ -346,7 +346,7 @@ public abstract class IIOParam {
         return sourceXSubsampling;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows to advance for each pixel.
      *
      * <p>If <code>setSourceSubsampling</code> has not been called, 1
@@ -361,7 +361,7 @@ public abstract class IIOParam {
         return sourceYSubsampling;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the horizontal offset of the subsampling grid.
      *
      * <p>If <code>setSourceSubsampling</code> has not been called, 0
@@ -376,7 +376,7 @@ public abstract class IIOParam {
         return subsamplingXOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the vertical offset of the subsampling grid.
      *
      * <p>If <code>setSourceSubsampling</code> has not been called, 0
@@ -391,7 +391,7 @@ public abstract class IIOParam {
         return subsamplingYOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the indices of the source bands to be used.  Duplicate
      * indices are not allowed.
      *
@@ -441,7 +441,7 @@ public abstract class IIOParam {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of of source bands to be used. The returned
      * value is that set by the most recent call to
      * <code>setSourceBands</code>, or <code>null</code> if there have
@@ -463,7 +463,7 @@ public abstract class IIOParam {
         return (int[])(sourceBands.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the desired image type for the destination image, using an
      * <code>ImageTypeSpecifier</code>.
      *
@@ -498,7 +498,7 @@ public abstract class IIOParam {
         this.destinationType = destinationType;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of image to be returned by the read, if one
      * was set by a call to
      * <code>setDestination(ImageTypeSpecifier)</code>, as an
@@ -514,7 +514,7 @@ public abstract class IIOParam {
         return destinationType;
     }
 
-    /**
+    /** {@collect.stats}
      * Specifies the offset in the destination image at which future
      * decoded pixels are to be placed, when reading, or where a
      * region will be written, when writing.
@@ -550,7 +550,7 @@ public abstract class IIOParam {
         this.destinationOffset = (Point)destinationOffset.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the offset in the destination image at which pixels are
      * to be placed.
      *
@@ -566,7 +566,7 @@ public abstract class IIOParam {
         return (Point)destinationOffset.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>IIOParamController</code> to be used
      * to provide settings for this <code>IIOParam</code>
      * object when the <code>activateController</code> method
@@ -588,7 +588,7 @@ public abstract class IIOParam {
         this.controller = controller;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whatever <code>IIOParamController</code> is currently
      * installed.  This could be the default if there is one,
      * <code>null</code>, or the argument of the most recent call
@@ -607,7 +607,7 @@ public abstract class IIOParam {
         return controller;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the default <code>IIOParamController</code>, if there
      * is one, regardless of the currently installed controller.  If
      * there is no default controller, returns <code>null</code>.
@@ -625,7 +625,7 @@ public abstract class IIOParam {
         return defaultController;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if there is a controller installed
      * for this <code>IIOParam</code> object.  This will return
      * <code>true</code> if <code>getController</code> would not
@@ -643,7 +643,7 @@ public abstract class IIOParam {
         return (controller != null);
     }
 
-    /**
+    /** {@collect.stats}
      * Activates the installed <code>IIOParamController</code> for
      * this <code>IIOParam</code> object and returns the resulting
      * value.  When this method returns <code>true</code>, all values

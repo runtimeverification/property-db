@@ -27,7 +27,7 @@ package javax.swing.plaf;
 
 import javax.swing.JComboBox;
 
-/**
+/** {@collect.stats}
  * Pluggable look and feel interface for JComboBox.
  *
  * @author Arnaud Weber
@@ -35,17 +35,17 @@ import javax.swing.JComboBox;
  */
 public abstract class ComboBoxUI extends ComponentUI {
 
-    /**
+    /** {@collect.stats}
      * Set the visiblity of the popup
      */
     public abstract void setPopupVisible( JComboBox c, boolean v );
 
-    /**
+    /** {@collect.stats}
      * Determine the visibility of the popup
      */
     public abstract boolean isPopupVisible( JComboBox c );
 
-    /**
+    /** {@collect.stats}
      * Determine whether or not the combo box itself is traversable
      */
     public abstract boolean isFocusTraversable( JComboBox c );

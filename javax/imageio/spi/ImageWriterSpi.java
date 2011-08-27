@@ -31,7 +31,7 @@ import javax.imageio.ImageTypeSpecifier;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
-/**
+/** {@collect.stats}
  * The service provider interface (SPI) for <code>ImageWriter</code>s.
  * For more information on service provider classes, see the class comment
  * for the <code>IIORegistry</code> class.
@@ -75,7 +75,7 @@ import javax.imageio.stream.ImageOutputStream;
  */
 public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
 
-    /**
+    /** {@collect.stats}
      * A single-element array, initially containing
      * <code>ImageInputStream.class</code>, to be returned from
      * <code>getInputTypes</code>.
@@ -83,26 +83,26 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
     public static final Class[] STANDARD_OUTPUT_TYPE =
         { ImageOutputStream.class };
 
-    /**
+    /** {@collect.stats}
      * An array of <code>Class</code> objects to be returned from
      * <code>getOutputTypes</code>, initially <code>null</code>.
      */
     protected Class[] outputTypes = null;
 
-    /**
+    /** {@collect.stats}
      * An array of strings to be returned from
      * <code>getImageReaderSpiNames</code>, initially
      * <code>null</code>.
      */
     protected String[] readerSpiNames = null;
 
-    /**
+    /** {@collect.stats}
      * The <code>Class</code> of the writer, initially
      * <code>null</code>.
      */
     private Class writerClass = null;
 
-    /**
+    /** {@collect.stats}
      * Constructs a blank <code>ImageWriterSpi</code>.  It is up to
      * the subclass to initialize instance variables and/or override
      * method implementations in order to provide working versions of
@@ -111,7 +111,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
     protected ImageWriterSpi() {
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>ImageWriterSpi</code> with a given
      * set of values.
      *
@@ -239,7 +239,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the format that this writer
      * outputs preserves pixel data bit-accurately.  The default
      * implementation returns <code>true</code>.
@@ -251,7 +251,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Class</code> objects indicating what
      * types of objects may be used as arguments to the writer's
      * <code>setOutput</code> method.
@@ -268,7 +268,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         return (Class[])outputTypes.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageWriter</code>
      * implementation associated with this service provider is able to
      * encode an image with the given layout.  The layout
@@ -306,7 +306,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
      */
     public abstract boolean canEncodeImage(ImageTypeSpecifier type);
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageWriter</code>
      * implementation associated with this service provider is able to
      * encode the given <code>RenderedImage</code> instance.  Note
@@ -329,7 +329,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         return canEncodeImage(ImageTypeSpecifier.createFromRenderedImage(im));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageWriter</code>
      * implementation associated with this service provider.
      * The returned object will initially be in an initial state as if
@@ -348,7 +348,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         return createWriterInstance(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an instance of the <code>ImageWriter</code>
      * implementation associated with this service provider.
      * The returned object will initially be in an initial state
@@ -376,7 +376,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
     public abstract ImageWriter createWriterInstance(Object extension)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if the <code>ImageWriter</code> object
      * passed in is an instance of the <code>ImageWriter</code>
      * associated with this service provider.
@@ -396,7 +396,7 @@ public abstract class ImageWriterSpi extends ImageReaderWriterSpi {
         return name.equals(pluginClassName);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>String</code>s containing all the
      * fully qualified names of all the <code>ImageReaderSpi</code>
      * classes that can understand the internal metadata

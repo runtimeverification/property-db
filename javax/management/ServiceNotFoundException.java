@@ -29,7 +29,7 @@ package javax.management;
 import javax.management.OperationsException;
 
 
-/**
+/** {@collect.stats}
  * Represents exceptions raised when a requested service is not supported.
  *
  * @since 1.5
@@ -39,14 +39,14 @@ public class ServiceNotFoundException extends OperationsException   {
     /* Serial version */
     private static final long serialVersionUID = -3990675661956646827L;
 
-    /**
+    /** {@collect.stats}
      * Default constructor.
      */
     public ServiceNotFoundException() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructor that allows a specific error message to be specified.
      *
      * @param message the detail message.

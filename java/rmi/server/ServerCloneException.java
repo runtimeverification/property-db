@@ -25,7 +25,7 @@
 
 package java.rmi.server;
 
-/**
+/** {@collect.stats}
  * A <code>ServerCloneException</code> is thrown if a remote exception occurs
  * during the cloning of a <code>UnicastRemoteObject</code>.
  *
@@ -46,7 +46,7 @@ package java.rmi.server;
  */
 public class ServerCloneException extends CloneNotSupportedException {
 
-    /**
+    /** {@collect.stats}
      * The cause of the exception.
      *
      * <p>This field predates the general-purpose exception chaining facility.
@@ -60,7 +60,7 @@ public class ServerCloneException extends CloneNotSupportedException {
     /* indicate compatibility with JDK 1.1.x version of class */
     private static final long serialVersionUID = 6617456357664815945L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ServerCloneException</code> with the specified
      * detail message.
      *
@@ -71,7 +71,7 @@ public class ServerCloneException extends CloneNotSupportedException {
         initCause(null);  // Disallow subsequent initCause
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>ServerCloneException</code> with the specified
      * detail message and cause.
      *
@@ -84,7 +84,7 @@ public class ServerCloneException extends CloneNotSupportedException {
         detail = cause;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the detail message, including the message from the cause, if
      * any, of this exception.
      *
@@ -99,7 +99,7 @@ public class ServerCloneException extends CloneNotSupportedException {
                 detail.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cause of this exception.  This method returns the value
      * of the {@link #detail} field.
      *

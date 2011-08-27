@@ -28,7 +28,7 @@ package javax.security.auth.login;
 import java.util.Map;
 import java.util.Collections;
 
-/**
+/** {@collect.stats}
  * This class represents a single <code>LoginModule</code> entry
  * configured for the application specified in the
  * <code>getAppConfigurationEntry(String appName)</code>
@@ -47,7 +47,7 @@ public class AppConfigurationEntry {
     private LoginModuleControlFlag controlFlag;
     private Map<String,?> options;
 
-    /**
+    /** {@collect.stats}
      * Default constructor for this class.
      *
      * <p> This entry represents a single <code>LoginModule</code>
@@ -87,7 +87,7 @@ public class AppConfigurationEntry {
         this.options = Collections.unmodifiableMap(options);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the class name of the configured <code>LoginModule</code>.
      *
      * @return the class name of the configured <code>LoginModule</code> as
@@ -97,7 +97,7 @@ public class AppConfigurationEntry {
         return loginModuleName;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the controlFlag
      * (either REQUIRED, REQUISITE, SUFFICIENT, or OPTIONAL)
      * for this <code>LoginModule</code>.
@@ -110,7 +110,7 @@ public class AppConfigurationEntry {
         return controlFlag;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the options configured for this <code>LoginModule</code>.
      *
      * @return the options configured for this <code>LoginModule</code>
@@ -120,7 +120,7 @@ public class AppConfigurationEntry {
         return options;
     }
 
-    /**
+    /** {@collect.stats}
      * This class represents whether or not a <code>LoginModule</code>
      * is REQUIRED, REQUISITE, SUFFICIENT or OPTIONAL.
      */
@@ -128,25 +128,25 @@ public class AppConfigurationEntry {
 
         private String controlFlag;
 
-        /**
+        /** {@collect.stats}
          * Required <code>LoginModule</code>.
          */
         public static final LoginModuleControlFlag REQUIRED =
                                 new LoginModuleControlFlag("required");
 
-        /**
+        /** {@collect.stats}
          * Requisite <code>LoginModule</code>.
          */
         public static final LoginModuleControlFlag REQUISITE =
                                 new LoginModuleControlFlag("requisite");
 
-        /**
+        /** {@collect.stats}
          * Sufficient <code>LoginModule</code>.
          */
         public static final LoginModuleControlFlag SUFFICIENT =
                                 new LoginModuleControlFlag("sufficient");
 
-        /**
+        /** {@collect.stats}
          * Optional <code>LoginModule</code>.
          */
         public static final LoginModuleControlFlag OPTIONAL =
@@ -156,7 +156,7 @@ public class AppConfigurationEntry {
             this.controlFlag = controlFlag;
         }
 
-        /**
+        /** {@collect.stats}
          * Return a String representation of this controlFlag.
          *
          * <p> The String has the format, "LoginModuleControlFlag: <i>flag</i>",

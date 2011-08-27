@@ -32,7 +32,7 @@ import java.util.regex.*;
 import sun.swing.plaf.synth.*;
 import sun.swing.BakedArrayList;
 
-/**
+/** {@collect.stats}
  * Factory used for obtaining styles. Supports associating a style based on
  * the name of the component as returned by <code>Component.getName()</code>,
  * and the <code>Region</code> associated with the <code>JComponent</code>.
@@ -41,31 +41,31 @@ import sun.swing.BakedArrayList;
  * @author Scott Violet
  */
 class DefaultSynthStyleFactory extends SynthStyleFactory {
-    /**
+    /** {@collect.stats}
      * Used to indicate the lookup should be done based on Component name.
      */
     public static final int NAME = 0;
-    /**
+    /** {@collect.stats}
      * Used to indicate the lookup should be done based on region.
      */
     public static final int REGION = 1;
 
-    /**
+    /** {@collect.stats}
      * List containing set of StyleAssociations used in determining matching
      * styles.
      */
     private List<StyleAssociation> _styles;
-    /**
+    /** {@collect.stats}
      * Used during lookup.
      */
     private BakedArrayList _tmpList;
 
-    /**
+    /** {@collect.stats}
      * Maps from a List (BakedArrayList to be precise) to the merged style.
      */
     private Map _resolvedStyles;
 
-    /**
+    /** {@collect.stats}
      * Used if there are no styles matching a widget.
      */
     private SynthStyle _defaultStyle;
@@ -93,7 +93,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the style for the specified Component.
      *
      * @param c Component asking for
@@ -122,7 +122,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         return style;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the style to use if there are no matching styles.
      */
     private SynthStyle getDefaultStyle() {
@@ -134,7 +134,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         return _defaultStyle;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches any styles that match the passed into arguments into
      * <code>matches</code>.
      */
@@ -163,7 +163,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Caches the specified style.
      */
     private void cacheStyle(java.util.List styles, SynthStyle style) {
@@ -172,7 +172,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         _resolvedStyles.put(cachedStyles, style);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the cached style from the passed in arguments.
      */
     private SynthStyle getCachedStyle(java.util.List styles) {
@@ -182,7 +182,7 @@ class DefaultSynthStyleFactory extends SynthStyleFactory {
         return (SynthStyle)_resolvedStyles.get(styles);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a single Style from the passed in styles. The passed in List
      * is reverse sorted, that is the most recently added style found to
      * match will be first.

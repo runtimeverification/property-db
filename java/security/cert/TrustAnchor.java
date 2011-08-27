@@ -33,7 +33,7 @@ import javax.security.auth.x500.X500Principal;
 import sun.security.x509.NameConstraintsExtension;
 import sun.security.x509.X500Name;
 
-/**
+/** {@collect.stats}
  * A trust anchor or most-trusted Certification Authority (CA).
  * <p>
  * This class represents a "most-trusted CA", which is used as a trust anchor
@@ -70,7 +70,7 @@ public class TrustAnchor {
     private byte[] ncBytes;
     private NameConstraintsExtension nc;
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>TrustAnchor</code> with the specified
      * <code>X509Certificate</code> and optional name constraints, which
      * are intended to be used as additional constraints when validating
@@ -133,7 +133,7 @@ public class TrustAnchor {
         setNameConstraints(nameConstraints);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>TrustAnchor</code> where the
      * most-trusted CA is specified as an X500Principal and public key.
      * Name constraints are an optional parameter, and are intended to be used
@@ -172,7 +172,7 @@ public class TrustAnchor {
         setNameConstraints(nameConstraints);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an instance of <code>TrustAnchor</code> where the
      * most-trusted CA is specified as a distinguished name and public key.
      * Name constraints are an optional parameter, and are intended to be used
@@ -222,7 +222,7 @@ public class TrustAnchor {
         setNameConstraints(nameConstraints);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the most-trusted CA certificate.
      *
      * @return a trusted <code>X509Certificate</code> or <code>null</code>
@@ -232,7 +232,7 @@ public class TrustAnchor {
         return this.trustedCert;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the most-trusted CA as an X500Principal.
      *
      * @return the X.500 distinguished name of the most-trusted CA, or
@@ -244,7 +244,7 @@ public class TrustAnchor {
         return this.caPrincipal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the most-trusted CA in RFC 2253 <code>String</code>
      * format.
      *
@@ -256,7 +256,7 @@ public class TrustAnchor {
         return this.caName;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the public key of the most-trusted CA.
      *
      * @return the public key of the most-trusted CA, or <code>null</code>
@@ -267,7 +267,7 @@ public class TrustAnchor {
         return this.pubKey;
     }
 
-    /**
+    /** {@collect.stats}
      * Decode the name constraints and clone them if not null.
      */
     private void setNameConstraints(byte[] bytes) {
@@ -288,7 +288,7 @@ public class TrustAnchor {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name constraints parameter. The specified name constraints
      * are associated with this trust anchor and are intended to be used
      * as additional constraints when validating an X.509 certification path.
@@ -312,7 +312,7 @@ public class TrustAnchor {
         return (ncBytes == null ? null : (byte []) ncBytes.clone());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a formatted string describing the <code>TrustAnchor</code>.
      *
      * @return a formatted string describing the <code>TrustAnchor</code>

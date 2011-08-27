@@ -33,7 +33,7 @@ import javax.swing.text.*;
 import javax.swing.plaf.*;
 import javax.swing.plaf.basic.*;
 
-/**
+/** {@collect.stats}
  * Basis of a look and feel for a JTextField.
  * <p>
  * <strong>Warning:</strong>
@@ -53,7 +53,7 @@ public class MetalTextFieldUI extends BasicTextFieldUI {
         return new MetalTextFieldUI();
     }
 
-    /**
+    /** {@collect.stats}
      * This method gets called when a bound property is changed
      * on the associated JTextComponent.  This is a hook
      * which UI implementations may change to reflect how the

@@ -29,7 +29,7 @@ package java.lang.instrument;
  * Copyright 2003 Wily Technology, Inc.
  */
 
-/**
+/** {@collect.stats}
  * Thrown by an implementation of
  * {@link java.lang.instrument.ClassFileTransformer#transform ClassFileTransformer.transform}
  * when its input parameters are invalid.
@@ -40,7 +40,7 @@ package java.lang.instrument;
  * @since   1.5
  */
 public class IllegalClassFormatException extends Exception {
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalClassFormatException</code> with no
      * detail message.
      */
@@ -49,7 +49,7 @@ public class IllegalClassFormatException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>IllegalClassFormatException</code> with the
      * specified detail message.
      *

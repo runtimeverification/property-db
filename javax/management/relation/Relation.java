@@ -30,7 +30,7 @@ import java.util.Map;
 
 import javax.management.ObjectName;
 
-/**
+/** {@collect.stats}
  * This interface has to be implemented by any MBean class expected to
  * represent a relation managed using the Relation Service.
  * <P>Simple relations, i.e. having only roles, no properties or methods, can
@@ -49,7 +49,7 @@ import javax.management.ObjectName;
  */
 public interface Relation {
 
-    /**
+    /** {@collect.stats}
      * Retrieves role value for given role name.
      * <P>Checks if the role exists and is readable according to the relation
      * type.
@@ -72,7 +72,7 @@ public interface Relation {
                RoleNotFoundException,
                RelationServiceNotRegisteredException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves values of roles with given names.
      * <P>Checks for each role if it exists and is readable according to the
      * relation type.
@@ -93,7 +93,7 @@ public interface Relation {
         throws IllegalArgumentException,
                RelationServiceNotRegisteredException;
 
-    /**
+    /** {@collect.stats}
      * Returns the number of MBeans currently referenced in the given role.
      *
      * @param roleName  name of role
@@ -107,7 +107,7 @@ public interface Relation {
         throws IllegalArgumentException,
                RoleNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Returns all roles present in the relation.
      *
      * @return a RoleResult object, including a RoleList (for roles
@@ -120,14 +120,14 @@ public interface Relation {
     public RoleResult getAllRoles()
         throws RelationServiceNotRegisteredException;
 
-    /**
+    /** {@collect.stats}
      * Returns all roles in the relation without checking read mode.
      *
      * @return a RoleList.
      */
     public RoleList retrieveAllRoles();
 
-    /**
+    /** {@collect.stats}
      * Sets the given role.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -167,7 +167,7 @@ public interface Relation {
                RelationServiceNotRegisteredException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Sets the given roles.
      * <P>Will check the role according to its corresponding role definition
      * provided in relation's relation type
@@ -197,7 +197,7 @@ public interface Relation {
                RelationTypeNotFoundException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Callback used by the Relation Service when a MBean referenced in a role
      * is unregistered.
      * <P>The Relation Service will call this method to let the relation
@@ -232,7 +232,7 @@ public interface Relation {
                RelationTypeNotFoundException,
                RelationNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves MBeans referenced in the various roles of the relation.
      *
      * @return a HashMap mapping:
@@ -240,21 +240,21 @@ public interface Relation {
      */
     public Map<ObjectName,List<String>> getReferencedMBeans();
 
-    /**
+    /** {@collect.stats}
      * Returns name of associated relation type.
      *
      * @return the name of the relation type.
      */
     public String getRelationTypeName();
 
-    /**
+    /** {@collect.stats}
      * Returns ObjectName of the Relation Service handling the relation.
      *
      * @return the ObjectName of the Relation Service.
      */
     public ObjectName getRelationServiceName();
 
-    /**
+    /** {@collect.stats}
      * Returns relation identifier (used to uniquely identify the relation
      * inside the Relation Service).
      *

@@ -26,25 +26,25 @@ package java.awt;
 
 interface EventFilter {
 
-    /**
+    /** {@collect.stats}
      * Enumeration for possible values for <code>acceptEvent(AWTEvent ev)</code> method.
      * @see EventDispatchThread#pumpEventsForFilters(EventFilter)
      */
     static enum FilterAction {
-        /**
+        /** {@collect.stats}
          * ACCEPT means that this filter do not filter the event and allowes other
          * active filters to proceed it. If all the active filters accept the event, it
          * is dispatched by the <code>EventDispatchThread</code>
          * @see EventDispatchThread#pumpEventsForFilters(EventFilter)
          */
         ACCEPT,
-        /**
+        /** {@collect.stats}
          * REJECT means that this filter filter the event. No other filters are queried,
          * and the event is not dispatched by the <code>EventDispatchedThread</code>
          * @see EventDispatchThread#pumpEventsForFilters(EventFilter)
          */
         REJECT,
-        /**
+        /** {@collect.stats}
          * ACCEPT_IMMEDIATELY means that this filter do not filter the event, no other
          * filters are queried and to proceed it, and it is dispatched by the
          * <code>EventDispatchThread</code>

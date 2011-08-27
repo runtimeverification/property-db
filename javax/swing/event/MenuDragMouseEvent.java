@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Component;
 
 
-/**
+/** {@collect.stats}
  * MenuDragMouseEvent is used to notify interested parties that
  * the menu element has received a MouseEvent forwarded to it
  * under drag conditions.
@@ -51,7 +51,7 @@ public class MenuDragMouseEvent extends MouseEvent {
     private MenuElement path[];
     private MenuSelectionManager manager;
 
-    /**
+    /** {@collect.stats}
      * Constructs a MenuDragMouseEvent object.
      * <p>Absolute coordinates xAbs and yAbs are set to source's location on screen plus
      * relative coordinates x and y. xAbs and yAbs are set to zero if the source is not showing.
@@ -84,7 +84,7 @@ public class MenuDragMouseEvent extends MouseEvent {
         manager = m;
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a MenuDragMouseEvent object.
      * <p>Even if inconsistent values for relative and absolute coordinates are
      * passed to the constructor, the MenuDragMouseEvent instance is still
@@ -124,7 +124,7 @@ public class MenuDragMouseEvent extends MouseEvent {
         manager = m;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the path to the selected menu item.
      *
      * @return an array of MenuElement objects representing the path value
@@ -133,7 +133,7 @@ public class MenuDragMouseEvent extends MouseEvent {
         return path;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current menu selection manager.
      *
      * @return a MenuSelectionManager object

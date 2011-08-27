@@ -29,7 +29,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterMakeAndModel is a printing attribute class, a text attribute,
  * that the make and model of the printer.
  * <P>
@@ -45,7 +45,7 @@ public final class PrinterMakeAndModel extends TextSyntax
 
     private static final long serialVersionUID = 4580461489499351411L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer make and model attribute with the given make
      * and model string and locale.
      *
@@ -61,7 +61,7 @@ public final class PrinterMakeAndModel extends TextSyntax
         super (makeAndModel, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer make and model attribute is equivalent to
      * the passed in object. To be equivalent, all of the following conditions
      * must be true:
@@ -88,7 +88,7 @@ public final class PrinterMakeAndModel extends TextSyntax
                 object instanceof PrinterMakeAndModel);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -102,7 +102,7 @@ public final class PrinterMakeAndModel extends TextSyntax
         return PrinterMakeAndModel.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

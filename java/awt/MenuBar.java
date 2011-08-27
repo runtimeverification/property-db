@@ -32,7 +32,7 @@ import java.awt.peer.MenuBarPeer;
 import java.awt.event.KeyEvent;
 import javax.accessibility.*;
 
-/**
+/** {@collect.stats}
  * The <code>MenuBar</code> class encapsulates the platform's
  * concept of a menu bar bound to a frame. In order to associate
  * the menu bar with a <code>Frame</code> object, call the
@@ -76,7 +76,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This field represents a vector of the
      * actual menus that will be part of the MenuBar.
      *
@@ -85,7 +85,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
      */
     Vector menus = new Vector();
 
-    /**
+    /** {@collect.stats}
      * This menu is a special menu dedicated to
      * help.  The one thing to note about this menu
      * is that on some platforms it appears at the
@@ -105,7 +105,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
      */
      private static final long serialVersionUID = -4930327919388951260L;
 
-    /**
+    /** {@collect.stats}
      * Creates a new menu bar.
      * @exception HeadlessException if GraphicsEnvironment.isHeadless()
      * returns true.
@@ -114,7 +114,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
     public MenuBar() throws HeadlessException {
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a name for this MenuComponent.  Called by getName() when
      * the name is null.
      */
@@ -124,7 +124,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the menu bar's peer.  The peer allows us to change the
      * appearance of the menu bar without changing any of the menu bar's
      * functionality.
@@ -141,7 +141,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the menu bar's peer.  The peer allows us to change the
      * appearance of the menu bar without changing any of the menu bar's
      * functionality.
@@ -156,7 +156,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the help menu on the menu bar.
      * @return    the help menu on this menu bar.
      */
@@ -164,7 +164,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return helpMenu;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the specified menu to be this menu bar's help menu.
      * If this menu bar has an existing help menu, the old help menu is
      * removed from the menu bar, and replaced with the specified menu.
@@ -196,7 +196,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified menu to the menu bar.
      * If the menu has been part of another menu bar,
      * removes it from that menu bar.
@@ -225,7 +225,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the menu located at the specified
      * index from this menu bar.
      * @param        index   the position of the menu to be removed.
@@ -244,7 +244,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified menu component from this menu bar.
      * @param        m the menu component to be removed.
      * @see          java.awt.MenuBar#add(java.awt.Menu)
@@ -258,7 +258,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the number of menus on the menu bar.
      * @return     the number of menus on the menu bar.
      * @since      JDK1.1
@@ -267,7 +267,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return countMenus();
     }
 
-    /**
+    /** {@collect.stats}
      * @deprecated As of JDK version 1.1,
      * replaced by <code>getMenuCount()</code>.
      */
@@ -284,7 +284,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return menus.size();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the specified menu.
      * @param      i the index position of the menu to be returned.
      * @return     the menu at the specified index of this menu bar.
@@ -301,7 +301,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return (Menu)menus.elementAt(i);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets an enumeration of all menu shortcuts this menu bar
      * is managing.
      * @return      an enumeration of menu shortcuts that this
@@ -321,7 +321,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return shortcuts.elements();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the instance of <code>MenuItem</code> associated
      * with the specified <code>MenuShortcut</code> object,
      * or <code>null</code> if none of the menu items being managed
@@ -373,7 +373,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Deletes the specified menu shortcut.
      * @param     s the menu shortcut to delete.
      * @since     JDK1.1
@@ -389,14 +389,14 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
      * fields of Menubar menus here.
      */
 
-    /**
+    /** {@collect.stats}
      * The MenuBar's serialized data version.
      *
      * @serial
      */
     private int menuBarSerializedDataVersion = 1;
 
-    /**
+    /** {@collect.stats}
      * Writes default serializable fields to stream.
      *
      * @param s the <code>ObjectOutputStream</code> to write
@@ -410,7 +410,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
       s.defaultWriteObject();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads the <code>ObjectInputStream</code>.
      * Unrecognized keys or values will be ignored.
      *
@@ -432,7 +432,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
       }
     }
 
-    /**
+    /** {@collect.stats}
      * Initialize JNI field and method IDs
      */
     private static native void initIDs();
@@ -442,7 +442,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this MenuBar.
      * For menu bars, the AccessibleContext takes the form of an
      * AccessibleAWTMenuBar.
@@ -459,14 +459,14 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * Defined in MenuComponent. Overridden here.
      */
     int getAccessibleChildIndex(MenuComponent child) {
         return menus.indexOf(child);
     }
 
-    /**
+    /** {@collect.stats}
      * Inner class of MenuBar used to provide default support for
      * accessibility.  This class is not meant to be used directly by
      * application developers, but is instead meant only to be
@@ -484,7 +484,7 @@ public class MenuBar extends MenuComponent implements MenuContainer, Accessible 
          */
         private static final long serialVersionUID = -8577604491830083815L;
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the

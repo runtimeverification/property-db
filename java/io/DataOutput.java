@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * The <code>DataOutput</code> interface provides
  * for converting data from any of the Java
  * primitive types to a series of bytes and
@@ -48,7 +48,7 @@ package java.io;
  */
 public
 interface DataOutput {
-    /**
+    /** {@collect.stats}
      * Writes to the output stream the eight
      * low-order bits of the argument <code>b</code>.
      * The 24 high-order  bits of <code>b</code>
@@ -59,7 +59,7 @@ interface DataOutput {
      */
     void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes to the output stream all the bytes in array <code>b</code>.
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
@@ -74,7 +74,7 @@ interface DataOutput {
      */
     void write(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes <code>len</code> bytes from array
      * <code>b</code>, in order,  to
      * the output stream.  If <code>b</code>
@@ -96,7 +96,7 @@ interface DataOutput {
      */
     void write(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>boolean</code> value to this output stream.
      * If the argument <code>v</code>
      * is <code>true</code>, the value <code>(byte)1</code>
@@ -113,7 +113,7 @@ interface DataOutput {
      */
     void writeBoolean(boolean v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes to the output stream the eight low-
      * order bits of the argument <code>v</code>.
      * The 24 high-order bits of <code>v</code>
@@ -130,7 +130,7 @@ interface DataOutput {
      */
     void writeByte(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes two bytes to the output
      * stream to represent the value of the argument.
      * The byte values to be written, in the  order
@@ -150,7 +150,7 @@ interface DataOutput {
      */
     void writeShort(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>char</code> value, which
      * is comprised of two bytes, to the
      * output stream.
@@ -171,7 +171,7 @@ interface DataOutput {
      */
     void writeChar(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes an <code>int</code> value, which is
      * comprised of four bytes, to the output stream.
      * The byte values to be written, in the  order
@@ -192,7 +192,7 @@ interface DataOutput {
      */
     void writeInt(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>long</code> value, which is
      * comprised of eight bytes, to the output stream.
      * The byte values to be written, in the  order
@@ -218,7 +218,7 @@ interface DataOutput {
      */
     void writeLong(long v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>float</code> value,
      * which is comprised of four bytes, to the output stream.
      * It does this as if it first converts this
@@ -237,7 +237,7 @@ interface DataOutput {
      */
     void writeFloat(float v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>double</code> value,
      * which is comprised of eight bytes, to the output stream.
      * It does this as if it first converts this
@@ -256,7 +256,7 @@ interface DataOutput {
      */
     void writeDouble(double v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a string to the output stream.
      * For every character in the string
      * <code>s</code>,  taken in order, one byte
@@ -278,7 +278,7 @@ interface DataOutput {
      */
     void writeBytes(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes every character in the string <code>s</code>,
      * to the output stream, in order,
      * two bytes per character. If <code>s</code>
@@ -298,7 +298,7 @@ interface DataOutput {
      */
     void writeChars(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes two bytes of length information
      * to the output stream, followed
      * by the

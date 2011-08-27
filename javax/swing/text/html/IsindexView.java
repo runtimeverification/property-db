@@ -34,7 +34,7 @@ import javax.swing.text.*;
 import javax.swing.*;
 
 
-/**
+/** {@collect.stats}
  * A view that supports the &lt;ISINDEX&lt; tag.  This is implemented
  * as a JPanel that contains
  *
@@ -45,14 +45,14 @@ class IsindexView extends ComponentView implements ActionListener {
 
     JTextField textField;
 
-    /**
+    /** {@collect.stats}
      * Creates an IsindexView
      */
     public IsindexView(Element elem) {
         super(elem);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the components necessary to to implement
      * this view.  The component returned is a <code>JPanel</code>,
      * that contains the PROMPT to the left and <code>JTextField</code>
@@ -79,7 +79,7 @@ class IsindexView extends ComponentView implements ActionListener {
         return panel;
     }
 
-    /**
+    /** {@collect.stats}
      * Responsible for processing the ActionEvent.
      * In this case this is hitting enter/return
      * in the text field.  This will construct the

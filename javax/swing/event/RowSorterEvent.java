@@ -26,7 +26,7 @@ package javax.swing.event;
 
 import javax.swing.RowSorter;
 
-/**
+/** {@collect.stats}
  * <code>RowSorterEvent</code> provides notification of changes to
  * a <code>RowSorter</code>.  Two types of notification are possible:
  * <ul>
@@ -44,25 +44,25 @@ public class RowSorterEvent extends java.util.EventObject {
     private Type type;
     private int[] oldViewToModel;
 
-    /**
+    /** {@collect.stats}
      * Enumeration of the types of <code>RowSorterEvent</code>s.
      *
      * @since 1.6
      */
     public enum Type {
-        /**
+        /** {@collect.stats}
          * Indicates the sort order has changed.
          */
         SORT_ORDER_CHANGED,
 
-        /**
+        /** {@collect.stats}
          * Indicates the contents have been newly sorted or
          * transformed in some way.
          */
         SORTED
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>RowSorterEvent</code> of type
      * <code>SORT_ORDER_CHANGED</code>.
      *
@@ -74,7 +74,7 @@ public class RowSorterEvent extends java.util.EventObject {
         this(source, Type.SORT_ORDER_CHANGED, null);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>RowSorterEvent</code>.
      *
      * @param source the source of the change
@@ -94,7 +94,7 @@ public class RowSorterEvent extends java.util.EventObject {
         this.oldViewToModel = previousRowIndexToModel;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the source of the event as a <code>RowSorter</code>.
      *
      * @return the source of the event as a <code>RowSorter</code>
@@ -103,7 +103,7 @@ public class RowSorterEvent extends java.util.EventObject {
         return (RowSorter)super.getSource();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of event.
      *
      * @return the type of event
@@ -112,7 +112,7 @@ public class RowSorterEvent extends java.util.EventObject {
         return type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the location of <code>index</code> in terms of the
      * model prior to the sort.  This method is only useful for events
      * of type <code>SORTED</code>.  This method will return -1 if the
@@ -131,7 +131,7 @@ public class RowSorterEvent extends java.util.EventObject {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of rows before the sort.  This method is only
      * useful for events of type <code>SORTED</code> and if the
      * last locations have not been provided will return 0.

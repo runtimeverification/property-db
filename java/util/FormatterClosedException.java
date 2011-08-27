@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * Unchecked exception thrown when the formatter has been closed.
  *
  * <p> Unless otherwise specified, passing a <tt>null</tt> argument to any
@@ -38,7 +38,7 @@ public class FormatterClosedException extends IllegalStateException {
 
     private static final long serialVersionUID = 18111216L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an instance of this class.
      */
     public FormatterClosedException() { }

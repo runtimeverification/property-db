@@ -40,7 +40,7 @@ import java.awt.font.TextAttribute;
 import java.awt.font.NumericShaper;
 import sun.text.CodePointIterator;
 
-/**
+/** {@collect.stats}
  * This class implements the Unicode Bidirectional Algorithm.
  * <p>
  * A Bidi object provides information on the bidirectional reordering of the text
@@ -72,13 +72,13 @@ public final class Bidi {
          sun.font.FontManagerNativeLibrary.load();
     }
 
-    /** Constant indicating base direction is left-to-right. */
+    /** {@collect.stats} Constant indicating base direction is left-to-right. */
     public static final int DIRECTION_LEFT_TO_RIGHT = 0;
 
-    /** Constant indicating base direction is right-to-left. */
+    /** {@collect.stats} Constant indicating base direction is right-to-left. */
     public static final int DIRECTION_RIGHT_TO_LEFT = 1;
 
-    /**
+    /** {@collect.stats}
      * Constant indicating that the base direction depends on the first strong
      * directional character in the text according to the Unicode
      * Bidirectional Algorithm.  If no strong directional character is present,
@@ -86,7 +86,7 @@ public final class Bidi {
      */
     public static final int DIRECTION_DEFAULT_LEFT_TO_RIGHT = -2;
 
-    /**
+    /** {@collect.stats}
      * Constant indicating that the base direction depends on the first strong
      * directional character in the text according to the Unicode
      * Bidirectional Algorithm.  If no strong directional character is present,
@@ -96,7 +96,7 @@ public final class Bidi {
 
     private static final int DIR_MIXED = 2;
 
-    /**
+    /** {@collect.stats}
      * Create Bidi from the given paragraph of text and base direction.
      * @param paragraph a paragraph of text
      * @param flags a collection of flags that control the algorithm.  The
@@ -112,7 +112,7 @@ public final class Bidi {
         nativeBidiChars(this, paragraph.toCharArray(), 0, null, 0, paragraph.length(), flags);
     }
 
-    /**
+    /** {@collect.stats}
      * Create Bidi from the given paragraph of text.
      * <p>
      * The RUN_DIRECTION attribute in the text, if present, determines the base
@@ -205,7 +205,7 @@ public final class Bidi {
         nativeBidiChars(this, text, 0, embeddings, 0, text.length, flags);
     }
 
-    /**
+    /** {@collect.stats}
      * Create Bidi from the given text, embedding, and direction information.
      * The embeddings array may be null.  If present, the values represent embedding level
      * information.  Negative values from -1 to -61 indicate overrides at the absolute value
@@ -264,14 +264,14 @@ public final class Bidi {
         nativeBidiChars(this, text, textStart, embeddings, embStart, paragraphLength, flags);
     }
 
-    /**
+    /** {@collect.stats}
      * Private constructor used by line bidi.
      */
     private Bidi(int dir, int baseLevel, int length, int[] data, int[] cws) {
         reset(dir, baseLevel, length, data, cws);
     }
 
-    /**
+    /** {@collect.stats}
      * Private mutator used by native code.
      */
     private void reset(int dir, int baselevel, int length, int[] data, int[] cws) {
@@ -282,7 +282,7 @@ public final class Bidi {
         this.cws = cws;
     }
 
-    /**
+    /** {@collect.stats}
      * Create a Bidi object representing the bidi information on a line of text within
      * the paragraph represented by the current Bidi.  This call is not required if the
      * entire paragraph fits on one line.
@@ -382,7 +382,7 @@ public final class Bidi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the line is not left-to-right or right-to-left.  This means it either has mixed runs of left-to-right
      * and right-to-left text, or the base direction differs from the direction of the only run of text.
      * @return true if the line is not left-to-right or right-to-left.
@@ -391,7 +391,7 @@ public final class Bidi {
         return dir == DIR_MIXED;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the line is all left-to-right text and the base direction is left-to-right.
      * @return true if the line is all left-to-right text and the base direction is left-to-right
      */
@@ -399,7 +399,7 @@ public final class Bidi {
         return dir == DIRECTION_LEFT_TO_RIGHT;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the line is all right-to-left text, and the base direction is right-to-left.
      * @return true if the line is all right-to-left text, and the base direction is right-to-left
      */
@@ -407,7 +407,7 @@ public final class Bidi {
         return dir == DIRECTION_RIGHT_TO_LEFT;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the length of text in the line.
      * @return the length of text in the line
      */
@@ -415,7 +415,7 @@ public final class Bidi {
         return length;
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the base direction is left-to-right.
      * @return true if the base direction is left-to-right
      */
@@ -423,7 +423,7 @@ public final class Bidi {
         return (baselevel & 0x1) == 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the base level (0 if left-to-right, 1 if right-to-left).
      * @return the base level
      */
@@ -431,7 +431,7 @@ public final class Bidi {
       return baselevel;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the resolved level of the character at offset.  If offset is <0 or >=
      * the length of the line, return the base direction level.
      * @param offset the index of the character for which to return the level
@@ -451,7 +451,7 @@ public final class Bidi {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Return the number of level runs.
      * @return the number of level runs
      */
@@ -459,7 +459,7 @@ public final class Bidi {
         return runs == null ? 1 : runs.length / 2;
     }
 
-    /**
+    /** {@collect.stats}
      * Return the level of the nth logical run in this line.
      * @param run the index of the run, between 0 and <code>getRunCount()</code>
      * @return the level of the run
@@ -468,7 +468,7 @@ public final class Bidi {
         return runs == null ? baselevel : runs[run * 2 + 1];
     }
 
-    /**
+    /** {@collect.stats}
      * Return the index of the character at the start of the nth logical run in this line, as
      * an offset from the start of the line.
      * @param run the index of the run, between 0 and <code>getRunCount()</code>
@@ -478,7 +478,7 @@ public final class Bidi {
         return (runs == null || run == 0) ? 0 : runs[run * 2 - 2];
     }
 
-    /**
+    /** {@collect.stats}
      * Return the index of the character past the end of the nth logical run in this line, as
      * an offset from the start of the line.  For example, this will return the length
      * of the line for the last run on the line.
@@ -489,7 +489,7 @@ public final class Bidi {
         return runs == null ? length : runs[run * 2];
     }
 
-    /**
+    /** {@collect.stats}
      * Return true if the specified text requires bidi analysis.  If this returns false,
      * the text will display left-to-right.  Clients can then avoid constructing a Bidi object.
      * Text in the Arabic Presentation Forms area of Unicode is presumed to already be shaped
@@ -513,7 +513,7 @@ public final class Bidi {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Reorder the objects in the array into visual order based on their levels.
      * This is a utility function to use when you have a collection of objects
      * representing runs of text in logical order, each run containing text
@@ -604,15 +604,15 @@ public final class Bidi {
         (1 << 14 /* U_RIGHT_TO_LEFT_EMBEDDING */) |
         (1 << 15 /* U_RIGHT_TO_LEFT_OVERRIDE */);
 
-    /** Access native bidi implementation. */
+    /** {@collect.stats} Access native bidi implementation. */
     private static native int nativeGetDirectionCode(int cp);
 
-    /** Access native bidi implementation. */
+    /** {@collect.stats} Access native bidi implementation. */
     private static synchronized native void nativeBidiChars(Bidi bidi, char[] text, int textStart,
                                                             byte[] embeddings, int embeddingStart,
                                                             int length, int flags);
 
-    /**
+    /** {@collect.stats}
      * Display the bidi internal state, used in debugging.
      */
     public String toString() {

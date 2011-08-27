@@ -57,7 +57,7 @@ import javax.accessibility.*;
 
 import java.lang.ref.WeakReference;
 
-/**
+/** {@collect.stats}
  * An implementation of a menu -- a popup window containing
  * <code>JMenuItem</code>s that
  * is displayed when the user selects an item on the <code>JMenuBar</code>.
@@ -111,7 +111,7 @@ import java.lang.ref.WeakReference;
  */
 public class JMenu extends JMenuItem implements Accessible,MenuElement
 {
-    /**
+    /** {@collect.stats}
      * @see #getUIClassID
      * @see #readObject
      */
@@ -158,14 +158,14 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     private static final boolean VERBOSE = false; // show reuse hits/misses
     private static final boolean DEBUG =   false;  // show bad params, misc.
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JMenu</code> with no text.
      */
     public JMenu() {
         this("");
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JMenu</code> with the supplied string
      * as its text.
      *
@@ -175,7 +175,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         super(s);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a menu whose properties are taken from the
      * <code>Action</code> supplied.
      * @param a an <code>Action</code>
@@ -187,7 +187,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         setAction(a);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>JMenu</code> with the supplied string as
      * its text and specified as a tear-off menu or not.
      *
@@ -199,7 +199,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Overriden to do nothing. We want JMenu to be focusable, but
      * <code>JMenuItem</code> doesn't want to be, thus we override this
      * do nothing. We don't invoke <code>setFocusable(true)</code> after
@@ -214,7 +214,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     void initFocusability() {
     }
 
-    /**
+    /** {@collect.stats}
      * Resets the UI property with a value from the current look and feel.
      *
      * @see JComponent#updateUI
@@ -230,7 +230,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "MenuUI"
@@ -246,7 +246,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     //        super.repaint(tm,x,y,width,height);
     //    }
 
-    /**
+    /** {@collect.stats}
      * Sets the data model for the "menu button" -- the label
      * that the user clicks to open or close the menu.
      *
@@ -276,7 +276,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu is currently selected (highlighted).
      *
      * @return true if the menu is selected, else false
@@ -285,7 +285,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return getModel().isSelected();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the selection status of the menu.
      *
      * @param b  true to select (highlight) the menu; false to de-select
@@ -312,7 +312,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu's popup window is visible.
      *
      * @return true if the menu is visible, else false
@@ -322,7 +322,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return popupMenu.isVisible();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the visibility of the menu's popup.  If the menu is
      * not enabled, this method will have no effect.
      *
@@ -355,7 +355,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Computes the origin for the <code>JMenu</code>'s popup menu.
      * This method uses Look and Feel properties named
      * <code>Menu.menuPopupOffsetX</code>,
@@ -493,7 +493,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the suggested delay, in milliseconds, before submenus
      * are popped up or down.
      * Each look and feel (L&F) may determine its own policy for
@@ -510,7 +510,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return delay;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the suggested delay before the menu's <code>PopupMenu</code>
      * is popped up or down.  Each look and feel (L&F) may determine
      * it's own policy for observing the delay property.  In most cases,
@@ -532,7 +532,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         delay = d;
     }
 
-    /**
+    /** {@collect.stats}
      * The window-closing listener for the popup.
      *
      * @see WinListener
@@ -555,7 +555,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return customMenuLocation;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the location of the popup component.
      *
      * @param x the x coordinate of the popup's new position
@@ -567,7 +567,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             popupMenu.setLocation(x, y);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a menu item to the end of this menu.
      * Returns the menu item added.
      *
@@ -579,7 +579,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return popupMenu.add(menuItem);
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a component to the end of this menu.
      * Returns the component added.
      *
@@ -592,7 +592,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds the specified component to this container at the given
      * position. If <code>index</code> equals -1, the component will
      * be appended to the end.
@@ -608,7 +608,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return c;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new menu item with the specified text and appends
      * it to the end of this menu.
      *
@@ -618,7 +618,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return add(new JMenuItem(s));
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new menu item attached to the specified
      * <code>Action</code> object and appends it to the end of this menu.
      *
@@ -632,7 +632,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return mi;
     }
 
-    /**
+    /** {@collect.stats}
      * Factory method which creates the <code>JMenuItem</code> for
      * <code>Action</code>s added to the <code>JMenu</code>.
      *
@@ -657,7 +657,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return mi;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a properly configured <code>PropertyChangeListener</code>
      * which updates the control as changes to the <code>Action</code> occur.
      */
@@ -665,7 +665,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return b.createActionPropertyChangeListener0(b.getAction());
     }
 
-    /**
+    /** {@collect.stats}
      * Appends a new separator to the end of the menu.
      */
     public void addSeparator()
@@ -674,7 +674,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         popupMenu.addSeparator();
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a new menu item with the specified text at a
      * given position.
      *
@@ -693,7 +693,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         popupMenu.insert(new JMenuItem(s), pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified <code>JMenuitem</code> at a given position.
      *
      * @param mi the <code>JMenuitem</code> to add
@@ -712,7 +712,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return mi;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a new menu item attached to the specified <code>Action</code>
      * object at a given position.
      *
@@ -735,7 +735,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return mi;
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts a separator at the specified position.
      *
      * @param       index an integer specifying the position at which to
@@ -752,7 +752,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         popupMenu.insert( new JPopupMenu.Separator(), index );
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>JMenuItem</code> at the specified position.
      * If the component at <code>pos</code> is not a menu item,
      * <code>null</code> is returned.
@@ -779,7 +779,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of items on the menu, including separators.
      * This method is included for AWT compatibility.
      *
@@ -790,7 +790,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return getMenuComponentCount();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu can be torn off.  This method is not
      * yet implemented.
      *
@@ -801,7 +801,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         throw new Error("boolean isTearOff() {} not yet implemented");
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified menu item from this menu.  If there is no
      * popup menu, this method will have no effect.
      *
@@ -812,7 +812,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             popupMenu.remove(item);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the menu item at the specified index from this menu.
      *
      * @param       pos the position of the item to be removed
@@ -831,7 +831,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             popupMenu.remove(pos);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the component <code>c</code> from this menu.
      *
      * @param       c the component to be removed
@@ -841,7 +841,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             popupMenu.remove(c);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes all menu items from this menu.
      */
     public void removeAll() {
@@ -849,7 +849,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             popupMenu.removeAll();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the number of components on the menu.
      *
      * @return an integer containing the number of components on the menu
@@ -861,7 +861,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return componentCount;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the component at position <code>n</code>.
      *
      * @param n the position of the component to be returned
@@ -876,7 +876,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>Component</code>s of the menu's
      * subcomponents.  Note that this returns all <code>Component</code>s
      * in the popup menu, including separators.
@@ -891,7 +891,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return new Component[0];
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the menu is a 'top-level menu', that is, if it is
      * the direct child of a menubar.
      *
@@ -906,7 +906,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the specified component exists in the
      * submenu hierarchy.
      *
@@ -979,7 +979,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return new Point(newX, newY);
         }
 
-    /**
+    /** {@collect.stats}
      * Returns the popupmenu associated with this menu.  If there is
      * no popupmenu, it will create one.
      */
@@ -988,7 +988,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return popupMenu;
     }
 
-    /**
+    /** {@collect.stats}
      * Adds a listener for menu events.
      *
      * @param l the listener to be added
@@ -997,7 +997,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         listenerList.add(MenuListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Removes a listener for menu events.
      *
      * @param l the listener to be removed
@@ -1006,7 +1006,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         listenerList.remove(MenuListener.class, l);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of all the <code>MenuListener</code>s added
      * to this JMenu with addMenuListener().
      *
@@ -1018,7 +1018,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return (MenuListener[])listenerList.getListeners(MenuListener.class);
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -1048,7 +1048,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -1078,7 +1078,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Notifies all listeners that have registered interest for
      * notification on this event type.  The event instance
      * is created lazily.
@@ -1135,7 +1135,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Creates a window-closing listener for the popup.
      *
      * @param p the <code>JPopupMenu</code>
@@ -1147,7 +1147,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return new WinListener(p);
     }
 
-    /**
+    /** {@collect.stats}
      * A listener class that watches for a popup window closing.
      * When the popup is closing, the listener deselects the menu.
      * <p>
@@ -1162,14 +1162,14 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
      */
     protected class WinListener extends WindowAdapter implements Serializable {
         JPopupMenu popupMenu;
-        /**
+        /** {@collect.stats}
          *  Create the window listener for the specified popup.
          * @since 1.4
          */
         public WinListener(JPopupMenu p) {
             this.popupMenu = p;
         }
-        /**
+        /** {@collect.stats}
          * Deselect the menu when the popup is closed from outside.
          */
         public void windowClosing(WindowEvent e) {
@@ -1177,7 +1177,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Messaged when the menubar selection changes to activate or
      * deactivate this menu.
      * Overrides <code>JMenuItem.menuSelectionChanged</code>.
@@ -1192,7 +1192,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         setSelected(isIncluded);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an array of <code>MenuElement</code>s containing the submenu
      * for this menu component.  If popup menu is <code>null</code> returns
      * an empty array.  This method is required to conform to the
@@ -1214,7 +1214,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
 
 
     // implements javax.swing.MenuElement
-    /**
+    /** {@collect.stats}
      * Returns the <code>java.awt.Component</code> used to
      * paint this <code>MenuElement</code>.
      * The returned component is used to convert events and detect if
@@ -1225,7 +1225,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>ComponentOrientation</code> property of this menu
      * and all components contained within it. This includes all
      * components returned by {@link #getMenuComponents getMenuComponents}.
@@ -1256,7 +1256,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
     }
 
-    /**
+    /** {@collect.stats}
      * <code>setAccelerator</code> is not defined for <code>JMenu</code>.
      * Use <code>setMnemonic</code> instead.
      * @param keyStroke  the keystroke combination which will invoke
@@ -1274,7 +1274,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         throw new Error("setAccelerator() is not defined for JMenu.  Use setMnemonic() instead.");
     }
 
-    /**
+    /** {@collect.stats}
      * Processes key stroke events such as mnemonics and accelerators.
      *
      * @param evt  the key event to be processed
@@ -1287,7 +1287,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         super.processKeyEvent(evt);
     }
 
-    /**
+    /** {@collect.stats}
      * Programmatically performs a "click".  This overrides the method
      * <code>AbstractButton.doClick</code> in order to make the menu pop up.
      * @param pressTime  indicates the number of milliseconds the
@@ -1331,7 +1331,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * See <code>readObject</code> and <code>writeObject</code> in
      * <code>JComponent</code> for more
      * information about serialization in Swing.
@@ -1348,7 +1348,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JMenu</code>. This
      * method is intended to be used only for debugging purposes, and the
      * content and format of the returned string may vary between
@@ -1366,7 +1366,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
 // Accessibility support
 ////////////////
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JMenu.
      * For JMenus, the AccessibleContext takes the form of an
      * AccessibleJMenu.
@@ -1382,7 +1382,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JMenu</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to menu user-interface elements.
@@ -1399,7 +1399,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
     protected class AccessibleJMenu extends AccessibleJMenuItem
         implements AccessibleSelection {
 
-        /**
+        /** {@collect.stats}
          * Returns the number of accessible children in the object.  If all
          * of the children of this object implement Accessible, than this
          * method should return the number of children of this object.
@@ -1417,7 +1417,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return count;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the nth Accessible child of the object.
          *
          * @param i zero-based index of child
@@ -1446,7 +1446,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the role of this object.
          *
          * @return an instance of AccessibleRole describing the role of the
@@ -1457,7 +1457,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return AccessibleRole.MENU;
         }
 
-        /**
+        /** {@collect.stats}
          * Get the AccessibleSelection associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -1469,7 +1469,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return this;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns 1 if a sub-menu is currently selected in this menu.
          *
          * @return 1 if a menu is currently selected, else 0
@@ -1489,7 +1489,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return 0;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the currently selected sub-menu if one is selected,
          * otherwise null (there can only be one selection, and it can
          * only be a sub-menu, as otherwise menu items don't remain
@@ -1518,7 +1518,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns true if the current child of this object is selected
          * (that is, if this child is a popped-up submenu).
          *
@@ -1542,7 +1542,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
         }
 
 
-        /**
+        /** {@collect.stats}
          * Selects the <code>i</code>th menu in the menu.
          * If that item is a submenu,
          * it will pop up in response.  If a different item is already
@@ -1568,7 +1568,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Removes the nth item from the selection.  In general, menus
          * can only have one item within them selected at a time
          * (e.g. one sub-menu popped open).
@@ -1593,7 +1593,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Clears the selection in the object, so that nothing in the
          * object is selected.  This will close any open sub-menu.
          */
@@ -1614,7 +1614,7 @@ public class JMenu extends JMenuItem implements Accessible,MenuElement
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Normally causes every selected item in the object to be selected
          * if the object supports multiple selections.  This method
          * makes no sense in a menu bar, and so does nothing.

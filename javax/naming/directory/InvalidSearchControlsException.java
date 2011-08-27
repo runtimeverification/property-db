@@ -28,7 +28,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when the specification of
   * the SearchControls for a search operation is invalid. For example, if the scope is
   * set to a value other than OBJECT_SCOPE, ONELEVEL_SCOPE, SUBTREE_SCOPE,
@@ -42,7 +42,7 @@ import javax.naming.NamingException;
   * @since 1.3
   */
 public class InvalidSearchControlsException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidSearchControlsException.
      * All fields are set to null.
      */
@@ -50,7 +50,7 @@ public class InvalidSearchControlsException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidSearchControlsException
      * with an explanation. All other fields set to null.
      * @param msg Detail about this exception. Can be null.
@@ -60,7 +60,7 @@ public class InvalidSearchControlsException extends NamingException {
         super(msg);
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -5124108943352665777L;

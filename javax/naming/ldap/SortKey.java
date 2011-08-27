@@ -25,7 +25,7 @@
 
 package javax.naming.ldap;
 
-/**
+/** {@collect.stats}
  * A sort key and its associated sort parameters.
  * This class implements a sort key which is used by the LDAPv3
  * Control for server-side sorting of search results as defined in
@@ -52,7 +52,7 @@ public class SortKey {
      */
     private String matchingRuleID = null;
 
-    /**
+    /** {@collect.stats}
      * Creates the default sort key for an attribute. Entries will be sorted
      * according to the specified attribute in ascending order using the
      * ordering matching rule defined for use with that attribute.
@@ -64,7 +64,7 @@ public class SortKey {
         this.attrID = attrID;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a sort key for an attribute. Entries will be sorted according to
      * the specified attribute in the specified sort order and using the
      * specified matching rule, if supplied.
@@ -87,7 +87,7 @@ public class SortKey {
         this.matchingRuleID = matchingRuleID;
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the attribute ID of the sort key.
      *
      * @return    The non-null Attribute ID of the sort key.
@@ -96,7 +96,7 @@ public class SortKey {
         return attrID;
     }
 
-    /**
+    /** {@collect.stats}
      * Determines the sort order.
      *
      * @return    true if the sort order is ascending, false if descending.
@@ -105,7 +105,7 @@ public class SortKey {
         return (! reverseOrder);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the matching rule ID used to order the attribute values.
      *
      * @return    The possibly null matching rule ID. If null then the

@@ -27,7 +27,7 @@ package javax.naming.directory;
 
 import javax.naming.NamingException;
 
-/**
+/** {@collect.stats}
   * This exception is thrown when an attempt is
   * made to add to create an attribute with an invalid attribute identifier.
   * The validity of an attribute identifier is directory-specific.
@@ -41,7 +41,7 @@ import javax.naming.NamingException;
   */
 
 public class InvalidAttributeIdentifierException extends NamingException {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of InvalidAttributeIdentifierException using the
      * explanation supplied. All other fields set to null.
      * @param   explanation     Possibly null string containing additional detail about this exception.
@@ -51,7 +51,7 @@ public class InvalidAttributeIdentifierException extends NamingException {
         super(explanation);
     }
 
-    /**
+    /** {@collect.stats}
       * Constructs a new instance of InvalidAttributeIdentifierException.
       * All fields are set to null.
       */
@@ -59,7 +59,7 @@ public class InvalidAttributeIdentifierException extends NamingException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Use serialVersionUID from JNDI 1.1.1 for interoperability
      */
     private static final long serialVersionUID = -9036920266322999923L;

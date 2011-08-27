@@ -27,7 +27,7 @@ package javax.crypto;
 
 import java.security.GeneralSecurityException;
 
-/**
+/** {@collect.stats}
  * This exception is thrown when an output buffer provided by the user
  * is too short to hold the operation result.
  *
@@ -40,7 +40,7 @@ public class ShortBufferException extends GeneralSecurityException {
 
     private static final long serialVersionUID = 8427718640832943747L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ShortBufferException with no detail
      * message. A detail message is a String that describes this
      * particular exception.
@@ -49,7 +49,7 @@ public class ShortBufferException extends GeneralSecurityException {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a ShortBufferException with the specified
      * detail message.
      *

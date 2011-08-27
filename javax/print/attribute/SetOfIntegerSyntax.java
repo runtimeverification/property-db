@@ -29,7 +29,7 @@ package javax.print.attribute;
 import java.io.Serializable;
 import java.util.Vector;
 
-/**
+/** {@collect.stats}
  * Class SetOfIntegerSyntax is an abstract base class providing the common
  * implementation of all attributes whose value is a set of nonnegative
  * integers. This includes attributes whose value is a single range of integers
@@ -84,14 +84,14 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 3666874174847632203L;
 
-    /**
+    /** {@collect.stats}
      * This set's members in canonical array form.
      * @serial
      */
     private int[][] members;
 
 
-    /**
+    /** {@collect.stats}
      * Construct a new set-of-integer attribute with the given members in
      * string form.
      *
@@ -106,7 +106,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         this.members = parse (members);
     }
 
-    /**
+    /** {@collect.stats}
      * Parse the given string, returning canonical array form.
      */
     private static int[][] parse(String members) {
@@ -239,7 +239,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return canonicalArrayForm (theRanges);
     }
 
-    /**
+    /** {@collect.stats}
      * Accumulate the given range (lb .. ub) into the canonical array form
      * into the given vector of int[] objects.
      */
@@ -290,14 +290,14 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Convert the given vector of int[] objects to canonical array form.
      */
     private static int[][] canonicalArrayForm(Vector ranges) {
         return (int[][]) ranges.toArray (new int[ranges.size()][]);
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new set-of-integer attribute with the given members in
      * array form.
      *
@@ -317,7 +317,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         this.members = parse (members);
     }
 
-    /**
+    /** {@collect.stats}
      * Parse the given array form, returning canonical array form.
      */
     private static int[][] parse(int[][] members) {
@@ -352,7 +352,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
                 return canonicalArrayForm (ranges);
                 }
 
-    /**
+    /** {@collect.stats}
      * Construct a new set-of-integer attribute containing a single integer.
      *
      * @param  member  Set member.
@@ -368,7 +368,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         members = new int[][] {{member, member}};
     }
 
-    /**
+    /** {@collect.stats}
      * Construct a new set-of-integer attribute containing a single range of
      * integers. If the lower bound is greater than the upper bound (a null
      * range), an empty set is constructed.
@@ -390,7 +390,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Obtain this set-of-integer attribute's members in canonical array form.
      * The returned array is "safe;" the client may alter it without affecting
      * this set-of-integer attribute.
@@ -406,7 +406,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if this set-of-integer attribute contains the given value.
      *
      * @param  x  Integer value.
@@ -427,7 +427,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Determine if this set-of-integer attribute contains the given integer
      * attribute's value.
      *
@@ -440,7 +440,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return contains (attribute.getValue());
     }
 
-    /**
+    /** {@collect.stats}
      * Determine the smallest integer in this set-of-integer attribute that is
      * greater than the given value. If there are no integers in this
      * set-of-integer attribute greater than the given value, <CODE>-1</CODE> is
@@ -476,7 +476,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this set-of-integer attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -517,7 +517,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hash code value for this set-of-integer attribute. The hash
      * code is the sum of the lower and upper bounds of the ranges in the
      * canonical array form, or 0 for an empty set.
@@ -531,7 +531,7 @@ public abstract class SetOfIntegerSyntax implements Serializable, Cloneable {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string value corresponding to this set-of-integer attribute.
      * The string value is a zero-length string if this set is empty. Otherwise,
      * the string value is a comma-separated list of the ranges in the canonical

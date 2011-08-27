@@ -30,7 +30,7 @@ import java.nio.charset.Charset;
 import sun.nio.cs.StreamDecoder;
 import sun.nio.cs.StreamEncoder;
 
-/**
+/** {@collect.stats}
  * Methods to access the character-based console device, if any, associated
  * with the current Java virtual machine.
  *
@@ -91,7 +91,7 @@ import sun.nio.cs.StreamEncoder;
 
 public final class Console implements Flushable
 {
-   /**
+   /** {@collect.stats}
     * Retrieves the unique {@link java.io.PrintWriter PrintWriter} object
     * associated with this console.
     *
@@ -101,7 +101,7 @@ public final class Console implements Flushable
         return pw;
     }
 
-   /**
+   /** {@collect.stats}
     * Retrieves the unique {@link java.io.Reader Reader} object associated
     * with this console.
     * <p>
@@ -134,7 +134,7 @@ public final class Console implements Flushable
         return reader;
     }
 
-   /**
+   /** {@collect.stats}
     * Writes a formatted string to this console's output stream using
     * the specified format string and arguments.
     *
@@ -169,7 +169,7 @@ public final class Console implements Flushable
         return this;
     }
 
-   /**
+   /** {@collect.stats}
     * A convenience method to write a formatted string to this console's
     * output stream using the specified format string and arguments.
     *
@@ -207,7 +207,7 @@ public final class Console implements Flushable
         return format(format, args);
     }
 
-   /**
+   /** {@collect.stats}
     * Provides a formatted prompt, then reads a single line of text from the
     * console.
     *
@@ -257,7 +257,7 @@ public final class Console implements Flushable
         return line;
     }
 
-   /**
+   /** {@collect.stats}
     * Reads a single line of text from the console.
     *
     * @throws IOError
@@ -271,7 +271,7 @@ public final class Console implements Flushable
         return readLine("");
     }
 
-   /**
+   /** {@collect.stats}
     * Provides a formatted prompt, then reads a password or passphrase from
     * the console with echoing disabled.
     *
@@ -326,7 +326,7 @@ public final class Console implements Flushable
         return passwd;
     }
 
-   /**
+   /** {@collect.stats}
     * Reads a password or passphrase from the console with echoing disabled
     *
     * @throws IOError
@@ -340,7 +340,7 @@ public final class Console implements Flushable
         return readPassword("");
     }
 
-    /**
+    /** {@collect.stats}
      * Flushes the console and forces any buffered output to be written
      * immediately .
      */

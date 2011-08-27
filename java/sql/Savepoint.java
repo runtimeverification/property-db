@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * The representation of a savepoint, which is a point within
  * the current transaction that can be referenced from the
  * <code>Connection.rollback</code> method. When a transaction
@@ -40,7 +40,7 @@ package java.sql;
 
 public interface Savepoint {
 
-    /**
+    /** {@collect.stats}
      * Retrieves the generated ID for the savepoint that this
      * <code>Savepoint</code> object represents.
      * @return the numeric ID of this savepoint
@@ -49,7 +49,7 @@ public interface Savepoint {
      */
     int getSavepointId() throws SQLException;
 
-    /**
+    /** {@collect.stats}
      * Retrieves the name of the savepoint that this <code>Savepoint</code>
      * object represents.
      * @return the name of this savepoint

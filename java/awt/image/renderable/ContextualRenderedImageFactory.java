@@ -37,7 +37,7 @@ package java.awt.image.renderable;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.RenderedImage;
 
-/**
+/** {@collect.stats}
  * ContextualRenderedImageFactory provides an interface for the
  * functionality that may differ between instances of
  * RenderableImageOp.  Thus different operations on RenderableImages
@@ -54,7 +54,7 @@ import java.awt.image.RenderedImage;
  */
 public interface ContextualRenderedImageFactory extends RenderedImageFactory {
 
-    /**
+    /** {@collect.stats}
      * Maps the operation's output RenderContext into a RenderContext
      * for each of the operation's sources.  This is useful for
      * operations that can be expressed in whole or in part simply as
@@ -79,7 +79,7 @@ public interface ContextualRenderedImageFactory extends RenderedImageFactory {
                                    ParameterBlock paramBlock,
                                    RenderableImage image);
 
-    /**
+    /** {@collect.stats}
      * Creates a rendering, given a RenderContext and a ParameterBlock
      * containing the operation's sources and parameters.  The output
      * is a RenderedImage that takes the RenderContext into account to
@@ -98,7 +98,7 @@ public interface ContextualRenderedImageFactory extends RenderedImageFactory {
     RenderedImage create(RenderContext renderContext,
                          ParameterBlock paramBlock);
 
-    /**
+    /** {@collect.stats}
      * Returns the bounding box for the output of the operation,
      * performed on a given set of sources, in rendering-independent
      * space.  The bounds are returned as a Rectangle2D, that is, an
@@ -111,7 +111,7 @@ public interface ContextualRenderedImageFactory extends RenderedImageFactory {
      */
     Rectangle2D getBounds2D(ParameterBlock paramBlock);
 
-    /**
+    /** {@collect.stats}
      * Gets the appropriate instance of the property specified by the name
      * parameter.  This method must determine which instance of a property to
      * return when there are multiple sources that each specify the property.
@@ -123,13 +123,13 @@ public interface ContextualRenderedImageFactory extends RenderedImageFactory {
      */
     Object getProperty(ParameterBlock paramBlock, String name);
 
-    /**
+    /** {@collect.stats}
      * Returns a list of names recognized by getProperty.
      * @return the list of property names.
      */
     String[] getPropertyNames();
 
-    /**
+    /** {@collect.stats}
      * Returns true if successive renderings (that is, calls to
      * create(RenderContext, ParameterBlock)) with the same arguments
      * may produce different results.  This method may be used to

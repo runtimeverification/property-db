@@ -33,7 +33,7 @@ import java.awt.geom.AffineTransform;
 import javax.swing.event.DocumentEvent;
 import sun.font.BidiUtils;
 
-/**
+/** {@collect.stats}
  * A flow strategy that uses java.awt.font.LineBreakMeasureer to
  * produce java.awt.font.TextLayout for i18n capable rendering.
  * If the child view being placed into the flow is of type
@@ -44,7 +44,7 @@ import sun.font.BidiUtils;
  */
 class TextLayoutStrategy extends FlowView.FlowStrategy {
 
-    /**
+    /** {@collect.stats}
      * Constructs a layout strategy for paragraphs based
      * upon java.awt.font.LineBreakMeasurer.
      */
@@ -54,7 +54,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
 
     // --- FlowStrategy methods --------------------------------------------
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was inserted into the document
      * in a location that the given flow view is responsible for.  The
      * strategy should update the appropriate changed region (which
@@ -70,7 +70,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         super.insertUpdate(fv, e, alloc);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification that something was removed from the document
      * in a location that the given flow view is responsible for.
      *
@@ -83,7 +83,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         super.removeUpdate(fv, e, alloc);
     }
 
-    /**
+    /** {@collect.stats}
      * Gives notification from the document that attributes were changed
      * in a location that this view is responsible for.
      *
@@ -97,7 +97,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         super.changedUpdate(fv, e, alloc);
     }
 
-    /**
+    /** {@collect.stats}
      * Does a a full layout on the given View.  This causes all of
      * the rows (child views) to be rebuilt to match the given
      * constraints for each row.  This is called by a FlowView.layout
@@ -109,7 +109,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         super.layout(fv);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a row of views that will fit within the
      * layout span of the row.  This is implemented to execute the
      * superclass functionality (which fills the row with child
@@ -150,7 +150,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         return p1;
     }
 
-    /**
+    /** {@collect.stats}
      * Adjusts the given row if possible to fit within the
      * layout span.  Since all adjustments were already
      * calculated by the LineBreakMeasurer, this is implemented
@@ -164,7 +164,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
     protected void adjustRow(FlowView fv, int rowIndex, int desiredSpan, int x) {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a unidirectional view that can be used to represent the
      * current chunk.  This can be either an entire view from the
      * logical view, or a fragment of the view.
@@ -221,7 +221,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         return frag;
     }
 
-    /**
+    /** {@collect.stats}
      * Calculate the limiting offset for the next view fragment.
      * At most this would be the entire view (i.e. the limiting
      * offset would be the end offset in that case).  If the range
@@ -280,7 +280,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
         return pos;
     }
 
-    /**
+    /** {@collect.stats}
      * Synchronize the strategy with its FlowView.  Allows the strategy
      * to update its state to account for changes in that portion of the
      * model represented by the FlowView.  Also allows the strategy
@@ -329,7 +329,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
     private LineBreakMeasurer measurer;
     private AttributedSegment text;
 
-    /**
+    /** {@collect.stats}
      * Implementation of AttributedCharacterIterator that supports
      * the GlyphView attributes for rendering the glyphs through a
      * TextLayout.
@@ -356,7 +356,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             first();
         }
 
-        /**
+        /** {@collect.stats}
          * Get a boundary position for the font.
          * This is implemented to assume that two fonts are
          * equal if their references are equal (i.e. that the
@@ -380,7 +380,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return (dir < 0) ? child.getStartOffset() : child.getEndOffset();
         }
 
-        /**
+        /** {@collect.stats}
          * Get the font at the given child index.
          */
         Font getFont(int childIndex) {
@@ -401,7 +401,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
 
         // --- AttributedCharacterIterator methods -------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character of the run
          * with respect to all attributes containing the current character.
          */
@@ -412,7 +412,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return toIteratorIndex(child.getStartOffset());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character of the run
          * with respect to the given attribute containing the current character.
          */
@@ -427,7 +427,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return getBeginIndex();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character of the run
          * with respect to the given attributes containing the current character.
          */
@@ -441,7 +441,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return Math.min(getIndex(), index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character following the run
          * with respect to all attributes containing the current character.
          */
@@ -452,7 +452,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return toIteratorIndex(child.getEndOffset());
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character following the run
          * with respect to the given attribute containing the current character.
          */
@@ -467,7 +467,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return getEndIndex();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the index of the first character following the run
          * with respect to the given attributes containing the current character.
          */
@@ -481,7 +481,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return Math.max(getIndex(), index);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a map with the attributes defined on the current
          * character.
          */
@@ -498,7 +498,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return h;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the value of the named attribute for the current character.
          * Returns null if the attribute is not defined.
          * @param attribute the key of the attribute whose value is requested.
@@ -515,7 +515,7 @@ class TextLayoutStrategy extends FlowView.FlowStrategy {
             return null;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the keys of all attributes defined on the
          * iterator's text range. The set is empty if no
          * attributes are defined.

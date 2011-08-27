@@ -29,7 +29,7 @@ package javax.xml.crypto.dsig;
 
 import javax.xml.crypto.XMLCryptoContext;
 
-/**
+/** {@collect.stats}
  * Contains context information for validating XML Signatures. This interface
  * is primarily intended for type-safety.
  *

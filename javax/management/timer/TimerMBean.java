@@ -39,14 +39,14 @@ import java.util.Vector;
 //
 import javax.management.InstanceNotFoundException;
 
-/**
+/** {@collect.stats}
  * Exposes the management interface of the timer MBean.
  *
  * @since 1.5
  */
 public interface TimerMBean {
 
-    /**
+    /** {@collect.stats}
      * Starts the timer.
      * <P>
      * If there is one or more timer notifications before the time in the list of notifications, the notification
@@ -57,12 +57,12 @@ public interface TimerMBean {
      */
     public void start();
 
-    /**
+    /** {@collect.stats}
      * Stops the timer.
      */
     public void stop();
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date,
      * period and number of occurrences.
@@ -107,7 +107,7 @@ public interface TimerMBean {
                                    Date date, long period, long nbOccurences, boolean fixedRate)
         throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date,
      * period and number of occurrences.
@@ -148,7 +148,7 @@ public interface TimerMBean {
                                    Date date, long period, long nbOccurences)
         throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date
      * and period and a null number of occurrences.
@@ -183,7 +183,7 @@ public interface TimerMBean {
                                    Date date, long period)
         throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Creates a new timer notification with the specified <CODE>type</CODE>, <CODE>message</CODE>
      * and <CODE>userData</CODE> and inserts it into the list of notifications with a given date
      * and a null period and number of occurrences.
@@ -211,7 +211,7 @@ public interface TimerMBean {
     public Integer addNotification(String type, String message, Object userData, Date date)
         throws java.lang.IllegalArgumentException;
 
-    /**
+    /** {@collect.stats}
      * Removes the timer notification corresponding to the specified identifier from the list of notifications.
      *
      * @param id The timer notification identifier.
@@ -221,7 +221,7 @@ public interface TimerMBean {
      */
     public void removeNotification(Integer id) throws InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Removes all the timer notifications corresponding to the specified type from the list of notifications.
      *
      * @param type The timer notification type.
@@ -231,7 +231,7 @@ public interface TimerMBean {
      */
     public void removeNotifications(String type) throws InstanceNotFoundException;
 
-    /**
+    /** {@collect.stats}
      * Removes all the timer notifications from the list of notifications
      * and resets the counter used to update the timer notification identifiers.
      */
@@ -240,14 +240,14 @@ public interface TimerMBean {
     // GETTERS AND SETTERS
     //--------------------
 
-    /**
+    /** {@collect.stats}
      * Gets the number of timer notifications registered into the list of notifications.
      *
      * @return The number of timer notifications.
      */
     public int getNbNotifications();
 
-    /**
+    /** {@collect.stats}
      * Gets all timer notification identifiers registered into the list of notifications.
      *
      * @return A vector of <CODE>Integer</CODE> objects containing all the timer notification identifiers.
@@ -255,7 +255,7 @@ public interface TimerMBean {
      */
     public Vector<Integer> getAllNotificationIDs();
 
-    /**
+    /** {@collect.stats}
      * Gets all the identifiers of timer notifications corresponding to the specified type.
      *
      * @param type The timer notification type.
@@ -267,7 +267,7 @@ public interface TimerMBean {
      */
     public Vector<Integer> getNotificationIDs(String type);
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification type corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -277,7 +277,7 @@ public interface TimerMBean {
      */
     public String getNotificationType(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification detailed message corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -287,7 +287,7 @@ public interface TimerMBean {
      */
     public String getNotificationMessage(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets the timer notification user data object corresponding to the specified identifier.
      *
      * @param id The timer notification identifier.
@@ -299,7 +299,7 @@ public interface TimerMBean {
     //public Serializable getNotificationUserData(Integer id);
     // end of NPCTE fix for bugId 4464388
     public Object getNotificationUserData(Integer id);
-    /**
+    /** {@collect.stats}
      * Gets a copy of the date associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -309,7 +309,7 @@ public interface TimerMBean {
      */
     public Date getDate(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the period (in milliseconds) associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -319,7 +319,7 @@ public interface TimerMBean {
      */
     public Long getPeriod(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the remaining number of occurrences associated to a timer notification.
      *
      * @param id The timer notification identifier.
@@ -329,7 +329,7 @@ public interface TimerMBean {
      */
     public Long getNbOccurences(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets a copy of the flag indicating whether a periodic notification is
      * executed at <i>fixed-delay</i> or at <i>fixed-rate</i>.
      *
@@ -340,7 +340,7 @@ public interface TimerMBean {
      */
     public Boolean getFixedRate(Integer id);
 
-    /**
+    /** {@collect.stats}
      * Gets the flag indicating whether or not the timer sends past notifications.
      *
      * @return The past notifications sending on/off flag value.
@@ -349,7 +349,7 @@ public interface TimerMBean {
      */
     public boolean getSendPastNotifications();
 
-    /**
+    /** {@collect.stats}
      * Sets the flag indicating whether the timer sends past notifications or not.
      *
      * @param value The past notifications sending on/off flag value.
@@ -358,7 +358,7 @@ public interface TimerMBean {
      */
     public void setSendPastNotifications(boolean value);
 
-    /**
+    /** {@collect.stats}
      * Tests whether the timer MBean is active.
      * A timer MBean is marked active when the {@link #start start} method is called.
      * It becomes inactive when the {@link #stop stop} method is called.
@@ -367,7 +367,7 @@ public interface TimerMBean {
      */
     public boolean isActive();
 
-    /**
+    /** {@collect.stats}
      * Tests whether the list of timer notifications is empty.
      *
      * @return <CODE>true</CODE> if the list of timer notifications is empty, <CODE>false</CODE> otherwise.

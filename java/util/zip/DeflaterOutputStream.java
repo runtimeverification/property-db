@@ -30,7 +30,7 @@ import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * This class implements an output stream filter for compressing data in
  * the "deflate" compression format. It is also used as the basis for other
  * types of compression filters, such as GZIPOutputStream.
@@ -40,23 +40,23 @@ import java.io.IOException;
  */
 public
 class DeflaterOutputStream extends FilterOutputStream {
-    /**
+    /** {@collect.stats}
      * Compressor for this stream.
      */
     protected Deflater def;
 
-    /**
+    /** {@collect.stats}
      * Output buffer for writing compressed data.
      */
     protected byte[] buf;
 
-    /**
+    /** {@collect.stats}
      * Indicates that the stream has been closed.
      */
 
     private boolean closed = false;
 
-    /**
+    /** {@collect.stats}
      * Creates a new output stream with the specified compressor and
      * buffer size.
      * @param out the output stream
@@ -75,7 +75,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         buf = new byte[size];
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new output stream with the specified compressor and
      * a default buffer size.
      * @param out the output stream
@@ -87,7 +87,7 @@ class DeflaterOutputStream extends FilterOutputStream {
 
     boolean usesDefaultDeflater = false;
 
-    /**
+    /** {@collect.stats}
      * Creates a new output stream with a default compressor and buffer size.
      * @param out the output stream
      */
@@ -96,7 +96,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         usesDefaultDeflater = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Writes a byte to the compressed output stream. This method will
      * block until the byte can be written.
      * @param b the byte to be written
@@ -108,7 +108,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         write(buf, 0, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes an array of bytes to the compressed output stream. This
      * method will block until all the bytes are written.
      * @param b the data to be written
@@ -138,7 +138,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Finishes writing compressed data to the output stream without closing
      * the underlying stream. Use this method when applying multiple filters
      * in succession to the same output stream.
@@ -153,7 +153,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes remaining compressed data to the output stream and closes the
      * underlying stream.
      * @exception IOException if an I/O error has occurred
@@ -168,7 +168,7 @@ class DeflaterOutputStream extends FilterOutputStream {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes next block of compressed data to the output stream.
      * @throws IOException if an I/O error has occurred
      */

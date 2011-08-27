@@ -36,7 +36,7 @@ import java.security.GeneralSecurityException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.lang.reflect.*;
 
-/**
+/** {@collect.stats}
  * JCE has two pairs of jurisdiction policy files: one represents U.S. export
  * laws, and the other represents the local laws of the country where the
  * JCE will be used.
@@ -70,14 +70,14 @@ final class CryptoPolicyParser {
     private StreamTokenizer st;
     private int lookahead;
 
-    /**
+    /** {@collect.stats}
      * Creates a CryptoPolicyParser object.
      */
     CryptoPolicyParser() {
         grantEntries = new Vector();
     }
 
-    /**
+    /** {@collect.stats}
      * Reads a policy configuration using a Reader object. <p>
      *
      * @param policy the policy Reader object.
@@ -149,7 +149,7 @@ final class CryptoPolicyParser {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * parse a Grant entry
      */
     private GrantEntry parseGrantEntry(Hashtable processedPermissions)
@@ -176,7 +176,7 @@ final class CryptoPolicyParser {
         return e;
     }
 
-    /**
+    /** {@collect.stats}
      * parse a CryptoPermission entry
      */
     private CryptoPermissionEntry parsePermissionEntry(
@@ -356,7 +356,7 @@ final class CryptoPolicyParser {
         return found;
     }
 
-    /**
+    /** {@collect.stats}
      * Excepts to match a non-negative number.
      */
     private int match()
@@ -525,7 +525,7 @@ final class CryptoPolicyParser {
         return true;
     }
 
-    /**
+    /** {@collect.stats}
      * Each grant entry in the policy configuration file is  represented by a
      * GrantEntry object.  <p>
      *
@@ -577,7 +577,7 @@ final class CryptoPolicyParser {
             return permissionEntries.contains(pe);
         }
 
-        /**
+        /** {@collect.stats}
          * Enumerate all the permission entries in this GrantEntry.
          */
         Enumeration permissionElements(){
@@ -586,7 +586,7 @@ final class CryptoPolicyParser {
 
     }
 
-    /**
+    /** {@collect.stats}
      * Each crypto permission entry in the policy configuration file is
      * represented by a CryptoPermissionEntry object.  <p>
      *
@@ -625,7 +625,7 @@ final class CryptoPolicyParser {
             algParamSpec = null;
         }
 
-        /**
+        /** {@collect.stats}
          * Calculates a hash code value for the object.  Objects
          * which are equal will also have the same hashcode.
          */
@@ -687,7 +687,7 @@ final class CryptoPolicyParser {
 
         private static final long serialVersionUID = 7147241245566588374L;
 
-        /**
+        /** {@collect.stats}
          * Constructs a ParsingException with the specified
          * detail message.
          * @param msg the detail message.

@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.DocAttribute;
 
-/**
+/** {@collect.stats}
  * Class DocumentName is a printing attribute class, a text attribute, that
  * specifies the name of a document. DocumentName is an attribute of the print
  * data (the doc), not of the Print Job. A document's name is an arbitrary
@@ -51,7 +51,7 @@ public final class DocumentName extends TextSyntax implements DocAttribute {
 
     private static final long serialVersionUID = 7883105848533280430L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new document name attribute with the given document name
      * and locale.
      *
@@ -67,7 +67,7 @@ public final class DocumentName extends TextSyntax implements DocAttribute {
         super (documentName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this document name attribute is equivalent to the
      * passed in object.
      * To be equivalent, all of the following conditions must be true:
@@ -93,7 +93,7 @@ public final class DocumentName extends TextSyntax implements DocAttribute {
         return (super.equals (object) && object instanceof DocumentName);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -106,7 +106,7 @@ public final class DocumentName extends TextSyntax implements DocAttribute {
         return DocumentName.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

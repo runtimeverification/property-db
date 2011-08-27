@@ -25,7 +25,7 @@
 
 package java.rmi.activation;
 
-/**
+/** {@collect.stats}
  * An <code>UnknownObjectException</code> is thrown by methods of classes and
  * interfaces in the <code>java.rmi.activation</code> package when the
  * <code>ActivationID</code> parameter to the method is determined to be
@@ -46,10 +46,10 @@ package java.rmi.activation;
  */
 public class UnknownObjectException extends ActivationException {
 
-    /** indicate compatibility with the Java 2 SDK v1.2 version of class */
+    /** {@collect.stats} indicate compatibility with the Java 2 SDK v1.2 version of class */
     private static final long serialVersionUID = 3425547551622251430L;
 
-    /**
+    /** {@collect.stats}
      * Constructs an <code>UnknownObjectException</code> with the specified
      * detail message.
      *

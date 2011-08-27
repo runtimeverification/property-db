@@ -39,7 +39,7 @@ import java.security.NoSuchProviderException;
 import sun.security.jca.*;
 import sun.security.jca.GetInstance.Instance;
 
-/**
+/** {@collect.stats}
  * This class defines the functionality of a certificate factory, which is
  * used to generate certificate, certification path (<code>CertPath</code>)
  * and certificate revocation list (CRL) objects from their encodings.
@@ -116,7 +116,7 @@ public class CertificateFactory {
     // The provider implementation
     private CertificateFactorySpi certFacSpi;
 
-    /**
+    /** {@collect.stats}
      * Creates a CertificateFactory object of the given type, and encapsulates
      * the given provider implementation (SPI object) in it.
      *
@@ -132,7 +132,7 @@ public class CertificateFactory {
         this.type = type;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a certificate factory object that implements the
      * specified certificate type.
      *
@@ -171,7 +171,7 @@ public class CertificateFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a certificate factory object for the specified
      * certificate type.
      *
@@ -218,7 +218,7 @@ public class CertificateFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a certificate factory object for the specified
      * certificate type.
      *
@@ -260,7 +260,7 @@ public class CertificateFactory {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the provider of this certificate factory.
      *
      * @return the provider of this certificate factory.
@@ -269,7 +269,7 @@ public class CertificateFactory {
         return this.provider;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the certificate type associated with this
      * certificate factory.
      *
@@ -280,7 +280,7 @@ public class CertificateFactory {
         return this.type;
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a certificate object and initializes it with
      * the data read from the input stream <code>inStream</code>.
      *
@@ -322,7 +322,7 @@ public class CertificateFactory {
         return certFacSpi.engineGenerateCertificate(inStream);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an iteration of the <code>CertPath</code> encodings supported
      * by this certificate factory, with the default encoding first. See
      * Appendix A in the
@@ -342,7 +342,7 @@ public class CertificateFactory {
         return(certFacSpi.engineGetCertPathEncodings());
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>CertPath</code> object and initializes it with
      * the data read from the <code>InputStream</code> inStream. The data
      * is assumed to be in the default encoding. The name of the default
@@ -361,7 +361,7 @@ public class CertificateFactory {
         return(certFacSpi.engineGenerateCertPath(inStream));
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>CertPath</code> object and initializes it with
      * the data read from the <code>InputStream</code> inStream. The data
      * is assumed to be in the specified encoding. See Appendix A in the
@@ -383,7 +383,7 @@ public class CertificateFactory {
         return(certFacSpi.engineGenerateCertPath(inStream, encoding));
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a <code>CertPath</code> object and initializes it with
      * a <code>List</code> of <code>Certificate</code>s.
      * <p>
@@ -404,7 +404,7 @@ public class CertificateFactory {
         return(certFacSpi.engineGenerateCertPath(certificates));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a (possibly empty) collection view of the certificates read
      * from the given input stream <code>inStream</code>.
      *
@@ -444,7 +444,7 @@ public class CertificateFactory {
         return certFacSpi.engineGenerateCertificates(inStream);
     }
 
-    /**
+    /** {@collect.stats}
      * Generates a certificate revocation list (CRL) object and initializes it
      * with the data read from the input stream <code>inStream</code>.
      *
@@ -479,7 +479,7 @@ public class CertificateFactory {
         return certFacSpi.engineGenerateCRL(inStream);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a (possibly empty) collection view of the CRLs read
      * from the given input stream <code>inStream</code>.
      *

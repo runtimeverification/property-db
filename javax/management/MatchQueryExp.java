@@ -27,7 +27,7 @@ package javax.management;
 
 
 
-/**
+/** {@collect.stats}
  * This class is used by the query-building mechanism to represent binary
  * relations.
  * @serial include
@@ -39,24 +39,24 @@ class MatchQueryExp extends QueryEval implements QueryExp {
     /* Serial version */
     private static final long serialVersionUID = -7156603696948215014L;
 
-    /**
+    /** {@collect.stats}
      * @serial The attribute value to be matched
      */
     private AttributeValueExp exp;
 
-    /**
+    /** {@collect.stats}
      * @serial The pattern to be matched
      */
     private String pattern;
 
 
-    /**
+    /** {@collect.stats}
      * Basic Constructor.
      */
     public MatchQueryExp() {
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new MatchQueryExp where the specified AttributeValueExp matches
      * the specified pattern StringValueExp.
      */
@@ -66,21 +66,21 @@ class MatchQueryExp extends QueryEval implements QueryExp {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the attribute of the query.
      */
     public AttributeValueExp getAttribute()  {
         return exp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the pattern of the query.
      */
     public String getPattern()  {
         return pattern;
     }
 
-    /**
+    /** {@collect.stats}
      * Applies the MatchQueryExp on a MBean.
      *
      * @param name The name of the MBean on which the MatchQueryExp will be applied.
@@ -105,7 +105,7 @@ class MatchQueryExp extends QueryEval implements QueryExp {
         return wildmatch(((StringValueExp)val).getValue(), pattern);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object
      */
     public String toString()  {

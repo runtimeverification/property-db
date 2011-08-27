@@ -41,7 +41,7 @@ import sun.swing.DefaultLookup;
 import sun.swing.UIAction;
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * Basic L&F for a desktop.
  *
  * @author Steve Wilson
@@ -58,7 +58,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
     protected JDesktopPane desktop;
     protected DesktopManager desktopManager;
 
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -68,7 +68,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
      */
     @Deprecated
     protected KeyStroke minimizeKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -78,7 +78,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
      */
     @Deprecated
     protected KeyStroke maximizeKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -88,7 +88,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
      */
     @Deprecated
     protected KeyStroke closeKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -98,7 +98,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
      */
     @Deprecated
     protected KeyStroke navigateKey;
-    /**
+    /** {@collect.stats}
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
      * Key bindings are now defined by the LookAndFeel, please refer to
@@ -143,7 +143,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
 
     protected void uninstallDefaults() { }
 
-    /**
+    /** {@collect.stats}
      * Installs the <code>PropertyChangeListener</code> returned from
      * <code>createPropertyChangeListener</code> on the
      * <code>JDesktopPane</code>.
@@ -156,7 +156,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         desktop.addPropertyChangeListener(pcl);
     }
 
-    /**
+    /** {@collect.stats}
      * Uninstalls the <code>PropertyChangeListener</code> returned from
      * <code>createPropertyChangeListener</code> from the
      * <code>JDesktopPane</code>.
@@ -273,7 +273,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         return maxSize;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>PropertyChangeListener</code> to install on
      * the <code>JDesktopPane</code>.
      *
@@ -301,7 +301,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The default DesktopManager installed by the UI.
      */
     private class BasicDesktopManager extends DefaultDesktopManager
@@ -628,7 +628,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Handles restoring a minimized or maximized internal frame.
      * @since 1.3
      */
@@ -643,7 +643,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles closing an internal frame.
      */
     protected class CloseAction extends AbstractAction {
@@ -661,7 +661,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles minimizing an internal frame.
      */
     protected class MinimizeAction extends AbstractAction {
@@ -679,7 +679,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles maximizing an internal frame.
      */
     protected class MaximizeAction extends AbstractAction {
@@ -697,7 +697,7 @@ public class BasicDesktopPaneUI extends DesktopPaneUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles navigating to the next internal frame.
      */
     protected class NavigateAction extends AbstractAction {

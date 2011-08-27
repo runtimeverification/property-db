@@ -42,7 +42,7 @@ import java.text.Normalizer;
 import java.util.Vector;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * The <code>RuleBasedCollator</code> class is a concrete subclass of
  * <code>Collator</code> that provides a simple, data-driven, table
  * collator.  With this class you can create a customized table-based
@@ -259,7 +259,7 @@ public class RuleBasedCollator extends Collator{
     // object is shared among all RuleBasedCollators for the same locale, and
     // thus by all the CollationElementIterators they create.
 
-    /**
+    /** {@collect.stats}
      * RuleBasedCollator constructor.  This takes the table rules and builds
      * a collation table out of them.  Please see RuleBasedCollator class
      * description for more details on the collation rule syntax.
@@ -274,7 +274,7 @@ public class RuleBasedCollator extends Collator{
         this(rules, Collator.CANONICAL_DECOMPOSITION);
     }
 
-    /**
+    /** {@collect.stats}
      * RuleBasedCollator constructor.  This takes the table rules and builds
      * a collation table out of them.  Please see RuleBasedCollator class
      * description for more details on the collation rule syntax.
@@ -293,7 +293,7 @@ public class RuleBasedCollator extends Collator{
         tables = new RBCollationTables(rules, decomp);
     }
 
-    /**
+    /** {@collect.stats}
      * "Copy constructor."  Used in clone() for performance.
      */
     private RuleBasedCollator(RuleBasedCollator that) {
@@ -302,7 +302,7 @@ public class RuleBasedCollator extends Collator{
         tables = that.tables;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the table-based rules for the collation object.
      * @return returns the collation rules that the table collation object
      * was created from.
@@ -312,7 +312,7 @@ public class RuleBasedCollator extends Collator{
         return tables.getRules();
     }
 
-    /**
+    /** {@collect.stats}
      * Return a CollationElementIterator for the given String.
      * @see java.text.CollationElementIterator
      */
@@ -320,7 +320,7 @@ public class RuleBasedCollator extends Collator{
         return new CollationElementIterator( source, this );
     }
 
-    /**
+    /** {@collect.stats}
      * Return a CollationElementIterator for the given String.
      * @see java.text.CollationElementIterator
      * @since 1.2
@@ -330,7 +330,7 @@ public class RuleBasedCollator extends Collator{
         return new CollationElementIterator( source, this );
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the character data stored in two different strings based on the
      * collation rules.  Returns information about whether a string is less
      * than, greater than or equal to another string in a language.
@@ -544,7 +544,7 @@ public class RuleBasedCollator extends Collator{
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Transforms the string into a series of characters that can be compared
      * with CollationKey.compareTo. This overrides java.text.Collator.getCollationKey.
      * It can be overriden in a subclass.
@@ -678,7 +678,7 @@ public class RuleBasedCollator extends Collator{
         return new RuleBasedCollationKey(source, primResult.toString());
     }
 
-    /**
+    /** {@collect.stats}
      * Standard override; no change in semantics.
      */
     public Object clone() {
@@ -699,7 +699,7 @@ public class RuleBasedCollator extends Collator{
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the equality of two collation objects.
      * @param obj the table-based collation object to be compared with this.
      * @return true if the current table-based collation object is the same
@@ -713,14 +713,14 @@ public class RuleBasedCollator extends Collator{
         return (getRules().equals(other.getRules()));
     }
 
-    /**
+    /** {@collect.stats}
      * Generates the hash code for the table-based collation object
      */
     public int hashCode() {
         return getRules().hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * Allows CollationElementIterator access to the tables object
      */
     RBCollationTables getTables() {

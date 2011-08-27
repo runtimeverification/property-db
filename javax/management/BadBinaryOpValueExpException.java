@@ -26,7 +26,7 @@
 package javax.management;
 
 
-/**
+/** {@collect.stats}
  * Thrown when an invalid expression is passed to a method for
  * constructing a query.  This exception is used internally by JMX
  * during the evaluation of a query.  User code does not usually see
@@ -40,13 +40,13 @@ public class BadBinaryOpValueExpException extends Exception   {
     /* Serial version */
     private static final long serialVersionUID = 5068475589449021227L;
 
-    /**
+    /** {@collect.stats}
      * @serial the {@link ValueExp} that originated this exception
      */
     private ValueExp exp;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <CODE>BadBinaryOpValueExpException</CODE> with the specified <CODE>ValueExp</CODE>.
      *
      * @param exp the expression whose value was inappropriate.
@@ -56,7 +56,7 @@ public class BadBinaryOpValueExpException extends Exception   {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <CODE>ValueExp</CODE> that originated the exception.
      *
      * @return the problematic {@link ValueExp}.
@@ -65,7 +65,7 @@ public class BadBinaryOpValueExpException extends Exception   {
         return exp;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string representing the object.
      */
     public String toString()  {

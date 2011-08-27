@@ -30,7 +30,7 @@ import javax.naming.directory.*;
 
 import java.util.Hashtable;
 
-/**
+/** {@collect.stats}
   * This class is the starting context for performing
   * LDAPv3-style extended operations and controls.
   *<p>
@@ -91,7 +91,7 @@ public class InitialLdapContext extends InitialDirContext implements LdapContext
     private static final String
         BIND_CONTROLS_PROPERTY = "java.naming.ldap.control.connect";
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial context using no environment properties or
      * connection request controls.
      * Equivalent to <tt>new InitialLdapContext(null, null)</tt>.
@@ -102,7 +102,7 @@ public class InitialLdapContext extends InitialDirContext implements LdapContext
         super(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs an initial context
      * using environment properties and connection request controls.
      * See <tt>javax.naming.InitialContext</tt> for a discussion of
@@ -151,7 +151,7 @@ public class InitialLdapContext extends InitialDirContext implements LdapContext
         init(env);
     }
 
-    /**
+    /** {@collect.stats}
      * Retrieves the initial LDAP context.
      *
      * @return The non-null cached initial context.

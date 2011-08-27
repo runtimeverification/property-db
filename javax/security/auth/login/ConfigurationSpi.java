@@ -26,7 +26,7 @@
 
 package javax.security.auth.login;
 
-/**
+/** {@collect.stats}
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Configuration</code> class.
  * All the abstract methods in this class must be implemented by each
@@ -43,7 +43,7 @@ package javax.security.auth.login;
  */
 
 public abstract class ConfigurationSpi {
-    /**
+    /** {@collect.stats}
      * Retrieve the AppConfigurationEntries for the specified <i>name</i>.
      *
      * <p>
@@ -56,7 +56,7 @@ public abstract class ConfigurationSpi {
     protected abstract AppConfigurationEntry[] engineGetAppConfigurationEntry
                                                         (String name);
 
-    /**
+    /** {@collect.stats}
      * Refresh and reload the Configuration.
      *
      * <p> This method causes this Configuration object to refresh/reload its

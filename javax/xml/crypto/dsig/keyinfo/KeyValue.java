@@ -34,7 +34,7 @@ import java.security.interfaces.DSAPublicKey;
 import java.security.interfaces.RSAPublicKey;
 import javax.xml.crypto.XMLStructure;
 
-/**
+/** {@collect.stats}
  * A representation of the XML <code>KeyValue</code> element as defined
  * in the <a href="http://www.w3.org/TR/xmldsig-core/">
  * W3C Recommendation for XML-Signature Syntax and Processing</a>. A
@@ -103,7 +103,7 @@ import javax.xml.crypto.XMLStructure;
  */
 public interface KeyValue extends XMLStructure {
 
-    /**
+    /** {@collect.stats}
      * URI identifying the DSA KeyValue KeyInfo type:
      * http://www.w3.org/2000/09/xmldsig#DSAKeyValue. This can be specified as
      * the value of the <code>type</code> parameter of the
@@ -113,7 +113,7 @@ public interface KeyValue extends XMLStructure {
     final static String DSA_TYPE =
         "http://www.w3.org/2000/09/xmldsig#DSAKeyValue";
 
-    /**
+    /** {@collect.stats}
      * URI identifying the RSA KeyValue KeyInfo type:
      * http://www.w3.org/2000/09/xmldsig#RSAKeyValue. This can be specified as
      * the value of the <code>type</code> parameter of the
@@ -123,7 +123,7 @@ public interface KeyValue extends XMLStructure {
     final static String RSA_TYPE =
         "http://www.w3.org/2000/09/xmldsig#RSAKeyValue";
 
-    /**
+    /** {@collect.stats}
      * Returns the public key of this <code>KeyValue</code>.
      *
      * @return the public key of this <code>KeyValue</code>

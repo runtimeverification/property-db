@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import sun.swing.plaf.synth.SynthUI;
 import sun.swing.MenuItemLayoutHelper;
 
-/**
+/** {@collect.stats}
  * Synth's MenuUI.
  *
  * @author Georges Saab

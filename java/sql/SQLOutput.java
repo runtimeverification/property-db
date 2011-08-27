@@ -25,7 +25,7 @@
 
 package java.sql;
 
-/**
+/** {@collect.stats}
  * The output stream for writing the attributes of a user-defined
  * type back to the database.  This interface, used
  * only for custom mapping, is used by the driver, and its
@@ -54,7 +54,7 @@ package java.sql;
   // java.sql.ResultSet.
   //================================================================
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
    *
@@ -66,7 +66,7 @@ package java.sql;
    */
   void writeString(String x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java boolean.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -79,7 +79,7 @@ package java.sql;
    */
   void writeBoolean(boolean x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java byte.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -92,7 +92,7 @@ package java.sql;
    */
   void writeByte(byte x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java short.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -105,7 +105,7 @@ package java.sql;
    */
   void writeShort(short x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java int.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -118,7 +118,7 @@ package java.sql;
    */
   void writeInt(int x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java long.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -131,7 +131,7 @@ package java.sql;
    */
   void writeLong(long x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java float.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -144,7 +144,7 @@ package java.sql;
    */
   void writeFloat(float x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a Java double.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -157,7 +157,7 @@ package java.sql;
    */
   void writeDouble(double x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a java.math.BigDecimal object.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -170,7 +170,7 @@ package java.sql;
    */
   void writeBigDecimal(java.math.BigDecimal x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as an array of bytes.
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language.
@@ -183,7 +183,7 @@ package java.sql;
    */
   void writeBytes(byte[] x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a java.sql.Date object.
    * Writes the next attribute to the stream as a <code>java.sql.Date</code> object
    * in the Java programming language.
@@ -196,7 +196,7 @@ package java.sql;
    */
   void writeDate(java.sql.Date x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a java.sql.Time object.
    * Writes the next attribute to the stream as a <code>java.sql.Date</code> object
    * in the Java programming language.
@@ -209,7 +209,7 @@ package java.sql;
    */
   void writeTime(java.sql.Time x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a java.sql.Timestamp object.
    * Writes the next attribute to the stream as a <code>java.sql.Date</code> object
    * in the Java programming language.
@@ -222,7 +222,7 @@ package java.sql;
    */
   void writeTimestamp(java.sql.Timestamp x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a stream of Unicode characters.
    *
    * @param x the value to pass to the database
@@ -233,7 +233,7 @@ package java.sql;
    */
   void writeCharacterStream(java.io.Reader x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a stream of ASCII characters.
    *
    * @param x the value to pass to the database
@@ -244,7 +244,7 @@ package java.sql;
    */
   void writeAsciiStream(java.io.InputStream x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a stream of uninterpreted
    * bytes.
    *
@@ -264,7 +264,7 @@ package java.sql;
   // items using the methods above.
   //================================================================
 
-  /**
+  /** {@collect.stats}
    * Writes to the stream the data contained in the given
    * <code>SQLData</code> object.
    * When the <code>SQLData</code> object is <code>null</code>, this
@@ -289,7 +289,7 @@ package java.sql;
    */
   void writeObject(SQLData x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>REF</code> value to the stream.
    *
    * @param x a <code>Ref</code> object representing data of an SQL
@@ -301,7 +301,7 @@ package java.sql;
    */
   void writeRef(Ref x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>BLOB</code> value to the stream.
    *
    * @param x a <code>Blob</code> object representing data of an SQL
@@ -314,7 +314,7 @@ package java.sql;
    */
   void writeBlob(Blob x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>CLOB</code> value to the stream.
    *
    * @param x a <code>Clob</code> object representing data of an SQL
@@ -327,7 +327,7 @@ package java.sql;
    */
   void writeClob(Clob x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL structured type value to the stream.
    *
    * @param x a <code>Struct</code> object representing data of an SQL
@@ -340,7 +340,7 @@ package java.sql;
    */
   void writeStruct(Struct x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>ARRAY</code> value to the stream.
    *
    * @param x an <code>Array</code> object representing data of an SQL
@@ -355,7 +355,7 @@ package java.sql;
 
      //--------------------------- JDBC 3.0 ------------------------
 
-     /**
+     /** {@collect.stats}
       * Writes a SQL <code>DATALINK</code> value to the stream.
       *
       * @param x a <code>java.net.URL</code> object representing the data
@@ -370,7 +370,7 @@ package java.sql;
 
      //--------------------------- JDBC 4.0 ------------------------
 
-  /**
+  /** {@collect.stats}
    * Writes the next attribute to the stream as a <code>String</code>
    * in the Java programming language. The driver converts this to a
    * SQL <code>NCHAR</code> or
@@ -387,7 +387,7 @@ package java.sql;
    */
   void writeNString(String x) throws SQLException;
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>NCLOB</code> value to the stream.
    *
    * @param x a <code>NClob</code> object representing data of an SQL
@@ -401,7 +401,7 @@ package java.sql;
   void writeNClob(NClob x) throws SQLException;
 
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>ROWID</code> value to the stream.
    *
    * @param x a <code>RowId</code> object representing data of an SQL
@@ -415,7 +415,7 @@ package java.sql;
   void writeRowId(RowId x) throws SQLException;
 
 
-  /**
+  /** {@collect.stats}
    * Writes an SQL <code>XML</code> value to the stream.
    *
    * @param x a <code>SQLXML</code> object representing data of an SQL

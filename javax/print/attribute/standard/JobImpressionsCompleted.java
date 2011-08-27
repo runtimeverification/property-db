@@ -28,7 +28,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.IntegerSyntax;
 import javax.print.attribute.PrintJobAttribute;
 
-/**
+/** {@collect.stats}
  * Class JobImpressionsCompleted is an integer valued printing attribute class
  * that specifies the number of impressions completed for the job so far. For
  * printing devices, the impressions completed includes interpreting, marking,
@@ -61,7 +61,7 @@ public final class JobImpressionsCompleted extends IntegerSyntax
 
     private static final long serialVersionUID = 6722648442432393294L;
 
-    /**
+    /** {@collect.stats}
      * Construct a new job impressions completed attribute with the given
      * integer value.
      *
@@ -74,7 +74,7 @@ public final class JobImpressionsCompleted extends IntegerSyntax
         super (value, 0, Integer.MAX_VALUE);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this job impressions completed attribute is equivalent
      * tp the passed in object. To be equivalent, all of the following
      * conditions must be true:
@@ -98,7 +98,7 @@ public final class JobImpressionsCompleted extends IntegerSyntax
                object instanceof JobImpressionsCompleted);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -112,7 +112,7 @@ public final class JobImpressionsCompleted extends IntegerSyntax
         return JobImpressionsCompleted.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

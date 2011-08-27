@@ -53,7 +53,7 @@ import javax.management.ReflectionException;
 import javax.management.remote.NotificationResult;
 import javax.security.auth.Subject;
 
-/**
+/** {@collect.stats}
  * <p>RMI object used to forward an MBeanServer request from a client
  * to its MBeanServer implementation on the server side.  There is one
  * Remote object implementing this interface for each remote client
@@ -92,7 +92,7 @@ import javax.security.auth.Subject;
  * commitments for JSR 255.
  */
 public interface RMIConnection extends Closeable, Remote {
-    /**
+    /** {@collect.stats}
      * <p>Returns the connection ID.  This string is different for
      * every open connection to a given RMI connector server.</p>
      *
@@ -104,7 +104,7 @@ public interface RMIConnection extends Closeable, Remote {
      */
     public String getConnectionId() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Closes this connection.  On return from this method, the RMI
      * object implementing this interface is unexported, so further
      * remote calls to it will fail.</p>
@@ -116,7 +116,7 @@ public interface RMIConnection extends Closeable, Remote {
      */
     public void close() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#createMBean(String,
      * ObjectName)}.
@@ -167,7 +167,7 @@ public interface RMIConnection extends Closeable, Remote {
         NotCompliantMBeanException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#createMBean(String,
      * ObjectName, ObjectName)}.
@@ -223,7 +223,7 @@ public interface RMIConnection extends Closeable, Remote {
         InstanceNotFoundException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#createMBean(String,
      * ObjectName, Object[], String[])}.  The <code>Object[]</code>
@@ -284,7 +284,7 @@ public interface RMIConnection extends Closeable, Remote {
         NotCompliantMBeanException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#createMBean(String,
      * ObjectName, ObjectName, Object[], String[])}.  The
@@ -351,7 +351,7 @@ public interface RMIConnection extends Closeable, Remote {
         InstanceNotFoundException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#unregisterMBean(ObjectName)}.
      *
@@ -380,7 +380,7 @@ public interface RMIConnection extends Closeable, Remote {
         MBeanRegistrationException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#getObjectInstance(ObjectName)}.
      *
@@ -407,7 +407,7 @@ public interface RMIConnection extends Closeable, Remote {
                                             Subject delegationSubject)
         throws InstanceNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#queryMBeans(ObjectName,
      * QueryExp)}.  The <code>QueryExp</code> is wrapped in a
@@ -438,7 +438,7 @@ public interface RMIConnection extends Closeable, Remote {
                     Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#queryNames(ObjectName,
      * QueryExp)}.  The <code>QueryExp</code> is wrapped in a
@@ -469,7 +469,7 @@ public interface RMIConnection extends Closeable, Remote {
                    Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#isRegistered(ObjectName)}.
      *
@@ -491,7 +491,7 @@ public interface RMIConnection extends Closeable, Remote {
     public boolean isRegistered(ObjectName name, Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#getMBeanCount()}.
      *
@@ -508,7 +508,7 @@ public interface RMIConnection extends Closeable, Remote {
     public Integer getMBeanCount(Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#getAttribute(ObjectName,
      * String)}.
@@ -554,7 +554,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#getAttributes(ObjectName,
      * String[])}.
@@ -589,7 +589,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#setAttribute(ObjectName,
      * Attribute)}.  The <code>Attribute</code> parameter is wrapped
@@ -636,7 +636,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#setAttributes(ObjectName,
      * AttributeList)}.  The <code>AttributeList</code> parameter is
@@ -675,7 +675,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#invoke(ObjectName,
      * String, Object[], String[])}.  The <code>Object[]</code>
@@ -725,7 +725,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#getDefaultDomain()}.
      *
@@ -742,7 +742,7 @@ public interface RMIConnection extends Closeable, Remote {
     public String getDefaultDomain(Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#getDomains()}.
      *
@@ -759,7 +759,7 @@ public interface RMIConnection extends Closeable, Remote {
     public String[] getDomains(Subject delegationSubject)
         throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method
      * {@link javax.management.MBeanServerConnection#getMBeanInfo(ObjectName)}.
      *
@@ -791,7 +791,7 @@ public interface RMIConnection extends Closeable, Remote {
         ReflectionException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#isInstanceOf(ObjectName,
      * String)}.
@@ -819,7 +819,7 @@ public interface RMIConnection extends Closeable, Remote {
                                 Subject delegationSubject)
         throws InstanceNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#addNotificationListener(ObjectName,
      * ObjectName, NotificationFilter, Object)}.  The
@@ -866,7 +866,7 @@ public interface RMIConnection extends Closeable, Remote {
                         Subject delegationSubject)
         throws InstanceNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#removeNotificationListener(ObjectName,
      * ObjectName)}.
@@ -899,7 +899,7 @@ public interface RMIConnection extends Closeable, Remote {
         ListenerNotFoundException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * Handles the method {@link
      * javax.management.MBeanServerConnection#removeNotificationListener(ObjectName,
      * ObjectName, NotificationFilter, Object)}.  The
@@ -945,7 +945,7 @@ public interface RMIConnection extends Closeable, Remote {
 
     // Special Handling of Notifications -------------------------------------
 
-    /**
+    /** {@collect.stats}
      * <p>Handles the method {@link
      * javax.management.MBeanServerConnection#addNotificationListener(ObjectName,
      * NotificationListener, NotificationFilter, Object)}.</p>
@@ -1002,7 +1002,7 @@ public interface RMIConnection extends Closeable, Remote {
                     Subject[] delegationSubjects)
         throws InstanceNotFoundException, IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Handles the
      * {@link javax.management.MBeanServerConnection#removeNotificationListener(ObjectName,NotificationListener)
      * removeNotificationListener(ObjectName, NotificationListener)} and
@@ -1047,7 +1047,7 @@ public interface RMIConnection extends Closeable, Remote {
         ListenerNotFoundException,
         IOException;
 
-    /**
+    /** {@collect.stats}
      * <p>Retrieves notifications from the connector server.  This
      * method can block until there is at least one notification or
      * until the specified timeout is reached.  The method can also

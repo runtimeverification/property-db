@@ -44,7 +44,7 @@ import sun.swing.UIAction;
 
 import sun.awt.AppContext;
 
-/**
+/** {@collect.stats}
  * A Windows L&F implementation of PopupMenuUI.  This implementation
  * is a "combined" view/controller.
  *
@@ -247,7 +247,7 @@ public class BasicPopupMenuUI extends PopupMenuUI {
     }
 
 
-    /**
+    /** {@collect.stats}
      * This Listener fires the Action that provides the correct auditory
      * feedback.
      *
@@ -266,7 +266,7 @@ public class BasicPopupMenuUI extends PopupMenuUI {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Handles mnemonic for children JMenuItems.
      * @since 1.5
      */
@@ -946,7 +946,7 @@ public class BasicPopupMenuUI extends PopupMenuUI {
         public void windowActivated(WindowEvent e) {}
     }
 
-    /**
+    /** {@collect.stats}
      * This helper is added to MenuSelectionManager as a ChangeListener to
      * listen to menu selection changes. When a menu is activated, it passes
      * focus to its parent JRootPane, and installs an ActionMap/InputMap pair
@@ -1017,7 +1017,7 @@ public class BasicPopupMenuUI extends PopupMenuUI {
                 }
             };
 
-        /**
+        /** {@collect.stats}
          * Return the last JPopupMenu in <code>path</code>,
          * or <code>null</code> if none found
          */

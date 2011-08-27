@@ -25,7 +25,7 @@
 
 package javax.net.ssl;
 
-/**
+/** {@collect.stats}
  * This class is the base interface for hostname verification.
  * <P>
  * During handshaking, if the URL's hostname and
@@ -44,7 +44,7 @@ package javax.net.ssl;
  */
 
 public interface HostnameVerifier {
-    /**
+    /** {@collect.stats}
      * Verify that the host name is an acceptable match with
      * the server's authentication scheme.
      *

@@ -28,7 +28,7 @@ package javax.imageio.stream;
 import java.io.DataOutput;
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * A seekable output stream interface for use by
  * <code>ImageWriter</code>s.  Various output destinations, such as
  * <code>OutputStream</code>s and <code>File</code>s, as well as
@@ -51,7 +51,7 @@ import java.io.IOException;
  */
 public interface ImageOutputStream extends ImageInputStream, DataOutput {
 
-    /**
+    /** {@collect.stats}
      * Writes a single byte to the stream at the current position.
      * The 24 high-order bits of <code>b</code> are ignored.
      *
@@ -70,7 +70,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void write(int b) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of bytes to the stream at the current
      * position.  If <code>b.length</code> is 0, nothing is written.
      * The byte <code>b[0]</code> is written first, then the byte
@@ -89,7 +89,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void write(byte b[]) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of bytes to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The byte <code>b[off]</code> is written first, then the byte
@@ -116,7 +116,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void write(byte b[], int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>boolean</code> value to the stream.  If
      * <code>v</code> is true, the value <code>(byte)1</code> is
      * written; if <code>v</code> is false, the value
@@ -133,7 +133,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeBoolean(boolean v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes the 8 low-order bits of <code>v</code> to the
      * stream. The 24 high-order bits of <code>v</code> are ignored.
      * (This means that <code>writeByte</code> does exactly the same
@@ -151,7 +151,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeByte(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes the 16 low-order bits of <code>v</code> to the
      * stream. The 16 high-order bits of <code>v</code> are ignored.
      * If the stream uses network byte order, the bytes written, in
@@ -181,7 +181,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeShort(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * This method is a synonym for
      * {@link #writeShort <code>writeShort</code>}.
      *
@@ -194,7 +194,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeChar(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes the 32 bits of <code>v</code> to the stream.  If the
      * stream uses network byte order, the bytes written, in order,
      * will be:
@@ -227,7 +227,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeInt(int v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes the 64 bits of <code>v</code> to the stream.  If the
      * stream uses network byte order, the bytes written, in order,
      * will be:
@@ -268,7 +268,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeLong(long v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>float</code> value, which is comprised of four
      * bytes, to the output stream. It does this as if it first
      * converts this <code>float</code> value to an <code>int</code>
@@ -288,7 +288,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeFloat(float v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a <code>double</code> value, which is comprised of four
      * bytes, to the output stream. It does this as if it first
      * converts this <code>double</code> value to an <code>long</code>
@@ -309,7 +309,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeDouble(double v) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a string to the output stream. For every character in
      * the string <code>s</code>, taken in order, one byte is written
      * to the output stream. If <code>s</code> is <code>null</code>, a
@@ -337,7 +337,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeBytes(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a string to the output stream. For every character in
      * the string <code>s</code>, taken in order, two bytes are
      * written to the output stream, ordered according to the current
@@ -365,7 +365,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeChars(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes two bytes of length information to the output stream in
      * network byte order, followed by the
      * <a href="../../../java/io/DataInput.html#modified-utf-8">modified
@@ -436,7 +436,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeUTF(String s) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of shorts to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The short <code>s[off]</code> is written first, then the short
@@ -462,7 +462,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeShorts(short[] s, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of chars to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The char <code>c[off]</code> is written first, then the char
@@ -488,7 +488,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeChars(char[] c, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of ints to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The int <code>i[off]</code> is written first, then the int
@@ -514,7 +514,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeInts(int[] i, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of longs to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The long <code>l[off]</code> is written first, then the long
@@ -540,7 +540,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeLongs(long[] l, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of floats to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The float <code>f[off]</code> is written first, then the float
@@ -566,7 +566,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeFloats(float[] f, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of doubles to the stream at the current
      * position.  If <code>len</code> is 0, nothing is written.
      * The double <code>d[off]</code> is written first, then the double
@@ -592,7 +592,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeDoubles(double[] d, int off, int len) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a single bit, given by the least significant bit of the
      * argument, to the stream at the current bit offset within the
      * current byte position.  The upper 31 bits of the argument are
@@ -611,7 +611,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeBit(int bit) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Writes a sequence of bits, given by the <code>numBits</code>
      * least significant bits of the <code>bits</code> argument in
      * left-to-right order, to the stream at the current bit offset
@@ -644,7 +644,7 @@ public interface ImageOutputStream extends ImageInputStream, DataOutput {
      */
     void writeBits(long bits, int numBits) throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Flushes all data prior to the given position to the underlying
      * destination, such as an <code>OutputStream</code> or
      * <code>File</code>.  Attempting to seek to the flushed portion

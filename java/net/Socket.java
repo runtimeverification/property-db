@@ -34,7 +34,7 @@ import java.security.AccessController;
 import java.security.PrivilegedExceptionAction;
 import java.security.PrivilegedAction;
 
-/**
+/** {@collect.stats}
  * This class implements client sockets (also called just
  * "sockets"). A socket is an endpoint for communication
  * between two machines.
@@ -53,7 +53,7 @@ import java.security.PrivilegedAction;
  */
 public
 class Socket {
-    /**
+    /** {@collect.stats}
      * Various states of this socket.
      */
     private boolean created = false;
@@ -64,17 +64,17 @@ class Socket {
     private boolean shutIn = false;
     private boolean shutOut = false;
 
-    /**
+    /** {@collect.stats}
      * The implementation of this Socket.
      */
     SocketImpl impl;
 
-    /**
+    /** {@collect.stats}
      * Are we using an older SocketImpl?
      */
     private boolean oldImpl = false;
 
-    /**
+    /** {@collect.stats}
      * Creates an unconnected socket, with the
      * system-default type of SocketImpl.
      *
@@ -85,7 +85,7 @@ class Socket {
         setImpl();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unconnected socket, specifying the type of proxy, if any,
      * that should be used regardless of any other settings.
      * <P>
@@ -149,7 +149,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates an unconnected Socket with a user-specified
      * SocketImpl.
      * <P>
@@ -168,7 +168,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a stream socket and connects it to the specified port
      * number on the named host.
      * <p>
@@ -208,7 +208,7 @@ class Socket {
              (SocketAddress) null, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a stream socket and connects it to the specified port
      * number at the specified IP address.
      * <p>
@@ -236,7 +236,7 @@ class Socket {
              (SocketAddress) null, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified remote host on
      * the specified remote port. The Socket will also bind() to the local
      * address and port supplied.
@@ -268,7 +268,7 @@ class Socket {
              new InetSocketAddress(localAddr, localPort), true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified remote address on
      * the specified remote port. The Socket will also bind() to the local
      * address and port supplied.
@@ -294,7 +294,7 @@ class Socket {
              new InetSocketAddress(localAddr, localPort), true);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a stream socket and connects it to the specified port
      * number on the named host.
      * <p>
@@ -338,7 +338,7 @@ class Socket {
              (SocketAddress) null, stream);
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a socket and connects it to the specified port number at
      * the specified IP address.
      * <p>
@@ -396,7 +396,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Creates the socket implementation.
      *
      * @param stream a <code>boolean</code> value : <code>true</code> for a TCP socket,
@@ -446,7 +446,7 @@ class Socket {
         });
     }
 
-    /**
+    /** {@collect.stats}
      * Sets impl to the system-default type of SocketImpl.
      * @since 1.4
      */
@@ -464,7 +464,7 @@ class Socket {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Get the <code>SocketImpl</code> attached to this socket, creating
      * it if necessary.
      *
@@ -478,7 +478,7 @@ class Socket {
         return impl;
     }
 
-    /**
+    /** {@collect.stats}
      * Connects this socket to the server.
      *
      * @param   endpoint the <code>SocketAddress</code>
@@ -495,7 +495,7 @@ class Socket {
         connect(endpoint, 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Connects this socket to the server with a specified timeout value.
      * A timeout of zero is interpreted as an infinite timeout. The connection
      * will then block until established or an error occurs.
@@ -559,7 +559,7 @@ class Socket {
         bound = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Binds the socket to a local address.
      * <P>
      * If the address is <code>null</code>, then the system will pick up
@@ -604,7 +604,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * set the flags after an accept() call.
      */
     final void postAccept() {
@@ -625,7 +625,7 @@ class Socket {
         connected = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address to which the socket is connected.
      *
      * @return  the remote IP address to which this socket is connected,
@@ -641,7 +641,7 @@ class Socket {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the local address to which the socket is bound.
      *
      * @return the local address to which the socket is bound or
@@ -665,7 +665,7 @@ class Socket {
         return in;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the remote port number to which this socket is connected.
      *
      * @return  the remote port number to which this socket is connected, or
@@ -682,7 +682,7 @@ class Socket {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the local port number to which this socket is bound.
      *
      * @return  the local port number to which this socket is bound or -1
@@ -699,7 +699,7 @@ class Socket {
         return -1;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is connected to, or
      * <code>null</code> if it is unconnected.
      *
@@ -717,7 +717,7 @@ class Socket {
         return new InetSocketAddress(getInetAddress(), getPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the address of the endpoint this socket is bound to, or
      * <code>null</code> if it is not bound yet.
      *
@@ -735,7 +735,7 @@ class Socket {
         return new InetSocketAddress(getLocalAddress(), getLocalPort());
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the unique {@link java.nio.channels.SocketChannel SocketChannel}
      * object associated with this socket, if any.
      *
@@ -756,7 +756,7 @@ class Socket {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an input stream for this socket.
      *
      * <p> If this socket has an associated channel then the resulting input
@@ -823,7 +823,7 @@ class Socket {
         return is;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an output stream for this socket.
      *
      * <p> If this socket has an associated channel then the resulting output
@@ -863,7 +863,7 @@ class Socket {
         return os;
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable TCP_NODELAY (disable/enable Nagle's algorithm).
      *
      * @param on <code>true</code> to enable TCP_NODELAY,
@@ -882,7 +882,7 @@ class Socket {
         getImpl().setOption(SocketOptions.TCP_NODELAY, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if TCP_NODELAY is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not TCP_NODELAY is enabled.
@@ -897,7 +897,7 @@ class Socket {
         return ((Boolean) getImpl().getOption(SocketOptions.TCP_NODELAY)).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable SO_LINGER with the specified linger time in seconds.
      * The maximum timeout value is platform specific.
      *
@@ -926,7 +926,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns setting for SO_LINGER. -1 returns implies that the
      * option is disabled.
      *
@@ -949,7 +949,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Send one byte of urgent data on the socket. The byte to be sent is the lowest eight
      * bits of the data parameter. The urgent byte is
      * sent after any preceding writes to the socket OutputStream
@@ -966,7 +966,7 @@ class Socket {
         getImpl().sendUrgentData (data);
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable OOBINLINE (receipt of TCP urgent data)
      *
      * By default, this option is disabled and TCP urgent data received on a
@@ -995,7 +995,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_OOBINLINE, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if OOBINLINE is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not OOBINLINE is enabled.
@@ -1010,7 +1010,7 @@ class Socket {
         return ((Boolean) getImpl().getOption(SocketOptions.SO_OOBINLINE)).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      *  Enable/disable SO_TIMEOUT with the specified timeout, in
      *  milliseconds.  With this option set to a non-zero timeout,
      *  a read() call on the InputStream associated with this Socket
@@ -1035,7 +1035,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_TIMEOUT, new Integer(timeout));
     }
 
-    /**
+    /** {@collect.stats}
      * Returns setting for SO_TIMEOUT.  0 returns implies that the
      * option is disabled (i.e., timeout of infinity).
      * @return the setting for SO_TIMEOUT
@@ -1056,7 +1056,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SO_SNDBUF option to the specified value for this
      * <tt>Socket</tt>. The SO_SNDBUF option is used by the platform's
      * networking code as a hint for the size to set
@@ -1088,7 +1088,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_SNDBUF, new Integer(size));
     }
 
-    /**
+    /** {@collect.stats}
      * Get value of the SO_SNDBUF option for this <tt>Socket</tt>,
      * that is the buffer size used by the platform
      * for output on this <tt>Socket</tt>.
@@ -1111,7 +1111,7 @@ class Socket {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the SO_RCVBUF option to the specified value for this
      * <tt>Socket</tt>. The SO_RCVBUF option is used by the platform's
      * networking code as a hint for the size to set
@@ -1160,7 +1160,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_RCVBUF, new Integer(size));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the value of the SO_RCVBUF option for this <tt>Socket</tt>,
      * that is the buffer size used by the platform for
      * input on this <tt>Socket</tt>.
@@ -1183,7 +1183,7 @@ class Socket {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable SO_KEEPALIVE.
      *
      * @param on     whether or not to have socket keep alive turned on.
@@ -1198,7 +1198,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_KEEPALIVE, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if SO_KEEPALIVE is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not SO_KEEPALIVE is enabled.
@@ -1213,7 +1213,7 @@ class Socket {
         return ((Boolean) getImpl().getOption(SocketOptions.SO_KEEPALIVE)).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets traffic class or type-of-service octet in the IP
      * header for packets sent from this Socket.
      * As the underlying network implementation may ignore this
@@ -1266,7 +1266,7 @@ class Socket {
         getImpl().setOption(SocketOptions.IP_TOS, new Integer(tc));
     }
 
-    /**
+    /** {@collect.stats}
      * Gets traffic class or type-of-service in the IP header
      * for packets sent from this Socket
      * <p>
@@ -1285,7 +1285,7 @@ class Socket {
         return ((Integer) (getImpl().getOption(SocketOptions.IP_TOS))).intValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Enable/disable the SO_REUSEADDR socket option.
      * <p>
      * When a TCP connection is closed the connection may remain
@@ -1325,7 +1325,7 @@ class Socket {
         getImpl().setOption(SocketOptions.SO_REUSEADDR, Boolean.valueOf(on));
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if SO_REUSEADDR is enabled.
      *
      * @return a <code>boolean</code> indicating whether or not SO_REUSEADDR is enabled.
@@ -1340,7 +1340,7 @@ class Socket {
         return ((Boolean) (getImpl().getOption(SocketOptions.SO_REUSEADDR))).booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this socket.
      * <p>
      * Any thread currently blocked in an I/O operation upon this socket
@@ -1372,7 +1372,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Places the input stream for this socket at "end of stream".
      * Any data sent to the input stream side of the socket is acknowledged
      * and then silently discarded.
@@ -1401,7 +1401,7 @@ class Socket {
         shutIn = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Disables the output stream for this socket.
      * For a TCP socket, any previously written data will be sent
      * followed by TCP's normal connection termination sequence.
@@ -1431,7 +1431,7 @@ class Socket {
         shutOut = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Converts this socket to a <code>String</code>.
      *
      * @return  a string representation of this socket.
@@ -1447,7 +1447,7 @@ class Socket {
         return "Socket[unconnected]";
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the connection state of the socket.
      *
      * @return true if the socket successfuly connected to a server
@@ -1458,7 +1458,7 @@ class Socket {
         return connected || oldImpl;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the binding state of the socket.
      *
      * @return true if the socket successfuly bound to an address
@@ -1470,7 +1470,7 @@ class Socket {
         return bound || oldImpl;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the closed state of the socket.
      *
      * @return true if the socket has been closed
@@ -1483,7 +1483,7 @@ class Socket {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the read-half of the socket connection is closed.
      *
      * @return true if the input of the socket has been shutdown
@@ -1494,7 +1494,7 @@ class Socket {
         return shutIn;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether the write-half of the socket connection is closed.
      *
      * @return true if the output of the socket has been shutdown
@@ -1505,12 +1505,12 @@ class Socket {
         return shutOut;
     }
 
-    /**
+    /** {@collect.stats}
      * The factory for all client sockets.
      */
     private static SocketImplFactory factory = null;
 
-    /**
+    /** {@collect.stats}
      * Sets the client socket implementation factory for the
      * application. The factory can be specified only once.
      * <p>
@@ -1547,7 +1547,7 @@ class Socket {
         factory = fac;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets performance preferences for this socket.
      *
      * <p> Sockets use the TCP/IP protocol by default.  Some implementations

@@ -36,7 +36,7 @@
 package java.util.concurrent.atomic;
 import sun.misc.Unsafe;
 
-/**
+/** {@collect.stats}
  * A {@code boolean} value that may be updated atomically. See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
@@ -62,7 +62,7 @@ public class AtomicBoolean implements java.io.Serializable {
 
     private volatile int value;
 
-    /**
+    /** {@collect.stats}
      * Creates a new {@code AtomicBoolean} with the given initial value.
      *
      * @param initialValue the initial value
@@ -71,13 +71,13 @@ public class AtomicBoolean implements java.io.Serializable {
         value = initialValue ? 1 : 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new {@code AtomicBoolean} with initial value {@code false}.
      */
     public AtomicBoolean() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current value.
      *
      * @return the current value
@@ -86,7 +86,7 @@ public class AtomicBoolean implements java.io.Serializable {
         return value != 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -101,7 +101,7 @@ public class AtomicBoolean implements java.io.Serializable {
         return unsafe.compareAndSwapInt(this, valueOffset, e, u);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
@@ -119,7 +119,7 @@ public class AtomicBoolean implements java.io.Serializable {
         return unsafe.compareAndSwapInt(this, valueOffset, e, u);
     }
 
-    /**
+    /** {@collect.stats}
      * Unconditionally sets to the given value.
      *
      * @param newValue the new value
@@ -128,7 +128,7 @@ public class AtomicBoolean implements java.io.Serializable {
         value = newValue ? 1 : 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Eventually sets to the given value.
      *
      * @param newValue the new value
@@ -139,7 +139,7 @@ public class AtomicBoolean implements java.io.Serializable {
         unsafe.putOrderedInt(this, valueOffset, v);
     }
 
-    /**
+    /** {@collect.stats}
      * Atomically sets to the given value and returns the previous value.
      *
      * @param newValue the new value
@@ -153,7 +153,7 @@ public class AtomicBoolean implements java.io.Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the String representation of the current value.
      * @return the String representation of the current value.
      */

@@ -29,7 +29,7 @@ import java.io.Writer;
 import java.io.IOException;
 import java.util.Enumeration;
 
-/**
+/** {@collect.stats}
  * AbstractWriter is an abstract class that actually
  * does the work of writing out the element tree
  * including the attributes.  In terms of how much is
@@ -55,7 +55,7 @@ public abstract class AbstractWriter {
     // than line length.
     private int offsetIndent = 0;
 
-    /**
+    /** {@collect.stats}
      * String used for end of line. If the Document has the property
      * EndOfLineStringProperty, it will be used for newlines. Otherwise
      * the System property line.separator will be used. The line separator
@@ -63,30 +63,30 @@ public abstract class AbstractWriter {
      */
     private String lineSeparator;
 
-    /**
+    /** {@collect.stats}
      * True indicates that when writing, the line can be split, false
      * indicates that even if the line is > than max line length it should
      * not be split.
      */
     private boolean canWrapLines;
 
-    /**
+    /** {@collect.stats}
      * True while the current line is empty. This will remain true after
      * indenting.
      */
     private boolean isLineEmpty;
 
-    /**
+    /** {@collect.stats}
      * Used when indenting. Will contain the spaces.
      */
     private char[] indentChars;
 
-    /**
+    /** {@collect.stats}
      * Used when writing out a string.
      */
     private char[] tempChars;
 
-    /**
+    /** {@collect.stats}
      * This is used in <code>writeLineSeparator</code> instead of
      * tempChars. If tempChars were used it would mean write couldn't invoke
      * <code>writeLineSeparator</code> as it might have been passed
@@ -94,19 +94,19 @@ public abstract class AbstractWriter {
      */
     private char[] newlineChars;
 
-    /**
+    /** {@collect.stats}
      * Used for writing text.
      */
     private Segment segment;
 
-    /**
+    /** {@collect.stats}
      * How the text packages models newlines.
      * @see #getLineSeparator
      */
     protected static final char NEWLINE = '\n';
 
 
-    /**
+    /** {@collect.stats}
      * Creates a new AbstractWriter.
      * Initializes the ElementIterator with the default
      * root of the document.
@@ -118,7 +118,7 @@ public abstract class AbstractWriter {
         this(w, doc, 0, doc.getLength());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AbstractWriter.
      * Initializes the ElementIterator with the
      * element passed in.
@@ -155,7 +155,7 @@ public abstract class AbstractWriter {
         canWrapLines = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AbstractWriter.
      * Initializes the ElementIterator with the
      * element passed in.
@@ -167,7 +167,7 @@ public abstract class AbstractWriter {
         this(w, root, 0, root.getEndOffset());
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new AbstractWriter.
      * Initializes the ElementIterator with the
      * element passed in.
@@ -187,7 +187,7 @@ public abstract class AbstractWriter {
         canWrapLines = true;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the first offset to be output.
      *
      * @since 1.3
@@ -196,7 +196,7 @@ public abstract class AbstractWriter {
         return startOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the last offset to be output.
      *
      * @since 1.3
@@ -205,7 +205,7 @@ public abstract class AbstractWriter {
         return endOffset;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the ElementIterator.
      *
      * @return the ElementIterator.
@@ -214,7 +214,7 @@ public abstract class AbstractWriter {
         return it;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the Writer that is used to output the content.
      *
      * @since 1.3
@@ -223,7 +223,7 @@ public abstract class AbstractWriter {
         return out;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the document.
      *
      * @return the Document.
@@ -232,7 +232,7 @@ public abstract class AbstractWriter {
         return doc;
     }
 
-    /**
+    /** {@collect.stats}
      * This method determines whether the current element
      * is in the range specified.  When no range is specified,
      * the range is initialized to be the entire document.
@@ -255,7 +255,7 @@ public abstract class AbstractWriter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * This abstract method needs to be implemented
      * by subclasses.  Its responsibility is to
      * iterate over the elements and use the write()
@@ -263,7 +263,7 @@ public abstract class AbstractWriter {
      */
     abstract protected void write() throws IOException, BadLocationException;
 
-    /**
+    /** {@collect.stats}
      * Returns the text associated with the element.
      * The assumption here is that the element is a
      * leaf element.  Throws a BadLocationException
@@ -280,7 +280,7 @@ public abstract class AbstractWriter {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Writes out text.  If a range is specified when the constructor
      * is invoked, then only the appropriate range of text is written
      * out.
@@ -305,7 +305,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Enables subclasses to set the number of characters they
      * want written per line.   The default is 100.
      *
@@ -315,7 +315,7 @@ public abstract class AbstractWriter {
         maxLineLength = l;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the maximum line length.
      *
      * @since 1.3
@@ -324,7 +324,7 @@ public abstract class AbstractWriter {
         return maxLineLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the current line length.
      *
      * @since 1.3
@@ -334,7 +334,7 @@ public abstract class AbstractWriter {
         isLineEmpty = (currLength == 0);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current line length.
      *
      * @since 1.3
@@ -343,7 +343,7 @@ public abstract class AbstractWriter {
         return currLength;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns true if the current line should be considered empty. This
      * is true when <code>getCurrentLineLength</code> == 0 ||
      * <code>indent</code> has been invoked on an empty line.
@@ -354,7 +354,7 @@ public abstract class AbstractWriter {
         return isLineEmpty;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets whether or not lines can be wrapped. This can be toggled
      * during the writing of lines. For example, outputting HTML might
      * set this to false when outputting a quoted string.
@@ -365,7 +365,7 @@ public abstract class AbstractWriter {
         canWrapLines = newValue;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether or not the lines can be wrapped. If this is false
      * no lineSeparator's will be output.
      *
@@ -375,7 +375,7 @@ public abstract class AbstractWriter {
         return canWrapLines;
     }
 
-    /**
+    /** {@collect.stats}
      * Enables subclasses to specify how many spaces an indent
      * maps to. When indentation takes place, the indent level
      * is multiplied by this mapping.  The default is 2.
@@ -386,7 +386,7 @@ public abstract class AbstractWriter {
         indentSpace = space;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the amount of space to indent.
      *
      * @since 1.3
@@ -395,7 +395,7 @@ public abstract class AbstractWriter {
         return indentSpace;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the String used to reprsent newlines. This is initialized
      * in the constructor from either the Document, or the System property
      * line.separator.
@@ -406,7 +406,7 @@ public abstract class AbstractWriter {
         lineSeparator = value;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the string used to represent newlines.
      *
      * @since 1.3
@@ -415,7 +415,7 @@ public abstract class AbstractWriter {
         return lineSeparator;
     }
 
-    /**
+    /** {@collect.stats}
      * Increments the indent level. If indenting would cause
      * <code>getIndentSpace()</code> *<code>getIndentLevel()</code> to be >
      * than <code>getLineLength()</code> this will not cause an indent.
@@ -433,7 +433,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Decrements the indent level.
      */
     protected void decrIndent() {
@@ -445,7 +445,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the current indentation level. That is, the number of times
      * <code>incrIndent</code> has been invoked minus the number of times
      * <code>decrIndent</code> has been invoked.
@@ -456,7 +456,7 @@ public abstract class AbstractWriter {
         return indentLevel;
     }
 
-    /**
+    /** {@collect.stats}
      * Does indentation. The number of spaces written
      * out is indent level times the space to map mapping. If the current
      * line is empty, this will not make it so that the current line is
@@ -480,7 +480,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out a character. This is implemented to invoke
      * the <code>write</code> method that takes a char[].
      *
@@ -495,7 +495,7 @@ public abstract class AbstractWriter {
         write(tempChars, 0, 1);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out a string. This is implemented to invoke the
      * <code>write</code> method that takes a char[].
      *
@@ -514,7 +514,7 @@ public abstract class AbstractWriter {
         write(tempChars, 0, size);
     }
 
-    /**
+    /** {@collect.stats}
      * Writes the line separator. This invokes <code>output</code> directly
      * as well as setting the <code>lineLength</code> to 0.
      *
@@ -531,7 +531,7 @@ public abstract class AbstractWriter {
         setCurrentLineLength(0);
     }
 
-    /**
+    /** {@collect.stats}
      * All write methods call into this one. If <code>getCanWrapLines()</code>
      * returns false, this will call <code>output</code> with each sequence
      * of <code>chars</code> that doesn't contain a NEWLINE, followed
@@ -662,7 +662,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Writes out the set of attributes as " <name>=<value>"
      * pairs. It throws an IOException when encountered.
      *
@@ -678,7 +678,7 @@ public abstract class AbstractWriter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * The last stop in writing out content. All the write methods eventually
      * make it to this method, which invokes <code>write</code> on the
      * Writer.
@@ -697,7 +697,7 @@ public abstract class AbstractWriter {
         setCurrentLineLength(getCurrentLineLength() + length);
     }
 
-    /**
+    /** {@collect.stats}
      * Support method to locate an occurence of a particular character.
      */
     private int indexOf(char[] chars, char sChar, int startIndex,

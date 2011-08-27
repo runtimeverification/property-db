@@ -29,7 +29,7 @@ import java.awt.event.*;
 import javax.accessibility.*;
 
 
-/**
+/** {@collect.stats}
  * An extended version of <code>java.awt.Frame</code> that adds support for
  * the JFC/Swing component architecture.
  * You can find task-oriented documentation about using <code>JFrame</code>
@@ -111,7 +111,7 @@ public class JFrame  extends Frame implements WindowConstants,
                                               RootPaneContainer,
                               TransferHandler.HasGetTransferHandler
 {
-    /**
+    /** {@collect.stats}
      * The exit application default window close operation. If a window
      * has this set as the close operation and is closed in an applet,
      * a <code>SecurityException</code> may be thrown.
@@ -121,7 +121,7 @@ public class JFrame  extends Frame implements WindowConstants,
      */
     public static final int EXIT_ON_CLOSE = 3;
 
-    /**
+    /** {@collect.stats}
      * Key into the AppContext, used to check if should provide decorations
      * by default.
      */
@@ -129,12 +129,12 @@ public class JFrame  extends Frame implements WindowConstants,
 
     private int defaultCloseOperation = HIDE_ON_CLOSE;
 
-    /**
+    /** {@collect.stats}
      * The <code>TransferHandler</code> for this frame.
      */
     private TransferHandler transferHandler;
 
-    /**
+    /** {@collect.stats}
      * The <code>JRootPane</code> instance that manages the
      * <code>contentPane</code>
      * and optional <code>menuBar</code> for this frame, as well as the
@@ -145,7 +145,7 @@ public class JFrame  extends Frame implements WindowConstants,
      */
     protected JRootPane rootPane;
 
-    /**
+    /** {@collect.stats}
      * If true then calls to <code>add</code> and <code>setLayout</code>
      * will be forwarded to the <code>contentPane</code>. This is initially
      * false, but is set to true when the <code>JFrame</code> is constructed.
@@ -157,7 +157,7 @@ public class JFrame  extends Frame implements WindowConstants,
     protected boolean rootPaneCheckingEnabled = false;
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a new frame that is initially invisible.
      * <p>
      * This constructor sets the component's locale property to the value
@@ -175,7 +175,7 @@ public class JFrame  extends Frame implements WindowConstants,
         frameInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Frame</code> in the specified
      * <code>GraphicsConfiguration</code> of
      * a screen device and a blank title.
@@ -199,7 +199,7 @@ public class JFrame  extends Frame implements WindowConstants,
         frameInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a new, initially invisible <code>Frame</code> with the
      * specified title.
      * <p>
@@ -219,7 +219,7 @@ public class JFrame  extends Frame implements WindowConstants,
         frameInit();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>JFrame</code> with the specified title and the
      * specified <code>GraphicsConfiguration</code> of a screen device.
      * <p>
@@ -245,7 +245,7 @@ public class JFrame  extends Frame implements WindowConstants,
         frameInit();
     }
 
-    /** Called by the constructors to init the <code>JFrame</code> properly. */
+    /** {@collect.stats} Called by the constructors to init the <code>JFrame</code> properly. */
     protected void frameInit() {
         enableEvents(AWTEvent.KEY_EVENT_MASK | AWTEvent.WINDOW_EVENT_MASK);
         setLocale( JComponent.getDefaultLocale() );
@@ -263,7 +263,7 @@ public class JFrame  extends Frame implements WindowConstants,
         sun.awt.SunToolkit.checkAndSetPolicy(this, true);
     }
 
-    /**
+    /** {@collect.stats}
      * Called by the constructor methods to create the default
      * <code>rootPane</code>.
      */
@@ -277,7 +277,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return rp;
     }
 
-    /**
+    /** {@collect.stats}
      * Processes window events occurring on this component.
      * Hides the window or disposes of it, as specified by the setting
      * of the <code>defaultCloseOperation</code> property.
@@ -313,7 +313,7 @@ public class JFrame  extends Frame implements WindowConstants,
 //        throw new IllegalComponentStateException("Please use setJMenuBar() with JFrame.");
 //    }
 
-    /**
+    /** {@collect.stats}
      * Sets the operation that will happen by default when
      * the user initiates a "close" on this frame.
      * You must specify one of the following choices:
@@ -395,7 +395,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-   /**
+   /** {@collect.stats}
     * Returns the operation that occurs when the user
     * initiates a "close" on this frame.
     *
@@ -406,7 +406,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return defaultCloseOperation;
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the {@code transferHandler} property, which is a mechanism to
      * support transfer of data into this component. Use {@code null}
      * if the component does not support data transfer operations.
@@ -446,7 +446,7 @@ public class JFrame  extends Frame implements WindowConstants,
         firePropertyChange("transferHandler", oldHandler, newHandler);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the <code>transferHandler</code> property.
      *
      * @return the value of the <code>transferHandler</code> property
@@ -459,7 +459,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return transferHandler;
     }
 
-    /**
+    /** {@collect.stats}
      * Just calls <code>paint(g)</code>.  This method was overridden to
      * prevent an unnecessary call to clear the background.
      *
@@ -469,7 +469,7 @@ public class JFrame  extends Frame implements WindowConstants,
         paint(g);
     }
 
-   /**
+   /** {@collect.stats}
     * Sets the menubar for this frame.
     * @param menubar the menubar being placed in the frame
     *
@@ -483,7 +483,7 @@ public class JFrame  extends Frame implements WindowConstants,
         getRootPane().setMenuBar(menubar);
     }
 
-   /**
+   /** {@collect.stats}
     * Returns the menubar set on this frame.
     * @return the menubar for this frame
     *
@@ -493,7 +493,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return getRootPane().getMenuBar();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -510,7 +510,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets whether calls to <code>add</code> and
      * <code>setLayout</code> are forwarded to the <code>contentPane</code>.
      *
@@ -531,7 +531,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Adds the specified child <code>Component</code>.
      * This method is overridden to conditionally forward calls to the
      * <code>contentPane</code>.
@@ -560,7 +560,7 @@ public class JFrame  extends Frame implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the specified component from the container. If
      * <code>comp</code> is not the <code>rootPane</code>, this will forward
      * the call to the <code>contentPane</code>. This will do nothing if
@@ -581,7 +581,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>LayoutManager</code>.
      * Overridden to conditionally forward the call to the
      * <code>contentPane</code>.
@@ -602,7 +602,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>rootPane</code> object for this frame.
      * @return the <code>rootPane</code> property
      *
@@ -614,7 +614,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>rootPane</code> property.
      * This method is called by the constructor.
      * @param root the <code>rootPane</code> object for this frame
@@ -643,14 +643,14 @@ public class JFrame  extends Frame implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      */
     public void setIconImage(Image image) {
         super.setIconImage(image);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>contentPane</code> object for this frame.
      * @return the <code>contentPane</code> property
      *
@@ -661,7 +661,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return getRootPane().getContentPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>contentPane</code> property.
      * This method is called by the constructor.
      * <p>
@@ -687,7 +687,7 @@ public class JFrame  extends Frame implements WindowConstants,
         getRootPane().setContentPane(contentPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>layeredPane</code> object for this frame.
      * @return the <code>layeredPane</code> property
      *
@@ -698,7 +698,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return getRootPane().getLayeredPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>layeredPane</code> property.
      * This method is called by the constructor.
      * @param layeredPane the <code>layeredPane</code> object for this frame
@@ -716,7 +716,7 @@ public class JFrame  extends Frame implements WindowConstants,
         getRootPane().setLayeredPane(layeredPane);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the <code>glassPane</code> object for this frame.
      * @return the <code>glassPane</code> property
      *
@@ -727,7 +727,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return getRootPane().getGlassPane();
     }
 
-    /**
+    /** {@collect.stats}
      * Sets the <code>glassPane</code> property.
      * This method is called by the constructor.
      * @param glassPane the <code>glassPane</code> object for this frame
@@ -743,7 +743,7 @@ public class JFrame  extends Frame implements WindowConstants,
         getRootPane().setGlassPane(glassPane);
     }
 
-    /**
+    /** {@collect.stats}
      * {@inheritDoc}
      *
      * @since 1.6
@@ -753,7 +753,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return super.getGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Repaints the specified rectangle of this component within
      * <code>time</code> milliseconds.  Refer to <code>RepaintManager</code>
      * for details on how the repaint is handled.
@@ -776,7 +776,7 @@ public class JFrame  extends Frame implements WindowConstants,
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Provides a hint as to whether or not newly created <code>JFrame</code>s
      * should have their Window decorations (such as borders, widgets to
      * close the window, title...) provided by the current look
@@ -809,7 +809,7 @@ public class JFrame  extends Frame implements WindowConstants,
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns true if newly created <code>JFrame</code>s should have their
      * Window decorations provided by the current look and feel. This is only
      * a hint, as certain look and feels may not support this feature.
@@ -826,7 +826,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return defaultLookAndFeelDecorated.booleanValue();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of this <code>JFrame</code>.
      * This method
      * is intended to be used only for debugging purposes, and the
@@ -864,10 +864,10 @@ public class JFrame  extends Frame implements WindowConstants,
 // Accessibility support
 ////////////////
 
-    /** The accessible context property. */
+    /** {@collect.stats} The accessible context property. */
     protected AccessibleContext accessibleContext = null;
 
-    /**
+    /** {@collect.stats}
      * Gets the AccessibleContext associated with this JFrame.
      * For JFrames, the AccessibleContext takes the form of an
      * AccessibleJFrame.
@@ -883,7 +883,7 @@ public class JFrame  extends Frame implements WindowConstants,
         return accessibleContext;
     }
 
-    /**
+    /** {@collect.stats}
      * This class implements accessibility support for the
      * <code>JFrame</code> class.  It provides an implementation of the
      * Java Accessibility API appropriate to frame user-interface
@@ -892,7 +892,7 @@ public class JFrame  extends Frame implements WindowConstants,
     protected class AccessibleJFrame extends AccessibleAWTFrame {
 
         // AccessibleContext methods
-        /**
+        /** {@collect.stats}
          * Get the accessible name of this object.
          *
          * @return the localized name of the object -- can be null if this
@@ -910,7 +910,7 @@ public class JFrame  extends Frame implements WindowConstants,
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Get the state of this object.
          *
          * @return an instance of AccessibleStateSet containing the current

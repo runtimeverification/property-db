@@ -25,7 +25,7 @@
 
 package java.util.zip;
 
-/**
+/** {@collect.stats}
  * Signals that an unrecoverable error has occurred.
  *
  * @author  Dave Bristor
@@ -34,7 +34,7 @@ package java.util.zip;
 public class ZipError extends InternalError {
     private static final long serialVersionUID = 853973422266861979L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a ZipError with the given detail message.
      * @param s the {@code String} containing a detail message
      */

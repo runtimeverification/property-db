@@ -30,7 +30,7 @@ import javax.crypto.SecretKey;
 import javax.security.auth.Destroyable;
 import javax.security.auth.DestroyFailedException;
 
-/**
+/** {@collect.stats}
  * This class encapsulates a long term secret key for a Kerberos
  * principal.<p>
  *
@@ -59,21 +59,21 @@ public class KerberosKey implements SecretKey, Destroyable {
 
     private static final long serialVersionUID = -4625402278148246993L;
 
-   /**
+   /** {@collect.stats}
      * The principal that this secret key belongs to.
      *
      * @serial
      */
     private KerberosPrincipal principal;
 
-   /**
+   /** {@collect.stats}
      * the version number of this secret key
      *
      * @serial
      */
     private int versionNum;
 
-   /**
+   /** {@collect.stats}
     * <code>KeyImpl</code> is serialized by writing out the ASN1 Encoded bytes
     * of the encryption key.
     * The ASN1 encoding is defined in RFC4120 and as  follows:
@@ -90,7 +90,7 @@ public class KerberosKey implements SecretKey, Destroyable {
     private KeyImpl key;
     private transient boolean destroyed = false;
 
-    /**
+    /** {@collect.stats}
      * Constructs a KerberosKey from the given bytes when the key type and
      * key version number are known. This can be used when reading the secret
      * key information from a Kerberos "keytab".
@@ -110,7 +110,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         key = new KeyImpl(keyBytes, keyType);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a KerberosKey from a principal's password.
      *
      * @param principal the principal that this password belongs to
@@ -130,7 +130,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         key = new KeyImpl(principal, password, algorithm);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the principal that this key belongs to.
      *
      * @return the principal this key belongs to.
@@ -141,7 +141,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return principal;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key version number.
      *
      * @return the key version number.
@@ -152,7 +152,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return versionNum;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key type for this long-term key.
      *
      * @return the key type.
@@ -167,7 +167,7 @@ public class KerberosKey implements SecretKey, Destroyable {
      * Methods from java.security.Key
      */
 
-    /**
+    /** {@collect.stats}
      * Returns the standard algorithm name for this key. For
      * example, "DES" would indicate that this key is a DES key.
      * See Appendix A in the <a href=
@@ -184,7 +184,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return key.getAlgorithm();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the name of the encoding format for this secret key.
      *
      * @return the String "RAW"
@@ -195,7 +195,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return key.getFormat();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the key material of this secret key.
      *
      * @return the key material
@@ -206,7 +206,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return key.getEncoded();
     }
 
-    /**
+    /** {@collect.stats}
      * Destroys this key. A call to any of its other methods after this
      * will cause an  IllegalStateException to be thrown.
      *
@@ -222,7 +222,7 @@ public class KerberosKey implements SecretKey, Destroyable {
     }
 
 
-    /** Determines if this key has been destroyed.*/
+    /** {@collect.stats} Determines if this key has been destroyed.*/
     public boolean isDestroyed() {
         return destroyed;
     }
@@ -236,7 +236,7 @@ public class KerberosKey implements SecretKey, Destroyable {
                 "key "  + key.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a hashcode for this KerberosKey.
      *
      * @return a hashCode() for the <code>KerberosKey</code>
@@ -255,7 +255,7 @@ public class KerberosKey implements SecretKey, Destroyable {
         return result * 37 + versionNum;
     }
 
-    /**
+    /** {@collect.stats}
      * Compares the specified Object with this KerberosKey for equality.
      * Returns true if the given object is also a
      * <code>KerberosKey</code> and the two

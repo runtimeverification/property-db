@@ -30,7 +30,7 @@ import javax.print.attribute.Attribute;
 import javax.print.attribute.TextSyntax;
 import javax.print.attribute.PrintServiceAttribute;
 
-/**
+/** {@collect.stats}
  * Class PrinterName is a printing attribute class, a text attribute, that
  * specifies the name of a printer. It is a name that is more end-user friendly
  * than a URI. An administrator determines a printer's name and sets this
@@ -50,7 +50,7 @@ public final class PrinterName extends TextSyntax
 
     private static final long serialVersionUID = 299740639137803127L;
 
-    /**
+    /** {@collect.stats}
      * Constructs a new printer name attribute with the given name and locale.
      *
      * @param  printerName  Printer name.
@@ -65,7 +65,7 @@ public final class PrinterName extends TextSyntax
         super (printerName, locale);
     }
 
-    /**
+    /** {@collect.stats}
      * Returns whether this printer name attribute is equivalent to the passed
      * in object. To be equivalent, all of the following conditions must be
      * true:
@@ -91,7 +91,7 @@ public final class PrinterName extends TextSyntax
         return (super.equals(object) && object instanceof PrinterName);
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -105,7 +105,7 @@ public final class PrinterName extends TextSyntax
         return PrinterName.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

@@ -28,7 +28,7 @@ package javax.swing.filechooser;
 import java.io.File;
 import java.util.Locale;
 
-/**
+/** {@collect.stats}
  * An implementation of {@code FileFilter} that filters using a
  * specified set of extensions. The extension for a file is the
  * portion of the file name after the last ".". Files whose name does
@@ -58,7 +58,7 @@ public final class FileNameExtensionFilter extends FileFilter {
     // Cached ext
     private final String[] lowerCaseExtensions;
 
-    /**
+    /** {@collect.stats}
      * Creates a {@code FileNameExtensionFilter} with the specified
      * description and file name extensions. The returned {@code
      * FileNameExtensionFilter} will accept all directories and any
@@ -89,7 +89,7 @@ public final class FileNameExtensionFilter extends FileFilter {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Tests the specified file, returning true if the file is
      * accepted, false otherwise. True is returned if the extension
      * matches one of the file name extensions of this {@code
@@ -123,7 +123,7 @@ public final class FileNameExtensionFilter extends FileFilter {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * The description of this filter. For example: "JPG and GIF Images."
      *
      * @return the description of this filter
@@ -132,7 +132,7 @@ public final class FileNameExtensionFilter extends FileFilter {
         return description;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the set of file name extensions files are tested against.
      *
      * @return the set of file name extensions files are tested against
@@ -143,7 +143,7 @@ public final class FileNameExtensionFilter extends FileFilter {
         return result;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a string representation of the {@code FileNameExtensionFilter}.
      * This method is intended to be used for debugging purposes,
      * and the content and format of the returned string may vary

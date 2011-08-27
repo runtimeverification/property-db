@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * <p>
  * The <code> TooManyListenersException </code> Exception is used as part of
  * the Java Event model to annotate and implement a unicast special case of
@@ -49,7 +49,7 @@ package java.util;
 
 public class TooManyListenersException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs a TooManyListenersException with no detail message.
      * A detail message is a String that describes this particular exception.
      */
@@ -58,7 +58,7 @@ public class TooManyListenersException extends Exception {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a TooManyListenersException with the specified detail message.
      * A detail message is a String that describes this particular exception.
      * @param s the detail message

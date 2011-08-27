@@ -51,7 +51,7 @@ import sun.misc.JavaSecurityAccess;
 
 import sun.awt.AWTAccessor;
 
-/**
+/** {@collect.stats}
  * This class is used to handle the transfer of a <code>Transferable</code>
  * to and from Swing components.  The <code>Transferable</code> is used to
  * represent data that is exchanged via a cut, copy, or paste
@@ -86,32 +86,32 @@ import sun.awt.AWTAccessor;
 @SuppressWarnings("serial")
 public class TransferHandler implements Serializable {
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing no transfer action.
      */
     public static final int NONE = DnDConstants.ACTION_NONE;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing a &quot;copy&quot; transfer action.
      * This value is used when data is copied to a clipboard
      * or copied elsewhere in a drag and drop operation.
      */
     public static final int COPY = DnDConstants.ACTION_COPY;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing a &quot;move&quot; transfer action.
      * This value is used when data is moved to a clipboard (i.e. a cut)
      * or moved elsewhere in a drag and drop operation.
      */
     public static final int MOVE = DnDConstants.ACTION_MOVE;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing a source action capability of either
      * &quot;copy&quot; or &quot;move&quot;.
      */
     public static final int COPY_OR_MOVE = DnDConstants.ACTION_COPY_OR_MOVE;
 
-    /**
+    /** {@collect.stats}
      * An <code>int</code> representing a &quot;link&quot; transfer action.
      * This value is used to specify that data should be linked in a drag
      * and drop operation.
@@ -121,19 +121,19 @@ public class TransferHandler implements Serializable {
      */
     public static final int LINK = DnDConstants.ACTION_LINK;
 
-    /**
+    /** {@collect.stats}
      * An interface to tag things with a {@code getTransferHandler} method.
      */
     interface HasGetTransferHandler {
 
-        /** Returns the {@code TransferHandler}.
+        /** {@collect.stats} Returns the {@code TransferHandler}.
          *
          * @return The {@code TransferHandler} or {@code null}
          */
         public TransferHandler getTransferHandler();
     }
 
-    /**
+    /** {@collect.stats}
      * Represents a location where dropped data should be inserted.
      * This is a base class that only encapsulates a point.
      * Components supporting drop may provide subclasses of this
@@ -150,7 +150,7 @@ public class TransferHandler implements Serializable {
     public static class DropLocation {
         private final Point dropPoint;
 
-        /**
+        /** {@collect.stats}
          * Constructs a drop location for the given point.
          *
          * @param dropPoint the drop point, representing the mouse's
@@ -166,7 +166,7 @@ public class TransferHandler implements Serializable {
             this.dropPoint = new Point(dropPoint);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the drop point, representing the mouse's
          * current location within the component.
          *
@@ -176,7 +176,7 @@ public class TransferHandler implements Serializable {
             return new Point(dropPoint);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns a string representation of this drop location.
          * This method is intended to be used for debugging purposes,
          * and the content and format of the returned string may vary
@@ -189,7 +189,7 @@ public class TransferHandler implements Serializable {
         }
     };
 
-    /**
+    /** {@collect.stats}
      * This class encapsulates all relevant details of a clipboard
      * or drag and drop transfer, and also allows for customizing
      * aspects of the drag and drop experience.
@@ -218,7 +218,7 @@ public class TransferHandler implements Serializable {
 
         private int dropAction = -1;
 
-        /**
+        /** {@collect.stats}
          * The source is a {@code DropTargetDragEvent} or
          * {@code DropTargetDropEvent} for drops,
          * and a {@code Transferable} otherwise
@@ -227,7 +227,7 @@ public class TransferHandler implements Serializable {
 
         private DropLocation dropLocation;
 
-        /**
+        /** {@collect.stats}
          * Create a <code>TransferSupport</code> with <code>isDrop()</code>
          * <code>true</code> for the given component, event, and index.
          *
@@ -241,7 +241,7 @@ public class TransferHandler implements Serializable {
             setDNDVariables(component, event);
         }
 
-        /**
+        /** {@collect.stats}
          * Create a <code>TransferSupport</code> with <code>isDrop()</code>
          * <code>false</code> for the given component and
          * <code>Transferable</code>.
@@ -265,7 +265,7 @@ public class TransferHandler implements Serializable {
             this.source = transferable;
         }
 
-        /**
+        /** {@collect.stats}
          * Allows for a single instance to be reused during DnD.
          *
          * @param component the target component
@@ -317,7 +317,7 @@ public class TransferHandler implements Serializable {
              */
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not this <code>TransferSupport</code>
          * represents a drop operation.
          *
@@ -328,7 +328,7 @@ public class TransferHandler implements Serializable {
             return isDrop;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the target component of this transfer.
          *
          * @return the target component
@@ -337,7 +337,7 @@ public class TransferHandler implements Serializable {
             return component;
         }
 
-        /**
+        /** {@collect.stats}
          * Checks that this is a drop and throws an
          * {@code IllegalStateException} if it isn't.
          *
@@ -349,7 +349,7 @@ public class TransferHandler implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the current (non-{@code null}) drop location for the component,
          * when this {@code TransferSupport} represents a drop.
          * <p>
@@ -383,7 +383,7 @@ public class TransferHandler implements Serializable {
             return dropLocation;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets whether or not the drop location should be visually indicated
          * for the transfer - which must represent a drop. This is applicable to
          * those components that automatically
@@ -408,7 +408,7 @@ public class TransferHandler implements Serializable {
             this.showDropLocationIsSet = true;
         }
 
-        /**
+        /** {@collect.stats}
          * Sets the drop action for the transfer - which must represent a drop
          * - to the given action,
          * instead of the default user drop action. The action must be
@@ -439,7 +439,7 @@ public class TransferHandler implements Serializable {
             this.dropAction = dropAction;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the action chosen for the drop, when this
          * {@code TransferSupport} represents a drop.
          * <p>
@@ -465,7 +465,7 @@ public class TransferHandler implements Serializable {
             return dropAction == -1 ? getUserDropAction() : dropAction;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the user drop action for the drop, when this
          * {@code TransferSupport} represents a drop.
          * <p>
@@ -497,7 +497,7 @@ public class TransferHandler implements Serializable {
                 : ((DropTargetDropEvent)source).getDropAction();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the drag source's supported drop actions, when this
          * {@code TransferSupport} represents a drop.
          * <p>
@@ -530,7 +530,7 @@ public class TransferHandler implements Serializable {
                 : ((DropTargetDropEvent)source).getSourceActions();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the data flavors for this transfer.
          *
          * @return the data flavors for this transfer
@@ -547,7 +547,7 @@ public class TransferHandler implements Serializable {
             return ((Transferable)source).getTransferDataFlavors();
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether or not the given data flavor is supported.
          *
          * @param df the <code>DataFlavor</code> to test
@@ -565,7 +565,7 @@ public class TransferHandler implements Serializable {
             return ((Transferable)source).isDataFlavorSupported(df);
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the <code>Transferable</code> associated with this transfer.
          * <p>
          * Note: Unless it is necessary to fetch the <code>Transferable</code>
@@ -589,7 +589,7 @@ public class TransferHandler implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Returns an {@code Action} that performs cut operations to the
      * clipboard. When performed, this action operates on the {@code JComponent}
      * source of the {@code ActionEvent} by invoking {@code exportToClipboard},
@@ -601,7 +601,7 @@ public class TransferHandler implements Serializable {
         return cutAction;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an {@code Action} that performs copy operations to the
      * clipboard. When performed, this action operates on the {@code JComponent}
      * source of the {@code ActionEvent} by invoking {@code exportToClipboard},
@@ -613,7 +613,7 @@ public class TransferHandler implements Serializable {
         return copyAction;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an {@code Action} that performs paste operations from the
      * clipboard. When performed, this action operates on the {@code JComponent}
      * source of the {@code ActionEvent} by invoking {@code importData},
@@ -626,7 +626,7 @@ public class TransferHandler implements Serializable {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a transfer handler that can transfer a Java Bean property
      * from one component to another via the clipboard or a drag and drop
      * operation.
@@ -639,14 +639,14 @@ public class TransferHandler implements Serializable {
         propertyName = property;
     }
 
-    /**
+    /** {@collect.stats}
      * Convenience constructor for subclasses.
      */
     protected TransferHandler() {
         this(null);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes the Swing drag support to be initiated.  This is called by
      * the various UI implementations in the <code>javax.swing.plaf.basic</code>
      * package if the dragEnabled property is set on the component.
@@ -693,7 +693,7 @@ public class TransferHandler implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Causes a transfer from the given component to the
      * given clipboard.  This method is called by the default cut and
      * copy actions registered in a component's action map.
@@ -743,7 +743,7 @@ public class TransferHandler implements Serializable {
         exportDone(comp, null, NONE);
     }
 
-    /**
+    /** {@collect.stats}
      * Causes a transfer to occur from a clipboard or a drag and
      * drop operation. The <code>Transferable</code> to be
      * imported and the component to transfer to are contained
@@ -774,7 +774,7 @@ public class TransferHandler implements Serializable {
             : false;
     }
 
-    /**
+    /** {@collect.stats}
      * Causes a transfer to a component from a clipboard or a
      * DND drop operation.  The <code>Transferable</code> represents
      * the data to be imported into the component.
@@ -822,7 +822,7 @@ public class TransferHandler implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * This method is called repeatedly during a drag and drop operation
      * to allow the developer to configure properties of, and to return
      * the acceptability of transfers; with a return value of {@code true}
@@ -873,7 +873,7 @@ public class TransferHandler implements Serializable {
             : false;
     }
 
-    /**
+    /** {@collect.stats}
      * Indicates whether a component will accept an import of the given
      * set of data flavors prior to actually attempting to import it.
      * <p>
@@ -912,7 +912,7 @@ public class TransferHandler implements Serializable {
         return false;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the type of transfer actions supported by the source;
      * any bitwise-OR combination of {@code COPY}, {@code MOVE}
      * and {@code LINK}.
@@ -934,7 +934,7 @@ public class TransferHandler implements Serializable {
         return NONE;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an object that establishes the look of a transfer.  This is
      * useful for both providing feedback while performing a drag operation and for
      * representing the transfer in a clipboard implementation that has a visual
@@ -959,7 +959,7 @@ public class TransferHandler implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Transferable</code> to use as the source for
      * a data transfer. Returns the representation of the data to
      * be transferred, or <code>null</code> if the component's
@@ -980,7 +980,7 @@ public class TransferHandler implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Invoked after data has been exported.  This method should remove
      * the data that was transferred if the action was <code>MOVE</code>.
      * <p>
@@ -996,7 +996,7 @@ public class TransferHandler implements Serializable {
     protected void exportDone(JComponent source, Transferable data, int action) {
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the property descriptor for the property assigned to this transfer
      * handler on the given component (transfer handler may be shared).  This
      * returns <code>null</code> if the property descriptor can't be found
@@ -1031,7 +1031,7 @@ public class TransferHandler implements Serializable {
         return null;
     }
 
-    /**
+    /** {@collect.stats}
      * Fetches the data flavor from the array of possible flavors that
      * has data of the type represented by property type.  Null is
      * returned if there is no match.
@@ -1076,7 +1076,7 @@ public class TransferHandler implements Serializable {
 
         // --- Transferable methods ----------------------------------------------
 
-        /**
+        /** {@collect.stats}
          * Returns an array of <code>DataFlavor</code> objects indicating the flavors the data
          * can be provided in.  The array should be ordered according to preference
          * for providing the data (from most richly descriptive to least descriptive).
@@ -1094,7 +1094,7 @@ public class TransferHandler implements Serializable {
             return flavors;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns whether the specified data flavor is supported for
          * this object.
          * @param flavor the requested flavor for the data
@@ -1112,7 +1112,7 @@ public class TransferHandler implements Serializable {
             return false;
         }
 
-        /**
+        /** {@collect.stats}
          * Returns an object which represents the data to be transferred.  The class
          * of the object returned is defined by the representation class of the flavor.
          *
@@ -1141,7 +1141,7 @@ public class TransferHandler implements Serializable {
         PropertyDescriptor property;
     }
 
-    /**
+    /** {@collect.stats}
      * This is the default drop target for drag and drop operations if
      * one isn't provided by the developer.  <code>DropTarget</code>
      * only supports one <code>DropTargetListener</code> and doesn't
@@ -1260,7 +1260,7 @@ public class TransferHandler implements Serializable {
 
         private static final int AUTOSCROLL_INSET = 10;
 
-        /**
+        /** {@collect.stats}
          * Update the geometry of the autoscroll region.  The geometry is
          * maintained as a pair of rectangles.  The region can cause
          * a scroll if the pointer sits inside it for the duration of the
@@ -1298,7 +1298,7 @@ public class TransferHandler implements Serializable {
                           visible.height - (i.top  + i.bottom));
         }
 
-        /**
+        /** {@collect.stats}
          * Perform an autoscroll operation.  This is implemented to scroll by the
          * unit increment of the Scrollable using scrollRectToVisible.  If the
          * cursor is in a corner of the autoscroll region, more than one axis will
@@ -1333,7 +1333,7 @@ public class TransferHandler implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Initializes the internal properties if they haven't been already
          * inited. This is done lazily to avoid loading of desktop properties.
          */
@@ -1361,7 +1361,7 @@ public class TransferHandler implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * The timer fired, perform autoscroll if the pointer is within the
          * autoscroll region.
          * <P>
@@ -1533,7 +1533,7 @@ public class TransferHandler implements Serializable {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * This is the default drag handler for drag and drop operations that
      * use the <code>TransferHandler</code>.
      */
@@ -1543,7 +1543,7 @@ public class TransferHandler implements Serializable {
 
         // --- DragGestureListener methods -----------------------------------
 
-        /**
+        /** {@collect.stats}
          * a Drag gesture has been recognized
          */
         public void dragGestureRecognized(DragGestureEvent dge) {
@@ -1566,25 +1566,25 @@ public class TransferHandler implements Serializable {
 
         // --- DragSourceListener methods -----------------------------------
 
-        /**
+        /** {@collect.stats}
          * as the hotspot enters a platform dependent drop site
          */
         public void dragEnter(DragSourceDragEvent dsde) {
         }
 
-        /**
+        /** {@collect.stats}
          * as the hotspot moves over a platform dependent drop site
          */
         public void dragOver(DragSourceDragEvent dsde) {
         }
 
-        /**
+        /** {@collect.stats}
          * as the hotspot exits a platform dependent drop site
          */
         public void dragExit(DragSourceEvent dsde) {
         }
 
-        /**
+        /** {@collect.stats}
          * as the operation completes
          */
         public void dragDropEnd(DragSourceDropEvent dsde) {
@@ -1615,13 +1615,13 @@ public class TransferHandler implements Serializable {
             fireDragGestureRecognized(action, e.getPoint());
         }
 
-        /**
+        /** {@collect.stats}
          * register this DragGestureRecognizer's Listeners with the Component
          */
         protected void registerListeners() {
         }
 
-        /**
+        /** {@collect.stats}
          * unregister this DragGestureRecognizer's Listeners with the Component
          *
          * subclasses must override this method
@@ -1714,7 +1714,7 @@ public class TransferHandler implements Serializable {
             }
         }
 
-        /**
+        /** {@collect.stats}
          * Returns the clipboard to use for cut/copy/paste.
          */
         private Clipboard getClipboard(JComponent c) {
@@ -1731,7 +1731,7 @@ public class TransferHandler implements Serializable {
             return clipboard;
         }
 
-        /**
+        /** {@collect.stats}
          * Key used in app context to lookup Clipboard to use if access to
          * System clipboard is denied.
          */

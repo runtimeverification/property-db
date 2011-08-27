@@ -25,14 +25,14 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * Thrown when a serious I/O error has occurred.
  *
  * @author  Xueming Shen
  * @since   1.6
  */
 public class IOError extends Error {
-    /**
+    /** {@collect.stats}
      * Constructs a new instance of IOError with the specified cause. The
      * IOError is created with the detail message of
      * <tt>(cause==null ? null : cause.toString())</tt> (which typically

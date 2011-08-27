@@ -35,7 +35,7 @@ import java.awt.ImageCapabilities;
 import java.awt.Toolkit;
 import java.awt.Transparency;
 
-/**
+/** {@collect.stats}
  * VolatileImage is an image which can lose its
  * contents at any time due to circumstances beyond the control of the
  * application (e.g., situations caused by the operating system or by
@@ -135,18 +135,18 @@ public abstract class VolatileImage extends Image implements Transparency
 
     // Return codes for validate() method
 
-    /**
+    /** {@collect.stats}
      * Validated image is ready to use as-is.
      */
     public static final int IMAGE_OK = 0;
 
-    /**
+    /** {@collect.stats}
      * Validated image has been restored and is now ready to use.
      * Note that restoration causes contents of the image to be lost.
      */
     public static final int IMAGE_RESTORED = 1;
 
-    /**
+    /** {@collect.stats}
      * Validated image is incompatible with supplied
      * <code>GraphicsConfiguration</code> object and should be
      * re-created as appropriate.  Usage of the image as-is
@@ -155,7 +155,7 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     public static final int IMAGE_INCOMPATIBLE = 2;
 
-    /**
+    /** {@collect.stats}
      * Returns a static snapshot image of this object.  The
      * <code>BufferedImage</code> returned is only current with
      * the <code>VolatileImage</code> at the time of the request
@@ -167,13 +167,13 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     public abstract BufferedImage getSnapshot();
 
-    /**
+    /** {@collect.stats}
      * Returns the width of the <code>VolatileImage</code>.
      * @return the width of this <code>VolatileImage</code>.
      */
     public abstract int getWidth();
 
-    /**
+    /** {@collect.stats}
      * Returns the height of the <code>VolatileImage</code>.
      * @return the height of this <code>VolatileImage</code>.
      */
@@ -181,7 +181,7 @@ public abstract class VolatileImage extends Image implements Transparency
 
     // Image overrides
 
-    /**
+    /** {@collect.stats}
      * This returns an ImageProducer for this VolatileImage.
      * Note that the VolatileImage object is optimized for
      * rendering operations and blitting to the screen or other
@@ -221,7 +221,7 @@ public abstract class VolatileImage extends Image implements Transparency
     // REMIND: if we want any decent performance for getScaledInstance(),
     // we should override the Image implementation of it...
 
-    /**
+    /** {@collect.stats}
      * This method returns a {@link Graphics2D}, but is here
      * for backwards compatibility.  {@link #createGraphics() createGraphics} is more
      * convenient, since it is declared to return a
@@ -233,7 +233,7 @@ public abstract class VolatileImage extends Image implements Transparency
         return createGraphics();
     }
 
-    /**
+    /** {@collect.stats}
      * Creates a <code>Graphics2D</code>, which can be used to draw into
      * this <code>VolatileImage</code>.
      * @return a <code>Graphics2D</code>, used for drawing into this
@@ -244,7 +244,7 @@ public abstract class VolatileImage extends Image implements Transparency
 
     // Volatile management methods
 
-    /**
+    /** {@collect.stats}
      * Attempts to restore the drawing surface of the image if the surface
      * had been lost since the last <code>validate</code> call.  Also
      * validates this image against the given GraphicsConfiguration
@@ -287,7 +287,7 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     public abstract int validate(GraphicsConfiguration gc);
 
-    /**
+    /** {@collect.stats}
      * Returns <code>true</code> if rendering data was lost since last
      * <code>validate</code> call.  This method should be called by the
      * application at the end of any series of rendering operations to
@@ -298,7 +298,7 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     public abstract boolean contentsLost();
 
-    /**
+    /** {@collect.stats}
      * Returns an ImageCapabilities object which can be
      * inquired as to the specific capabilities of this
      * VolatileImage.  This would allow programmers to find
@@ -316,7 +316,7 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     public abstract ImageCapabilities getCapabilities();
 
-    /**
+    /** {@collect.stats}
      * The transparency value with which this image was created.
      * @see java.awt.GraphicsConfiguration#createCompatibleVolatileImage(int,
      *      int,int)
@@ -327,7 +327,7 @@ public abstract class VolatileImage extends Image implements Transparency
      */
     protected int transparency = TRANSLUCENT;
 
-    /**
+    /** {@collect.stats}
      * Returns the transparency.  Returns either OPAQUE, BITMASK,
      * or TRANSLUCENT.
      * @return the transparency of this <code>VolatileImage</code>.

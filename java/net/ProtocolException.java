@@ -27,7 +27,7 @@ package java.net;
 
 import java.io.IOException;
 
-/**
+/** {@collect.stats}
  * Thrown to indicate that there is an error in the underlying
  * protocol, such as a TCP error.
  *
@@ -36,7 +36,7 @@ import java.io.IOException;
  */
 public
 class ProtocolException extends IOException {
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>ProtocolException</code> with the
      * specified detail message.
      *
@@ -46,7 +46,7 @@ class ProtocolException extends IOException {
         super(host);
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a new <code>ProtocolException</code> with no detail message.
      */
     public ProtocolException() {

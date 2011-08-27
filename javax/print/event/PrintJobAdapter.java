@@ -25,7 +25,7 @@
 
 package javax.print.event;
 
-/**
+/** {@collect.stats}
   * An abstract adapter class for receiving print job events.
   * The methods in this class are empty.
   * This class exists as a convenience for creating listener objects.
@@ -39,7 +39,7 @@ package javax.print.event;
 
 public abstract class PrintJobAdapter implements PrintJobListener {
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that data has been successfully
      * transferred to the print service, and the client may free
      * local resources allocated for that data.  The client should
@@ -51,7 +51,7 @@ public abstract class PrintJobAdapter implements PrintJobListener {
     public void printDataTransferCompleted(PrintJobEvent pje)  {
     }
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job completed successfully.
      *
      * @param pje the event being notified
@@ -60,7 +60,7 @@ public abstract class PrintJobAdapter implements PrintJobListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job failed to complete
      * successfully and will have to be resubmitted.
      *
@@ -69,7 +69,7 @@ public abstract class PrintJobAdapter implements PrintJobListener {
     public void printJobFailed(PrintJobEvent pje)  {
     }
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that the job was canceled
      * by user or program.
      *
@@ -79,7 +79,7 @@ public abstract class PrintJobAdapter implements PrintJobListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that no more events will be delivered.
      * One cause of this event being generated is if the job
      * has successfully completed, but the printing system
@@ -93,7 +93,7 @@ public abstract class PrintJobAdapter implements PrintJobListener {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Called to notify the client that some possibly user rectifiable
      * problem occurs (eg printer out of paper).
      *

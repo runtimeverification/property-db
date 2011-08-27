@@ -27,7 +27,7 @@ package javax.print.attribute.standard;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Class ReferenceUriSchemesSupported is a printing attribute class
  * an enumeration, that indicates a "URI scheme," such as "http:" or "ftp:",
  * that a printer can use to retrieve print data stored at a URI location.
@@ -64,48 +64,48 @@ public class ReferenceUriSchemesSupported
 
     private static final long serialVersionUID = -8989076942813442805L;
 
-    /**
+    /** {@collect.stats}
      * File Transfer Protocol (FTP).
      */
     public static final ReferenceUriSchemesSupported FTP =
         new ReferenceUriSchemesSupported(0);
 
-    /**
+    /** {@collect.stats}
      * HyperText Transfer Protocol (HTTP).
      */
     public static final ReferenceUriSchemesSupported HTTP = new ReferenceUriSchemesSupported(1);
 
-    /**
+    /** {@collect.stats}
      * Secure HyperText Transfer Protocol (HTTPS).
      */
     public static final ReferenceUriSchemesSupported HTTPS = new ReferenceUriSchemesSupported(2);
 
-    /**
+    /** {@collect.stats}
      * Gopher Protocol.
      */
     public static final ReferenceUriSchemesSupported GOPHER = new ReferenceUriSchemesSupported(3);
 
-    /**
+    /** {@collect.stats}
      * USENET news.
      */
     public static final ReferenceUriSchemesSupported NEWS = new ReferenceUriSchemesSupported(4);
 
-    /**
+    /** {@collect.stats}
      * USENET news using Network News Transfer Protocol (NNTP).
      */
     public static final ReferenceUriSchemesSupported NNTP = new ReferenceUriSchemesSupported(5);
 
-    /**
+    /** {@collect.stats}
      * Wide Area Information Server (WAIS) protocol.
      */
     public static final ReferenceUriSchemesSupported WAIS = new ReferenceUriSchemesSupported(6);
 
-    /**
+    /** {@collect.stats}
      * Host-specific file names.
      */
     public static final ReferenceUriSchemesSupported FILE = new ReferenceUriSchemesSupported(7);
 
-    /**
+    /** {@collect.stats}
      * Construct a new reference URI scheme enumeration value with the given
      * integer value.
      *
@@ -137,14 +137,14 @@ public class ReferenceUriSchemesSupported
         FILE,
     };
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class ReferenceUriSchemesSupported.
      */
     protected String[] getStringTable() {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class
      * ReferenceUriSchemesSupported.
      */
@@ -152,7 +152,7 @@ public class ReferenceUriSchemesSupported
         return (EnumSyntax[])myEnumValueTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Get the printing attribute class which is to be used as the "category"
      * for this printing attribute value.
      * <P>
@@ -166,7 +166,7 @@ public class ReferenceUriSchemesSupported
         return ReferenceUriSchemesSupported.class;
     }
 
-    /**
+    /** {@collect.stats}
      * Get the name of the category of which this attribute value is an
      * instance.
      * <P>

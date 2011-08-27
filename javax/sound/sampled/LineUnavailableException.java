@@ -25,7 +25,7 @@
 
 package javax.sound.sampled;
 
-/**
+/** {@collect.stats}
  * A <code>LineUnavailableException</code> is an exception indicating that a
  * line cannot be opened because it is unavailable.  This situation
  * arises most commonly when a requested line is already in use
@@ -45,7 +45,7 @@ package javax.sound.sampled;
 
 public class LineUnavailableException extends Exception {
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>LineUnavailableException</code> that has
      * <code>null</code> as its error detail message.
      */
@@ -55,7 +55,7 @@ public class LineUnavailableException extends Exception {
     }
 
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>LineUnavailableException</code> that has
      * the specified detail message.
      *

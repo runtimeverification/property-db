@@ -25,7 +25,7 @@
 
 package java.lang;
 
-/**
+/** {@collect.stats}
  * Thrown if an application tries to call a specified method of a
  * class (either static or instance), and that class no longer has a
  * definition of that method.
@@ -39,14 +39,14 @@ package java.lang;
  */
 public
 class NoSuchMethodError extends IncompatibleClassChangeError {
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchMethodError</code> with no detail message.
      */
     public NoSuchMethodError() {
         super();
     }
 
-    /**
+    /** {@collect.stats}
      * Constructs a <code>NoSuchMethodError</code> with the
      * specified detail message.
      *

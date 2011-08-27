@@ -29,7 +29,7 @@ import java.util.Locale;
 import javax.print.attribute.EnumSyntax;
 import javax.print.attribute.Attribute;
 
-/**
+/** {@collect.stats}
  * Class MediaSizeName is a subclass of Media.
  * <P>
  * This attribute can be used instead of specifying MediaName or MediaTray.
@@ -48,342 +48,342 @@ public class MediaSizeName extends Media {
 
     private static final long serialVersionUID = 2778798329756942747L;
 
-    /**
+    /** {@collect.stats}
      * A0 size.
      */
     public static final MediaSizeName ISO_A0 = new MediaSizeName(0);
-    /**
+    /** {@collect.stats}
      * A1 size.
      */
     public static final MediaSizeName ISO_A1 = new MediaSizeName(1);
-    /**
+    /** {@collect.stats}
      * A2 size.
      */
     public static final MediaSizeName ISO_A2 = new MediaSizeName(2);
-    /**
+    /** {@collect.stats}
      * A3 size.
      */
     public static final MediaSizeName ISO_A3 = new MediaSizeName(3);
-    /**
+    /** {@collect.stats}
      * A4 size.
      */
     public static final MediaSizeName ISO_A4 = new MediaSizeName(4);
-    /**
+    /** {@collect.stats}
      * A5 size.
      */
     public static final MediaSizeName ISO_A5 = new MediaSizeName(5);
-    /**
+    /** {@collect.stats}
      * A6 size.
      */
     public static final MediaSizeName ISO_A6 = new MediaSizeName(6);
-    /**
+    /** {@collect.stats}
      * A7 size.
      */
     public static final MediaSizeName ISO_A7 = new MediaSizeName(7);
-    /**
+    /** {@collect.stats}
      * A8 size.
      */
     public static final MediaSizeName ISO_A8 = new MediaSizeName(8);
-    /**
+    /** {@collect.stats}
      * A9 size.
      */
     public static final MediaSizeName ISO_A9 = new MediaSizeName(9);
-    /**
+    /** {@collect.stats}
      * A10 size.
      */
     public static final MediaSizeName ISO_A10 = new MediaSizeName(10);
 
-   /**
+   /** {@collect.stats}
      * ISO B0 size.
      */
     public static final MediaSizeName ISO_B0 = new MediaSizeName(11);
-    /**
+    /** {@collect.stats}
      * ISO B1 size.
      */
     public static final MediaSizeName ISO_B1 = new MediaSizeName(12);
-    /**
+    /** {@collect.stats}
      * ISO B2 size.
      */
     public static final MediaSizeName ISO_B2 = new MediaSizeName(13);
-    /**
+    /** {@collect.stats}
      * ISO B3 size.
      */
     public static final MediaSizeName ISO_B3 = new MediaSizeName(14);
-    /**
+    /** {@collect.stats}
      * ISO B4 size.
      */
     public static final MediaSizeName ISO_B4 = new MediaSizeName(15);
-    /**
+    /** {@collect.stats}
      * ISO B5 size.
      */
     public static final MediaSizeName ISO_B5 = new MediaSizeName(16);
-    /**
+    /** {@collect.stats}
      * ISO B6 size.
      */
     public static final MediaSizeName ISO_B6 = new MediaSizeName(17);
-    /**
+    /** {@collect.stats}
      * ISO B7 size.
      */
     public static final MediaSizeName ISO_B7 = new MediaSizeName(18);
-    /**
+    /** {@collect.stats}
      * ISO B8 size.
      */
     public static final MediaSizeName ISO_B8 = new MediaSizeName(19);
-    /**
+    /** {@collect.stats}
      * ISO B9 size.
      */
     public static final MediaSizeName ISO_B9 = new MediaSizeName(20);
-    /**
+    /** {@collect.stats}
      * ISO B10 size.
      */
     public static final MediaSizeName ISO_B10 = new MediaSizeName(21);
 
-   /**
+   /** {@collect.stats}
      * JIS B0 size.
      */
     public static final MediaSizeName JIS_B0 = new MediaSizeName(22);
-    /**
+    /** {@collect.stats}
      * JIS B1 size.
      */
     public static final MediaSizeName JIS_B1 = new MediaSizeName(23);
-    /**
+    /** {@collect.stats}
      * JIS B2 size.
      */
     public static final MediaSizeName JIS_B2 = new MediaSizeName(24);
-    /**
+    /** {@collect.stats}
      * JIS B3 size.
      */
     public static final MediaSizeName JIS_B3 = new MediaSizeName(25);
-    /**
+    /** {@collect.stats}
      * JIS B4 size.
      */
     public static final MediaSizeName JIS_B4 = new MediaSizeName(26);
-    /**
+    /** {@collect.stats}
      * JIS B5 size.
      */
     public static final MediaSizeName JIS_B5 = new MediaSizeName(27);
-    /**
+    /** {@collect.stats}
      * JIS B6 size.
      */
     public static final MediaSizeName JIS_B6 = new MediaSizeName(28);
-    /**
+    /** {@collect.stats}
      * JIS B7 size.
      */
     public static final MediaSizeName JIS_B7 = new MediaSizeName(29);
-    /**
+    /** {@collect.stats}
      * JIS B8 size.
      */
     public static final MediaSizeName JIS_B8 = new MediaSizeName(30);
-    /**
+    /** {@collect.stats}
      * JIS B9 size.
      */
     public static final MediaSizeName JIS_B9 = new MediaSizeName(31);
-    /**
+    /** {@collect.stats}
      * JIS B10 size.
      */
     public static final MediaSizeName JIS_B10 = new MediaSizeName(32);
 
-    /**
+    /** {@collect.stats}
      * ISO C0 size.
      */
     public static final MediaSizeName ISO_C0 = new MediaSizeName(33);
-    /**
+    /** {@collect.stats}
      * ISO C1 size.
      */
     public static final MediaSizeName ISO_C1 = new MediaSizeName(34);
-    /**
+    /** {@collect.stats}
      * ISO C2 size.
      */
     public static final MediaSizeName ISO_C2 = new MediaSizeName(35);
-    /**
+    /** {@collect.stats}
      * ISO C3 size.
      */
     public static final MediaSizeName ISO_C3 = new MediaSizeName(36);
-    /**
+    /** {@collect.stats}
      * ISO C4 size.
      */
     public static final MediaSizeName ISO_C4 = new MediaSizeName(37);
-    /**
+    /** {@collect.stats}
      * ISO C5 size.
      */
     public static final MediaSizeName ISO_C5 = new MediaSizeName(38);
-    /**
+    /** {@collect.stats}
      *   letter size.
      */
     public static final MediaSizeName ISO_C6 = new MediaSizeName(39);
-    /**
+    /** {@collect.stats}
      *   letter size.
      */
     public static final MediaSizeName NA_LETTER = new MediaSizeName(40);
 
-    /**
+    /** {@collect.stats}
      *  legal size .
      */
     public static final MediaSizeName NA_LEGAL = new MediaSizeName(41);
 
-    /**
+    /** {@collect.stats}
      *  executive size .
      */
     public static final MediaSizeName EXECUTIVE = new MediaSizeName(42);
 
-    /**
+    /** {@collect.stats}
      *  ledger size .
      */
     public static final MediaSizeName LEDGER = new MediaSizeName(43);
 
-    /**
+    /** {@collect.stats}
      *  tabloid size .
      */
     public static final MediaSizeName TABLOID = new MediaSizeName(44);
 
-    /**
+    /** {@collect.stats}
      *  invoice size .
      */
     public static final MediaSizeName INVOICE = new MediaSizeName(45);
 
-    /**
+    /** {@collect.stats}
      *  folio size .
      */
     public static final MediaSizeName FOLIO = new MediaSizeName(46);
 
-    /**
+    /** {@collect.stats}
      *  quarto size .
      */
     public static final MediaSizeName QUARTO = new MediaSizeName(47);
 
-    /**
+    /** {@collect.stats}
      *  Japanese Postcard size.
      */
     public static final MediaSizeName
         JAPANESE_POSTCARD = new MediaSizeName(48);
-   /**
+   /** {@collect.stats}
      *  Japanese Double Postcard size.
      */
     public static final MediaSizeName
         JAPANESE_DOUBLE_POSTCARD = new MediaSizeName(49);
 
-    /**
+    /** {@collect.stats}
      *  A size .
      */
     public static final MediaSizeName A = new MediaSizeName(50);
 
-    /**
+    /** {@collect.stats}
      *  B size .
      */
     public static final MediaSizeName B = new MediaSizeName(51);
 
-    /**
+    /** {@collect.stats}
      *  C size .
      */
     public static final MediaSizeName C = new MediaSizeName(52);
 
-    /**
+    /** {@collect.stats}
      *  D size .
      */
     public static final MediaSizeName D = new MediaSizeName(53);
 
-    /**
+    /** {@collect.stats}
      *  E size .
      */
     public static final MediaSizeName E = new MediaSizeName(54);
 
-    /**
+    /** {@collect.stats}
      *  ISO designated long size .
      */
     public static final MediaSizeName
         ISO_DESIGNATED_LONG = new MediaSizeName(55);
 
-    /**
+    /** {@collect.stats}
      *  Italy envelope size .
      */
     public static final MediaSizeName
         ITALY_ENVELOPE = new MediaSizeName(56);  // DESIGNATED_LONG?
 
-    /**
+    /** {@collect.stats}
      *  monarch envelope size .
      */
     public static final MediaSizeName
         MONARCH_ENVELOPE = new MediaSizeName(57);
-    /**
+    /** {@collect.stats}
      * personal envelope size .
      */
     public static final MediaSizeName
         PERSONAL_ENVELOPE = new MediaSizeName(58);
-    /**
+    /** {@collect.stats}
      *  number 9 envelope size .
      */
     public static final MediaSizeName
         NA_NUMBER_9_ENVELOPE = new MediaSizeName(59);
-    /**
+    /** {@collect.stats}
      *  number 10 envelope size .
      */
     public static final MediaSizeName
         NA_NUMBER_10_ENVELOPE = new MediaSizeName(60);
-    /**
+    /** {@collect.stats}
      *  number 11 envelope size .
      */
     public static final MediaSizeName
         NA_NUMBER_11_ENVELOPE = new MediaSizeName(61);
-    /**
+    /** {@collect.stats}
      *  number 12 envelope size .
      */
     public static final MediaSizeName
         NA_NUMBER_12_ENVELOPE = new MediaSizeName(62);
-    /**
+    /** {@collect.stats}
      *  number 14 envelope size .
      */
     public static final MediaSizeName
         NA_NUMBER_14_ENVELOPE = new MediaSizeName(63);
-   /**
+   /** {@collect.stats}
      *  6x9 North American envelope size.
      */
     public static final MediaSizeName
         NA_6X9_ENVELOPE = new MediaSizeName(64);
-   /**
+   /** {@collect.stats}
      *  7x9 North American envelope size.
      */
     public static final MediaSizeName
         NA_7X9_ENVELOPE = new MediaSizeName(65);
-   /**
+   /** {@collect.stats}
      *  9x11 North American envelope size.
      */
     public static final MediaSizeName
         NA_9X11_ENVELOPE = new MediaSizeName(66);
-    /**
+    /** {@collect.stats}
      *  9x12 North American envelope size.
      */
     public static final MediaSizeName
         NA_9X12_ENVELOPE = new MediaSizeName(67);
 
-    /**
+    /** {@collect.stats}
      *  10x13 North American envelope size .
      */
     public static final MediaSizeName
         NA_10X13_ENVELOPE = new MediaSizeName(68);
-    /**
+    /** {@collect.stats}
      *  10x14North American  envelope size .
      */
     public static final MediaSizeName
         NA_10X14_ENVELOPE = new MediaSizeName(69);
-    /**
+    /** {@collect.stats}
      *  10x15 North American envelope size.
      */
     public static final MediaSizeName
         NA_10X15_ENVELOPE = new MediaSizeName(70);
 
-    /**
+    /** {@collect.stats}
      *  5x7 North American paper.
      */
     public static final MediaSizeName
         NA_5X7 = new MediaSizeName(71);
 
-    /**
+    /** {@collect.stats}
      *  8x10 North American paper.
      */
     public static final MediaSizeName
         NA_8X10 = new MediaSizeName(72);
 
-    /**
+    /** {@collect.stats}
      * Construct a new media size enumeration value with the given integer
      * value.
      *
@@ -546,7 +546,7 @@ public class MediaSizeName extends Media {
         };
 
 
-    /**
+    /** {@collect.stats}
      * Returns the string table for class MediaSizeName.
      */
     protected String[] getStringTable()
@@ -554,7 +554,7 @@ public class MediaSizeName extends Media {
         return (String[])myStringTable.clone();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the enumeration value table for class MediaSizeName.
      */
     protected EnumSyntax[] getEnumValueTable() {

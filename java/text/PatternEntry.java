@@ -40,7 +40,7 @@ package java.text;
 
 import java.lang.Character;
 
-/**
+/** {@collect.stats}
  * Utility class for normalizing and merging patterns for collation.
  * This is to be used with MergeCollation for adding patterns to an
  * existing rule table.
@@ -49,21 +49,21 @@ import java.lang.Character;
  */
 
 class PatternEntry {
-    /**
+    /** {@collect.stats}
      * Gets the current extension, quoted
      */
     public void appendQuotedExtension(StringBuffer toAddTo) {
         appendQuoted(extension,toAddTo);
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the current chars, quoted
      */
     public void appendQuotedChars(StringBuffer toAddTo) {
         appendQuoted(chars,toAddTo);
     }
 
-    /**
+    /** {@collect.stats}
      * WARNING this is used for searching in a Vector.
      * Because Vector.indexOf doesn't take a comparator,
      * this method is ill-defined and ignores strength.
@@ -79,7 +79,7 @@ class PatternEntry {
         return chars.hashCode();
     }
 
-    /**
+    /** {@collect.stats}
      * For debugging.
      */
     public String toString() {
@@ -88,21 +88,21 @@ class PatternEntry {
         return result.toString();
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the strength of the entry.
      */
     final int getStrength() {
         return strength;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the expanding characters of the entry.
      */
     final String getExtension() {
         return extension;
     }
 
-    /**
+    /** {@collect.stats}
      * Gets the core characters of the entry.
      */
     final String getChars() {

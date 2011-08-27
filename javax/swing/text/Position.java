@@ -24,7 +24,7 @@
  */
 package javax.swing.text;
 
-/**
+/** {@collect.stats}
  * Represents a location within a document.  It is intended to abstract away
  * implementation details of the document and enable specification of
  * positions within the document that are capable of tracking of change as
@@ -48,14 +48,14 @@ package javax.swing.text;
  */
 public interface Position {
 
-    /**
+    /** {@collect.stats}
      * Fetches the current offset within the document.
      *
      * @return the offset >= 0
      */
     public int getOffset();
 
-    /**
+    /** {@collect.stats}
      * A typesafe enumeration to indicate bias to a position
      * in the model.  A position indicates a location between
      * two characters.  The bias can be used to indicate an
@@ -65,19 +65,19 @@ public interface Position {
      */
     public static final class Bias {
 
-        /**
+        /** {@collect.stats}
          * Indicates to bias toward the next character
          * in the model.
          */
         public static final Bias Forward = new Bias("Forward");
 
-        /**
+        /** {@collect.stats}
          * Indicates a bias toward the previous character
          * in the model.
          */
         public static final Bias Backward = new Bias("Backward");
 
-        /**
+        /** {@collect.stats}
          * string representation
          */
         public String toString() {

@@ -25,7 +25,7 @@
 
 package java.util;
 
-/**
+/** {@collect.stats}
  * This class provides a skeletal implementation of the <tt>List</tt>
  * interface to minimize the effort required to implement this interface
  * backed by a "sequential access" data store (such as a linked list).  For
@@ -67,14 +67,14 @@ package java.util;
  */
 
 public abstract class AbstractSequentialList<E> extends AbstractList<E> {
-    /**
+    /** {@collect.stats}
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */
     protected AbstractSequentialList() {
     }
 
-    /**
+    /** {@collect.stats}
      * Returns the element at the specified position in this list.
      *
      * <p>This implementation first gets a list iterator pointing to the
@@ -91,7 +91,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
      *
@@ -121,7 +121,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Inserts the specified element at the specified position in this list
      * (optional operation).  Shifts the element currently at that position
      * (if any) and any subsequent elements to the right (adds one to their
@@ -149,7 +149,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
         }
     }
 
-    /**
+    /** {@collect.stats}
      * Removes the element at the specified position in this list (optional
      * operation).  Shifts any subsequent elements to the left (subtracts one
      * from their indices).  Returns the element that was removed from the
@@ -180,7 +180,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
 
     // Bulk Operations
 
-    /**
+    /** {@collect.stats}
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
      * element currently at that position (if any) and any subsequent
@@ -227,7 +227,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
 
     // Iterators
 
-    /**
+    /** {@collect.stats}
      * Returns an iterator over the elements in this list (in proper
      * sequence).<p>
      *
@@ -239,7 +239,7 @@ public abstract class AbstractSequentialList<E> extends AbstractList<E> {
         return listIterator();
     }
 
-    /**
+    /** {@collect.stats}
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
      *

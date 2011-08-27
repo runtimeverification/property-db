@@ -33,7 +33,7 @@ import java.beans.*;
 import javax.swing.event.*;
 import sun.awt.EmbeddedFrame;
 
-/**
+/** {@collect.stats}
   * The KeyboardManager class is used to help dispatch keyboard actions for the
   * WHEN_IN_FOCUSED_WINDOW style actions.  Actions with other conditions are handled
   * directly in JComponent.
@@ -65,12 +65,12 @@ class KeyboardManager {
 
     static KeyboardManager currentManager = new KeyboardManager();
 
-    /**
+    /** {@collect.stats}
       * maps top-level containers to a sub-hashtable full of keystrokes
       */
     Hashtable containerMap = new Hashtable();
 
-    /**
+    /** {@collect.stats}
       * Maps component/keystroke pairs to a topLevel container
       * This is mainly used for fast unregister operations
       */
@@ -84,7 +84,7 @@ class KeyboardManager {
         currentManager = km;
     }
 
-    /**
+    /** {@collect.stats}
       * register keystrokes here which are for the WHEN_IN_FOCUSED_WINDOW
       * case.
       * Other types of keystrokes will be handled by walking the hierarchy
@@ -133,7 +133,7 @@ class KeyboardManager {
          }
      }
 
-     /**
+     /** {@collect.stats}
        * Find the top focusable Window, Applet, or InternalFrame
        */
      private static Container getTopAncestor(JComponent c) {
@@ -198,7 +198,7 @@ class KeyboardManager {
          }
      }
 
-    /**
+    /** {@collect.stats}
       * This method is called when the focused component (and none of
       * its ancestors) want the key event.  This will look up the keystroke
       * to see if any chidren (or subchildren) of the specified container
@@ -339,7 +339,7 @@ class KeyboardManager {
              return keyMap;
     }
 
-    /**
+    /** {@collect.stats}
       * This class is used to create keys for a hashtable
       * which looks up topContainers based on component, keystroke pairs
       * This is used to make unregistering KeyStrokes fast

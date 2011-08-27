@@ -25,7 +25,7 @@
 
 package java.io;
 
-/**
+/** {@collect.stats}
  * This abstract class is the superclass of all classes representing
  * an input stream of bytes.
  *
@@ -49,7 +49,7 @@ public abstract class InputStream implements Closeable {
     // skipBuffer is initialized in skip(long), if needed.
     private static byte[] skipBuffer;
 
-    /**
+    /** {@collect.stats}
      * Reads the next byte of data from the input stream. The value byte is
      * returned as an <code>int</code> in the range <code>0</code> to
      * <code>255</code>. If no byte is available because the end of the stream
@@ -65,7 +65,7 @@ public abstract class InputStream implements Closeable {
      */
     public abstract int read() throws IOException;
 
-    /**
+    /** {@collect.stats}
      * Reads some number of bytes from the input stream and stores them into
      * the buffer array <code>b</code>. The number of bytes actually read is
      * returned as an integer.  This method blocks until input data is
@@ -102,7 +102,7 @@ public abstract class InputStream implements Closeable {
         return read(b, 0, b.length);
     }
 
-    /**
+    /** {@collect.stats}
      * Reads up to <code>len</code> bytes of data from the input stream into
      * an array of bytes.  An attempt is made to read as many as
      * <code>len</code> bytes, but a smaller number may be read.
@@ -188,7 +188,7 @@ public abstract class InputStream implements Closeable {
         return i;
     }
 
-    /**
+    /** {@collect.stats}
      * Skips over and discards <code>n</code> bytes of data from this input
      * stream. The <code>skip</code> method may, for a variety of reasons, end
      * up skipping over some smaller number of bytes, possibly <code>0</code>.
@@ -233,7 +233,7 @@ public abstract class InputStream implements Closeable {
         return n - remaining;
     }
 
-    /**
+    /** {@collect.stats}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation
@@ -263,7 +263,7 @@ public abstract class InputStream implements Closeable {
         return 0;
     }
 
-    /**
+    /** {@collect.stats}
      * Closes this input stream and releases any system resources associated
      * with the stream.
      *
@@ -274,7 +274,7 @@ public abstract class InputStream implements Closeable {
      */
     public void close() throws IOException {}
 
-    /**
+    /** {@collect.stats}
      * Marks the current position in this input stream. A subsequent call to
      * the <code>reset</code> method repositions this stream at the last marked
      * position so that subsequent reads re-read the same bytes.
@@ -302,7 +302,7 @@ public abstract class InputStream implements Closeable {
      */
     public synchronized void mark(int readlimit) {}
 
-    /**
+    /** {@collect.stats}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      *
@@ -351,7 +351,7 @@ public abstract class InputStream implements Closeable {
         throw new IOException("mark/reset not supported");
     }
 
-    /**
+    /** {@collect.stats}
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods. Whether or not <code>mark</code> and
      * <code>reset</code> are supported is an invariant property of a
