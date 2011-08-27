@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+  <project name="propery-docs" default="all" basedir=".">
+    <property name="build" value="build" />
+    <property name="src" value="src" />
+  
+    <target name="init">
+      <mkdir dir="${build}"/>
+    </target>
+
+    <target name="all" depends="init">
+      <javac srcdir="${src}" destdir="${build}" debug="on" optimize="on" />
+    </target>
+
+    <target name="clean">
+      <delete verbose="true">
+        <fileset dir="${build}" />
+      </delete>
+    </target>
+
+  </project>
