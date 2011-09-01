@@ -146,8 +146,10 @@ public class FinishUp {
 
      try {
        (new PrintStream(new FileOutputStream(new File(args[0] + File.separator + "stylesheet.css"), true)))
-         .println( ".Red { background-color:#EE0000; color:#FFFFFF }" +
-             "\np { color:inherit;background-color:inherit }");
+         .println( ".Red { background-color:#EE0000; color:#FFFFFF }" 
+                 + "\n.HLon  { color:#0000E2 }"
+                 + "\n.HLoff { color:#450082 }"
+                 + "\np { color:inherit;background-color:inherit }");
      } catch (java.io.IOException e){
         throw new RuntimeException(e);
      }

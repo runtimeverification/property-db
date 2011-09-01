@@ -117,18 +117,18 @@ public class FormalOpenTaglet implements Taglet {
       Integer num = numLinks.get(p).get(domain);
       domainNums.put(p, (domainNums.get(p) + 1) % maxDomainNums.get(p));
       if(num == 0){
-        return "<DIV CLASS=\"Red\" ID=\"brokenformal\""
+        return "<DIV CLASS=\"Red\" NAME=\"brokenformal\""
         + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a formalized property with no "
         + "shortcuts.  Probably user error.')\"" 
         + " STYLE=\"display:inline\">";
       }
       else if(num == 1){
-        return "<DIV CLASS=\"NavBarCell1Rev\" ID=\"formal\" ONMOUSEOVER="
+        return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"formal\" ONMOUSEOVER="
            + "\"balloon.showTooltip(event,'This describes a formalized property.  "
            + "The formalization may be viewed by clicking on the link below:<br/>" + links +  " ',1)\""
            + " STYLE=\"display:inline\">";
       }
-      return "<DIV CLASS=\"NavBarCell1Rev\" ID=\"formal\" ONMOUSEOVER="
+      return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"formal\" ONMOUSEOVER="
        + "\"balloon.showTooltip(event,'This describes several formalized properties.  "
        + "The formalizations may be viewed by clicking on the links below:<br/>" + links +  " ',1)\""
        + " STYLE=\"display:inline\">";

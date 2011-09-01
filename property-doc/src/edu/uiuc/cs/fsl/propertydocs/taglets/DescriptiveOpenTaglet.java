@@ -90,7 +90,7 @@ public class DescriptiveOpenTaglet implements Taglet {
       }
       // This part is always executed, but for descriptive we simply return the
       // empty String.  For other tags we will output fancy html/javascript
-      return "<DIV CLASS=\"TableHeadingColor\" ID=\"descriptive\""
+      return "<DIV CLASS=\"TableHeadingColor\" NAME=\"descriptive\""
        +" ONMOUSEOVER=\"balloon.showTooltip(event,'This is descriptive text.')\""
        +" STYLE=\"display:inline\">";
     } 

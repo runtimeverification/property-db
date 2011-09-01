@@ -90,7 +90,7 @@ public class InformalOpenTaglet implements Taglet {
       }
       // This part is always executed, but for informal we simply return the
       // empty String.  For other tags we will output fancy html/javascript
-      return "<DIV CLASS=\"NavBarCell1\" ID=\"informal\""
+      return "<DIV CLASS=\"NavBarCell1\" NAME=\"informal\""
        + " ONMOUSEOVER=\"balloon.showTooltip(event,'This is an informal property.')\""
        + " STYLE=\"display:inline\">";
     } 

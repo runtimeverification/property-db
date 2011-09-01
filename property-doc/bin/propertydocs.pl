@@ -42,9 +42,19 @@ $header.=" </script>";
 $header.="<script type='text/javascript'>";
 $header.="function toggleHighlights()";
 $header.="  {";
+$header.="  var highlighting=document.getElementsByName('highlighting');";
+$header.="    for(var i = 0; i < highlighting.length; i++){";
+$header.="      if(highlighting[i].getAttribute('class') == 'HLon'){";
+$header.="        highlighting[i].setAttribute('class','HLoff');";
+$header.="      }";
+$header.="      else{";
+$header.="        highlighting[i].setAttribute('class','HLon');";
+$header.="      }";
+$header.="    }";
+
 $header.="  var divs=document.getElementsByTagName('div');";
 $header.="    for(var i = 0; i < divs.length; i++){";
-$header.="      if(divs[i].getAttribute('id') == 'formal'){";
+$header.="      if(divs[i].getAttribute('name') == 'formal'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','NavBarCell1Rev');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -56,7 +66,7 @@ $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('id') == 'brokenformal'){";
+$header.="      else if(divs[i].getAttribute('name') == 'brokenformal'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','Red');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -68,7 +78,7 @@ $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('id') == 'informal'){";
+$header.="      else if(divs[i].getAttribute('name') == 'informal'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','NavBarCell1');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -80,7 +90,7 @@ $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('id') == 'descriptive'){";
+$header.="      else if(divs[i].getAttribute('name') == 'descriptive'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','TableHeadingColor');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -97,8 +107,8 @@ $header.="  }";
 $header.="</script>";
 $header.=" <TD BGCOLOR='#FFFFFF' CLASS='NavBarCell'><A HREF='{\@docRoot}__properties/property-list.html'>";
 $header.="  <B>Properties</B></A></TD>";
-$header.=" <TD BGCOLOR='#FFFFFF' CLASS='NavBarCell'><SPAN ONCLICK='toggleHighlights()'>";
-$header.=" <FONT COLOR='Blue'><U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
+$header.=" <TD BGCOLOR='#FFFFFF' NAME='highlighting' CLASS='HLon'><SPAN ONCLICK='toggleHighlights()'>";
+$header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
 
 $taglets ="-taglet $tpackage.PropertyLinkTaglet    -taglet $tpackage.PropertyShortcutTaglet ";
 $taglets.="-taglet $tpackage.UndecidedOpenTaglet   -taglet $tpackage.UndecidedCloseTaglet ";
