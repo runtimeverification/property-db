@@ -135,6 +135,8 @@ public class FinishUp {
     + "</BODY>\n"
     + "</HTML>\n";
 
+   private final static float FACTOR = 1e2f;
+
    public static void main(String[] args){
      String properties_dir = args[0] + File.separator + "__properties";
      File propertiesList   = new File(properties_dir + File.separator + "property-list.html");
@@ -266,19 +268,23 @@ public class FinishUp {
      ret.append("<TD WIDTH=\"15%\">Characters: ");
      ret.append(c);
      ret.append(", ");
-     ret.append((c / totalC) * 100f);
+     ret.append(scale(c, totalC));
      ret.append("%</TD>");
      ret.append("<TD WIDTH=\"15%\">Words: ");
      ret.append(w);
      ret.append(", ");
-     ret.append((w / totalW) * 100f);
+     ret.append(scale(w, totalW));
      ret.append("%</TD>");
      ret.append("<TD WIDTH=\"15%\">Lines: ");
      ret.append(l);
      ret.append(", ");
-     ret.append((l / totalL) * 100f);
+     ret.append(scale(l, totalL));
      ret.append("%</TD></TR>");
      return ret;
+  }
+
+  private static float scale(int num, float den){
+    return Math.round(num / den * 100f * FACTOR) / FACTOR;
   }
 
    private static String chop(String name){
