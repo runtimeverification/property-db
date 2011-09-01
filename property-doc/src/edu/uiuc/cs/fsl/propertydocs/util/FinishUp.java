@@ -213,7 +213,7 @@ public class FinishUp {
      table.append("<B>MOP Property Links</B></FONT></TH></TR>");
 
      for(String fn : 
-         (new File(args[0])).list(new FilenameFilter() {
+         (new File(properties_dir)).list(new FilenameFilter() {
                                       public boolean accept(File dir, String name){
                                          return name.endsWith(".html") && !(name.equals("property-list.html"));
                                       } 
