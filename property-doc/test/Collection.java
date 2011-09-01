@@ -26,6 +26,10 @@
 package java.util;
 
 /**
+ * {@collect.stats}
+ * fdslkgjhfklghjdfklghjfdkgjfdglkfdjgdflg
+ * gfjlkdgjdflkgjdflkgjdfklgfjgdlkfgjfdlkgjdfgk
+ * fgjlkfdjglkfdjglkdfjglkfdjglkfdjgkldfjglkdfjgl
  *{@descriptive.open}
  * The root interface in the <i>collection hierarchy</i>.  A collection
  * represents a group of objects, known as its <i>elements</i>.  Some
@@ -212,11 +216,10 @@ public interface Collection<E> extends Iterable<E> {
     // Query Operations
 
     /**
-     * {@descriptive.open}
+     * {@collect.stats}
      * Returns the number of elements in this collection.  If this collection
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
-     * {@descriptive.close}
      * @return the number of elements in this collection
      */
     int size();

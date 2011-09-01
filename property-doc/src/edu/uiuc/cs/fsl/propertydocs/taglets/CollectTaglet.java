@@ -23,8 +23,8 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 *
 */
 
-public class UndecidedOpenTaglet implements Taglet {
-    private static final String NAME = "undecided.open";
+public class CollectTaglet implements Taglet {
+    private static final String NAME = "collect.stats";
   	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "undecided.stats");
@@ -57,7 +57,7 @@ public class UndecidedOpenTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       UndecidedOpenTaglet tag = new UndecidedOpenTaglet();
+       CollectTaglet tag = new CollectTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());
@@ -94,16 +94,22 @@ public class UndecidedOpenTaglet implements Taglet {
     } 
 
     private void handleTags(Tag[] tags){
-      boolean inUndecided = false; 
+      boolean inUndecided = true; 
       int c = 0; //character count
       int w = 0; //word count
       int l = 0; //lines count
       for(Tag tag : tags){
-        if(tag.name().equals("@undecided.open")){ 
-          inUndecided = true;
+        if(
+            (tag.name().equals("@formal.open")
+          || tag.name().equals("@informal.open")
+          || tag.name().equals("@descriptive.open")) ){
+          inUndecided = false; 
         }
-        else if(tag.name().equals("@undecided.close")){
-          inUndecided = false;
+        else if(
+            (tag.name().equals("@formal.close")
+          || tag.name().equals("@informal.close")
+          || tag.name().equals("@descriptive.close")) ){
+          inUndecided = true;
         }
         else if(tag.name().equals("Text") && inUndecided){
           String text = tag.text().trim();
@@ -111,26 +117,7 @@ public class UndecidedOpenTaglet implements Taglet {
           w += text.split("\\s+").length; 
           l += text.split("\\n").length; 
         }
-        else if(
-            (tag.name().equals("@formal.close")
-          || tag.name().equals("@formal.open")
-          || tag.name().equals("@informal.close")
-          || tag.name().equals("@informal.open")
-          || tag.name().equals("@descriptive.close")
-          || tag.name().equals("@descriptive.open")
-          || tag.name().equals("@property.shortcut")
-          || tag.name().equals("@inheritDoc")) && inUndecided){
-           System.err.println("ERROR: " + tag.name() + " inside undecided environment in comment near " 
-                              + tag.holder().position() + " is not allowed");
-
-           System.exit(1);
-        }
       } 
-      if(inUndecided) {
-         System.err.println("ERROR: @undecided.open tag in comment near " 
-                          + tags[0].holder().position() + " was not closed");
-         System.exit(1);
-      }
       chars += c;
       words += w;
       lines += l;

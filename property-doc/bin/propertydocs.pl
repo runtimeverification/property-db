@@ -111,7 +111,7 @@ $header.=" <TD BGCOLOR='#FFFFFF' NAME='highlighting' CLASS='HLon'><SPAN ONCLICK=
 $header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
 
 $taglets ="-taglet $tpackage.PropertyLinkTaglet    -taglet $tpackage.PropertyShortcutTaglet ";
-$taglets.="-taglet $tpackage.UndecidedOpenTaglet   -taglet $tpackage.UndecidedCloseTaglet ";
+$taglets.="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptiveOpenTaglet -taglet $tpackage.DescriptiveCloseTaglet ";
 $taglets.="-taglet $tpackage.InformalOpenTaglet    -taglet $tpackage.InformalCloseTaglet ";
 $taglets.="-taglet $tpackage.FormalOpenTaglet      -taglet $tpackage.FormalCloseTaglet ";
