@@ -1436,8 +1436,11 @@ public abstract class ClassLoader {
     // -- Package --
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Defines a package by name in this <tt>ClassLoader</tt>.  This allows
-     * class loaders to define the packages for their classes. Packages must
+     * class loaders to define the packages for their classes. 
+     * {@descriptive.close}
+     * Packages must
      * be created before the class is defined, and package names must be
      * unique within a class loader and cannot be redefined or changed once
      * created.  </p>
