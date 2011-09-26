@@ -26,11 +26,13 @@
 package java.lang;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * Thrown when an application tries to call an abstract method.
  * Normally, this error is caught by the compiler; this error can
  * only occur at run time if the definition of some class has
  * incompatibly changed since the currently executing method was last
  * compiled.
+ * {@descriptive.close}
  *
  * @author  unascribed
  * @since   JDK1.0
@@ -38,15 +40,19 @@ package java.lang;
 public
 class AbstractMethodError extends IncompatibleClassChangeError {
     /** {@collect.stats}
+     * {@descriptive.open}
      * Constructs an <code>AbstractMethodError</code> with no detail  message.
+     * {@descriptive.close}
      */
     public AbstractMethodError() {
         super();
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Constructs an <code>AbstractMethodError</code> with the specified
      * detail message.
+     * {@descriptive.close}
      *
      * @param   s   the detail message.
      */

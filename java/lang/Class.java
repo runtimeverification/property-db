@@ -68,6 +68,7 @@ import java.lang.annotation.Annotation;
 import sun.reflect.annotation.*;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * Instances of the class {@code Class} represent classes and
  * interfaces in a running Java application.  An enum is a kind of
  * class and an annotation is a kind of interface.  Every array also
@@ -102,6 +103,7 @@ import sun.reflect.annotation.*;
  * <p> <blockquote>
  *     {@code System.out.println("The name of class Foo is: "+Foo.class.getName());}
  * </blockquote>
+ * {@descriptive.close}
  *
  * @param <T> the type of the class modeled by this {@code Class}
  * object.  For example, the type of {@code String.class} is {@code
@@ -134,6 +136,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Converts the object to a string. The string representation is the
      * string "class" or "interface", followed by a space, and then by the
      * fully qualified name of the class in the format returned by
@@ -141,6 +144,7 @@ public final
      * primitive type, this method returns the name of the primitive type.  If
      * this {@code Class} object represents void this method returns
      * "void".
+     * {@descriptive.close}
      *
      * @return a string representation of this class object.
      */
@@ -151,6 +155,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Class} object associated with the class or
      * interface with the given string name.  Invoking this method is
      * equivalent to:
@@ -172,6 +177,7 @@ public final
      * <p>
      * A call to {@code forName("X")} causes the class named
      * {@code X} to be initialized.
+     * {@descriptive.close}
      *
      * @param      className   the fully qualified name of the desired class.
      * @return     the {@code Class} object for the class with the
@@ -188,6 +194,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Class} object associated with the class or
      * interface with the given string name, using the given class loader.
      * Given the fully qualified name for a class or interface (in the same
@@ -231,6 +238,7 @@ public final
      * method calls the security manager's {@code checkPermission} method
      * with a {@code RuntimePermission("getClassLoader")} permission to
      * ensure it's ok to access the bootstrap class loader.
+     * {@descriptive.close}
      *
      * @param name       fully qualified name of the desired class
      * @param initialize whether the class must be initialized
@@ -270,6 +278,7 @@ public final
         throws ClassNotFoundException;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Creates a new instance of the class represented by this {@code Class}
      * object.  The class is instantiated as if by a {@code new}
      * expression with an empty argument list.  The class is initialized if it
@@ -284,6 +293,7 @@ public final
      * Constructor.newInstance} method avoids this problem by wrapping
      * any exception thrown by the constructor in a (checked) {@link
      * java.lang.reflect.InvocationTargetException}.
+     * {@descriptive.close}
      *
      * @return     a newly allocated instance of the class represented by this
      *             object.
@@ -381,6 +391,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines if the specified {@code Object} is assignment-compatible
      * with the object represented by this {@code Class}.  This method is
      * the dynamic equivalent of the Java language {@code instanceof}
@@ -404,6 +415,7 @@ public final
      * implements this interface; it returns {@code false} otherwise. If
      * this {@code Class} object represents a primitive type, this method
      * returns {@code false}.
+     * {@descriptive.close}
      *
      * @param   obj the object to check
      * @return  true if {@code obj} is an instance of this class
@@ -414,6 +426,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines if the class or interface represented by this
      * {@code Class} object is either the same as, or is a superclass or
      * superinterface of, the class or interface represented by the specified
@@ -429,6 +442,7 @@ public final
      * represented by this {@code Class} object via an identity conversion
      * or via a widening reference conversion. See <em>The Java Language
      * Specification</em>, sections 5.1.1 and 5.1.4 , for details.
+     * {@descriptive.close}
      *
      * @param cls the {@code Class} object to be checked
      * @return the {@code boolean} value indicating whether objects of the
@@ -441,8 +455,10 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines if the specified {@code Class} object represents an
      * interface type.
+     * {@descriptive.close}
      *
      * @return  {@code true} if this object represents an interface;
      *          {@code false} otherwise.
@@ -451,7 +467,9 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines if this {@code Class} object represents an array class.
+     * {@descriptive.close}
      *
      * @return  {@code true} if this object represents an array class;
      *          {@code false} otherwise.
@@ -461,6 +479,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines if the specified {@code Class} object represents a
      * primitive type.
      *
@@ -474,6 +493,7 @@ public final
      * <p> These objects may only be accessed via the following public static
      * final variables, and are the only {@code Class} objects for which
      * this method returns {@code true}.
+     * {@descriptive.close}
      *
      * @return true if and only if this class represents a primitive type
      *
@@ -491,9 +511,11 @@ public final
     public native boolean isPrimitive();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns true if this {@code Class} object represents an annotation
      * type.  Note that if this method returns true, {@link #isInterface()}
      * would also return true, as all annotation types are also interfaces.
+     * {@descriptive.close}
      *
      * @return {@code true} if this class object represents an annotation
      *      type; {@code false} otherwise
@@ -504,8 +526,11 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if this class is a synthetic class;
      * returns {@code false} otherwise.
+     * {@descriptive.close}
+     * 
      * @return {@code true} if and only if this class is a synthetic class as
      *         defined by the Java Language Specification.
      * @since 1.5
@@ -515,6 +540,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the  name of the entity (class, interface, array class,
      * primitive type, or void) represented by this {@code Class} object,
      * as a {@code String}.
@@ -560,6 +586,7 @@ public final
      * (new int[3][4][5][6][7][8][9]).getClass().getName()
      *     returns "[[[[[[[I"
      * </pre></blockquote>
+     * {@descriptive.close}
      *
      * @return  the name of the class or interface
      *          represented by this object.
@@ -575,6 +602,7 @@ public final
     private native String getName0();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the class loader for the class.  Some implementations may use
      * null to represent the bootstrap class loader. This method will return
      * null in such implementations if this class was loaded by the bootstrap
@@ -589,6 +617,7 @@ public final
      *
      * <p>If this object
      * represents a primitive type or void, null is returned.
+     * {@descriptive.close}
      *
      * @return  the class loader that loaded the class or interface
      *          represented by this object.
@@ -619,11 +648,13 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array of {@code TypeVariable} objects that represent the
      * type variables declared by the generic declaration represented by this
      * {@code GenericDeclaration} object, in declaration order.  Returns an
      * array of length 0 if the underlying generic declaration declares no type
      * variables.
+     * {@descriptive.close}
      *
      * @return an array of {@code TypeVariable} objects that represent
      *     the type variables declared by this generic declaration
@@ -642,6 +673,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Class} representing the superclass of the entity
      * (class, interface, primitive type or void) represented by this
      * {@code Class}.  If this {@code Class} represents either the
@@ -649,6 +681,7 @@ public final
      * null is returned.  If this object represents an array class then the
      * {@code Class} object representing the {@code Object} class is
      * returned.
+     * {@descriptive.close}
      *
      * @return the superclass of the class represented by this object.
      */
@@ -656,6 +689,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Type} representing the direct superclass of
      * the entity (class, interface, primitive type or void) represented by
      * this {@code Class}.
@@ -672,6 +706,7 @@ public final
      * returned.  If this object represents an array class then the
      * {@code Class} object representing the {@code Object} class is
      * returned.
+     * {@descriptive.close}
      *
      * @throws GenericSignatureFormatError if the generic
      *     class signature does not conform to the format specified in the
@@ -697,6 +732,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Gets the package for this class.  The class loader of this class is used
      * to find the package.  If the class was loaded by the bootstrap class
      * loader the set of packages loaded from CLASSPATH is searched to find the
@@ -707,6 +743,7 @@ public final
      * information was defined in the manifests that accompany the classes, and
      * if the class loader created the package instance with the attributes
      * from the manifest.
+     * {@descriptive.close}
      *
      * @return the package of the class, or null if no package
      *         information is available from the archive or codebase.
@@ -717,6 +754,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Determines the interfaces implemented by the class or interface
      * represented by this object.
      *
@@ -753,12 +791,14 @@ public final
      *
      * <p> If this object represents a primitive type or void, the method
      * returns an array of length 0.
+     * {@descriptive.close}
      *
      * @return an array of interfaces implemented by this class.
      */
     public native Class<?>[] getInterfaces();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Type}s representing the interfaces
      * directly implemented by the class or interface represented by
      * this object.
@@ -794,6 +834,7 @@ public final
      *
      * <p>If this object represents a primitive type or void, the
      * method returns an array of length 0.
+     * {@descriptive.close}
      *
      * @throws GenericSignatureFormatError
      *     if the generic class signature does not conform to the format
@@ -815,9 +856,11 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code Class} representing the component type of an
      * array.  If this class does not represent an array class this method
      * returns null.
+     * {@descriptive.close}
      *
      * @return the {@code Class} representing the component type of this
      * class if this class is an array
@@ -828,6 +871,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the Java language modifiers for this class or interface, encoded
      * in an integer. The modifiers consist of the Java Virtual Machine's
      * constants for {@code public}, {@code protected},
@@ -849,6 +893,7 @@ public final
      *
      * <p> The modifier encodings are defined in <em>The Java Virtual Machine
      * Specification</em>, table 4.1.
+     * {@descriptive.close}
      *
      * @return the {@code int} representing the modifiers for this class
      * @see     java.lang.reflect.Modifier
@@ -858,7 +903,9 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Gets the signers of this class.
+     * {@descriptive.close}
      *
      * @return  the signers of this class, or null if there are no signers.  In
      *          particular, this method returns null if this object represents
@@ -869,12 +916,15 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Set the signers of this class.
+     * {@descriptive.close}
      */
     native void setSigners(Object[] signers);
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * If this {@code Class} object represents a local or anonymous
      * class within a method, returns a {@link
      * java.lang.reflect.Method Method} object representing the
@@ -884,6 +934,7 @@ public final
      * In particular, this method returns {@code null} if the underlying
      * class is a local or anonymous class immediately enclosed by a type
      * declaration, instance initializer or static initializer.
+     * {@descriptive.close}
      *
      * @return the immediately enclosing method of the underlying class, if
      *     that class is a local or anonymous class; otherwise {@code null}.
@@ -1004,6 +1055,7 @@ public final
      }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * If this {@code Class} object represents a local or anonymous
      * class within a constructor, returns a {@link
      * java.lang.reflect.Constructor Constructor} object representing
@@ -1012,6 +1064,7 @@ public final
      * method returns {@code null} if the underlying class is a local
      * or anonymous class immediately enclosed by a type declaration,
      * instance initializer or static initializer.
+     * {@descriptive.close}
      *
      * @return the immediately enclosing constructor of the underlying class, if
      *     that class is a local or anonymous class; otherwise {@code null}.
@@ -1063,12 +1116,14 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * If the class or interface represented by this {@code Class} object
      * is a member of another class, returns the {@code Class} object
      * representing the class in which it was declared.  This method returns
      * null if this class or interface is not a member of any other class.  If
      * this {@code Class} object represents an array class, a primitive
      * type, or void,then this method returns null.
+     * {@descriptive.close}
      *
      * @return the declaring class for this class
      * @since JDK1.1
@@ -1077,9 +1132,12 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the immediately enclosing class of the underlying
      * class.  If the underlying class is a top level class this
      * method returns {@code null}.
+     * {@descriptive.close}
+     * 
      * @return the immediately enclosing class of the underlying class
      * @since 1.5
      */
@@ -1111,6 +1169,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the simple name of the underlying class as given in the
      * source code. Returns an empty string if the underlying class is
      * anonymous.
@@ -1118,6 +1177,7 @@ public final
      * <p>The simple name of an array is the simple name of the
      * component type with "[]" appended.  In particular the simple
      * name of an array whose component type is anonymous is "[]".
+     * {@descriptive.close}
      *
      * @return the simple name of the underlying class
      * @since 1.5
@@ -1156,19 +1216,24 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Character.isDigit answers {@code true} to some non-ascii
      * digits.  This one does not.
+     * {@descriptive.close}
      */
     private static boolean isAsciiDigit(char c) {
         return '0' <= c && c <= '9';
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the canonical name of the underlying class as
      * defined by the Java Language Specification.  Returns null if
      * the underlying class does not have a canonical name (i.e., if
      * it is a local or anonymous class or an array whose component
      * type does not have a canonical name).
+     * {@descriptive.close}
+     * 
      * @return the canonical name of the underlying class if it exists, and
      * {@code null} otherwise.
      * @since 1.5
@@ -1195,8 +1260,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if and only if the underlying class
      * is an anonymous class.
+     * {@descriptive.close}
      *
      * @return {@code true} if and only if this class is an anonymous class.
      * @since 1.5
@@ -1206,8 +1273,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if and only if the underlying class
      * is a local class.
+     * {@descriptive.close}
      *
      * @return {@code true} if and only if this class is a local class.
      * @since 1.5
@@ -1217,8 +1286,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if and only if the underlying class
      * is a member class.
+     * {@descriptive.close}
      *
      * @return {@code true} if and only if this class is a member class.
      * @since 1.5
@@ -1228,10 +1299,12 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the "simple binary name" of the underlying class, i.e.,
      * the binary name without the leading enclosing class name.
      * Returns {@code null} if the underlying class is a top level
      * class.
+     * {@descriptive.close}
      */
     private String getSimpleBinaryName() {
         Class<?> enclosingClass = getEnclosingClass();
@@ -1246,8 +1319,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if this is a local class or an anonymous
      * class.  Returns {@code false} otherwise.
+     * {@descriptive.close}
      */
     private boolean isLocalOrAnonymousClass() {
         // JVM Spec 4.8.6: A class must have an EnclosingMethod
@@ -1257,6 +1332,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array containing {@code Class} objects representing all
      * the public classes and interfaces that are members of the class
      * represented by this {@code Class} object.  This includes public
@@ -1266,6 +1342,7 @@ public final
      * classes or interfaces.  This method also returns an array of length 0 if
      * this {@code Class} object represents a primitive type, an array
      * class, or void.
+     * {@descriptive.close}
      *
      * @return the array of {@code Class} objects representing the public
      * members of this class
@@ -1326,6 +1403,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array containing {@code Field} objects reflecting all
      * the accessible public fields of the class or interface represented by
      * this {@code Class} object.  The elements in the array returned are
@@ -1344,6 +1422,7 @@ public final
      * manipulate arrays.
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
+     * {@descriptive.close}
      *
      * @return the array of {@code Field} objects representing the
      * public fields
@@ -1378,6 +1457,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array containing {@code Method} objects reflecting all
      * the public <em>member</em> methods of the class or interface represented
      * by this {@code Class} object, including those declared by the class
@@ -1395,6 +1475,7 @@ public final
      * the returned array.
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.4.
+     * {@descriptive.close}
      *
      * @return the array of {@code Method} objects representing the
      * public methods of this class
@@ -1429,6 +1510,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array containing {@code Constructor} objects reflecting
      * all the public constructors of the class represented by this
      * {@code Class} object.  An array of length 0 is returned if the
@@ -1444,6 +1526,7 @@ public final
      * array could be modified to hold {@code Constructor} objects for
      * different classes, which would violate the type guarantees of
      * {@code Constructor<T>[]}.
+     * {@descriptive.close}
      *
      * @return the array of {@code Constructor} objects representing the
      *  public constructors of this class
@@ -1478,6 +1561,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Field} object that reflects the specified public
      * member field of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1498,6 +1582,7 @@ public final
      * </OL>
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
+     * {@descriptive.close}
      *
      * @param name the field name
      * @return  the {@code Field} object of this class specified by
@@ -1541,6 +1626,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Method} object that reflects the specified public
      * member method of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1582,6 +1668,7 @@ public final
      * signature but different return types.
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.4.
+     * {@descriptive.close}
      *
      * @param name the name of the method
      * @param parameterTypes the list of parameters
@@ -1626,6 +1713,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Constructor} object that reflects the specified
      * public constructor of the class represented by this {@code Class}
      * object. The {@code parameterTypes} parameter is an array of
@@ -1639,6 +1727,7 @@ public final
      * <p> The constructor to reflect is the public constructor of the class
      * represented by this {@code Class} object whose formal parameter
      * types match those specified by {@code parameterTypes}.
+     * {@descriptive.close}
      *
      * @param parameterTypes the parameter array
      * @return the {@code Constructor} object of the public constructor that
@@ -1676,6 +1765,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array of {@code Class} objects reflecting all the
      * classes and interfaces declared as members of the class represented by
      * this {@code Class} object. This includes public, protected, default
@@ -1684,6 +1774,7 @@ public final
      * returns an array of length 0 if the class declares no classes or
      * interfaces as members, or if this {@code Class} object represents a
      * primitive type, an array class, or void.
+     * {@descriptive.close}
      *
      * @return the array of {@code Class} objects representing all the
      * declared members of this class
@@ -1718,6 +1809,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array of {@code Field} objects reflecting all the fields
      * declared by the class or interface represented by this
      * {@code Class} object. This includes public, protected, default
@@ -1728,6 +1820,7 @@ public final
      * represents a primitive type, an array class, or void.
      *
      * <p> See <em>The Java Language Specification</em>, sections 8.2 and 8.3.
+     * {@descriptive.close}
      *
      * @return    the array of {@code Field} objects representing all the
      * declared fields of this class
@@ -1762,6 +1855,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array of {@code Method} objects reflecting all the
      * methods declared by the class or interface represented by this
      * {@code Class} object. This includes public, protected, default
@@ -1776,6 +1870,7 @@ public final
      * array.
      *
      * <p> See <em>The Java Language Specification</em>, section 8.2.
+     * {@descriptive.close}
      *
      * @return    the array of {@code Method} objects representing all the
      * declared methods of this class
@@ -1810,6 +1905,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an array of {@code Constructor} objects reflecting all the
      * constructors declared by the class represented by this
      * {@code Class} object. These are public, protected, default
@@ -1821,6 +1917,7 @@ public final
      * void.
      *
      * <p> See <em>The Java Language Specification</em>, section 8.2.
+     * {@descriptive.close}
      *
      * @return    the array of {@code Constructor} objects representing all the
      * declared constructors of this class
@@ -1855,11 +1952,13 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Field} object that reflects the specified declared
      * field of the class or interface represented by this {@code Class}
      * object. The {@code name} parameter is a {@code String} that
      * specifies the simple name of the desired field.  Note that this method
      * will not reflect the {@code length} field of an array class.
+     * {@descriptive.close}
      *
      * @param name the name of the field
      * @return the {@code Field} object for the specified field in this
@@ -1903,6 +2002,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Method} object that reflects the specified
      * declared method of the class or interface represented by this
      * {@code Class} object. The {@code name} parameter is a
@@ -1915,6 +2015,7 @@ public final
      * returned; otherwise one of the methods is chosen arbitrarily.  If the
      * name is "&lt;init&gt;"or "&lt;clinit&gt;" a {@code NoSuchMethodException}
      * is raised.
+     * {@descriptive.close}
      *
      * @param name the name of the method
      * @param parameterTypes the parameter array
@@ -1958,6 +2059,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Constructor} object that reflects the specified
      * constructor of the class or interface represented by this
      * {@code Class} object.  The {@code parameterTypes} parameter is
@@ -1967,6 +2069,7 @@ public final
      * If this {@code Class} object represents an inner class
      * declared in a non-static context, the formal parameter types
      * include the explicit enclosing instance as the first parameter.
+     * {@descriptive.close}
      *
      * @param parameterTypes the parameter array
      * @return    The {@code Constructor} object for the constructor with the
@@ -2003,6 +2106,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds a resource with a given name.  The rules for searching resources
      * associated with a given class are implemented by the defining
      * {@linkplain ClassLoader class loader} of the class.  This method
@@ -2030,6 +2134,7 @@ public final
      * (<tt>'&#92;u002e'</tt>).
      *
      * </ul>
+     * {@descriptive.close}
      *
      * @param  name name of the desired resource
      * @return      A {@link java.io.InputStream} object or {@code null} if
@@ -2048,6 +2153,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds a resource with a given name.  The rules for searching resources
      * associated with a given class are implemented by the defining
      * {@linkplain ClassLoader class loader} of the class.  This method
@@ -2075,6 +2181,7 @@ public final
      * (<tt>'&#92;u002e'</tt>).
      *
      * </ul>
+     * {@descriptive.close}
      *
      * @param  name name of the desired resource
      * @return      A  {@link java.net.URL} object or {@code null} if no
@@ -2093,17 +2200,23 @@ public final
 
 
 
-    /** {@collect.stats} protection domain returned when the internal domain is null */
+    /** {@collect.stats} 
+     * {@descriptive.open}
+     * protection domain returned when the internal domain is null
+     * {@descriptive.close} 
+     */
     private static java.security.ProtectionDomain allPermDomain;
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the {@code ProtectionDomain} of this class.  If there is a
      * security manager installed, this method first calls the security
      * manager's {@code checkPermission} method with a
      * {@code RuntimePermission("getProtectionDomain")} permission to
      * ensure it's ok to get the
      * {@code ProtectionDomain}.
+     * {@descriptive.close}
      *
      * @return the ProtectionDomain of this class
      *
@@ -2138,14 +2251,18 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the ProtectionDomain of this class.
+     * {@descriptive.close}
      */
     private native java.security.ProtectionDomain getProtectionDomain0();
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Set the ProtectionDomain for this class. Called by
      * ClassLoader.defineClass.
+     * {@descriptive.close}
      */
     native void setProtectionDomain0(java.security.ProtectionDomain pd);
 
@@ -2185,8 +2302,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Add a package name prefix if the name is not absolute Remove leading "/"
      * if name is absolute
+     * {@descriptive.close}
      */
     private String resolveName(String name) {
         if (name == null) {
@@ -2210,7 +2329,9 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Reflection support.
+     * {@descriptive.close}
      */
 
     // Caches for certain reflective results
@@ -2797,11 +2918,16 @@ public final
         return buf.toString();
     }
 
-    /** {@collect.stats} use serialVersionUID from JDK 1.1 for interoperability */
+    /** {@collect.stats} 
+     * {@descriptive.open}
+     * use serialVersionUID from JDK 1.1 for interoperability
+     * {@descriptive.close} 
+     */
     private static final long serialVersionUID = 3206093459760846163L;
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Class Class is special cased within the Serialization Stream Protocol.
      *
      * A Class instance is written initially into an ObjectOutputStream in the
@@ -2814,6 +2940,7 @@ public final
      * A new handle is generated for the initial time the class descriptor
      * is written into the stream. Future references to the class descriptor
      * are written as references to the initial class descriptor instance.
+     * {@descriptive.close}
      *
      * @see java.io.ObjectStreamClass
      */
@@ -2822,6 +2949,7 @@ public final
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the assertion status that would be assigned to this
      * class if it were to be initialized at the time this method is invoked.
      * If this class has had its assertion status set, the most recent
@@ -2838,6 +2966,7 @@ public final
      * Note that this method is not guaranteed to return the actual
      * assertion status that was (or will be) associated with the specified
      * class when it was (or will be) initialized.
+     * {@descriptive.close}
      *
      * @return the desired assertion status of the specified class.
      * @see    java.lang.ClassLoader#setClassAssertionStatus
@@ -2865,8 +2994,10 @@ public final
     private static native boolean desiredAssertionStatus0(Class clazz);
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns true if and only if this class was declared as an enum in the
      * source code.
+     * {@descriptive.close}
      *
      * @return true if and only if this class was declared as an enum in the
      *     source code
@@ -2924,8 +3055,10 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the elements of this enum class or null if this
      * Class object does not represent an enum type.
+     * {@descriptive.close}
      *
      * @return an array containing the values comprising the enum class
      *     represented by this Class object in the order they're
@@ -2939,10 +3072,12 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the elements of this enum class or null if this
      * Class object does not represent an enum type;
      * identical to getEnumConstantsShared except that
      * the result is uncloned, cached, and shared by all callers.
+     * {@descriptive.close}
      */
     T[] getEnumConstantsShared() {
         if (enumConstants == null) {
@@ -2969,11 +3104,13 @@ public final
     private volatile transient T[] enumConstants = null;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a map from simple name to enum constant.  This package-private
      * method is used internally by Enum to implement
      *     public static <T extends Enum<T>> T valueOf(Class<T>, String)
      * efficiently.  Note that the map is returned by this method is
      * created lazily on first use.  Typically it won't ever get created.
+     * {@descriptive.close}
      */
     Map<String, T> enumConstantDirectory() {
         if (enumConstantDirectory == null) {
@@ -2991,8 +3128,10 @@ public final
     private volatile transient Map<String, T> enumConstantDirectory = null;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Casts an object to the class or interface represented
      * by this {@code Class} object.
+     * {@descriptive.close}
      *
      * @param obj the object to be cast
      * @return the object after casting, or null if obj is null
@@ -3013,6 +3152,7 @@ public final
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Casts this {@code Class} object to represent a subclass of the class
      * represented by the specified class object.  Checks that that the cast
      * is valid, and throws a {@code ClassCastException} if it is not.  If
@@ -3024,6 +3164,7 @@ public final
      * generate a compile-time warning, as the correctness of the cast
      * could not be checked at runtime (because generic types are implemented
      * by erasure).
+     * {@descriptive.close}
      *
      * @return this {@code Class} object, cast to represent a subclass of
      *    the specified class object.

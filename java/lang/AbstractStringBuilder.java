@@ -29,41 +29,53 @@ import sun.misc.FloatingDecimal;
 import java.util.Arrays;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * A mutable sequence of characters.
  * <p>
  * Implements a modifiable string. At any point in time it contains some
  * particular sequence of characters, but the length and content of the
  * sequence can be changed through certain method calls.
+ * {@descriptive.close}
  *
  * @author      Michael McCloskey
  * @since       1.5
  */
 abstract class AbstractStringBuilder implements Appendable, CharSequence {
     /** {@collect.stats}
+     * {@descriptive.open}
      * The value is used for character storage.
+     * {@descriptive.close}
      */
     char value[];
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * The count is the number of characters used.
+     * {@descriptive.close}
      */
     int count;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * This no-arg constructor is necessary for serialization of subclasses.
+     * {@descriptive.close}
      */
     AbstractStringBuilder() {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Creates an AbstractStringBuilder of the specified capacity.
+     * {@descriptive.close}
      */
     AbstractStringBuilder(int capacity) {
         value = new char[capacity];
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the length (character count).
+     * {@descriptive.close}
      *
      * @return  the length of the sequence of characters currently
      *          represented by this object
@@ -73,9 +85,11 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the current capacity. The capacity is the amount of storage
      * available for newly inserted characters, beyond which an allocation
      * will occur.
+     * {@descriptive.close}
      *
      * @return  the current capacity
      */
@@ -84,6 +98,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Ensures that the capacity is at least equal to the specified minimum.
      * If the current capacity is less than the argument, then a new internal
      * array is allocated with greater capacity. The new capacity is the
@@ -94,6 +109,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * </ul>
      * If the <code>minimumCapacity</code> argument is nonpositive, this
      * method takes no action and simply returns.
+     * {@descriptive.close}
      *
      * @param   minimumCapacity   the minimum desired capacity.
      */
@@ -104,8 +120,10 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * This implements the expansion semantics of ensureCapacity with no
      * size check or synchronization.
+     * {@descriptive.close}
      */
     void expandCapacity(int minimumCapacity) {
         int newCapacity = (value.length + 1) * 2;
@@ -118,11 +136,13 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Attempts to reduce storage used for the character sequence.
      * If the buffer is larger than necessary to hold its current sequence of
      * characters, then it may be resized to become more space efficient.
      * Calling this method may, but is not required to, affect the value
      * returned by a subsequent call to the {@link #capacity()} method.
+     * {@descriptive.close}
      */
     public void trimToSize() {
         if (count < value.length) {
@@ -131,6 +151,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the length of the character sequence.
      * The sequence is changed to a new character sequence
      * whose length is specified by the argument. For every nonnegative
@@ -150,6 +171,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <p>
      * The <code>newLength</code> argument must be greater than or equal
      * to <code>0</code>.
+     * {@descriptive.close}
      *
      * @param      newLength   the new length
      * @throws     IndexOutOfBoundsException  if the
@@ -170,6 +192,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the <code>char</code> value in this sequence at the specified index.
      * The first <code>char</code> value is at index <code>0</code>, the next at index
      * <code>1</code>, and so on, as in array indexing.
@@ -180,6 +203,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <p>If the <code>char</code> value specified by the index is a
      * <a href="Character.html#unicode">surrogate</a>, the surrogate
      * value is returned.
+     * {@descriptive.close}
      *
      * @param      index   the index of the desired <code>char</code> value.
      * @return     the <code>char</code> value at the specified index.
@@ -193,6 +217,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the character (Unicode code point) at the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>0</code> to
@@ -205,6 +230,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * low-surrogate range, then the supplementary code point
      * corresponding to this surrogate pair is returned. Otherwise,
      * the <code>char</code> value at the given index is returned.
+     * {@descriptive.close}
      *
      * @param      index the index to the <code>char</code> values
      * @return     the code point value of the character at the
@@ -221,6 +247,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the character (Unicode code point) before the specified
      * index. The index refers to <code>char</code> values
      * (Unicode code units) and ranges from <code>1</code> to {@link
@@ -234,6 +261,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * returned. If the <code>char</code> value at <code>index -
      * 1</code> is an unpaired low-surrogate or a high-surrogate, the
      * surrogate value is returned.
+     * {@descriptive.close}
      *
      * @param     index the index following the code point that should be returned
      * @return    the Unicode code point value before the given index.
@@ -250,6 +278,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the number of Unicode code points in the specified text
      * range of this sequence. The text range begins at the specified
      * <code>beginIndex</code> and extends to the <code>char</code> at
@@ -257,6 +286,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <code>char</code>s) of the text range is
      * <code>endIndex-beginIndex</code>. Unpaired surrogates within
      * this sequence count as one code point each.
+     * {@descriptive.close}
      *
      * @param beginIndex the index to the first <code>char</code> of
      * the text range.
@@ -277,11 +307,13 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the index within this sequence that is offset from the
      * given <code>index</code> by <code>codePointOffset</code> code
      * points. Unpaired surrogates within the text range given by
      * <code>index</code> and <code>codePointOffset</code> count as
      * one code point each.
+     * {@descriptive.close}
      *
      * @param index the index to be offset
      * @param codePointOffset the offset in code points
@@ -304,6 +336,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Characters are copied from this sequence into the
      * destination character array <code>dst</code>. The first character to
      * be copied is at index <code>srcBegin</code>; the last character to
@@ -314,6 +347,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <p><blockquote><pre>
      * dstbegin + (srcEnd-srcBegin) - 1
      * </pre></blockquote>
+     * {@descriptive.close}
      *
      * @param      srcBegin   start copying at this offset.
      * @param      srcEnd     stop copying at this offset.
@@ -346,6 +380,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * The character at the specified index is set to <code>ch</code>. This
      * sequence is altered to represent a new character sequence that is
      * identical to the old character sequence, except that it contains the
@@ -353,6 +388,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <p>
      * The index argument must be greater than or equal to
      * <code>0</code>, and less than the length of this sequence.
+     * {@descriptive.close}
      *
      * @param      index   the index of the character to modify.
      * @param      ch      the new character.
@@ -366,12 +402,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>Object</code>
      * argument.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
+     * {@descriptive.close}
      *
      * @param   obj   an <code>Object</code>.
      * @return  a reference to this object.
@@ -381,6 +419,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the specified string to this character sequence.
      * <p>
      * The characters of the <code>String</code> argument are appended, in
@@ -394,6 +433,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * at index <i>k</i> in the old character sequence, if <i>k</i> is less
      * than <i>n</i>; otherwise, it is equal to the character at index
      * <i>k-n</i> in the argument <code>str</code>.
+     * {@descriptive.close}
      *
      * @param   str   a string.
      * @return  a reference to this object.
@@ -435,6 +475,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends a subsequence of the specified <code>CharSequence</code> to this
      * sequence.
      * <p>
@@ -453,6 +494,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * If <code>s</code> is <code>null</code>, then this method appends
      * characters as if the s parameter was a sequence containing the four
      * characters <code>"null"</code>.
+     * {@descriptive.close}
      *
      * @param   s the sequence to append.
      * @param   start   the starting index of the subsequence to be appended.
@@ -483,6 +525,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>char</code> array
      * argument to this sequence.
      * <p>
@@ -494,6 +537,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * a string by the method {@link String#valueOf(char[])} and the
      * characters of that string were then {@link #append(String) appended}
      * to this character sequence.
+     * {@descriptive.close}
      *
      * @param   str   the characters to be appended.
      * @return  a reference to this object.
@@ -508,6 +552,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of a subarray of the
      * <code>char</code> array argument to this sequence.
      * <p>
@@ -520,6 +565,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * a string by the method {@link String#valueOf(char[],int,int)} and the
      * characters of that string were then {@link #append(String) appended}
      * to this character sequence.
+     * {@descriptive.close}
      *
      * @param   str      the characters to be appended.
      * @param   offset   the index of the first <code>char</code> to append.
@@ -536,12 +582,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>boolean</code>
      * argument to the sequence.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
+     * {@descriptive.close}
      *
      * @param   b   a <code>boolean</code>.
      * @return  a reference to this object.
@@ -569,6 +617,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>char</code>
      * argument to this sequence.
      * <p>
@@ -579,6 +628,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * a string by the method {@link String#valueOf(char)} and the character
      * in that string were then {@link #append(String) appended} to this
      * character sequence.
+     * {@descriptive.close}
      *
      * @param   c   a <code>char</code>.
      * @return  a reference to this object.
@@ -592,12 +642,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>int</code>
      * argument to this sequence.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
+     * {@descriptive.close}
      *
      * @param   i   an <code>int</code>.
      * @return  a reference to this object.
@@ -618,12 +670,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>long</code>
      * argument to this sequence.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
+     * {@descriptive.close}
      *
      * @param   l   a <code>long</code>.
      * @return  a reference to this object.
@@ -644,12 +698,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>float</code>
      * argument to this sequence.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this string sequence.
+     * {@descriptive.close}
      *
      * @param   f   a <code>float</code>.
      * @return  a reference to this object.
@@ -660,12 +716,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>double</code>
      * argument to this sequence.
      * <p>
      * The argument is converted to a string as if by the method
      * <code>String.valueOf</code>, and the characters of that
      * string are then appended to this sequence.
+     * {@descriptive.close}
      *
      * @param   d   a <code>double</code>.
      * @return  a reference to this object.
@@ -676,11 +734,13 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Removes the characters in a substring of this sequence.
      * The substring begins at the specified <code>start</code> and extends to
      * the character at index <code>end - 1</code> or to the end of the
      * sequence if no such character exists. If
      * <code>start</code> is equal to <code>end</code>, no changes are made.
+     * {@descriptive.close}
      *
      * @param      start  The beginning index, inclusive.
      * @param      end    The ending index, exclusive.
@@ -705,6 +765,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Appends the string representation of the <code>codePoint</code>
      * argument to this sequence.
      *
@@ -717,6 +778,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * Character#toChars(int)} and the character in that array were
      * then {@link #append(char[]) appended} to this character
      * sequence.
+     * {@descriptive.close}
      *
      * @param   codePoint   a Unicode code point
      * @return  a reference to this object.
@@ -745,6 +807,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Removes the <code>char</code> at the specified position in this
      * sequence. This sequence is shortened by one <code>char</code>.
      *
@@ -754,6 +817,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * determine the number of <code>char</code>s to remove by calling
      * <code>Character.charCount(thisSequence.codePointAt(index))</code>,
      * where <code>thisSequence</code> is this sequence.
+     * {@descriptive.close}
      *
      * @param       index  Index of <code>char</code> to remove
      * @return      This object.
@@ -770,6 +834,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Replaces the characters in a substring of this sequence
      * with characters in the specified <code>String</code>. The substring
      * begins at the specified <code>start</code> and extends to the character
@@ -779,6 +844,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <code>String</code> is inserted at <code>start</code>. (This
      * sequence will be lengthened to accommodate the
      * specified String if necessary.)
+     * {@descriptive.close}
      *
      * @param      start    The beginning index, inclusive.
      * @param      end      The ending index, exclusive.
@@ -810,10 +876,12 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a new <code>String</code> that contains a subsequence of
      * characters currently contained in this character sequence. The
      * substring begins at the specified index and extends to the end of
      * this sequence.
+     * {@descriptive.close}
      *
      * @param      start    The beginning index, inclusive.
      * @return     The new string.
@@ -825,6 +893,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a new character sequence that is a subsequence of this sequence.
      *
      * <p> An invocation of this method of the form
@@ -839,6 +908,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      *
      * This method is provided so that this class can
      * implement the {@link CharSequence} interface. </p>
+     * {@descriptive.close}
      *
      * @param      start   the start index, inclusive.
      * @param      end     the end index, exclusive.
@@ -855,10 +925,12 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a new <code>String</code> that contains a subsequence of
      * characters currently contained in this sequence. The
      * substring begins at the specified <code>start</code> and
      * extends to the character at index <code>end - 1</code>.
+     * {@descriptive.close}
      *
      * @param      start    The beginning index, inclusive.
      * @param      end      The ending index, exclusive.
@@ -879,12 +951,14 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of a subarray of the <code>str</code>
      * array argument into this sequence. The subarray begins at the
      * specified <code>offset</code> and extends <code>len</code> <code>char</code>s.
      * The characters of the subarray are inserted into this sequence at
      * the position indicated by <code>index</code>. The length of this
      * sequence increases by <code>len</code> <code>char</code>s.
+     * {@descriptive.close}
      *
      * @param      index    position at which to insert subarray.
      * @param      str       A <code>char</code> array.
@@ -918,6 +992,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>Object</code>
      * argument into this character sequence.
      * <p>
@@ -929,6 +1004,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      obj      an <code>Object</code>.
@@ -940,6 +1016,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string into this character sequence.
      * <p>
      * The characters of the <code>String</code> argument are inserted, in
@@ -964,6 +1041,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      str      a string.
@@ -986,6 +1064,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>char</code> array
      * argument into this sequence.
      * <p>
@@ -1000,6 +1079,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * {@link #insert(int,String) inserted} into this
      * character sequence at the position indicated by
      * <code>offset</code>.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      str      a character array.
@@ -1020,6 +1100,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the specified <code>CharSequence</code> into this sequence.
      * <p>
      * The characters of the <code>CharSequence</code> argument are inserted,
@@ -1032,6 +1113,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      *
      * <p>If <code>s</code> is <code>null</code>, then the four characters
      * <code>"null"</code> are inserted into this sequence.
+     * {@descriptive.close}
      *
      * @param      dstOffset   the offset.
      * @param      s the sequence to be inserted
@@ -1047,6 +1129,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts a subsequence of the specified <code>CharSequence</code> into
      * this sequence.
      * <p>
@@ -1074,6 +1157,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * <code>end</code>.
      * <p>The end argument must be greater than or equal to
      * <code>start</code>, and less than or equal to the length of s.
+     * {@descriptive.close}
      *
      * <p>If <code>s</code> is <code>null</code>, then this method inserts
      * characters as if the s parameter was a sequence containing the four
@@ -1115,6 +1199,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>boolean</code>
      * argument into this sequence.
      * <p>
@@ -1126,6 +1211,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      b        a <code>boolean</code>.
@@ -1137,6 +1223,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>char</code>
      * argument into this sequence.
      * <p>
@@ -1153,6 +1240,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      c        a <code>char</code>.
@@ -1170,6 +1258,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the second <code>int</code>
      * argument into this sequence.
      * <p>
@@ -1181,6 +1270,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      i        an <code>int</code>.
@@ -1192,6 +1282,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>long</code>
      * argument into this sequence.
      * <p>
@@ -1203,6 +1294,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      l        a <code>long</code>.
@@ -1214,6 +1306,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>float</code>
      * argument into this sequence.
      * <p>
@@ -1225,6 +1318,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      f        a <code>float</code>.
@@ -1236,6 +1330,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Inserts the string representation of the <code>double</code>
      * argument into this sequence.
      * <p>
@@ -1247,6 +1342,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * The offset argument must be greater than or equal to
      * <code>0</code>, and less than or equal to the length of this
      * sequence.
+     * {@descriptive.close}
      *
      * @param      offset   the offset.
      * @param      d        a <code>double</code>.
@@ -1258,6 +1354,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the index within this string of the first occurrence of the
      * specified substring. The integer returned is the smallest value
      * <i>k</i> such that:
@@ -1265,6 +1362,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * this.toString().startsWith(str, <i>k</i>)
      * </pre></blockquote>
      * is <code>true</code>.
+     * {@descriptive.close}
      *
      * @param   str   any string.
      * @return  if the string argument occurs as a substring within this
@@ -1279,6 +1377,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the index within this string of the first occurrence of the
      * specified substring, starting at the specified index.  The integer
      * returned is the smallest value <tt>k</tt> for which:
@@ -1287,6 +1386,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      *                   this.toString().startsWith(str, k)
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
+     * {@descriptive.close}
      *
      * @param   str         the substring for which to search.
      * @param   fromIndex   the index from which to start the search.
@@ -1301,6 +1401,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the index within this string of the rightmost occurrence
      * of the specified substring.  The rightmost empty string "" is
      * considered to occur at the index value <code>this.length()</code>.
@@ -1309,6 +1410,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * this.toString().startsWith(str, k)
      * </pre></blockquote>
      * is true.
+     * {@descriptive.close}
      *
      * @param   str   the substring to search for.
      * @return  if the string argument occurs one or more times as a substring
@@ -1323,6 +1425,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the index within this string of the last occurrence of the
      * specified substring. The integer returned is the largest value <i>k</i>
      * such that:
@@ -1331,6 +1434,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      *                   this.toString().startsWith(str, k)
      * </pre></blockquote>
      * If no such value of <i>k</i> exists, then -1 is returned.
+     * {@descriptive.close}
      *
      * @param   str         the substring to search for.
      * @param   fromIndex   the index to start the search from.
@@ -1345,6 +1449,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Causes this character sequence to be replaced by the reverse of
      * the sequence. If there are any surrogate pairs included in the
      * sequence, these are treated as single characters for the
@@ -1363,6 +1468,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * high-surrogates before the operation. For example, reversing
      * "&#92;uDC00&#92;uD800" produces "&#92;uD800&#92;uDC00" which is
      * a valid surrogate pair.
+     * {@descriptive.close}
      *
      * @return  a reference to this object.
      */
@@ -1396,19 +1502,23 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a string representing the data in this sequence.
      * A new <code>String</code> object is allocated and initialized to
      * contain the character sequence currently represented by this
      * object. This <code>String</code> is then returned. Subsequent
      * changes to this sequence do not affect the contents of the
      * <code>String</code>.
+     * {@descriptive.close}
      *
      * @return  a string representation of this sequence of characters.
      */
     public abstract String toString();
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Needed by <tt>String</tt> for the contentEquals method.
+     * {@descriptive.close}
      */
     final char[] getValue() {
         return value;

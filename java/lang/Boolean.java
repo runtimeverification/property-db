@@ -26,6 +26,7 @@
 package java.lang;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * The Boolean class wraps a value of the primitive type
  * {@code boolean} in an object. An object of type
  * {@code Boolean} contains a single field whose type is
@@ -36,6 +37,7 @@ package java.lang;
  * {@code String} to a {@code boolean}, as well as other
  * constants and methods useful when dealing with a
  * {@code boolean}.
+ * {@descriptive.close}
  *
  * @author  Arthur van Hoff
  * @since   JDK1.0
@@ -44,26 +46,34 @@ public final class Boolean implements java.io.Serializable,
                                       Comparable<Boolean>
 {
     /** {@collect.stats}
+     * {@descriptive.open}
      * The {@code Boolean} object corresponding to the primitive
+     * {@descriptive.close}
      * value {@code true}.
      */
     public static final Boolean TRUE = new Boolean(true);
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * The {@code Boolean} object corresponding to the primitive
+     * {@descriptive.close}
      * value {@code false}.
      */
     public static final Boolean FALSE = new Boolean(false);
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * The Class object representing the primitive type boolean.
+     * {@descriptive.close}
      *
      * @since   JDK1.1
      */
     public static final Class<Boolean> TYPE = Class.getPrimitiveClass("boolean");
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * The value of the Boolean.
+     * {@descriptive.close}
      *
      * @serial
      */
@@ -73,13 +83,17 @@ public final class Boolean implements java.io.Serializable,
     private static final long serialVersionUID = -3665804199014368530L;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Allocates a {@code Boolean} object representing the
      * {@code value} argument.
+     * {@descriptive.close}
      *
+     * {@informal.open}
      * <p><b>Note: It is rarely appropriate to use this constructor.
      * Unless a <i>new</i> instance is required, the static factory
      * {@link #valueOf(boolean)} is generally a better choice. It is
      * likely to yield significantly better space and time performance.</b>
+     * {@informal.close}
      *
      * @param   value   the value of the {@code Boolean}.
      */
@@ -88,6 +102,7 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Allocates a {@code Boolean} object representing the value
      * {@code true} if the string argument is not {@code null}
      * and is equal, ignoring case, to the string {@code "true"}.
@@ -97,6 +112,7 @@ public final class Boolean implements java.io.Serializable,
      * that represents {@code true}.<br>
      * {@code new Boolean("yes")} produces a {@code Boolean} object
      * that represents {@code false}.
+     * {@descriptive.close}
      *
      * @param   s   the string to be converted to a {@code Boolean}.
      */
@@ -105,12 +121,14 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Parses the string argument as a boolean.  The {@code boolean}
      * returned represents the value {@code true} if the string argument
      * is not {@code null} and is equal, ignoring case, to the string
      * {@code "true"}. <p>
      * Example: {@code Boolean.parseBoolean("True")} returns {@code true}.<br>
      * Example: {@code Boolean.parseBoolean("yes")} returns {@code false}.
+     * {@descriptive.close}
      *
      * @param      s   the {@code String} containing the boolean
      *                 representation to be parsed
@@ -122,8 +140,10 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the value of this {@code Boolean} object as a boolean
      * primitive.
+     * {@descriptive.close}
      *
      * @return  the primitive {@code boolean} value of this object.
      */
@@ -132,14 +152,19 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Boolean} instance representing the specified
      * {@code boolean} value.  If the specified {@code boolean} value
      * is {@code true}, this method returns {@code Boolean.TRUE};
      * if it is {@code false}, this method returns {@code Boolean.FALSE}.
+     * {@descriptive.close}
+     * {@informal.open}
      * If a new {@code Boolean} instance is not required, this method
      * should generally be used in preference to the constructor
      * {@link #Boolean(boolean)}, as this method is likely to yield
      * significantly better space and time performance.
+     * {@informal.close}
+     * 
      *
      * @param  b a boolean value.
      * @return a {@code Boolean} instance representing {@code b}.
@@ -150,10 +175,12 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code Boolean} with a value represented by the
      * specified string.  The {@code Boolean} returned represents a
      * true value if the string argument is not {@code null}
      * and is equal, ignoring case, to the string {@code "true"}.
+     * {@descriptive.close}
      *
      * @param   s   a string.
      * @return  the {@code Boolean} value represented by the string.
@@ -163,10 +190,12 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code String} object representing the specified
      * boolean.  If the specified boolean is {@code true}, then
      * the string {@code "true"} will be returned, otherwise the
      * string {@code "false"} will be returned.
+     * {@descriptive.close}
      *
      * @param b the boolean to be converted
      * @return the string representation of the specified {@code boolean}
@@ -177,10 +206,12 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a {@code String} object representing this Boolean's
      * value.  If this object represents the value {@code true},
      * a string equal to {@code "true"} is returned. Otherwise, a
      * string equal to {@code "false"} is returned.
+     * {@descriptive.close}
      *
      * @return  a string representation of this object.
      */
@@ -189,7 +220,9 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns a hash code for this {@code Boolean} object.
+     * {@descriptive.close}
      *
      * @return  the integer {@code 1231} if this object represents
      * {@code true}; returns the integer {@code 1237} if this
@@ -200,9 +233,11 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if and only if the argument is not
      * {@code null} and is a {@code Boolean} object that
      * represents the same {@code boolean} value as this object.
+     * {@descriptive.close}
      *
      * @param   obj   the object to compare with.
      * @return  {@code true} if the Boolean objects represent the
@@ -216,6 +251,7 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns {@code true} if and only if the system property
      * named by the argument exists and is equal to the string
      * {@code "true"}. (Beginning with version 1.0.2 of the
@@ -226,6 +262,7 @@ public final class Boolean implements java.io.Serializable,
      * <p>
      * If there is no property with the specified name, or if the specified
      * name is empty or null, then {@code false} is returned.
+     * {@descriptive.close}
      *
      * @param   name   the system property name.
      * @return  the {@code boolean} value of the system property.
@@ -243,7 +280,9 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Compares this {@code Boolean} instance with another.
+     * {@descriptive.close}
      *
      * @param   b the {@code Boolean} instance to be compared
      * @return  zero if this object represents the same boolean value as the

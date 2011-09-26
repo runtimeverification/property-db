@@ -56,6 +56,7 @@ import sun.reflect.Reflection;
 import sun.security.util.SecurityConstants;
 
 /** {@collect.stats}
+ * {@descriptive.open}
  * A class loader is an object that is responsible for loading classes. The
  * class <tt>ClassLoader</tt> is an abstract class.  Given the <a
  * href="#name">binary name</a> of a class, a class loader should attempt to
@@ -152,6 +153,7 @@ import sun.security.util.SecurityConstants;
  *   "java.security.KeyStore$Builder$FileBuilder$1"
  *   "java.net.URLClassLoader$3$1"
  * </pre></blockquote>
+ * {@descriptive.close}
  *
  * @see      #resolveClass(Class)
  * @since 1.0
@@ -202,6 +204,7 @@ public abstract class ClassLoader {
 
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Creates a new class loader using the specified parent class loader for
      * delegation.
      *
@@ -209,6 +212,7 @@ public abstract class ClassLoader {
      * SecurityManager#checkCreateClassLoader()
      * <tt>checkCreateClassLoader</tt>} method is invoked.  This may result in
      * a security exception.  </p>
+     * {@descriptive.close}
      *
      * @param  parent
      *         The parent class loader
@@ -225,6 +229,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Creates a new class loader using the <tt>ClassLoader</tt> returned by
      * the method {@link #getSystemClassLoader()
      * <tt>getSystemClassLoader()</tt>} as the parent class loader.
@@ -233,6 +238,7 @@ public abstract class ClassLoader {
      * SecurityManager#checkCreateClassLoader()
      * <tt>checkCreateClassLoader</tt>} method is invoked.  This may result in
      * a security exception.  </p>
+     * {@descriptive.close}
      *
      * @throws  SecurityException
      *          If a security manager exists and its
@@ -247,12 +253,16 @@ public abstract class ClassLoader {
     // -- Class --
 
     /** {@collect.stats}
+     * {@informal.open}
      * Loads the class with the specified <a href="#name">binary name</a>.
+     * {@informal.close}
+     * {@descriptive.open}
      * This method searches for classes in the same manner as the {@link
      * #loadClass(String, boolean)} method.  It is invoked by the Java virtual
      * machine to resolve class references.  Invoking this method is equivalent
      * to invoking {@link #loadClass(String, boolean) <tt>loadClass(name,
      * false)</tt>}.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The <a href="#name">binary name</a> of the class
@@ -267,7 +277,11 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
-     * Loads the class with the specified <a href="#name">binary name</a>.  The
+     * {@informal.open}
+     * Loads the class with the specified <a href="#name">binary name</a>.
+     * {@informal.close} 
+     * {@descriptive.open}
+     * The
      * default implementation of this method searches for classes in the
      * following order:
      *
@@ -291,6 +305,7 @@ public abstract class ClassLoader {
      *
      * <p> Subclasses of <tt>ClassLoader</tt> are encouraged to override {@link
      * #findClass(String)}, rather than this method.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The <a href="#name">binary name</a> of the class
@@ -352,12 +367,16 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@informal.open}
      * Finds the class with the specified <a href="#name">binary name</a>.
+     * {@informal.close}
+     * {@descriptive.open}
      * This method should be overridden by class loader implementations that
      * follow the delegation model for loading classes, and will be invoked by
      * the {@link #loadClass <tt>loadClass</tt>} method after checking the
      * parent class loader for the requested class.  The default implementation
      * throws a <tt>ClassNotFoundException</tt>.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The <a href="#name">binary name</a> of the class
@@ -374,10 +393,12 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.  This method
      * is deprecated in favor of the version that takes a <a
      * href="#name">binary name</a> as its first argument, and is more secure.
+     * {@descriptive.close}
      *
      * @param  b
      *         The bytes that make up the class data.  The bytes in positions
@@ -416,6 +437,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>.
      * Before the <tt>Class</tt> can be used it must be resolved.
      *
@@ -433,6 +455,7 @@ public abstract class ClassLoader {
      * the {@link #defineClass(String, byte[], int, int,
      * java.security.ProtectionDomain) <tt>defineClass</tt>} method that takes a
      * <tt>ProtectionDomain</tt> as one of its arguments.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The expected <a href="#name">binary name</a> of the class, or
@@ -556,6 +579,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Converts an array of bytes into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
      * <tt>null</tt>, then a default domain will be assigned to the class as
@@ -570,16 +594,21 @@ public abstract class ClassLoader {
      * package must contain the same set of certificates or a
      * <tt>SecurityException</tt> will be thrown.  Note that if
      * <tt>name</tt> is <tt>null</tt>, this check is not performed.
+     * {@descriptive.close}
+     * {@informal.open}
      * You should always pass in the <a href="#name">binary name</a> of the
      * class you are defining as well as the bytes.  This ensures that the
      * class you are defining is indeed the class you think it is.
+     * {@informal.close}
      *
+     * {@informal.open}
      * <p> The specified <tt>name</tt> cannot begin with "<tt>java.</tt>", since
      * all classes in the "<tt>java.*</tt> packages can only be defined by the
      * bootstrap class loader.  If <tt>name</tt> is not <tt>null</tt>, it
      * must be equal to the <a href="#name">binary name</a> of the class
      * specified by the byte array "<tt>b</tt>", otherwise a {@link
      * <tt>NoClassDefFoundError</tt>} will be thrown.  </p>
+     * {@informal.close}
      *
      * @param  name
      *         The expected <a href="#name">binary name</a> of the class, or
@@ -641,6 +670,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Converts a {@link java.nio.ByteBuffer <tt>ByteBuffer</tt>}
      * into an instance of class <tt>Class</tt>,
      * with an optional <tt>ProtectionDomain</tt>.  If the domain is
@@ -667,6 +697,7 @@ public abstract class ClassLoader {
      *     return {@link #defineClass(String, byte[], int, int, ProtectionDomain)
      * </tt><i>cl</i><tt>.defineClass}(</tt><i>name</i><tt>, temp, 0, temp.length, </tt><i>pd</i><tt>);<br>
      * </tt></blockquote>
+     * {@descriptive.close}
      *
      * @param  name
      *         The expected <a href="#name">binary name</a. of the class, or
@@ -791,8 +822,10 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * check to make sure the certs for the new class (certs) are the same as
      * the certs for the first class inserted in the package (pcerts)
+     * {@descriptive.close}
      */
     private boolean compareCerts(java.security.cert.Certificate[] pcerts,
                                  java.security.cert.Certificate[] certs)
@@ -836,6 +869,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Links the specified class.  This (misleadingly named) method may be
      * used by a class loader to link a class.  If the class <tt>c</tt> has
      * already been linked, then this method simply returns. Otherwise, the
@@ -843,6 +877,7 @@ public abstract class ClassLoader {
      * href="http://java.sun.com/docs/books/jls/">Java Language
      * Specification</a>.
      * </p>
+     * {@descriptive.close}
      *
      * @param  c
      *         The class to link
@@ -859,15 +894,19 @@ public abstract class ClassLoader {
     private native void resolveClass0(Class c);
 
     /** {@collect.stats}
+     * {@informal.open}
      * Finds a class with the specified <a href="#name">binary name</a>,
      * loading it if necessary.
+     * {@informal.close}
      *
+     * {@descriptive.open}
      * <p> This method loads the class through the system class loader (see
      * {@link #getSystemClassLoader()}).  The <tt>Class</tt> object returned
      * might have more than one <tt>ClassLoader</tt> associated with it.
      * Subclasses of <tt>ClassLoader</tt> need not usually invoke this method,
      * because most class loaders need to override just {@link
      * #findClass(String)}.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The <a href="#name">binary name</a> of the class
@@ -904,10 +943,15 @@ public abstract class ClassLoader {
         throws ClassNotFoundException;
 
     /** {@collect.stats}
+     * {@informal.open}
      * Returns the class with the given <a href="#name">binary name</a> if this
      * loader has been recorded by the Java virtual machine as an initiating
-     * loader of a class with that <a href="#name">binary name</a>.  Otherwise
+     * loader of a class with that <a href="#name">binary name</a>.  
+     * {@informal.close}
+     * {@descriptive.open}
+     * Otherwise
      * <tt>null</tt> is returned.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The <a href="#name">binary name</a> of the class
@@ -926,8 +970,10 @@ public abstract class ClassLoader {
     private native final Class findLoadedClass0(String name);
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Sets the signers of a class.  This should be invoked after defining a
      * class.  </p>
+     * {@descriptive.close}
      *
      * @param  c
      *         The <tt>Class</tt> object
@@ -945,6 +991,7 @@ public abstract class ClassLoader {
     // -- Resource --
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds the resource with the given name.  A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
      * that is independent of the location of the code.
@@ -956,6 +1003,7 @@ public abstract class ClassLoader {
      * resource; if the parent is <tt>null</tt> the path of the class loader
      * built-in to the virtual machine is searched.  That failing, this method
      * will invoke {@link #findResource(String)} to find the resource.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -980,6 +1028,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds all the resources with the given name. A resource is some data
      * (images, audio, text, etc) that can be accessed by class code in a way
      * that is independent of the location of the code.
@@ -989,6 +1038,7 @@ public abstract class ClassLoader {
      *
      * <p> The search order is described in the documentation for {@link
      * #getResource(String)}.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1018,8 +1068,10 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds the resource with the given name. Class loader implementations
      * should override this method to specify where to find resources.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1034,10 +1086,12 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an enumeration of {@link java.net.URL <tt>URL</tt>} objects
      * representing all the resources with the given name. Class loader
      * implementations should override this method to specify where to load
      * resources from.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1055,9 +1109,11 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Find a resource of the specified name from the search path used to load
      * classes.  This method locates the resource through the system class
      * loader (see {@link #getSystemClassLoader()}).  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1076,6 +1132,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Finds all resources of the specified name from the search path used to
      * load classes.  The resources thus found are returned as an
      * {@link java.util.Enumeration <tt>Enumeration</tt>} of {@link
@@ -1083,6 +1140,7 @@ public abstract class ClassLoader {
      *
      * <p> The search order is described in the documentation for {@link
      * #getSystemResource(String)}.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1106,7 +1164,9 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Find resources from the VM's built-in classloader.
+     * {@descriptive.close}
      */
     private static URL getBootstrapResource(String name) {
         URLClassPath ucp = getBootstrapClassPath();
@@ -1115,7 +1175,9 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Find resources from the VM's built-in classloader.
+     * {@descriptive.close}
      */
     private static Enumeration getBootstrapResources(String name)
         throws IOException
@@ -1142,10 +1204,12 @@ public abstract class ClassLoader {
     private static URLClassPath bootstrapClassPath;
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns an input stream for reading the specified resource.
      *
      * <p> The search order is described in the documentation for {@link
      * #getResource(String)}.  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1165,9 +1229,11 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Open for reading, a resource of the specified name from the search path
      * used to load classes.  This method locates the resource through the
      * system class loader (see {@link #getSystemClassLoader()}).  </p>
+     * {@descriptive.close}
      *
      * @param  name
      *         The resource name
@@ -1190,6 +1256,7 @@ public abstract class ClassLoader {
     // -- Hierarchy --
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the parent class loader for delegation. Some implementations may
      * use <tt>null</tt> to represent the bootstrap class loader. This method
      * will return <tt>null</tt> in such implementations if this class loader's
@@ -1204,6 +1271,7 @@ public abstract class ClassLoader {
      * <tt>RuntimePermission("getClassLoader")</tt>} permission to verify
      * access to the parent class loader is permitted.  If not, a
      * <tt>SecurityException</tt> will be thrown.  </p>
+     * {@descriptive.close}
      *
      * @return  The parent <tt>ClassLoader</tt>
      *
@@ -1228,6 +1296,7 @@ public abstract class ClassLoader {
     }
 
     /** {@collect.stats}
+     * {@descriptive.open}
      * Returns the system class loader for delegation.  This is the default
      * delegation parent for new <tt>ClassLoader</tt> instances, and is
      * typically the class loader used to start the application.
@@ -1259,6 +1328,7 @@ public abstract class ClassLoader {
      * <tt>RuntimePermission("getClassLoader")</tt>} permission to verify
      * access to the system class loader.  If not, a
      * <tt>SecurityException</tt> will be thrown.  </p>
+     * {@descriptive.close}
      *
      * @return  The system <tt>ClassLoader</tt> for delegation, or
      *          <tt>null</tt> if none
