@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * The <code>DataOutput</code> interface provides
  * for converting data from any of the Java
  * primitive types to a series of bytes and
@@ -40,6 +41,7 @@ package java.io;
  * write bytes, it is generally true that if
  * a byte cannot be written for any reason,
  * an <code>IOException</code> is thrown.
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @see     java.io.DataInput
@@ -48,18 +50,21 @@ package java.io;
  */
 public
 interface DataOutput {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes to the output stream the eight
      * low-order bits of the argument <code>b</code>.
      * The 24 high-order  bits of <code>b</code>
      * are ignored.
+     * {@description.close}
      *
      * @param      b   the byte to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void write(int b) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes to the output stream all the bytes in array <code>b</code>.
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
@@ -68,13 +73,15 @@ interface DataOutput {
      * <code>b[0]</code> is written first, then
      * <code>b[1]</code>, and so on; the last byte
      * written is <code>b[b.length-1]</code>.
+     * {@description.close}
      *
      * @param      b   the data.
      * @throws     IOException  if an I/O error occurs.
      */
     void write(byte b[]) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from array
      * <code>b</code>, in order,  to
      * the output stream.  If <code>b</code>
@@ -88,6 +95,7 @@ interface DataOutput {
      * byte <code>b[off]</code> is written first,
      * then <code>b[off+1]</code>, and so on; the
      * last byte written is <code>b[off+len-1]</code>.
+     * {@description.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.
@@ -96,7 +104,8 @@ interface DataOutput {
      */
     void write(byte b[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>boolean</code> value to this output stream.
      * If the argument <code>v</code>
      * is <code>true</code>, the value <code>(byte)1</code>
@@ -107,13 +116,15 @@ interface DataOutput {
      * method of interface <code>DataInput</code>,
      * which will then return a <code>boolean</code>
      * equal to <code>v</code>.
+     * {@description.close}
      *
      * @param      v   the boolean to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeBoolean(boolean v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes to the output stream the eight low-
      * order bits of the argument <code>v</code>.
      * The 24 high-order bits of <code>v</code>
@@ -124,13 +135,15 @@ interface DataOutput {
      * method of interface <code>DataInput</code>,
      * which will then return a <code>byte</code>
      * equal to <code>(byte)v</code>.
+     * {@description.close}
      *
      * @param      v   the byte value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeByte(int v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes two bytes to the output
      * stream to represent the value of the argument.
      * The byte values to be written, in the  order
@@ -144,13 +157,15 @@ interface DataOutput {
      * of interface <code>DataInput</code> , which
      * will then return a <code>short</code> equal
      * to <code>(short)v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>short</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeShort(int v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>char</code> value, which
      * is comprised of two bytes, to the
      * output stream.
@@ -165,13 +180,15 @@ interface DataOutput {
      * of interface <code>DataInput</code> , which
      * will then return a <code>char</code> equal
      * to <code>(char)v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>char</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeChar(int v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes an <code>int</code> value, which is
      * comprised of four bytes, to the output stream.
      * The byte values to be written, in the  order
@@ -186,13 +203,15 @@ interface DataOutput {
      * by the <code>readInt</code> method of interface
      * <code>DataInput</code> , which will then
      * return an <code>int</code> equal to <code>v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>int</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeInt(int v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>long</code> value, which is
      * comprised of eight bytes, to the output stream.
      * The byte values to be written, in the  order
@@ -212,13 +231,15 @@ interface DataOutput {
      * of interface <code>DataInput</code> , which
      * will then return a <code>long</code> equal
      * to <code>v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>long</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeLong(long v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>float</code> value,
      * which is comprised of four bytes, to the output stream.
      * It does this as if it first converts this
@@ -231,13 +252,15 @@ interface DataOutput {
      * method of interface <code>DataInput</code>,
      * which will then return a <code>float</code>
      * equal to <code>v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>float</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeFloat(float v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>double</code> value,
      * which is comprised of eight bytes, to the output stream.
      * It does this as if it first converts this
@@ -250,13 +273,15 @@ interface DataOutput {
      * method of interface <code>DataInput</code>,
      * which will then return a <code>double</code>
      * equal to <code>v</code>.
+     * {@description.close}
      *
      * @param      v   the <code>double</code> value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeDouble(double v) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a string to the output stream.
      * For every character in the string
      * <code>s</code>,  taken in order, one byte
@@ -272,13 +297,15 @@ interface DataOutput {
      * of the <code>writeByte</code> method . The
      * high-order eight bits of each character
      * in the string are ignored.
+     * {@description.close}
      *
      * @param      s   the string of bytes to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeBytes(String s) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes every character in the string <code>s</code>,
      * to the output stream, in order,
      * two bytes per character. If <code>s</code>
@@ -292,13 +319,15 @@ interface DataOutput {
      * two bytes are actually written, high-order
      * byte first, in exactly the manner of the
      * <code>writeChar</code> method.
+     * {@description.close}
      *
      * @param      s   the string value to be written.
      * @throws     IOException  if an I/O error occurs.
      */
     void writeChars(String s) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes two bytes of length information
      * to the output stream, followed
      * by the
@@ -346,6 +375,7 @@ interface DataOutput {
      * by the <code>readUTF</code> method of interface
      * <code>DataInput</code> , which will then
      * return a <code>String</code> equal to <code>s</code>.
+     * {@description.close}
      *
      * @param      s   the string value to be written.
      * @throws     IOException  if an I/O error occurs.

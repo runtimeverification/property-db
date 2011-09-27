@@ -29,7 +29,8 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Vector;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A <code>SequenceInputStream</code> represents
  * the logical concatenation of other input
  * streams. It starts out with an ordered
@@ -38,6 +39,7 @@ import java.util.Vector;
  * whereupon it reads from the second one,
  * and so on, until end of file is reached
  * on the last of the contained input streams.
+ * {@description.close}
  *
  * @author  Author van Hoff
  * @since   JDK1.0
@@ -47,7 +49,8 @@ class SequenceInputStream extends InputStream {
     Enumeration e;
     InputStream in;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Initializes a newly created <code>SequenceInputStream</code>
      * by remembering the argument, which must
      * be an <code>Enumeration</code>  that produces
@@ -59,6 +62,7 @@ class SequenceInputStream extends InputStream {
      * each input stream from the enumeration
      * is exhausted, it is closed by calling its
      * <code>close</code> method.
+     * {@description.close}
      *
      * @param   e   an enumeration of input streams.
      * @see     java.util.Enumeration
@@ -73,13 +77,15 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Initializes a newly
      * created <code>SequenceInputStream</code>
      * by remembering the two arguments, which
      * will be read in order, first <code>s1</code>
      * and then <code>s2</code>, to provide the
      * bytes to be read from this <code>SequenceInputStream</code>.
+     * {@description.close}
      *
      * @param   s1   the first input stream to read.
      * @param   s2   the second input stream to read.
@@ -98,8 +104,10 @@ class SequenceInputStream extends InputStream {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      *  Continues reading in the next stream if an EOF is reached.
+     * {@description.close}
      */
     final void nextStream() throws IOException {
         if (in != null) {
@@ -115,7 +123,8 @@ class SequenceInputStream extends InputStream {
 
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from the current underlying input stream without
      * blocking by the next invocation of a method for the current
@@ -125,6 +134,7 @@ class SequenceInputStream extends InputStream {
      * <p>
      * This method simply calls {@code available} of the current underlying
      * input stream and returns the result.
+     * {@description.close}
      *
      * @return an estimate of the number of bytes that can be read (or
      *         skipped over) from the current underlying input stream
@@ -141,19 +151,25 @@ class SequenceInputStream extends InputStream {
         return in.available();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The byte is
      * returned as an <code>int</code> in the range <code>0</code> to
      * <code>255</code>. If no byte is available because the end of the
      * stream has been reached, the value <code>-1</code> is returned.
+     * {@description.close}
+     * {@property.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * This method
      * tries to read one character from the current substream. If it
      * reaches the end of the stream, it calls the <code>close</code>
      * method of the current substream and begins reading from the next
      * substream.
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -171,17 +187,24 @@ class SequenceInputStream extends InputStream {
         return c;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
-     * into an array of bytes.  If <code>len</code> is not zero, the method
+     * into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
+     * {@property.close}
+     * {@description.close}
      * <p>
      * The <code>read</code> method of <code>SequenceInputStream</code>
      * tries to read the data from the current substream. If it fails to
      * read any characters because the substream has reached the end of
      * the stream, it calls the <code>close</code> method of the current
      * substream and begins reading from the next substream.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in array <code>b</code>
@@ -213,17 +236,23 @@ class SequenceInputStream extends InputStream {
         return n;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
+     * {@description.close}
+     * {@property.open formal:InputStream_ManipulateAfterClose}
      * A closed <code>SequenceInputStream</code>
      * cannot  perform input operations and cannot
      * be reopened.
      * <p>
+     * {@property.close}
+     * {@description.open}
      * If this stream was created
      * from an enumeration, all remaining elements
      * are requested from the enumeration and closed
      * before the <code>close</code> method returns.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

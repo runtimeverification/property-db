@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Signals that an end of file or end of stream has been reached
  * unexpectedly during input.
  * <p>
@@ -33,6 +34,7 @@ package java.io;
  * stream. Note that many other input operations return a special value on
  * end of stream rather than throwing an exception.
  * <p>
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @see     java.io.DataInputStream
@@ -41,19 +43,23 @@ package java.io;
  */
 public
 class EOFException extends IOException {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs an <code>EOFException</code> with <code>null</code>
      * as its error detail message.
+     * {@description.close}
      */
     public EOFException() {
         super();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs an <code>EOFException</code> with the specified detail
      * message. The string <code>s</code> may later be retrieved by the
      * <code>{@link java.lang.Throwable#getMessage}</code> method of class
      * <code>java.lang.Throwable</code>.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

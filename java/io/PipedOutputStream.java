@@ -27,17 +27,24 @@ package java.io;
 
 import java.io.*;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A piped output stream can be connected to a piped input stream
  * to create a communications pipe. The piped output stream is the
  * sending end of the pipe. Typically, data is written to a
  * <code>PipedOutputStream</code> object by one thread and data is
  * read from the connected <code>PipedInputStream</code> by some
- * other thread. Attempting to use both objects from a single thread
+ * other thread.
+ * {@description.close}
+ * {@property.open formal:PipedStream_SingleThread}
+ * Attempting to use both objects from a single thread
  * is not recommended as it may deadlock the thread.
+ * {@property.close}
+ * {@description.open}
  * The pipe is said to be <a name=BROKEN> <i>broken</i> </a> if a
  * thread that was reading data bytes from the connected piped input
  * stream is no longer alive.
+ * {@description.close}
  *
  * @author  James Gosling
  * @see     java.io.PipedInputStream
@@ -52,10 +59,12 @@ class PipedOutputStream extends OutputStream {
            long time until the next GC). */
     private PipedInputStream sink;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a piped output stream connected to the specified piped
      * input stream. Data bytes written to this stream will then be
      * available as input from <code>snk</code>.
+     * {@description.close}
      *
      * @param      snk   The piped input stream to connect to.
      * @exception  IOException  if an I/O error occurs.
@@ -64,10 +73,12 @@ class PipedOutputStream extends OutputStream {
         connect(snk);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a piped output stream that is not yet connected to a
      * piped input stream. It must be connected to a piped input stream,
      * either by the receiver or the sender, before being used.
+     * {@description.close}
      *
      * @see     java.io.PipedInputStream#connect(java.io.PipedOutputStream)
      * @see     java.io.PipedOutputStream#connect(java.io.PipedInputStream)
@@ -75,7 +86,8 @@ class PipedOutputStream extends OutputStream {
     public PipedOutputStream() {
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Connects this piped output stream to a receiver. If this object
      * is already connected to some other piped input stream, an
      * <code>IOException</code> is thrown.
@@ -89,6 +101,7 @@ class PipedOutputStream extends OutputStream {
      * <blockquote><pre>
      * snk.connect(src)</pre></blockquote>
      * The two calls have the same effect.
+     * {@description.close}
      *
      * @param      snk   the piped input stream to connect to.
      * @exception  IOException  if an I/O error occurs.
@@ -105,10 +118,12 @@ class PipedOutputStream extends OutputStream {
         snk.connected = true;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the specified <code>byte</code> to the piped output stream.
      * <p>
      * Implements the <code>write</code> method of <code>OutputStream</code>.
+     * {@description.close}
      *
      * @param      b   the <code>byte</code> to be written.
      * @exception IOException if the pipe is <a href=#BROKEN> broken</a>,
@@ -122,11 +137,15 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this piped output stream.
+     * {@description.close}
+     * {@property.open blocking}
      * This method blocks until all the bytes are written to the output
      * stream.
+     * {@property.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.
@@ -149,10 +168,12 @@ class PipedOutputStream extends OutputStream {
         sink.receive(b, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out.
      * This will notify any readers that bytes are waiting in the pipe.
+     * {@description.close}
      *
      * @exception IOException if an I/O error occurs.
      */
@@ -164,10 +185,15 @@ class PipedOutputStream extends OutputStream {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this piped output stream and releases any system resources
-     * associated with this stream. This stream may no longer be used for
+     * associated with this stream.
+     * {@description.close}
+     * {@property.open formal:OutputStream_ManipulateAfterClose}
+     * This stream may no longer be used for
      * writing bytes.
+     * {@property.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

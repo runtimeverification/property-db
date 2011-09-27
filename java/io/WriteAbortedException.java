@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Signals that one of the ObjectStreamExceptions was thrown during a
  * write operation.  Thrown during a read operation when one of the
  * ObjectStreamExceptions was thrown during a write operation.  The
@@ -39,6 +40,7 @@ package java.io;
  * accessed via the public {@link #detail} field is now known as the
  * <i>cause</i>, and may be accessed via the {@link Throwable#getCause()}
  * method, as well as the aforementioned "legacy field."
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.1
@@ -46,20 +48,24 @@ package java.io;
 public class WriteAbortedException extends ObjectStreamException {
     private static final long serialVersionUID = -3326426625597282442L;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Exception that was caught while writing the ObjectStream.
      *
      * <p>This field predates the general-purpose exception chaining facility.
      * The {@link Throwable#getCause()} method is now the preferred means of
      * obtaining this information.
+     * {@description.close}
      *
      * @serial
      */
     public Exception detail;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a WriteAbortedException with a string describing
      * the exception and the exception causing the abort.
+     * {@description.close}
      * @param s   String describing the exception.
      * @param ex  Exception causing the abort.
      */
@@ -69,9 +75,11 @@ public class WriteAbortedException extends ObjectStreamException {
         detail = ex;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Produce the message and include the message from the nested
      * exception, if there is one.
+     * {@description.close}
      */
     public String getMessage() {
         if (detail == null)
@@ -80,8 +88,10 @@ public class WriteAbortedException extends ObjectStreamException {
             return super.getMessage() + "; " + detail.toString();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the exception that terminated the operation (the <i>cause</i>).
+     * {@description.close}
      *
      * @return  the exception that terminated the operation (the <i>cause</i>),
      *          which may be null.

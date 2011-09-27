@@ -27,7 +27,8 @@ package java.io;
 
 import java.util.Arrays;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * The <code>StreamTokenizer</code> class takes an input stream and
  * parses it into "tokens", allowing the tokens to be
  * read one at a time. The parsing process is controlled by a table
@@ -55,6 +56,7 @@ import java.util.Arrays;
  * sets up the syntax tables, and then repeatedly loops calling the
  * <code>nextToken</code> method in each iteration of the loop until
  * it returns the value <code>TT_EOF</code>.
+ * {@description.close}
  *
  * @author  James Gosling
  * @see     java.io.StreamTokenizer#nextToken()
@@ -70,12 +72,14 @@ public class StreamTokenizer {
 
     private char buf[] = new char[20];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The next character to be considered by the nextToken method.  May also
      * be NEED_CHAR to indicate that a new character should be read, or SKIP_LF
      * to indicate that a new character should be read and, if it is a '\n'
      * character, it should be discarded and a second new character should be
      * read.
+     * {@description.close}
      */
     private int peekc = NEED_CHAR;
 
@@ -84,7 +88,11 @@ public class StreamTokenizer {
 
     private boolean pushedBack;
     private boolean forceLower;
-    /** {@collect.stats} The line number of the last token read */
+    /**
+     * {@description.open}
+     * The line number of the last token read
+     * {@description.close}
+     */
     private int LINENO = 1;
 
     private boolean eolIsSignificantP = false;
@@ -98,7 +106,8 @@ public class StreamTokenizer {
     private static final byte CT_QUOTE = 8;
     private static final byte CT_COMMENT = 16;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * After a call to the <code>nextToken</code> method, this field
      * contains the type of the token just read. For a single character
      * token, its value is the single character, converted to an integer.
@@ -116,6 +125,7 @@ public class StreamTokenizer {
      * </ul>
      * <p>
      * The initial value of this field is -4.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#eolIsSignificant(boolean)
      * @see     java.io.StreamTokenizer#nextToken()
@@ -127,23 +137,31 @@ public class StreamTokenizer {
      */
     public int ttype = TT_NOTHING;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * A constant indicating that the end of the stream has been read.
+     * {@description.close}
      */
     public static final int TT_EOF = -1;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * A constant indicating that the end of the line has been read.
+     * {@description.close}
      */
     public static final int TT_EOL = '\n';
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * A constant indicating that a number token has been read.
+     * {@description.close}
      */
     public static final int TT_NUMBER = -2;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * A constant indicating that a word token has been read.
+     * {@description.close}
      */
     public static final int TT_WORD = -3;
 
@@ -153,11 +171,14 @@ public class StreamTokenizer {
      */
     private static final int TT_NOTHING = -4;
 
-    /** {@collect.stats}
+    /**
+     * {@property.open formal:StreamTokenizer_AccessInvalidField}
      * If the current token is a word token, this field contains a
      * string giving the characters of the word token. When the current
      * token is a quoted string token, this field contains the body of
      * the string.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * The current token is a word when the value of the
      * <code>ttype</code> field is <code>TT_WORD</code>. The current token is
@@ -165,6 +186,7 @@ public class StreamTokenizer {
      * a quote character.
      * <p>
      * The initial value of this field is null.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#quoteChar(int)
      * @see     java.io.StreamTokenizer#TT_WORD
@@ -172,19 +194,27 @@ public class StreamTokenizer {
      */
     public String sval;
 
-    /** {@collect.stats}
+    /**
+     * {@property.open formal:StreamTokenizer_AccessInvalidField}
      * If the current token is a number, this field contains the value
      * of that number. The current token is a number when the value of
      * the <code>ttype</code> field is <code>TT_NUMBER</code>.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * The initial value of this field is 0.0.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#TT_NUMBER
      * @see     java.io.StreamTokenizer#ttype
      */
     public double nval;
 
-    /** {@collect.stats} Private constructor that initializes everything except the streams. */
+    /**
+     * {@description.open}
+     * Private constructor that initializes everything except the streams.
+     * {@description.close}
+     */
     private StreamTokenizer() {
         wordChars('a', 'z');
         wordChars('A', 'Z');
@@ -196,7 +226,8 @@ public class StreamTokenizer {
         parseNumbers();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a stream tokenizer that parses the specified input
      * stream. The stream tokenizer is initialized to the following
      * default state:
@@ -221,6 +252,7 @@ public class StreamTokenizer {
      *   Reader r = new BufferedReader(new InputStreamReader(is));
      *   StreamTokenizer st = new StreamTokenizer(r);
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      is        an input stream.
      * @see        java.io.BufferedReader
@@ -236,8 +268,10 @@ public class StreamTokenizer {
         input = is;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Create a tokenizer that parses the given character stream.
+     * {@description.close}
      *
      * @param r  a Reader object providing the input stream.
      * @since   JDK1.1
@@ -250,10 +284,12 @@ public class StreamTokenizer {
         reader = r;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Resets this tokenizer's syntax table so that all characters are
      * "ordinary." See the <code>ordinaryChar</code> method
      * for more information on a character being ordinary.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#ordinaryChar(int)
      */
@@ -262,11 +298,13 @@ public class StreamTokenizer {
             ctype[i] = 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are word constituents. A word token consists of a word constituent
      * followed by zero or more word constituents or number constituents.
+     * {@description.close}
      *
      * @param   low   the low end of the range.
      * @param   hi    the high end of the range.
@@ -280,7 +318,8 @@ public class StreamTokenizer {
             ctype[low++] |= CT_ALPHA;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are white space characters. White space characters serve only to
@@ -288,6 +327,7 @@ public class StreamTokenizer {
      *
      * <p>Any other attribute settings for the characters in the specified
      * range are cleared.
+     * {@description.close}
      *
      * @param   low   the low end of the range.
      * @param   hi    the high end of the range.
@@ -301,12 +341,14 @@ public class StreamTokenizer {
             ctype[low++] = CT_WHITESPACE;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that all characters <i>c</i> in the range
      * <code>low&nbsp;&lt;=&nbsp;<i>c</i>&nbsp;&lt;=&nbsp;high</code>
      * are "ordinary" in this tokenizer. See the
      * <code>ordinaryChar</code> method for more information on a
      * character being ordinary.
+     * {@description.close}
      *
      * @param   low   the low end of the range.
      * @param   hi    the high end of the range.
@@ -321,7 +363,8 @@ public class StreamTokenizer {
             ctype[low++] = 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that the character argument is "ordinary"
      * in this tokenizer. It removes any special significance the
      * character has as a comment character, word component, string
@@ -334,6 +377,7 @@ public class StreamTokenizer {
      * with the ability of a <code>StreamTokenizer</code> to count
      * lines. The <code>lineno</code> method may no longer reflect
      * the presence of such terminator characters in its line count.
+     * {@description.close}
      *
      * @param   ch   the character.
      * @see     java.io.StreamTokenizer#ttype
@@ -343,12 +387,14 @@ public class StreamTokenizer {
             ctype[ch] = 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specified that the character argument starts a single-line
      * comment. All characters from the comment character to the end of
      * the line are ignored by this stream tokenizer.
      *
      * <p>Any other attribute settings for the specified character are cleared.
+     * {@description.close}
      *
      * @param   ch   the character.
      */
@@ -357,7 +403,8 @@ public class StreamTokenizer {
             ctype[ch] = CT_COMMENT;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that matching pairs of this character delimit string
      * constants in this tokenizer.
      * <p>
@@ -375,6 +422,7 @@ public class StreamTokenizer {
      * converted to single characters as the string is parsed.
      *
      * <p>Any other attribute settings for the specified character are cleared.
+     * {@description.close}
      *
      * @param   ch   the character.
      * @see     java.io.StreamTokenizer#nextToken()
@@ -386,7 +434,8 @@ public class StreamTokenizer {
             ctype[ch] = CT_QUOTE;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Specifies that numbers should be parsed by this tokenizer. The
      * syntax table of this tokenizer is modified so that each of the twelve
      * characters:
@@ -401,6 +450,7 @@ public class StreamTokenizer {
      * number rather than a word, by setting the <code>ttype</code>
      * field to the value <code>TT_NUMBER</code> and putting the numeric
      * value of the token into the <code>nval</code> field.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#nval
      * @see     java.io.StreamTokenizer#TT_NUMBER
@@ -413,7 +463,8 @@ public class StreamTokenizer {
         ctype['-'] |= CT_DIGIT;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Determines whether or not ends of line are treated as tokens.
      * If the flag argument is true, this tokenizer treats end of lines
      * as tokens; the <code>nextToken</code> method returns
@@ -428,6 +479,7 @@ public class StreamTokenizer {
      * <p>
      * If the <code>flag</code> is false, end-of-line characters are
      * treated as white space and serve only to separate tokens.
+     * {@description.close}
      *
      * @param   flag   <code>true</code> indicates that end-of-line characters
      *                 are separate tokens; <code>false</code> indicates that
@@ -440,7 +492,8 @@ public class StreamTokenizer {
         eolIsSignificantP = flag;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Determines whether or not the tokenizer recognizes C-style comments.
      * If the flag argument is <code>true</code>, this stream tokenizer
      * recognizes C-style comments. All text between successive
@@ -448,6 +501,7 @@ public class StreamTokenizer {
      * <p>
      * If the flag argument is <code>false</code>, then C-style comments
      * are not treated specially.
+     * {@description.close}
      *
      * @param   flag   <code>true</code> indicates to recognize and ignore
      *                 C-style comments.
@@ -456,7 +510,8 @@ public class StreamTokenizer {
         slashStarCommentsP = flag;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Determines whether or not the tokenizer recognizes C++-style comments.
      * If the flag argument is <code>true</code>, this stream tokenizer
      * recognizes C++-style comments. Any occurrence of two consecutive
@@ -465,6 +520,7 @@ public class StreamTokenizer {
      * <p>
      * If the flag argument is <code>false</code>, then C++-style
      * comments are not treated specially.
+     * {@description.close}
      *
      * @param   flag   <code>true</code> indicates to recognize and ignore
      *                 C++-style comments.
@@ -473,7 +529,8 @@ public class StreamTokenizer {
         slashSlashCommentsP = flag;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Determines whether or not word token are automatically lowercased.
      * If the flag argument is <code>true</code>, then the value in the
      * <code>sval</code> field is lowercased whenever a word token is
@@ -483,6 +540,7 @@ public class StreamTokenizer {
      * <p>
      * If the flag argument is <code>false</code>, then the
      * <code>sval</code> field is not modified.
+     * {@description.close}
      *
      * @param   fl   <code>true</code> indicates that all word tokens should
      *               be lowercased.
@@ -494,7 +552,11 @@ public class StreamTokenizer {
         forceLower = fl;
     }
 
-    /** {@collect.stats} Read the next character */
+    /**
+     * {@description.open}
+     * Read the next character
+     * {@description.close}
+     */
     private int read() throws IOException {
         if (reader != null)
             return reader.read();
@@ -504,17 +566,23 @@ public class StreamTokenizer {
             throw new IllegalStateException();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Parses the next token from the input stream of this tokenizer.
+     * {@description.close}
+     * {@property.open formal:StreamTokenizer_AccessInvalidField}
      * The type of the next token is returned in the <code>ttype</code>
      * field. Additional information about the token may be in the
      * <code>nval</code> field or the <code>sval</code> field of this
      * tokenizer.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * Typical clients of this
      * class first set up the syntax tables and then sit in a loop
      * calling nextToken to parse successive tokens until TT_EOF
      * is returned.
+     * {@description.close}
      *
      * @return     the value of the <code>ttype</code> field.
      * @exception  IOException  if an I/O error occurs.
@@ -751,11 +819,13 @@ public class StreamTokenizer {
         return ttype = c;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Causes the next call to the <code>nextToken</code> method of this
      * tokenizer to return the current value in the <code>ttype</code>
      * field, and not to modify the value in the <code>nval</code> or
      * <code>sval</code> field.
+     * {@description.close}
      *
      * @see     java.io.StreamTokenizer#nextToken()
      * @see     java.io.StreamTokenizer#nval
@@ -767,8 +837,10 @@ public class StreamTokenizer {
             pushedBack = true;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Return the current line number.
+     * {@description.close}
      *
      * @return  the current line number of this stream tokenizer.
      */
@@ -776,7 +848,8 @@ public class StreamTokenizer {
         return LINENO;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the string representation of the current stream token and
      * the line number it occurs on.
      *
@@ -784,6 +857,7 @@ public class StreamTokenizer {
      * example can be considered typical:
      *
      * <blockquote><pre>Token['a'], line 10</pre></blockquote>
+     * {@description.close}
      *
      * @return  a string representation of the token
      * @see     java.io.StreamTokenizer#nval

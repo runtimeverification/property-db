@@ -24,7 +24,8 @@
  */
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Exception indicating the failure of an object read operation due to
  * unread primitive data, or the end of data belonging to a serialized
  * object in the stream.  This exception may be thrown in two cases:
@@ -41,6 +42,7 @@ package java.io;
  *       OptionalDataException's eof field is set to true, and the length field
  *       is set to 0.
  * </ul>
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.1
@@ -66,16 +68,20 @@ public class OptionalDataException extends ObjectStreamException {
         eof = end;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The number of bytes of primitive data available to be read
      * in the current buffer.
+     * {@description.close}
      *
      * @serial
      */
     public int length;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * True if there is no more data in the buffered part of the stream.
+     * {@description.close}
      *
      * @serial
      */

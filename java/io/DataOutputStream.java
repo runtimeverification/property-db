@@ -25,10 +25,12 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A data output stream lets an application write primitive Java data
  * types to an output stream in a portable way. An application can
  * then use a data input stream to read the data back in.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.io.DataInputStream
@@ -36,21 +38,29 @@ package java.io;
  */
 public
 class DataOutputStream extends FilterOutputStream implements DataOutput {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The number of bytes written to the data output stream so far.
+     * {@description.close}
+     * {@property.open}
      * If this counter overflows, it will be wrapped to Integer.MAX_VALUE.
+     * {@property.close}
      */
     protected int written;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * bytearr is initialized on demand by writeUTF
+     * {@description.close}
      */
     private byte[] bytearr = null;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new data output stream to write data to the specified
      * underlying output stream. The counter <code>written</code> is
      * set to zero.
+     * {@description.close}
      *
      * @param   out   the underlying output stream, to be saved for later
      *                use.
@@ -60,9 +70,11 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         super(out);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Increases the written counter by the specified value
      * until it reaches Integer.MAX_VALUE.
+     * {@description.close}
      */
     private void incCount(int value) {
         int temp = written + value;
@@ -72,13 +84,15 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         written = temp;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the specified byte (the low eight bits of the argument
      * <code>b</code>) to the underlying output stream. If no exception
      * is thrown, the counter <code>written</code> is incremented by
      * <code>1</code>.
      * <p>
      * Implements the <code>write</code> method of <code>OutputStream</code>.
+     * {@description.close}
      *
      * @param      b   the <code>byte</code> to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -89,11 +103,13 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to the underlying output stream.
      * If no exception is thrown, the counter <code>written</code> is
      * incremented by <code>len</code>.
+     * {@description.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.
@@ -108,12 +124,14 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes this data output stream. This forces any buffered output
      * bytes to be written out to the stream.
      * <p>
      * The <code>flush</code> method of <code>DataOutputStream</code>
      * calls the <code>flush</code> method of its underlying output stream.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterOutputStream#out
@@ -123,13 +141,15 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         out.flush();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>boolean</code> to the underlying output stream as
      * a 1-byte value. The value <code>true</code> is written out as the
      * value <code>(byte)1</code>; the value <code>false</code> is
      * written out as the value <code>(byte)0</code>. If no exception is
      * thrown, the counter <code>written</code> is incremented by
      * <code>1</code>.
+     * {@description.close}
      *
      * @param      v   a <code>boolean</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -140,10 +160,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes out a <code>byte</code> to the underlying output stream as
      * a 1-byte value. If no exception is thrown, the counter
      * <code>written</code> is incremented by <code>1</code>.
+     * {@description.close}
      *
      * @param      v   a <code>byte</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -154,10 +176,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(1);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>short</code> to the underlying output stream as two
      * bytes, high byte first. If no exception is thrown, the counter
      * <code>written</code> is incremented by <code>2</code>.
+     * {@description.close}
      *
      * @param      v   a <code>short</code> to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -169,10 +193,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(2);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>char</code> to the underlying output stream as a
      * 2-byte value, high byte first. If no exception is thrown, the
      * counter <code>written</code> is incremented by <code>2</code>.
+     * {@description.close}
      *
      * @param      v   a <code>char</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -184,10 +210,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(2);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes an <code>int</code> to the underlying output stream as four
      * bytes, high byte first. If no exception is thrown, the counter
      * <code>written</code> is incremented by <code>4</code>.
+     * {@description.close}
      *
      * @param      v   an <code>int</code> to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -203,10 +231,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
 
     private byte writeBuffer[] = new byte[8];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a <code>long</code> to the underlying output stream as eight
      * bytes, high byte first. In no exception is thrown, the counter
      * <code>written</code> is incremented by <code>8</code>.
+     * {@description.close}
      *
      * @param      v   a <code>long</code> to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -225,13 +255,15 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(8);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Converts the float argument to an <code>int</code> using the
      * <code>floatToIntBits</code> method in class <code>Float</code>,
      * and then writes that <code>int</code> value to the underlying
      * output stream as a 4-byte quantity, high byte first. If no
      * exception is thrown, the counter <code>written</code> is
      * incremented by <code>4</code>.
+     * {@description.close}
      *
      * @param      v   a <code>float</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -242,13 +274,15 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeInt(Float.floatToIntBits(v));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Converts the double argument to a <code>long</code> using the
      * <code>doubleToLongBits</code> method in class <code>Double</code>,
      * and then writes that <code>long</code> value to the underlying
      * output stream as an 8-byte quantity, high byte first. If no
      * exception is thrown, the counter <code>written</code> is
      * incremented by <code>8</code>.
+     * {@description.close}
      *
      * @param      v   a <code>double</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -259,12 +293,14 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeLong(Double.doubleToLongBits(v));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes out the string to the underlying output stream as a
      * sequence of bytes. Each character in the string is written out, in
      * sequence, by discarding its high eight bits. If no exception is
      * thrown, the counter <code>written</code> is incremented by the
      * length of <code>s</code>.
+     * {@description.close}
      *
      * @param      s   a string of bytes to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -278,12 +314,14 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a string to the underlying output stream as a sequence of
      * characters. Each character is written to the data output stream as
      * if by the <code>writeChar</code> method. If no exception is
      * thrown, the counter <code>written</code> is incremented by twice
      * the length of <code>s</code>.
+     * {@description.close}
      *
      * @param      s   a <code>String</code> value to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -300,7 +338,8 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         incCount(len * 2);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a string to the underlying output stream using
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
      * encoding in a machine-independent manner.
@@ -315,6 +354,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
      * bytes written to the output stream. This will be at least two
      * plus the length of <code>str</code>, and at most two plus
      * thrice the length of <code>str</code>.
+     * {@description.close}
      *
      * @param      str   a string to be written.
      * @exception  IOException  if an I/O error occurs.
@@ -323,7 +363,8 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         writeUTF(str, this);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a string to the specified DataOutput using
      * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
      * encoding in a machine-independent manner.
@@ -337,6 +378,7 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
      * bytes written to the output stream. This will be at least two
      * plus the length of <code>str</code>, and at most two plus
      * thrice the length of <code>str</code>.
+     * {@description.close}
      *
      * @param      str   a string to be written.
      * @param      out   destination to write to
@@ -402,10 +444,12 @@ class DataOutputStream extends FilterOutputStream implements DataOutput {
         return utflen + 2;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the current value of the counter <code>written</code>,
      * the number of bytes written to this data output stream so far.
      * If the counter overflows, it will be wrapped to Integer.MAX_VALUE.
+     * {@description.close}
      *
      * @return  the value of the <code>written</code> field.
      * @see     java.io.DataOutputStream#written

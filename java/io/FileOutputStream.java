@@ -29,7 +29,8 @@ import java.nio.channels.FileChannel;
 import sun.nio.ch.FileChannelImpl;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A file output stream is an output stream for writing data to a
  * <code>File</code> or to a <code>FileDescriptor</code>. Whether or not
  * a file is available or may be created depends upon the underlying
@@ -41,6 +42,7 @@ import sun.nio.ch.FileChannelImpl;
  * <p><code>FileOutputStream</code> is meant for writing streams of raw bytes
  * such as image data. For writing streams of characters, consider using
  * <code>FileWriter</code>.
+ * {@description.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.File
@@ -51,10 +53,12 @@ import sun.nio.ch.FileChannelImpl;
 public
 class FileOutputStream extends OutputStream
 {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The system dependent file descriptor. The value is
      * 1 more than actual file descriptor. This means that
      * the default value 0 indicates that the file is not open.
+     * {@description.close}
      */
     private FileDescriptor fd;
 
@@ -74,7 +78,8 @@ class FileOutputStream extends OutputStream
         return false;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an output file stream to write to the file with the
      * specified name. A new <code>FileDescriptor</code> object is
      * created to represent this file connection.
@@ -85,6 +90,7 @@ class FileOutputStream extends OutputStream
      * If the file exists but is a directory rather than a regular file, does
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
+     * {@description.close}
      *
      * @param      name   the system-dependent filename
      * @exception  FileNotFoundException  if the file exists but is a directory
@@ -99,7 +105,8 @@ class FileOutputStream extends OutputStream
         this(name != null ? new File(name) : null, false);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an output file stream to write to the file with the specified
      * <code>name</code>.  If the second argument is <code>true</code>, then
      * bytes will be written to the end of the file rather than the beginning.
@@ -112,6 +119,7 @@ class FileOutputStream extends OutputStream
      * If the file exists but is a directory rather than a regular file, does
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
+     * {@description.close}
      *
      * @param     name        the system-dependent file name
      * @param     append      if <code>true</code>, then bytes will be written
@@ -131,7 +139,8 @@ class FileOutputStream extends OutputStream
         this(name != null ? new File(name) : null, append);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a file output stream to write to the file represented by
      * the specified <code>File</code> object. A new
      * <code>FileDescriptor</code> object is created to represent this
@@ -144,6 +153,7 @@ class FileOutputStream extends OutputStream
      * If the file exists but is a directory rather than a regular file, does
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
+     * {@description.close}
      *
      * @param      file               the file to be opened for writing.
      * @exception  FileNotFoundException  if the file exists but is a directory
@@ -160,7 +170,8 @@ class FileOutputStream extends OutputStream
         this(file, false);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a file output stream to write to the file represented by
      * the specified <code>File</code> object. If the second argument is
      * <code>true</code>, then bytes will be written to the end of the file
@@ -174,6 +185,7 @@ class FileOutputStream extends OutputStream
      * If the file exists but is a directory rather than a regular file, does
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
+     * {@description.close}
      *
      * @param      file               the file to be opened for writing.
      * @param     append      if <code>true</code>, then bytes will be written
@@ -210,7 +222,8 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an output file stream to write to the specified file
      * descriptor, which represents an existing connection to an actual
      * file in the file system.
@@ -218,6 +231,7 @@ class FileOutputStream extends OutputStream
      * First, if there is a security manager, its <code>checkWrite</code>
      * method is called with the file descriptor <code>fdObj</code>
      * argument as its argument.
+     * {@description.close}
      *
      * @param      fdObj   the file descriptor to be opened for writing
      * @exception  SecurityException  if a security manager exists and its
@@ -243,29 +257,37 @@ class FileOutputStream extends OutputStream
         fd.incrementAndGetUseCount();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Opens a file, with the specified name, for writing.
+     * {@description.close}
      * @param name name of file to be opened
      */
     private native void open(String name) throws FileNotFoundException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Opens a file, with the specified name, for appending.
+     * {@description.close}
      * @param name name of file to be opened
      */
     private native void openAppend(String name) throws FileNotFoundException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the specified byte to this file output stream. Implements
      * the <code>write</code> method of <code>OutputStream</code>.
+     * {@description.close}
      *
      * @param      b   the byte to be written.
      * @exception  IOException  if an I/O error occurs.
      */
     public native void write(int b) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a sub array as a sequence of bytes.
+     * {@description.close}
      * @param b the data to be written
      * @param off the start offset in the data
      * @param len the number of bytes that are written
@@ -273,9 +295,11 @@ class FileOutputStream extends OutputStream
      */
     private native void writeBytes(byte b[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this file output stream.
+     * {@description.close}
      *
      * @param      b   the data.
      * @exception  IOException  if an I/O error occurs.
@@ -284,9 +308,11 @@ class FileOutputStream extends OutputStream
         writeBytes(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this file output stream.
+     * {@description.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.
@@ -297,13 +323,20 @@ class FileOutputStream extends OutputStream
         writeBytes(b, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this file output stream and releases any system resources
-     * associated with this stream. This file output stream may no longer
+     * associated with this stream.
+     * {@description.close}
+     * {@property.open formal:OutputStream_ManipulateAfterClose}
+     * This file output stream may no longer
      * be used for writing bytes.
+     * {@property.close}
      *
+     * {@property.open undecided}
      * <p> If this stream has an associated channel then the channel is closed
      * as well.
+     * {@property.close}
      *
      * @exception  IOException  if an I/O error occurs.
      *
@@ -342,8 +375,10 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the file descriptor associated with this stream.
+     * {@description.close}
      *
      * @return  the <code>FileDescriptor</code> object that represents
      *          the connection to the file in the file system being used
@@ -357,7 +392,8 @@ class FileOutputStream extends OutputStream
         throw new IOException();
      }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the unique {@link java.nio.channels.FileChannel FileChannel}
      * object associated with this file output stream. </p>
      *
@@ -368,6 +404,7 @@ class FileOutputStream extends OutputStream
      * Writing bytes to this stream will increment the channel's position
      * accordingly.  Changing the channel's position, either explicitly or by
      * writing, will change this stream's file position.
+     * {@description.close}
      *
      * @return  the file channel associated with this file output stream
      *
@@ -390,10 +427,12 @@ class FileOutputStream extends OutputStream
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Cleans up the connection to the file, and ensures that the
      * <code>close</code> method of this file output stream is
      * called when there are no more references to this stream.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FileInputStream#close()

@@ -30,7 +30,8 @@ import java.nio.charset.CharsetEncoder;
 import sun.nio.cs.StreamEncoder;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * An OutputStreamWriter is a bridge from character streams to byte streams:
  * Characters written to it are encoded into bytes using a specified {@link
  * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
@@ -65,6 +66,7 @@ import sun.nio.cs.StreamEncoder;
  * character sequences with the charset's default <i>substitution sequence</i>.
  * The {@linkplain java.nio.charset.CharsetEncoder} class should be used when more
  * control over the encoding process is required.
+ * {@description.close}
  *
  * @see BufferedWriter
  * @see OutputStream
@@ -78,8 +80,10 @@ public class OutputStreamWriter extends Writer {
 
     private final StreamEncoder se;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an OutputStreamWriter that uses the named charset.
+     * {@description.close}
      *
      * @param  out
      *         An OutputStream
@@ -100,8 +104,10 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, charsetName);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an OutputStreamWriter that uses the default character encoding.
+     * {@description.close}
      *
      * @param  out  An OutputStream
      */
@@ -114,8 +120,10 @@ public class OutputStreamWriter extends Writer {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an OutputStreamWriter that uses the given charset. </p>
+     * {@description.close}
      *
      * @param  out
      *         An OutputStream
@@ -133,8 +141,10 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, cs);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an OutputStreamWriter that uses the given charset encoder.  </p>
+     * {@description.close}
      *
      * @param  out
      *         An OutputStream
@@ -152,7 +162,8 @@ public class OutputStreamWriter extends Writer {
         se = StreamEncoder.forOutputStreamWriter(out, this, enc);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the name of the character encoding being used by this stream.
      *
      * <p> If the encoding has an historical name then that name is returned;
@@ -163,6 +174,7 @@ public class OutputStreamWriter extends Writer {
      * name, being unique for the encoding, may differ from the name passed to
      * the constructor.  This method may return <tt>null</tt> if the stream has
      * been closed. </p>
+     * {@description.close}
      *
      * @return The historical name of this encoding, or possibly
      *         <code>null</code> if the stream has been closed
@@ -176,17 +188,21 @@ public class OutputStreamWriter extends Writer {
         return se.getEncoding();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes the output buffer to the underlying byte stream, without flushing
      * the byte stream itself.  This method is non-private only so that it may
      * be invoked by PrintStream.
+     * {@description.close}
      */
     void flushBuffer() throws IOException {
         se.flushBuffer();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a single character.
+     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */
@@ -194,8 +210,10 @@ public class OutputStreamWriter extends Writer {
         se.write(c);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a portion of an array of characters.
+     * {@description.close}
      *
      * @param  cbuf  Buffer of characters
      * @param  off   Offset from which to start writing characters
@@ -207,8 +225,10 @@ public class OutputStreamWriter extends Writer {
         se.write(cbuf, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a portion of a string.
+     * {@description.close}
      *
      * @param  str  A String
      * @param  off  Offset from which to start writing characters
@@ -220,8 +240,10 @@ public class OutputStreamWriter extends Writer {
         se.write(str, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes the stream.
+     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */

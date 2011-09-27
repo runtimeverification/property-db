@@ -25,18 +25,22 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Thrown when a serious I/O error has occurred.
+ * {@description.close}
  *
  * @author  Xueming Shen
  * @since   1.6
  */
 public class IOError extends Error {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a new instance of IOError with the specified cause. The
      * IOError is created with the detail message of
      * <tt>(cause==null ? null : cause.toString())</tt> (which typically
      * contains the class and detail message of cause).
+     * {@description.close}
      *
      * @param  cause
      *         The cause of this error, or <tt>null</tt> if the cause

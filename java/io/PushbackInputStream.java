@@ -25,11 +25,15 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A <code>PushbackInputStream</code> adds
  * functionality to another input stream, namely
  * the  ability to "push back" or "unread"
- * one byte. This is useful in situations where
+ * one byte.
+ * {@description.close}
+ * {@property.open formal:PushbackInputStream_PrematureUnread}
+ * This is useful in situations where
  * it is  convenient for a fragment of code
  * to read an indefinite number of data bytes
  * that  are delimited by a particular byte
@@ -37,12 +41,15 @@ package java.io;
  * the  code fragment can "unread" it, so that
  * the next read operation on the input stream
  * will reread the byte that was pushed back.
+ * {@property.close}
+ * {@description.open}
  * For example, bytes representing the  characters
  * constituting an identifier might be terminated
  * by a byte representing an  operator character;
  * a method whose job is to read just an identifier
  * can read until it  sees the operator and
  * then push the operator back to be re-read.
+ * {@description.close}
  *
  * @author  David Connelly
  * @author  Jonathan Payne
@@ -50,31 +57,38 @@ package java.io;
  */
 public
 class PushbackInputStream extends FilterInputStream {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The pushback buffer.
+     * {@description.close}
      * @since   JDK1.1
      */
     protected byte[] buf;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The position within the pushback buffer from which the next byte will
      * be read.  When the buffer is empty, <code>pos</code> is equal to
      * <code>buf.length</code>; when the buffer is full, <code>pos</code> is
      * equal to zero.
+     * {@description.close}
      *
      * @since   JDK1.1
      */
     protected int pos;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Check to make sure that this stream has not been closed
+     * {@description.close}
      */
     private void ensureOpen() throws IOException {
         if (in == null)
             throw new IOException("Stream closed");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PushbackInputStream</code>
      * with a pushback buffer of the specified <code>size</code>,
      * and saves its  argument, the input stream
@@ -82,6 +96,7 @@ class PushbackInputStream extends FilterInputStream {
      * there is no pushed-back byte  (the field
      * <code>pushBack</code> is initialized to
      * <code>-1</code>).
+     * {@description.close}
      *
      * @param  in    the input stream from which bytes will be read.
      * @param  size  the size of the pushback buffer.
@@ -97,13 +112,15 @@ class PushbackInputStream extends FilterInputStream {
         this.pos = size;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PushbackInputStream</code>
      * and saves its  argument, the input stream
      * <code>in</code>, for later use. Initially,
      * there is no pushed-back byte  (the field
      * <code>pushBack</code> is initialized to
      * <code>-1</code>).
+     * {@description.close}
      *
      * @param   in   the input stream from which bytes will be read.
      */
@@ -111,18 +128,25 @@ class PushbackInputStream extends FilterInputStream {
         this(in, 1);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
      * because the end of the stream has been reached, the value
-     * <code>-1</code> is returned. This method blocks until input data
+     * <code>-1</code> is returned.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> This method returns the most recently pushed-back byte, if there is
      * one, and otherwise calls the <code>read</code> method of its underlying
      * input stream and returns whatever value that method returns.
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream has been reached.
@@ -139,13 +163,18 @@ class PushbackInputStream extends FilterInputStream {
         return super.read();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream into
      * an array of bytes.  This method first reads any pushed-back bytes; after
      * that, if fewer than <code>len</code> bytes have been read then it
-     * reads from the underlying input stream. If <code>len</code> is not zero, the method
+     * reads from the underlying input stream.
+     * {@description.close}
+     * {@property.open blocking}
+     * If <code>len</code> is not zero, the method
      * blocks until at least 1 byte of input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
+     * {@property.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>
@@ -192,10 +221,14 @@ class PushbackInputStream extends FilterInputStream {
         return avail;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Pushes back a byte by copying it to the front of the pushback buffer.
+     * {@description.close}
+     * {@property.open undecided}
      * After this method returns, the next byte to be read will have the value
      * <code>(byte)b</code>.
+     * {@property.close}
      *
      * @param      b   the <code>int</code> value whose low-order
      *                  byte is to be pushed back.
@@ -211,11 +244,16 @@ class PushbackInputStream extends FilterInputStream {
         buf[--pos] = (byte)b;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Pushes back a portion of an array of bytes by copying it to the front
-     * of the pushback buffer.  After this method returns, the next byte to be
+     * of the pushback buffer.
+     * {@description.close}
+     * {@property.open undecided}
+     * After this method returns, the next byte to be
      * read will have the value <code>b[off]</code>, the byte after that will
      * have the value <code>b[off+1]</code>, and so forth.
+     * {@property.close}
      *
      * @param b the byte array to push back.
      * @param off the start offset of the data.
@@ -235,11 +273,16 @@ class PushbackInputStream extends FilterInputStream {
         System.arraycopy(b, off, buf, pos, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Pushes back an array of bytes by copying it to the front of the
-     * pushback buffer.  After this method returns, the next byte to be read
+     * pushback buffer.
+     * {@description.close}
+     * {@property.open undecided}
+     * After this method returns, the next byte to be read
      * will have the value <code>b[0]</code>, the byte after that will have the
      * value <code>b[1]</code>, and so forth.
+     * {@property.close}
      *
      * @param b the byte array to push back
      * @exception IOException If there is not enough room in the pushback
@@ -252,7 +295,8 @@ class PushbackInputStream extends FilterInputStream {
         unread(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation might be
@@ -262,6 +306,7 @@ class PushbackInputStream extends FilterInputStream {
      * <p> The method returns the sum of the number of bytes that have been
      * pushed back and the value returned by {@link
      * java.io.FilterInputStream#available available}.
+     * {@description.close}
      *
      * @return     the number of bytes that can be read (or skipped over) from
      *             the input stream without blocking.
@@ -276,7 +321,8 @@ class PushbackInputStream extends FilterInputStream {
         return (buf.length - pos) + super.available();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips over and discards <code>n</code> bytes of data from this
      * input stream. The <code>skip</code> method may, for a variety of
      * reasons, end up skipping over some smaller number of bytes,
@@ -287,6 +333,7 @@ class PushbackInputStream extends FilterInputStream {
      * calls the <code>skip</code> method of the underlying input stream if
      * more bytes need to be skipped.  The actual number of bytes skipped
      * is returned.
+     * {@description.close}
      *
      * @param      n  {@inheritDoc}
      * @return     {@inheritDoc}
@@ -318,9 +365,11 @@ class PushbackInputStream extends FilterInputStream {
         return pskip;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods, which it does not.
+     * {@description.close}
      *
      * @return   <code>false</code>, since this class does not support the
      *           <code>mark</code> and <code>reset</code> methods.
@@ -331,11 +380,18 @@ class PushbackInputStream extends FilterInputStream {
         return false;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Marks the current position in this input stream.
+     * {@description.close}
      *
+     * {@property.open formal:InputStream_MarkReset}
      * <p> The <code>mark</code> method of <code>PushbackInputStream</code>
      * does nothing.
+     * {@new.open}
+     * This function is supposed to raise an exception but does not.
+     * {@new.close}
+     * {@property.close}
      *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
@@ -344,13 +400,17 @@ class PushbackInputStream extends FilterInputStream {
     public synchronized void mark(int readlimit) {
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
+     * {@description.close}
      *
+     * {@property.open formal:InputStream_MarkReset}
      * <p> The method <code>reset</code> for class
      * <code>PushbackInputStream</code> does nothing except throw an
      * <code>IOException</code>.
+     * {@property.close}
      *
      * @exception  IOException  if this method is invoked.
      * @see     java.io.InputStream#mark(int)
@@ -360,12 +420,18 @@ class PushbackInputStream extends FilterInputStream {
         throw new IOException("mark/reset not supported");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
+     * {@description.close}
+     * {@property.open formal:InputStream_ManipulateAfterClose}
      * Once the stream has been closed, further read(), unread(),
      * available(), reset(), or skip() invocations will throw an IOException.
+     * {@property.close}
+     * {@property.open formal:Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
+     * {@property.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

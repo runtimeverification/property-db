@@ -25,10 +25,12 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * ObjectOutput extends the DataOutput interface to include writing of objects.
  * DataOutput includes methods for output of primitive types, ObjectOutput
  * extends that interface to include objects, arrays, and Strings.
+ * {@description.close}
  *
  * @author  unascribed
  * @see java.io.InputStream
@@ -37,10 +39,12 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectOutput extends DataOutput {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Write an object to the underlying storage or stream.  The
      * class that implements this interface defines how the object is
      * written.
+     * {@description.close}
      *
      * @param obj the object to be written
      * @exception IOException Any of the usual Input/Output related exceptions.
@@ -48,24 +52,36 @@ public interface ObjectOutput extends DataOutput {
     public void writeObject(Object obj)
       throws IOException;
 
-    /** {@collect.stats}
-     * Writes a byte. This method will block until the byte is actually
+    /**
+     * {@description.open}
+     * Writes a byte.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will block until the byte is actually
      * written.
+     * {@property.close}
      * @param b the byte
      * @exception IOException If an I/O error has occurred.
      */
     public void write(int b) throws IOException;
 
-    /** {@collect.stats}
-     * Writes an array of bytes. This method will block until the bytes
+    /**
+     * {@description.open}
+     * Writes an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will block until the bytes
      * are actually written.
+     * {@property.close}
      * @param b the data to be written
      * @exception IOException If an I/O error has occurred.
      */
     public void write(byte b[]) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes a sub array of bytes.
+     * {@description.close}
      * @param b the data to be written
      * @param off       the start offset in the data
      * @param len       the number of bytes that are written
@@ -73,17 +89,24 @@ public interface ObjectOutput extends DataOutput {
      */
     public void write(byte b[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes the stream. This will write any buffered
      * output bytes.
+     * {@description.close}
      * @exception IOException If an I/O error has occurred.
      */
     public void flush() throws IOException;
 
-    /** {@collect.stats}
-     * Closes the stream. This method must be called
+    /**
+     * {@description.open}
+     * Closes the stream.
+     * {@description.close}
+     * {@property.open formal:ObjectOutput_Close}
+     * This method must be called
      * to release any resources associated with the
      * stream.
+     * {@property.close}
      * @exception IOException If an I/O error has occurred.
      */
     public void close() throws IOException;

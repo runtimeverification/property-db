@@ -25,14 +25,17 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Serializability of a class is enabled by the class implementing the
  * java.io.Serializable interface. Classes that do not implement this
  * interface will not have any of their state serialized or
  * deserialized.  All subtypes of a serializable class are themselves
  * serializable.  The serialization interface has no methods or fields
  * and serves only to identify the semantics of being serializable. <p>
+ * {@description.close}
  *
+ * {@property.open undecided}
  * To allow subtypes of non-serializable classes to be serialized, the
  * subtype may assume responsibility for saving and restoring the
  * state of the supertype's public, protected, and (if accessible)
@@ -47,12 +50,16 @@ package java.io;
  * the class.  A no-arg constructor must be accessible to the subclass
  * that is serializable.  The fields of serializable subclasses will
  * be restored from the stream. <p>
+ * {@property.close}
  *
+ * {@description.open}
  * When traversing a graph, an object may be encountered that does not
  * support the Serializable interface. In this case the
  * NotSerializableException will be thrown and will identify the class
  * of the non-serializable object. <p>
+ * {@description.close}
  *
+ * {@property.open undecided}
  * Classes that require special handling during the serialization and
  * deserialization process must implement special methods with these exact
  * signatures: <p>
@@ -157,6 +164,7 @@ package java.io;
  * classes cannot declare an explicit serialVersionUID, so they always have
  * the default computed value, but the requirement for matching
  * serialVersionUID values is waived for array classes.
+ * {@property.close}
  *
  * @author  unascribed
  * @see java.io.ObjectOutputStream

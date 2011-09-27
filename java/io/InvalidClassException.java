@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Thrown when the Serialization runtime detects one of the following
  * problems with a Class.
  * <UL>
@@ -34,6 +35,7 @@ package java.io;
  * <LI> The class contains unknown datatypes
  * <LI> The class does not have an accessible no-arg constructor
  * </UL>
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.1
@@ -42,15 +44,19 @@ public class InvalidClassException extends ObjectStreamException {
 
     private static final long serialVersionUID = -4333316296251054416L;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Name of the invalid class.
+     * {@description.close}
      *
      * @serial Name of the invalid class.
      */
     public String classname;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Report an InvalidClassException for the reason specified.
+     * {@description.close}
      *
      * @param reason  String describing the reason for the exception.
      */
@@ -58,8 +64,10 @@ public class InvalidClassException extends ObjectStreamException {
         super(reason);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs an InvalidClassException object.
+     * {@description.close}
      *
      * @param cname   a String naming the invalid class.
      * @param reason  a String describing the reason for the exception.
@@ -69,8 +77,10 @@ public class InvalidClassException extends ObjectStreamException {
         classname = cname;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Produce the message and include the classname, if present.
+     * {@description.close}
      */
     public String getMessage() {
         if (classname == null)

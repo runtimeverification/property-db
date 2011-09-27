@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This class allows an application to create an input stream in
  * which the bytes read are supplied by the contents of a string.
  * Applications can also read bytes from a byte array by using a
@@ -33,6 +34,7 @@ package java.io;
  * <p>
  * Only the low eight bits of each character in the string are used by
  * this class.
+ * {@description.close}
  *
  * @author     Arthur van Hoff
  * @see        java.io.ByteArrayInputStream
@@ -45,27 +47,35 @@ package java.io;
 @Deprecated
 public
 class StringBufferInputStream extends InputStream {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The string from which bytes are read.
+     * {@description.close}
      */
     protected String buffer;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The index of the next character to read from the input stream buffer.
+     * {@description.close}
      *
      * @see        java.io.StringBufferInputStream#buffer
      */
     protected int pos;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The number of valid characters in the input stream buffer.
+     * {@description.close}
      *
      * @see        java.io.StringBufferInputStream#buffer
      */
     protected int count;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a string input stream to read data from the specified string.
+     * {@description.close}
      *
      * @param      s   the underlying input buffer.
      */
@@ -74,7 +84,8 @@ class StringBufferInputStream extends InputStream {
         count = s.length();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
@@ -84,6 +95,7 @@ class StringBufferInputStream extends InputStream {
      * The <code>read</code> method of
      * <code>StringBufferInputStream</code> cannot block. It returns the
      * low eight bits of the next character in this input stream's buffer.
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -92,7 +104,8 @@ class StringBufferInputStream extends InputStream {
         return (pos < count) ? (buffer.charAt(pos++) & 0xFF) : -1;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
      * into an array of bytes.
      * <p>
@@ -100,6 +113,7 @@ class StringBufferInputStream extends InputStream {
      * <code>StringBufferInputStream</code> cannot block. It copies the
      * low eight bits from the characters in this input stream's buffer into
      * the byte array argument.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset of the data.
@@ -133,9 +147,11 @@ class StringBufferInputStream extends InputStream {
         return len;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips <code>n</code> bytes of input from this input stream. Fewer
      * bytes might be skipped if the end of the input stream is reached.
+     * {@description.close}
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the actual number of bytes skipped.
@@ -151,9 +167,11 @@ class StringBufferInputStream extends InputStream {
         return n;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the number of bytes that can be read from the input
      * stream without blocking.
+     * {@description.close}
      *
      * @return     the value of <code>count&nbsp;-&nbsp;pos</code>, which is the
      *             number of bytes remaining to be read from the input buffer.
@@ -162,9 +180,11 @@ class StringBufferInputStream extends InputStream {
         return count - pos;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Resets the input stream to begin reading from the first character
      * of this input stream's underlying buffer.
+     * {@description.close}
      */
     public synchronized void reset() {
         pos = 0;

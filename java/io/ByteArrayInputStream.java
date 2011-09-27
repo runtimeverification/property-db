@@ -25,16 +25,20 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A <code>ByteArrayInputStream</code> contains
  * an internal buffer that contains bytes that
  * may be read from the stream. An internal
  * counter keeps track of the next byte to
  * be supplied by the <code>read</code> method.
+ * {@description.close}
  * <p>
+ * {@property.open formal:ByteArrayInputStream_Close}
  * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.StringBufferInputStream
@@ -43,52 +47,67 @@ package java.io;
 public
 class ByteArrayInputStream extends InputStream {
 
-    /** {@collect.stats}
+    /**
+     * {@property.open undecided internal}
      * An array of bytes that was provided
      * by the creator of the stream. Elements <code>buf[0]</code>
      * through <code>buf[count-1]</code> are the
      * only bytes that can ever be read from the
      * stream;  element <code>buf[pos]</code> is
      * the next byte to be read.
+     * {@property.close}
      */
     protected byte buf[];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The index of the next character to read from the input stream buffer.
      * This value should always be nonnegative
      * and not larger than the value of <code>count</code>.
      * The next byte to be read from the input stream buffer
      * will be <code>buf[pos]</code>.
+     * {@description.close}
      */
     protected int pos;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The currently marked position in the stream.
+     * {@description.close}
+     * {@property.open formal:InputStream_MarkReset}
      * ByteArrayInputStream objects are marked at position zero by
      * default when constructed.  They may be marked at another
      * position within the buffer by the <code>mark()</code> method.
      * The current buffer position is set to this point by the
      * <code>reset()</code> method.
+     * {@property.close}
      * <p>
+     * {@property.open formal:InputStream_UnmarkedReset}
      * If no mark has been set, then the value of mark is the offset
      * passed to the constructor (or 0 if the offset was not supplied).
+     * {@property.close}
      *
      * @since   JDK1.1
      */
     protected int mark = 0;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The index one greater than the last valid character in the input
      * stream buffer.
+     * {@description.close}
+     * {@property.open internal}
      * This value should always be nonnegative
      * and not larger than the length of <code>buf</code>.
      * It  is one greater than the position of
      * the last byte within <code>buf</code> that
      * can ever be read  from the input stream buffer.
+     * {@property.close}
      */
     protected int count;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>ByteArrayInputStream</code>
      * so that it  uses <code>buf</code> as its
      * buffer array.
@@ -97,6 +116,7 @@ class ByteArrayInputStream extends InputStream {
      * is <code>0</code> and the initial value
      * of  <code>count</code> is the length of
      * <code>buf</code>.
+     * {@description.close}
      *
      * @param   buf   the input buffer.
      */
@@ -106,7 +126,8 @@ class ByteArrayInputStream extends InputStream {
         this.count = buf.length;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates <code>ByteArrayInputStream</code>
      * that uses <code>buf</code> as its
      * buffer array. The initial value of <code>pos</code>
@@ -115,6 +136,7 @@ class ByteArrayInputStream extends InputStream {
      * and <code>buf.length</code>.
      * The buffer array is not copied. The buffer's mark is
      * set to the specified offset.
+     * {@description.close}
      *
      * @param   buf      the input buffer.
      * @param   offset   the offset in the buffer of the first byte to read.
@@ -127,15 +149,19 @@ class ByteArrayInputStream extends InputStream {
         this.mark = offset;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
      * because the end of the stream has been reached, the value
      * <code>-1</code> is returned.
+     * {@description.close}
      * <p>
+     * {@property.open undecided}
      * This <code>read</code> method
      * cannot block.
+     * {@property.close}
      *
      * @return  the next byte of data, or <code>-1</code> if the end of the
      *          stream has been reached.
@@ -144,7 +170,8 @@ class ByteArrayInputStream extends InputStream {
         return (pos < count) ? (buf[pos++] & 0xff) : -1;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data into an array of bytes
      * from this input stream.
      * If <code>pos</code> equals <code>count</code>,
@@ -159,8 +186,11 @@ class ByteArrayInputStream extends InputStream {
      * by <code>System.arraycopy</code>. The
      * value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
+     * {@description.close}
      * <p>
+     * {@property.open blocking}
      * This <code>read</code> method cannot block.
+     * {@property.close}
      *
      * @param   b     the buffer into which the data is read.
      * @param   off   the start offset in the destination array <code>b</code>
@@ -193,7 +223,8 @@ class ByteArrayInputStream extends InputStream {
         return len;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips <code>n</code> bytes of input from this input stream. Fewer
      * bytes might be skipped if the end of the input stream is reached.
      * The actual number <code>k</code>
@@ -201,6 +232,7 @@ class ByteArrayInputStream extends InputStream {
      * of <code>n</code> and  <code>count-pos</code>.
      * The value <code>k</code> is added into <code>pos</code>
      * and <code>k</code> is returned.
+     * {@description.close}
      *
      * @param   n   the number of bytes to be skipped.
      * @return  the actual number of bytes skipped.
@@ -216,12 +248,14 @@ class ByteArrayInputStream extends InputStream {
         return n;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the number of remaining bytes that can be read (or skipped over)
      * from this input stream.
      * <p>
      * The value returned is <code>count&nbsp;- pos</code>,
      * which is the number of bytes remaining to be read from the input buffer.
+     * {@description.close}
      *
      * @return  the number of remaining bytes that can be read (or skipped
      *          over) from this input stream without blocking.
@@ -230,10 +264,15 @@ class ByteArrayInputStream extends InputStream {
         return count - pos;
     }
 
-    /** {@collect.stats}
-     * Tests if this <code>InputStream</code> supports mark/reset. The
+    /**
+     * {@description.open}
+     * Tests if this <code>InputStream</code> supports mark/reset.
+     * {@description.close}
+     * {@property.open formal:InputStream_MarkReset}
+     * The
      * <code>markSupported</code> method of <code>ByteArrayInputStream</code>
      * always returns <code>true</code>.
+     * {@property.close}
      *
      * @since   JDK1.1
      */
@@ -241,15 +280,19 @@ class ByteArrayInputStream extends InputStream {
         return true;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Set the current marked position in the stream.
      * ByteArrayInputStream objects are marked at position zero by
-     * default when constructed.  They may be marked at another
+     * default when constructed. They may be marked at another
      * position within the buffer by this method.
      * <p>
+     * {@description.close}
+     * {@property.open formal:InputStream_UnmarkedReset}
      * If no mark has been set, then the value of the mark is the
      * offset passed to the constructor (or 0 if the offset was not
      * supplied).
+     * {@property.close}
      *
      * <p> Note: The <code>readAheadLimit</code> for this class
      *  has no meaning.
@@ -260,19 +303,29 @@ class ByteArrayInputStream extends InputStream {
         mark = pos;
     }
 
-    /** {@collect.stats}
-     * Resets the buffer to the marked position.  The marked position
+    /**
+     * {@description.open}
+     * Resets the buffer to the marked position.
+     * {@description.close}
+     * {@property.open formal:InputStream_UnmarkedReset}
+     * The marked position
      * is 0 unless another position was marked or an offset was specified
      * in the constructor.
+     * {@property.close}
      */
     public synchronized void reset() {
         pos = mark;
     }
 
-    /** {@collect.stats}
-     * Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in
+    /**
+     * {@description.open}
+     * Closing a <tt>ByteArrayInputStream</tt> has no effect.
+     * {@description.close}
+     * {@property.open formal:ByteArrayInputStream_Close}
+     * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
+     * {@property.close}
      * <p>
      */
     public void close() throws IOException {

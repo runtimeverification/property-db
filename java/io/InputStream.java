@@ -25,12 +25,16 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This abstract class is the superclass of all classes representing
  * an input stream of bytes.
+ * {@description.close}
  *
+ * {@enforced.open}
  * <p> Applications that need to define a subclass of <code>InputStream</code>
  * must always provide a method that returns the next byte of input.
+ * {@enforced.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
@@ -49,15 +53,22 @@ public abstract class InputStream implements Closeable {
     // skipBuffer is initialized in skip(long), if needed.
     private static byte[] skipBuffer;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from the input stream. The value byte is
      * returned as an <code>int</code> in the range <code>0</code> to
      * <code>255</code>. If no byte is available because the end of the stream
-     * has been reached, the value <code>-1</code> is returned. This method
+     * has been reached, the value <code>-1</code> is returned.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method
      * blocks until input data is available, the end of the stream is detected,
      * or an exception is thrown.
+     * {@property.close}
      *
+     * {@enforced.open}
      * <p> A subclass must provide an implementation of this method.
+     * {@enforced.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -65,18 +76,26 @@ public abstract class InputStream implements Closeable {
      */
     public abstract int read() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads some number of bytes from the input stream and stores them into
      * the buffer array <code>b</code>. The number of bytes actually read is
-     * returned as an integer.  This method blocks until input data is
+     * returned as an integer.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method blocks until input data is
      * available, end of file is detected, or an exception is thrown.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> If the length of <code>b</code> is zero, then no bytes are read and
      * <code>0</code> is returned; otherwise, there is an attempt to read at
      * least one byte. If no byte is available because the stream is at the
      * end of the file, the value <code>-1</code> is returned; otherwise, at
      * least one byte is read and stored into <code>b</code>.
+     * {@description.close}
      *
+     * {@property.open internal}
      * <p> The first byte read is stored into element <code>b[0]</code>, the
      * next one into <code>b[1]</code>, and so on. The number of bytes read is,
      * at most, equal to the length of <code>b</code>. Let <i>k</i> be the
@@ -84,9 +103,12 @@ public abstract class InputStream implements Closeable {
      * <code>b[0]</code> through <code>b[</code><i>k</i><code>-1]</code>,
      * leaving elements <code>b[</code><i>k</i><code>]</code> through
      * <code>b[b.length-1]</code> unaffected.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> The <code>read(b)</code> method for class <code>InputStream</code>
      * has the same effect as: <pre><code> read(b, 0, b.length) </code></pre>
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @return     the total number of bytes read into the buffer, or
@@ -102,12 +124,15 @@ public abstract class InputStream implements Closeable {
         return read(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from the input stream into
      * an array of bytes.  An attempt is made to read as many as
      * <code>len</code> bytes, but a smaller number may be read.
      * The number of bytes actually read is returned as an integer.
+     * {@description.close}
      *
+     * {@property.open blocking}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
      *
@@ -116,7 +141,9 @@ public abstract class InputStream implements Closeable {
      * least one byte. If no byte is available because the stream is at end of
      * file, the value <code>-1</code> is returned; otherwise, at least one
      * byte is read and stored into <code>b</code>.
+     * {@property.close}
      *
+     * {@property.open internal}
      * <p> The first byte read is stored into element <code>b[off]</code>, the
      * next one into <code>b[off+1]</code>, and so on. The number of bytes read
      * is, at most, equal to <code>len</code>. Let <i>k</i> be the number of
@@ -142,6 +169,7 @@ public abstract class InputStream implements Closeable {
      * until the requested amount of input data <code>len</code> has been read,
      * end of file is detected, or an exception is thrown. Subclasses are encouraged
      * to provide a more efficient implementation of this method.
+     * {@property.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in array <code>b</code>
@@ -188,7 +216,8 @@ public abstract class InputStream implements Closeable {
         return i;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips over and discards <code>n</code> bytes of data from this input
      * stream. The <code>skip</code> method may, for a variety of reasons, end
      * up skipping over some smaller number of bytes, possibly <code>0</code>.
@@ -202,6 +231,7 @@ public abstract class InputStream implements Closeable {
      * have been read or the end of the stream has been reached. Subclasses are
      * encouraged to provide a more efficient implementation of this method.
      * For instance, the implementation may depend on the ability to seek.
+     * {@description.close}
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the actual number of bytes skipped.
@@ -233,26 +263,37 @@ public abstract class InputStream implements Closeable {
         return n - remaining;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * invocation of a method for this input stream. The next invocation
-     * might be the same thread or another thread.  A single read or skip of this
+     * might be the same thread or another thread.
+     * {@description.close}
+     * {@property.open blocking}
+     * A single read or skip of this
      * many bytes will not block, but may read or skip fewer bytes.
+     * {@property.close}
      *
+     * {@property.open undecided}
      * <p> Note that while some implementations of {@code InputStream} will return
      * the total number of bytes in the stream, many will not.  It is
      * never correct to use the return value of this method to allocate
      * a buffer intended to hold all data in this stream.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> A subclass' implementation of this method may choose to throw an
      * {@link IOException} if this input stream has been closed by
      * invoking the {@link #close()} method.
      *
      * <p> The {@code available} method for class {@code InputStream} always
      * returns {@code 0}.
+     * {@description.close}
      *
+     * {@property.open override}
      * <p> This method should be overridden by subclasses.
+     * {@property.close}
      *
      * @return     an estimate of the number of bytes that can be read (or skipped
      *             over) from this input stream without blocking or {@code 0} when
@@ -263,9 +304,11 @@ public abstract class InputStream implements Closeable {
         return 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this input stream and releases any system resources associated
      * with the stream.
+     * {@description.close}
      *
      * <p> The <code>close</code> method of <code>InputStream</code> does
      * nothing.
@@ -274,7 +317,8 @@ public abstract class InputStream implements Closeable {
      */
     public void close() throws IOException {}
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Marks the current position in this input stream. A subsequent call to
      * the <code>reset</code> method repositions this stream at the last marked
      * position so that subsequent reads re-read the same bytes.
@@ -282,19 +326,29 @@ public abstract class InputStream implements Closeable {
      * <p> The <code>readlimit</code> arguments tells this input stream to
      * allow that many bytes to be read before the mark position gets
      * invalidated.
+     * {@description.close}
      *
+     * {@property.open formal:InputStream_MarkReset}
      * <p> The general contract of <code>mark</code> is that, if the method
      * <code>markSupported</code> returns <code>true</code>, the stream somehow
      * remembers all the bytes read after the call to <code>mark</code> and
      * stands ready to supply those same bytes again if and whenever the method
-     * <code>reset</code> is called.  However, the stream is not required to
+     * <code>reset</code> is called.
+     * {@property.close}
+     * {@property.open formal:InputStream_ReadAheadLimit}
+     * However, the stream is not required to
      * remember any data at all if more than <code>readlimit</code> bytes are
      * read from the stream before <code>reset</code> is called.
+     * {@property.close}
      *
+     * {@property.open formal:InputStream_MarkAfterClose}
      * <p> Marking a closed stream should not have any effect on the stream.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> The <code>mark</code> method of <code>InputStream</code> does
      * nothing.
+     * {@description.close}
      *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
@@ -302,14 +356,17 @@ public abstract class InputStream implements Closeable {
      */
     public synchronized void mark(int readlimit) {}
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      *
      * <p> The general contract of <code>reset</code> is:
      *
      * <p><ul>
+     * {@description.close}
      *
+     * {@property.open formal:InputStream_MarkReset formal:InputStream_UnmarkedReset}
      * <li> If the method <code>markSupported</code> returns
      * <code>true</code>, then:
      *
@@ -341,6 +398,7 @@ public abstract class InputStream implements Closeable {
      *
      * <p>The method <code>reset</code> for class <code>InputStream</code>
      * does nothing except throw an <code>IOException</code>.
+     * {@property.close}
      *
      * @exception  IOException  if this stream has not been marked or if the
      *               mark has been invalidated.
@@ -351,12 +409,14 @@ public abstract class InputStream implements Closeable {
         throw new IOException("mark/reset not supported");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tests if this input stream supports the <code>mark</code> and
      * <code>reset</code> methods. Whether or not <code>mark</code> and
      * <code>reset</code> are supported is an invariant property of a
      * particular input stream instance. The <code>markSupported</code> method
      * of <code>InputStream</code> returns <code>false</code>.
+     * {@description.close}
      *
      * @return  <code>true</code> if this stream instance supports the mark
      *          and reset methods; <code>false</code> otherwise.

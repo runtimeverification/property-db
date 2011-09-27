@@ -25,23 +25,29 @@
   
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Context during upcalls from object stream to class-defined
  * readObject/writeObject methods. 
  * Holds object currently being deserialized and descriptor for current class. 
+ * {@description.close}
  *
+ * {@property.open undecided}
  * This context keeps track of the thread it was constructed on, and allows
  * only a single call of defaultReadObject, readFields, defaultWriteObject 
  * or writeFields which must be invoked on the same thread before the class's
  * readObject/writeObject method has returned.
  * If not set to the current thread, the getObj method throws NotActiveException.
+ * {@property.close}
  */
 final class SerialCallbackContext {
     private final Object obj;
     private final ObjectStreamClass desc;
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Thread this context is in use by.
      * As this only works in one thread, we do not need to worry about thread-safety.
+     * {@description.close}
      */
     private Thread thread;
 

@@ -26,8 +26,10 @@
 package java.io;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A character stream whose source is a string.
+ * {@description.close}
  *
  * @author      Mark Reinhold
  * @since       JDK1.1
@@ -40,8 +42,10 @@ public class StringReader extends Reader {
     private int next = 0;
     private int mark = 0;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new string reader.
+     * {@description.close}
      *
      * @param s  String providing the character stream.
      */
@@ -50,14 +54,20 @@ public class StringReader extends Reader {
         this.length = s.length();
     }
 
-    /** {@collect.stats} Check to make sure that the stream has not been closed */
+    /**
+     * {@description.open}
+     * Check to make sure that the stream has not been closed
+     * {@description.close}
+     */
     private void ensureOpen() throws IOException {
         if (str == null)
             throw new IOException("Stream closed");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads a single character.
+     * {@description.close}
      *
      * @return     The character read, or -1 if the end of the stream has been
      *             reached
@@ -73,8 +83,10 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads characters into a portion of an array.
+     * {@description.close}
      *
      * @param      cbuf  Destination buffer
      * @param      off   Offset at which to start writing characters
@@ -103,7 +115,8 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips the specified number of characters in the stream. Returns
      * the number of characters that were skipped.
      *
@@ -116,6 +129,7 @@ public class StringReader extends Reader {
      *
      * <p>If the entire string has been read or skipped, then this method has
      * no effect and always returns 0.
+     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */
@@ -132,8 +146,10 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tells whether this stream is ready to be read.
+     * {@description.close}
      *
      * @return True if the next read() is guaranteed not to block for input
      *
@@ -146,16 +162,23 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tells whether this stream supports the mark() operation, which it does.
+     * {@description.close}
      */
     public boolean markSupported() {
         return true;
     }
 
-    /** {@collect.stats}
-     * Marks the present position in the stream.  Subsequent calls to reset()
+    /**
+     * {@description.open}
+     * Marks the present position in the stream.
+     * {@description.close}
+     * {@property.open formal:Reader_MarkReset}
+     * Subsequent calls to reset()
      * will reposition the stream to this point.
+     * {@property.close}
      *
      * @param  readAheadLimit  Limit on the number of characters that may be
      *                         read while still preserving the mark.  Because
@@ -176,9 +199,11 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@property.open formal:Reader_MarkReset formal:Reader_UnmarkedReset}
      * Resets the stream to the most recent mark, or to the beginning of the
      * string if it has never been marked.
+     * {@property.close}
      *
      * @exception  IOException  If an I/O error occurs
      */
@@ -189,11 +214,18 @@ public class StringReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes the stream and releases any system resources associated with
-     * it. Once the stream has been closed, further read(),
+     * it.
+     * {@description.close}
+     * {@property.open formal:Reader_ManipulateAfterClose}
+     * Once the stream has been closed, further read(),
      * ready(), mark(), or reset() invocations will throw an IOException.
+     * {@property.close}
+     * {@property.open formal:Closeable_MultipleClose}
      * Closing a previously closed stream has no effect.
+     * {@property.close}
      */
     public void close() {
         str = null;

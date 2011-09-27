@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This class is an input stream filter that provides the added
  * functionality of keeping track of the current line number.
  * <p>
@@ -37,6 +38,7 @@ package java.io;
  * <p>
  * The line number begins at <code>0</code>, and is incremented by
  * <code>1</code> when a <code>read</code> returns a newline character.
+ * {@description.close}
  *
  * @author     Arthur van Hoff
  * @see        java.io.LineNumberReader
@@ -54,9 +56,11 @@ class LineNumberInputStream extends FilterInputStream {
     int markLineNumber;
     int markPushBack = -1;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a newline number input stream that reads its input
      * from the specified input stream.
+     * {@description.close}
      *
      * @param      in   the underlying input stream.
      */
@@ -64,15 +68,24 @@ class LineNumberInputStream extends FilterInputStream {
         super(in);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
-     * <code>0</code> to <code>255</code>. If no byte is available
+     * <code>0</code> to <code>255</code>.
+     * {@description.close}
+     * {@property.open undecided}
+     * If no byte is available
      * because the end of the stream has been reached, the value
-     * <code>-1</code> is returned. This method blocks until input data
+     * <code>-1</code> is returned.
+     * {@property.close}
+     * {@property.open blocking}
+     * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
+     * {@property.close}
      * <p>
+     * {@description.close}
      * The <code>read</code> method of
      * <code>LineNumberInputStream</code> calls the <code>read</code>
      * method of the underlying input stream. It checks for carriage
@@ -80,6 +93,7 @@ class LineNumberInputStream extends FilterInputStream {
      * current line number as appropriate. A carriage-return character or
      * a carriage return followed by a newline character are both
      * converted into a single newline character.
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of this
      *             stream is reached.
@@ -109,13 +123,20 @@ class LineNumberInputStream extends FilterInputStream {
         return c;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
-     * into an array of bytes. This method blocks until some input is available.
+     * into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method blocks until some input is available.
+     * {@property.close}
      * <p>
+     * {@description.open}
      * The <code>read</code> method of
      * <code>LineNumberInputStream</code> repeatedly calls the
      * <code>read</code> method of zero arguments to fill in the byte array.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset of the data.
@@ -158,7 +179,8 @@ class LineNumberInputStream extends FilterInputStream {
         return i;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips over and discards <code>n</code> bytes of data from this
      * input stream. The <code>skip</code> method may, for a variety of
      * reasons, end up skipping over some smaller number of bytes,
@@ -169,6 +191,7 @@ class LineNumberInputStream extends FilterInputStream {
      * a byte array and then repeatedly reads into it until
      * <code>n</code> bytes have been read or the end of the stream has
      * been reached.
+     * {@description.close}
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the actual number of bytes skipped.
@@ -197,8 +220,10 @@ class LineNumberInputStream extends FilterInputStream {
         return n - remaining;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Sets the line number to the specified argument.
+     * {@description.close}
      *
      * @param      lineNumber   the new line number.
      * @see #getLineNumber
@@ -207,8 +232,10 @@ class LineNumberInputStream extends FilterInputStream {
         this.lineNumber = lineNumber;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the current line number.
+     * {@description.close}
      *
      * @return     the current line number.
      * @see #setLineNumber
@@ -218,10 +245,13 @@ class LineNumberInputStream extends FilterInputStream {
     }
 
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
+     * {@description.close}
      * <p>
+     * {@property.open}
      * Note that if the underlying input stream is able to supply
      * <i>k</i> input characters without blocking, the
      * <code>LineNumberInputStream</code> can guarantee only to provide
@@ -230,6 +260,7 @@ class LineNumberInputStream extends FilterInputStream {
      * consist of <i>k</i>/2 pairs of <code>'&#92;r'</code> and
      * <code>'&#92;n'</code>, which are converted to just
      * <i>k</i>/2 <code>'&#92;n'</code> characters.
+     * {@property.close}
      *
      * @return     the number of bytes that can be read from this input stream
      *             without blocking.
@@ -240,15 +271,22 @@ class LineNumberInputStream extends FilterInputStream {
         return (pushBack == -1) ? super.available()/2 : super.available()/2 + 1;
     }
 
-    /** {@collect.stats}
-     * Marks the current position in this input stream. A subsequent
+    /**
+     * {@description.open}
+     * Marks the current position in this input stream.
+     * {@description.close}
+     * {@property.open formal:InputStream_MarkReset}
+     * A subsequent
      * call to the <code>reset</code> method repositions this stream at
      * the last marked position so that subsequent reads re-read the same bytes.
+     * {@property.close}
      * <p>
+     * {@description.open}
      * The <code>mark</code> method of
      * <code>LineNumberInputStream</code> remembers the current line
      * number in a private variable, and then calls the <code>mark</code>
      * method of the underlying input stream.
+     * {@description.close}
      *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
@@ -261,7 +299,8 @@ class LineNumberInputStream extends FilterInputStream {
         in.mark(readlimit);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      * <p>
@@ -279,6 +318,7 @@ class LineNumberInputStream extends FilterInputStream {
      * that type, the parser should toss an exception when it fails,
      * which, if it happens within readlimit bytes, allows the outer
      * code to reset the stream and try another parser.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterInputStream#in

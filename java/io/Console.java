@@ -30,7 +30,8 @@ import java.nio.charset.Charset;
 import sun.nio.cs.StreamDecoder;
 import sun.nio.cs.StreamEncoder;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Methods to access the character-based console device, if any, associated
  * with the current Java virtual machine.
  *
@@ -43,23 +44,31 @@ import sun.nio.cs.StreamEncoder;
  * was launched.  If the virtual machine is started automatically, for
  * example by a background job scheduler, then it will typically not
  * have a console.
+ * {@description.close}
  * <p>
+ * {@property.open}
  * If this virtual machine has a console then it is represented by a
  * unique instance of this class which can be obtained by invoking the
  * {@link java.lang.System#console()} method.  If no console device is
  * available then an invocation of that method will return <tt>null</tt>.
+ * {@property.close}
  * <p>
+ * {@property.open undecided}
  * Read and write operations are synchronized to guarantee the atomic
  * completion of critical operations; therefore invoking methods
  * {@link #readLine()}, {@link #readPassword()}, {@link #format format()},
  * {@link #printf printf()} as well as the read, format and write operations
  * on the objects returned by {@link #reader()} and {@link #writer()} may
  * block in multithreaded scenarios.
+ * {@property.close}
  * <p>
+ * {@property.open formal:Console_CloseReader formal:Console_CloseWriter}
  * Invoking <tt>close()</tt> on the objects returned by the {@link #reader()}
  * and the {@link #writer()} will not close the underlying stream of those
  * objects.
+ * {@property.close}
  * <p>
+ * {@description.open}
  * The console-read methods return <tt>null</tt> when the end of the
  * console input stream is reached, for example by typing control-D on
  * Unix or control-Z on Windows.  Subsequent read operations will succeed
@@ -68,10 +77,15 @@ import sun.nio.cs.StreamEncoder;
  * <p>
  * Unless otherwise specified, passing a <tt>null</tt> argument to any method
  * in this class will cause a {@link NullPointerException} to be thrown.
+ * {@description.close}
  * <p>
+ * {@property.open}
  * <b>Security note:</b>
  * If an application needs to read a password or other secure data, it should
- * use {@link #readPassword()} or {@link #readPassword(String, Object...)} and
+ * use {@link #readPassword()} or {@link #readPassword(String, Object...)}
+ * {@property.close}
+ * {@property.open formal:Console_FillZeroPassword}
+ * and
  * manually zero the returned character array after processing to minimize the
  * lifetime of sensitive data in memory.
  *
@@ -84,6 +98,7 @@ import sun.nio.cs.StreamEncoder;
  *     java.util.Arrays.fill(passwd, ' ');
  * }
  * </pre></blockquote>
+ * {@property.close}
  *
  * @author  Xueming Shen
  * @since   1.6
@@ -91,9 +106,11 @@ import sun.nio.cs.StreamEncoder;
 
 public final class Console implements Flushable
 {
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Retrieves the unique {@link java.io.PrintWriter PrintWriter} object
     * associated with this console.
+    * {@description.close}
     *
     * @return  The printwriter associated with this console
     */
@@ -101,7 +118,8 @@ public final class Console implements Flushable
         return pw;
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Retrieves the unique {@link java.io.Reader Reader} object associated
     * with this console.
     * <p>
@@ -118,7 +136,9 @@ public final class Console implements Flushable
     * <p>
     * For simple applications requiring only line-oriented reading, use
     * <tt>{@link #readLine}</tt>.
+    * {@description.close}
     * <p>
+    * {@property.open}
     * The bulk read operations {@link java.io.Reader#read(char[]) read(char[]) },
     * {@link java.io.Reader#read(char[], int, int) read(char[], int, int) } and
     * {@link java.io.Reader#read(java.nio.CharBuffer) read(java.nio.CharBuffer)}
@@ -127,6 +147,7 @@ public final class Console implements Flushable
     * more characters. A line bound is considered to be any one of a line feed
     * (<tt>'\n'</tt>), a carriage return (<tt>'\r'</tt>), a carriage return
     * followed immediately by a linefeed, or an end of stream.
+    * {@property.close}
     *
     * @return  The reader associated with this console
     */
@@ -134,9 +155,11 @@ public final class Console implements Flushable
         return reader;
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Writes a formatted string to this console's output stream using
     * the specified format string and arguments.
+    * {@description.close}
     *
     * @param  fmt
     *         A format string as described in <a
@@ -169,13 +192,15 @@ public final class Console implements Flushable
         return this;
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * A convenience method to write a formatted string to this console's
     * output stream using the specified format string and arguments.
     *
     * <p> An invocation of this method of the form <tt>con.printf(format,
     * args)</tt> behaves in exactly the same way as the invocation of
     * <pre>con.format(format, args)</pre>.
+    * {@description.close}
     *
     * @param  format
     *         A format string as described in <a
@@ -207,9 +232,11 @@ public final class Console implements Flushable
         return format(format, args);
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Provides a formatted prompt, then reads a single line of text from the
     * console.
+    * {@description.close}
     *
     * @param  fmt
     *         A format string as described in <a
@@ -257,8 +284,10 @@ public final class Console implements Flushable
         return line;
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Reads a single line of text from the console.
+    * {@description.close}
     *
     * @throws IOError
     *         If an I/O error occurs.
@@ -271,9 +300,11 @@ public final class Console implements Flushable
         return readLine("");
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Provides a formatted prompt, then reads a password or passphrase from
     * the console with echoing disabled.
+    * {@description.close}
     *
     * @param  fmt
     *         A format string as described in <a
@@ -326,8 +357,10 @@ public final class Console implements Flushable
         return passwd;
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Reads a password or passphrase from the console with echoing disabled
+    * {@description.close}
     *
     * @throws IOError
     *         If an I/O error occurs.
@@ -340,9 +373,11 @@ public final class Console implements Flushable
         return readPassword("");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes the console and forces any buffered output to be written
      * immediately .
+     * {@description.close}
      */
     public void flush() {
         pw.flush();

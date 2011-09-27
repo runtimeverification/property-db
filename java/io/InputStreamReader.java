@@ -30,7 +30,8 @@ import java.nio.charset.CharsetDecoder;
 import sun.nio.cs.StreamDecoder;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * An InputStreamReader is a bridge from byte streams to character streams: It
  * reads bytes and decodes them into characters using a specified {@link
  * java.nio.charset.Charset <code>charset</code>}.  The charset that it uses
@@ -50,6 +51,7 @@ import sun.nio.cs.StreamDecoder;
  * BufferedReader in
  *   = new BufferedReader(new InputStreamReader(System.in));
  * </pre>
+ * {@description.close}
  *
  * @see BufferedReader
  * @see InputStream
@@ -63,8 +65,10 @@ public class InputStreamReader extends Reader {
 
     private final StreamDecoder sd;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an InputStreamReader that uses the default charset.
+     * {@description.close}
      *
      * @param  in   An InputStream
      */
@@ -78,8 +82,10 @@ public class InputStreamReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an InputStreamReader that uses the named charset.
+     * {@description.close}
      *
      * @param  in
      *         An InputStream
@@ -100,8 +106,10 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, charsetName);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an InputStreamReader that uses the given charset. </p>
+     * {@description.close}
      *
      * @param  in       An InputStream
      * @param  cs       A charset
@@ -116,8 +124,10 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, cs);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates an InputStreamReader that uses the given charset decoder.  </p>
+     * {@description.close}
      *
      * @param  in       An InputStream
      * @param  dec      A charset decoder
@@ -132,18 +142,24 @@ public class InputStreamReader extends Reader {
         sd = StreamDecoder.forInputStreamReader(in, this, dec);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the name of the character encoding being used by this stream.
+     * {@description.close}
      *
+     * {@property.open}
      * <p> If the encoding has an historical name then that name is returned;
      * otherwise the encoding's canonical name is returned.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> If this instance was created with the {@link
      * #InputStreamReader(InputStream, String)} constructor then the returned
      * name, being unique for the encoding, may differ from the name passed to
      * the constructor. This method will return <code>null</code> if the
      * stream has been closed.
      * </p>
+     * {@description.close}
      * @return The historical name of this encoding, or
      *         <code>null</code> if the stream has been closed
      *
@@ -156,8 +172,10 @@ public class InputStreamReader extends Reader {
         return sd.getEncoding();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads a single character.
+     * {@description.close}
      *
      * @return The character read, or -1 if the end of the stream has been
      *         reached
@@ -168,8 +186,10 @@ public class InputStreamReader extends Reader {
         return sd.read();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads characters into a portion of an array.
+     * {@description.close}
      *
      * @param      cbuf     Destination buffer
      * @param      offset   Offset at which to start storing characters
@@ -184,10 +204,12 @@ public class InputStreamReader extends Reader {
         return sd.read(cbuf, offset, length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tells whether this stream is ready to be read.  An InputStreamReader is
      * ready if its input buffer is not empty, or if bytes are available to be
      * read from the underlying byte stream.
+     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */

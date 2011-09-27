@@ -25,14 +25,18 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This abstract class is the superclass of all classes representing
  * an output stream of bytes. An output stream accepts output bytes
  * and sends them to some sink.
+ * {@description.close}
  * <p>
+ * {@enforced.open}
  * Applications that need to define a subclass of
  * <code>OutputStream</code> must always provide at least a method
  * that writes one byte of output.
+ * {@enforced.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
@@ -44,15 +48,19 @@ package java.io;
  * @since   JDK1.0
  */
 public abstract class OutputStream implements Closeable, Flushable {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the specified byte to this output stream. The general
      * contract for <code>write</code> is that one byte is written
      * to the output stream. The byte to be written is the eight
      * low-order bits of the argument <code>b</code>. The 24
      * high-order bits of <code>b</code> are ignored.
+     * {@description.close}
      * <p>
+     * {@enforced.open}
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
+     * {@enforced.close}
      *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs. In particular,
@@ -61,11 +69,13 @@ public abstract class OutputStream implements Closeable, Flushable {
      */
     public abstract void write(int b) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>b.length</code> bytes from the specified byte array
      * to this output stream. The general contract for <code>write(b)</code>
      * is that it should have exactly the same effect as the call
      * <code>write(b, 0, b.length)</code>.
+     * {@description.close}
      *
      * @param      b   the data.
      * @exception  IOException  if an I/O error occurs.
@@ -75,7 +85,8 @@ public abstract class OutputStream implements Closeable, Flushable {
         write(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this output stream.
      * The general contract for <code>write(b, off, len)</code> is that
@@ -95,6 +106,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      * If <code>off</code> is negative, or <code>len</code> is negative, or
      * <code>off+len</code> is greater than the length of the array
      * <code>b</code>, then an <tt>IndexOutOfBoundsException</tt> is thrown.
+     * {@description.close}
      *
      * @param      b     the data.
      * @param      off   the start offset in the data.
@@ -117,7 +129,8 @@ public abstract class OutputStream implements Closeable, Flushable {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Flushes this output stream and forces any buffered output bytes
      * to be written out. The general contract of <code>flush</code> is
      * that calling it is an indication that, if any bytes previously
@@ -132,19 +145,27 @@ public abstract class OutputStream implements Closeable, Flushable {
      * they are actually written to a physical device such as a disk drive.
      * <p>
      * The <code>flush</code> method of <code>OutputStream</code> does nothing.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */
     public void flush() throws IOException {
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this output stream and releases any system resources
-     * associated with this stream. The general contract of <code>close</code>
+     * associated with this stream.
+     * {@description.close}
+     * {@property.open formal:OutputStream_ManipulateAfterClose}
+     * The general contract of <code>close</code>
      * is that it closes the output stream. A closed stream cannot perform
      * output operations and cannot be reopened.
+     * {@property.close}
      * <p>
+     * {@description.open}
      * The <code>close</code> method of <code>OutputStream</code> does nothing.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

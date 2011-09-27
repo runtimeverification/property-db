@@ -30,7 +30,8 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This class is for Serializable permissions. A SerializablePermission
  * contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -75,6 +76,7 @@ import java.util.StringTokenizer;
  * </tr>
  *
  * </table>
+ * {@description.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -93,15 +95,19 @@ public final class SerializablePermission extends BasicPermission {
 
     private static final long serialVersionUID = 8537212141160296410L;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * @serial
+     * {@description.close}
      */
     private String actions;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new SerializablePermission with the specified name.
      * The name is the symbolic name of the SerializablePermission, such as
      * "enableSubstitution", etc.
+     * {@description.close}
      *
      * @param name the name of the SerializablePermission.
      *
@@ -113,10 +119,12 @@ public final class SerializablePermission extends BasicPermission {
         super(name);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new SerializablePermission object with the specified name.
      * The name is the symbolic name of the SerializablePermission, and the
      * actions String is currently unused and should be null.
+     * {@description.close}
      *
      * @param name the name of the SerializablePermission.
      * @param actions currently unused and must be set to null

@@ -38,7 +38,8 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import sun.security.util.SecurityConstants;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This class represents access to a file or directory.  A FilePermission consists
  * of a pathname and a set of actions valid for that pathname.
  * <P>
@@ -83,6 +84,7 @@ import sun.security.util.SecurityConstants;
  * <p>Please note: Code can always read a file from the same
  * directory it's in (or a subdirectory of that directory); it does not
  * need explicit permission to do so.
+ * {@description.close}
  *
  * @see java.security.Permission
  * @see java.security.Permissions
@@ -98,29 +100,41 @@ import sun.security.util.SecurityConstants;
 
 public final class FilePermission extends Permission implements Serializable {
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Execute action.
+     * {@description.close}
      */
     private final static int EXECUTE = 0x1;
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Write action.
+     * {@description.close}
      */
     private final static int WRITE   = 0x2;
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Read action.
+     * {@description.close}
      */
     private final static int READ    = 0x4;
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Delete action.
+     * {@description.close}
      */
     private final static int DELETE  = 0x8;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * All actions (read,write,execute,delete)
+     * {@description.close}
      */
     private final static int ALL     = READ|WRITE|EXECUTE|DELETE;
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * No actions.
+     * {@description.close}
      */
     private final static int NONE    = 0x0;
 
@@ -133,8 +147,10 @@ public final class FilePermission extends Permission implements Serializable {
     // is it a recursive directory specification?
     private transient boolean recursive;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * the actions string.
+     * {@description.close}
      *
      * @serial
      */
@@ -168,9 +184,11 @@ public final class FilePermission extends Permission implements Serializable {
 
     private static final long serialVersionUID = 7930732926638008763L;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * initialize a FilePermission object. Common to all constructors.
      * Also called during de-serialization.
+     * {@description.close}
      *
      * @param mask the actions mask to use.
      *
@@ -230,7 +248,8 @@ public final class FilePermission extends Permission implements Serializable {
         // XXX: at this point the path should be absolute. die if it isn't?
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new FilePermission object with the specified actions.
      * <i>path</i> is the pathname of a file or directory, and <i>actions</i>
      * contains a comma-separated list of the desired actions granted on the
@@ -251,6 +270,7 @@ public final class FilePermission extends Permission implements Serializable {
      * directory.
      *
      * <p>A pathname containing an empty string represents an empty path.
+     * {@description.close}
      *
      * @param path the pathname of the file/directory.
      * @param actions the action string.
@@ -266,12 +286,14 @@ public final class FilePermission extends Permission implements Serializable {
         init(getMask(actions));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new FilePermission object using an action mask.
      * More efficient than the FilePermission(String, String) constructor.
      * Can be used from within
      * code that needs to create a FilePermission object to pass into the
      * <code>implies</code> method.
+     * {@description.close}
      *
      * @param path the pathname of the file/directory.
      * @param mask the action mask to use.
@@ -284,7 +306,8 @@ public final class FilePermission extends Permission implements Serializable {
         init(mask);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Checks if this FilePermission object "implies" the specified permission.
      * <P>
      * More specifically, this method returns true if:<p>
@@ -297,6 +320,7 @@ public final class FilePermission extends Permission implements Serializable {
      *      "/tmp/*" encompasses all files in the "/tmp" directory,
      *      including the one named "foo".
      * </ul>
+     * {@description.close}
      *
      * @param p the permission to check against.
      *
@@ -316,10 +340,12 @@ public final class FilePermission extends Permission implements Serializable {
         return ((this.mask & that.mask) == that.mask) && impliesIgnoreMask(that);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Checks if the Permission's actions are a proper subset of the
      * this object's actions. Returns the effective mask iff the
      * this FilePermission's path also implies that FilePermission's path.
+     * {@description.close}
      *
      * @param that the FilePermission to check against.
      * @param exact return immediately if the masks are not equal
@@ -368,9 +394,11 @@ public final class FilePermission extends Permission implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Checks two FilePermission objects for equality. Checks that <i>obj</i> is
      * a FilePermission, and has the same pathname and actions as this object.
+     * {@description.close}
      * <P>
      * @param obj the object we are testing for equality with this object.
      * @return <code>true</code> if obj is a FilePermission, and has the same
@@ -392,8 +420,10 @@ public final class FilePermission extends Permission implements Serializable {
             (this.recursive == that.recursive);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the hash code value for this object.
+     * {@description.close}
      *
      * @return a hash code value for this object.
      */
@@ -402,8 +432,10 @@ public final class FilePermission extends Permission implements Serializable {
         return this.cpath.hashCode();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Converts an actions String to an actions mask.
+     * {@description.close}
      *
      * @param action the action string.
      * @return the actions mask.
@@ -516,8 +548,10 @@ public final class FilePermission extends Permission implements Serializable {
         return mask;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Return the current action mask. Used by the FilePermissionCollection.
+     * {@description.close}
      *
      * @return the actions mask.
      */
@@ -526,10 +560,12 @@ public final class FilePermission extends Permission implements Serializable {
         return mask;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Return the canonical string representation of the actions.
      * Always returns present actions in the following order:
      * read, write, execute, delete.
+     * {@description.close}
      *
      * @return the canonical string representation of the actions.
      */
@@ -564,12 +600,14 @@ public final class FilePermission extends Permission implements Serializable {
         return sb.toString();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the "canonical string representation" of the actions.
      * That is, this method always returns present actions in the following order:
      * read, write, execute, delete. For example, if this FilePermission object
      * allows both write and read actions, a call to <code>getActions</code>
      * will return the string "read,write".
+     * {@description.close}
      *
      * @return the canonical string representation of the actions.
      */
@@ -582,7 +620,8 @@ public final class FilePermission extends Permission implements Serializable {
     }
 
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns a new PermissionCollection object for storing FilePermission
      * objects.
      * <p>
@@ -609,6 +648,7 @@ public final class FilePermission extends Permission implements Serializable {
      * and <code>implies</code> returns true. The "implies" semantics for
      * FilePermissions are handled properly by the PermissionCollection object
      * returned by this <code>newPermissionCollection</code> method.
+     * {@description.close}
      *
      * @return a new PermissionCollection object suitable for storing
      * FilePermissions.
@@ -618,10 +658,12 @@ public final class FilePermission extends Permission implements Serializable {
         return new FilePermissionCollection();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * WriteObject is called to save the state of the FilePermission
      * to a stream. The actions are serialized, and the superclass
      * takes care of the name.
+     * {@description.close}
      */
     private void writeObject(ObjectOutputStream s)
         throws IOException
@@ -633,9 +675,11 @@ public final class FilePermission extends Permission implements Serializable {
         s.defaultWriteObject();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * readObject is called to restore the state of the FilePermission from
      * a stream.
+     * {@description.close}
      */
     private void readObject(ObjectInputStream s)
          throws IOException, ClassNotFoundException
@@ -646,7 +690,8 @@ public final class FilePermission extends Permission implements Serializable {
     }
 }
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A FilePermissionCollection stores a set of FilePermission permissions.
  * FilePermission objects
  * must be stored in a manner that allows them to be inserted in any
@@ -661,6 +706,7 @@ public final class FilePermission extends Permission implements Serializable {
  * "/tmp/scratch/foo", "read,write", then the implies function must
  * take into account both the /tmp/- and /tmp/scratch/foo
  * permissions, so the effective permission is "read,write".
+ * {@description.close}
  *
  * @see java.security.Permission
  * @see java.security.Permissions
@@ -680,8 +726,10 @@ implements Serializable {
     // Not serialized; see serialization section at end of class
     private transient List perms;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Create an empty FilePermissions object.
+     * {@description.close}
      *
      */
 
@@ -689,9 +737,11 @@ implements Serializable {
         perms = new ArrayList();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Adds a permission to the FilePermissions. The key for the hash is
      * permission.path.
+     * {@description.close}
      *
      * @param permission the Permission object to add.
      *
@@ -716,9 +766,11 @@ implements Serializable {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Check and see if this set of permissions implies the permissions
      * expressed in "permission".
+     * {@description.close}
      *
      * @param p the Permission object to compare
      *
@@ -752,9 +804,11 @@ implements Serializable {
         return false;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns an enumeration of all the FilePermission objects in the
      * container.
+     * {@description.close}
      *
      * @return an enumeration of all the FilePermission objects.
      */
@@ -772,7 +826,7 @@ implements Serializable {
     // which had the serializable field:
     //    private Vector permissions;
 
-    /** {@collect.stats}
+    /**
      * @serialField permissions java.util.Vector
      *     A list of FilePermission objects.
      */
@@ -780,7 +834,7 @@ implements Serializable {
         new ObjectStreamField("permissions", Vector.class),
     };
 
-    /** {@collect.stats}
+    /**
      * @serialData "permissions" field (a Vector containing the FilePermissions).
      */
     /*

@@ -26,7 +26,8 @@
 package java.io;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A buffered character-input stream that keeps track of line numbers.  This
  * class defines methods {@link #setLineNumber(int)} and {@link
  * #getLineNumber()} for setting and getting the current line number
@@ -42,6 +43,7 @@ package java.io;
  * <p> A line is considered to be <a name="lt">terminated</a> by any one of a
  * line feed ('\n'), a carriage return ('\r'), or a carriage return followed
  * immediately by a linefeed.
+ * {@description.close}
  *
  * @author      Mark Reinhold
  * @since       JDK1.1
@@ -49,21 +51,39 @@ package java.io;
 
 public class LineNumberReader extends BufferedReader {
 
-    /** {@collect.stats} The current line number */
+    /**
+     * {@description.open}
+     * The current line number
+     * {@description.close}
+     */
     private int lineNumber = 0;
 
-    /** {@collect.stats} The line number of the mark, if any */
+    /**
+     * {@description.open}
+     * The line number of the mark, if any
+     * {@description.close}
+     */
     private int markedLineNumber; // Defaults to 0
 
-    /** {@collect.stats} If the next character is a line feed, skip it */
+    /**
+     * {@description.open}
+     * If the next character is a line feed, skip it
+     * {@description.close}
+     */
     private boolean skipLF;
 
-    /** {@collect.stats} The skipLF flag when the mark was set */
+    /**
+     * {@description.open}
+     * The skipLF flag when the mark was set
+     * {@description.close}
+     */
     private boolean markedSkipLF;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Create a new line-numbering reader, using the default input-buffer
      * size.
+     * {@description.close}
      *
      * @param  in
      *         A Reader object to provide the underlying stream
@@ -72,9 +92,11 @@ public class LineNumberReader extends BufferedReader {
         super(in);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Create a new line-numbering reader, reading characters into a buffer of
      * the given size.
+     * {@description.close}
      *
      * @param  in
      *         A Reader object to provide the underlying stream
@@ -86,8 +108,10 @@ public class LineNumberReader extends BufferedReader {
         super(in, sz);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Set the current line number.
+     * {@description.close}
      *
      * @param  lineNumber
      *         An int specifying the line number
@@ -98,8 +122,10 @@ public class LineNumberReader extends BufferedReader {
         this.lineNumber = lineNumber;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Get the current line number.
+     * {@description.close}
      *
      * @return  The current line number
      *
@@ -109,10 +135,12 @@ public class LineNumberReader extends BufferedReader {
         return lineNumber;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Read a single character.  <a href="#lt">Line terminators</a> are
      * compressed into single newline ('\n') characters.  Whenever a line
      * terminator is read the current line number is incremented.
+     * {@description.close}
      *
      * @return  The character read, or -1 if the end of the stream has been
      *          reached
@@ -139,10 +167,12 @@ public class LineNumberReader extends BufferedReader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Read characters into a portion of an array.  Whenever a <a
      * href="#lt">line terminator</a> is read the current line number is
      * incremented.
+     * {@description.close}
      *
      * @param  cbuf
      *         Destination buffer
@@ -183,9 +213,11 @@ public class LineNumberReader extends BufferedReader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Read a line of text.  Whenever a <a href="#lt">line terminator</a> is
      * read the current line number is incremented.
+     * {@description.close}
      *
      * @return  A String containing the contents of the line, not including
      *          any <a href="#lt">line termination characters</a>, or
@@ -204,14 +236,24 @@ public class LineNumberReader extends BufferedReader {
         }
     }
 
-    /** {@collect.stats} Maximum skip-buffer size */
+    /**
+     * {@description.open}
+     * Maximum skip-buffer size
+     * {@description.close}
+     */
     private static final int maxSkipBufferSize = 8192;
 
-    /** {@collect.stats} Skip buffer, null until allocated */
+    /**
+     * {@description.open}
+     * Skip buffer, null until allocated
+     * {@description.close}
+     */
     private char skipBuffer[] = null;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skip characters.
+     * {@description.close}
      *
      * @param  n
      *         The number of characters to skip
@@ -242,10 +284,12 @@ public class LineNumberReader extends BufferedReader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Mark the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point, and will also reset
      * the line number appropriately.
+     * {@description.close}
      *
      * @param  readAheadLimit
      *         Limit on the number of characters that may be read while still
@@ -263,8 +307,10 @@ public class LineNumberReader extends BufferedReader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reset the stream to the most recent mark.
+     * {@description.close}
      *
      * @throws  IOException
      *          If the stream has not been marked, or if the mark has been

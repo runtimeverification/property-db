@@ -25,10 +25,12 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * ObjectInput extends the DataInput interface to include the reading of
  * objects. DataInput includes methods for the input of primitive types,
  * ObjectInput extends that interface to include objects, arrays, and Strings.
+ * {@description.close}
  *
  * @author  unascribed
  * @see java.io.InputStream
@@ -37,9 +39,11 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectInput extends DataInput {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Read and return an object. The class that implements this interface
      * defines where the object is "read" from.
+     * {@description.close}
      *
      * @return the object read from the stream
      * @exception java.lang.ClassNotFoundException If the class of a serialized
@@ -50,18 +54,28 @@ public interface ObjectInput extends DataInput {
     public Object readObject()
         throws ClassNotFoundException, IOException;
 
-    /** {@collect.stats}
-     * Reads a byte of data. This method will block if no input is
+    /**
+     * {@description.open}
+     * Reads a byte of data.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will block if no input is
      * available.
+     * {@property.close}
      * @return  the byte read, or -1 if the end of the
      *          stream is reached.
      * @exception IOException If an I/O error has occurred.
      */
     public int read() throws IOException;
 
-    /** {@collect.stats}
-     * Reads into an array of bytes.  This method will
+    /**
+     * {@description.open}
+     * Reads into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will
      * block until some input is available.
+     * {@property.close}
      * @param b the buffer into which the data is read
      * @return  the actual number of bytes read, -1 is
      *          returned when the end of the stream is reached.
@@ -69,9 +83,14 @@ public interface ObjectInput extends DataInput {
      */
     public int read(byte b[]) throws IOException;
 
-    /** {@collect.stats}
-     * Reads into an array of bytes.  This method will
+    /**
+     * {@description.open}
+     * Reads into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will
      * block until some input is available.
+     * {@property.close}
      * @param b the buffer into which the data is read
      * @param off the start offset of the data
      * @param len the maximum number of bytes read
@@ -81,26 +100,35 @@ public interface ObjectInput extends DataInput {
      */
     public int read(byte b[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips n bytes of input.
+     * {@description.close}
      * @param n the number of bytes to be skipped
      * @return  the actual number of bytes skipped.
      * @exception IOException If an I/O error has occurred.
      */
     public long skip(long n) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the number of bytes that can be read
+     * {@description.close}
      * without blocking.
      * @return the number of available bytes.
      * @exception IOException If an I/O error has occurred.
      */
     public int available() throws IOException;
 
-    /** {@collect.stats}
-     * Closes the input stream. Must be called
+    /**
+     * {@description.open}
+     * Closes the input stream.
+     * {@description.close}
+     * {@property.open formal:ObjectInput_Close}
+     * Must be called
      * to release any resources associated with
      * the stream.
+     * {@property.close}
      * @exception IOException If an I/O error has occurred.
      */
     public void close() throws IOException;

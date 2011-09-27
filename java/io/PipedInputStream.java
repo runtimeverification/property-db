@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A piped input stream should be connected
  * to a piped output stream; the piped  input
  * stream then provides whatever data bytes
@@ -33,15 +34,21 @@ package java.io;
  * Typically, data is read from a <code>PipedInputStream</code>
  * object by one thread  and data is written
  * to the corresponding <code>PipedOutputStream</code>
- * by some  other thread. Attempting to use
+ * by some  other thread.
+ * {@description.close}
+ * {@property.open formal:PipedStream_SingleThread}
+ * Attempting to use
  * both objects from a single thread is not
  * recommended, as it may deadlock the thread.
+ * {@property.close}
+ * {@description.open}
  * The piped input stream contains a buffer,
  * decoupling read operations from write operations,
  * within limits.
  * A pipe is said to be <a name=BROKEN> <i>broken</i> </a> if a
  * thread that was providing data bytes to the connected
  * piped output stream is no longer alive.
+ * {@description.close}
  *
  * @author  James Gosling
  * @see     java.io.PipedOutputStream
@@ -61,8 +68,10 @@ public class PipedInputStream extends InputStream {
 
     private static final int DEFAULT_PIPE_SIZE = 1024;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The default size of the pipe's circular input buffer.
+     * {@description.close}
      * @since   JDK1.1
      */
     // This used to be a constant before the pipe size was allowed
@@ -70,34 +79,42 @@ public class PipedInputStream extends InputStream {
     // for backward compatibility.
     protected static final int PIPE_SIZE = DEFAULT_PIPE_SIZE;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The circular buffer into which incoming data is placed.
+     * {@description.close}
      * @since   JDK1.1
      */
     protected byte buffer[];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The index of the position in the circular buffer at which the
      * next byte of data will be stored when received from the connected
      * piped output stream. <code>in&lt;0</code> implies the buffer is empty,
      * <code>in==out</code> implies the buffer is full
+     * {@description.close}
      * @since   JDK1.1
      */
     protected int in = -1;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The index of the position in the circular buffer at which the next
      * byte of data will be read by this piped input stream.
+     * {@description.close}
      * @since   JDK1.1
      */
     protected int out = 0;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PipedInputStream</code> so
      * that it is connected to the piped output
      * stream <code>src</code>. Data bytes written
      * to <code>src</code> will then be  available
      * as input from this stream.
+     * {@description.close}
      *
      * @param      src   the stream to connect to.
      * @exception  IOException  if an I/O error occurs.
@@ -106,13 +123,15 @@ public class PipedInputStream extends InputStream {
         this(src, DEFAULT_PIPE_SIZE);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PipedInputStream</code> so that it is
      * connected to the piped output stream
      * <code>src</code> and uses the specified pipe size for
      * the pipe's buffer.
      * Data bytes written to <code>src</code> will then
      * be available as input from this stream.
+     * {@description.close}
      *
      * @param      src   the stream to connect to.
      * @param      pipeSize the size of the pipe's buffer.
@@ -126,25 +145,29 @@ public class PipedInputStream extends InputStream {
          connect(src);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PipedInputStream</code> so
      * that it is not yet {@linkplain #connect(java.io.PipedOutputStream)
      * connected}.
      * It must be {@linkplain java.io.PipedOutputStream#connect(
      * java.io.PipedInputStream) connected} to a
      * <code>PipedOutputStream</code> before being used.
+     * {@description.close}
      */
     public PipedInputStream() {
         initPipe(DEFAULT_PIPE_SIZE);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>PipedInputStream</code> so that it is not yet
      * {@linkplain #connect(java.io.PipedOutputStream) connected} and
      * uses the specified pipe size for the pipe's buffer.
      * It must be {@linkplain java.io.PipedOutputStream#connect(
      * java.io.PipedInputStream)
      * connected} to a <code>PipedOutputStream</code> before being used.
+     * {@description.close}
      *
      * @param      pipeSize the size of the pipe's buffer.
      * @exception  IllegalArgumentException if <code>pipeSize <= 0</code>.
@@ -161,7 +184,8 @@ public class PipedInputStream extends InputStream {
          buffer = new byte[pipeSize];
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Causes this piped input stream to be connected
      * to the piped  output stream <code>src</code>.
      * If this object is already connected to some
@@ -181,6 +205,7 @@ public class PipedInputStream extends InputStream {
      * <p>
      * The two
      * calls have the same effect.
+     * {@description.close}
      *
      * @param      src   The piped output stream to connect to.
      * @exception  IOException  if an I/O error occurs.
@@ -189,9 +214,14 @@ public class PipedInputStream extends InputStream {
         src.connect(this);
     }
 
-    /** {@collect.stats}
-     * Receives a byte of data.  This method will block if no input is
+    /**
+     * {@description.open}
+     * Receives a byte of data.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will block if no input is
      * available.
+     * {@property.close}
      * @param b the byte being received
      * @exception IOException If the pipe is <a href=#BROKEN> <code>broken</code></a>,
      *          {@link #connect(java.io.PipedOutputStream) unconnected},
@@ -213,9 +243,14 @@ public class PipedInputStream extends InputStream {
         }
     }
 
-    /** {@collect.stats}
-     * Receives data into an array of bytes.  This method will
+    /**
+     * {@description.open}
+     * Receives data into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method will
      * block until some input is available.
+     * {@property.close}
      * @param b the buffer into which the data is received
      * @param off the start offset of the data
      * @param len the maximum number of bytes received
@@ -278,21 +313,27 @@ public class PipedInputStream extends InputStream {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Notifies all waiting threads that the last byte of data has been
      * received.
+     * {@description.close}
      */
     synchronized void receivedLast() {
         closedByWriter = true;
         notifyAll();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this piped input stream. The
      * value byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>.
+     * {@description.close}
+     * {@property.open blocking}
      * This method blocks until input data is available, the end of the
      * stream is detected, or an exception is thrown.
+     * {@property.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -341,15 +382,19 @@ public class PipedInputStream extends InputStream {
         return ret;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this piped input
      * stream into an array of bytes. Less than <code>len</code> bytes
      * will be read if the end of the data stream is reached or if
      * <code>len</code> exceeds the pipe's buffer size.
+     * {@description.close}
+     * {@property.open blocking}
      * If <code>len </code> is zero, then no bytes are read and 0 is returned;
      * otherwise, the method blocks until at least 1 byte of input is
      * available, end of the stream has been detected, or an exception is
      * thrown.
+     * {@property.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>
@@ -411,9 +456,11 @@ public class PipedInputStream extends InputStream {
         return rlen;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the number of bytes that can be read from this input
      * stream without blocking.
+     * {@description.close}
      *
      * @return the number of bytes that can be read from this input stream
      *         without blocking, or {@code 0} if this input stream has been
@@ -435,9 +482,11 @@ public class PipedInputStream extends InputStream {
             return in + buffer.length - out;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this piped input stream and releases any system resources
      * associated with the stream.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      */

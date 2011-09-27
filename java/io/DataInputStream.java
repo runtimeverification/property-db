@@ -25,15 +25,19 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A data input stream lets an application read primitive Java data
  * types from an underlying input stream in a machine-independent
  * way. An application uses a data output stream to write data that
  * can later be read by a data input stream.
+ * {@description.close}
  * <p>
+ * {@property.open}
  * DataInputStream is not necessarily safe for multithreaded access.
  * Thread safety is optional and is the responsibility of users of
  * methods in this class.
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.DataOutputStream
@@ -42,9 +46,11 @@ package java.io;
 public
 class DataInputStream extends FilterInputStream implements DataInput {
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a DataInputStream that uses the specified
      * underlying InputStream.
+     * {@description.close}
      *
      * @param  in   the specified input stream
      */
@@ -52,13 +58,16 @@ class DataInputStream extends FilterInputStream implements DataInput {
         super(in);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * working arrays initialized on demand by readUTF
+     * {@description.close}
      */
     private byte bytearr[] = new byte[80];
     private char chararr[] = new char[80];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads some number of bytes from the contained input stream and
      * stores them into the buffer array <code>b</code>. The number of
      * bytes actually read is returned as an integer. This method blocks
@@ -84,6 +93,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
      * <blockquote><pre>
      * read(b, 0, b.length)
      * </pre></blockquote>
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @return     the total number of bytes read into the buffer, or
@@ -100,16 +110,21 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return in.read(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from the contained
      * input stream into an array of bytes.  An attempt is made to read
      * as many as <code>len</code> bytes, but a smaller number may be read,
      * possibly zero. The number of bytes actually read is returned as an
      * integer.
+     * {@description.close}
      *
+     * {@property.open undecided}
      * <p> This method blocks until input data is available, end of file is
      * detected, or an exception is thrown.
+     * {@property.close}
      *
+     * {@description.open}
      * <p> If <code>len</code> is zero, then no bytes are read and
      * <code>0</code> is returned; otherwise, there is an attempt to read at
      * least one byte. If no byte is available because the stream is at end of
@@ -127,6 +142,7 @@ class DataInputStream extends FilterInputStream implements DataInput {
      * <p> In every case, elements <code>b[0]</code> through
      * <code>b[off]</code> and elements <code>b[off+len]</code> through
      * <code>b[b.length-1]</code> are unaffected.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param off the start offset in the destination array <code>b</code>
@@ -149,13 +165,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return in.read(b, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readFully</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @exception  EOFException  if this input stream reaches the end before
@@ -169,13 +187,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         readFully(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readFully</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset of the data.
@@ -199,12 +219,14 @@ class DataInputStream extends FilterInputStream implements DataInput {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>skipBytes</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the actual number of bytes skipped.
@@ -224,12 +246,14 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return total;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readBoolean</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the <code>boolean</code> value read.
      * @exception  EOFException  if this input stream has reached the end.
@@ -245,13 +269,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (ch != 0);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readByte</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next byte of this input stream as a signed 8-bit
      *             <code>byte</code>.
@@ -268,13 +294,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (byte)(ch);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readUnsignedByte</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next byte of this input stream, interpreted as an
      *             unsigned 8-bit number.
@@ -291,13 +319,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return ch;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readShort</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next two bytes of this input stream, interpreted as a
      *             signed 16-bit number.
@@ -316,13 +346,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (short)((ch1 << 8) + (ch2 << 0));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readUnsignedShort</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next two bytes of this input stream, interpreted as an
      *             unsigned 16-bit integer.
@@ -341,13 +373,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (ch1 << 8) + (ch2 << 0);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readChar</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next two bytes of this input stream, interpreted as a
      *             <code>char</code>.
@@ -366,13 +400,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return (char)((ch1 << 8) + (ch2 << 0));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readInt</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next four bytes of this input stream, interpreted as an
      *             <code>int</code>.
@@ -395,13 +431,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
 
     private byte readBuffer[] = new byte[8];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readLong</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next eight bytes of this input stream, interpreted as a
      *             <code>long</code>.
@@ -424,13 +462,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
                 ((readBuffer[7] & 255) <<  0));
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readFloat</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next four bytes of this input stream, interpreted as a
      *             <code>float</code>.
@@ -446,13 +486,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
         return Float.intBitsToFloat(readInt());
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readDouble</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     the next eight bytes of this input stream, interpreted as a
      *             <code>double</code>.
@@ -470,13 +512,15 @@ class DataInputStream extends FilterInputStream implements DataInput {
 
     private char lineBuffer[];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readLine</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @deprecated This method does not properly convert bytes to characters.
      * As of JDK&nbsp;1.1, the preferred way to read lines of text is via the
@@ -542,13 +586,15 @@ loop:   while (true) {
         return String.copyValueOf(buf, 0, offset);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * See the general contract of the <code>readUTF</code>
      * method of <code>DataInput</code>.
      * <p>
      * Bytes
      * for this operation are read from the contained
      * input stream.
+     * {@description.close}
      *
      * @return     a Unicode string.
      * @exception  EOFException  if this input stream reaches the end before
@@ -564,7 +610,8 @@ loop:   while (true) {
         return readUTF(this);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads from the
      * stream <code>in</code> a representation
      * of a Unicode  character string encoded in
@@ -573,6 +620,7 @@ loop:   while (true) {
      * The details of the modified UTF-8 representation
      * are  exactly the same as for the <code>readUTF</code>
      * method of <code>DataInput</code>.
+     * {@description.close}
      *
      * @param      in   a data input stream.
      * @return     a Unicode string.

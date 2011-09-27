@@ -26,7 +26,8 @@
 package java.io;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Signals that an attempt to open the file denoted by a specified pathname
  * has failed.
  *
@@ -35,6 +36,7 @@ package java.io;
  * with the specified pathname does not exist.  It will also be thrown by these
  * constructors if the file does exist but for some reason is inaccessible, for
  * example when an attempt is made to open a read-only file for writing.
+ * {@description.close}
  *
  * @author  unascribed
  * @since   JDK1.0
@@ -42,20 +44,24 @@ package java.io;
 
 public class FileNotFoundException extends IOException {
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with
      * <code>null</code> as its error detail message.
+     * {@description.close}
      */
     public FileNotFoundException() {
         super();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with the
      * specified detail message. The string <code>s</code> can be
      * retrieved later by the
      * <code>{@link java.lang.Throwable#getMessage}</code>
      * method of class <code>java.lang.Throwable</code>.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */
@@ -63,12 +69,14 @@ public class FileNotFoundException extends IOException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a <code>FileNotFoundException</code> with a detail message
      * consisting of the given pathname string followed by the given reason
      * string.  If the <code>reason</code> argument is <code>null</code> then
      * it will be omitted.  This private constructor is invoked only by native
      * I/O methods.
+     * {@description.close}
      *
      * @since 1.2
      */

@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * The <code>DataInput</code> interface provides
  * for reading bytes from a binary stream and
  * reconstructing from them data in any of
@@ -47,7 +48,9 @@ package java.io;
  * thrown. In particular, an <code>IOException</code>
  * may be thrown if the input stream has been
  * closed.
+ * {@description.close}
  *
+ * {@property.open}
  * <h4><a name="modified-utf-8">Modified UTF-8</a></h4>
  * <p>
  * Implementations of the DataInput and DataOutput interfaces represent
@@ -185,6 +188,7 @@ package java.io;
  * <li><a href="../lang/Character.html#unicode">Supplementary characters</a>
  *     are represented in the form of surrogate pairs.
  * </ul>
+ * {@property.close}
  * @author  Frank Yellin
  * @see     java.io.DataInputStream
  * @see     java.io.DataOutput
@@ -192,13 +196,16 @@ package java.io;
  */
 public
 interface DataInput {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads some bytes from an input
      * stream and stores them into the buffer
      * array <code>b</code>. The number of bytes
      * read is equal
      * to the length of <code>b</code>.
+     * {@description.close}
      * <p>
+     * {@property.open undecided}
      * This method blocks until one of the
      * following conditions occurs:<p>
      * <ul>
@@ -214,7 +221,9 @@ interface DataInput {
      * which case an <code>IOException</code> other
      * than <code>EOFException</code> is thrown.
      * </ul>
+     * {@property.close}
      * <p>
+     * {@property.open}
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
      * If <code>b.length</code> is zero, then
@@ -222,10 +231,13 @@ interface DataInput {
      * byte read is stored into element <code>b[0]</code>,
      * the next one into <code>b[1]</code>, and
      * so on.
+     * {@property.close}
+     * {@description.open}
      * If an exception is thrown from
      * this method, then it may be that some but
      * not all bytes of <code>b</code> have been
      * updated with data from the input stream.
+     * {@description.close}
      *
      * @param     b   the buffer into which the data is read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -234,12 +246,15 @@ interface DataInput {
      */
     void readFully(byte b[]) throws IOException;
 
-    /** {@collect.stats}
+    /**
      *
+     * {@description.open}
      * Reads <code>len</code>
      * bytes from
      * an input stream.
+     * {@description.close}
      * <p>
+     * {@property.open undecided}
      * This method
      * blocks until one of the following conditions
      * occurs:<p>
@@ -256,7 +271,9 @@ interface DataInput {
      * which case an <code>IOException</code> other
      * than <code>EOFException</code> is thrown.
      * </ul>
+     * {@property.close}
      * <p>
+     * {@property.open}
      * If <code>b</code> is <code>null</code>,
      * a <code>NullPointerException</code> is thrown.
      * If <code>off</code> is negative, or <code>len</code>
@@ -264,12 +281,15 @@ interface DataInput {
      * greater than the length of the array <code>b</code>,
      * then an <code>IndexOutOfBoundsException</code>
      * is thrown.
+     * {@property.close}
+     * {@description.open}
      * If <code>len</code> is zero,
      * then no bytes are read. Otherwise, the first
      * byte read is stored into element <code>b[off]</code>,
      * the next one into <code>b[off+1]</code>,
      * and so on. The number of bytes read is,
      * at most, equal to <code>len</code>.
+     * {@description.close}
      *
      * @param     b   the buffer into which the data is read.
      * @param off  an int specifying the offset into the data.
@@ -280,11 +300,15 @@ interface DataInput {
      */
     void readFully(byte b[], int off, int len) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Makes an attempt to skip over
      * <code>n</code> bytes
      * of data from the input
-     * stream, discarding the skipped bytes. However,
+     * stream, discarding the skipped bytes.
+     * {@description.close}
+     * {@property.open undecided}
+     * However,
      * it may skip
      * over some smaller number of
      * bytes, possibly zero. This may result from
@@ -293,9 +317,12 @@ interface DataInput {
      * end of file before <code>n</code> bytes
      * have been skipped is
      * only one possibility.
+     * {@property.close}
+     * {@description.open}
      * This method never throws an <code>EOFException</code>.
      * The actual
      * number of bytes skipped is returned.
+     * {@description.close}
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the number of bytes actually skipped.
@@ -303,13 +330,15 @@ interface DataInput {
      */
     int skipBytes(int n) throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads one input byte and returns
      * <code>true</code> if that byte is nonzero,
      * <code>false</code> if that byte is zero.
      * This method is suitable for reading
      * the byte written by the <code>writeBoolean</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>boolean</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -318,7 +347,8 @@ interface DataInput {
      */
     boolean readBoolean() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads and returns one input byte.
      * The byte is treated as a signed value in
      * the range <code>-128</code> through <code>127</code>,
@@ -326,6 +356,7 @@ interface DataInput {
      * This method is suitable for
      * reading the byte written by the <code>writeByte</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the 8-bit value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -334,7 +365,8 @@ interface DataInput {
      */
     byte readByte() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads one input byte, zero-extends
      * it to type <code>int</code>, and returns
      * the result, which is therefore in the range
@@ -346,6 +378,7 @@ interface DataInput {
      * if the argument to <code>writeByte</code>
      * was intended to be a value in the range
      * <code>0</code> through <code>255</code>.
+     * {@description.close}
      *
      * @return     the unsigned 8-bit value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -354,7 +387,8 @@ interface DataInput {
      */
     int readUnsignedByte() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads two input bytes and returns
      * a <code>short</code> value. Let <code>a</code>
      * be the first byte read and <code>b</code>
@@ -367,6 +401,7 @@ interface DataInput {
      * is suitable for reading the bytes written
      * by the <code>writeShort</code> method of
      * interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the 16-bit value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -375,7 +410,8 @@ interface DataInput {
      */
     short readShort() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads two input bytes and returns
      * an <code>int</code> value in the range <code>0</code>
      * through <code>65535</code>. Let <code>a</code>
@@ -390,6 +426,7 @@ interface DataInput {
      * the argument to <code>writeShort</code>
      * was intended to be a value in the range
      * <code>0</code> through <code>65535</code>.
+     * {@description.close}
      *
      * @return     the unsigned 16-bit value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -398,7 +435,8 @@ interface DataInput {
      */
     int readUnsignedShort() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads two input bytes and returns a <code>char</code> value.
      * Let <code>a</code>
      * be the first byte read and <code>b</code>
@@ -410,6 +448,7 @@ interface DataInput {
      * is suitable for reading bytes written by
      * the <code>writeChar</code> method of interface
      * <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>char</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -418,7 +457,8 @@ interface DataInput {
      */
     char readChar() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads four input bytes and returns an
      * <code>int</code> value. Let <code>a-d</code>
      * be the first through fourth bytes read. The value returned is:
@@ -430,6 +470,7 @@ interface DataInput {
      * This method is suitable
      * for reading bytes written by the <code>writeInt</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>int</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -438,7 +479,8 @@ interface DataInput {
      */
     int readInt() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads eight input bytes and returns
      * a <code>long</code> value. Let <code>a-h</code>
      * be the first through eighth bytes read.
@@ -457,6 +499,7 @@ interface DataInput {
      * This method is suitable
      * for reading bytes written by the <code>writeLong</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>long</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -465,7 +508,8 @@ interface DataInput {
      */
     long readLong() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads four input bytes and returns
      * a <code>float</code> value. It does this
      * by first constructing an <code>int</code>
@@ -477,6 +521,7 @@ interface DataInput {
      * This method is suitable for reading
      * bytes written by the <code>writeFloat</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>float</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -485,7 +530,8 @@ interface DataInput {
      */
     float readFloat() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads eight input bytes and returns
      * a <code>double</code> value. It does this
      * by first constructing a <code>long</code>
@@ -497,6 +543,7 @@ interface DataInput {
      * This method is suitable for reading
      * bytes written by the <code>writeDouble</code>
      * method of interface <code>DataOutput</code>.
+     * {@description.close}
      *
      * @return     the <code>double</code> value read.
      * @exception  EOFException  if this stream reaches the end before reading
@@ -505,19 +552,25 @@ interface DataInput {
      */
     double readDouble() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next line of text from the input stream.
      * It reads successive bytes, converting
      * each byte separately into a character,
      * until it encounters a line terminator or
      * end of
      * file; the characters read are then
-     * returned as a <code>String</code>. Note
+     * returned as a <code>String</code>.
+     * {@description.close}
+     * {@property.open}
+     * Note
      * that because this
      * method processes bytes,
      * it does not support input of the full Unicode
      * character set.
+     * {@property.close}
      * <p>
+     * {@property.open}
      * If end of file is encountered
      * before even one byte can be read, then <code>null</code>
      * is returned. Otherwise, each byte that is
@@ -535,9 +588,12 @@ interface DataInput {
      * ceases. Once reading has ceased, a <code>String</code>
      * is returned that contains all the characters
      * read and not discarded, taken in order.
+     * {@property.close}
+     * {@description.open}
      * Note that every character in this string
      * will have a value less than <code>&#92;u0100</code>,
      * that is, <code>(char)256</code>.
+     * {@description.close}
      *
      * @return the next line of text from the input stream,
      *         or <CODE>null</CODE> if the end of file is
@@ -546,7 +602,8 @@ interface DataInput {
      */
     String readLine() throws IOException;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads in a string that has been encoded using a
      * <a href="#modified-utf-8">modified UTF-8</a>
      * format.
@@ -630,6 +687,7 @@ interface DataInput {
      * @exception  IOException             if an I/O error occurs.
      * @exception  UTFDataFormatException  if the bytes do not represent a
      *               valid modified UTF-8 encoding of a string.
+     * {@description.close}
      */
     String readUTF() throws IOException;
 }

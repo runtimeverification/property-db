@@ -26,7 +26,8 @@
 package java.io;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Convenience class for reading character files.  The constructors of this
  * class assume that the default character encoding and the default byte-buffer
  * size are appropriate.  To specify these values yourself, construct an
@@ -35,6 +36,7 @@ package java.io;
  * <p><code>FileReader</code> is meant for reading streams of characters.
  * For reading streams of raw bytes, consider using a
  * <code>FileInputStream</code>.
+ * {@description.close}
  *
  * @see InputStreamReader
  * @see FileInputStream
@@ -44,9 +46,11 @@ package java.io;
  */
 public class FileReader extends InputStreamReader {
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Creates a new <tt>FileReader</tt>, given the name of the
     * file to read from.
+    * {@description.close}
     *
     * @param fileName the name of the file to read from
     * @exception  FileNotFoundException  if the named file does not exist,
@@ -58,9 +62,11 @@ public class FileReader extends InputStreamReader {
         super(new FileInputStream(fileName));
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Creates a new <tt>FileReader</tt>, given the <tt>File</tt>
     * to read from.
+    * {@description.close}
     *
     * @param file the <tt>File</tt> to read from
     * @exception  FileNotFoundException  if the file does not exist,
@@ -72,9 +78,11 @@ public class FileReader extends InputStreamReader {
         super(new FileInputStream(file));
     }
 
-   /** {@collect.stats}
+   /**
+    * {@description.open}
     * Creates a new <tt>FileReader</tt>, given the
     * <tt>FileDescriptor</tt> to read from.
+    * {@description.close}
     *
     * @param fd the FileDescriptor to read from
     */

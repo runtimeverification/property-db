@@ -27,16 +27,20 @@ package java.io;
 
 import java.util.Arrays;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * This class implements an output stream in which the data is
  * written into a byte array. The buffer automatically grows as data
  * is written to it.
  * The data can be retrieved using <code>toByteArray()</code> and
  * <code>toString()</code>.
+ * {@description.close}
  * <p>
+ * {@property.open formal:ByteArrayOutputStream_Close}
  * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @since   JDK1.0
@@ -44,27 +48,35 @@ import java.util.Arrays;
 
 public class ByteArrayOutputStream extends OutputStream {
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The buffer where data is stored.
+     * {@description.close}
      */
     protected byte buf[];
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The number of valid bytes in the buffer.
+     * {@description.close}
      */
     protected int count;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new byte array output stream. The buffer capacity is
      * initially 32 bytes, though its size increases if necessary.
+     * {@description.close}
      */
     public ByteArrayOutputStream() {
         this(32);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a new byte array output stream, with a buffer capacity of
      * the specified size, in bytes.
+     * {@description.close}
      *
      * @param   size   the initial size.
      * @exception  IllegalArgumentException if size is negative.
@@ -77,8 +89,10 @@ public class ByteArrayOutputStream extends OutputStream {
         buf = new byte[size];
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the specified byte to this byte array output stream.
+     * {@description.close}
      *
      * @param   b   the byte to be written.
      */
@@ -91,9 +105,11 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes <code>len</code> bytes from the specified byte array
      * starting at offset <code>off</code> to this byte array output stream.
+     * {@description.close}
      *
      * @param   b     the data.
      * @param   off   the start offset in the data.
@@ -114,10 +130,18 @@ public class ByteArrayOutputStream extends OutputStream {
         count = newcount;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Writes the complete contents of this byte array output stream to
      * the specified output stream argument, as if by calling the output
      * stream's write method using <code>out.write(buf, 0, count)</code>.
+     * {@description.close}
+     *
+     * {@property.open formal:ByteArrayOutputStream_FlushBeforeRetrieve}
+     * When an OutputStream (or its subclass) instance is built on top of an
+     * underlying ByteArrayOutputStream instance, it should be flushed or closed
+     * before the contents of the ByteArrayOutputStream instance is retrieved.
+     * {@property.close}
      *
      * @param      out   the output stream to which to write the data.
      * @exception  IOException  if an I/O error occurs.
@@ -126,11 +150,13 @@ public class ByteArrayOutputStream extends OutputStream {
         out.write(buf, 0, count);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Resets the <code>count</code> field of this byte array output
      * stream to zero, so that all currently accumulated output in the
      * output stream is discarded. The output stream can be used again,
      * reusing the already allocated buffer space.
+     * {@description.close}
      *
      * @see     java.io.ByteArrayInputStream#count
      */
@@ -138,10 +164,15 @@ public class ByteArrayOutputStream extends OutputStream {
         count = 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a newly allocated byte array. Its size is the current
      * size of this output stream and the valid contents of the buffer
      * have been copied into it.
+     * {@description.close}
+     *
+     * {@property.open formal:ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      *
      * @return  the current contents of this output stream, as a byte array.
      * @see     java.io.ByteArrayOutputStream#size()
@@ -150,8 +181,10 @@ public class ByteArrayOutputStream extends OutputStream {
         return Arrays.copyOf(buf, count);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns the current size of the buffer.
+     * {@description.close}
      *
      * @return  the value of the <code>count</code> field, which is the number
      *          of valid bytes in this output stream.
@@ -161,7 +194,8 @@ public class ByteArrayOutputStream extends OutputStream {
         return count;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Converts the buffer's contents into a string decoding bytes using the
      * platform's default character set. The length of the new <tt>String</tt>
      * is a function of the character set, and hence may not be equal to the
@@ -172,6 +206,10 @@ public class ByteArrayOutputStream extends OutputStream {
      * default character set. The {@linkplain java.nio.charset.CharsetDecoder}
      * class should be used when more control over the decoding process is
      * required.
+     * {@description.close}
+     *
+     * {@property.open formal:ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      *
      * @return String decoded from the buffer's contents.
      * @since  JDK1.1
@@ -180,7 +218,8 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Converts the buffer's contents into a string by decoding the bytes using
      * the specified {@link java.nio.charset.Charset charsetName}. The length of
      * the new <tt>String</tt> is a function of the charset, and hence may not be
@@ -190,6 +229,10 @@ public class ByteArrayOutputStream extends OutputStream {
      * sequences with this charset's default replacement string. The {@link
      * java.nio.charset.CharsetDecoder} class should be used when more control
      * over the decoding process is required.
+     * {@description.close}
+     *
+     * {@property.open formal:ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      *
      * @param  charsetName  the name of a supported
      *              {@linkplain java.nio.charset.Charset </code>charset<code>}
@@ -204,7 +247,8 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, 0, count, charsetName);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a newly allocated string. Its size is the current size of
      * the output stream and the valid contents of the buffer have been
      * copied into it. Each character <i>c</i> in the resulting string is
@@ -213,6 +257,10 @@ public class ByteArrayOutputStream extends OutputStream {
      * <blockquote><pre>
      *     c == (char)(((hibyte &amp; 0xff) &lt;&lt; 8) | (b &amp; 0xff))
      * </pre></blockquote>
+     * {@description.close}
+     *
+     * {@property.open formal:ByteArrayOutputStream_FlushBeforeRetrieve}
+     * {@property.close}
      *
      * @deprecated This method does not properly convert bytes into characters.
      * As of JDK&nbsp;1.1, the preferred way to do this is via the
@@ -231,12 +279,16 @@ public class ByteArrayOutputStream extends OutputStream {
         return new String(buf, hibyte, 0, count);
     }
 
-    /** {@collect.stats}
-     * Closing a <tt>ByteArrayOutputStream</tt> has no effect. The methods in
+    /**
+     * {@description.open}
+     * Closing a <tt>ByteArrayOutputStream</tt> has no effect.
+     * {@description.close}
+     * {@property.open formal:ByteArrayOutputStream_Close}
+     * The methods in
      * this class can be called after the stream has been closed without
      * generating an <tt>IOException</tt>.
+     * {@property.close}
      * <p>
-     *
      */
     public void close() throws IOException {
     }

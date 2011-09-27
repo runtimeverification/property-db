@@ -25,10 +25,12 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Callback interface to allow validation of objects within a graph.
  * Allows an object to be called when a complete graph of objects has
  * been deserialized.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     ObjectInputStream
@@ -36,8 +38,10 @@ package java.io;
  * @since   JDK1.1
  */
 public interface ObjectInputValidation {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Validates the object.
+     * {@description.close}
      *
      * @exception InvalidObjectException If the object cannot validate itself.
      */

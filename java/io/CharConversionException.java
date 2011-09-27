@@ -24,8 +24,10 @@
  */
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Base class for character conversion exceptions.
+ * {@description.close}
  *
  * @author      Asmus Freytag
  * @since       JDK1.1
@@ -33,13 +35,17 @@ package java.io;
 public class CharConversionException
     extends java.io.IOException
 {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * This provides no detailed message.
+     * {@description.close}
      */
     public CharConversionException() {
     }
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * This provides a detailed message.
+     * {@description.close}
      *
      * @param s the detailed message associated with the exception.
      */

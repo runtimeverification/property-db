@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * A <code>FilterInputStream</code> contains
  * some other input stream, which it uses as
  * its  basic source of data, possibly transforming
@@ -38,22 +39,27 @@ package java.io;
  * may further override some of  these methods
  * and may also provide additional methods
  * and fields.
+ * {@description.close}
  *
  * @author  Jonathan Payne
  * @since   JDK1.0
  */
 public
 class FilterInputStream extends InputStream {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * The input stream to be filtered.
+     * {@description.close}
      */
     protected volatile InputStream in;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a <code>FilterInputStream</code>
      * by assigning the  argument <code>in</code>
      * to the field <code>this.in</code> so as
      * to remember it for later use.
+     * {@description.close}
      *
      * @param   in   the underlying input stream, or <code>null</code> if
      *          this instance is to be created without an underlying stream.
@@ -62,17 +68,24 @@ class FilterInputStream extends InputStream {
         this.in = in;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads the next byte of data from this input stream. The value
      * byte is returned as an <code>int</code> in the range
      * <code>0</code> to <code>255</code>. If no byte is available
      * because the end of the stream has been reached, the value
-     * <code>-1</code> is returned. This method blocks until input data
+     * <code>-1</code> is returned.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method blocks until input data
      * is available, the end of the stream is detected, or an exception
      * is thrown.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * This method
      * simply performs <code>in.read()</code> and returns the result.
+     * {@description.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
@@ -83,10 +96,16 @@ class FilterInputStream extends InputStream {
         return in.read();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>byte.length</code> bytes of data from this
-     * input stream into an array of bytes. This method blocks until some
+     * input stream into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * This method blocks until some
      * input is available.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * This method simply performs the call
      * <code>read(b, 0, b.length)</code> and returns
@@ -95,6 +114,7 @@ class FilterInputStream extends InputStream {
      * certain subclasses of  <code>FilterInputStream</code>
      * depend on the implementation strategy actually
      * used.
+     * {@description.close}
      *
      * @param      b   the buffer into which the data is read.
      * @return     the total number of bytes read into the buffer, or
@@ -107,14 +127,21 @@ class FilterInputStream extends InputStream {
         return read(b, 0, b.length);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads up to <code>len</code> bytes of data from this input stream
-     * into an array of bytes. If <code>len</code> is not zero, the method
+     * into an array of bytes.
+     * {@description.close}
+     * {@property.open blocking}
+     * If <code>len</code> is not zero, the method
      * blocks until some input is available; otherwise, no
      * bytes are read and <code>0</code> is returned.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * This method simply performs <code>in.read(b, off, len)</code>
      * and returns the result.
+     * {@description.close}
      *
      * @param      b     the buffer into which the data is read.
      * @param      off   the start offset in the destination array <code>b</code>
@@ -133,16 +160,19 @@ class FilterInputStream extends InputStream {
         return in.read(b, off, len);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * {@inheritDoc}
      * <p>
      * This method simply performs <code>in.skip(n)</code>.
+     * {@description.close}
      */
     public long skip(long n) throws IOException {
         return in.skip(n);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Returns an estimate of the number of bytes that can be read (or
      * skipped over) from this input stream without blocking by the next
      * caller of a method for this input stream. The next caller might be
@@ -150,6 +180,7 @@ class FilterInputStream extends InputStream {
      * many bytes will not block, but may read or skip fewer bytes.
      * <p>
      * This method returns the result of {@link #in in}.available().
+     * {@description.close}
      *
      * @return     an estimate of the number of bytes that can be read (or skipped
      *             over) from this input stream without blocking.
@@ -159,11 +190,13 @@ class FilterInputStream extends InputStream {
         return in.available();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Closes this input stream and releases any system resources
      * associated with the stream.
      * This
      * method simply performs <code>in.close()</code>.
+     * {@description.close}
      *
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.FilterInputStream#in
@@ -172,16 +205,22 @@ class FilterInputStream extends InputStream {
         in.close();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Marks the current position in this input stream. A subsequent
      * call to the <code>reset</code> method repositions this stream at
      * the last marked position so that subsequent reads re-read the same bytes.
      * <p>
+     * {@description.close}
+     * {@property.open formal:InputStream_ReadAheadLimit}
      * The <code>readlimit</code> argument tells this input stream to
      * allow that many bytes to be read before the mark position gets
      * invalidated.
+     * {@property.close}
+     * {@description.open}
      * <p>
      * This method simply performs <code>in.mark(readlimit)</code>.
+     * {@description.close}
      *
      * @param   readlimit   the maximum limit of bytes that can be read before
      *                      the mark position becomes invalid.
@@ -192,7 +231,8 @@ class FilterInputStream extends InputStream {
         in.mark(readlimit);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Repositions this stream to the position at the time the
      * <code>mark</code> method was last called on this input stream.
      * <p>
@@ -207,6 +247,7 @@ class FilterInputStream extends InputStream {
      * that type, the parser should toss an exception when it fails.
      * If this happens within readlimit bytes, it allows the outer
      * code to reset the stream and try another parser.
+     * {@description.close}
      *
      * @exception  IOException  if the stream has not been marked or if the
      *               mark has been invalidated.
@@ -217,11 +258,13 @@ class FilterInputStream extends InputStream {
         in.reset();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tests if this input stream supports the <code>mark</code>
      * and <code>reset</code> methods.
      * This method
      * simply performs <code>in.markSupported()</code>.
+     * {@description.close}
      *
      * @return  <code>true</code> if this stream type supports the
      *          <code>mark</code> and <code>reset</code> method;

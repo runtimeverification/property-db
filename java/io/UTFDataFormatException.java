@@ -25,7 +25,8 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Signals that a malformed string in
  * <a href="DataInput.html#modified-utf-8">modified UTF-8</a>
  * format has been read in a data
@@ -35,6 +36,7 @@ package java.io;
  * <a href="DataInput.html#modified-utf-8"><code>DataInput</code></a>
  * class description for the format in
  * which modified UTF-8 strings are read and written.
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @see     java.io.DataInput
@@ -44,20 +46,24 @@ package java.io;
  */
 public
 class UTFDataFormatException extends IOException {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a <code>UTFDataFormatException</code> with
      * <code>null</code> as its error detail message.
+     * {@description.close}
      */
     public UTFDataFormatException() {
         super();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs a <code>UTFDataFormatException</code> with the
      * specified detail message. The string <code>s</code> can be
      * retrieved later by the
      * <code>{@link java.lang.Throwable#getMessage}</code>
      * method of class <code>java.lang.Throwable</code>.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

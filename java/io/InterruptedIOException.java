@@ -25,13 +25,15 @@
 
 package java.io;
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Signals that an I/O operation has been interrupted. An
  * <code>InterruptedIOException</code> is thrown to indicate that an
  * input or output transfer has been terminated because the thread
  * performing it was interrupted. The field {@link #bytesTransferred}
  * indicates how many bytes were successfully transferred before
  * the interruption occurred.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     java.io.InputStream
@@ -41,20 +43,24 @@ package java.io;
  */
 public
 class InterruptedIOException extends IOException {
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs an <code>InterruptedIOException</code> with
      * <code>null</code> as its error detail message.
+     * {@description.close}
      */
     public InterruptedIOException() {
         super();
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Constructs an <code>InterruptedIOException</code> with the
      * specified detail message. The string <code>s</code> can be
      * retrieved later by the
      * <code>{@link java.lang.Throwable#getMessage}</code>
      * method of class <code>java.lang.Throwable</code>.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */
@@ -62,9 +68,11 @@ class InterruptedIOException extends IOException {
         super(s);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reports how many bytes had been transferred as part of the I/O
      * operation before it was interrupted.
+     * {@description.close}
      *
      * @serial
      */

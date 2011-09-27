@@ -26,7 +26,8 @@
 package java.io;
 
 
-/** {@collect.stats}
+/**
+ * {@description.open}
  * Reads text from a character-input stream, buffering characters so as to
  * provide for the efficient reading of characters, arrays, and lines.
  *
@@ -51,6 +52,7 @@ package java.io;
  *
  * <p> Programs that use DataInputStreams for textual input can be localized by
  * replacing each DataInputStream with an appropriate BufferedReader.
+ * {@description.close}
  *
  * @see FileReader
  * @see InputStreamReader
@@ -71,18 +73,28 @@ public class BufferedReader extends Reader {
     private int markedChar = UNMARKED;
     private int readAheadLimit = 0; /* Valid only when markedChar > 0 */
 
-    /** {@collect.stats} If the next character is a line feed, skip it */
+    /**
+     * {@description.open}
+     * If the next character is a line feed, skip it
+     * {@description.close}
+     */
     private boolean skipLF = false;
 
-    /** {@collect.stats} The skipLF flag when the mark was set */
+    /** 
+     * {@description.open}
+     * The skipLF flag when the mark was set
+     * {@description.close}
+     */
     private boolean markedSkipLF = false;
 
     private static int defaultCharBufferSize = 8192;
     private static int defaultExpectedLineLength = 80;
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a buffering character-input stream that uses an input buffer of
      * the specified size.
+     * {@description.close}
      *
      * @param  in   A Reader
      * @param  sz   Input-buffer size
@@ -98,9 +110,11 @@ public class BufferedReader extends Reader {
         nextChar = nChars = 0;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Creates a buffering character-input stream that uses a default-sized
      * input buffer.
+     * {@description.close}
      *
      * @param  in   A Reader
      */
@@ -108,14 +122,20 @@ public class BufferedReader extends Reader {
         this(in, defaultCharBufferSize);
     }
 
-    /** {@collect.stats} Checks to make sure that the stream has not been closed */
+    /**
+     * {@description.open}
+     * Checks to make sure that the stream has not been closed
+     * {@description.close}
+     */
     private void ensureOpen() throws IOException {
         if (in == null)
             throw new IOException("Stream closed");
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Fills the input buffer, taking the mark into account if it is valid.
+     * {@description.close}
      */
     private void fill() throws IOException {
         int dst;
@@ -158,8 +178,10 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads a single character.
+     * {@description.close}
      *
      * @return The character read, as an integer in the range
      *         0 to 65535 (<tt>0x00-0xffff</tt>), or -1 if the
@@ -187,9 +209,11 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads characters into a portion of an array, reading from the underlying
      * stream if necessary.
+     * {@description.close}
      */
     private int read1(char[] cbuf, int off, int len) throws IOException {
         if (nextChar >= nChars) {
@@ -220,7 +244,8 @@ public class BufferedReader extends Reader {
         return n;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads characters into a portion of an array.
      *
      * <p> This method implements the general contract of the corresponding
@@ -255,6 +280,7 @@ public class BufferedReader extends Reader {
      * characters directly from the underlying stream into the given array.
      * Thus redundant <code>BufferedReader</code>s will not copy data
      * unnecessarily.
+     * {@description.close}
      *
      * @param      cbuf  Destination buffer
      * @param      off   Offset at which to start storing characters
@@ -286,10 +312,12 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads a line of text.  A line is considered to be terminated by any one
      * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
      * followed immediately by a linefeed.
+     * {@description.close}
      *
      * @param      ignoreLF  If true, the next '\n' will be skipped
      *
@@ -364,10 +392,12 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Reads a line of text.  A line is considered to be terminated by any one
      * of a line feed ('\n'), a carriage return ('\r'), or a carriage return
      * followed immediately by a linefeed.
+     * {@description.close}
      *
      * @return     A String containing the contents of the line, not including
      *             any line-termination characters, or null if the end of the
@@ -379,8 +409,10 @@ public class BufferedReader extends Reader {
         return readLine(false);
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Skips characters.
+     * {@description.close}
      *
      * @param  n  The number of characters to skip
      *
@@ -422,10 +454,12 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Tells whether this stream is ready to be read.  A buffered character
      * stream is ready if the buffer is not empty, or if the underlying
      * character stream is ready.
+     * {@description.close}
      *
      * @exception  IOException  If an I/O error occurs
      */
@@ -454,16 +488,22 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@property.open formal:Reader_MarkReset}
      * Tells whether this stream supports the mark() operation, which it does.
+     * {@property.close}
      */
     public boolean markSupported() {
         return true;
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Marks the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.
+     * {@description.close}
+     * {@property.open formal:Reader_MarkReset formal:Reader_UnmarkedReset formal:Reader_ReadAheadLimit}
+     * {@property.close}
      *
      * @param readAheadLimit   Limit on the number of characters that may be
      *                         read while still preserving the mark. An attempt
@@ -489,8 +529,12 @@ public class BufferedReader extends Reader {
         }
     }
 
-    /** {@collect.stats}
+    /**
+     * {@description.open}
      * Resets the stream to the most recent mark.
+     * {@description.close}
+     * {@property.open formal:Reader_MarkReset formal:Reader_UnmarkedReset formal:Reader_ReadAheadLimit}
+     * {@property.close}
      *
      * @exception  IOException  If the stream has never been marked,
      *                          or if the mark has been invalidated
