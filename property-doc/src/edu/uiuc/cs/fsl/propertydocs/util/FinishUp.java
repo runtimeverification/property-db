@@ -144,7 +144,7 @@ public class FinishUp {
      File undecidedStats   = new File(properties_dir + File.separator + "undecided.stats"); 
      File descriptionStats = new File(properties_dir + File.separator + "description.stats"); 
      File newStats    = new File(properties_dir + File.separator + "new.stats"); 
-     File formalStats      = new File(properties_dir + File.separator + "formal.stats"); 
+     File propertyStats      = new File(properties_dir + File.separator + "property.stats"); 
 
      try {
        (new PrintStream(new FileOutputStream(new File(args[0] + File.separator + "stylesheet.css"), true)))
@@ -170,14 +170,14 @@ public class FinishUp {
 
      int newW = getStat(newStats);
        
-     stats = getStats(formalStats);
-     int formalC      = stats[0];     
-     int formalW      = stats[1];     
-     int formalL      = stats[2];     
+     stats = getStats(propertyStats);
+     int propertyC      = stats[0];     
+     int propertyW      = stats[1];     
+     int propertyL      = stats[2];     
 
-     float totalC = undecidedC + descriptionC + newW + formalC;
-     float totalW = undecidedW + descriptionW + newW + formalW;
-     float totalL = undecidedL + descriptionL + newW + formalL;
+     float totalC = undecidedC + descriptionC + newW + propertyC;
+     float totalW = undecidedW + descriptionW + newW + propertyW;
+     float totalL = undecidedL + descriptionL + newW + propertyL;
 
      StringBuilder table 
        = new StringBuilder();
@@ -196,13 +196,13 @@ public class FinishUp {
                               descriptionW,         totalW, 
                               descriptionL,         totalL));
      table.append(formatStat("New Text",   
-                              newW + formalW,  totalW, 
-                              newW + formalW,  totalW, 
-                              newW + formalW,  totalW));
-     table.append(formatStat("Formalized Property Text",
-                              formalC,              totalC, 
-                              formalW,              totalW, 
-                              formalL,              totalL));
+                              newW + propertyW,  totalW, 
+                              newW + propertyW,  totalW, 
+                              newW + propertyW,  totalW));
+     table.append(formatStat("Propertyized Property Text",
+                              propertyC,              totalC, 
+                              propertyW,              totalW, 
+                              propertyL,              totalL));
      
      table.append("<BR /><BR /><TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
      table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
@@ -244,6 +244,12 @@ public class FinishUp {
        ret[0] = ois.readInt();
        ret[1] = ois.readInt();
        ret[2] = ois.readInt();
+       try {
+         System.out.println(file.getName());
+         if(file.getName().equals("property.stats")) System.out.println("!!!!" + ois.readObject());
+       } catch (ClassNotFoundException cnfe) {
+         throw new RuntimeException(cnfe);
+       }
        return ret;
      } catch (java.io.IOException e){
        //if there is an IOException we assume that the file isn't there which means the tag wasn't seen

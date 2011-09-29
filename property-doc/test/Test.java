@@ -7,15 +7,13 @@ package hello.world;
  *
  Hello 
  <br />
- {@property.link Foo Property Link}
  <br />
  {@description.open}
-   {@property.link  Foo Descriptive Link}
+   HELLO! {@new.open} YO! {@new.close}
  {@description.close}
 
  <br />
 
- {@undecided.open}
  <CODE>
  a
  b
@@ -29,35 +27,26 @@ package hello.world;
  j
  k{@new.close} FOOBAR!!!!!!!!!!
  </CODE>
- {@undecided.close}
  <br />
  <br />
  <br />
- {@formal.open}
-  This is a really bad formalization that doesn't actually link to any property!
- {@formal.close}
+ {@property.open}
+  This is a really bad propertyization that doesn't actually link to any property!
+ {@property.close}
  <br />
  <br />
  <br />
- {@formal.open}
- 1 shortcut {@property.shortcut HasNext Boom shaka laka}
- {@formal.close}
+ {@property.open Property:FOO}
+ 1 property
+ {@property.close}
  <br />
  <br />
  <br />
- {@undecided.open}
  foo bar car
- {@undecided.close}
 
  <br />
  <br />
  <br />
- {@formal.open}
- 3 shortcuts 
-   {@property.shortcut HasNext Boom shaka laka}
-   {@property.shortcut Foo Fooo3}
-   {@property.shortcut HasNext F000000000000}
- {@formal.close}
  <br />
  <br />
  <br />
@@ -104,25 +93,16 @@ HasNext(Iterator i) {
 public class Test {
   /** 
    *  This is the main method
-   *  {@property.link HasNext HasNextProperty}
-   *  {@undecided.open}
    *    this is the second undecided portion
-   *  {@undecided.close}
-   *  {@formal.open}
-   *    Hello!
-   *    {@property.shortcut Foo ++++}
-   *    {@property.shortcut HasNext ----}
-   *  {@formal.close}
-   *  {@undecided.open} and so on...
-   *  {@undecided.close}
+   *  {@property.open Property:java.io.Foo Property:java.io.Bar me you are foo}
+   *    WE HAVE A BUNCH O' PROPERTIES HERE!
+   *  {@property.close}
    *  <br />
    *  <br />
    *  <br />
-   *  {@formal.open}
+   *  {@property.open me you}
    *    Hello2!
-   *    {@property.shortcut Foo !!!!}
-   *    {@property.shortcut HasNext <><><>}
-   *  {@formal.close}
+   *  {@property.close}
 
    */
 

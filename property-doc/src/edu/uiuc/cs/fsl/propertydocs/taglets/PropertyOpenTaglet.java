@@ -33,19 +33,7 @@ public class PropertyOpenTaglet implements Taglet {
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 
-    //keep track of which set of property.open/property.close (domain from here on) we are in
-    private Map<PositionWrapper, Integer> domainNums =
-      new HashMap<PositionWrapper, Integer>(); 
-    //keep track of the last domain number for a given position
-    private Map<PositionWrapper, Integer> maxDomainNums = 
-      new HashMap<PositionWrapper, Integer>(); 
-
-    //keep track of the links for each domain at each position
-    private Map<PositionWrapper, Map<Integer, StringBuilder>> linksMap =
-      new HashMap<PositionWrapper, Map<Integer, StringBuilder>>(); 
-    //keep track of the number of links for each domain at each position
-    private Map<PositionWrapper, Map<Integer, Integer>> numLinks =
-      new HashMap<PositionWrapper, Map<Integer, Integer>>(); 
+    private Map<String, Integer> argumentStats = new HashMap<String, Integer>();
 
     private int chars = 0; //number of property chars
     private int words = 0; //number of property words
@@ -103,57 +91,52 @@ public class PropertyOpenTaglet implements Taglet {
       //System.out.println(tag.position());
       PositionWrapper p = new PositionWrapper(tag.holder().position());
       if(!(seenDocs.contains(p))){
-        domainNums.put(p, 0);
         seenDocs.add(p);
-        Map<Integer, StringBuilder> domainMap = new HashMap<Integer, StringBuilder>();
-        Map<Integer, Integer> numLinksMap = new HashMap<Integer, Integer>();
-        linksMap.put(p, domainMap);
-        numLinks.put(p, numLinksMap);
         handleTags(tag.holder().inlineTags());
-        maxDomainNums.put(p, mkLinks(tag, domainMap, numLinksMap));
       }
-      Integer domain = domainNums.get(p);
-      String links = linksMap.get(p).get(domain).toString();
-      Integer num = numLinks.get(p).get(domain);
-      domainNums.put(p, (domainNums.get(p) + 1) % maxDomainNums.get(p));
+      String[] arguments = tag.text().trim().split("\\s+");
+      int num = numLinks(arguments);
+      String links = handleLinks(arguments, p);
       if(num == 0){
         return "<DIV CLASS=\"Red\" NAME=\"brokenproperty\""
-        + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a propertyized property with no "
-        + "shortcuts.  Probably user error.')\"" 
+        + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a property with no "
+        + "formalizations.')\"" 
         + " STYLE=\"display:inline\">";
       }
       else if(num == 1){
         return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"property\" ONMOUSEOVER="
-           + "\"balloon.showTooltip(event,'This describes a propertyized property.  "
-           + "The propertyization may be viewed by clicking on the link below:<br/>" + links +  " ',1)\""
+           + "\"balloon.showTooltip(event,'This describes a formalized property.  "
+           + "The property may be viewed by clicking on the link below:<br/>" + links +  " ',1)\""
            + " STYLE=\"display:inline\">";
       }
       return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"property\" ONMOUSEOVER="
-       + "\"balloon.showTooltip(event,'This describes several propertyized properties.  "
-       + "The propertyizations may be viewed by clicking on the links below:<br/>" + links +  " ',1)\""
+       + "\"balloon.showTooltip(event,'This describes several formalized properties.  "
+       + "The properties may be viewed by clicking on the links below:<br/>" + links +  " ',1)\""
        + " STYLE=\"display:inline\">";
     } 
 
-    //should probably merge mkLinks and handleTags for efficiency.
-    //right now I don't care
-    private int mkLinks(Tag tag, Map<Integer, StringBuilder> linksMap, Map<Integer, Integer> numLinksMap){
-      int domain = -1;
-      int numLinks = 0;
-      StringBuilder linksBuilder = null;
-      for(Tag t : tag.holder().inlineTags()){
-        if(t.name().equals("@property.open")){
-          linksBuilder = new StringBuilder();
-          numLinksMap.put(++domain, 0);
-          linksMap.put(domain, linksBuilder); 
-          numLinks = 0;
-        }
-        else if(t.name().equals("@property.shortcut")){
-          linksBuilder.append(GenerateUrls.processPropertyShortcutTag(t) + "<br />"); 
-          numLinksMap.put(domain, numLinksMap.get(domain) + 1);
+    private int numLinks(String[] args){
+      int i = 0;
+      for(String arg : args){
+        if(arg.startsWith("Property:")) ++i;
+        if(i > 1) return i;
+      }
+      return i;
+    }
+
+    private String handleLinks(String[] args, PositionWrapper p){
+      String ret = "";
+      for(String arg : args){
+        if(arg.startsWith("Property:")) {
+          String[] parts = arg.split(":");
+          if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
+          ret += "<A HREF=\\'" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
         }
       }
-      return domain + 1;
+      System.out.println("***********" + ret);
+      return ret;
     }
+
 
     private void handleTags(Tag[] tags){
       boolean inProperty = false; 
@@ -161,8 +144,10 @@ public class PropertyOpenTaglet implements Taglet {
       int c = 0; //character count
       int w = 0; //word count
       int l = 0; //line count
+      String[] arguments = null;
       for(Tag tag: tags){
         if(tag.name().equals("@property.open")){ 
+          arguments = tag.text().trim().split("\\s+");
           inProperty = true;
         }
         else if(tag.name().equals("@property.close")){
@@ -170,9 +155,17 @@ public class PropertyOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inProperty){
           String text = tag.text().trim();
+          int localW = text.split("\\s+").length;
           c += text.length();
-          w += text.split("\\s+").length; 
+          w += localW; 
           l += text.split("\\n").length; 
+          for(String arg : arguments){
+            if(arg.startsWith("Property:")) continue;
+            if(arg.equals("")) continue;
+            Integer currentStat = argumentStats.get(arg);
+            if(currentStat == null) argumentStats.put(arg, localW);
+            else                     argumentStats.put(arg, currentStat + localW);
+          }
         }
         else if(
             (tag.name().equals("@description.close")
@@ -198,6 +191,7 @@ public class PropertyOpenTaglet implements Taglet {
         ps.writeInt(chars);
         ps.writeInt(words);
         ps.writeInt(lines);
+        ps.writeObject(argumentStats);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);
