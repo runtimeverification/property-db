@@ -15,6 +15,7 @@ import java.util.Set;
 
 import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
+import edu.uiuc.cs.fsl.propertydocs.util.DiskHash;
 
 /**
 * This Taglet allows for marking the beginning of an new property specification
@@ -27,12 +28,7 @@ public class NewOpenTaglet implements Taglet {
     private static final String NAME = "new.open";
   	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
-    private File stats = new File(dir + File.separator + "__properties" + File.separator + "new.stats");
-
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
-    private int chars = 0; //number of new chars
-    private int words = 0; //number of new words
-    private int lines = 0; //number of new lines
 
     public String getName()        { return NAME; }
 
@@ -52,10 +48,15 @@ public class NewOpenTaglet implements Taglet {
     /**this IS an inline tag*/ 
     public boolean isInlineTag()   { return true; }
     
+    static {
+      DiskHash.statsDB.put("new", 0);
+    }
+
     /**
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings("unchecked")
     public static void register(Map tagletMap) {
        NewOpenTaglet tag = new NewOpenTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
@@ -91,15 +92,13 @@ public class NewOpenTaglet implements Taglet {
       // This part is always executed, but for new we simply return the
       // empty String.  For other tags we will output fancy html/javascript
       return "<DIV CLASS=\"NavBarCell1\" NAME=\"new\""
-       + " ONMOUSEOVER=\"balloon.showTooltip(event,'This is an new property.')\""
+       + " ONMOUSEOVER=\"balloon.showTooltip(event,'This is text that has been added to the API.')\""
        + " STYLE=\"display:inline\">";
     } 
 
     private void handleTags(Tag[] tags){
       boolean inNew = false; 
-      int c = 0; //character count
       int w = 0; //word count
-      int l = 0; //line count
       for(Tag tag : tags){
         if(tag.name().equals("@new.open")){ 
           inNew = true;
@@ -109,23 +108,7 @@ public class NewOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inNew){
           String text = tag.text().trim();
-          c += text.length();
           w += text.split("\\s+").length; 
-          l += text.split("\\n").length; 
-        }
-        else if(
-            (tag.name().equals("@formal.close")
-          || tag.name().equals("@formal.open")
-          || tag.name().equals("@undecided.close")
-          || tag.name().equals("@undecided.open")
-          || tag.name().equals("@descriptive.close")
-          || tag.name().equals("@descriptive.open")
-          || tag.name().equals("@property.shortcut")
-          || tag.name().equals("@inheritDoc")) && inNew){
-           System.err.println("ERROR: " + tag.name() + " inside new environment in comment near " 
-                              + tag.holder().position() + " is not allowed");
-
-           System.exit(1);
         }
       } 
       if(inNew) {
@@ -133,19 +116,8 @@ public class NewOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-      chars += c;
-      words += w;
-      lines += l;
-      try {
-        FileOutputStream fos = new FileOutputStream(stats);
-        ObjectOutputStream ps = new ObjectOutputStream(fos);
-        ps.writeInt(chars);
-        ps.writeInt(words);
-        ps.writeInt(lines);
-        ps.close();
-      } catch (java.io.IOException e){
-        throw new RuntimeException(e);
-      }   
+      Integer words = DiskHash.statsDB.get("new");
+      DiskHash.statsDB.put("new", words + w);
     }
 
     /**

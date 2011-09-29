@@ -1,9 +1,9 @@
 package hello.world;
 
-/** ABCD {@informal.open} GQRS
+/** ABCD GQRS
  * <p> FOOO! </p>
  * ASDF
- * {@informal.close} ASDF
+ * ASDF
  *
  Hello 
  <br />
@@ -23,11 +23,13 @@ package hello.world;
  d
  e
  f
+ {@new.open}
  g
  h
  i
  j
  k
+ {@new.close}
  </CODE>
  {@undecided.close}
  <br />
@@ -61,9 +63,7 @@ package hello.world;
  <br />
  <br />
  <br />
- {@informal.open}
  foo bar car
- {@informal.close}
  <br />
  <br />
  <br />

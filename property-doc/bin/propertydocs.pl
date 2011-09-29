@@ -78,15 +78,12 @@ $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('name') == 'informal'){";
-$header.="        if(divs[i].getAttribute('class') == ''){";
-$header.="          divs[i].setAttribute('class','NavBarCell1');";
-$header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
+$header.="      else if(divs[i].getAttribute('name') == 'new'){";
+$header.="        if(divs[i].getAttribute('visibility') == 'visible'){";
+$header.="          divs[i].setAttribute('visibility','hidden');";
 $header.="        }";
 $header.="        else{";
-$header.="          divs[i].setAttribute('class','');";
-$header.="          divs[i].setAttribute('bak', divs[i].getAttribute('onmouseover'));";
-$header.="          divs[i].setAttribute('onmouseover','');";
+$header.="          divs[i].setAttribute('visibility','visibile');";
 $header.="        }";
 $header.="      }";
 
@@ -113,7 +110,7 @@ $header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
 $taglets ="-taglet $tpackage.PropertyLinkTaglet    -taglet $tpackage.PropertyShortcutTaglet ";
 $taglets.="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptiveOpenTaglet -taglet $tpackage.DescriptiveCloseTaglet ";
-$taglets.="-taglet $tpackage.InformalOpenTaglet    -taglet $tpackage.InformalCloseTaglet ";
+$taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.FormalOpenTaglet      -taglet $tpackage.FormalCloseTaglet ";
 $taglets.="-taglet $tpackage.MopPropertyTaglet ";
 
