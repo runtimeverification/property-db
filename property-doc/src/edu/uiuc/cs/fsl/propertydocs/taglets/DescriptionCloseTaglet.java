@@ -18,8 +18,8 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 *
 */
 
-public class DescriptiveCloseTaglet implements Taglet {
-  private static final String NAME = "descriptive.close";
+public class DescriptionCloseTaglet implements Taglet {
+  private static final String NAME = "description.close";
 
     public String getName()        { return NAME; }
 
@@ -44,7 +44,7 @@ public class DescriptiveCloseTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       DescriptiveCloseTaglet tag = new DescriptiveCloseTaglet();
+       DescriptionCloseTaglet tag = new DescriptionCloseTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());

@@ -142,7 +142,7 @@ public class FinishUp {
      File propertiesList   = new File(properties_dir + File.separator + "property-list.html");
 
      File undecidedStats   = new File(properties_dir + File.separator + "undecided.stats"); 
-     File descriptiveStats = new File(properties_dir + File.separator + "descriptive.stats"); 
+     File descriptionStats = new File(properties_dir + File.separator + "description.stats"); 
      File newStats    = new File(properties_dir + File.separator + "new.stats"); 
      File formalStats      = new File(properties_dir + File.separator + "formal.stats"); 
 
@@ -163,10 +163,10 @@ public class FinishUp {
      int undecidedW   = stats[1];  
      int undecidedL   = stats[2];
 
-     stats = getStats(descriptiveStats);
-     int descriptiveC = stats[0];
-     int descriptiveW = stats[1];
-     int descriptiveL = stats[2];
+     stats = getStats(descriptionStats);
+     int descriptionC = stats[0];
+     int descriptionW = stats[1];
+     int descriptionL = stats[2];
 
      int newW = getStat(newStats);
        
@@ -175,9 +175,9 @@ public class FinishUp {
      int formalW      = stats[1];     
      int formalL      = stats[2];     
 
-     float totalC = undecidedC + descriptiveC + newW + formalC;
-     float totalW = undecidedW + descriptiveW + newW + formalW;
-     float totalL = undecidedL + descriptiveL + newW + formalL;
+     float totalC = undecidedC + descriptionC + newW + formalC;
+     float totalW = undecidedW + descriptionW + newW + formalW;
+     float totalL = undecidedL + descriptionL + newW + formalL;
 
      StringBuilder table 
        = new StringBuilder();
@@ -191,11 +191,11 @@ public class FinishUp {
                               undecidedC,           totalC, 
                               undecidedW,           totalW, 
                               undecidedL,           totalL));
-     table.append(formatStat("Descriptive Text",
-                              descriptiveC,         totalC, 
-                              descriptiveW,         totalW, 
-                              descriptiveL,         totalL));
-     table.append(formatStat("Property Text",   
+     table.append(formatStat("Description Text",
+                              descriptionC,         totalC, 
+                              descriptionW,         totalW, 
+                              descriptionL,         totalL));
+     table.append(formatStat("New Text",   
                               newW + formalW,  totalW, 
                               newW + formalW,  totalW, 
                               newW + formalW,  totalW));

@@ -9,9 +9,9 @@ package hello.world;
  <br />
  {@property.link Foo Property Link}
  <br />
- {@descriptive.open}
+ {@description.open}
    {@property.link  Foo Descriptive Link}
- {@descriptive.close}
+ {@description.close}
 
  <br />
 
@@ -65,9 +65,9 @@ package hello.world;
  <br />
  <br />
  <br />
- {@descriptive.open}
+ {@description.open}
  foo bar car
- {@descriptive.close}
+ {@description.close}
  @property.mop {@property.name HasNext}
 
 //this property is HasNext, and stuff

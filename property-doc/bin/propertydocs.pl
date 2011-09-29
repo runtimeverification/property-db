@@ -87,7 +87,7 @@ $header.="          divs[i].style.visibility = 'visible';";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('name') == 'descriptive'){";
+$header.="      else if(divs[i].getAttribute('name') == 'description'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','TableHeadingColor');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -109,7 +109,7 @@ $header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
 
 $taglets ="-taglet $tpackage.PropertyLinkTaglet    -taglet $tpackage.PropertyShortcutTaglet ";
 $taglets.="-taglet $tpackage.CollectTaglet ";
-$taglets.="-taglet $tpackage.DescriptiveOpenTaglet -taglet $tpackage.DescriptiveCloseTaglet ";
+$taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.FormalOpenTaglet      -taglet $tpackage.FormalCloseTaglet ";
 $taglets.="-taglet $tpackage.MopPropertyTaglet ";
