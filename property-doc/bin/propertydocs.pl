@@ -111,7 +111,7 @@ $taglets ="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
 $taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
-$taglets.="-taglet $tpackage.MopPropertyTaglet ";
+$taglets.="-taglet $tpackage.PropertyNameTaglet ";
 
 $docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
 
