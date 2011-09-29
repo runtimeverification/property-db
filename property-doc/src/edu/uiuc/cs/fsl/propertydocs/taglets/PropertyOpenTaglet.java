@@ -18,22 +18,22 @@ import edu.uiuc.cs.fsl.propertydocs.util.GenerateUrls;
 import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 
 /**
-* This Taglet allows for opening a formal property section in
+* This Taglet allows for opening a property property section in
 * a javadoc comment
 *
 * @author Patrick Meredith
 *
 */
 
-public class FormalOpenTaglet implements Taglet {
-    private static final String NAME = "formal.open";
+public class PropertyOpenTaglet implements Taglet {
+    private static final String NAME = "property.open";
   	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
-    private File stats = new File(dir + File.separator + "__properties" + File.separator + "formal.stats");
+    private File stats = new File(dir + File.separator + "__properties" + File.separator + "property.stats");
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 
-    //keep track of which set of formal.open/formal.close (domain from here on) we are in
+    //keep track of which set of property.open/property.close (domain from here on) we are in
     private Map<PositionWrapper, Integer> domainNums =
       new HashMap<PositionWrapper, Integer>(); 
     //keep track of the last domain number for a given position
@@ -47,9 +47,9 @@ public class FormalOpenTaglet implements Taglet {
     private Map<PositionWrapper, Map<Integer, Integer>> numLinks =
       new HashMap<PositionWrapper, Map<Integer, Integer>>(); 
 
-    private int chars = 0; //number of formal chars
-    private int words = 0; //number of formal words
-    private int lines = 0; //number of formal lines
+    private int chars = 0; //number of property chars
+    private int words = 0; //number of property words
+    private int lines = 0; //number of property lines
 
     public String getName()        { return NAME; }
 
@@ -74,7 +74,7 @@ public class FormalOpenTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       FormalOpenTaglet tag = new FormalOpenTaglet();
+       PropertyOpenTaglet tag = new PropertyOpenTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());
@@ -89,11 +89,11 @@ public class FormalOpenTaglet implements Taglet {
      * Here we have to do some annoying garbage because you there is no
      * way short of file io to share info between Taglets.  Instead
      * I am going to parse all the inline tags if the whole document
-     * and collect statistics on <b>all</b> the formal sections in the 
+     * and collect statistics on <b>all</b> the property sections in the 
      * document.
      *
      * Statistics will only be collected if we have not already seen an 
-     * formal.open tag for this document.  We keep track of the document
+     * property.open tag for this document.  We keep track of the document
      * by hashing its SourcePosition.  The PositionWrapper makes these
      * hashable.
      *
@@ -117,20 +117,20 @@ public class FormalOpenTaglet implements Taglet {
       Integer num = numLinks.get(p).get(domain);
       domainNums.put(p, (domainNums.get(p) + 1) % maxDomainNums.get(p));
       if(num == 0){
-        return "<DIV CLASS=\"Red\" NAME=\"brokenformal\""
-        + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a formalized property with no "
+        return "<DIV CLASS=\"Red\" NAME=\"brokenproperty\""
+        + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a propertyized property with no "
         + "shortcuts.  Probably user error.')\"" 
         + " STYLE=\"display:inline\">";
       }
       else if(num == 1){
-        return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"formal\" ONMOUSEOVER="
-           + "\"balloon.showTooltip(event,'This describes a formalized property.  "
-           + "The formalization may be viewed by clicking on the link below:<br/>" + links +  " ',1)\""
+        return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"property\" ONMOUSEOVER="
+           + "\"balloon.showTooltip(event,'This describes a propertyized property.  "
+           + "The propertyization may be viewed by clicking on the link below:<br/>" + links +  " ',1)\""
            + " STYLE=\"display:inline\">";
       }
-      return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"formal\" ONMOUSEOVER="
-       + "\"balloon.showTooltip(event,'This describes several formalized properties.  "
-       + "The formalizations may be viewed by clicking on the links below:<br/>" + links +  " ',1)\""
+      return "<DIV CLASS=\"NavBarCell1Rev\" NAME=\"property\" ONMOUSEOVER="
+       + "\"balloon.showTooltip(event,'This describes several propertyized properties.  "
+       + "The propertyizations may be viewed by clicking on the links below:<br/>" + links +  " ',1)\""
        + " STYLE=\"display:inline\">";
     } 
 
@@ -141,7 +141,7 @@ public class FormalOpenTaglet implements Taglet {
       int numLinks = 0;
       StringBuilder linksBuilder = null;
       for(Tag t : tag.holder().inlineTags()){
-        if(t.name().equals("@formal.open")){
+        if(t.name().equals("@property.open")){
           linksBuilder = new StringBuilder();
           numLinksMap.put(++domain, 0);
           linksMap.put(domain, linksBuilder); 
@@ -156,40 +156,36 @@ public class FormalOpenTaglet implements Taglet {
     }
 
     private void handleTags(Tag[] tags){
-      boolean inFormal = false; 
+      boolean inProperty = false; 
       boolean inParent = false;
       int c = 0; //character count
       int w = 0; //word count
       int l = 0; //line count
       for(Tag tag: tags){
-        if(tag.name().equals("@formal.open")){ 
-          inFormal = true;
+        if(tag.name().equals("@property.open")){ 
+          inProperty = true;
         }
-        else if(tag.name().equals("@formal.close")){
-          inFormal = false;
+        else if(tag.name().equals("@property.close")){
+          inProperty = false;
         }
-        else if(tag.name().equals("Text") && inFormal){
+        else if(tag.name().equals("Text") && inProperty){
           String text = tag.text().trim();
           c += text.length();
           w += text.split("\\s+").length; 
           l += text.split("\\n").length; 
         }
         else if(
-            (tag.name().equals("@undecided.close")
-          || tag.name().equals("@undecided.open")
-          || tag.name().equals("@informal.close")
-          || tag.name().equals("@informal.open")
-          || tag.name().equals("@descriptive.close")
-          || tag.name().equals("@descriptive.open")
-          || tag.name().equals("@inheritDoc")) && inFormal){
-           System.err.println("ERROR: " + tag.name() + " inside formal environment in comment near " 
+            (tag.name().equals("@description.close")
+          || tag.name().equals("@description.open")
+          || tag.name().equals("@inheritDoc")) && inProperty){
+           System.err.println("ERROR: " + tag.name() + " inside property environment in comment near " 
                               + tag.holder().position() + " is not allowed");
 
            System.exit(1);
         }
       } 
-      if(inFormal) {
-         System.err.println("ERROR: @formal.open tag in comment near " 
+      if(inProperty) {
+         System.err.println("ERROR: @property.open tag in comment near " 
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }

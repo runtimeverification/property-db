@@ -19,7 +19,7 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 */
 
 public class FormalCloseTaglet implements Taglet {
-  private static final String NAME = "formal.close";
+  private static final String NAME = "property.close";
 
     public String getName()        { return NAME; }
 

@@ -107,11 +107,10 @@ $header.="  <B>Properties</B></A></TD>";
 $header.=" <TD BGCOLOR='#FFFFFF' NAME='highlighting' CLASS='HLon'><SPAN ONCLICK='toggleHighlights()'>";
 $header.=" <U><B>Highlighting</B></U></FONT></SPAN></TD>\"";
 
-$taglets ="-taglet $tpackage.PropertyLinkTaglet    -taglet $tpackage.PropertyShortcutTaglet ";
-$taglets.="-taglet $tpackage.CollectTaglet ";
+$taglets ="-taglet $tpackage.CollectTaglet ";
 $taglets.="-taglet $tpackage.DescriptionOpenTaglet -taglet $tpackage.DescriptionCloseTaglet ";
 $taglets.="-taglet $tpackage.NewOpenTaglet    -taglet $tpackage.NewCloseTaglet ";
-$taglets.="-taglet $tpackage.FormalOpenTaglet      -taglet $tpackage.FormalCloseTaglet ";
+$taglets.="-taglet $tpackage.PropertyOpenTaglet      -taglet $tpackage.PropertyCloseTaglet ";
 $taglets.="-taglet $tpackage.MopPropertyTaglet ";
 
 $docscmd = "javadoc -header $header -tagletpath $srcpath $taglets";
