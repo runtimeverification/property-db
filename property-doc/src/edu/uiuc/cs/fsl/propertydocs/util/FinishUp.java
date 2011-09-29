@@ -143,7 +143,7 @@ public class FinishUp {
 
      File undecidedStats   = new File(properties_dir + File.separator + "undecided.stats"); 
      File descriptiveStats = new File(properties_dir + File.separator + "descriptive.stats"); 
-     File informalStats    = new File(properties_dir + File.separator + "informal.stats"); 
+     File newStats    = new File(properties_dir + File.separator + "new.stats"); 
      File formalStats      = new File(properties_dir + File.separator + "formal.stats"); 
 
      try {
@@ -168,19 +168,16 @@ public class FinishUp {
      int descriptiveW = stats[1];
      int descriptiveL = stats[2];
 
-     stats = getStats(informalStats);
-     int informalC    = stats[0];   
-     int informalW    = stats[1];   
-     int informalL    = stats[2];
-
+     int newW = getStat(newStats);
+       
      stats = getStats(formalStats);
      int formalC      = stats[0];     
      int formalW      = stats[1];     
      int formalL      = stats[2];     
 
-     float totalC = undecidedC + descriptiveC + informalC + formalC;
-     float totalW = undecidedW + descriptiveW + informalW + formalW;
-     float totalL = undecidedL + descriptiveL + informalL + formalL;
+     float totalC = undecidedC + descriptiveC + newW + formalC;
+     float totalW = undecidedW + descriptiveW + newW + formalW;
+     float totalL = undecidedL + descriptiveL + newW + formalL;
 
      StringBuilder table 
        = new StringBuilder();
@@ -199,9 +196,9 @@ public class FinishUp {
                               descriptiveW,         totalW, 
                               descriptiveL,         totalL));
      table.append(formatStat("Property Text",   
-                              informalC + formalC,  totalC, 
-                              informalW + formalW,  totalW, 
-                              informalL + formalL,  totalL));
+                              newW + formalW,  totalW, 
+                              newW + formalW,  totalW, 
+                              newW + formalW,  totalW));
      table.append(formatStat("Formalized Property Text",
                               formalC,              totalC, 
                               formalW,              totalW, 
@@ -253,6 +250,20 @@ public class FinishUp {
        ret[0] = 0;
        ret[1] = 0;
        ret[2] = 0;
+       return ret;
+     }
+   }
+
+
+   private static int getStat(File file){
+     int ret = 0;
+     try {
+       FileInputStream fis = new FileInputStream(file);
+       ObjectInputStream ois = new ObjectInputStream(fis);
+       ret = ois.readInt();
+       return ret;
+     } catch (java.io.IOException e){
+       //if there is an IOException we assume that the file isn't there which means the tag wasn't seen
        return ret;
      }
    }

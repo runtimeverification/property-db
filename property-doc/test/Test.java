@@ -23,13 +23,11 @@ package hello.world;
  d
  e
  f
- {@new.open}
- g
+ {@new.open}g
  h
  i
  j
- k
- {@new.close}
+ k{@new.close} FOOBAR!!!!!!!!!!
  </CODE>
  {@undecided.close}
  <br />

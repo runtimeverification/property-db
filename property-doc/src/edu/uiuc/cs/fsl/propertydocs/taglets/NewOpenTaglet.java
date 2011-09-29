@@ -28,6 +28,9 @@ public class NewOpenTaglet implements Taglet {
     private static final String NAME = "new.open";
   	private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
+    private File stats = new File(dir + File.separator + "__properties" + File.separator + "new.stats");
+
+
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
 
     public String getName()        { return NAME; }
@@ -48,9 +51,7 @@ public class NewOpenTaglet implements Taglet {
     /**this IS an inline tag*/ 
     public boolean isInlineTag()   { return true; }
     
-    static {
-      DiskHash.statsDB.put("new", 0);
-    }
+    private int words = 0; //number of new text words
 
     /**
      * Register this Taglet.
@@ -116,8 +117,15 @@ public class NewOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-      Integer words = DiskHash.statsDB.get("new");
-      DiskHash.statsDB.put("new", words + w);
+      words += w;
+      try {
+        FileOutputStream fos = new FileOutputStream(stats);
+        ObjectOutputStream ps = new ObjectOutputStream(fos);
+        ps.writeInt(words);
+        ps.close();
+      } catch (java.io.IOException e){
+        throw new RuntimeException(e);
+      }   
     }
 
     /**

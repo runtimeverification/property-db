@@ -79,11 +79,11 @@ $header.="        }";
 $header.="      }";
 
 $header.="      else if(divs[i].getAttribute('name') == 'new'){";
-$header.="        if(divs[i].getAttribute('visibility') == 'visible'){";
-$header.="          divs[i].setAttribute('visibility','hidden');";
+$header.="        if(divs[i].style.visibility != 'hidden'){";
+$header.="          divs[i].style.visibility = 'hidden';";
 $header.="        }";
 $header.="        else{";
-$header.="          divs[i].setAttribute('visibility','visibile');";
+$header.="          divs[i].style.visibility = 'visible';";
 $header.="        }";
 $header.="      }";
 
