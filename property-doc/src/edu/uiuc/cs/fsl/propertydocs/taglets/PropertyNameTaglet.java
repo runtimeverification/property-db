@@ -147,9 +147,8 @@ public class PropertyNameTaglet implements Taglet {
       String[] dirs = path.split(File.separator.equals("/")?"[/]":"\\\\"); 
       String currPath = dirs[0];
       for(int i = 1; i < dirs.length; ++i) {
-        System.out.println("**************" + currPath);
         File f = new File(currPath);
-        if(!f.exists()) { f.mkdir(); System.out.println(f + "!!!"); } 
+        if(!f.exists()) f.mkdir();  
         if(!dirs[i].equals("")) currPath += File.separator + dirs[i];
       }
     }
