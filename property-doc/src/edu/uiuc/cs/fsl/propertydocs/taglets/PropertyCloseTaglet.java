@@ -18,7 +18,7 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 *
 */
 
-public class FormalCloseTaglet implements Taglet {
+public class PropertyCloseTaglet implements Taglet {
   private static final String NAME = "property.close";
 
     public String getName()        { return NAME; }
@@ -44,7 +44,7 @@ public class FormalCloseTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       FormalCloseTaglet tag = new FormalCloseTaglet();
+       PropertyCloseTaglet tag = new PropertyCloseTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());
