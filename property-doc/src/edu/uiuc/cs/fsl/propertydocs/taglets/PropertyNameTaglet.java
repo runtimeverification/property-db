@@ -24,7 +24,7 @@ import edu.uiuc.cs.fsl.propertydocs.util.Util;
 *
 */
 
-public class MopPropertyTaglet implements Taglet {
+public class PropertyNameTaglet implements Taglet {
     private static final String HTMLHEADER = 
       "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n"
     + "<!--NewPage-->\n"
@@ -149,7 +149,7 @@ public class MopPropertyTaglet implements Taglet {
     + "</BODY>\n"
     + "</HTML>\n";
 
-    private static final String NAME = "property.mop";
+    private static final String NAME = "property.name";
 
         private static final String dir = Standard.htmlDoclet.configuration().destDirName;
 
@@ -201,7 +201,7 @@ public class MopPropertyTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       MopPropertyTaglet tag = new MopPropertyTaglet();
+       PropertyNameTaglet tag = new PropertyNameTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());
@@ -227,7 +227,7 @@ NAMED:
         }
       }
       if(name == null) {
-        System.err.println("@property.mop before " + tag.position() + " has no name, its contents are: " + tag.text());
+        System.err.println("@property.name before " + tag.position() + " has no name, its contents are: " + tag.text());
         name = "__unamed_property_" + Math.random();
         property = tag.text();
       }
