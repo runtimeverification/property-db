@@ -96,7 +96,7 @@ public class PropertyOpenTaglet implements Taglet {
       }
       String[] arguments = tag.text().trim().split("\\s+");
       int num = numLinks(arguments);
-      String links = handleLinks(arguments, p);
+      String links = handleLinks(arguments, p, tag);
       if(num == 0){
         return "<DIV CLASS=\"Red\" NAME=\"brokenproperty\""
         + " ONMOUSEOVER=\"balloon.showTooltip(event, 'This is a property with no "
@@ -124,16 +124,16 @@ public class PropertyOpenTaglet implements Taglet {
       return i;
     }
 
-    private String handleLinks(String[] args, PositionWrapper p){
+    private String handleLinks(String[] args, PositionWrapper p, Tag tag){
       String ret = "";
       for(String arg : args){
         if(arg.startsWith("Property:")) {
           String[] parts = arg.split(":");
           if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
-          ret += "<A HREF=\\'" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
+          ret += "<A HREF=\\'" + GenerateUrls.buildRelativeUrl(tag) + "__properties/html/" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
         }
       }
-      System.out.println("***********" + ret);
+      //System.out.println("***********" + ret);
       return ret;
     }
 

@@ -245,7 +245,6 @@ public class FinishUp {
        ret[1] = ois.readInt();
        ret[2] = ois.readInt();
        try {
-         System.out.println(file.getName());
          if(file.getName().equals("property.stats")) System.out.println("!!!!" + ois.readObject());
        } catch (ClassNotFoundException cnfe) {
          throw new RuntimeException(cnfe);

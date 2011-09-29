@@ -57,44 +57,17 @@ package hello.world;
  {@description.open}
  foo bar car
  {@description.close}
- @property.mop {@property.name HasNext}
 
-//this property is HasNext, and stuff
-HasNext(Iterator i) {
-   event hasnext after(Iterator i) : 
-      call(* Iterator. hasNext()) && target(i) {} 
-   event next before(Iterator i) : 
-      call(* Iterator.next()) && target(i) {}
-   fsm :
-     start [
-        next -> unsafe
-        hasnext -> safe
-     ]
-     safe [
-        next -> start
-        hasnext -> safe 
-     ]
-     unsafe [
-        next -> unsafe
-        hasnext -> safe
-     ]
-	
-   \@unsafe {
-      System.out.println("next called without hasNext!");
-   }
-}
+ {@property.name foo/bar java.io.Foo}
+ {@property.name foo/bar java.util.util2.Bar}
 
- @property.mop  
-   {@property.name Foo}
-   LOREM IPSUM LOREM IPSUM
-   LOREM IPSUM LOREM IPSUM
 */
 
 public class Test {
   /** 
    *  This is the main method
    *    this is the second undecided portion
-   *  {@property.open Property:java.io.Foo Property:java.io.Bar me you are foo}
+   *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo}
    *    WE HAVE A BUNCH O' PROPERTIES HERE!
    *  {@property.close}
    *  <br />
