@@ -18,8 +18,8 @@ import edu.uiuc.cs.fsl.propertydocs.util.PositionWrapper;
 *
 */
 
-public class InformalCloseTaglet implements Taglet {
-  private static final String NAME = "informal.close";
+public class NewCloseTaglet implements Taglet {
+  private static final String NAME = "new.close";
 
     public String getName()        { return NAME; }
 
@@ -44,7 +44,7 @@ public class InformalCloseTaglet implements Taglet {
      * @param tagletMap  the map to register this tag to.
      */
     public static void register(Map tagletMap) {
-       InformalCloseTaglet tag = new InformalCloseTaglet();
+       NewCloseTaglet tag = new NewCloseTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
        if (t != null) {
            tagletMap.remove(tag.getName());

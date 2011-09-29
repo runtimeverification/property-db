@@ -8,7 +8,7 @@
     </target>
 
     <target name="all" depends="init">
-      <javac srcdir="${src}" destdir="${build}" debug="on" optimize="on" />
+      <javac srcdir="${src}" destdir="${build}" debug="on" optimize="on" classpath="lib/jdbm-1.0.jar" />
     </target>
 
     <target name="clean">
