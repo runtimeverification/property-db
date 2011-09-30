@@ -15,15 +15,16 @@ public class FinishUp {
    // This is the scale factor for scaling all percentages.  E.g., 1e2f will scale to 2 decimal places
    // 1e3f would scale to 3, etc.
    private final static float FACTOR = 1e2f;
+   private static String propertiesDir;
 
    public static void main(String[] args){
-     String properties_dir = args[0] + File.separator + "__properties";
-     File propertiesList   = new File(properties_dir + File.separator + "property-list.html");
+     propertiesDir = args[0] + File.separator + "__properties";
+     File propertiesList   = new File(propertiesDir + File.separator + "property-list.html");
 
-     File undecidedStats   = new File(properties_dir + File.separator + "undecided.stats"); 
-     File descriptionStats = new File(properties_dir + File.separator + "description.stats"); 
-     File newStats    = new File(properties_dir + File.separator + "new.stats"); 
-     File propertyStats      = new File(properties_dir + File.separator + "property.stats"); 
+     File undecidedStats   = new File(propertiesDir + File.separator + "undecided.stats"); 
+     File descriptionStats = new File(propertiesDir + File.separator + "description.stats"); 
+     File newStats    = new File(propertiesDir + File.separator + "new.stats"); 
+     File propertyStats      = new File(propertiesDir + File.separator + "property.stats"); 
 
      try {
        (new PrintStream(new FileOutputStream(new File(args[0] + File.separator + "stylesheet.css"), true)))
@@ -52,7 +53,7 @@ public class FinishUp {
      table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
      table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
      table.append("<TH ALIGN=\"left\" COLSPAN=\"4\"><FONT SIZE=\"+2\">");
-     table.append("<B>MOP Definitional Statistics</B></FONT></TH></TR>");
+     table.append("<B>MOP Coverage Statistics</B></FONT></TH></TR>");
 
      table.append(formatStat("Undecided Text",  
                               undecidedW  ,         totalW));
@@ -67,25 +68,9 @@ public class FinishUp {
                               propertyW,            totalW,      "Property Text",
                               propertyAttributeMap));
      
-     table.append("<BR /><BR /><TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
-     table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
-     table.append("<TH ALIGN=\"left\" COLSPAN=\"1\"><FONT SIZE=\"+2\">");
-     table.append("<B>MOP Property Links</B></FONT></TH></TR>");
+     table.append("<BR /><BR />");
 
-     for(String fn : 
-         (new File(properties_dir)).list(new FilenameFilter() {
-                                      public boolean accept(File dir, String name){
-                                         return name.endsWith(".html") && !(name.equals("property-list.html"));
-                                      } 
-                                    })
-         ){
-         table.append("<TR BGCOLOR=\"white\" CLASS=\"TableRowColor\"><TD WIDTH=\"15%\">");
-         table.append("<B><A HREF='");
-         table.append(fn);
-         table.append("'>");
-         table.append(chop(fn)); 
-         table.append("</A></B></TD></TR>"); 
-     } 
+     generatePropertiesList(table, propertiesDir + File.separator + "html");
 
      try {
        FileOutputStream fos = new FileOutputStream(propertiesList);
@@ -174,6 +159,58 @@ public class FinishUp {
        ret.append(parts[i]);
      }
      return ret.toString();
+   }
+
+   private static void generatePropertiesList(StringBuilder table, final String dir){
+     System.out.println("Generating " + propertiesDir + File.separator + "property-list.html..."); 
+     generatePropertiesList(table, dir, "");
+   }
+
+   private static void generatePropertiesList(StringBuilder table, final String dir, String prefix){
+    // System.out.println("------------" + dir + "-------------" + prefix);
+     String linkPrefix = prefix.replaceAll("[.]", "/");
+     File dirFile = new File(dir);
+     //find all html files at this level
+     boolean tableHeadingAdded = false;
+     for(String fn : 
+          dirFile.list(new FilenameFilter() {
+                                      public boolean accept(File dir, String name){
+                                         return name.endsWith(".html") && !(name.equals("property-list.html"));
+                                      } 
+                                    })
+         ){
+         if(!tableHeadingAdded){
+           table.append("<TABLE BORDER=\"1\" WIDTH=\"100%\" CELLPADDING=\"3\" CELLSPACING=\"0\" SUMMARY=\"\">");
+           table.append("<TR BGCOLOR=\"#CCCCFF\" CLASS=\"TableHeadingColor\">");
+           table.append("<TH ALIGN=\"left\" COLSPAN=\"1\"><FONT SIZE=\"+2\">");
+           table.append("<B>MOP Property Links for the " + ((prefix.equals(""))? "&lt;unnamed&gt;":prefix) 
+                                                         + " Package </B></FONT></TH></TR>");
+           tableHeadingAdded = true;
+         }
+         table.append("<TR BGCOLOR=\"white\" CLASS=\"TableRowColor\"><TD WIDTH=\"15%\">");
+         table.append("<B><A HREF='");
+         String link = "html/" + ((linkPrefix.equals(""))? "" : (linkPrefix + "/")) + fn; 
+       //  System.out.println("link: " + link);
+         table.append(link);
+         table.append("'>");
+         table.append(chop(fn)); 
+         table.append("</A></B></TD></TR>"); 
+     }
+      //if we added a heading, add a footing 
+     if(tableHeadingAdded) table.append("</TABLE>");
+     
+     //recurse to subdirectories
+     for(String fn :
+         dirFile.list(new FilenameFilter() {
+                                     public boolean accept(File dir, String name) {
+                                        String test = dir + File.separator + name;
+                                        return (new File(test)).isDirectory();
+                                     }
+                                   })
+         ){
+           String subDir = dir + File.separator + fn;
+           generatePropertiesList(table, subDir, (prefix.equals(""))? fn : (prefix + "." + fn)); 
+         }
    }
 
  //////////////////////

@@ -36,7 +36,7 @@ package hello.world;
  <br />
  <br />
  <br />
- {@property.open Property:FOO}
+ {@property.open Property:Foo}
  1 property
  {@property.close}
  <br />
@@ -58,6 +58,7 @@ package hello.world;
  foo bar car
  {@description.close}
 
+ {@property.name foo/bar Foo}
  {@property.name foo/bar java.io.Foo}
  {@property.name foo/bar java.util.util2.Bar}
 
