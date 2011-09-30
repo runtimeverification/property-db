@@ -54,7 +54,7 @@ $header.="    }";
 
 $header.="  var divs=document.getElementsByTagName('div');";
 $header.="    for(var i = 0; i < divs.length; i++){";
-$header.="      if(divs[i].getAttribute('name') == 'formal'){";
+$header.="      if(divs[i].getAttribute('name') == 'property'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','NavBarCell1Rev');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
@@ -66,7 +66,7 @@ $header.="          divs[i].setAttribute('onmouseover','');";
 $header.="        }";
 $header.="      }";
 
-$header.="      else if(divs[i].getAttribute('name') == 'brokenformal'){";
+$header.="      else if(divs[i].getAttribute('name') == 'brokenproperty'){";
 $header.="        if(divs[i].getAttribute('class') == ''){";
 $header.="          divs[i].setAttribute('class','Red');";
 $header.="          divs[i].setAttribute('onmouseover', divs[i].getAttribute('bak'));";
