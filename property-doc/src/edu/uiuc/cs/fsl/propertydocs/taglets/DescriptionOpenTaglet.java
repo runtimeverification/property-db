@@ -30,9 +30,9 @@ public class DescriptionOpenTaglet implements Taglet {
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "description.stats");
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
-    private int chars = 0; //number of description chars
+  //  private int chars = 0; //number of description chars
     private int words = 0; //number of description words
-    private int lines = 0; //number of description lines
+  //  private int lines = 0; //number of description lines
 
     public String getName()        { return NAME; }
 
@@ -56,6 +56,7 @@ public class DescriptionOpenTaglet implements Taglet {
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings("unchecked")
     public static void register(Map tagletMap) {
        DescriptionOpenTaglet tag = new DescriptionOpenTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
@@ -97,9 +98,9 @@ public class DescriptionOpenTaglet implements Taglet {
 
     private void handleTags(Tag[] tags){
       boolean inDescription = false; 
-      int c = 0; //character count
+    //  int c = 0; //character count
       int w = 0; //word count
-      int l = 0; //line count
+    //  int l = 0; //line count
       for(Tag tag : tags){
         if(tag.name().equals("@description.open")){ 
           inDescription = true;
@@ -109,9 +110,9 @@ public class DescriptionOpenTaglet implements Taglet {
         }
         else if(tag.name().equals("Text") && inDescription){
           String text = tag.text().trim();
-          c += text.length();
+      //    c += text.length();
           w += text.split("\\s+").length; 
-          l += text.split("\\n").length; 
+      //    l += text.split("\\n").length; 
         }
         else if(
             (tag.name().equals("@property.close")
@@ -128,15 +129,15 @@ public class DescriptionOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-      chars += c;
+    //  chars += c;
       words += w;
-      lines += l;
+    //  lines += l;
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-        ps.writeInt(chars);
+      //  ps.writeInt(chars);
         ps.writeInt(words);
-        ps.writeInt(lines);
+      //  ps.writeInt(lines);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);

@@ -30,9 +30,9 @@ public class CollectTaglet implements Taglet {
     private File stats = new File(dir + File.separator + "__properties" + File.separator + "undecided.stats");
 
     private Set<PositionWrapper> seenDocs = new HashSet<PositionWrapper>();
-    private int chars = 0; //number of undecided chars
+  //  private int chars = 0; //number of undecided chars
     private int words = 0; //number of undecided words
-    private int lines = 0; //number of undecided lines
+  //  private int lines = 0; //number of undecided lines
 
     public String getName()        { return NAME; }
 
@@ -56,6 +56,7 @@ public class CollectTaglet implements Taglet {
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings("unchecked")
     public static void register(Map tagletMap) {
        CollectTaglet tag = new CollectTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
@@ -95,38 +96,36 @@ public class CollectTaglet implements Taglet {
 
     private void handleTags(Tag[] tags){
       boolean inUndecided = true; 
-      int c = 0; //character count
+   //   int c = 0; //character count
       int w = 0; //word count
-      int l = 0; //lines count
+   //   int l = 0; //lines count
       for(Tag tag : tags){
         if(
-            (tag.name().equals("@formal.open")
-          || tag.name().equals("@informal.open")
-          || tag.name().equals("@descriptive.open")) ){
+            (tag.name().equals("@property.open")
+          || tag.name().equals("@description.open")) ){
           inUndecided = false; 
         }
         else if(
-            (tag.name().equals("@formal.close")
-          || tag.name().equals("@informal.close")
-          || tag.name().equals("@descriptive.close")) ){
+            (tag.name().equals("@property.close")
+          || tag.name().equals("@description.close")) ){
           inUndecided = true;
         }
         else if(tag.name().equals("Text") && inUndecided){
           String text = tag.text().trim();
-          c += text.length();
+          //c += text.length();
           w += text.split("\\s+").length; 
-          l += text.split("\\n").length; 
+         // l += text.split("\\n").length; 
         }
       } 
-      chars += c;
+     // chars += c;
       words += w;
-      lines += l;
+     // lines += l;
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-        ps.writeInt(chars);
+      //  ps.writeInt(chars);
         ps.writeInt(words);
-        ps.writeInt(lines);
+      //  ps.writeInt(lines);
         ps.close();
       } catch (java.io.IOException e){
         throw new RuntimeException(e);

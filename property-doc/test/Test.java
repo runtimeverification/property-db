@@ -1,6 +1,6 @@
 package hello.world;
 
-/** ABCD GQRS
+/** {@collect.stats} ABCD GQRS
  * <p> FOOO! </p>
  * ASDF
  * ASDF
@@ -64,7 +64,7 @@ package hello.world;
 */
 
 public class Test {
-  /** 
+  /** {@collect.stats} 
    *  This is the main method
    *    this is the second undecided portion
    *  {@property.open Property:java.io.Foo Property:java.util.util2.Bar me you are foo}

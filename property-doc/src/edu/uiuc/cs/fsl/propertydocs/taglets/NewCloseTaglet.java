@@ -43,6 +43,7 @@ public class NewCloseTaglet implements Taglet {
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings("unchecked")
     public static void register(Map tagletMap) {
        NewCloseTaglet tag = new NewCloseTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());

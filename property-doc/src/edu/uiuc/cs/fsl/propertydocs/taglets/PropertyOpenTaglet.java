@@ -35,9 +35,9 @@ public class PropertyOpenTaglet implements Taglet {
 
     private Map<String, Integer> argumentStats = new HashMap<String, Integer>();
 
-    private int chars = 0; //number of property chars
+ //   private int chars = 0; //number of property chars
     private int words = 0; //number of property words
-    private int lines = 0; //number of property lines
+ //   private int lines = 0; //number of property lines
 
     public String getName()        { return NAME; }
 
@@ -61,6 +61,7 @@ public class PropertyOpenTaglet implements Taglet {
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings("unchecked")
     public static void register(Map tagletMap) {
        PropertyOpenTaglet tag = new PropertyOpenTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());
@@ -130,7 +131,8 @@ public class PropertyOpenTaglet implements Taglet {
         if(arg.startsWith("Property:")) {
           String[] parts = arg.split(":");
           if(parts.length != 2) throw new RuntimeException("too many ':''s in Property specification in comment at " + p); 
-          ret += "<A HREF=\\'" + GenerateUrls.buildRelativeUrl(tag) + "__properties/html/" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
+          ret += "<A HREF=\\'" + GenerateUrls.buildRelativeUrl(tag) 
+            + "__properties/html/" + parts[1].replaceAll("[.]","/") + ".html\\'>" + parts[1] + "</A> <BR />";
         }
       }
       //System.out.println("***********" + ret);
@@ -141,9 +143,9 @@ public class PropertyOpenTaglet implements Taglet {
     private void handleTags(Tag[] tags){
       boolean inProperty = false; 
       boolean inParent = false;
-      int c = 0; //character count
+      //int c = 0; //character count
       int w = 0; //word count
-      int l = 0; //line count
+      //int l = 0; //line count
       String[] arguments = null;
       for(Tag tag: tags){
         if(tag.name().equals("@property.open")){ 
@@ -156,9 +158,9 @@ public class PropertyOpenTaglet implements Taglet {
         else if(tag.name().equals("Text") && inProperty){
           String text = tag.text().trim();
           int localW = text.split("\\s+").length;
-          c += text.length();
+        //  c += text.length();
           w += localW; 
-          l += text.split("\\n").length; 
+         // l += text.split("\\n").length; 
           for(String arg : arguments){
             if(arg.startsWith("Property:")) continue;
             if(arg.equals("")) continue;
@@ -182,15 +184,15 @@ public class PropertyOpenTaglet implements Taglet {
                           + tags[0].holder().position() + " was not closed");
          System.exit(1);
       }
-      chars += c;
+    //  chars += c;
       words += w;
-      lines += l;
+    //  lines += l;
       try {
         FileOutputStream fos = new FileOutputStream(stats);
         ObjectOutputStream ps = new ObjectOutputStream(fos);
-        ps.writeInt(chars);
+      //  ps.writeInt(chars);
         ps.writeInt(words);
-        ps.writeInt(lines);
+      //  ps.writeInt(lines);
         ps.writeObject(argumentStats);
         ps.close();
       } catch (java.io.IOException e){
